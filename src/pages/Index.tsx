@@ -6,6 +6,7 @@ import { SEOHead, generateLandingPageSchemaGraph } from "@/components/seo";
 import { Navbar } from "@/components/landing/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
+import { PricingBuilderSection } from "@/components/landing/PricingBuilderSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
 import { BookCallSection } from "@/components/landing/BookCallSection";
 import { WhyAiLysSection } from "@/components/landing/WhyAiLysSection";
@@ -119,6 +120,7 @@ const Index = () => {
         <main id="main-content" aria-label="Main content">
           <HeroSection />
           <ServicesSection />
+          <PricingBuilderSection />
           <ProcessSection />
           <BookCallSection />
           <WhyAiLysSection />
