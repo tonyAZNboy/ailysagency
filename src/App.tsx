@@ -30,6 +30,10 @@ import AdminBookings from "./pages/admin/AdminBookings";
 import AdminChats from "./pages/admin/AdminChats";
 import AdminVisitors from "./pages/admin/AdminVisitors";
 import AdminPosts from "./pages/admin/AdminPosts";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminClients from "./pages/admin/AdminClients";
+import AdminLifecycle from "./pages/admin/AdminLifecycle";
+import AdminChurn from "./pages/admin/AdminChurn";
 import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
@@ -78,8 +82,12 @@ const App = () => (
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminOverview />} />
+                  <Route path="users" element={<AdminUsers />} />
+                  <Route path="clients" element={<AdminClients />} />
                   <Route path="leads" element={<AdminLeads />} />
                   <Route path="bookings" element={<AdminBookings />} />
+                  <Route path="lifecycle" element={<AdminLifecycle />} />
+                  <Route path="churn" element={<AdminChurn />} />
                   <Route path="chats" element={<AdminChats />} />
                   <Route path="visitors" element={<AdminVisitors />} />
                   <Route path="posts" element={<AdminPosts />} />

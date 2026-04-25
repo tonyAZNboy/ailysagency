@@ -4,12 +4,16 @@ import { Helmet } from "react-helmet-async";
 import {
   LayoutDashboard,
   Users,
+  UserCheck,
   CalendarCheck,
   MessageCircle,
   FileText,
   Globe2,
   LogOut,
   Settings,
+  Mail,
+  TrendingDown,
+  Target,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { AiLysLogo } from "@/components/brand/AiLysLogo";
@@ -99,13 +103,17 @@ export default function AdminLayout() {
   }
 
   const navLinks = [
-    { to: "/admin", icon: LayoutDashboard, label: "Overview", end: true },
-    { to: "/admin/leads", icon: Users, label: "Leads" },
-    { to: "/admin/bookings", icon: CalendarCheck, label: "Bookings" },
-    { to: "/admin/chats", icon: MessageCircle, label: "Chats" },
-    { to: "/admin/posts", icon: FileText, label: "Posts" },
-    { to: "/admin/visitors", icon: Globe2, label: "Visitors" },
-    { to: "/admin/settings", icon: Settings, label: "Settings" },
+    { to: "/admin", icon: LayoutDashboard, label: "Overview", end: true, group: "" },
+    { to: "/admin/users", icon: Users, label: "Users", group: "People" },
+    { to: "/admin/clients", icon: UserCheck, label: "Clients", group: "People" },
+    { to: "/admin/leads", icon: Target, label: "Audit leads", group: "People" },
+    { to: "/admin/bookings", icon: CalendarCheck, label: "Bookings", group: "People" },
+    { to: "/admin/lifecycle", icon: Mail, label: "Lifecycle", group: "Email" },
+    { to: "/admin/churn", icon: TrendingDown, label: "Churn", group: "Email" },
+    { to: "/admin/chats", icon: MessageCircle, label: "Chats", group: "Activity" },
+    { to: "/admin/visitors", icon: Globe2, label: "Visitors", group: "Activity" },
+    { to: "/admin/posts", icon: FileText, label: "Posts", group: "Activity" },
+    { to: "/admin/settings", icon: Settings, label: "Settings", group: "" },
   ];
 
   return (
@@ -123,25 +131,33 @@ export default function AdminLayout() {
             </div>
           </div>
 
-          <nav className="flex-1 p-3 space-y-1">
-            {navLinks.map((link) => {
+          <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
+            {navLinks.map((link, i) => {
               const Icon = link.icon;
+              const prevGroup = i > 0 ? navLinks[i - 1].group : "";
+              const showGroupHeader = link.group && link.group !== prevGroup;
               return (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  end={link.end}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                      isActive
-                        ? "bg-primary/15 text-primary border border-primary/20"
-                        : "text-muted-foreground hover:bg-card/50 hover:text-foreground"
-                    }`
-                  }
-                >
-                  <Icon className="w-4 h-4" />
-                  {link.label}
-                </NavLink>
+                <div key={link.to}>
+                  {showGroupHeader && (
+                    <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50 px-3 pt-3 pb-1">
+                      {link.group}
+                    </div>
+                  )}
+                  <NavLink
+                    to={link.to}
+                    end={link.end}
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                        isActive
+                          ? "bg-primary/15 text-primary border border-primary/20"
+                          : "text-muted-foreground hover:bg-card/50 hover:text-foreground"
+                      }`
+                    }
+                  >
+                    <Icon className="w-4 h-4" />
+                    {link.label}
+                  </NavLink>
+                </div>
               );
             })}
           </nav>
