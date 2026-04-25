@@ -5,10 +5,16 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL ?? '';
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '';
+const RAW_URL = (import.meta.env.VITE_SUPABASE_URL ?? '').trim();
+const RAW_KEY = (import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '').trim();
 
-if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+// supabase-js throws on empty URL. Use a non-functional placeholder so the client
+// can be constructed at boot. Network calls will fail at request time, which is
+// caught by useAIEngine and the audit form, both of which fall back gracefully.
+const SUPABASE_URL = RAW_URL || 'https://placeholder.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = RAW_KEY || 'placeholder-key';
+
+if (!RAW_URL || !RAW_KEY) {
   // eslint-disable-next-line no-console
   console.warn(
     '[AiLys] VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY not set. Chat and audit form will not work until configured.'
