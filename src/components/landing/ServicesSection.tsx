@@ -5,6 +5,8 @@ import { ScrollReveal } from "@/components/animation";
 import { FleurDeLys } from "@/components/brand/FleurDeLys";
 import { useNavigate } from "react-router-dom";
 
+type TierPalette = "teal" | "violet" | "amber";
+
 interface Tier {
   id: string;
   number: string;
@@ -15,6 +17,7 @@ interface Tier {
   features: string[];
   cta: string;
   featured?: boolean;
+  palette: TierPalette;
 }
 
 const tiers: Tier[] = [
@@ -33,6 +36,7 @@ const tiers: Tier[] = [
       "One strategy call per month",
     ],
     cta: "Begin with Starter",
+    palette: "teal",
   },
   {
     id: "core",
@@ -51,6 +55,7 @@ const tiers: Tier[] = [
     ],
     cta: "Begin with Core",
     featured: true,
+    palette: "violet",
   },
   {
     id: "growth",
@@ -68,8 +73,67 @@ const tiers: Tier[] = [
       "In-person quarterly review",
     ],
     cta: "Begin with Growth",
+    palette: "amber",
   },
 ];
+
+interface PaletteTokens {
+  cardBg: string;
+  border: string;
+  glow: string;
+  priceGrad: string;
+  numberMarker: string;
+  arrow: string;
+  accentDot: string;
+  buttonClass: string;
+  ribbonGrad: string;
+  separator: string;
+}
+
+const paletteMap: Record<TierPalette, PaletteTokens> = {
+  teal: {
+    cardBg: "bg-gradient-to-br from-cyan-500/[0.10] via-teal-500/[0.05] to-transparent",
+    border: "border-cyan-400/30 hover:border-cyan-400/60",
+    glow: "shadow-[0_0_50px_-15px_rgba(34,211,238,0.35)]",
+    priceGrad: "bg-gradient-to-br from-cyan-300 via-teal-300 to-sky-400 bg-clip-text text-transparent",
+    numberMarker: "text-cyan-400",
+    arrow: "text-cyan-400/70 group-hover:text-cyan-300",
+    accentDot: "bg-cyan-400",
+    buttonClass:
+      "bg-gradient-to-r from-cyan-500/15 to-teal-500/15 text-cyan-200 border border-cyan-400/40 hover:bg-cyan-500/25 hover:border-cyan-300",
+    ribbonGrad: "from-cyan-400 to-teal-400",
+    separator: "via-cyan-500/30",
+  },
+  violet: {
+    cardBg:
+      "bg-gradient-to-br from-violet-600/20 via-fuchsia-500/10 to-cyan-500/15",
+    border: "border-violet-400/50 hover:border-violet-300/70",
+    glow:
+      "shadow-[0_0_70px_-12px_rgba(167,139,250,0.55),inset_0_1px_0_rgba(255,255,255,0.1)]",
+    priceGrad:
+      "bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(167,139,250,0.4)]",
+    numberMarker: "text-violet-300",
+    arrow: "text-violet-300 group-hover:text-fuchsia-300",
+    accentDot: "bg-gradient-to-r from-violet-400 to-fuchsia-400",
+    buttonClass:
+      "bg-gradient-to-r from-cyan-400 via-violet-500 to-fuchsia-500 text-white hover:opacity-90 shadow-[0_0_30px_-8px_rgba(167,139,250,0.6)]",
+    ribbonGrad: "from-cyan-400 via-violet-500 to-fuchsia-500",
+    separator: "via-violet-400/40",
+  },
+  amber: {
+    cardBg: "bg-gradient-to-br from-amber-500/[0.12] via-orange-500/[0.06] to-rose-500/[0.05]",
+    border: "border-amber-400/40 hover:border-amber-300/70",
+    glow: "shadow-[0_0_55px_-15px_rgba(245,158,11,0.4)]",
+    priceGrad: "bg-gradient-to-br from-amber-200 via-orange-300 to-rose-400 bg-clip-text text-transparent",
+    numberMarker: "text-amber-400",
+    arrow: "text-amber-400/80 group-hover:text-amber-300",
+    accentDot: "bg-amber-400",
+    buttonClass:
+      "bg-gradient-to-r from-amber-500/15 to-rose-500/15 text-amber-100 border border-amber-400/40 hover:bg-amber-500/25 hover:border-amber-300",
+    ribbonGrad: "from-amber-400 to-rose-400",
+    separator: "via-amber-500/30",
+  },
+};
 
 export function ServicesSection() {
   const navigate = useNavigate();
@@ -129,116 +193,110 @@ export function ServicesSection() {
 
         {/* Tier cards, asymmetric grid */}
         <div className="grid lg:grid-cols-3 gap-5 lg:gap-7 items-stretch">
-          {tiers.map((tier, i) => (
-            <ScrollReveal
-              key={tier.id}
-              variant="fade-up"
-              delay={300 + i * 120}
-              duration={650}
-              className={tier.featured ? "lg:-mt-6" : ""}
-            >
-              <article
-                onMouseEnter={() => setHovered(tier.id)}
-                onMouseLeave={() => setHovered(null)}
-                className={`group relative h-full rounded-2xl p-7 sm:p-8 transition-all duration-500 ${
-                  tier.featured
-                    ? "border-[1.5px] border-primary/40 bg-gradient-to-b from-primary/[0.08] via-secondary/[0.04] to-transparent shadow-[0_0_60px_-15px_hsl(var(--primary)/0.3)]"
-                    : "border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/30"
-                }`}
+          {tiers.map((tier, i) => {
+            const p = paletteMap[tier.palette];
+            return (
+              <ScrollReveal
+                key={tier.id}
+                variant="fade-up"
+                delay={300 + i * 120}
+                duration={650}
+                className={tier.featured ? "lg:-mt-6" : ""}
               >
-                {tier.featured && (
-                  <div className="absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-[10px] font-mono uppercase tracking-[0.18em] text-white font-semibold">
-                    Most chosen
-                  </div>
-                )}
+                <article
+                  onMouseEnter={() => setHovered(tier.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  className={`group relative h-full rounded-2xl p-7 sm:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 ${p.cardBg} ${
+                    tier.featured ? "border-[1.5px]" : "border"
+                  } ${p.border} ${p.glow}`}
+                >
+                  {/* Inner shine for premium feel */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
 
-                {/* Filing card label */}
-                <div className="flex items-center justify-between mb-7">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70">
-                    Tier {tier.number} / {tier.name}
-                  </span>
-                  <span
-                    className={`transition-transform duration-500 ${
-                      hovered === tier.id ? "rotate-45 translate-x-0.5" : ""
-                    }`}
-                  >
-                    <ArrowUpRight
-                      className={`w-4 h-4 ${
-                        tier.featured
-                          ? "text-primary"
-                          : "text-muted-foreground/50 group-hover:text-primary"
-                      }`}
-                    />
-                  </span>
-                </div>
+                  {tier.featured && (
+                    <div
+                      className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-white font-semibold shadow-[0_4px_20px_-4px_rgba(167,139,250,0.5)]`}
+                    >
+                      ★ Most chosen
+                    </div>
+                  )}
 
-                {/* Display price */}
-                <div className="mb-3">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="font-display text-[14px] text-muted-foreground/70 leading-none">
-                      $
+                  {/* Filing card label */}
+                  <div className="flex items-center justify-between mb-7">
+                    <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
+                      <span className={`w-1.5 h-1.5 rounded-full ${p.accentDot}`} />
+                      Tier {tier.number} / {tier.name}
                     </span>
                     <span
-                      className={`font-display text-7xl sm:text-8xl leading-none tracking-tight ${
-                        tier.featured
-                          ? "bg-gradient-to-br from-primary via-secondary to-accent bg-clip-text text-transparent"
-                          : "text-foreground"
+                      className={`transition-transform duration-500 ${
+                        hovered === tier.id ? "rotate-45 translate-x-0.5" : ""
                       }`}
                     >
-                      {tier.price}
-                    </span>
-                    <span className="font-mono text-xs text-muted-foreground/60 ml-1">
-                      {tier.per}
+                      <ArrowUpRight className={`w-4 h-4 ${p.arrow}`} />
                     </span>
                   </div>
-                </div>
 
-                {/* Tier name as italic editorial mark */}
-                <h3 className="font-display text-2xl italic text-foreground/95 mb-4">
-                  {tier.name}
-                </h3>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-7 min-h-[44px]">
-                  {tier.tagline}
-                </p>
-
-                {/* Hand-drawn separator */}
-                <div className="relative h-px mb-7 bg-gradient-to-r from-transparent via-border to-transparent" />
-
-                {/* Features as numbered editorial list */}
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, idx) => (
-                    <li key={feature} className="flex items-start gap-3">
+                  {/* Display price */}
+                  <div className="mb-3">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="font-display text-[14px] text-muted-foreground/70 leading-none">
+                        $
+                      </span>
                       <span
-                        className={`font-mono text-[10px] tabular-nums pt-[2px] flex-shrink-0 ${
-                          tier.featured
-                            ? "text-primary"
-                            : "text-muted-foreground/50"
-                        }`}
+                        className={`font-display text-7xl sm:text-8xl leading-none tracking-tight ${p.priceGrad}`}
                       >
-                        {String(idx + 1).padStart(2, "0")}
+                        {tier.price}
                       </span>
-                      <span className="text-sm text-foreground/85 leading-snug">
-                        {feature}
+                      <span className="font-mono text-xs text-muted-foreground/70 ml-1">
+                        {tier.per}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  </div>
 
-                <Button
-                  onClick={() => navigate("/audit")}
-                  className={`w-full rounded-full font-medium ${
-                    tier.featured
-                      ? "bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 shadow-[0_0_24px_-8px_hsl(var(--primary)/0.5)]"
-                      : "bg-foreground/5 text-foreground hover:bg-foreground/10 border border-border/60"
-                  }`}
-                  size="lg"
-                >
-                  {tier.cta}
-                </Button>
-              </article>
-            </ScrollReveal>
-          ))}
+                  {/* Tier name as italic editorial mark */}
+                  <h3 className="font-display text-2xl italic text-foreground/95 mb-4">
+                    {tier.name}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-7 min-h-[44px]">
+                    {tier.tagline}
+                  </p>
+
+                  {/* Hand-drawn separator, palette-tinted */}
+                  <div
+                    className={`relative h-px mb-7 bg-gradient-to-r from-transparent ${p.separator} to-transparent`}
+                  />
+
+                  {/* Features as numbered editorial list */}
+                  <ul className="space-y-3 mb-8">
+                    {tier.features.map((feature, idx) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <span
+                          className={`font-mono text-[10px] tabular-nums pt-[2px] flex-shrink-0 font-semibold ${p.numberMarker}`}
+                        >
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-sm text-foreground/90 leading-snug">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button
+                    onClick={() => navigate("/audit")}
+                    className={`w-full rounded-full font-semibold transition-all ${p.buttonClass}`}
+                    size="lg"
+                  >
+                    {tier.cta}
+                  </Button>
+                </article>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         {/* Footnote-style addendum */}

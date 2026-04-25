@@ -287,15 +287,17 @@ interface FlowCardProps {
 
 function FlowCard({ icon, label, stat, tone }: FlowCardProps) {
   const toneClasses = {
-    primary: "border-primary/30 from-primary/10 to-primary/5 text-primary",
+    primary:
+      "border-cyan-400/40 bg-gradient-to-br from-cyan-500/15 via-teal-500/8 to-transparent text-cyan-300 shadow-[0_0_24px_-8px_rgba(34,211,238,0.4)]",
     secondary:
-      "border-secondary/30 from-secondary/10 to-secondary/5 text-secondary",
-    accent: "border-accent/30 from-accent/10 to-accent/5 text-accent",
+      "border-violet-400/40 bg-gradient-to-br from-violet-500/15 via-fuchsia-500/8 to-transparent text-violet-300 shadow-[0_0_24px_-8px_rgba(167,139,250,0.4)]",
+    accent:
+      "border-amber-400/40 bg-gradient-to-br from-amber-500/15 via-rose-500/8 to-transparent text-amber-300 shadow-[0_0_24px_-8px_rgba(245,158,11,0.4)]",
   }[tone];
 
   return (
     <div
-      className={`group rounded-xl border bg-gradient-to-br backdrop-blur-sm p-3 hover:scale-[1.02] transition-transform ${toneClasses}`}
+      className={`group rounded-xl border backdrop-blur-md p-3.5 hover:scale-[1.03] hover:-translate-y-0.5 transition-all duration-300 ${toneClasses}`}
     >
       <div className="flex items-center gap-1.5 mb-1.5">
         {icon}
