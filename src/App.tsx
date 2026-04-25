@@ -19,6 +19,7 @@ import CookiePolicy from "./pages/legal/CookiePolicy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
+import BookCall from "./pages/BookCall";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,10 @@ const App = () => (
                 {/* Audit (lead magnet) */}
                 <Route path="/audit" element={<AuditAIVisibility />} />
                 <Route path="/audit/ai-visibility" element={<AuditAIVisibility />} />
+
+                {/* Strategy call booking */}
+                <Route path="/book-call" element={<BookCall />} />
+                <Route path="/:lang/book-call" element={<BookCall />} />
 
                 {/* Legal */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -129,12 +129,25 @@ export function Navbar() {
               {/* Desktop CTA */}
               <div className="flex items-center gap-2 lg:gap-3">
                 <LanguageSelector />
-                <Button variant="ghost" size="sm" onClick={() => navigate('/auth/login')} className="hover:bg-primary/10 text-xs lg:text-sm px-2 lg:px-4">
-                  {t.nav.login}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigate('/audit')}
+                  className="hover:bg-primary/10 text-xs lg:text-sm px-2 lg:px-4 hidden lg:inline-flex"
+                >
+                  Free Audit
                 </Button>
                 <MagneticWrapper strength={0.1}>
-                  <Button size="sm" onClick={() => navigate('/auth/signup')} className="rounded-full text-xs lg:text-sm px-3 lg:px-4">
-                    {t.nav.startTrial}
+                  <Button
+                    size="sm"
+                    onClick={() => navigate('/book-call')}
+                    className="rounded-full text-xs lg:text-sm px-3 lg:px-5 font-semibold"
+                    style={{
+                      boxShadow: '0 0 16px hsl(var(--primary) / 0.3)',
+                      background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))',
+                    }}
+                  >
+                    Book a call
                   </Button>
                 </MagneticWrapper>
               </div>

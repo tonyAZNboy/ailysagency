@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   Shield,
-  Search,
   Star,
   MessageSquareQuote,
   Bot,
@@ -13,7 +10,6 @@ import {
   ScrollReveal,
   TextReveal,
   GradientTextReveal,
-  MagneticWrapper,
   ParallaxLayer,
   ParallaxBackground,
   FloatingElement,
@@ -21,6 +17,7 @@ import {
 import { useLang } from "@/i18n/LangContext";
 import { LiveTicker } from "./LiveTicker";
 import { HeroAnswerEngineVisual } from "./HeroAnswerEngineVisual";
+import { HeroAuditForm } from "./HeroAuditForm";
 
 const industries = [
   "Restaurants",
@@ -161,48 +158,21 @@ export function HeroSection() {
             </div>
           </ScrollReveal>
 
-          {/* CTAs */}
+          {/* Inline audit form (replaces old CTA buttons) */}
           <ScrollReveal variant="fade-up" delay={600} duration={700}>
-            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-3">
-              <MagneticWrapper strength={0.15}>
-                <Button
-                  size="lg"
-                  className="text-sm sm:text-base px-6 sm:px-7 py-5 sm:py-6 rounded-full group relative overflow-hidden font-semibold"
-                  onClick={() => navigate("/audit/ai-visibility")}
-                  aria-label="Get my AI Visibility Audit"
-                  style={{
-                    boxShadow:
-                      "0 0 24px hsl(var(--primary) / 0.35), 0 0 48px hsl(var(--primary) / 0.18)",
-                    background:
-                      "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
-                  }}
-                >
-                  <Search
-                    className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
-                    aria-hidden="true"
-                  />
-                  {t.hero.cta1}
-                  <ArrowRight
-                    className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                    aria-hidden="true"
-                  />
-                </Button>
-              </MagneticWrapper>
-              <MagneticWrapper strength={0.1}>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-sm sm:text-base px-6 sm:px-7 py-5 sm:py-6 rounded-full border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary/70 font-medium"
-                  onClick={() => navigate("/audit/gbp")}
-                  aria-label="Run my GBP Audit"
-                >
-                  {t.hero.cta2}
-                </Button>
-              </MagneticWrapper>
+            <div className="mb-6">
+              <HeroAuditForm />
             </div>
-            <p className="text-xs text-muted-foreground/60 mb-6 text-center lg:text-left">
-              {t.hero.ctaCompliance}
-            </p>
+            <div className="flex items-center gap-3 mb-3 text-xs text-muted-foreground/70 justify-center lg:justify-start">
+              <span>or</span>
+              <button
+                type="button"
+                onClick={() => navigate("/book-call")}
+                className="font-mono uppercase tracking-[0.18em] text-foreground/80 hover:text-primary transition-colors underline-offset-4 hover:underline"
+              >
+                Book a 60-min strategy call →
+              </button>
+            </div>
           </ScrollReveal>
 
           {/* Aspirational live ticker */}
