@@ -1,0 +1,10 @@
+# AiLys Agency Supabase config.
+# Replace project_id below with your AiLys Supabase project ID once created.
+# To create: supabase projects create ailysagency --region ca-central-1
+project_id = "REPLACE_WITH_AILYS_PROJECT_ID"
+
+[functions.ailys-chat-classify]
+verify_jwt = false
+
+[functions.ailys-chat-respond]
+verify_jwt = false
