@@ -20,6 +20,8 @@ export function Footer() {
 
   const company = [
     { label: t.nav.blog, href: "/blog" },
+    { label: "Help center", href: "/help" },
+    { label: "Book a call", href: "/book-call" },
     { label: t.footer?.contact ?? "Contact", href: `mailto:${APP_CONFIG.email}` },
     { label: "Audit", href: "/audit" },
   ];

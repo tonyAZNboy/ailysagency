@@ -20,6 +20,8 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import BookCall from "./pages/BookCall";
+import Help from "./pages/Help";
+import HelpArticle from "./pages/HelpArticle";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +57,12 @@ const App = () => (
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
                 <Route path="/:lang/book-call" element={<BookCall />} />
+
+                {/* Help center */}
+                <Route path="/help" element={<Help />} />
+                <Route path="/help/:slug" element={<HelpArticle />} />
+                <Route path="/:lang/help" element={<Help />} />
+                <Route path="/:lang/help/:slug" element={<HelpArticle />} />
 
                 {/* Legal */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
