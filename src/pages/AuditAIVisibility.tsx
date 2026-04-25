@@ -193,31 +193,31 @@ export default function AuditAIVisibility() {
             </div>
             <h2 className="text-2xl font-bold mb-2">Audit queued.</h2>
             <p className="text-muted-foreground mb-6">
-              We'll query 6 AI search engines, score your signals and email you
-              a full report — usually within 24 hours.
+              We will query 6 AI search engines, score your signals, and email
+              you a full report. Usually within 24 hours.
             </p>
 
-            {/* Cross-sell to GBP audit */}
+            {/* Cross-sell to strategy call */}
             <div className="rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-left">
               <div className="flex items-start gap-3 mb-2">
                 <Globe className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold mb-1">
-                    While you wait — run our Google Business Profile audit
+                    Want to walk through the audit with a human?
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    GBP signals feed directly into your AI visibility score.
-                    Tighten them now, score better later.
+                    Book a 60-minute strategy call. Bilingual EN, FR-CA, ES, ZH,
+                    AR, RU, UK, SR. Free, no pitch.
                   </p>
                 </div>
               </div>
               <Button
                 variant="outline"
-                onClick={() => navigate("/audit/gbp")}
+                onClick={() => navigate("/book-call")}
                 className="mt-3 rounded-full border-secondary/40 hover:bg-secondary/10"
               >
                 <Star className="w-4 h-4 mr-2" />
-                Run my GBP audit
+                Book a strategy call
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
