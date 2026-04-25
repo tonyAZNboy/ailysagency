@@ -22,6 +22,14 @@ import AuditAIVisibility from "./pages/AuditAIVisibility";
 import BookCall from "./pages/BookCall";
 import Help from "./pages/Help";
 import HelpArticle from "./pages/HelpArticle";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminOverview from "./pages/admin/AdminOverview";
+import AdminLeads from "./pages/admin/AdminLeads";
+import AdminBookings from "./pages/admin/AdminBookings";
+import AdminChats from "./pages/admin/AdminChats";
+import AdminVisitors from "./pages/admin/AdminVisitors";
+import AdminPosts from "./pages/admin/AdminPosts";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +71,17 @@ const App = () => (
                 <Route path="/help/:slug" element={<HelpArticle />} />
                 <Route path="/:lang/help" element={<Help />} />
                 <Route path="/:lang/help/:slug" element={<HelpArticle />} />
+
+                {/* Admin (gated by Supabase auth + admin_users table) */}
+                <Route path="/admin" element={<AdminLayout />}>
+                  <Route index element={<AdminOverview />} />
+                  <Route path="leads" element={<AdminLeads />} />
+                  <Route path="bookings" element={<AdminBookings />} />
+                  <Route path="chats" element={<AdminChats />} />
+                  <Route path="visitors" element={<AdminVisitors />} />
+                  <Route path="posts" element={<AdminPosts />} />
+                  <Route path="settings" element={<AdminSettings />} />
+                </Route>
 
                 {/* Legal */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
