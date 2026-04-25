@@ -19,6 +19,14 @@ export interface HelpArticle {
   category: HelpCategory;
   updatedAt: string;
   readingTimeMin: number;
+  i18n?: {
+    [lang: string]: {
+      title?: string;
+      excerpt?: string;
+      content?: string;
+      body?: string;
+    };
+  };
 }
 
 export const HELP_CATEGORY_META: Record<
@@ -88,6 +96,86 @@ Three things:
 ## How to start
 
 Run the free AI Visibility Audit. Results in 24 hours. No call required.`,
+    i18n: {
+      fr: {
+        title: "Qu'est-ce que AiLys Agency?",
+        excerpt:
+          "AiLys est une agence québécoise de visibilité et d'optimisation pour les LLM. Voici ce que nous faisons, qui nous servons et ce qui nous distingue.",
+        body: `## Ce que nous faisons
+
+AiLys offre des services AEO, GEO et E-E-A-T pour les entreprises locales. En clair : nous faisons en sorte que votre entreprise soit citée dans les réponses de ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews et Bing Copilot.
+
+## Qui nous servons
+
+Des entreprises locales dans quatre verticales principales : restaurants, dentistes, avocats et franchises multi-emplacements. Plus les entreprises en phase de croissance qui dépendent de la découverte locale (cliniques, immobilier, hôtels, entrepreneurs).
+
+Nous sommes ancrés au Québec, mais nous servons des clients partout au Canada, aux États-Unis et en Amérique latine.
+
+## Ce qui nous distingue
+
+Trois choses :
+
+- **Tarification** : nous commençons à 300 $/mois. Des agences comparables commencent à 2 000 $/mois. Nous pouvons demander moins parce que Reviuzy SaaS automatise la couche opérationnelle.
+- **Langues** : 8 langues via réseau de partenaires (EN, FR, ES, ZH, AR, RU, UK, SR). La plupart des agences font EN et FR.
+- **Spécialisation** : nous faisons une chose, la visibilité LLM, en profondeur. Pas une agence généraliste.
+
+## Comment commencer
+
+Lancez l'AI Visibility Audit gratuit. Résultats en 24 heures. Aucun appel requis.`,
+      },
+      es: {
+        title: "¿Qué es AiLys Agency?",
+        excerpt:
+          "AiLys es una agencia con base en Quebec dedicada a la visibilidad y optimización para LLM. Esto es lo que hacemos, a quién atendemos y qué nos hace diferentes.",
+        body: `## Qué hacemos
+
+AiLys entrega servicios AEO, GEO y E-E-A-T para negocios locales. Traducción: hacemos que su negocio aparezca citado dentro de las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews y Bing Copilot.
+
+## A quién atendemos
+
+Negocios locales en cuatro verticales principales: restaurantes, dentistas, abogados y franquicias multi-sucursal. Más empresas en etapa de crecimiento que dependen del descubrimiento local (clínicas, inmobiliarias, hoteles, contratistas).
+
+Estamos anclados en Quebec, pero atendemos clientes en Canadá, Estados Unidos y América Latina.
+
+## Qué nos hace diferentes
+
+Tres cosas:
+
+- **Precio**: arrancamos en $300/mes. Agencias comparables arrancan en $2,000/mes. Podemos cobrar menos porque Reviuzy SaaS automatiza la capa operativa.
+- **Idiomas**: 8 idiomas vía red de socios (EN, FR, ES, ZH, AR, RU, UK, SR). La mayoría de las agencias trabaja en EN y FR.
+- **Foco**: hacemos una sola cosa, visibilidad en LLM, a profundidad. No somos una agencia generalista.
+
+## Cómo empezar
+
+Ejecute el AI Visibility Audit gratuito. Resultados en 24 horas. Sin llamada requerida.`,
+      },
+      zh: {
+        title: "AiLys Agency 是什么?",
+        excerpt:
+          "AiLys 是一家总部位于魁北克的 LLM 可见度与优化代理。以下是我们做什么、服务谁,以及我们的差异化。",
+        body: `## 我们做什么
+
+AiLys 为本地企业提供 AEO、GEO 和 E-E-A-T 服务。换句话说: 让您的企业出现在 ChatGPT、Perplexity、Claude、Gemini、Google AI Overviews 和 Bing Copilot 的回答中被引用。
+
+## 我们服务谁
+
+四个主要垂直领域的本地企业: 餐厅、牙医、律师和多门店连锁。还包括依赖本地发现流量的成长期企业(诊所、房地产、酒店、承包商)。
+
+我们扎根魁北克,但服务遍及加拿大、美国和拉丁美洲的客户。
+
+## 我们的差异化在哪
+
+三点:
+
+- **价格**: 我们起步 $300/月。同类代理起步 $2,000/月。我们能更便宜,是因为 Reviuzy SaaS 把运营层自动化了。
+- **语言**: 通过合作伙伴网络支持 8 种语言(EN、FR、ES、ZH、AR、RU、UK、SR)。多数代理只做 EN 加 FR。
+- **聚焦**: 我们只做一件事——LLM 可见度,且做得深。不做综合代理。
+
+## 如何开始
+
+运行免费的 AI Visibility Audit。24 小时内出结果。无需通话。`,
+      },
+    },
   },
   {
     slug: "first-30-days",
@@ -126,6 +214,110 @@ Run the free AI Visibility Audit. Results in 24 hours. No call required.`,
 ## What you should expect
 
 Schema and GBP improvements show up in Google within 30 to 60 days. LLM citation lift typically takes 90 to 120 days. We send a monthly report regardless of magnitude. No vanity metrics.`,
+    i18n: {
+      fr: {
+        title: "Ce qui se passe pendant vos 30 premiers jours",
+        excerpt:
+          "Attentes jour après jour du premier mois, de la signature du contrat jusqu'à votre premier rapport mensuel.",
+        body: `## Jours 1 à 3 : intégration
+
+- Courriel de bienvenue avec portail de paiement et formulaire d'intégration
+- Appel de lancement de 60 minutes avec votre responsable AiLys
+- Accès accordé à votre portail client
+- Entente de service contresignée
+
+## Jours 4 à 7 : audit et stratégie
+
+- Audit technique approfondi de votre site, de votre GBP et de votre empreinte de citations
+- Document de stratégie livré (Google Doc, vous pouvez commenter)
+- Appel de revue de 30 minutes pour verrouiller les priorités
+
+## Jours 8 à 21 : début de l'exécution
+
+- Balisage schema déployé (FAQ, Review, LocalBusiness, Service)
+- Optimisation du GBP (catégories, attributs, Q et R, photos)
+- Premier lot de soumissions de citations
+- Calendrier de contenu approuvé
+
+## Jours 22 à 30 : premier rapport
+
+- Rapport mensuel de performance livré (PDF et Google Doc)
+- Référence de suivi des citations établie
+- Appel de stratégie de 30 minutes pour passer en revue les gains et ajuster
+
+## À quoi vous attendre
+
+Les améliorations de schema et de GBP apparaissent dans Google en 30 à 60 jours. La hausse des citations LLM prend généralement 90 à 120 jours. Nous envoyons un rapport mensuel peu importe l'ampleur. Pas de métriques de vanité.`,
+      },
+      es: {
+        title: "Qué ocurre en sus primeros 30 días",
+        excerpt:
+          "Expectativa día a día del primer mes, desde la firma del contrato hasta su primer reporte mensual.",
+        body: `## Días 1 a 3: onboarding
+
+- Correo de bienvenida con portal de pago y formulario de onboarding
+- Llamada de arranque de 60 minutos con su líder en AiLys
+- Acceso otorgado a su portal de cliente
+- Acuerdo de servicio firmado por ambas partes
+
+## Días 4 a 7: auditoría y estrategia
+
+- Auditoría técnica profunda de su sitio, GBP y huella de citas
+- Documento de estrategia entregado (Google Doc, puede comentar)
+- Llamada de revisión de 30 minutos para fijar prioridades
+
+## Días 8 a 21: arranca la ejecución
+
+- Schema desplegado (FAQ, Review, LocalBusiness, Service)
+- Optimización de GBP (categorías, atributos, P y R, fotos)
+- Primer lote de envíos de citas
+- Calendario de contenido aprobado
+
+## Días 22 a 30: primer reporte
+
+- Reporte mensual de desempeño entregado (PDF y Google Doc)
+- Línea base de seguimiento de citas establecida
+- Llamada de estrategia de 30 minutos para revisar logros y ajustar
+
+## Qué esperar
+
+Las mejoras de schema y GBP se reflejan en Google en 30 a 60 días. El alza de citas en LLM suele tomar entre 90 y 120 días. Enviamos reporte mensual sin importar la magnitud. Sin métricas de vanidad.`,
+      },
+      zh: {
+        title: "您前 30 天会经历什么",
+        excerpt:
+          "首月日程预期: 从合同签署到您拿到首份月报。",
+        body: `## 第 1 至 3 天: 入驻
+
+- 欢迎邮件,附支付门户与入驻表单
+- 与您的 AiLys 负责人进行 60 分钟启动通话
+- 开通客户门户访问
+- 双方签署服务协议
+
+## 第 4 至 7 天: 审计与策略
+
+- 对您的站点、GBP 和引用足迹进行深度技术审计
+- 交付策略文档(Google Doc,您可以批注)
+- 30 分钟评审通话,锁定优先事项
+
+## 第 8 至 21 天: 执行启动
+
+- 上线 schema 标记(FAQ、Review、LocalBusiness、Service)
+- GBP 优化(类别、属性、Q 与 A、图片)
+- 首批引用提交
+- 内容日历获批
+
+## 第 22 至 30 天: 首份报告
+
+- 交付月度绩效报告(PDF 与 Google Doc)
+- 建立引用追踪基线
+- 30 分钟策略通话,回顾成果并做调整
+
+## 您应有的预期
+
+Schema 与 GBP 的改进会在 30 到 60 天内反映到 Google 中。LLM 引用提升通常需要 90 到 120 天。无论数据规模大小,我们都会按月发送报告。不做虚荣指标。`,
+      },
+    },
   },
   {
     slug: "communication-cadence",
@@ -161,6 +353,101 @@ Monthly reports land on the 5th of each month. They cover:
 - Next month's priorities
 
 Real numbers, plain language, no fluff.`,
+    i18n: {
+      fr: {
+        title: "Comment nous communiquons avec les clients",
+        excerpt:
+          "Courriel, appels, Slack, rapports mensuels. Voici le rythme et comment nous joindre entre les points de contact prévus.",
+        body: `## Points de contact prévus
+
+Chaque forfait inclut une cadence différente :
+
+- **Starter** : appel mensuel de 30 min et rapport mensuel
+- **Core** : appel bimensuel de 30 min et rapport mensuel
+- **Growth** : appel hebdomadaire de 30 min, rapport mensuel et revue trimestrielle en personne (Québec, Toronto, Montréal)
+- **Autopilot** : identique à Growth, plus accès au tableau de bord Reviuzy SaaS
+
+## Entre les appels
+
+- **Courriel** : hello@ailysagency.ca, réponse en 12 heures ouvrables
+- **Slack** (Core et plus) : canal partagé avec votre équipe AiLys
+- **Urgence** : envoyez un texto au responsable indiqué dans votre courriel de bienvenue, réponse en 2 heures les jours ouvrables
+
+## Rapports
+
+Les rapports mensuels arrivent le 5 de chaque mois. Ils couvrent :
+
+- Suivi des citations sur 6 moteurs IA
+- Scores AEO, GEO et E-E-A-T comparés au mois précédent
+- Performance GBP (impressions, appels, demandes d'itinéraire)
+- État du déploiement schema
+- Priorités du mois suivant
+
+Vrais chiffres, langage clair, sans bourrage.`,
+      },
+      es: {
+        title: "Cómo nos comunicamos con los clientes",
+        excerpt:
+          "Email, llamadas, Slack, reportes mensuales. Este es el ritmo y cómo contactarnos entre puntos de contacto programados.",
+        body: `## Puntos de contacto programados
+
+Cada plan incluye una cadencia distinta:
+
+- **Starter**: llamada mensual de 30 min y reporte mensual
+- **Core**: llamada quincenal de 30 min y reporte mensual
+- **Growth**: llamada semanal de 30 min, reporte mensual y revisión trimestral en persona (Quebec, Toronto, Montreal)
+- **Autopilot**: igual que Growth, más acceso al dashboard de Reviuzy SaaS
+
+## Entre llamadas
+
+- **Email**: hello@ailysagency.ca, respuesta en 12 horas hábiles
+- **Slack** (Core en adelante): canal compartido con su equipo AiLys
+- **Emergencia**: envíe SMS al líder indicado en su correo de bienvenida, respuesta en 2 horas en días hábiles
+
+## Reportes
+
+Los reportes mensuales llegan el día 5 de cada mes. Cubren:
+
+- Seguimiento de citas en 6 motores de IA
+- Puntajes AEO, GEO y E-E-A-T contra el mes anterior
+- Desempeño de GBP (impresiones, llamadas, solicitudes de ruta)
+- Estado del despliegue de schema
+- Prioridades del próximo mes
+
+Números reales, lenguaje claro, sin relleno.`,
+      },
+      zh: {
+        title: "我们如何与客户沟通",
+        excerpt:
+          "邮件、通话、Slack、月度报告。以下是节奏,以及在固定接触点之间如何联系我们。",
+        body: `## 固定接触点
+
+每个套餐节奏不同:
+
+- **Starter**: 每月一次 30 分钟通话加月度报告
+- **Core**: 每两周一次 30 分钟通话加月度报告
+- **Growth**: 每周一次 30 分钟通话、月度报告,加每季度一次现场评审(魁北克、多伦多、蒙特利尔)
+- **Autopilot**: 与 Growth 相同,另含 Reviuzy SaaS 仪表盘访问权
+
+## 通话之间
+
+- **邮件**: hello@ailysagency.ca,12 个工作小时内回复
+- **Slack**(Core 及以上): 与您的 AiLys 团队共享频道
+- **紧急情况**: 短信联系欢迎邮件中列出的负责人,工作日 2 小时内回复
+
+## 报告
+
+月度报告每月 5 日送达。涵盖:
+
+- 在 6 个 AI 引擎上的引用追踪
+- AEO、GEO、E-E-A-T 评分与上月对比
+- GBP 表现(展示、来电、路线请求)
+- Schema 部署状态
+- 次月优先事项
+
+真实数字,直白语言,不掺水。`,
+      },
+    },
   },
 
   // ─── AEO / GEO / E-E-A-T ───────────────────────────────────
@@ -192,6 +479,83 @@ AI engines are increasingly answering questions without sending a click to any s
 Schema deployment is part of the Core tier. Our team writes the markup, deploys it to your site, and monitors validation. Most clients ship in week 2 of onboarding.
 
 Run the audit to see your current AEO score.`,
+    i18n: {
+      fr: {
+        title: "Qu'est-ce que l'AEO (Answer Engine Optimization)?",
+        excerpt:
+          "En français clair : l'AEO est le travail consistant à structurer votre site pour que les moteurs IA puissent en tirer une réponse propre.",
+        body: `## La version en 30 secondes
+
+AEO signifie Answer Engine Optimization. Quand quelqu'un pose une question à ChatGPT, Bing Copilot ou Google AIO, ces moteurs tentent d'extraire une réponse directe depuis un site Web. L'AEO consiste à faire de votre site la source qu'ils extraient.
+
+## Les quatre mouvements de base
+
+1. **FAQ schema** sur chaque page de service. Chaque question courante reçoit un balisage de réponse structuré.
+2. **LocalBusiness schema** avec NAP complet, heures, modes de paiement, attributs.
+3. **Review schema** avec aggregateRating et au moins 3 avis individuels balisés.
+4. **Service schema** : une entité par service offert, avec relations vers LocalBusiness.
+
+## Pourquoi cela compte
+
+Les moteurs IA répondent de plus en plus aux questions sans envoyer un clic à aucune source. D'ici 2027, on projette que les Google AI Overviews répondront à plus de 30 % de toutes les requêtes. Les entreprises citées dans ces réponses continueront de grandir. Celles qui ne le sont pas s'effaceront en silence.
+
+## Ce que nous faisons
+
+Le déploiement du schema fait partie du forfait Core. Notre équipe rédige le balisage, le déploie sur votre site et surveille la validation. La plupart des clients livrent en semaine 2 de l'intégration.
+
+Lancez l'audit pour voir votre score AEO actuel.`,
+      },
+      es: {
+        title: "¿Qué es el AEO (Answer Engine Optimization)?",
+        excerpt:
+          "En español sencillo: el AEO es el trabajo de estructurar su sitio para que los motores de IA extraigan una respuesta limpia desde su contenido.",
+        body: `## La versión en 30 segundos
+
+AEO significa Answer Engine Optimization. Cuando alguien hace una pregunta a ChatGPT, Bing Copilot o Google AIO, esos motores intentan extraer una respuesta directa desde un sitio web. El AEO consiste en lograr que su sitio sea la fuente desde la que extraen.
+
+## Los cuatro movimientos base
+
+1. **FAQ schema** en cada página de servicio. Cada pregunta común recibe marcado de respuesta estructurado.
+2. **LocalBusiness schema** con NAP completo, horarios, métodos de pago, atributos.
+3. **Review schema** con aggregateRating y al menos 3 reseñas individuales marcadas.
+4. **Service schema**: una entidad por cada servicio ofrecido, con relaciones hacia LocalBusiness.
+
+## Por qué importa
+
+Los motores de IA cada vez responden más preguntas sin enviar clics a ninguna fuente. Para 2027, se proyecta que Google AI Overviews respondan más del 30 % de todas las consultas. Los negocios citados dentro de esas respuestas seguirán creciendo. Los no citados se irán apagando en silencio.
+
+## Qué hacemos
+
+El despliegue de schema forma parte del plan Core. Nuestro equipo redacta el marcado, lo despliega en su sitio y monitorea la validación. La mayoría de los clientes lo lanza en la semana 2 del onboarding.
+
+Ejecute la auditoría para ver su puntaje AEO actual.`,
+      },
+      zh: {
+        title: "什么是 AEO(Answer Engine Optimization)?",
+        excerpt:
+          "大白话: AEO 就是把您的网站结构化好,让 AI 引擎能从您的内容中提取出干净的答案。",
+        body: `## 30 秒版本
+
+AEO 即 Answer Engine Optimization(答案引擎优化)。当有人向 ChatGPT、Bing Copilot 或 Google AIO 提问时,这些引擎会尝试从某个网站中提取直接答案。AEO 就是让您的站点成为它们提取的源头。
+
+## 四个核心动作
+
+1. 在每个服务页面部署 **FAQ schema**。每个常见问题都获得结构化答案标记。
+2. **LocalBusiness schema**,完整的 NAP、营业时间、支付方式、属性。
+3. 带 aggregateRating 的 **Review schema**,以及至少 3 条单独标注的评论。
+4. **Service schema**: 每项服务一个实体,并与 LocalBusiness 建立关系。
+
+## 为什么重要
+
+AI 引擎正在越来越多地无点击回答问题。预计到 2027 年,Google AI Overviews 将回答超过 30% 的全部查询。被这些答案引用的企业会持续增长。未被引用的则会无声地淡出。
+
+## 我们做什么
+
+Schema 部署属于 Core 套餐。我们的团队撰写标记、将其部署到您的站点,并监控验证。多数客户在入驻第 2 周即上线。
+
+运行审计,查看您当前的 AEO 评分。`,
+      },
+    },
   },
   {
     slug: "what-is-geo",
@@ -221,6 +585,83 @@ AEO is mostly your own work on your own site. GEO depends on third-party validat
 ## What we do
 
 The Core tier includes 5 citation submissions per month, plus our standard Wikipedia/Wikidata workflow. The Growth tier adds dedicated PR outreach and original research production.`,
+    i18n: {
+      fr: {
+        title: "Qu'est-ce que le GEO (Generative Engine Optimization)?",
+        excerpt:
+          "Faire citer votre marque dans les réponses des IA génératives, pas seulement les réponses elles-mêmes.",
+        body: `## Le GEO diffère de l'AEO
+
+L'AEO consiste à être la réponse. Le GEO consiste à être nommé à l'intérieur de la réponse.
+
+ChatGPT peut donner une excellente réponse sur votre secteur sans nommer une seule entreprise. Le GEO, c'est le travail d'être l'une des entreprises nommées.
+
+## Les signaux qui font bouger le GEO
+
+- **Empreinte Wikipedia et Wikidata** : la couche d'entités à laquelle les LLM puisent
+- **Densité de citations à haute DA** : Yelp, BBB, Crunchbase, annuaires sectoriels
+- **Contenu tiers faisant autorité** : mentions presse, passages en balado, publications sectorielles
+- **Données ou recherches originales** que d'autres sites citent à leur tour
+
+## Pourquoi le GEO est plus difficile que l'AEO
+
+L'AEO est surtout du travail sur votre propre site. Le GEO dépend de la validation par des tiers. Impossible de le bâcler du jour au lendemain.
+
+## Ce que nous faisons
+
+Le forfait Core inclut 5 soumissions de citations par mois, plus notre flux standard Wikipedia et Wikidata. Le forfait Growth ajoute un démarchage RP dédié et la production de recherche originale.`,
+      },
+      es: {
+        title: "¿Qué es el GEO (Generative Engine Optimization)?",
+        excerpt:
+          "Lograr que su marca sea citada dentro de las respuestas de IA generativa, no solo las respuestas en sí.",
+        body: `## El GEO es distinto del AEO
+
+El AEO es ser la respuesta. El GEO es ser nombrado dentro de la respuesta.
+
+ChatGPT puede dar una respuesta excelente sobre su sector sin nombrar a un solo negocio. El GEO es el trabajo de ser uno de los negocios que sí nombra.
+
+## Las señales que mueven el GEO
+
+- **Huella en Wikipedia y Wikidata**: la capa de entidades de la que extraen los LLM
+- **Densidad de citas en sitios de alta DA**: Yelp, BBB, Crunchbase, directorios sectoriales
+- **Contenido externo con autoridad**: menciones de prensa, participaciones en podcasts, publicaciones sectoriales
+- **Datos o investigación original** que otros sitios citen de regreso
+
+## Por qué el GEO es más difícil que el AEO
+
+El AEO es principalmente trabajo propio en su propio sitio. El GEO depende de validación de terceros. No puede improvisarse de un día para otro.
+
+## Qué hacemos
+
+El plan Core incluye 5 envíos de citas por mes, más nuestro flujo estándar de Wikipedia y Wikidata. El plan Growth añade gestión de PR dedicada y producción de investigación original.`,
+      },
+      zh: {
+        title: "什么是 GEO(Generative Engine Optimization)?",
+        excerpt:
+          "让您的品牌出现在生成式 AI 回答中被引用,而不只是回答本身。",
+        body: `## GEO 与 AEO 不同
+
+AEO 是成为答案,GEO 是在答案中被点名。
+
+ChatGPT 可以就您的行业给出一段精彩回答,却一家企业都不点名。GEO 就是让自己成为它点名的企业之一。
+
+## 推动 GEO 的信号
+
+- **Wikipedia 与 Wikidata 足迹**: LLM 取用的实体层
+- **高 DA 引用密度**: Yelp、BBB、Crunchbase、行业目录
+- **权威第三方内容**: 媒体提及、播客嘉宾席位、行业刊物
+- 让其他站点反向引用您的**原始数据或研究**
+
+## 为什么 GEO 比 AEO 更难
+
+AEO 主要是您在自家站点上的工作。GEO 依赖第三方验证,无法一夜搞定。
+
+## 我们做什么
+
+Core 套餐每月包含 5 次引用提交,以及我们标准的 Wikipedia 与 Wikidata 工作流。Growth 套餐增加专属 PR 拓展和原创研究产出。`,
+      },
+    },
   },
   {
     slug: "what-is-eeat",
@@ -257,6 +698,104 @@ Three concrete moves we ship for clients:
 - No author profile pages
 
 The first two we fix with content production. The last two are policy decisions you make with your AiLys lead.`,
+    i18n: {
+      fr: {
+        title: "Qu'est-ce que E-E-A-T?",
+        excerpt:
+          "Experience, Expertise, Authoritativeness, Trust. La grille que les moteurs IA utilisent pour choisir quel contenu citer.",
+        body: `## Les quatre piliers
+
+- **Experience** : preuves de première main. Photos originales avec données EXIF, entrevues clients réelles, vidéos sur place.
+- **Expertise** : qualifications. Biographies d'auteur avec qualifications réelles, vocabulaire sectoriel utilisé correctement.
+- **Authoritativeness** : validation par des tiers. Presse, prix, reconnaissance par les pairs, citations sectorielles.
+- **Trust** : honnêteté commerciale. SSL, aucun lien brisé, prix transparents, vrais avis et non factices.
+
+## Pourquoi E-E-A-T est votre plus fort levier
+
+Google a refondu ses lignes directrices d'évaluateurs qualité autour de E-E-A-T en 2024. Chaque LLM qui utilise l'index de Google hérite de cette pondération. Les moteurs de recherche IA pénalisent désormais activement le contenu qui sent l'IA et récompensent celui qui sent l'humain, sur place, avec preuves.
+
+## À quoi ressemble la « correction » d'E-E-A-T
+
+Trois mouvements concrets que nous livrons aux clients :
+
+1. Signatures d'auteur ajoutées à tout le contenu de blogue (Person schema avec qualifications)
+2. Photos ou vidéos originales pour chaque page de service (pas de banque d'images)
+3. Balisage schema pour prix et accréditations afin que les moteurs IA puissent vérifier votre autorité
+
+## Erreurs fréquentes
+
+- Contenu « écrit par IA » sans revue humaine ni signature
+- Photos de banques partout
+- Prix caché derrière un formulaire « contactez-nous »
+- Aucune page de profil d'auteur
+
+Les deux premières se règlent par la production de contenu. Les deux dernières sont des décisions de politique que vous prenez avec votre responsable AiLys.`,
+      },
+      es: {
+        title: "¿Qué es E-E-A-T?",
+        excerpt:
+          "Experience, Expertise, Authoritativeness, Trust. La rúbrica que los motores de IA usan para elegir qué contenido citar.",
+        body: `## Los cuatro pilares
+
+- **Experience**: evidencia de primera mano. Fotos originales con datos EXIF, entrevistas reales con clientes, videos in situ.
+- **Expertise**: credenciales. Biografías de autor con calificaciones reales, vocabulario sectorial bien usado.
+- **Authoritativeness**: validación externa. Prensa, premios, reconocimiento de pares, citas sectoriales.
+- **Trust**: honestidad comercial. SSL, sin enlaces rotos, precios transparentes, reseñas reales y no falsas.
+
+## Por qué E-E-A-T es su mayor palanca
+
+Google reconstruyó sus guías para evaluadores de calidad alrededor de E-E-A-T en 2024. Todo LLM que usa el índice de Google hereda esa ponderación. Los motores de búsqueda con IA hoy penalizan activamente el contenido que se lee como generado por IA y premian el que se lee humano, en sitio, con pruebas.
+
+## Cómo se ve "arreglar" E-E-A-T
+
+Tres movimientos concretos que entregamos a clientes:
+
+1. Firmas de autor añadidas a todo el contenido del blog (usamos Person schema con credenciales)
+2. Fotografía o video original para cada página de servicio (sin imágenes de stock)
+3. Marcado schema de premios y credenciales para que los motores IA puedan verificar su autoridad
+
+## Errores comunes
+
+- Contenido "escrito por IA" sin revisión humana ni firma
+- Fotos de stock en todas partes
+- Precios escondidos detrás de un formulario "contáctenos"
+- Sin páginas de perfil de autor
+
+Los dos primeros se arreglan con producción de contenido. Los dos últimos son decisiones de política que se toman con su líder en AiLys.`,
+      },
+      zh: {
+        title: "什么是 E-E-A-T?",
+        excerpt:
+          "Experience(经验)、Expertise(专业)、Authoritativeness(权威)、Trust(可信)。AI 引擎用来挑选引用内容的标尺。",
+        body: `## 四大支柱
+
+- **Experience**: 第一手证据。带 EXIF 数据的原创图片、真实的客户访谈、现场视频。
+- **Expertise**: 资历。作者简介中包含真实资格,行业术语使用正确。
+- **Authoritativeness**: 第三方背书。媒体、奖项、同行认可、行业引用。
+- **Trust**: 商业诚信。SSL、无失效链接、价格透明、真实评论而非作假。
+
+## 为什么 E-E-A-T 是您最大的杠杆
+
+Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 Google 索引的 LLM 都继承了这套加权。AI 搜索引擎如今主动惩罚那些读起来像 AI 生成的内容,奖励那些读起来由人类完成、现场制作、附带证据的内容。
+
+## "修复" E-E-A-T 的样子
+
+我们为客户落地的三项具体动作:
+
+1. 为所有博客内容添加作者署名(使用带资历的 Person schema)
+2. 每个服务页配备原创图片或视频(不用图库)
+3. 部署奖项与资历的 schema 标记,让 AI 引擎可验证您的权威性
+
+## 常见错误
+
+- "AI 撰写"的内容,既无人工审稿也无署名
+- 到处都是图库照片
+- 价格藏在"联系我们"表单后
+- 没有作者档案页
+
+前两项我们用内容生产解决。后两项是您与 AiLys 负责人共同决定的策略问题。`,
+      },
+    },
   },
 
   // ─── Pricing ─────────────────────────────────────────────
@@ -297,6 +836,110 @@ The first two we fix with content production. The last two are policy decisions 
 ## The "I am unsure" rule
 
 Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most local businesses need. You can upgrade to Growth or Autopilot any time, no penalty.`,
+    i18n: {
+      fr: {
+        title: "Quel forfait convient à mon entreprise?",
+        excerpt:
+          "Arbre de décision rapide pour choisir entre Starter, Core, Growth et Autopilot.",
+        body: `## Arbre de décision rapide
+
+**Starter, 300 $/mois** convient si :
+- Restaurant indépendant, professionnel solo ou petit salon
+- Un seul emplacement
+- Aucune expérience préalable avec une agence
+- Vous voulez tâter le terrain en optimisation pour la recherche IA
+
+**Core, 600 $/mois** (le plus choisi) convient si :
+- Cabinet dentaire, entrepreneur, restaurant en croissance
+- Un à trois emplacements
+- Vous avez besoin d'implémentation schema et de citation building
+- Vous voulez une production de contenu bilingue
+
+**Growth, 1 200 $/mois** convient si :
+- Multi-emplacements, franchise ou plan d'expansion agressif
+- 4 emplacements ou plus
+- Vous avez besoin de travail d'autorité d'entité GEO et de contenu hebdomadaire
+- Vous voulez une surveillance concurrentielle
+
+**Autopilot, 1 299 $/mois** convient si :
+- Tout ce que couvre Growth, plus vous voulez zéro opération
+- Vous voulez Reviuzy SaaS inclus dans le lot
+- Vous voulez un concours d'avis mensuel mené pour vous
+- Vous voulez des cartes NFC à toucher livrées à vos emplacements
+
+## La règle « je ne sais pas »
+
+Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 % des besoins de la plupart des entreprises locales. Vous pouvez passer à Growth ou Autopilot n'importe quand, sans pénalité.`,
+      },
+      es: {
+        title: "¿Qué plan es el adecuado para mi negocio?",
+        excerpt:
+          "Árbol de decisión rápido para elegir entre Starter, Core, Growth y Autopilot.",
+        body: `## Árbol de decisión rápido
+
+**Starter, $300/mes** le conviene si:
+- Restaurante solo, profesional independiente o salón pequeño
+- Una sola sucursal
+- Sin trabajo previo con agencias
+- Quiere meter el pie en la optimización para búsqueda IA
+
+**Core, $600/mes** (el más elegido) le conviene si:
+- Consultorio dental, contratista, restaurante en crecimiento
+- Una a tres sucursales
+- Necesita implementación de schema y citation building
+- Quiere producción de contenido bilingüe
+
+**Growth, $1,200/mes** le conviene si:
+- Multi-sucursal, franquicia o plan de expansión agresivo
+- 4 sucursales o más
+- Necesita trabajo de autoridad de entidad GEO y contenido semanal
+- Quiere monitoreo competitivo
+
+**Autopilot, $1,299/mes** le conviene si:
+- Todo lo que cubre Growth, más cero operaciones de su lado
+- Quiere Reviuzy SaaS incluido
+- Quiere un concurso mensual de reseñas operado por nosotros
+- Quiere tarjetas NFC enviadas a sus sucursales
+
+## La regla "no estoy seguro"
+
+Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita la mayoría de los negocios locales. Puede subir a Growth o Autopilot en cualquier momento, sin penalización.`,
+      },
+      zh: {
+        title: "哪个套餐适合我的企业?",
+        excerpt:
+          "快速决策树,帮您在 Starter、Core、Growth 与 Autopilot 中做选择。",
+        body: `## 快速决策树
+
+**Starter,$300/月** 适合:
+- 独立餐厅、独立从业者或小型沙龙
+- 单一门店
+- 此前未与代理合作过
+- 想初步尝试 AI 搜索优化
+
+**Core,$600/月**(最受欢迎)适合:
+- 牙科诊所、承包商、成长中的餐厅
+- 1 到 3 家门店
+- 需要 schema 实施与 citation building
+- 希望进行双语内容产出
+
+**Growth,$1,200/月** 适合:
+- 多门店、连锁或激进扩张计划
+- 4 家及以上门店
+- 需要 GEO 实体权威工作与每周内容
+- 希望进行竞争对手监测
+
+**Autopilot,$1,299/月** 适合:
+- 涵盖 Growth 的全部,且您希望运营全部托管
+- 希望打包 Reviuzy SaaS
+- 希望由我们代为运行每月评论征集活动
+- 希望我们将 NFC 触碰卡寄送到各门店
+
+## "我不确定" 法则
+
+选 Core。它成为最受欢迎套餐是有原因的: 覆盖了大多数本地企业 80% 的需求。您可以随时升级到 Growth 或 Autopilot,无任何罚则。`,
+      },
+    },
   },
   {
     slug: "what-is-the-money-back-guarantee",
@@ -328,6 +971,89 @@ Email hello@ailysagency.ca within 35 days of your start date with subject line "
 ## Why we offer this
 
 Buying agency services on the internet is a credibility test. We are early stage and we know it. Removing financial risk on the first month is the cheapest way to earn the relationship.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne la garantie satisfait ou remboursé de 30 jours?",
+        excerpt:
+          "Si vous ne constatez pas d'améliorations mesurables au schema ou aux citations en 30 jours, nous remboursons le mois. Voici les détails.",
+        body: `## Ce qui est couvert
+
+Si, à la fin de vos 30 premiers jours, vous ne constatez aucun de :
+
+- Schema validé et en ligne sur votre site
+- Une hausse mesurable de votre référence mensuelle de suivi des citations
+- Une nouvelle amélioration de position GBP
+
+...vous pouvez demander un remboursement intégral des frais du premier mois. Aucune reprise. Vous conservez le schema livré et les citations décrochées.
+
+## Comment en faire la demande
+
+Envoyez un courriel à hello@ailysagency.ca dans les 35 jours suivant votre date de début avec comme objet « Demande de remboursement ». Nous traitons en 5 jours ouvrables, sans questions, sans culpabilisation.
+
+## Ce qui n'est pas couvert
+
+- Les mois 2 et suivants (ils sont au mois, vous pouvez résilier en tout temps avec 2 semaines de préavis)
+- Les frais Reviuzy SaaS inclus dans le forfait Autopilot (ils sont distincts et suivent la politique de remboursement de Reviuzy)
+
+## Pourquoi nous l'offrons
+
+Acheter des services d'agence sur internet est un test de crédibilité. Nous sommes en début de parcours et nous le savons. Retirer le risque financier au premier mois est le moyen le moins coûteux de mériter la relation.`,
+      },
+      es: {
+        title: "¿Cómo funciona la garantía de devolución de 30 días?",
+        excerpt:
+          "Si no ve mejoras medibles en schema o citas en 30 días, le devolvemos el mes. Esta es la letra chica.",
+        body: `## Qué cubre
+
+Si, al final de sus primeros 30 días, no observa al menos uno de:
+
+- Schema validado y publicado en su sitio
+- Un alza medible en la línea base mensual de seguimiento de citas
+- Una nueva mejora de posición en GBP
+
+...puede solicitar el reembolso completo de la cuota del primer mes. Sin retroactivo. Conserva el schema que desplegamos y las citas que conseguimos.
+
+## Cómo solicitarlo
+
+Envíe correo a hello@ailysagency.ca dentro de los 35 días desde su fecha de inicio con el asunto "Solicitud de reembolso". Procesamos en 5 días hábiles, sin preguntas, sin culpabilizar.
+
+## Qué no cubre
+
+- Mes 2 en adelante (son mes a mes, puede cancelar cuando guste con 2 semanas de aviso)
+- Las cuotas de Reviuzy SaaS dentro del plan Autopilot (son aparte y siguen la política de reembolso de Reviuzy)
+
+## Por qué la ofrecemos
+
+Comprar servicios de agencia por internet es una prueba de credibilidad. Estamos en etapa temprana y lo sabemos. Quitar el riesgo financiero del primer mes es la forma más barata de ganarse la relación.`,
+      },
+      zh: {
+        title: "30 天退款保证如何运作?",
+        excerpt:
+          "如果 30 天内您看不到可衡量的 schema 或引用改进,我们退还当月费用。以下是细则。",
+        body: `## 涵盖范围
+
+如果在您的前 30 天结束时,您没有看到以下任意一项:
+
+- Schema 验证通过并已在您的站点上线
+- 月度引用追踪基线出现可衡量的提升
+- GBP 排名出现新的位置改善
+
+...您可以申请全额退还首月费用。不追讨。您保留我们部署的 schema 和已拿下的引用。
+
+## 如何申请
+
+请在开始日期起 35 天内发邮件至 hello@ailysagency.ca,主题写"Refund request"。我们在 5 个工作日内处理,不盘问、不施压。
+
+## 不涵盖范围
+
+- 第 2 个月及以后(按月计费,任何时候可提前 2 周通知取消)
+- Autopilot 套餐内的 Reviuzy SaaS 费用(独立计费,遵循 Reviuzy 自有的退款政策)
+
+## 我们为什么提供它
+
+在网上购买代理服务是一场信任考验。我们处于早期阶段,我们清楚这一点。在首月去除财务风险,是赢得这段关系最低成本的方式。`,
+      },
+    },
   },
 
   // ─── Audit ────────────────────────────────────────────────
@@ -364,6 +1090,98 @@ Three options:
 1. DIY using the action plan (we keep the plan substantive enough to action without us)
 2. Hire AiLys to execute (most clients pick this)
 3. Hand it to your existing agency (we are fine with that, the audit alone is valuable)`,
+    i18n: {
+      fr: {
+        title: "Que contient l'AI Visibility Audit gratuit?",
+        excerpt:
+          "Nous testons votre entreprise dans 6 moteurs de recherche IA et notons AEO, GEO et E-E-A-T. Voici exactement ce que vous obtenez et combien de temps cela prend.",
+        body: `## Ce que vous obtenez
+
+Un rapport PDF de 12 pages couvrant :
+
+- **Carte de citations LLM** : test côte à côte de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot sur 5 prompts à forte intention dans votre service et votre ville
+- **Score AEO** (0 à 100) : complétude schema, Q et R structurées, lisibilité, désambiguïsation d'entité
+- **Score GEO** (0 à 100) : présence dans les publications faisant autorité, Wikipedia et Wikidata, signaux forums, RP numérique
+- **Audit E-E-A-T** : signaux d'expérience, d'expertise, d'autorité et de confiance vérifiés
+- **Plan d'action de 90 jours** : liste priorisée de correctifs avec estimations d'effort et hausse attendue
+
+## Combien de temps cela prend
+
+24 heures à partir de la soumission du formulaire. Nous le menons pendant les heures de bureau, heure du Québec, donc soumettez avant 18 h pour l'avoir le lendemain matin.
+
+## Ce que cela coûte
+
+Rien. Aucune carte de crédit. Aucun appel de découverte requis.
+
+## Quoi en faire
+
+Trois options :
+
+1. Le faire vous-même avec le plan d'action (nous le gardons assez substantiel pour être actionnable sans nous)
+2. Engager AiLys pour exécuter (la plupart des clients choisissent cela)
+3. Le remettre à votre agence actuelle (cela ne nous dérange pas, l'audit seul a de la valeur)`,
+      },
+      es: {
+        title: "¿Qué contiene el AI Visibility Audit gratuito?",
+        excerpt:
+          "Pasamos su negocio por 6 motores de búsqueda IA y puntuamos AEO, GEO y E-E-A-T. Esto es exactamente lo que recibe y cuánto demora.",
+        body: `## Qué recibe
+
+Un reporte PDF de 12 páginas que cubre:
+
+- **Mapa de citas LLM**: prueba lado a lado en ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot con 5 prompts de alta intención sobre su servicio y ciudad
+- **Puntaje AEO** (0 a 100): completitud de schema, P y R estructuradas, escaneabilidad, desambiguación de entidad
+- **Puntaje GEO** (0 a 100): presencia en publicaciones con autoridad, Wikipedia y Wikidata, señales de foros, PR digital
+- **Auditoría E-E-A-T**: señales de experiencia, experticia, autoridad y confianza revisadas
+- **Plan de acción a 90 días**: lista priorizada de arreglos con estimación de esfuerzo y alza esperada
+
+## Cuánto demora
+
+24 horas desde el envío del formulario. Lo ejecutamos en horario laboral hora de Quebec, así que envíelo antes de las 6 pm si lo quiere a la mañana siguiente.
+
+## Cuánto cuesta
+
+Nada. Sin tarjeta. Sin llamada de descubrimiento requerida.
+
+## Qué hacer con él
+
+Tres opciones:
+
+1. Hacerlo por su cuenta con el plan de acción (lo dejamos lo bastante sustantivo para accionarlo sin nosotros)
+2. Contratar a AiLys para ejecutar (la mayoría de los clientes elige esto)
+3. Pasarlo a su agencia actual (no hay problema, la auditoría por sí sola tiene valor)`,
+      },
+      zh: {
+        title: "免费的 AI Visibility Audit 包含什么?",
+        excerpt:
+          "我们将您的企业放到 6 个 AI 搜索引擎中跑一遍,为 AEO、GEO 与 E-E-A-T 打分。以下是您具体能拿到什么以及耗时多长。",
+        body: `## 您能拿到什么
+
+一份 12 页的 PDF 报告,涵盖:
+
+- **LLM 引用地图**: 在 ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot 上,针对您所在服务与城市的 5 条高意图 prompt 做并排测试
+- **AEO 评分**(0 到 100): schema 完整度、结构化 Q 与 A、可扫读性、实体消歧
+- **GEO 评分**(0 到 100): 权威刊物存在感、Wikipedia 与 Wikidata、论坛信号、数字 PR
+- **E-E-A-T 审计**: 经验、专业、权威与信任信号逐项核查
+- **90 天行动计划**: 排序后的修复清单,附工作量估计与预期提升
+
+## 耗时多长
+
+从表单提交起 24 小时。我们在魁北克时间的工作时间内运行,如果您希望次日早上拿到,请在 18:00 前提交。
+
+## 费用如何
+
+零费用。不需要信用卡,不需要必须的探索通话。
+
+## 拿到后怎么用
+
+三个选项:
+
+1. 自行执行行动计划(我们让计划足够实在,不依赖我们也能落地)
+2. 委托 AiLys 执行(多数客户选择这一项)
+3. 交给您现有的代理(我们不介意,审计本身就具有价值)`,
+      },
+    },
   },
 
   // ─── Glossary ─────────────────────────────────────────────
@@ -404,5 +1222,109 @@ Three options:
 **TTFB**: Time To First Byte. How fast your server responds. Faster = better LLM ranking.
 
 **Voice search**: queries spoken to assistants (Siri, Alexa, Google Assistant). Different ranking signals than typed search.`,
+    i18n: {
+      fr: {
+        title: "Glossaire de la recherche IA : les termes que nous utilisons",
+        excerpt:
+          "Définitions rapides pour AEO, GEO, E-E-A-T, schema, autorité d'entité, densité de citations, share of model et plus encore.",
+        body: `## De A à Z
+
+**AEO** : Answer Engine Optimization. Structurer le contenu pour que les moteurs IA tirent des réponses directes de votre site.
+
+**AI Overviews / AIO** : résultats de recherche résumés par l'IA de Google qui apparaissent au-dessus des 10 liens bleus traditionnels.
+
+**Authority** : poids qu'un moteur IA accorde à une source. Les sources de plus haute autorité sont citées plus souvent.
+
+**Citation density** : fréquence à laquelle le nom de votre entreprise apparaît sur le web. Plus de citations sur plus de domaines équivaut à un signal LLM plus fort.
+
+**E-E-A-T** : Experience, Expertise, Authoritativeness, Trust. La grille de qualité de contenu de Google, héritée par la plupart des LLM.
+
+**Entity authority** : votre entreprise comme « chose » que reconnaissent le Knowledge Graph de Google et Wikidata, distincte de toute page individuelle.
+
+**GBP** : Google Business Profile, anciennement Google My Business. Votre fiche locale.
+
+**GEO** : Generative Engine Optimization. Faire nommer votre marque dans les réponses des IA génératives.
+
+**LLM** : Large Language Model. La catégorie d'IA qui alimente ChatGPT, Claude, Gemini, etc.
+
+**NAP** : Name, Address, Phone. Le triplet qui doit rester cohérent sur le web pour le SEO local.
+
+**Schema** : balisage Schema.org. Données structurées qui aident les moteurs à comprendre votre contenu.
+
+**Share of model** : mesure de la fréquence à laquelle votre marque est mentionnée dans les réponses LLM par rapport aux concurrents. Parfois appelée Share of Voice in AI Search.
+
+**TTFB** : Time To First Byte. Vitesse de réponse de votre serveur. Plus rapide égale meilleur classement LLM.
+
+**Voice search** : requêtes parlées aux assistants (Siri, Alexa, Google Assistant). Signaux de classement différents de la recherche tapée.`,
+      },
+      es: {
+        title: "Glosario de búsqueda con IA: términos que usamos",
+        excerpt:
+          "Definiciones rápidas de AEO, GEO, E-E-A-T, schema, autoridad de entidad, densidad de citas, share of model y más.",
+        body: `## De la A a la Z
+
+**AEO**: Answer Engine Optimization. Estructurar contenido para que los motores IA extraigan respuestas directas desde su sitio.
+
+**AI Overviews / AIO**: resultados de búsqueda resumidos por la IA de Google que aparecen sobre los 10 enlaces azules tradicionales.
+
+**Authority**: cuánto peso da un motor IA a una fuente. Las fuentes con más autoridad se citan con más frecuencia.
+
+**Citation density**: con qué frecuencia aparece el nombre de su negocio por la web. Más citas en más dominios igual a señal LLM más fuerte.
+
+**E-E-A-T**: Experience, Expertise, Authoritativeness, Trust. La rúbrica de calidad de contenido de Google, heredada por la mayoría de los LLM.
+
+**Entity authority**: su negocio como una "cosa" que reconocen el Knowledge Graph de Google y Wikidata, separada de cualquier página individual.
+
+**GBP**: Google Business Profile, antes Google My Business. Su ficha local.
+
+**GEO**: Generative Engine Optimization. Lograr que su marca sea nombrada dentro de respuestas de IA generativa.
+
+**LLM**: Large Language Model. La categoría de IA que impulsa ChatGPT, Claude, Gemini, etc.
+
+**NAP**: Name, Address, Phone. El triplete que debe ser consistente en la web para SEO local.
+
+**Schema**: marcado Schema.org. Datos estructurados que ayudan a los motores a entender su contenido.
+
+**Share of model**: medición de cuán seguido se menciona su marca en respuestas LLM frente a competidores. A veces llamado Share of Voice in AI Search.
+
+**TTFB**: Time To First Byte. Velocidad de respuesta de su servidor. Más rápido igual a mejor ranking LLM.
+
+**Voice search**: consultas habladas a asistentes (Siri, Alexa, Google Assistant). Señales de ranking distintas a las de búsqueda escrita.`,
+      },
+      zh: {
+        title: "AI 搜索术语表: 我们常用的词",
+        excerpt:
+          "AEO、GEO、E-E-A-T、schema、实体权威、引用密度、share of model 等术语的快速定义。",
+        body: `## 从 A 到 Z
+
+**AEO**: Answer Engine Optimization。把内容结构化,让 AI 引擎从您的站点提取直接答案。
+
+**AI Overviews / AIO**: Google 的 AI 摘要式搜索结果,出现在传统的 10 条蓝色链接上方。
+
+**Authority**(权威): AI 引擎赋予某个来源的权重。权威越高的来源被引用越频繁。
+
+**Citation density**(引用密度): 您的企业名称在网络上出现的频率。在更多域名上获得更多引用即更强的 LLM 信号。
+
+**E-E-A-T**: Experience、Expertise、Authoritativeness、Trust。Google 的内容质量标尺,被多数 LLM 继承。
+
+**Entity authority**(实体权威): 您的企业作为 Google Knowledge Graph 和 Wikidata 所承认的"实体",独立于任何单个页面。
+
+**GBP**: Google Business Profile,前称 Google My Business。您的本地商家信息。
+
+**GEO**: Generative Engine Optimization。让您的品牌出现在生成式 AI 回答中被点名。
+
+**LLM**: Large Language Model(大语言模型)。驱动 ChatGPT、Claude、Gemini 等的 AI 类别。
+
+**NAP**: Name、Address、Phone。本地 SEO 中需在网络上保持一致的三元组。
+
+**Schema**: Schema.org 标记。帮助引擎理解您内容的结构化数据。
+
+**Share of model**: 衡量您的品牌在 LLM 回答中相对于竞争对手被提及的频率。有时也称作 Share of Voice in AI Search。
+
+**TTFB**: Time To First Byte。您的服务器响应有多快。越快即 LLM 排名越好。
+
+**Voice search**(语音搜索): 对助手(Siri、Alexa、Google Assistant)说出的查询。其排名信号与文字搜索不同。`,
+      },
+    },
   },
 ];

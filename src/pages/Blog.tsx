@@ -8,15 +8,27 @@ import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { blogPosts, CATEGORY_META, type BlogCategory } from "@/data/blog-posts";
+import { blogPosts, CATEGORY_META, type BlogCategory, type BlogPost } from "@/data/blog-posts";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
+
+/** Apply current-language i18n overrides to a blog post (title, excerpt). Falls back to EN. */
+function localizePost(post: BlogPost, lang: string): BlogPost {
+  if (lang === "en" || !post.i18n?.[lang]) return post;
+  const t = post.i18n[lang];
+  return {
+    ...post,
+    title: t.title ?? post.title,
+    excerpt: t.excerpt ?? post.excerpt,
+    content: t.content ?? post.content,
+  };
+}
 
 const POSTS_PER_PAGE = 12;
 
 export default function Blog() {
   const { lang: urlLang } = useParams<{ lang?: string }>();
-  const { setLang } = useLang();
+  const { lang, setLang } = useLang();
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<BlogCategory | "all">("all");
   const [page, setPage] = useState(1);
@@ -34,16 +46,17 @@ export default function Blog() {
     return () => root.removeAttribute("data-force-dark");
   }, []);
 
-  // Auto-reveal posts as their publishedAt timestamp arrives
+  // Auto-reveal posts as their publishedAt timestamp arrives, localized to current language
   const visiblePosts = useMemo(() => {
     const now = Date.now();
     return blogPosts
       .filter((p) => new Date(p.publishedAt).getTime() <= now)
+      .map((p) => localizePost(p, lang))
       .sort(
         (a, b) =>
           new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
       );
-  }, []);
+  }, [lang]);
 
   const filtered = useMemo(() => {
     return visiblePosts.filter((post) => {

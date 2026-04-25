@@ -9,13 +9,24 @@ import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { blogPosts, CATEGORY_META } from "@/data/blog-posts";
+import { blogPosts, CATEGORY_META, type BlogPost as BlogPostT } from "@/data/blog-posts";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 
+function localizePost(post: BlogPostT, lang: string): BlogPostT {
+  if (lang === "en" || !post.i18n?.[lang]) return post;
+  const t = post.i18n[lang];
+  return {
+    ...post,
+    title: t.title ?? post.title,
+    excerpt: t.excerpt ?? post.excerpt,
+    content: t.content ?? post.content,
+  };
+}
+
 export default function BlogPost() {
   const { slug, lang: urlLang } = useParams<{ slug: string; lang?: string }>();
-  const { setLang } = useLang();
+  const { lang, setLang } = useLang();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,9 +42,12 @@ export default function BlogPost() {
     return () => root.removeAttribute("data-force-dark");
   }, []);
 
-  const post = useMemo(() => blogPosts.find((p) => p.slug === slug), [slug]);
+  const post = useMemo(() => {
+    const raw = blogPosts.find((p) => p.slug === slug);
+    return raw ? localizePost(raw, lang) : undefined;
+  }, [slug, lang]);
 
-  // 3 most recent other posts in the same category, then fill from latest
+  // 3 most recent other posts in the same category, localized to current language
   const related = useMemo(() => {
     if (!post) return [];
     const now = Date.now();
@@ -41,6 +55,7 @@ export default function BlogPost() {
       .filter(
         (p) => p.slug !== post.slug && new Date(p.publishedAt).getTime() <= now,
       )
+      .map((p) => localizePost(p, lang))
       .sort(
         (a, b) =>
           new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
@@ -48,7 +63,7 @@ export default function BlogPost() {
     const sameCat = others.filter((p) => p.category === post.category);
     const rest = others.filter((p) => p.category !== post.category);
     return [...sameCat, ...rest].slice(0, 3);
-  }, [post]);
+  }, [post, lang]);
 
   if (!post) {
     return (

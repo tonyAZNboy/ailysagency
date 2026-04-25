@@ -11,10 +11,24 @@ import {
   helpArticles,
   HELP_CATEGORY_META,
   type HelpCategory,
+  type HelpArticle,
 } from "@/data/help-articles";
+import { useLang } from "@/i18n/LangContext";
+
+function localizeArticle(a: HelpArticle, lang: string): HelpArticle {
+  if (lang === "en" || !a.i18n?.[lang]) return a;
+  const t = a.i18n[lang];
+  return {
+    ...a,
+    title: t.title ?? a.title,
+    excerpt: t.excerpt ?? a.excerpt,
+    body: t.body ?? a.body,
+  };
+}
 
 export default function Help() {
   const navigate = useNavigate();
+  const { lang } = useLang();
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -25,7 +39,7 @@ export default function Help() {
   }, []);
 
   const grouped = useMemo(() => {
-    const groups: Record<HelpCategory, typeof helpArticles> = {
+    const groups: Record<HelpCategory, HelpArticle[]> = {
       "getting-started": [],
       "aeo-geo-eeat": [],
       "pricing-plans": [],
@@ -33,7 +47,8 @@ export default function Help() {
       "account-billing": [],
       glossary: [],
     };
-    for (const a of helpArticles) {
+    for (const raw of helpArticles) {
+      const a = localizeArticle(raw, lang);
       if (search) {
         const q = search.toLowerCase();
         const hit =
@@ -45,7 +60,7 @@ export default function Help() {
       groups[a.category].push(a);
     }
     return groups;
-  }, [search]);
+  }, [search, lang]);
 
   const totalMatches = Object.values(grouped).reduce(
     (sum, arr) => sum + arr.length,

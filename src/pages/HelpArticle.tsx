@@ -10,10 +10,24 @@ import { Button } from "@/components/ui/button";
 import {
   helpArticles,
   HELP_CATEGORY_META,
+  type HelpArticle as HelpArticleT,
 } from "@/data/help-articles";
+import { useLang } from "@/i18n/LangContext";
+
+function localizeArticle(a: HelpArticleT, lang: string): HelpArticleT {
+  if (lang === "en" || !a.i18n?.[lang]) return a;
+  const t = a.i18n[lang];
+  return {
+    ...a,
+    title: t.title ?? a.title,
+    excerpt: t.excerpt ?? a.excerpt,
+    body: t.body ?? a.body,
+  };
+}
 
 export default function HelpArticle() {
   const { slug } = useParams<{ slug: string }>();
+  const { lang } = useLang();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,17 +37,18 @@ export default function HelpArticle() {
     return () => root.removeAttribute("data-force-dark");
   }, []);
 
-  const article = useMemo(
-    () => helpArticles.find((a) => a.slug === slug),
-    [slug],
-  );
+  const article = useMemo(() => {
+    const raw = helpArticles.find((a) => a.slug === slug);
+    return raw ? localizeArticle(raw, lang) : undefined;
+  }, [slug, lang]);
 
   const related = useMemo(() => {
     if (!article) return [];
     return helpArticles
       .filter((a) => a.slug !== article.slug && a.category === article.category)
+      .map((a) => localizeArticle(a, lang))
       .slice(0, 3);
-  }, [article]);
+  }, [article, lang]);
 
   if (!article) {
     return (
