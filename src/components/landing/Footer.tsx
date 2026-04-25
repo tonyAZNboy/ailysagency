@@ -22,8 +22,9 @@ export function Footer() {
     { label: t.nav.blog, href: "/blog" },
     { label: "Help center", href: "/help" },
     { label: "Book a call", href: "/book-call" },
+    { label: "AI Visibility Audit", href: "/audit" },
+    { label: "GBP Pulse", href: "/audit/gbp" },
     { label: t.footer?.contact ?? "Contact", href: `mailto:${APP_CONFIG.email}` },
-    { label: "Audit", href: "/audit" },
   ];
 
   const legal = [

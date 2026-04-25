@@ -197,29 +197,49 @@ export default function AuditAIVisibility() {
               you a full report. Usually within 24 hours.
             </p>
 
-            {/* Cross-sell to strategy call */}
-            <div className="rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-left">
-              <div className="flex items-start gap-3 mb-2">
-                <Globe className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Want to walk through the audit with a human?
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Book a 60-minute strategy call. Bilingual EN, FR-CA, ES, ZH,
-                    AR, RU, UK, SR. Free, no pitch.
-                  </p>
+            {/* Cross-sell to GBP Pulse + strategy call */}
+            <div className="grid sm:grid-cols-2 gap-3 text-left">
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-1.5">
+                  Want a faster snapshot?
                 </div>
+                <h3 className="font-display text-lg mb-1.5 leading-tight">
+                  GBP Pulse, 90 seconds.
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                  Score your Google Business Profile across 10 signals. Instant,
+                  no email.
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigate("/audit/gbp")}
+                  className="rounded-full border-primary/40 hover:bg-primary/10 text-xs"
+                >
+                  <Star className="w-3.5 h-3.5 mr-1.5" />
+                  Run the GBP Pulse
+                </Button>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => navigate("/book-call")}
-                className="mt-3 rounded-full border-secondary/40 hover:bg-secondary/10"
-              >
-                <Star className="w-4 h-4 mr-2" />
-                Book a strategy call
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <div className="rounded-xl border border-secondary/30 bg-secondary/5 p-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-secondary/90 mb-1.5">
+                  Want a human walkthrough?
+                </div>
+                <h3 className="font-display text-lg mb-1.5 leading-tight">
+                  Strategy call, 60 minutes.
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                  Bilingual EN, FR-CA, ES, ZH, AR, RU, UK, SR. Free, no pitch.
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigate("/book-call")}
+                  className="rounded-full border-secondary/40 hover:bg-secondary/10 text-xs"
+                >
+                  <Globe className="w-3.5 h-3.5 mr-1.5" />
+                  Book a call
+                </Button>
+              </div>
             </div>
           </div>
         )}

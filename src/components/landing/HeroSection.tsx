@@ -163,14 +163,22 @@ export function HeroSection() {
             <div className="mb-6">
               <HeroAuditForm />
             </div>
-            <div className="flex items-center gap-3 mb-3 text-xs text-muted-foreground/70 justify-center lg:justify-start">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3 text-xs text-muted-foreground/70 justify-center lg:justify-start">
               <span>or</span>
+              <button
+                type="button"
+                onClick={() => navigate("/audit/gbp")}
+                className="font-mono uppercase tracking-[0.18em] text-foreground/80 hover:text-primary transition-colors underline-offset-4 hover:underline"
+              >
+                Score your GBP in 90 sec →
+              </button>
+              <span className="text-border">·</span>
               <button
                 type="button"
                 onClick={() => navigate("/book-call")}
                 className="font-mono uppercase tracking-[0.18em] text-foreground/80 hover:text-primary transition-colors underline-offset-4 hover:underline"
               >
-                Book a 60-min strategy call →
+                Book a strategy call →
               </button>
             </div>
           </ScrollReveal>

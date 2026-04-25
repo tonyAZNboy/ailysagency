@@ -19,6 +19,7 @@ import CookiePolicy from "./pages/legal/CookiePolicy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
+import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
 import Help from "./pages/Help";
 import HelpArticle from "./pages/HelpArticle";
@@ -61,6 +62,8 @@ const App = () => (
                 {/* Audit (lead magnet) */}
                 <Route path="/audit" element={<AuditAIVisibility />} />
                 <Route path="/audit/ai-visibility" element={<AuditAIVisibility />} />
+                <Route path="/audit/gbp" element={<AuditGbpPulse />} />
+                <Route path="/audit/gbp-pulse" element={<AuditGbpPulse />} />
 
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
