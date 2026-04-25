@@ -1,0 +1,45 @@
+# AiLys Agency · Cloudflare Pages security headers
+# Aiming for A+ on https://securityheaders.com and Mozilla Observatory.
+#
+# CSP intentionally allows fonts.googleapis.com and Reviuzy supabase project
+# (audit backend). Tighten further once we move to AiLys's own Supabase.
+
+/*
+  # Strict transport: 2-year HSTS with preload eligibility
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # No iframe embedding allowed (clickjacking protection)
+  X-Frame-Options: DENY
+  Content-Security-Policy-Report-Only: frame-ancestors 'none'
+
+  # MIME sniffing off
+  X-Content-Type-Options: nosniff
+
+  # XSS hard mode (legacy browsers)
+  X-XSS-Protection: 1; mode=block
+
+  # Referrer info: send to same-origin, only origin to cross-origin
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions Policy: lock down sensors and APIs we do not use
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(self), picture-in-picture=(), publickey-credentials-get=(self), screen-wake-lock=(), sync-xhr=(self), usb=(), web-share=(self), xr-spatial-tracking=()
+
+  # Cross-Origin policies (light, since we embed external scripts)
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Resource-Policy: cross-origin
+
+  # Content Security Policy
+  # default-src 'self' for everything except where we explicitly need third-party
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://cdn.jsdelivr.net https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https: http:; media-src 'self' https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com https://www.youtube.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests; report-uri /csp-report
+
+  # Cache static assets aggressively
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages: short cache + must-revalidate for fast deploys
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# JSON / API responses: no cache
+/api/*
+  Cache-Control: no-cache, no-store, must-revalidate

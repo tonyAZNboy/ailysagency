@@ -1,138 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Homepage - Highest Priority -->
-  <url>
-    <loc>https://www.reviuzy.com/</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://www.reviuzy.com/reviuzy-logo.png</image:loc>
-      <image:title>Reviuzy - AI-Powered Review Management Platform</image:title>
-      <image:caption>Reviuzy helps local businesses collect Google reviews via NFC and generate AI-powered responses</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Authentication Pages -->
-  <url>
-    <loc>https://www.reviuzy.com/auth/signup</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/auth/login</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Free Audit Tool -->
-  <url>
-    <loc>https://www.reviuzy.com/audit</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Legal Pages -->
-  <url>
-    <loc>https://www.reviuzy.com/privacy</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/terms</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/cookies</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <!-- Blog Index -->
-  <url>
-    <loc>https://www.reviuzy.com/blog</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://www.reviuzy.com/blog/free-google-business-profile-seo-rank-higher</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/how-to-build-sustainable-review-collection-system</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/why-recurring-reviews-boost-google-ranking</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/reviews-power-reviews-the-social-proof-effect</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/negative-reviews-turn-lemons-into-lemonade</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/local-seo-ai-adapt-or-fall-behind</loc>
-    <lastmod>2026-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/bot-reviews-vs-real-spotting-fakes</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/5-star-reviews-the-psychology-behind-them</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.reviuzy.com/blog/review-analytics-track-growth-boost-business</loc>
-    <lastmod>2026-02-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-</urlset>
+  <!--
+    AiLys Agency · Master sitemap index
+    Generated: 2026-04-25
+
+    Submit per-language sitemaps to Google Search Console one at a time:
+    1. EN  ← submit first, wait 2-4 weeks for full indexing
+    2. FR  ← submit second
+    3 to 16 ← weekly cadence as translations land
+  -->
+
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-en.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-fr.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-es.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-zh.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-ar.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-ru.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-de.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-it.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-pt.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-ja.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-ko.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-hi.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-nl.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-pl.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-tr.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.ailysagency.ca/sitemap-vi.xml</loc>
+    <lastmod>2026-04-25</lastmod>
+  </sitemap>
+</sitemapindex>

@@ -57,6 +57,42 @@ export default function HelpArticle() {
       <Helmet>
         <title>{article.title} · AiLys Agency Help</title>
         <meta name="description" content={article.excerpt} />
+        <link rel="canonical" href={`https://www.ailysagency.ca/help/${article.slug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ailysagency.ca/" },
+                  { "@type": "ListItem", position: 2, name: "Help", item: "https://www.ailysagency.ca/help" },
+                  { "@type": "ListItem", position: 3, name: meta.label, item: `https://www.ailysagency.ca/help#${article.category}` },
+                  { "@type": "ListItem", position: 4, name: article.title, item: `https://www.ailysagency.ca/help/${article.slug}` },
+                ],
+              },
+              {
+                "@type": "TechArticle",
+                "@id": `https://www.ailysagency.ca/help/${article.slug}#article`,
+                headline: article.title,
+                description: article.excerpt,
+                datePublished: article.updatedAt,
+                dateModified: article.updatedAt,
+                wordCount: article.body.split(/\s+/).length,
+                inLanguage: "en-CA",
+                articleSection: meta.label,
+                proficiencyLevel: "Beginner",
+                author: { "@id": "https://www.ailysagency.ca/#organization" },
+                publisher: { "@id": "https://www.ailysagency.ca/#organization" },
+                mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.ailysagency.ca/help/${article.slug}` },
+                speakable: {
+                  "@type": "SpeakableSpecification",
+                  cssSelector: ["h1", ".prose p:first-of-type"],
+                },
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <NetworkBackground

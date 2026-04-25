@@ -40,6 +40,12 @@
     <meta name="citation_online_date" content="2026-04-25" />
     <meta name="citation_abstract" content="AiLys Agency delivers LLM visibility and optimization services to local businesses. Our work includes Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and E-E-A-T strategy that gets local brands cited inside AI search answers across ChatGPT, Perplexity, Claude, Gemini, Google AIO and Bing Copilot." />
 
+    <!-- Search engine verification (replace VERIFY_CODE values with real codes from each console) -->
+    <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
+    <meta name="msvalidate.01" content="REPLACE_WITH_BING_VERIFICATION_CODE" />
+    <meta name="yandex-verification" content="REPLACE_WITH_YANDEX_VERIFICATION_CODE" />
+    <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_VERIFICATION_CODE" />
+
     <link rel="canonical" href="https://www.ailysagency.ca" />
     <link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca" />
     <link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr" />
@@ -88,7 +94,27 @@
           "name": "AiLys Agency",
           "description": "LLM Visibility & Optimization agency for local businesses. AEO, GEO, E-E-A-T. Made in Québec.",
           "publisher": {"@id": "https://www.ailysagency.ca/#organization"},
-          "inLanguage": ["en-CA", "fr-CA", "es"]
+          "inLanguage": ["en-CA", "fr-CA", "es", "zh", "ar", "ru", "de", "it", "pt", "ja", "ko", "hi", "nl", "pl", "tr", "vi"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.ailysagency.ca/help?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.ailysagency.ca/#breadcrumb",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ailysagency.ca/"}
+          ]
+        },
+        {
+          "@type": "SpeakableSpecification",
+          "@id": "https://www.ailysagency.ca/#speakable",
+          "cssSelector": ["#hero-heading", ".ailys-section-no", ".font-display"]
         },
         {
           "@type": "ProfessionalService",

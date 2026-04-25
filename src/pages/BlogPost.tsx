@@ -90,22 +90,59 @@ export default function BlogPost() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            description: post.excerpt,
-            datePublished: post.publishedAt,
-            author: { "@type": "Organization", name: post.author },
-            publisher: {
-              "@type": "Organization",
-              name: "AiLys Agency",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.ailysagency.ca/ailys-logo.svg",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ailysagency.ca/" },
+                  { "@type": "ListItem", position: 2, name: "Journal", item: "https://www.ailysagency.ca/blog" },
+                  { "@type": "ListItem", position: 3, name: post.title, item: `https://www.ailysagency.ca/blog/${post.slug}` },
+                ],
               },
-            },
-            mainEntityOfPage: `https://www.ailysagency.ca/blog/${post.slug}`,
-            keywords: post.tags.join(", "),
-            articleSection: meta.label,
+              {
+                "@type": "Article",
+                "@id": `https://www.ailysagency.ca/blog/${post.slug}#article`,
+                headline: post.title,
+                alternativeHeadline: post.excerpt,
+                description: post.excerpt,
+                datePublished: post.publishedAt,
+                dateModified: post.publishedAt,
+                wordCount: post.content.split(/\s+/).length,
+                inLanguage: post.language === "fr" ? "fr-CA" : post.language,
+                articleSection: meta.label,
+                keywords: post.tags.join(", "),
+                author: {
+                  "@type": "Organization",
+                  "@id": "https://www.ailysagency.ca/#organization",
+                  name: post.author,
+                  url: "https://www.ailysagency.ca",
+                },
+                publisher: { "@id": "https://www.ailysagency.ca/#organization" },
+                isPartOf: { "@id": "https://www.ailysagency.ca/#website" },
+                mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.ailysagency.ca/blog/${post.slug}` },
+                speakable: {
+                  "@type": "SpeakableSpecification",
+                  cssSelector: ["h1", ".prose p:first-of-type", ".prose h2"],
+                },
+                image: {
+                  "@type": "ImageObject",
+                  url: "https://www.ailysagency.ca/ailys-og.png",
+                  width: 1200,
+                  height: 630,
+                },
+              },
+              {
+                "@type": "WebPage",
+                "@id": `https://www.ailysagency.ca/blog/${post.slug}`,
+                url: `https://www.ailysagency.ca/blog/${post.slug}`,
+                name: post.title,
+                description: post.excerpt,
+                isPartOf: { "@id": "https://www.ailysagency.ca/#website" },
+                primaryImageOfPage: "https://www.ailysagency.ca/ailys-og.png",
+                datePublished: post.publishedAt,
+                inLanguage: post.language === "fr" ? "fr-CA" : post.language,
+              },
+            ],
           })}
         </script>
       </Helmet>
