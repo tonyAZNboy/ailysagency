@@ -151,7 +151,7 @@ export function HeroAuditCard() {
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
               placeholder="Business name"
-              className="h-11 bg-white/95 border-white/60 text-foreground placeholder:text-foreground/50 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
               required
               aria-label="Business name"
             />
@@ -159,7 +159,7 @@ export function HeroAuditCard() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               placeholder="City"
-              className="h-11 bg-white/95 border-white/60 text-foreground placeholder:text-foreground/50 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
               required
               aria-label="City"
             />

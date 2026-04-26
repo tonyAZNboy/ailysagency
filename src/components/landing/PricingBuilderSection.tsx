@@ -102,10 +102,9 @@ export function PricingBuilderSection() {
           </div>
         </div>
 
-        <ScrollReveal variant="fade-up" delay={200} duration={700}>
-          <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
-            {/* Inputs */}
-            <div className="rounded-2xl border border-border/50 bg-card/40 backdrop-blur-md p-6 sm:p-7 space-y-7">
+        <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
+          {/* Inputs */}
+          <div className="rounded-2xl border border-border/50 bg-card/40 backdrop-blur-md p-6 sm:p-7 space-y-7">
               {/* Pages slider */}
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -202,8 +201,8 @@ export function PricingBuilderSection() {
               </div>
             </div>
 
-            {/* Price output */}
-            <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-7 lg:sticky lg:top-28">
+          {/* Price output (sticky on desktop, follows scroll) */}
+          <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-7 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
               <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
                 <Sliders className="w-4 h-4 text-primary" />
                 <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
@@ -243,13 +242,12 @@ export function PricingBuilderSection() {
               >
                 Start with {computed.tier.name}
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-              <p className="text-[10px] text-center text-muted-foreground/70 font-mono uppercase tracking-[0.18em]">
-                Free audit first · No credit card
-              </p>
-            </div>
+            </Button>
+            <p className="text-[10px] text-center text-muted-foreground/70 font-mono uppercase tracking-[0.18em]">
+              Free audit first · No credit card
+            </p>
           </div>
-        </ScrollReveal>
+        </div>
 
         <ScrollReveal variant="fade-up" delay={500} duration={600}>
           <p className="mt-10 text-center text-xs font-mono text-muted-foreground/60 max-w-2xl mx-auto">
