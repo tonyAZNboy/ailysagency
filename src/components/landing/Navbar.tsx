@@ -17,12 +17,14 @@ export function Navbar() {
   const mobileMenuScrollRef = useRef<HTMLDivElement>(null);
 
   const blogHref = lang === 'en' ? '/blog' : `/${lang}/blog`;
+  const helpHref = lang === 'en' ? '/help' : `/${lang}/help`;
   const navLinks = [
     { label: t.nav.features, href: "#services" },
-    { label: t.nav.howItWorks, href: "#process" },
-    { label: t.nav.pricing, href: "#services" },
+    { label: t.nav.howItWorks, href: "#methodology" },
+    { label: t.nav.pricing, href: "#pricing-builder" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.blog, href: blogHref },
+    { label: "Help", href: helpHref },
   ];
 
   useEffect(() => {
