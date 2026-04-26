@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -18,12 +18,19 @@ import {
   Calendar,
   Mail,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import {
   auditSourceClient,
   type AuditResult,
 } from "@/integrations/audit-source/client";
+
+interface PrefilledLocationState {
+  businessName?: string;
+  city?: string;
+  industry?: string;
+  prefilled?: boolean;
+}
 
 export type AuditFlavor = "gbp" | "ai-visibility";
 
@@ -41,13 +48,16 @@ interface AutoAuditEngineProps {
  */
 export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngineProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
-  const [businessName, setBusinessName] = useState("");
-  const [industry, setIndustry] = useState(defaultIndustry);
-  const [city, setCity] = useState("");
+  const prefill = (location.state ?? {}) as PrefilledLocationState;
+  const [businessName, setBusinessName] = useState(prefill.businessName ?? "");
+  const [industry, setIndustry] = useState(prefill.industry ?? defaultIndustry ?? "Local business");
+  const [city, setCity] = useState(prefill.city ?? "");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
   const [unlocked, setUnlocked] = useState(false);
+  const autoRanRef = useRef(false);
   const [email, setEmail] = useState("");
   const [submittingEmail, setSubmittingEmail] = useState(false);
 
@@ -115,6 +125,23 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
       setLoading(false);
     }
   };
+
+  // Auto-run when arriving with prefilled state from the hero card
+  useEffect(() => {
+    if (
+      prefill.prefilled &&
+      prefill.businessName &&
+      prefill.city &&
+      !autoRanRef.current &&
+      !result &&
+      !loading
+    ) {
+      autoRanRef.current = true;
+      // Small delay so users see the form fill in before the spinner kicks
+      setTimeout(() => runAudit(), 350);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleUnlock = async () => {
     const trimmed = email.trim();

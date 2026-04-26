@@ -379,7 +379,8 @@ export function ServicesSection() {
 
               <ComparisonRow label="Starting price" left="$2,000/mo" right="$300/mo" highlight />
               <ComparisonRow label="Languages served" left="EN, FR" right="EN, FR, ES, ZH, AR, RU, UK, SR" />
-              <ComparisonRow label="Focus" left="17 services" right="LLM visibility, deeply" />
+              <ComparisonRow label="Focus" left="17 generalist services" right="Classical SEO + LLM visibility, layered" />
+              <ComparisonRow label="What we do" left="SEO, content, PPC, etc." right="Technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T" highlight />
               <ComparisonRow label="Operational backbone" left="Hand-built" right="Reviuzy SaaS automated" />
               <ComparisonRow label="Money-back guarantee" left="Yes" right="Yes, 30 days" highlight />
             </div>

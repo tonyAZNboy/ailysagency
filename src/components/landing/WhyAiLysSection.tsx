@@ -43,7 +43,7 @@ const rows: Competitor[] = [
     weakness:
       "Strong on classic local SEO. Light on AEO/GEO/E-E-A-T integration.",
     ailysPosition:
-      "Built around AI search from day one. Reviews and GBP feed the LLM citation engine, not the other way around.",
+      "Same classical SEO foundation (technical, on-page, citations, GBP), with the AEO + GEO + E-E-A-T layer built in from day one. The two halves feed each other.",
   },
 ];
 
