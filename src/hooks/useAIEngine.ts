@@ -1,13 +1,17 @@
 // AiLys Agency · chat hook
-// Calls the AiLys-specific Supabase edge functions:
-//   - ailys-chat-classify  (intent + sentiment)
-//   - ailys-chat-respond   (conversational reply)
 //
-// The responder may embed action tokens like [ACTION:show_audit_cta]{...}[/ACTION].
-// We strip those out of the visible text and surface them as `actions` so the
-// chat widget can render the matching CTA buttons.
+// Routes chat through Reviuzy's existing ai-engine-classify and ai-engine-respond
+// edge functions (production-tested, already deployed). Same pattern as the audit
+// engine in src/integrations/audit-source/client.ts.
+//
+// Reviuzy's responder is tuned for Reviuzy product questions, so AiLys chat will
+// lean review-focused for now. When we provision AiLys's own Supabase project,
+// swap auditSourceClient below for the AiLys-specific client + ailys-chat-* functions.
+//
+// TODO(ailys-chat): swap to AiLys Supabase + ailys-chat-classify/respond once provisioned.
+
 import { useState, useCallback, useRef } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { auditSourceClient } from "@/integrations/audit-source/client";
 import { useToast } from "@/components/ui/use-toast";
 
 export interface AIEngineMessage {
@@ -51,7 +55,6 @@ function parseActions(text: string): { cleanText: string; actions: AIAction[] } 
   return { cleanText, actions };
 }
 
-// Stable visitor id for analytics + rate limiting.
 function getVisitorSessionId(): string {
   if (typeof window === "undefined") return "ssr";
   const key = "ailys_visitor_session";
@@ -63,6 +66,10 @@ function getVisitorSessionId(): string {
   return sessionId;
 }
 
+const REVIUZY_URL = "https://qucxhksrpqunlyjjvuae.supabase.co";
+const REVIUZY_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1Y3hoa3NycHF1bmx5amp2dWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ5NjU4ODEsImV4cCI6MjA3MDU0MTg4MX0.Bd4wu_DdAJN8OknkoXBjCpIt8F4q-j54LrkzE_zioVs";
+
 export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
   const [messages, setMessages] = useState<AIEngineMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -71,13 +78,14 @@ export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
 
   const classify = useCallback(async (message: string): Promise<Classification> => {
     try {
-      const { data, error } = await supabase.functions.invoke("ailys-chat-classify", {
-        body: { message },
-      });
+      const { data, error } = await auditSourceClient.functions.invoke(
+        "ai-engine-classify",
+        { body: { message } },
+      );
       if (error) throw error;
       return data as Classification;
     } catch {
-      return { intent: "general", confidence: 0.5, sentiment: "neutral" };
+      return { intent: "general_question", confidence: 0.5, sentiment: "neutral" };
     }
   }, []);
 
@@ -98,25 +106,80 @@ export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
       try {
         const classification = await classify(trimmed);
 
+        // Stream from Reviuzy's ai-engine-respond. We use raw fetch because the
+        // function streams tokens back. supabase.functions.invoke buffers fully.
         abortRef.current = new AbortController();
-        const { data, error } = await supabase.functions.invoke("ailys-chat-respond", {
-          body: {
+        const resp = await fetch(`${REVIUZY_URL}/functions/v1/ai-engine-respond`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${REVIUZY_KEY}`,
+            apikey: REVIUZY_KEY,
+          },
+          body: JSON.stringify({
             message: trimmed,
+            mode: "landing",
             history: messages.slice(-10).map((m) => ({ role: m.role, content: m.content })),
             classification,
+            tenantId: null,
             visitorSessionId: getVisitorSessionId(),
-          },
+          }),
+          signal: abortRef.current.signal,
         });
 
-        if (error) throw error;
+        if (!resp.ok) {
+          const errText = await resp.text().catch(() => "");
+          throw new Error(`Chat backend ${resp.status}: ${errText.slice(0, 100)}`);
+        }
 
-        const rawContent = (data as { content?: string })?.content ?? "";
-        const { cleanText, actions } = parseActions(rawContent);
+        // Try to read as a stream first, fall back to whole-body text
+        let fullText = "";
+        const contentType = resp.headers.get("content-type") ?? "";
+
+        if (resp.body && contentType.includes("text/event-stream")) {
+          const reader = resp.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            // Parse SSE lines
+            let nl: number;
+            while ((nl = buffer.indexOf("\n")) !== -1) {
+              const line = buffer.slice(0, nl);
+              buffer = buffer.slice(nl + 1);
+              if (line.startsWith("data: ")) {
+                const payload = line.slice(6).trim();
+                if (payload === "[DONE]") continue;
+                try {
+                  const obj = JSON.parse(payload);
+                  if (typeof obj?.content === "string") fullText += obj.content;
+                  else if (typeof obj?.text === "string") fullText += obj.text;
+                  else if (typeof obj?.delta === "string") fullText += obj.delta;
+                } catch {
+                  // skip non-JSON lines
+                }
+              }
+            }
+          }
+        } else {
+          // Plain JSON or text response
+          const text = await resp.text();
+          try {
+            const obj = JSON.parse(text);
+            fullText = obj.content ?? obj.text ?? obj.response ?? text;
+          } catch {
+            fullText = text;
+          }
+        }
+
+        const { cleanText, actions } = parseActions(fullText);
 
         const assistantMsg: AIEngineMessage = {
           id: `ai-${Date.now()}`,
           role: "assistant",
-          content: cleanText,
+          content: cleanText || "(empty response)",
           metadata: {
             intent: classification.intent,
             sentiment: classification.sentiment,
@@ -127,9 +190,11 @@ export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
         };
         setMessages((prev) => [...prev, assistantMsg]);
       } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error("[AiLys chat] error:", err);
         toast({
           title: "Chat unavailable",
-          description: "Our AI advisor is offline. Try the free AI Visibility Audit instead.",
+          description: "Try the free AI Visibility Audit instead.",
           variant: "destructive",
         });
         const fallback: AIEngineMessage = {
@@ -138,18 +203,18 @@ export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
           content:
             "Our AI advisor is offline right now. The fastest way to get a real answer about your business is the free AI Visibility Audit. We will reply within 24 hours.",
           metadata: {
-            actions: [{ action: "show_audit_cta", label: "Run my AI Visibility Audit", href: "/audit" }],
+            actions: [
+              { action: "show_audit_cta", label: "Run my AI Visibility Audit", href: "/audit" },
+            ],
           },
           created_at: new Date().toISOString(),
         };
         setMessages((prev) => [...prev, fallback]);
-        // eslint-disable-next-line no-console
-        console.error("[AiLys chat] error:", err);
       } finally {
         setIsLoading(false);
       }
     },
-    [classify, isLoading, messages, toast]
+    [classify, isLoading, messages, toast],
   );
 
   const clearMessages = useCallback(() => setMessages([]), []);
