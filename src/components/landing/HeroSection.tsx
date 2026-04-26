@@ -4,20 +4,23 @@ import {
   MessageSquareQuote,
   Bot,
   ChevronRight,
+  CalendarCheck,
+  ArrowRight,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   ScrollReveal,
   TextReveal,
   GradientTextReveal,
+  MagneticWrapper,
   ParallaxLayer,
   ParallaxBackground,
   FloatingElement,
 } from "@/components/animation";
+import { Button } from "@/components/ui/button";
 import { useLang } from "@/i18n/LangContext";
 import { LiveTicker } from "./LiveTicker";
 import { HeroAuditCard } from "./HeroAuditCard";
-import { HeroAuditForm } from "./HeroAuditForm";
 
 const industries = [
   "Restaurants",
@@ -158,29 +161,38 @@ export function HeroSection() {
             </div>
           </ScrollReveal>
 
-          {/* Inline audit form (replaces old CTA buttons) */}
+          {/* Primary CTA: Book a Strategy Call (audit form lives in the right gradient card) */}
           <ScrollReveal variant="fade-up" delay={600} duration={700}>
-            <div className="mb-6">
-              <HeroAuditForm />
-            </div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3 text-xs text-muted-foreground/70 justify-center lg:justify-start">
-              <span>or</span>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4 max-w-xl">
+              <MagneticWrapper strength={0.12}>
+                <Button
+                  size="lg"
+                  onClick={() => navigate("/book-call")}
+                  className="w-full sm:w-auto rounded-full font-semibold text-base px-7 py-6 group relative overflow-hidden"
+                  style={{
+                    boxShadow:
+                      "0 0 32px hsl(var(--primary) / 0.45), 0 0 64px hsl(var(--secondary) / 0.25)",
+                    background:
+                      "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)))",
+                  }}
+                >
+                  <CalendarCheck className="w-5 h-5 mr-2" aria-hidden="true" />
+                  Book a 60-min strategy call
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </MagneticWrapper>
               <button
                 type="button"
                 onClick={() => navigate("/audit/gbp")}
-                className="font-mono uppercase tracking-[0.18em] text-foreground/80 hover:text-primary transition-colors underline-offset-4 hover:underline"
+                className="px-5 py-3 rounded-full border border-border/50 hover:border-primary/50 text-sm font-medium transition-colors text-foreground/85 hover:text-primary"
               >
                 Score your GBP in 90 sec →
               </button>
-              <span className="text-border">·</span>
-              <button
-                type="button"
-                onClick={() => navigate("/book-call")}
-                className="font-mono uppercase tracking-[0.18em] text-foreground/80 hover:text-primary transition-colors underline-offset-4 hover:underline"
-              >
-                Book a strategy call →
-              </button>
             </div>
+            <p className="text-xs text-muted-foreground/70 mb-3 max-w-md">
+              Free, no pitch. Bilingual EN, FR-CA, ES, ZH, AR, RU, UK, SR.
+              We send a strategy doc whether you sign or not.
+            </p>
           </ScrollReveal>
 
           {/* Aspirational live ticker */}
