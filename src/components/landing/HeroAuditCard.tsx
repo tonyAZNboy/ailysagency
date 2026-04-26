@@ -24,6 +24,7 @@ export function HeroAuditCard() {
   const { toast } = useToast();
   const [businessName, setBusinessName] = useState("");
   const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [citation, setCitation] = useState<LiveCitation | null>(null);
 
@@ -43,10 +44,11 @@ export function HeroAuditCard() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!businessName.trim() || !city.trim()) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!businessName.trim() || !city.trim() || !emailRegex.test(email.trim())) {
       toast({
-        title: "Two quick fields",
-        description: "We need a business name and a city to run the audit.",
+        title: "We need three things",
+        description: "Business name, city, and a valid email so we can send the full report.",
         variant: "destructive",
       });
       return;
@@ -54,7 +56,7 @@ export function HeroAuditCard() {
     setSubmitting(true);
     setTimeout(() => {
       navigate("/audit", {
-        state: { businessName, city, prefilled: true },
+        state: { businessName, city, email, prefilled: true },
       });
     }, 300);
   };
@@ -162,6 +164,15 @@ export function HeroAuditCard() {
               className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
               required
               aria-label="City"
+            />
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@business.ca"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              required
+              aria-label="Email"
             />
             <Button
               type="submit"

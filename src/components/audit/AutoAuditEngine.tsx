@@ -29,6 +29,7 @@ interface PrefilledLocationState {
   businessName?: string;
   city?: string;
   industry?: string;
+  email?: string;
   prefilled?: boolean;
 }
 
@@ -54,11 +55,11 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
   const [businessName, setBusinessName] = useState(prefill.businessName ?? "");
   const [industry, setIndustry] = useState(prefill.industry ?? defaultIndustry ?? "Local business");
   const [city, setCity] = useState(prefill.city ?? "");
+  const [email, setEmail] = useState(prefill.email ?? "");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
   const [unlocked, setUnlocked] = useState(false);
   const autoRanRef = useRef(false);
-  const [email, setEmail] = useState("");
   const [submittingEmail, setSubmittingEmail] = useState(false);
 
   const flavorMeta = {
@@ -85,10 +86,11 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
   }[flavor];
 
   const runAudit = async () => {
-    if (!businessName.trim() || !industry.trim() || !city.trim()) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!businessName.trim() || !industry.trim() || !city.trim() || !emailRegex.test(email.trim())) {
       toast({
-        title: "We need three things",
-        description: "Business name, industry, and city.",
+        title: "We need four things",
+        description: "Business name, industry, city, and a valid email.",
         variant: "destructive",
       });
       return;
@@ -97,6 +99,25 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
     setResult(null);
     setUnlocked(false);
     try {
+      // Capture lead immediately so we have the email even if they bounce before unlock
+      auditSourceClient.functions
+        .invoke("capture-landing-lead", {
+          body: {
+            name: businessName.trim(),
+            email: email.trim(),
+            businessName: businessName.trim(),
+            chatMessages: [
+              {
+                role: "system",
+                content: `[AiLys ${flavor === "gbp" ? "GBP Pulse" : "AI Visibility Audit"}] ${businessName} / ${industry} / ${city}`,
+              },
+            ],
+          },
+        })
+        .catch(() => {
+          // non-blocking; we will still try again at unlock time
+        });
+
       const { data, error } = await auditSourceClient.functions.invoke(
         "reputation-audit",
         {
@@ -127,17 +148,20 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
   };
 
   // Auto-run when arriving with prefilled state from the hero card
+  // (only fires when ALL fields including email are present)
   useEffect(() => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (
       prefill.prefilled &&
       prefill.businessName &&
       prefill.city &&
+      prefill.email &&
+      emailRegex.test(prefill.email) &&
       !autoRanRef.current &&
       !result &&
       !loading
     ) {
       autoRanRef.current = true;
-      // Small delay so users see the form fill in before the spinner kicks
       setTimeout(() => runAudit(), 350);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -224,6 +248,7 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
             className="bg-background/50 border-border/50 h-11"
             disabled={loading}
             aria-label="Business name"
+            required
           />
           <div className="grid sm:grid-cols-2 gap-3">
             <Input
@@ -233,6 +258,7 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
               className="bg-background/50 border-border/50 h-11"
               disabled={loading}
               aria-label="Industry"
+              required
             />
             <Input
               value={city}
@@ -241,8 +267,22 @@ export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngin
               className="bg-background/50 border-border/50 h-11"
               disabled={loading}
               aria-label="City"
+              required
             />
           </div>
+          <Input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@business.ca"
+            className="bg-background/50 border-border/50 h-11"
+            disabled={loading}
+            aria-label="Email"
+            required
+          />
+          <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
+            Email required · We send the full report and the action plan there
+          </p>
         </div>
 
         <Button
