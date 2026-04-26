@@ -2,8 +2,8 @@ export const fr = {
   nav: { features: "Fonctionnalités", howItWorks: "Comment Ça Marche", audit: "Audit Gratuit", blog: "Blog", pricing: "Tarifs", faq: "FAQ", login: "Connexion", startTrial: "Rejoindre la Bêta Release" },
   hero: {
     // FR-CA — agence de visibilité LLM (2026)
-    eyebrow: "Agence de visibilité et optimisation LLM",
-    eyebrowPills: "AEO · GEO · E-E-A-T",
+    eyebrow: "AiLys · SEO moderne et visibilité LLM",
+    eyebrowPills: "SEO classique · AEO · GEO · E-E-A-T · Fait au Québec",
     headline1: "Faites-vous citer par ChatGPT, Perplexity et Google AIO.",
     headline2: "Conçu pour les commerces locaux.",
     subheadline: "Reviuzy est l'agence de réputation IA pour les PME. Nous transformons vos avis, citations et fiche Google en signaux qui font apparaître votre marque dans les réponses des LLM — où 1,2 G de personnes cherchent maintenant.",

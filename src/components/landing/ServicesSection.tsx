@@ -30,7 +30,9 @@ const tiers: Tier[] = [
     tagline:
       "For solo restos, indie practitioners, small salons getting visible in AI search.",
     features: [
+      "Technical SEO + on-page basics",
       "Google Business Profile management",
+      "NAP consistency check across 20+ directories",
       "LLM citation tracking across 6 engines",
       "Monthly performance report",
       "One strategy call per month",
@@ -48,7 +50,8 @@ const tiers: Tier[] = [
       "For dentists, contractors, growing restos that need to be cited by name.",
     features: [
       "Everything in Starter",
-      "AEO schema implementation",
+      "AEO schema implementation (FAQ, Review, LocalBusiness, HowTo)",
+      "Backlink building from real publications",
       "Citation building, 5 per month",
       "Bilingual content, one piece per month",
       "Bi-weekly strategy call",
@@ -66,7 +69,8 @@ const tiers: Tier[] = [
     tagline: "For multi-location, franchises, expansion plays.",
     features: [
       "Everything in Core",
-      "GEO entity authority work",
+      "GEO entity authority (Wikipedia, Wikidata, digital PR)",
+      "Reddit + industry forum participation",
       "Citation building, 10+ per month",
       "Weekly bilingual content",
       "Competitive monitoring",

@@ -81,6 +81,17 @@ export function AboutSection() {
                 </p>
 
                 <p>
+                  We grew out of classical SEO discipline applied to the AI
+                  search era, not the reverse. Every plan we ship is built on
+                  the same foundation that worked for Google in 2010 and still
+                  works in 2026: clean technical SEO, complete Google Business
+                  Profile, NAP consistency, real backlinks, citations across
+                  high-authority sources. On top of that foundation we add
+                  AEO, GEO, and E-E-A-T work tuned for the LLM era. Skip the
+                  foundation and the AI layer has nothing to stand on.
+                </p>
+
+                <p>
                   We are based in Montréal. We work in English and French. Our
                   delivery is automated where it should be, hand-crafted where
                   it counts. We answer the phone. We send a real human to your
