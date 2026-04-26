@@ -14,7 +14,7 @@ interface BookingRequest {
 
 export default function AdminBookings() {
   return (
-    <AdminTable<BookingRequest>
+    <AdminTable
       title="Strategy call bookings"
       description="Calendar requests from the BookCallSection form. Schedule, reschedule, cancel."
       table="booking_requests"

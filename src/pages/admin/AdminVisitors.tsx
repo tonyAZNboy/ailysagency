@@ -16,7 +16,7 @@ interface Visitor {
 
 export default function AdminVisitors() {
   return (
-    <AdminTable<Visitor>
+    <AdminTable
       title="Visitors"
       description="Unique visitor sessions tracked via localStorage id. Filter by source, country, language."
       table="visitor_sessions"

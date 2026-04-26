@@ -16,7 +16,7 @@ import {
 } from "@/components/animation";
 import { useLang } from "@/i18n/LangContext";
 import { LiveTicker } from "./LiveTicker";
-import { HeroAnswerEngineVisual } from "./HeroAnswerEngineVisual";
+import { HeroAuditCard } from "./HeroAuditCard";
 import { HeroAuditForm } from "./HeroAuditForm";
 
 const industries = [
@@ -236,11 +236,11 @@ export function HeroSection() {
           </ScrollReveal>
         </div>
 
-        {/* RIGHT — answer-engine visual */}
+        {/* RIGHT — punchy audit card */}
         <div className="hidden lg:block">
           <ScrollReveal variant="fade-up" delay={300} duration={800}>
-            <FloatingElement amplitude={8} duration={6} delay={0}>
-              <HeroAnswerEngineVisual />
+            <FloatingElement amplitude={6} duration={6} delay={0}>
+              <HeroAuditCard />
             </FloatingElement>
           </ScrollReveal>
         </div>

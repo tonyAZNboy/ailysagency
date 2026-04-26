@@ -16,7 +16,7 @@ interface ChatSession {
 
 export default function AdminChats() {
   return (
-    <AdminTable<ChatSession>
+    <AdminTable
       title="Chat sessions"
       description="Every conversation with the LandingChatWidget. Filter by intent, see CTA conversion."
       table="chat_sessions"

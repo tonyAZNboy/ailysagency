@@ -13,7 +13,7 @@ interface AuditRequest {
 
 export default function AdminLeads() {
   return (
-    <AdminTable<AuditRequest>
+    <AdminTable
       title="Audit leads"
       description="Every Hero form, /audit page, and CTA section submission. Triage status, deliver reports."
       table="audit_requests"
