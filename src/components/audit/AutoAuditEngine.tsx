@@ -47,15 +47,21 @@ interface AutoAuditEngineProps {
  * renders an animated score, gates the full diagnostic behind email capture,
  * sends the full report by email on unlock.
  */
-export function AutoAuditEngine({ flavor, defaultIndustry = "" }: AutoAuditEngineProps) {
+export function AutoAuditEngine({
+  flavor,
+  defaultIndustry = "Local business",
+}: AutoAuditEngineProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
   const prefill = (location.state ?? {}) as PrefilledLocationState;
-  const [businessName, setBusinessName] = useState(prefill.businessName ?? "");
-  const [industry, setIndustry] = useState(prefill.industry ?? defaultIndustry ?? "Local business");
-  const [city, setCity] = useState(prefill.city ?? "");
-  const [email, setEmail] = useState(prefill.email ?? "");
+  // `||` instead of `??` so an empty-string fallback still triggers the next default
+  const [businessName, setBusinessName] = useState(prefill.businessName || "");
+  const [industry, setIndustry] = useState(
+    prefill.industry || defaultIndustry || "Local business",
+  );
+  const [city, setCity] = useState(prefill.city || "");
+  const [email, setEmail] = useState(prefill.email || "");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
   const [unlocked, setUnlocked] = useState(false);
