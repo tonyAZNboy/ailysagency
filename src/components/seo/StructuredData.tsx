@@ -1,7 +1,8 @@
-// JSON-LD Structured Data Generators for AI Search Engine Optimization
+// JSON-LD structured data generators for AiLys Agency.
+// AiLys is a Quebec-based LLM visibility / AI search reputation agency.
+// Reviuzy is a separate software product that AiLys references and resells.
 import { APP_CONFIG } from '@/config/app';
 
-// Interfaces for different types of structured data
 export interface LocalBusinessData {
   name: string;
   description?: string;
@@ -51,6 +52,11 @@ export interface FAQData {
     answer: string;
   }>;
 }
+
+const SUPPORTED_LANG_CODES = [
+  'en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'pl',
+  'ru', 'ja', 'ko', 'zh', 'ar', 'hi', 'tr', 'vi',
+];
 
 export const generateLocalBusinessSchema = (data: LocalBusinessData) => ({
   '@context': 'https://schema.org',
@@ -119,6 +125,7 @@ export const generateSoftwareApplicationSchema = (data: SoftwareApplicationData)
 export const generateFAQSchema = (data: FAQData) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': `${APP_CONFIG.url}/#faq`,
   mainEntity: data.questions.map(q => ({
     '@type': 'Question',
     name: q.question,
@@ -133,7 +140,9 @@ export const generateOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${APP_CONFIG.url}/#organization`,
-  name: APP_CONFIG.name,
+  name: APP_CONFIG.fullName,
+  alternateName: APP_CONFIG.name,
+  legalName: APP_CONFIG.fullName,
   description: APP_CONFIG.description,
   url: APP_CONFIG.url,
   logo: {
@@ -142,244 +151,204 @@ export const generateOrganizationSchema = () => ({
     width: 512,
     height: 512,
   },
+  email: APP_CONFIG.email,
+  foundingLocation: {
+    '@type': 'Place',
+    name: APP_CONFIG.origin,
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'France' },
+    { '@type': 'Place', name: 'Worldwide' },
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'support@reviuzy.com',
+    email: APP_CONFIG.email,
     contactType: 'customer service',
-    availableLanguage: ['English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese'],
+    areaServed: ['CA', 'US', 'FR', 'Worldwide'],
+    availableLanguage: ['English', 'French', 'Spanish', 'Mandarin', 'Russian', 'Arabic'],
   },
   sameAs: [],
   knowsAbout: [
-    'AI Review Growth',
-    'NFC Review Campaigns',
-    'Automated Contest Engine',
-    'Google Business Profile Optimization',
-    'Local SEO',
-    'Review Campaign Automation',
-    'Legal Contest Compliance',
-    'Multi-Location Business Management',
+    'Answer Engine Optimization',
+    'Generative Engine Optimization',
+    'E-E-A-T',
+    'LLM visibility',
+    'AI search optimization',
+    'ChatGPT citations',
+    'Perplexity citations',
+    'Claude citations',
+    'Google AI Overviews',
+    'Bing Copilot citations',
+    'Google Business Profile optimization',
+    'Local SEO for AI search',
+    'Structured data and schema markup',
+    'Wikipedia and Wikidata entity work',
   ],
 });
 
-export const generateWebApplicationSchema = () => ({
+// AiLys is a professional service: an agency, not a SaaS product.
+export const generateProfessionalServiceSchema = () => ({
   '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  '@id': `${APP_CONFIG.url}/#webapp`,
-  name: APP_CONFIG.name,
-  description: 'AI-powered review growth and campaign engine. Launch NFC-powered review contests, automate winner draws, generate AI reviews & responses, and build a repeatable monthly growth engine for local businesses.',
+  '@type': 'ProfessionalService',
+  '@id': `${APP_CONFIG.url}/#professionalservice`,
+  name: APP_CONFIG.fullName,
+  description: APP_CONFIG.description,
   url: APP_CONFIG.url,
+  image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
+  logo: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
+  email: APP_CONFIG.email,
+  priceRange: '$300 - $1,200 / month',
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'Quebec',
+    addressCountry: 'CA',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'France' },
+    { '@type': 'Place', name: 'Worldwide' },
+  ],
+  serviceType: [
+    'Answer Engine Optimization',
+    'Generative Engine Optimization',
+    'E-E-A-T Authority Building',
+    'Google Business Profile Management',
+    'AI Search Reputation Audit',
+  ],
+  brand: {
+    '@id': `${APP_CONFIG.url}/#organization`,
+  },
+});
+
+// AiLys service catalog: AEO, GEO, E-E-A-T, GBP, Audit.
+export const generateServiceSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${APP_CONFIG.url}/#service`,
+  name: 'LLM Visibility and AI Search Optimization',
+  serviceType: 'AI Search Reputation Management',
+  description:
+    'AEO, GEO and E-E-A-T services that get local businesses cited inside ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews and Bing Copilot.',
+  provider: {
+    '@id': `${APP_CONFIG.url}/#organization`,
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'France' },
+    { '@type': 'Place', name: 'Worldwide' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AiLys Agency Plans',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        '@id': `${APP_CONFIG.url}/#plan-starter`,
+        priceCurrency: 'USD',
+        price: '300',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '300',
+          priceCurrency: 'USD',
+          unitText: 'MONTH',
+          billingIncrement: 1,
+        },
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AiLys Starter',
+          description:
+            'Foundation AEO and schema work, Google Business Profile cleanup, monthly LLM citation report.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        '@id': `${APP_CONFIG.url}/#plan-core`,
+        priceCurrency: 'USD',
+        price: '600',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '600',
+          priceCurrency: 'USD',
+          unitText: 'MONTH',
+        },
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AiLys Core',
+          description:
+            'AEO + GEO + E-E-A-T monthly retainer. Schema, content briefs, authority placements, GBP optimization, monthly LLM citation report.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        '@id': `${APP_CONFIG.url}/#plan-growth`,
+        priceCurrency: 'USD',
+        price: '1200',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '1200',
+          priceCurrency: 'USD',
+          unitText: 'MONTH',
+        },
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AiLys Growth',
+          description:
+            'Full AEO, GEO, E-E-A-T program with Wikipedia and Wikidata work, digital PR, multi-location management, weekly reporting.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        '@id': `${APP_CONFIG.url}/#plan-autopilot`,
+        priceCurrency: 'USD',
+        price: '2500',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '2500',
+          priceCurrency: 'USD',
+          unitText: 'MONTH',
+        },
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AiLys Autopilot',
+          description:
+            'Done-for-you AI search visibility for multi-location brands. Includes Reviuzy review growth platform.',
+        },
+      },
+    ],
+  },
+});
+
+// Reviuzy is referenced as a SoftwareApplication that AiLys recommends and resells.
+export const generateReviuzyReferenceSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': 'https://www.reviuzy.com/#software',
+  name: 'Reviuzy',
+  description:
+    'Review growth platform recommended by AiLys Agency. NFC tap-to-review campaigns, AI review responses and Google Business Profile auto-posting for local businesses.',
+  url: 'https://www.reviuzy.com',
   applicationCategory: 'BusinessApplication',
-  applicationSubCategory: 'Review Growth & Campaign Engine',
-  operatingSystem: 'All',
-  browserRequirements: 'Requires JavaScript. Requires HTML5.',
-  softwareVersion: '2.0',
-  releaseNotes: 'New 3-tier pricing with Starter, Pro, and Max plans',
-  inLanguage: ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'ja', 'ko', 'zh', 'ar', 'hi', 'tr', 'vi'],
+  operatingSystem: 'Web Browser',
   offers: {
     '@type': 'AggregateOffer',
     lowPrice: '39',
     highPrice: '139',
     priceCurrency: 'USD',
     offerCount: 3,
-    offers: [
-      {
-        '@type': 'Offer',
-        name: 'Starter Plan',
-        price: '39',
-        priceCurrency: 'USD',
-        priceValidUntil: '2027-12-31',
-        description: '1 location, 1 campaign, 500 entries, 750 AI credits, NFC campaigns, AI review generation, manual winner draw',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Pro Plan',
-        price: '69',
-        priceCurrency: 'USD',
-        priceValidUntil: '2027-12-31',
-        description: 'Unlimited campaigns, automated winner draw, Google auto-posting, social calendar, legal T&C generator, 2,000 entries, 2,500 AI credits',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Max Plan',
-        price: '139',
-        priceCurrency: 'USD',
-        priceValidUntil: '2027-12-31',
-        description: '3 locations included, 4,000 entries, 5,000 AI credits, priority AI queue, agency dashboard, advanced automation',
-      },
-    ],
-  },
-  featureList: [
-    'NFC tap-to-enter review campaigns',
-    'AI-powered review generation using Google Gemini',
-    'Automated contest winner draw',
-    'Legal T&C generator for 20+ countries',
-    'Google Business Profile auto-posting',
-    'Social media content calendar',
-    'Multi-location campaign management',
-    'Growth entry tracking with usage metering',
-    'Winner announcement video generation',
-    'AI review response suggestions',
-    'Fake review detection (Domain Shield add-on)',
-    'Domain Speed Boost add-on',
-    'Engagement Suite add-on (loyalty, SMS, reminders)',
-    '16-language support',
-  ],
-  screenshot: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-  creator: {
-    '@type': 'Organization',
-    name: APP_CONFIG.name,
-    url: APP_CONFIG.url,
-  },
-  provider: {
-    '@type': 'Organization',
-    name: APP_CONFIG.name,
-    url: APP_CONFIG.url,
-  },
-  audience: {
-    '@type': 'BusinessAudience',
-    audienceType: 'Local Businesses',
-    geographicArea: {
-      '@type': 'Country',
-      name: 'Worldwide',
-    },
-  },
-  potentialAction: {
-    '@type': 'UseAction',
-    target: `${APP_CONFIG.url}/auth/signup`,
-    name: 'Start Free Trial',
-  },
-});
-
-export const generateProductSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  '@id': `${APP_CONFIG.url}/#product`,
-  name: `${APP_CONFIG.name} - AI Review Growth & Campaign Engine`,
-  description: 'Complete AI-powered review growth infrastructure for local businesses. NFC campaigns, automated contests, AI review generation, legal compliance for 20+ countries.',
-  brand: {
-    '@type': 'Brand',
-    name: APP_CONFIG.name,
-  },
-  category: 'Software > Business Software > Review Growth & Campaign Automation',
-  image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-  offers: {
-    '@type': 'AggregateOffer',
-    lowPrice: '39',
-    highPrice: '139',
-    priceCurrency: 'USD',
     availability: 'https://schema.org/InStock',
-    seller: {
-      '@type': 'Organization',
-      name: APP_CONFIG.name,
-    },
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
+  isRelatedTo: {
+    '@id': `${APP_CONFIG.url}/#organization`,
   },
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5' },
-      author: { '@type': 'Person', name: 'Sarah Johnson' },
-      reviewBody: 'Reviuzy transformed our review game. We went from 3.8 to 4.7 stars in just 3 months. The NFC campaigns are a game-changer!',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5' },
-      author: { '@type': 'Person', name: 'Michael Chen' },
-      reviewBody: "The automated winner draw saves us hours. Customers love the contests and we've seen 3x more reviews.",
-    },
-  ],
-});
-
-export const generateServiceSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': `${APP_CONFIG.url}/#service`,
-  name: 'AI Review Growth & Campaign Engine',
-  serviceType: 'Business Software',
-  description: 'AI-powered review growth infrastructure with NFC campaigns, automated contests, AI review generation, and legal compliance for local businesses worldwide.',
-  provider: {
-    '@type': 'Organization',
-    name: APP_CONFIG.name,
-    url: APP_CONFIG.url,
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Worldwide',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Reviuzy Plans',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Starter Plan', description: '1 location, 1 campaign, 500 entries, 750 AI credits, NFC campaigns, AI reviews, manual draw' },
-        price: '39',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Pro Plan', description: 'Unlimited campaigns, automated draw, Google auto-posting, social calendar, legal T&C, 2,000 entries' },
-        price: '69',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Max Plan', description: '3 locations, 4,000 entries, 5,000 AI credits, priority AI, agency dashboard, advanced automation' },
-        price: '139',
-        priceCurrency: 'USD',
-      },
-    ],
-  },
-});
-
-export const generateHowToSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'HowTo',
-  '@id': `${APP_CONFIG.url}/#howto`,
-  name: 'How to Grow Google Reviews with NFC Campaigns',
-  description: 'Launch your first AI-powered review campaign in 5 minutes using NFC tap-to-enter technology.',
-  totalTime: 'PT5M',
-  estimatedCost: {
-    '@type': 'MonetaryAmount',
-    currency: 'USD',
-    value: '39',
-  },
-  step: [
-    {
-      '@type': 'HowToStep',
-      position: 1,
-      name: 'Create a Campaign',
-      text: 'Set up an NFC tap-to-enter campaign with your prize, dates, and legal settings. Reviuzy generates compliant T&C for your jurisdiction automatically.',
-      image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-    },
-    {
-      '@type': 'HowToStep',
-      position: 2,
-      name: 'Collect Entries via NFC',
-      text: 'Customers tap your NFC card or scan a QR code. AI generates an SEO-optimized review while capturing their email for the contest.',
-      image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-    },
-    {
-      '@type': 'HowToStep',
-      position: 3,
-      name: 'AI Generates & Responds',
-      text: 'Every review gets a personalized AI response. Reviews are posted to Google Business Profile, boosting your local SEO.',
-      image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-    },
-    {
-      '@type': 'HowToStep',
-      position: 4,
-      name: 'Draw Winners & Amplify',
-      text: 'Draw winners with one click. Share announcement videos on social media. Repeat every month for compounding growth.',
-      image: `${APP_CONFIG.url}${APP_CONFIG.logo}`,
-    },
-  ],
 });
 
 export const generateBreadcrumbSchema = (items: Array<{ name: string; url: string }>) => ({
@@ -398,12 +367,77 @@ export const generateWebSiteSchema = () => ({
   '@type': 'WebSite',
   '@id': `${APP_CONFIG.url}/#website`,
   url: APP_CONFIG.url,
-  name: APP_CONFIG.name,
+  name: APP_CONFIG.fullName,
+  alternateName: APP_CONFIG.name,
   description: APP_CONFIG.description,
   publisher: {
     '@id': `${APP_CONFIG.url}/#organization`,
   },
-  inLanguage: 'en-US',
+  inLanguage: SUPPORTED_LANG_CODES,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${APP_CONFIG.url}/?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+});
+
+// Speakable surface for voice assistants and AI summarizers.
+export const generateSpeakableSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${APP_CONFIG.url}/#webpage`,
+  url: APP_CONFIG.url,
+  name: APP_CONFIG.fullName,
+  description: APP_CONFIG.description,
+  isPartOf: { '@id': `${APP_CONFIG.url}/#website` },
+  about: { '@id': `${APP_CONFIG.url}/#organization` },
+  inLanguage: SUPPORTED_LANG_CODES,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', 'h2', '.hero-eyebrow', '.hero-subheadline', '.faq-question', '.faq-answer'],
+  },
+});
+
+// Kept for backwards compat. Both delegate to the AiLys service catalog now.
+export const generateWebApplicationSchema = generateReviuzyReferenceSchema;
+export const generateProductSchema = generateServiceSchema;
+export const generateHowToSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  '@id': `${APP_CONFIG.url}/#howto`,
+  name: 'How AiLys gets your business cited by AI search engines',
+  description:
+    'Four-step engagement: audit your AI search footprint, fix schema and entity signals, build authority, then monitor citations across ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews.',
+  totalTime: 'P90D',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Free AI visibility audit',
+      text: 'We run a 90-second LLM citation audit against ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews and Bing Copilot. You see exactly which queries name you and which name a competitor.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Fix the foundation',
+      text: 'We deploy schema markup, structured Q and A surfaces, entity disambiguation and Google Business Profile cleanup so AI engines have a clean answer to pull.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Build authority',
+      text: 'We place authoritative content, work Wikipedia and Wikidata where eligible, and earn forum and PR signals so LLMs name you in their answers.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Monitor and report',
+      text: 'Monthly LLM citation report shows which queries cite you across each engine, with a 90 to 120 day citation lift target.',
+    },
+  ],
 });
 
 export const generateLandingPageSchemaGraph = (faqData: FAQData) => ({
@@ -411,9 +445,10 @@ export const generateLandingPageSchemaGraph = (faqData: FAQData) => ({
   '@graph': [
     generateWebSiteSchema(),
     generateOrganizationSchema(),
-    generateWebApplicationSchema(),
-    generateProductSchema(),
+    generateProfessionalServiceSchema(),
     generateServiceSchema(),
+    generateReviuzyReferenceSchema(),
+    generateSpeakableSchema(),
     generateHowToSchema(),
     generateFAQSchema(faqData),
   ],

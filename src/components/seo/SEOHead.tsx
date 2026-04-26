@@ -58,8 +58,8 @@ export const SEOHead = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@reviuzy" />
-      <meta name="twitter:creator" content="@reviuzy" />
+      <meta name="twitter:site" content={APP_CONFIG.twitterHandle} />
+      <meta name="twitter:creator" content={APP_CONFIG.twitterHandle} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
@@ -78,7 +78,7 @@ export const SEOHead = ({
 
       {/* AI Search Engine Optimization */}
       <meta name="ai-content-declaration" content="human-created" />
-      <meta name="generator" content={`${siteName} - AI-Powered Review Management`} />
+      <meta name="generator" content={`${APP_CONFIG.fullName} - LLM Visibility & Optimization Agency`} />
       <meta name="ai-summary" content={description} />
       {keywords && <meta name="ai-keywords" content={keywords.slice(0, 5).join(', ')} />}
 
