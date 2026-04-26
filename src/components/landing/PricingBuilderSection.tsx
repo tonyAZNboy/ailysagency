@@ -70,7 +70,7 @@ export function PricingBuilderSection() {
   return (
     <section
       id="pricing-builder"
-      className="relative py-24 sm:py-32 px-4 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 overflow-clip"
       aria-labelledby="builder-heading"
     >
       <div className="relative max-w-7xl mx-auto">
@@ -202,7 +202,7 @@ export function PricingBuilderSection() {
             </div>
 
           {/* Price output (sticky on desktop, follows scroll) */}
-          <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-7 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
+          <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-7 lg:sticky lg:top-24 lg:self-start">
               <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
                 <Sliders className="w-4 h-4 text-primary" />
                 <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">

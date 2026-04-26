@@ -116,7 +116,7 @@ const Index = () => {
         mouseInfluenceStrength={0.18}
       />
 
-      <div className="min-h-screen overflow-x-hidden" role="main">
+      <div className="min-h-screen overflow-x-clip" role="main">
         <Navbar />
 
         <main id="main-content" aria-label="Main content">
