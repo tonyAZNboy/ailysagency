@@ -2,9 +2,9 @@ import { Sparkles, Quote, Check } from "lucide-react";
 
 /**
  * Right-side animated visual for the hero.
- * Mocks an LLM answer card citing a Reviuzy-managed local business.
+ * Mocks an LLM answer card citing an AiLys-tracked local business.
  * Replaces the generic constellation/blur background with something
- * narrative — visitors instantly see what "LLM visibility" looks like.
+ * narrative: visitors instantly see what "LLM visibility" looks like.
  */
 export function HeroAnswerEngineVisual() {
   return (
@@ -81,7 +81,7 @@ export function HeroAnswerEngineVisual() {
             </span>
           </div>
           <span className="text-[10px] font-mono text-primary/80">
-            Powered by Reviuzy
+            Tracked by AiLys
           </span>
         </div>
       </div>
