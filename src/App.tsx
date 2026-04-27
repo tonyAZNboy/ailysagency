@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,8 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LangProvider } from "@/i18n/LangContext";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
+import { setupAnalyticsLoader } from "@/lib/analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/auth/Login";
@@ -23,6 +26,12 @@ import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
 import Help from "./pages/Help";
 import HelpArticle from "./pages/HelpArticle";
+import Industries from "./pages/Industries";
+import Industry from "./pages/Industry";
+import Comparison from "./pages/Comparison";
+import Glossary from "./pages/Glossary";
+import GlossaryTerm from "./pages/GlossaryTerm";
+import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminOverview from "./pages/admin/AdminOverview";
 import AdminLeads from "./pages/admin/AdminLeads";
@@ -38,7 +47,14 @@ import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  // Lazy-load analytics scripts based on consent. Re-runs on consent changes.
+  useEffect(() => {
+    const cleanup = setupAnalyticsLoader();
+    return cleanup;
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider
       attribute="class"
@@ -68,6 +84,10 @@ const App = () => (
                 <Route path="/audit/ai-visibility" element={<AuditAIVisibility />} />
                 <Route path="/audit/gbp" element={<AuditGbpPulse />} />
                 <Route path="/audit/gbp-pulse" element={<AuditGbpPulse />} />
+                <Route path="/:lang/audit" element={<AuditAIVisibility />} />
+                <Route path="/:lang/audit/ai-visibility" element={<AuditAIVisibility />} />
+                <Route path="/:lang/audit/gbp" element={<AuditGbpPulse />} />
+                <Route path="/:lang/audit/gbp-pulse" element={<AuditGbpPulse />} />
 
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
@@ -78,6 +98,26 @@ const App = () => (
                 <Route path="/help/:slug" element={<HelpArticle />} />
                 <Route path="/:lang/help" element={<Help />} />
                 <Route path="/:lang/help/:slug" element={<HelpArticle />} />
+
+                {/* Industries — vertical-specific landing pages */}
+                <Route path="/industries" element={<Industries />} />
+                <Route path="/industries/:slug" element={<Industry />} />
+                <Route path="/:lang/industries" element={<Industries />} />
+                <Route path="/:lang/industries/:slug" element={<Industry />} />
+
+                {/* Comparison pages — bottom-funnel competitor traffic */}
+                <Route path="/vs/:slug" element={<Comparison />} />
+                <Route path="/:lang/vs/:slug" element={<Comparison />} />
+
+                {/* Glossary — semantic SEO + internal-link authority */}
+                <Route path="/glossary" element={<Glossary />} />
+                <Route path="/glossary/:slug" element={<GlossaryTerm />} />
+                <Route path="/:lang/glossary" element={<Glossary />} />
+                <Route path="/:lang/glossary/:slug" element={<GlossaryTerm />} />
+
+                {/* Free tools — AI Visibility Score (lead magnet + backlink magnet) */}
+                <Route path="/tools/ai-visibility-score" element={<AiVisibilityScoreTool />} />
+                <Route path="/:lang/tools/ai-visibility-score" element={<AiVisibilityScoreTool />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
@@ -107,12 +147,14 @@ const App = () => (
 
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              <CookieConsentBanner />
             </BrowserRouter>
           </LangProvider>
         </HelmetProvider>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

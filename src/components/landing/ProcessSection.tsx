@@ -1,4 +1,5 @@
 import { ScrollReveal } from "@/components/animation";
+import { useLang } from "@/i18n/LangContext";
 
 interface Phase {
   number: string;
@@ -8,38 +9,40 @@ interface Phase {
   pull: string;
 }
 
-const phases: Phase[] = [
-  {
-    number: "01",
-    name: "Audit",
-    duration: "Day 0 to Day 2",
-    body: "We map your current AI search footprint. Where you are cited, where you are missing, what schema and citation gaps competitors are exploiting. The audit is free and lands in your inbox within 24 hours of request.",
-    pull: "Free, 24 hours.",
-  },
-  {
-    number: "02",
-    name: "Strategy",
-    duration: "Week 1",
-    body: "We build a 90-day plan. Schema priorities, citation targets, content calendar tuned to your service and city. You see the plan before we touch anything live.",
-    pull: "Plan first. Action second.",
-  },
-  {
-    number: "03",
-    name: "Execution",
-    duration: "Week 2 onward",
-    body: "Schema implementation, citation outreach, GBP optimization, content production. Bilingual where it matters. We do the work, you keep your day.",
-    pull: "We answer the phone.",
-  },
-  {
-    number: "04",
-    name: "Reporting",
-    duration: "Day 30 onward",
-    body: "Monthly LLM citation report. Where you newly appeared, what answers pull you in, what is still gated. Real numbers, plain language. No vanity metrics.",
-    pull: "Real numbers, no fluff.",
-  },
-];
-
 export function ProcessSection() {
+  const { t } = useLang();
+
+  const phases: Phase[] = [
+    {
+      number: "01",
+      name: t.process.phase1Name,
+      duration: t.process.phase1Duration,
+      body: t.process.phase1Body,
+      pull: t.process.phase1Pull,
+    },
+    {
+      number: "02",
+      name: t.process.phase2Name,
+      duration: t.process.phase2Duration,
+      body: t.process.phase2Body,
+      pull: t.process.phase2Pull,
+    },
+    {
+      number: "03",
+      name: t.process.phase3Name,
+      duration: t.process.phase3Duration,
+      body: t.process.phase3Body,
+      pull: t.process.phase3Pull,
+    },
+    {
+      number: "04",
+      name: t.process.phase4Name,
+      duration: t.process.phase4Duration,
+      body: t.process.phase4Body,
+      pull: t.process.phase4Pull,
+    },
+  ];
+
   return (
     <section
       id="process"
@@ -62,24 +65,22 @@ export function ProcessSection() {
           <div className="lg:col-span-7">
             <ScrollReveal variant="fade-up" delay={50} duration={600}>
               <div className="ailys-section-no mb-6">
-                <span>02 / Process</span>
+                <span>{t.process.sectionLabel}</span>
               </div>
               <h2
                 id="process-heading"
                 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
               >
-                How a citation
+                {t.process.heading1}
                 <br />
-                <span className="italic">actually gets built.</span>
+                <span className="italic">{t.process.heading2}</span>
               </h2>
             </ScrollReveal>
           </div>
           <div className="lg:col-span-4 lg:col-start-9 lg:pt-6">
             <ScrollReveal variant="fade-up" delay={150} duration={650}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                No agency theatre. Four phases, each with a deliverable you can
-                hold in your hand. We start with a free audit and you decide
-                whether the next step is worth the budget.
+                {t.process.intro}
               </p>
             </ScrollReveal>
           </div>
@@ -139,6 +140,7 @@ export function ProcessSection() {
           </ol>
         </div>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.process.srSeo}</div>
     </section>
   );
 }

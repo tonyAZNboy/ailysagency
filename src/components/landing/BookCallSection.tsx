@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar, Clock, Globe2, Send, Loader2 } from "lucide-react";
 import { ScrollReveal } from "@/components/animation";
 import { useToast } from "@/hooks/use-toast";
+import { useLang } from "@/i18n/LangContext";
 
 interface Language {
   code: string;
@@ -14,26 +15,25 @@ interface Language {
   flag: string;
 }
 
-const languages: Language[] = [
-  { code: "en", name: "English", native: "English", type: "in-house", flag: "🇨🇦" },
-  { code: "fr", name: "French", native: "Français", type: "in-house", flag: "⚜" },
-  { code: "es", name: "Spanish", native: "Español", type: "in-house", flag: "🇪🇸" },
-  { code: "zh", name: "Chinese", native: "中文", type: "partner", flag: "🇨🇳" },
-  { code: "ar", name: "Arabic", native: "العربية", type: "partner", flag: "🇦🇪" },
-  { code: "ru", name: "Russian", native: "Русский", type: "partner", flag: "🇷🇺" },
-  { code: "uk", name: "Ukrainian", native: "Українська", type: "partner", flag: "🇺🇦" },
-  { code: "sr", name: "Serbian", native: "Srpski", type: "partner", flag: "🇷🇸" },
-];
-
 /**
  * Strategy-call booking section. While we're in pre-Cal.com mode, this captures
  * intent + language + email and emails it to the team. Swap to a Cal.com or
  * Calendly inline embed once the account exists.
- *
- * TODO(calendar): replace `<EmailFallbackForm>` with Cal.com inline embed:
- *   <Cal calLink="ailysagency/strategy-call" config={{ ... }} />
  */
 export function BookCallSection() {
+  const { t } = useLang();
+
+  const languages: Language[] = [
+    { code: "en", name: t.bookCall.lang1Name, native: "English", type: "in-house", flag: "🇨🇦" },
+    { code: "fr", name: t.bookCall.lang2Name, native: "Français", type: "in-house", flag: "⚜" },
+    { code: "es", name: t.bookCall.lang3Name, native: "Español", type: "in-house", flag: "🇪🇸" },
+    { code: "zh", name: t.bookCall.lang4Name, native: "中文", type: "partner", flag: "🇨🇳" },
+    { code: "ar", name: t.bookCall.lang5Name, native: "العربية", type: "partner", flag: "🇦🇪" },
+    { code: "ru", name: t.bookCall.lang6Name, native: "Русский", type: "partner", flag: "🇷🇺" },
+    { code: "uk", name: t.bookCall.lang7Name, native: "Українська", type: "partner", flag: "🇺🇦" },
+    { code: "sr", name: t.bookCall.lang8Name, native: "Srpski", type: "partner", flag: "🇷🇸" },
+  ];
+
   return (
     <section
       id="book-call"
@@ -56,21 +56,18 @@ export function BookCallSection() {
           <div className="lg:col-span-6">
             <ScrollReveal variant="fade-up" delay={50} duration={650}>
               <div className="ailys-section-no mb-6">
-                <span>03b / Strategy call</span>
+                <span>{t.bookCall.sectionLabel}</span>
               </div>
               <h2
                 id="book-call-heading"
                 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-5"
               >
-                A 60-minute call.
+                {t.bookCall.heading1}
                 <br />
-                <span className="italic">No pitch.</span>
+                <span className="italic">{t.bookCall.heading2}</span>
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-prose mb-8">
-                We map your AI search position, walk through the audit results,
-                and tell you whether AiLys is the right fit. If we are not, we
-                send a one-page strategy doc anyway. You leave with something
-                actionable either way.
+                {t.bookCall.intro}
               </p>
 
               {/* Languages spoken */}
@@ -78,7 +75,7 @@ export function BookCallSection() {
                 <div className="flex items-center gap-2 mb-4">
                   <Globe2 className="w-4 h-4 text-primary" />
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">
-                    Available in 8 languages
+                    {t.bookCall.languagesLabel}
                   </span>
                 </div>
                 <ul className="grid grid-cols-2 gap-2.5">
@@ -97,16 +94,14 @@ export function BookCallSection() {
                           {l.native}
                         </div>
                         <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
-                          {l.type === "in-house" ? "In-house" : "Partner"}
+                          {l.type === "in-house" ? t.bookCall.inHouse : t.bookCall.partner}
                         </div>
                       </div>
                     </li>
                   ))}
                 </ul>
                 <p className="mt-4 text-xs text-muted-foreground/70 leading-relaxed">
-                  In-house means you get an AiLys team member on the call.
-                  Partner means a vetted agency partner runs the call in that
-                  language and reports back to us. Same playbook either way.
+                  {t.bookCall.languagesNote}
                 </p>
               </div>
             </ScrollReveal>
@@ -115,23 +110,25 @@ export function BookCallSection() {
           {/* Right: booking form */}
           <div className="lg:col-span-6 lg:col-start-7">
             <ScrollReveal variant="fade-up" delay={150} duration={700}>
-              <EmailFallbackForm />
+              <EmailFallbackForm languages={languages} />
             </ScrollReveal>
           </div>
         </div>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.bookCall.srSeo}</div>
     </section>
   );
 }
 
 /* ─────────────────────────────────────────────────────── */
 
-function EmailFallbackForm() {
+function EmailFallbackForm({ languages }: { languages: Language[] }) {
   const { toast } = useToast();
+  const { t } = useLang();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [business, setBusiness] = useState("");
-  const [language, setLanguage] = useState("English");
+  const [language, setLanguage] = useState(t.bookCall.lang1Name);
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -140,20 +137,19 @@ function EmailFallbackForm() {
     e.preventDefault();
     if (!name || !email) {
       toast({
-        title: "We need a name and email",
-        description: "So we can confirm the call slot.",
+        title: t.bookCall.toastTitle,
+        description: t.bookCall.toastDesc,
         variant: "destructive",
       });
       return;
     }
     setSubmitting(true);
     try {
-      // TODO(calendar): post to Supabase booking_requests + send confirmation email
       await new Promise((r) => setTimeout(r, 900));
       setSubmitted(true);
       toast({
-        title: "Request received",
-        description: "We will email you 3 slot options within 12 hours.",
+        title: t.bookCall.toastReceivedTitle,
+        description: t.bookCall.toastReceivedDesc,
       });
     } finally {
       setSubmitting(false);
@@ -166,13 +162,12 @@ function EmailFallbackForm() {
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 mb-4">
           <Calendar className="w-6 h-6 text-emerald-300" />
         </div>
-        <h3 className="font-display text-3xl mb-3">Got it.</h3>
+        <h3 className="font-display text-3xl mb-3">{t.bookCall.successHeading}</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-2 max-w-md mx-auto">
-          We just emailed our team with your request. You will get three slot
-          options within 12 hours, plus a one-pager about how the call runs.
+          {t.bookCall.successBody}
         </p>
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-emerald-300/80">
-          Check your inbox · including spam
+          {t.bookCall.successCheck}
         </p>
       </div>
     );
@@ -186,39 +181,39 @@ function EmailFallbackForm() {
       <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
         <Clock className="w-4 h-4 text-secondary" />
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">
-          Request a slot · We reply within 12 hours
+          {t.bookCall.formLabel}
         </span>
       </div>
 
       <div className="space-y-3 mb-4">
-        <Field label="Your name">
+        <Field label={t.bookCall.fieldName}>
           <Input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Maxime Tremblay"
+            placeholder={t.bookCall.placeholderName}
             className="bg-background/50 border-border/50"
             required
           />
         </Field>
-        <Field label="Email">
+        <Field label={t.bookCall.fieldEmail}>
           <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@business.ca"
+            placeholder={t.bookCall.placeholderEmail}
             className="bg-background/50 border-border/50"
             required
           />
         </Field>
-        <Field label="Business name">
+        <Field label={t.bookCall.fieldBusiness}>
           <Input
             value={business}
             onChange={(e) => setBusiness(e.target.value)}
-            placeholder="Clinique Dentaire Plateau"
+            placeholder={t.bookCall.placeholderBusiness}
             className="bg-background/50 border-border/50"
           />
         </Field>
-        <Field label="Preferred language">
+        <Field label={t.bookCall.fieldLanguage}>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
@@ -226,16 +221,16 @@ function EmailFallbackForm() {
           >
             {languages.map((l) => (
               <option key={l.code} value={l.name}>
-                {l.flag} {l.native} ({l.type})
+                {l.flag} {l.native} ({l.type === "in-house" ? t.bookCall.inHouse : t.bookCall.partner})
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Anything specific you want to cover (optional)">
+        <Field label={t.bookCall.fieldNotes}>
           <Textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="We just got hit by an AI Overview competitor. Need help."
+            placeholder={t.bookCall.placeholderNotes}
             rows={3}
             className="bg-background/50 border-border/50 resize-none"
           />
@@ -259,10 +254,10 @@ function EmailFallbackForm() {
         ) : (
           <Send className="w-4 h-4 mr-2" />
         )}
-        {submitting ? "Sending..." : "Request a strategy call slot"}
+        {submitting ? t.bookCall.submitLoading : t.bookCall.submit}
       </Button>
       <p className="mt-3 text-[11px] text-muted-foreground/70 text-center">
-        Free. No credit card. Strategy doc sent regardless of fit.
+        {t.bookCall.legal}
       </p>
     </form>
   );

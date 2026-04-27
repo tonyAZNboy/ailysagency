@@ -17,6 +17,7 @@ import {
   Bot,
   Calendar,
   Mail,
+  Globe,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -24,16 +25,66 @@ import {
   auditSourceClient,
   type AuditResult,
 } from "@/integrations/audit-source/client";
+import { LlmCitationMatrix } from "@/components/audit/LlmCitationMatrix";
+import { PlacesPreview } from "@/components/audit/PlacesPreview";
+import { SchemaPreview } from "@/components/audit/SchemaPreview";
+import { CompetitorOverlay } from "@/components/audit/CompetitorOverlay";
+import { ExportActionPlan } from "@/components/audit/ExportActionPlan";
+import { useLang } from "@/i18n/LangContext";
+import type { TranslationKeys } from "@/i18n";
 
 interface PrefilledLocationState {
   businessName?: string;
   city?: string;
   industry?: string;
+  url?: string;
   email?: string;
   prefilled?: boolean;
 }
 
 export type AuditFlavor = "gbp" | "ai-visibility";
+
+// Typed industry options. Mirrors the 7 verticals in src/data/industries.ts.
+// "other" is the fallback for anything not in the canonical list.
+// Values are stable; labels are pulled from i18n at render time.
+const INDUSTRY_VALUES = [
+  "restaurant",
+  "dentist",
+  "lawyer",
+  "contractor",
+  "clinic",
+  "real-estate",
+  "hotel",
+  "salon",
+  "other",
+] as const;
+
+type IndustryValue = (typeof INDUSTRY_VALUES)[number];
+
+// Map an industry value to its i18n key inside fields.industryOptions
+const INDUSTRY_I18N_KEY: Record<IndustryValue, keyof TranslationKeys["audit"]["fields"]["industryOptions"]> = {
+  restaurant: "restaurant",
+  dentist: "dentist",
+  lawyer: "lawyer",
+  contractor: "contractor",
+  clinic: "clinic",
+  "real-estate": "realEstate",
+  hotel: "hotel",
+  salon: "salon",
+  other: "other",
+};
+
+// Lightweight URL validator: matches the server-side check in
+// /api/llm-citation-matrix. Empty string is OK (URL is optional).
+function isLikelyValidUrl(s: string): boolean {
+  if (!s.trim()) return true;
+  try {
+    const u = new URL(s.startsWith("http") ? s : `https://${s}`);
+    return /^[a-z0-9\-.]+\.[a-z]{2,}$/i.test(u.hostname);
+  } catch {
+    return false;
+  }
+}
 
 interface AutoAuditEngineProps {
   flavor: AuditFlavor;
@@ -54,13 +105,31 @@ export function AutoAuditEngine({
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
+  const { t } = useLang();
   const prefill = (location.state ?? {}) as PrefilledLocationState;
+
+  // Translated industry options for the select dropdown
+  const industryOptions = INDUSTRY_VALUES.map((value) => ({
+    value,
+    label: t.audit.fields.industryOptions[INDUSTRY_I18N_KEY[value]],
+  }));
+
   // `||` instead of `??` so an empty-string fallback still triggers the next default
   const [businessName, setBusinessName] = useState(prefill.businessName || "");
-  const [industry, setIndustry] = useState(
-    prefill.industry || defaultIndustry || "Local business",
-  );
+  // Map free-text default to typed value when possible; fallback to "other"
+  const initialIndustry: IndustryValue = (() => {
+    const seed = (prefill.industry || defaultIndustry || "").toLowerCase();
+    const match = industryOptions.find(
+      (o) =>
+        o.value === seed ||
+        o.label.toLowerCase() === seed ||
+        seed.includes(o.value),
+    );
+    return (match?.value ?? "other") as IndustryValue;
+  })();
+  const [industry, setIndustry] = useState<IndustryValue>(initialIndustry);
   const [city, setCity] = useState(prefill.city || "");
+  const [url, setUrl] = useState(prefill.url || "");
   const [email, setEmail] = useState(prefill.email || "");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
@@ -69,34 +138,24 @@ export function AutoAuditEngine({
   const [submittingEmail, setSubmittingEmail] = useState(false);
 
   const flavorMeta = {
-    gbp: {
-      eyebrow: "GBP Pulse · Auto-audit",
-      headline: "Pulse your Google Business Profile.",
-      sub: "We pull your live GBP data, score 14 reputation signals, and surface the three highest-leverage fixes. 30 seconds.",
-      ctaPrimary: "Run my GBP Pulse",
-      lockTitle: "Unlock the full GBP report",
-      lockDesc:
-        "Enter your email to see the full action plan, competitor gap analysis, and revenue projection. No spam, no calls.",
-      sendCopy: "Send me the full GBP report",
-    },
-    "ai-visibility": {
-      eyebrow: "AI Visibility Audit · Auto-audit",
-      headline: "See if AI engines cite you.",
-      sub: "We scan your live web footprint, score AEO + GEO + E-E-A-T signals, and project where you sit vs competitors across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot.",
-      ctaPrimary: "Run my AI Visibility Audit",
-      lockTitle: "Unlock your full AI Visibility report",
-      lockDesc:
-        "Enter your email to see the 90-day action plan, competitor gap, AI response simulation, and revenue projection. We will email a PDF you can share.",
-      sendCopy: "Email me the full report",
-    },
+    gbp: t.audit.gbp,
+    "ai-visibility": t.audit.ai,
   }[flavor];
 
   const runAudit = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!businessName.trim() || !industry.trim() || !city.trim() || !emailRegex.test(email.trim())) {
       toast({
-        title: "We need four things",
-        description: "Business name, industry, city, and a valid email.",
+        title: t.audit.toasts.fourThings,
+        description: t.audit.toasts.fourThingsDesc,
+        variant: "destructive",
+      });
+      return;
+    }
+    if (url.trim() && !isLikelyValidUrl(url.trim())) {
+      toast({
+        title: t.audit.toasts.badUrl,
+        description: t.audit.toasts.badUrlDesc,
         variant: "destructive",
       });
       return;
@@ -124,13 +183,16 @@ export function AutoAuditEngine({
           // non-blocking; we will still try again at unlock time
         });
 
+      const industryLabel =
+        industryOptions.find((o) => o.value === industry)?.label ?? industry;
       const { data, error } = await auditSourceClient.functions.invoke(
         "reputation-audit",
         {
           body: {
             businessName: businessName.trim(),
-            industry: industry.trim(),
+            industry: industryLabel,
             city: city.trim(),
+            url: url.trim() || undefined,
             lang: "en",
           },
         },
@@ -142,9 +204,9 @@ export function AutoAuditEngine({
       setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 200);
     } catch (err) {
       const msg =
-        err instanceof Error ? err.message : "We could not reach the audit engine.";
+        err instanceof Error ? err.message : t.audit.loading.cantReach;
       toast({
-        title: "Audit failed",
+        title: t.audit.toasts.auditFailed,
         description: msg,
         variant: "destructive",
       });
@@ -178,8 +240,8 @@ export function AutoAuditEngine({
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmed)) {
       toast({
-        title: "Email looks off",
-        description: "Try again with a valid email address.",
+        title: t.audit.toasts.emailLooksOff,
+        description: t.audit.toasts.emailLooksOffDesc,
         variant: "destructive",
       });
       return;
@@ -202,8 +264,8 @@ export function AutoAuditEngine({
       });
       setUnlocked(true);
       toast({
-        title: "Unlocked",
-        description: "Full report on screen and on its way to your inbox.",
+        title: t.audit.toasts.unlocked,
+        description: t.audit.toasts.unlockedDesc,
       });
       // Send email report (non-blocking)
       auditSourceClient.functions
@@ -221,9 +283,9 @@ export function AutoAuditEngine({
         });
     } catch (err) {
       const msg =
-        err instanceof Error ? err.message : "We could not record your email.";
+        err instanceof Error ? err.message : t.audit.loading.cantRecord;
       toast({
-        title: "Could not unlock",
+        title: t.audit.toasts.cantUnlock,
         description: msg,
         variant: "destructive",
       });
@@ -250,44 +312,68 @@ export function AutoAuditEngine({
           <Input
             value={businessName}
             onChange={(e) => setBusinessName(e.target.value)}
-            placeholder="Business name"
+            placeholder={t.audit.fields.businessName}
             className="bg-background/50 border-border/50 h-11"
             disabled={loading}
-            aria-label="Business name"
+            aria-label={t.audit.fields.businessName}
             required
           />
           <div className="grid sm:grid-cols-2 gap-3">
-            <Input
+            <select
               value={industry}
-              onChange={(e) => setIndustry(e.target.value)}
-              placeholder="Industry (Restaurant, Dentist, Lawyer, etc.)"
-              className="bg-background/50 border-border/50 h-11"
+              onChange={(e) => setIndustry(e.target.value as IndustryValue)}
+              className="bg-background/50 border border-border/50 h-11 rounded-md px-3 text-base sm:text-sm appearance-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
               disabled={loading}
-              aria-label="Industry"
+              aria-label={t.audit.fields.industry}
               required
-            />
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2399a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E\")",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 0.75rem center",
+                paddingRight: "2.25rem",
+              }}
+            >
+              {industryOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
             <Input
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              placeholder="City"
+              placeholder={t.audit.fields.city}
               className="bg-background/50 border-border/50 h-11"
               disabled={loading}
-              aria-label="City"
+              aria-label={t.audit.fields.city}
               required
+            />
+          </div>
+          <div className="relative">
+            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 pointer-events-none" />
+            <Input
+              type="url"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder={t.audit.fields.urlPlaceholder}
+              className="bg-background/50 border-border/50 h-11 pl-10"
+              disabled={loading}
+              aria-label={t.audit.fields.url}
             />
           </div>
           <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@business.ca"
+            placeholder={t.audit.fields.emailPlaceholder}
             className="bg-background/50 border-border/50 h-11"
             disabled={loading}
-            aria-label="Email"
+            aria-label={t.audit.fields.email}
             required
           />
           <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
-            Email required · We send the full report and the action plan there
+            {t.audit.fields.legal}
           </p>
         </div>
 
@@ -305,7 +391,7 @@ export function AutoAuditEngine({
           {loading ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Pulling live data...
+              {t.audit.loading.pullingData}
             </>
           ) : (
             <>
@@ -316,7 +402,7 @@ export function AutoAuditEngine({
           )}
         </Button>
         <p className="mt-3 text-xs text-center text-muted-foreground/70 font-mono uppercase tracking-[0.18em]">
-          Free · No credit card · 30 seconds
+          {t.audit.results.free}
         </p>
       </div>
     );
@@ -339,6 +425,10 @@ export function AutoAuditEngine({
         setEmail("");
       }}
       navigate={navigate}
+      businessName={businessName}
+      city={city}
+      url={url || undefined}
+      vertical={industry}
     />
   );
 }
@@ -348,15 +438,7 @@ export function AutoAuditEngine({
 interface ResultsPanelProps {
   result: AuditResult;
   flavor: AuditFlavor;
-  flavorMeta: {
-    eyebrow: string;
-    headline: string;
-    sub: string;
-    ctaPrimary: string;
-    lockTitle: string;
-    lockDesc: string;
-    sendCopy: string;
-  };
+  flavorMeta: TranslationKeys["audit"]["ai"];
   unlocked: boolean;
   email: string;
   setEmail: (e: string) => void;
@@ -364,6 +446,10 @@ interface ResultsPanelProps {
   submittingEmail: boolean;
   onRestart: () => void;
   navigate: ReturnType<typeof useNavigate>;
+  businessName: string;
+  city: string;
+  url?: string;
+  vertical: string;
 }
 
 function ResultsPanel({
@@ -377,7 +463,12 @@ function ResultsPanel({
   submittingEmail,
   onRestart,
   navigate,
+  businessName,
+  city,
+  url,
+  vertical,
 }: ResultsPanelProps) {
+  const { t } = useLang();
   const [animated, setAnimated] = useState(0);
 
   useEffect(() => {
@@ -385,8 +476,8 @@ function ResultsPanel({
     const duration = 1600;
     const target = result.reputation_score;
     let raf = 0;
-    const loop = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
+    const loop = (ts: number) => {
+      const p = Math.min(1, (ts - start) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
       setAnimated(Math.round(target * eased));
       if (p < 1) raf = requestAnimationFrame(loop);
@@ -397,12 +488,12 @@ function ResultsPanel({
 
   const tier =
     result.reputation_score >= 75
-      ? { label: "Strong", tone: "from-emerald-400 to-cyan-400", text: "text-emerald-300" }
+      ? { label: t.audit.tiers.strong, tone: "from-emerald-400 to-cyan-400", text: "text-emerald-300" }
       : result.reputation_score >= 50
-        ? { label: "Solid foundation", tone: "from-cyan-400 to-violet-400", text: "text-cyan-300" }
+        ? { label: t.audit.tiers.solid, tone: "from-cyan-400 to-violet-400", text: "text-cyan-300" }
         : result.reputation_score >= 30
-          ? { label: "Real gaps", tone: "from-amber-400 to-orange-400", text: "text-amber-300" }
-          : { label: "Critical gaps", tone: "from-rose-500 to-pink-500", text: "text-rose-300" };
+          ? { label: t.audit.tiers.gaps, tone: "from-amber-400 to-orange-400", text: "text-amber-300" }
+          : { label: t.audit.tiers.critical, tone: "from-rose-500 to-pink-500", text: "text-rose-300" };
 
   const radius = 88;
   const circumference = 2 * Math.PI * radius;
@@ -420,7 +511,7 @@ function ResultsPanel({
             onClick={onRestart}
             className="text-xs text-muted-foreground hover:text-primary transition-colors"
           >
-            Run again
+            {t.audit.results.runAgain}
           </button>
         </div>
 
@@ -473,7 +564,7 @@ function ResultsPanel({
               {tier.label}
             </span>
             <h2 className="font-display text-3xl sm:text-4xl tracking-tight mb-3 leading-tight">
-              Diagnostic summary.
+              {t.audit.results.diagnosticSummary}
             </h2>
             <p className="text-sm sm:text-base text-foreground/85 leading-relaxed">
               {result.diagnostic_summary}
@@ -484,10 +575,10 @@ function ResultsPanel({
 
       {/* Always-visible signal cards (free preview) */}
       <div className="grid sm:grid-cols-2 gap-4">
-        <SignalBlock icon={Star} label="Sentiment" value={result.sentiment_breakdown} />
-        <SignalBlock icon={Activity} label="Review velocity" value={result.review_velocity} />
-        <SignalBlock icon={MessageSquare} label="Response rate" value={result.response_rate_analysis} />
-        <SignalBlock icon={BarChart3} label="Platform presence" value={result.platform_presence} />
+        <SignalBlock icon={Star} label={t.audit.results.sentiment} value={result.sentiment_breakdown} />
+        <SignalBlock icon={Activity} label={t.audit.results.velocity} value={result.review_velocity} />
+        <SignalBlock icon={MessageSquare} label={t.audit.results.responseRate} value={result.response_rate_analysis} />
+        <SignalBlock icon={BarChart3} label={t.audit.results.platformPresence} value={result.platform_presence} />
       </div>
 
       {/* Locked / Unlocked deeper sections */}
@@ -508,7 +599,7 @@ function ResultsPanel({
             <div className="flex items-center gap-2 mb-3">
               <Lock className="w-4 h-4 text-amber-300" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-300">
-                Locked sections
+                {t.audit.results.lockedSections}
               </span>
             </div>
             <h3 className="font-display text-2xl sm:text-3xl mb-2">
@@ -549,17 +640,17 @@ function ResultsPanel({
               </Button>
             </div>
             <p className="mt-3 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
-              No spam. We email you the full PDF and stop. You can unsubscribe in one click.
+              {t.audit.results.noSpam}
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6 pt-6 border-t border-border/30">
               {[
-                { icon: TrendingUp, label: "Growth projection" },
-                { icon: AlertTriangle, label: "Weakness analysis" },
-                { icon: BarChart3, label: "Competitor gap" },
-                { icon: CheckCircle, label: "Local SEO impact" },
-                { icon: Bot, label: "AI response simulation" },
-                { icon: Sparkles, label: "90-day action plan" },
+                { icon: TrendingUp, label: t.audit.results.growthProjection },
+                { icon: AlertTriangle, label: t.audit.results.weaknessAnalysis },
+                { icon: BarChart3, label: t.audit.results.competitorGap },
+                { icon: CheckCircle, label: t.audit.results.localSeo },
+                { icon: Bot, label: t.audit.results.aiResponseSim },
+                { icon: Sparkles, label: t.audit.results.actionPlanLabel },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -577,57 +668,94 @@ function ResultsPanel({
           <div className="flex items-center gap-2 text-emerald-300">
             <CheckCircle className="w-4 h-4" />
             <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-              Unlocked · full report sent to {email}
+              {t.audit.results.unlockedFlag} {email}
             </span>
           </div>
 
           <DiagnosticCard
             icon={AlertTriangle}
             tone="amber"
-            label="Weakness analysis"
+            label={t.audit.results.weakness}
             body={result.weakness_analysis}
           />
           <DiagnosticCard
             icon={TrendingUp}
             tone="emerald"
-            label="Growth projection"
+            label={t.audit.results.growth}
             body={result.growth_projection}
           />
           <DiagnosticCard
             icon={BarChart3}
             tone="violet"
-            label="Competitor gap"
+            label={t.audit.results.competitorGap}
             body={result.competitor_gap}
           />
           <DiagnosticCard
             icon={CheckCircle}
             tone="cyan"
-            label="Local SEO impact"
+            label={t.audit.results.localSeo}
             body={result.local_seo_impact}
           />
           <DiagnosticCard
             icon={Bot}
             tone="rose"
-            label="AI response simulation"
+            label={t.audit.results.aiSim}
             body={result.ai_response_example}
           />
+
+          {/* Live Google Places data (real GBP, no Anthropic approximations) */}
+          <PlacesPreview businessName={businessName} city={city} />
+
+          {/* Competitor overlay: 3 nearest competitors via Places nearbysearch */}
+          <CompetitorOverlay businessName={businessName} city={city} />
+
+          {/* Real LLM citation matrix — the actual product behind the marketing.
+              Renders only after unlock to control API spend (1 call per unlocked
+              audit, KV-cached 24h on the edge for repeat visitors). */}
+          {flavor === "ai-visibility" && (
+            <LlmCitationMatrix
+              businessName={businessName}
+              city={city}
+              url={url}
+              vertical={vertical}
+              autoFetch
+            />
+          )}
+
           <DiagnosticCard
             icon={Sparkles}
             tone="primary"
-            label="Customer retention insight"
+            label={t.audit.results.retention}
             body={result.customer_retention_insight}
           />
           <DiagnosticCard
             icon={TrendingUp}
             tone="emerald"
-            label="Revenue projection"
+            label={t.audit.results.revenue}
             body={result.revenue_projection}
           />
           <DiagnosticCard
             icon={CheckCircle}
             tone="primary"
-            label="90-day action plan"
+            label={t.audit.results.actionPlan}
             body={result.action_plan}
+          />
+
+          {/* Schema fix copy-paste block: generates LocalBusiness + FAQPage
+              JSON-LD validated against Google Rich Results, tuned per vertical. */}
+          <SchemaPreview
+            businessName={businessName}
+            city={city}
+            url={url}
+            vertical={vertical}
+          />
+
+          {/* Export action plan to Notion / Google Doc / clipboard */}
+          <ExportActionPlan
+            businessName={businessName}
+            city={city}
+            actionPlan={result.action_plan}
+            score={result.reputation_score}
           />
         </div>
       )}
@@ -636,23 +764,23 @@ function ResultsPanel({
       <div className="grid sm:grid-cols-2 gap-4">
         {flavor === "gbp" ? (
           <CrossLink
-            title="Want the full AI Visibility analysis?"
-            desc="GBP is one input. The AI Visibility Audit checks AEO, GEO, E-E-A-T across 6 LLM engines."
-            cta="Run AI Visibility Audit"
+            title={t.audit.crossLinks.needAi}
+            desc={t.audit.crossLinks.needAiDesc}
+            cta={t.audit.crossLinks.needAiCta}
             onClick={() => navigate("/audit")}
           />
         ) : (
           <CrossLink
-            title="Need a faster GBP-only snapshot?"
-            desc="GBP Pulse focuses on Google Business Profile signals. 30 seconds, instant score."
-            cta="Run GBP Pulse"
+            title={t.audit.crossLinks.needGbp}
+            desc={t.audit.crossLinks.needGbpDesc}
+            cta={t.audit.crossLinks.needGbpCta}
             onClick={() => navigate("/audit/gbp")}
           />
         )}
         <CrossLink
-          title="Walk through this with a human?"
-          desc="60-min strategy call in EN, FR-CA, ES, ZH, AR, RU, UK, SR. Free, no pitch."
-          cta="Book a strategy call"
+          title={t.audit.crossLinks.talkHuman}
+          desc={t.audit.crossLinks.talkHumanDesc}
+          cta={t.audit.crossLinks.talkHumanCta}
           icon="calendar"
           onClick={() => navigate("/book-call")}
         />

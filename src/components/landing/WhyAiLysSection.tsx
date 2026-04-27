@@ -1,4 +1,5 @@
 import { ScrollReveal } from "@/components/animation";
+import { useLang } from "@/i18n/LangContext";
 
 interface Competitor {
   segment: string;
@@ -8,46 +9,40 @@ interface Competitor {
   ailysPosition: string;
 }
 
-const rows: Competitor[] = [
-  {
-    segment: "Tier-1 global",
-    examples: "Jellyfish · Seer · Siege Media · NP Digital",
-    price: "$5,000 to $25,000+ /mo",
-    weakness:
-      "Enterprise-only. Proprietary AI tracking. Inaccessible to local businesses.",
-    ailysPosition:
-      "Same disciplines (AEO, GEO, E-E-A-T) at SMB pricing because our delivery is automated.",
-  },
-  {
-    segment: "Mass volume SMB",
-    examples: "LocaliQ · Boostability · Marketing 360",
-    price: "$10 to $2,300 /mo",
-    weakness:
-      "Industrialized. Quality drops with scale. Call-center vibes.",
-    ailysPosition:
-      "Small client roster. No call centers. Bilingual EN/FR-CA. We answer the phone.",
-  },
-  {
-    segment: "Tools-only platforms",
-    examples: "BrightLocal · Whitespark",
-    price: "$799 to $1,299 /mo",
-    weakness:
-      "You buy the dashboard. You still have to do the actual work.",
-    ailysPosition:
-      "Done for you. Our team executes. You receive citations, not credentials to log into yet another tool.",
-  },
-  {
-    segment: "Local specialists",
-    examples: "Sterling Sky · Rablab · regional shops",
-    price: "Custom, often $3K+ /mo",
-    weakness:
-      "Strong on classic local SEO. Light on AEO/GEO/E-E-A-T integration.",
-    ailysPosition:
-      "Same classical SEO foundation (technical, on-page, citations, GBP), with the AEO + GEO + E-E-A-T layer built in from day one. The two halves feed each other.",
-  },
-];
-
 export function WhyAiLysSection() {
+  const { t } = useLang();
+
+  const rows: Competitor[] = [
+    {
+      segment: t.whyAilys.row1Segment,
+      examples: t.whyAilys.row1Examples,
+      price: t.whyAilys.row1Price,
+      weakness: t.whyAilys.row1Weakness,
+      ailysPosition: t.whyAilys.row1Ailys,
+    },
+    {
+      segment: t.whyAilys.row2Segment,
+      examples: t.whyAilys.row2Examples,
+      price: t.whyAilys.row2Price,
+      weakness: t.whyAilys.row2Weakness,
+      ailysPosition: t.whyAilys.row2Ailys,
+    },
+    {
+      segment: t.whyAilys.row3Segment,
+      examples: t.whyAilys.row3Examples,
+      price: t.whyAilys.row3Price,
+      weakness: t.whyAilys.row3Weakness,
+      ailysPosition: t.whyAilys.row3Ailys,
+    },
+    {
+      segment: t.whyAilys.row4Segment,
+      examples: t.whyAilys.row4Examples,
+      price: t.whyAilys.row4Price,
+      weakness: t.whyAilys.row4Weakness,
+      ailysPosition: t.whyAilys.row4Ailys,
+    },
+  ];
+
   return (
     <section
       id="why-ailys"
@@ -60,24 +55,22 @@ export function WhyAiLysSection() {
           <div className="lg:col-span-7">
             <ScrollReveal variant="fade-up" delay={50} duration={600}>
               <div className="ailys-section-no mb-6">
-                <span>03 / Positioning</span>
+                <span>{t.whyAilys.sectionLabel}</span>
               </div>
               <h2
                 id="why-heading"
                 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
               >
-                Where we sit
+                {t.whyAilys.heading1}
                 <br />
-                <span className="italic">in the market.</span>
+                <span className="italic">{t.whyAilys.heading2}</span>
               </h2>
             </ScrollReveal>
           </div>
           <div className="lg:col-span-4 lg:col-start-9 lg:pt-6">
             <ScrollReveal variant="fade-up" delay={150} duration={650}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                A quick honesty pass on the competitive landscape. We are not
-                the cheapest. We are not the biggest. We are the agency you
-                hire when AI search is the problem you are trying to solve.
+                {t.whyAilys.intro}
               </p>
             </ScrollReveal>
           </div>
@@ -96,7 +89,7 @@ export function WhyAiLysSection() {
                 {/* Segment column */}
                 <div className="lg:col-span-3">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-2">
-                    Segment {String(i + 1).padStart(2, "0")}
+                    {t.whyAilys.colSegment} {String(i + 1).padStart(2, "0")}
                   </div>
                   <h3 className="font-display text-2xl text-foreground/95 mb-1">
                     {row.segment}
@@ -109,7 +102,7 @@ export function WhyAiLysSection() {
                 {/* Price column */}
                 <div className="lg:col-span-2 lg:border-l lg:border-border/40 lg:pl-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-2">
-                    Pricing
+                    {t.whyAilys.colPricing}
                   </div>
                   <p className="font-display text-xl text-foreground/85 leading-tight">
                     {row.price}
@@ -119,7 +112,7 @@ export function WhyAiLysSection() {
                 {/* Weakness column */}
                 <div className="lg:col-span-3 lg:border-l lg:border-border/40 lg:pl-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-2">
-                    Where it falls short
+                    {t.whyAilys.colWeakness}
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {row.weakness}
@@ -130,7 +123,7 @@ export function WhyAiLysSection() {
                 <div className="lg:col-span-4 lg:border-l lg:border-primary/30 lg:pl-6 relative">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] mb-2">
                     <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold">
-                      AiLys position
+                      {t.whyAilys.colAilys}
                     </span>
                   </div>
                   <p className="text-sm text-foreground/90 leading-relaxed">
@@ -147,16 +140,15 @@ export function WhyAiLysSection() {
           <div className="mt-16 max-w-3xl mx-auto text-center">
             <div className="ailys-gold-thread w-24 mx-auto mb-6" />
             <p className="font-display text-2xl sm:text-3xl italic text-foreground/85 leading-snug">
-              "If your local business is going to be cited by ChatGPT next year,
-              someone has to do the schema, the citations, and the entity work
-              this year."
+              {t.whyAilys.closingQuote}
             </p>
             <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/60">
-              The thesis behind AiLys
+              {t.whyAilys.closingCaption}
             </div>
           </div>
         </ScrollReveal>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.whyAilys.srSeo}</div>
     </section>
   );
 }

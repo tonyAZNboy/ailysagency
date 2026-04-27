@@ -9,6 +9,9 @@ import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog/BlogCard";
+import { ReadingProgress } from "@/components/article/ReadingProgress";
+import { TableOfContents } from "@/components/article/TableOfContents";
+import { ShareButtons } from "@/components/article/ShareButtons";
 import { blogPosts, CATEGORY_META, type BlogPost as BlogPostT } from "@/data/blog-posts";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
@@ -173,43 +176,40 @@ export default function BlogPost() {
         mouseInfluenceStrength={0.12}
       />
 
-      <div className="min-h-screen overflow-x-hidden">
+      <div className="min-h-screen overflow-x-clip">
+        <ReadingProgress />
         <Navbar />
 
-        <main className="pt-28 pb-20 px-4">
-          <article className="max-w-3xl mx-auto">
-            {/* Back link */}
+        {/* Programmatic cover hero — gradient + title, swap to real OG image later */}
+        <div
+          className={`relative pt-24 pb-12 px-4 overflow-hidden bg-gradient-to-br ${meta.tone}`}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.85' /></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5' /></svg>\")",
+            }}
+          />
+          <div className="relative max-w-4xl mx-auto">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/70 hover:text-primary transition-colors mb-10"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/85 hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Journal
             </Link>
-
-            {/* Category strip */}
-            <div className="flex items-center gap-3 mb-6">
-              <span
-                className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-gradient-to-r ${meta.tone}`}
-              >
-                {meta.label}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
-                Field note
-              </span>
-            </div>
-
-            {/* Title */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-5">
+            <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-black/20 backdrop-blur-sm border border-white/20 mb-5">
+              {meta.label}
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white mb-4 max-w-4xl">
               {post.title}
             </h1>
-
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg text-white/90 leading-relaxed mb-6 max-w-3xl">
               {post.excerpt}
             </p>
-
-            {/* Byline */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pb-8 mb-10 border-b border-border/40 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-mono uppercase tracking-[0.18em] text-white/80">
               <span className="inline-flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5" /> {post.author}
               </span>
@@ -220,56 +220,70 @@ export default function BlogPost() {
                 <Clock className="w-3.5 h-3.5" /> {post.readingTimeMin} min read
               </span>
             </div>
+          </div>
+        </div>
 
-            {/* Body */}
-            <div className="prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/85 prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-strong:font-semibold prose-li:text-foreground/85">
+        <main className="pb-20 px-4">
+          {/* Three-column layout on xl: TOC | article | spacer */}
+          <div className="max-w-7xl mx-auto grid xl:grid-cols-[220px_minmax(0,1fr)_220px] gap-8 lg:gap-10 pt-12">
+            <TableOfContents source={post.content} />
+            <article className="prose prose-invert prose-lg max-w-none xl:max-w-3xl xl:mx-auto prose-headings:font-display prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/85 prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-strong:font-semibold prose-li:text-foreground/85 prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-1 prose-blockquote:rounded-r">
               <ReactMarkdown>{post.content}</ReactMarkdown>
-            </div>
 
-            {/* Tags */}
-            <div className="mt-12 pt-8 border-t border-border/40">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-3">
-                Tags
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 text-xs rounded-full border border-border/50 bg-card/30 text-muted-foreground"
-                  >
-                    #{tag}
-                  </span>
-                ))}
+              {/* Tags */}
+              <div className="not-prose mt-12 pt-8 border-t border-border/40">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-3">
+                  Tags
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 text-xs rounded-full border border-border/50 bg-card/30 text-muted-foreground"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* CTA panel */}
-            <div className="mt-16 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-8">
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-2">
-                Want this kind of analysis for your business?
+              {/* Share buttons */}
+              <div className="not-prose mt-8">
+                <ShareButtons
+                  title={post.title}
+                  url={`https://www.ailysagency.ca/blog/${post.slug}`}
+                />
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl mb-3">
-                Run the free AI Visibility Audit.
-              </h3>
-              <p className="text-sm text-muted-foreground mb-5 max-w-prose">
-                We pull your business through 6 AI search engines, score your
-                AEO, GEO, and E-E-A-T signals, and send a 90-day plan within 24
-                hours.
-              </p>
-              <Button
-                onClick={() => navigate("/audit")}
-                className="rounded-full font-semibold"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
-                  boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
-                }}
-              >
-                Run my AI Visibility Audit
-                <ArrowUpRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          </article>
+
+              {/* CTA panel */}
+              <div className="not-prose mt-12 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-8">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-2">
+                  Want this kind of analysis for your business?
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl mb-3">
+                  Run the free AI Visibility Audit.
+                </h3>
+                <p className="text-sm text-muted-foreground mb-5 max-w-prose">
+                  We pull your business through 6 AI search engines, score your
+                  AEO, GEO, and E-E-A-T signals, and send a 90-day plan within 24
+                  hours.
+                </p>
+                <Button
+                  onClick={() => navigate("/audit")}
+                  className="rounded-full font-semibold"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
+                    boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
+                  }}
+                >
+                  Run my AI Visibility Audit
+                  <ArrowUpRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </article>
+            <aside className="hidden xl:block" aria-hidden="true" />
+          </div>
 
           {/* Related posts */}
           {related.length > 0 && (

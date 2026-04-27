@@ -264,6 +264,54 @@ All colors MUST be HSL.
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: none;
+    /* iOS Safari: account for safe areas (notch, dynamic island, home indicator) */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    /* iOS momentum scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* iOS Safari fix: 100vh excludes URL bar so content jumps when bar collapses.
+     Override Tailwind's vh utilities with dvh where supported. */
+  @supports (height: 100dvh) {
+    .min-h-screen { min-height: 100dvh; }
+    .h-screen { height: 100dvh; }
+    .max-h-screen { max-height: 100dvh; }
+  }
+  @supports (height: 100svh) {
+    .min-h-\[92vh\] { min-height: 92svh; }
+    .min-h-\[80vh\] { min-height: 80svh; }
+  }
+
+  /* iOS form inputs: 16px font-size to prevent zoom-on-focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="number"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+  @media (min-width: 640px) {
+    /* On larger viewports we can let component-level sizing take over */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+      font-size: inherit;
+    }
+  }
+
+  /* Buttons + interactive elements: feedback on tap, no double-tap zoom */
+  button, [role="button"], a {
+    touch-action: manipulation;
   }
 
   /* Editorial typography utilities */

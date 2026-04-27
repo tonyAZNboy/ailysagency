@@ -6,6 +6,7 @@ import {
   Languages,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/animation";
+import { useLang } from "@/i18n/LangContext";
 
 interface Driver {
   icon: typeof Sparkles;
@@ -14,40 +15,42 @@ interface Driver {
   tone: "cyan" | "violet" | "amber" | "emerald" | "rose";
 }
 
-const drivers: Driver[] = [
-  {
-    icon: Bot,
-    title: "LLM engine coverage",
-    body: "We track citations across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Each engine has its own ranking signals. Tier price scales with how many engines we actively optimize for, not just monitor.",
-    tone: "cyan",
-  },
-  {
-    icon: Globe2,
-    title: "Industry complexity",
-    body: "E-E-A-T weight varies by vertical. Healthcare and law need credentialed authorship and citation density that restaurants do not. We price by the depth of E-E-A-T work your industry actually requires.",
-    tone: "violet",
-  },
-  {
-    icon: FileCode,
-    title: "Schema and entity scope",
-    body: "Schema deployment effort scales with site size and CMS. A 5-page WordPress site is one shape of work. A 200-page Shopify catalog with multi-location is another. We quote against scope, not a pre-set package.",
-    tone: "amber",
-  },
-  {
-    icon: Languages,
-    title: "Content language depth",
-    body: "Bilingual EN and FR-CA is in every tier. Adding Spanish, Chinese, Arabic, Russian, Ukrainian, or Serbian via our partner network adds production cost. Each extra language pulls a separate citation footprint.",
-    tone: "emerald",
-  },
-  {
-    icon: Sparkles,
-    title: "Citation acquisition pace",
-    body: "Citation building is a real outreach effort. Five high-DA citations a month at Core, ten plus at Growth. The cost difference reflects research and outreach hours, not arbitrary tiering.",
-    tone: "rose",
-  },
-];
-
 export function PricingDriversSection() {
+  const { t } = useLang();
+
+  const drivers: Driver[] = [
+    {
+      icon: Bot,
+      title: t.pricingDrivers.d1Title,
+      body: t.pricingDrivers.d1Body,
+      tone: "cyan",
+    },
+    {
+      icon: Globe2,
+      title: t.pricingDrivers.d2Title,
+      body: t.pricingDrivers.d2Body,
+      tone: "violet",
+    },
+    {
+      icon: FileCode,
+      title: t.pricingDrivers.d3Title,
+      body: t.pricingDrivers.d3Body,
+      tone: "amber",
+    },
+    {
+      icon: Languages,
+      title: t.pricingDrivers.d4Title,
+      body: t.pricingDrivers.d4Body,
+      tone: "emerald",
+    },
+    {
+      icon: Sparkles,
+      title: t.pricingDrivers.d5Title,
+      body: t.pricingDrivers.d5Body,
+      tone: "rose",
+    },
+  ];
+
   return (
     <section
       id="pricing-drivers"
@@ -58,22 +61,20 @@ export function PricingDriversSection() {
         <ScrollReveal variant="fade-up" delay={50} duration={600}>
           <div className="mb-12 max-w-3xl mx-auto text-center">
             <div className="ailys-section-no mb-5 justify-center">
-              <span>Pricing rationale</span>
+              <span>{t.pricingDrivers.sectionLabel}</span>
             </div>
             <h2
               id="drivers-heading"
               className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-4"
             >
-              Why AiLys pricing
+              {t.pricingDrivers.heading1}
               <br />
               <span className="italic bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                varies by client.
+                {t.pricingDrivers.heading2}
               </span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Anyone quoting "$X for SEO" without asking about your industry,
-              site size, language scope, or competitor density is guessing.
-              Five real things drive what your AiLys plan actually costs.
+              {t.pricingDrivers.intro}
             </p>
           </div>
         </ScrollReveal>
@@ -91,6 +92,7 @@ export function PricingDriversSection() {
           ))}
         </div>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.pricingDrivers.srSeo}</div>
     </section>
   );
 }

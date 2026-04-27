@@ -151,7 +151,6 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
         aria-expanded={open}
       >
         <Globe className="w-4 h-4" />
-        <span className="hidden sm:inline">{LANG_FLAGS[lang] ?? '🌐'}</span>
         <span className="text-xs uppercase font-semibold">{lang}</span>
       </button>
       {dropdown}

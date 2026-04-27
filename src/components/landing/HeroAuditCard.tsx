@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Sparkles, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLang } from "@/i18n/LangContext";
 
 interface LiveCitation {
   query: string;
@@ -22,21 +23,31 @@ interface LiveCitation {
 export function HeroAuditCard() {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLang();
   const [businessName, setBusinessName] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [citation, setCitation] = useState<LiveCitation | null>(null);
+  const [citationLoading, setCitationLoading] = useState(true);
 
-  // Pull a live LLM citation (rotates every 5 renders via /api/hero-citation)
+  // Real LLM citation pulled from Anthropic via Cloudflare Pages Function.
+  // KV-cached on the edge: fresh fetch every 5th render, served warm to others.
+  // No mock data — when API is unreachable, strip is hidden entirely.
   useEffect(() => {
     let mounted = true;
     fetch("/api/hero-citation")
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
-        if (mounted && data) setCitation(data as LiveCitation);
+        if (!mounted) return;
+        if (data && data.query && data.cited_business) {
+          setCitation(data as LiveCitation);
+        }
+        setCitationLoading(false);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (mounted) setCitationLoading(false);
+      });
     return () => {
       mounted = false;
     };
@@ -47,8 +58,8 @@ export function HeroAuditCard() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!businessName.trim() || !city.trim() || !emailRegex.test(email.trim())) {
       toast({
-        title: "We need three things",
-        description: "Business name, city, and a valid email so we can send the full report.",
+        title: t.heroAuditCard.toastTitle,
+        description: t.heroAuditCard.toastDesc,
         variant: "destructive",
       });
       return;
@@ -62,10 +73,10 @@ export function HeroAuditCard() {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto">
-      {/* TRIPLE HALO STACK — fluorescent bloom */}
+    <div className="relative w-full max-w-md mx-auto isolate">
+      {/* TRIPLE HALO STACK — bloom contained inside isolate so it never overflows viewport */}
       <div
-        className="absolute -inset-16 rounded-[3rem] blur-[80px] opacity-90 pointer-events-none animate-pulse"
+        className="absolute -inset-3 sm:-inset-16 rounded-[3rem] blur-[40px] sm:blur-[80px] opacity-70 sm:opacity-90 pointer-events-none animate-pulse -z-10"
         style={{
           background:
             "radial-gradient(circle at 30% 20%, rgba(34,211,238,0.7), transparent 60%), radial-gradient(circle at 70% 80%, rgba(244,114,182,0.65), transparent 60%), radial-gradient(circle at 50% 50%, rgba(167,139,250,0.55), transparent 70%)",
@@ -73,14 +84,14 @@ export function HeroAuditCard() {
         }}
       />
       <div
-        className="absolute -inset-10 rounded-[2.5rem] blur-3xl opacity-80 pointer-events-none"
+        className="absolute -inset-2 sm:-inset-10 rounded-[2.5rem] blur-xl sm:blur-3xl opacity-60 sm:opacity-80 pointer-events-none -z-10"
         style={{
           background:
             "linear-gradient(135deg, rgba(34,211,238,0.55), rgba(167,139,250,0.45) 50%, rgba(244,114,182,0.55))",
         }}
       />
       <div
-        className="absolute -inset-4 rounded-[2.2rem] blur-xl opacity-90 pointer-events-none"
+        className="absolute -inset-1 sm:-inset-4 rounded-[2.2rem] blur-md sm:blur-xl opacity-80 sm:opacity-90 pointer-events-none -z-10"
         style={{
           background:
             "linear-gradient(135deg, hsl(185 100% 50%), hsl(265 100% 65%) 50%, hsl(310 100% 65%))",
@@ -99,9 +110,9 @@ export function HeroAuditCard() {
         }}
       />
 
-      {/* Main card */}
+      {/* Main card — tighter padding on mobile */}
       <div
-        className="relative rounded-3xl p-8 sm:p-9 overflow-hidden"
+        className="relative rounded-3xl p-5 sm:p-9 overflow-hidden"
         style={{
           background:
             "linear-gradient(135deg, hsl(185 100% 42%) 0%, hsl(220 95% 55%) 25%, hsl(265 95% 60%) 55%, hsl(310 95% 60%) 100%)",
@@ -129,48 +140,75 @@ export function HeroAuditCard() {
           }}
         />
 
-        {/* Floating sparkle */}
-        <div className="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/50 flex items-center justify-center pointer-events-none shadow-[0_0_30px_rgba(255,255,255,0.6)]">
+        {/* Floating sparkle — anchored to top-right of card */}
+        <div className="hidden sm:flex absolute top-5 right-5 w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/50 items-center justify-center pointer-events-none shadow-[0_0_30px_rgba(255,255,255,0.6)] z-10">
           <Sparkles className="w-5 h-5 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
         </div>
 
         <div className="relative">
+          {/* LLM citation preview — real Anthropic-pulled data, KV-cached on the edge */}
+          {citationLoading && (
+            <div className="mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/85 mb-1.5 flex items-center gap-1.5">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full opacity-80 bg-emerald-300 animate-ping" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                </span>
+                <span>{t.heroAuditCard.citationLabel}</span>
+              </div>
+              <div className="h-3.5 rounded bg-white/10 animate-pulse" />
+            </div>
+          )}
+          {!citationLoading && citation && (
+            <div className="mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white mb-1.5 flex items-center gap-1.5">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full opacity-80 bg-emerald-300 animate-ping" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                </span>
+                <span>{t.heroAuditCard.citationLabel}</span>
+              </div>
+              <p className="text-[12px] sm:text-[13px] text-white leading-snug italic">
+                "{citation.query}" → <span className="font-semibold not-italic">{citation.cited_business}</span>
+              </p>
+            </div>
+          )}
+
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/95 mb-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
-            Free AI Visibility Audit · 24-hour turnaround
+            {t.heroAuditCard.eyebrow}
           </div>
-          <h3 className="font-display text-3xl sm:text-4xl text-white leading-[1.05] tracking-tight mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
-            Score your site
+          <h3 className="font-display text-white leading-[1.05] tracking-tight mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]" style={{ fontSize: "clamp(1.5rem, 5.5vw, 2.25rem)" }}>
+            {t.heroAuditCard.title1}
             <br />
-            <span className="italic text-white">across 6 AI engines.</span>
+            <span className="italic text-white">{t.heroAuditCard.title2}</span>
           </h3>
-          <p className="text-sm text-white/95 leading-relaxed mb-6">
-            ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot.
-            Live data, 30 seconds, full report by email.
+          <p className="text-[13px] sm:text-sm text-white/95 leading-relaxed mb-5 sm:mb-6">
+            {t.heroAuditCard.subtitle}
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-2.5">
             <Input
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
-              placeholder="Business name"
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              placeholder={t.heroAuditCard.placeholderBusiness}
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
               required
-              aria-label="Business name"
+              aria-label={t.heroAuditCard.placeholderBusiness}
             />
             <Input
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              placeholder="City"
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              placeholder={t.heroAuditCard.placeholderCity}
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
               required
-              aria-label="City"
+              aria-label={t.heroAuditCard.placeholderCity}
             />
             <Input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@business.ca"
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+              placeholder={t.heroAuditCard.placeholderEmail}
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
               required
               aria-label="Email"
             />
@@ -185,40 +223,24 @@ export function HeroAuditCard() {
               ) : (
                 <Sparkles className="w-4 h-4 mr-2" />
               )}
-              {submitting ? "Loading..." : "Run my AI Visibility Audit"}
+              {submitting ? t.heroAuditCard.submitLoading : t.heroAuditCard.submit}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
             </Button>
           </form>
 
           <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 text-center">
-            No credit card · Results in 24 hours · We hate spam too
+            {t.heroAuditCard.legal}
           </p>
-
-          {/* Live citation strip */}
-          {citation && citation.is_live && (
-            <div className="mt-5 pt-4 border-t border-white/30">
-              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/85 mb-1.5 flex items-center gap-1.5">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
-                </span>
-                Live · One AI search query right now
-              </div>
-              <p className="text-xs text-white/95 leading-snug italic">
-                "{citation.query}" → <span className="font-semibold not-italic">{citation.cited_business}</span>
-              </p>
-            </div>
-          )}
         </div>
       </div>
 
       {/* Floating accent pills (outside card) */}
       <div className="hidden sm:flex absolute -top-3 -left-4 px-3 py-1.5 rounded-full bg-foreground/95 backdrop-blur-sm text-[10px] font-mono uppercase tracking-[0.18em] text-background font-semibold shadow-[0_0_30px_rgba(34,211,238,0.6)] z-10">
-        ★ Live data
+        {t.heroAuditCard.badgeLive}
       </div>
       <div className="hidden sm:flex absolute -bottom-3 -right-2 px-3 py-1.5 rounded-full bg-emerald-500 text-[10px] font-mono uppercase tracking-[0.18em] text-background font-semibold shadow-[0_0_30px_rgba(52,211,153,0.7)] items-center gap-1.5 z-10">
         <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-        Free + instant
+        {t.heroAuditCard.badgeFree}
       </div>
 
       {/* Particle dust */}
@@ -228,6 +250,9 @@ export function HeroAuditCard() {
       <Particle className="top-[85%] right-[15%]" delay={0.6} />
       <Particle className="top-[50%] left-[-2%]" delay={1.8} />
       <Particle className="top-[30%] right-[-2%]" delay={3} />
+
+      {/* sr-only SEO content: visible to LLM bot crawlers regardless of fetch state */}
+      <div className="sr-only" aria-hidden="false">{t.heroAuditCard.srSeo}</div>
     </div>
   );
 }

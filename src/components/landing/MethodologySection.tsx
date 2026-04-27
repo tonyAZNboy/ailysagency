@@ -12,108 +12,18 @@ import {
   Quote,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/animation";
+import { useLang } from "@/i18n/LangContext";
 
 interface Step {
   n: string;
   icon: typeof Wrench;
-  layer: "Classical SEO" | "AEO + GEO" | "E-E-A-T" | "Tracking";
+  layer: string;
   title: string;
   short: string;
   detail: string;
   signal: string;
   tone: "cyan" | "violet" | "amber" | "emerald" | "rose";
 }
-
-const steps: Step[] = [
-  {
-    n: "01",
-    icon: Wrench,
-    layer: "Classical SEO",
-    title: "Technical foundation",
-    short: "Fix what AI engines crawl",
-    detail:
-      "Site speed, crawlability, internal linking, meta hygiene, broken links. AI engines pull from the same web index Google uses. If your site is slow or broken, no AI layer saves you.",
-    signal: "TTFB under 200ms · 100% crawlable URLs · clean metadata",
-    tone: "cyan",
-  },
-  {
-    n: "02",
-    icon: MapPin,
-    layer: "Classical SEO",
-    title: "Google Business Profile",
-    short: "Categories, attributes, hours, photos, posts, Q&A",
-    detail:
-      "GBP completeness drives 35 to 60 percent of local AI answers. We fill every attribute, optimize categories, refresh photos quarterly, seed Q&A, and post weekly. Foundational for every tier.",
-    signal: "100% attributes filled · 5+ photos/mo · Q&A seeded · weekly posts",
-    tone: "cyan",
-  },
-  {
-    n: "03",
-    icon: Link2,
-    layer: "Classical SEO",
-    title: "Citations and NAP consistency",
-    short: "20+ high-DA directories, exact-match listings",
-    detail:
-      "Inconsistent Name, Address, Phone across the web cuts citation odds in half. AI engines treat NAP variants as separate entities. We fix all 20+ high-DA directories: Yelp, BBB, Yellowpages, industry-specific.",
-    signal: "Yelp · BBB · Crunchbase · Avvo · Healthgrades · OpenTable",
-    tone: "amber",
-  },
-  {
-    n: "04",
-    icon: Code2,
-    layer: "AEO + GEO",
-    title: "AEO schema deployment",
-    short: "FAQ + Review + LocalBusiness + Service entities",
-    detail:
-      "AEO is making your content extract-ready. We deploy structured data so AI engines can pull a clean answer from your site instead of paraphrasing a competitor. Validated against Google Rich Results Test.",
-    signal: "FAQ schema · Review aggregateRating · LocalBusiness · Service",
-    tone: "violet",
-  },
-  {
-    n: "05",
-    icon: BookOpen,
-    layer: "AEO + GEO",
-    title: "GEO entity authority",
-    short: "Wikipedia, Wikidata, digital PR, Reddit",
-    detail:
-      "ChatGPT and Perplexity weight Wikipedia and Reddit signals heavily. We build verifiable Wikidata entries, propose Wikipedia mentions where the business is genuinely notable, and show up substantively in your industry's top 3 to 5 subreddits.",
-    signal: "Wikidata entry · Reddit voice · 1+ press mention/quarter",
-    tone: "violet",
-  },
-  {
-    n: "06",
-    icon: Award,
-    layer: "E-E-A-T",
-    title: "E-E-A-T signals",
-    short: "Real bylines, original photos, credentials",
-    detail:
-      "Google's E-E-A-T rubric (Experience, Expertise, Authoritativeness, Trust) is what AI engines use to pick whose content to cite. We add Person schema for authors, original photography with EXIF metadata, credential markup, and award schema.",
-    signal: "Author bylines · EXIF photos · credentials · awards · trust badges",
-    tone: "emerald",
-  },
-  {
-    n: "07",
-    icon: MessageSquare,
-    layer: "E-E-A-T",
-    title: "Review velocity engine",
-    short: "Fresh reviews monthly, AI-replied, multilingual",
-    detail:
-      "Reviews are the strongest fresh-signal AI engines use. We run review collection through Reviuzy (NFC tap, QR codes, contest engine) so you maintain 4 to 50 fresh reviews per month per location, replied within 24 hours, in the language the customer wrote.",
-    signal: "4 to 50 reviews/mo per location · 24h response · 16 languages",
-    tone: "rose",
-  },
-  {
-    n: "08",
-    icon: Bot,
-    layer: "Tracking",
-    title: "LLM citation tracking",
-    short: "6 engines, weekly polling, monthly report",
-    detail:
-      "We poll ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot weekly with high-intent prompts in your service plus city. We track when your name appears, what is cited, and where competitors still beat you. Real numbers, not vanity metrics.",
-    signal: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-    tone: "cyan",
-  },
-];
 
 const TONE: Record<
   Step["tone"],
@@ -153,6 +63,90 @@ const TONE: Record<
 
 export function MethodologySection() {
   const [active, setActive] = useState<string>("01");
+  const { t } = useLang();
+
+  const steps: Step[] = [
+    {
+      n: "01",
+      icon: Wrench,
+      layer: t.methodology.layerClassical,
+      title: t.methodology.step1Title,
+      short: t.methodology.step1Short,
+      detail: t.methodology.step1Detail,
+      signal: t.methodology.step1Signal,
+      tone: "cyan",
+    },
+    {
+      n: "02",
+      icon: MapPin,
+      layer: t.methodology.layerClassical,
+      title: t.methodology.step2Title,
+      short: t.methodology.step2Short,
+      detail: t.methodology.step2Detail,
+      signal: t.methodology.step2Signal,
+      tone: "cyan",
+    },
+    {
+      n: "03",
+      icon: Link2,
+      layer: t.methodology.layerClassical,
+      title: t.methodology.step3Title,
+      short: t.methodology.step3Short,
+      detail: t.methodology.step3Detail,
+      signal: t.methodology.step3Signal,
+      tone: "amber",
+    },
+    {
+      n: "04",
+      icon: Code2,
+      layer: t.methodology.layerAeoGeo,
+      title: t.methodology.step4Title,
+      short: t.methodology.step4Short,
+      detail: t.methodology.step4Detail,
+      signal: t.methodology.step4Signal,
+      tone: "violet",
+    },
+    {
+      n: "05",
+      icon: BookOpen,
+      layer: t.methodology.layerAeoGeo,
+      title: t.methodology.step5Title,
+      short: t.methodology.step5Short,
+      detail: t.methodology.step5Detail,
+      signal: t.methodology.step5Signal,
+      tone: "violet",
+    },
+    {
+      n: "06",
+      icon: Award,
+      layer: t.methodology.layerEeat,
+      title: t.methodology.step6Title,
+      short: t.methodology.step6Short,
+      detail: t.methodology.step6Detail,
+      signal: t.methodology.step6Signal,
+      tone: "emerald",
+    },
+    {
+      n: "07",
+      icon: MessageSquare,
+      layer: t.methodology.layerEeat,
+      title: t.methodology.step7Title,
+      short: t.methodology.step7Short,
+      detail: t.methodology.step7Detail,
+      signal: t.methodology.step7Signal,
+      tone: "rose",
+    },
+    {
+      n: "08",
+      icon: Bot,
+      layer: t.methodology.layerTracking,
+      title: t.methodology.step8Title,
+      short: t.methodology.step8Short,
+      detail: t.methodology.step8Detail,
+      signal: t.methodology.step8Signal,
+      tone: "cyan",
+    },
+  ];
 
   return (
     <section
@@ -177,16 +171,16 @@ export function MethodologySection() {
           <div className="lg:col-span-7">
             <ScrollReveal variant="fade-up" delay={50} duration={650}>
               <div className="ailys-section-no mb-6">
-                <span>Engine · How AiLys boosts you into LLM answers</span>
+                <span>{t.methodology.sectionLabel}</span>
               </div>
               <h2
                 id="methodology-heading"
                 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
               >
-                Eight steps from
+                {t.methodology.heading1}
                 <br />
                 <span className="italic bg-gradient-to-r from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent">
-                  invisible to cited.
+                  {t.methodology.heading2}
                 </span>
               </h2>
             </ScrollReveal>
@@ -194,9 +188,7 @@ export function MethodologySection() {
           <div className="lg:col-span-4 lg:col-start-9 lg:pt-6">
             <ScrollReveal variant="fade-up" delay={150} duration={650}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Most agencies sell one layer. We run all four: classical SEO
-                foundation, AEO and GEO optimization, E-E-A-T signal building,
-                and weekly LLM citation tracking. Each step feeds the next.
+                {t.methodology.intro}
               </p>
             </ScrollReveal>
           </div>
@@ -207,10 +199,10 @@ export function MethodologySection() {
           {/* Stepper rail (left, desktop only) */}
           <nav
             className="hidden lg:block lg:sticky lg:top-28 lg:self-start"
-            aria-label="Methodology steps"
+            aria-label={t.methodology.stepsAria}
           >
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-4">
-              Pipeline
+              {t.methodology.pipelineLabel}
             </div>
             <ol className="space-y-1.5 border-l border-border/40 pl-4">
               {steps.map((s) => {
@@ -348,15 +340,15 @@ export function MethodologySection() {
           <div className="mt-20 max-w-4xl mx-auto text-center">
             <div className="ailys-gold-thread w-32 mx-auto mb-6" />
             <p className="font-display text-2xl sm:text-3xl italic text-foreground/85 leading-snug">
-              "Eight inputs feed the AI engines. Most agencies fix one or two.
-              We run all eight, every month."
+              {t.methodology.closingQuote}
             </p>
             <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/60">
-              The AiLys engine
+              {t.methodology.closingCaption}
             </div>
           </div>
         </ScrollReveal>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.methodology.srSeo}</div>
     </section>
   );
 }

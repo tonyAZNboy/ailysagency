@@ -17,6 +17,10 @@ import {
   Calendar,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLang } from "@/i18n/LangContext";
+import type { TranslationKeys } from "@/i18n";
+
+type Translator = TranslationKeys;
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -61,21 +65,173 @@ interface Signal {
   action: string;
 }
 
-const VERTICALS: { id: Vertical; label: string }[] = [
-  { id: "restaurant", label: "Restaurant" },
-  { id: "dentist", label: "Dental clinic" },
-  { id: "lawyer", label: "Law firm" },
-  { id: "salon", label: "Salon / spa" },
-  { id: "contractor", label: "Contractor / trade" },
-  { id: "clinic", label: "Medical clinic" },
-  { id: "real-estate", label: "Real estate" },
-  { id: "hotel", label: "Hotel / hospitality" },
-  { id: "other", label: "Something else" },
+// Stable Vertical IDs only; labels come from the i18n layer at render time.
+const VERTICAL_IDS: Vertical[] = [
+  "restaurant",
+  "dentist",
+  "lawyer",
+  "salon",
+  "contractor",
+  "clinic",
+  "real-estate",
+  "hotel",
+  "other",
 ];
+
+const VERTICAL_I18N_KEY: Record<Vertical, keyof Translator["audit"]["pulse"]> = {
+  restaurant: "verticalRestaurant",
+  dentist: "verticalDentist",
+  lawyer: "verticalLawyer",
+  salon: "verticalSalon",
+  contractor: "verticalContractor",
+  clinic: "verticalClinic",
+  "real-estate": "verticalRealEstate",
+  hotel: "verticalHotel",
+  other: "verticalOther",
+};
+
+// ─── Vertical-tuned signal weight multipliers ─────────────────────────────
+// Default weights are tuned for a generic local business. Per-vertical
+// multipliers reflect what AI engines actually weight more or less for
+// each industry. Restaurant verticals weight review velocity heavily;
+// lawyer verticals weight NAP + categories more than reviews; healthcare
+// weights review-response and category-specificity.
+//
+// All multipliers anchor at 1.0. Sum of multipliers stays close to 10 so
+// the weighted average doesn't drift.
+
+type SignalId =
+  | "claim"
+  | "posts"
+  | "review-count"
+  | "review-velocity"
+  | "photos"
+  | "categories"
+  | "attributes"
+  | "responses"
+  | "qa"
+  | "nap";
+
+const VERTICAL_WEIGHT_MULTIPLIERS: Record<Vertical, Record<SignalId, number>> = {
+  restaurant: {
+    claim: 1.0,
+    posts: 1.2,
+    "review-count": 1.0,
+    "review-velocity": 1.6, // dominant for restos
+    photos: 1.4, // food photos matter more
+    categories: 1.2, // cuisine specificity
+    attributes: 1.1,
+    responses: 1.0,
+    qa: 0.8,
+    nap: 0.7,
+  },
+  dentist: {
+    claim: 1.2,
+    posts: 0.8,
+    "review-count": 1.1,
+    "review-velocity": 1.2,
+    photos: 0.9,
+    categories: 1.4, // pediatric vs general matters
+    attributes: 1.1, // RAMQ, insurance attributes
+    responses: 1.4, // healthcare weight on responses
+    qa: 1.0,
+    nap: 0.9,
+  },
+  lawyer: {
+    claim: 1.3,
+    posts: 0.7,
+    "review-count": 0.9,
+    "review-velocity": 0.8,
+    photos: 0.6,
+    categories: 1.5, // family vs criminal vs immigration
+    attributes: 1.2,
+    responses: 1.3,
+    qa: 1.1,
+    nap: 1.6, // bar association consistency
+  },
+  salon: {
+    claim: 1.0,
+    posts: 1.3,
+    "review-count": 1.0,
+    "review-velocity": 1.4,
+    photos: 1.5, // before/after photos
+    categories: 1.0,
+    attributes: 1.0,
+    responses: 0.9,
+    qa: 0.8,
+    nap: 1.1,
+  },
+  contractor: {
+    claim: 1.1,
+    posts: 0.9,
+    "review-count": 1.2,
+    "review-velocity": 1.0,
+    photos: 1.3, // project portfolio
+    categories: 1.4, // licensed trade specificity
+    attributes: 1.0,
+    responses: 1.1,
+    qa: 0.9,
+    nap: 1.1,
+  },
+  clinic: {
+    claim: 1.2,
+    posts: 0.8,
+    "review-count": 1.0,
+    "review-velocity": 1.0,
+    photos: 0.7,
+    categories: 1.5, // specialty matters
+    attributes: 1.3, // accessibility, insurance
+    responses: 1.4,
+    qa: 1.0,
+    nap: 1.1,
+  },
+  "real-estate": {
+    claim: 1.1,
+    posts: 1.4, // recent listings as posts
+    "review-count": 1.0,
+    "review-velocity": 1.1,
+    photos: 1.2,
+    categories: 1.0,
+    attributes: 0.9,
+    responses: 1.1,
+    qa: 1.0,
+    nap: 1.2,
+  },
+  hotel: {
+    claim: 1.1,
+    posts: 1.0,
+    "review-count": 1.5, // volume matters
+    "review-velocity": 1.4,
+    photos: 1.4,
+    categories: 0.9,
+    attributes: 1.3, // amenities critical
+    responses: 1.2,
+    qa: 0.7,
+    nap: 0.5,
+  },
+  other: {
+    claim: 1.0,
+    posts: 1.0,
+    "review-count": 1.0,
+    "review-velocity": 1.0,
+    photos: 1.0,
+    categories: 1.0,
+    attributes: 1.0,
+    responses: 1.0,
+    qa: 1.0,
+    nap: 1.0,
+  },
+};
 
 // ─── Scoring engine ─────────────────────────────────────────
 
-function score(answers: Answers): { total: number; signals: Signal[] } {
+function score(
+  answers: Answers,
+  t: Translator,
+  vertical: Vertical = "other",
+): { total: number; signals: Signal[] } {
+  const sig = t.audit.pulse.signals;
+  const mult = VERTICAL_WEIGHT_MULTIPLIERS[vertical];
   const signals: Signal[] = [];
 
   // Claim & verify (weight: 12)
@@ -83,21 +239,19 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
     answers.claimed === "yes" ? 100 : answers.claimed === "unsure" ? 30 : 0;
   signals.push({
     id: "claim",
-    label: "Claim & verify",
+    label: sig.claimLabel,
     icon: ShieldCheck,
     score: claimScore,
-    weight: 12,
+    weight: 12 * mult.claim,
     status: claimScore >= 80 ? "strong" : claimScore >= 40 ? "medium" : "weak",
     insight:
       claimScore >= 80
-        ? "Listing claimed. Google trusts you to update your own data."
+        ? sig.claimStrongInsight
         : claimScore >= 40
-          ? "Likely claimed but verify status in Google Business Profile dashboard."
-          : "Unclaimed listings rank below claimed ones. This is move zero.",
+          ? sig.claimMediumInsight
+          : sig.claimWeakInsight,
     action:
-      claimScore >= 80
-        ? "Confirm verification badge is visible."
-        : "Claim at business.google.com today. 5-minute task.",
+      claimScore >= 80 ? sig.claimStrongAction : sig.claimWeakAction,
   });
 
   // Posts in last 30 days (weight: 10)
@@ -105,61 +259,53 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
     answers.posts30d === "yes" ? 100 : answers.posts30d === "unsure" ? 30 : 0;
   signals.push({
     id: "posts",
-    label: "Recent activity",
+    label: sig.postsLabel,
     icon: Activity,
     score: postScore,
-    weight: 10,
+    weight: 10 * mult.posts,
     status: postScore >= 80 ? "strong" : postScore >= 40 ? "medium" : "weak",
     insight:
-      postScore >= 80
-        ? "Active posts signal a live business. Google ranks active listings higher."
-        : "Listings without recent posts get downweighted in local pack.",
+      postScore >= 80 ? sig.postsStrongInsight : sig.postsWeakInsight,
     action:
-      postScore >= 80
-        ? "Maintain weekly cadence. Even short updates count."
-        : "Post one offer or update per week. Even a sentence works.",
+      postScore >= 80 ? sig.postsStrongAction : sig.postsWeakAction,
   });
 
   // Review count (weight: 13)
   const rcScore = Math.min(100, (answers.reviewCount / 100) * 100);
   signals.push({
     id: "review-count",
-    label: "Review count",
+    label: sig.reviewCountLabel,
     icon: Star,
     score: rcScore,
-    weight: 13,
+    weight: 13 * mult["review-count"],
     status: rcScore >= 70 ? "strong" : rcScore >= 30 ? "medium" : "weak",
     insight:
       rcScore >= 70
-        ? `${answers.reviewCount}+ reviews builds Google's trust signal. You're past the threshold.`
+        ? sig.reviewCountStrongInsight.replace("{count}", String(answers.reviewCount))
         : rcScore >= 30
-          ? "Decent base. Push to 100+ to enter strong-trust territory."
-          : "Under 30 reviews looks new even if you've been operating for years.",
+          ? sig.reviewCountMediumInsight
+          : sig.reviewCountWeakInsight,
     action:
-      rcScore >= 70
-        ? "Maintain steady inflow. Don't let velocity drop."
-        : "Aim for 4-6 new reviews per month. Use Reviuzy or AiLys's review engine.",
+      rcScore >= 70 ? sig.reviewCountStrongAction : sig.reviewCountWeakAction,
   });
 
   // Recent reviews velocity (weight: 15) — most important AEO signal
   const velScore = Math.min(100, (answers.recentReviews / 15) * 100);
   signals.push({
     id: "review-velocity",
-    label: "Review velocity",
+    label: sig.velocityLabel,
     icon: Activity,
     score: velScore,
-    weight: 15,
+    weight: 15 * mult["review-velocity"],
     status: velScore >= 70 ? "strong" : velScore >= 30 ? "medium" : "weak",
     insight:
       velScore >= 70
-        ? `${answers.recentReviews} reviews in 90 days is excellent. Google interprets as 'currently busy'.`
+        ? sig.velocityStrongInsight.replace("{count}", String(answers.recentReviews))
         : velScore >= 30
-          ? "Velocity is OK. AI engines weight fresh reviews 1.9× more than older ones."
-          : "Low velocity tells Google you might be inactive. Highest-leverage fix on this list.",
+          ? sig.velocityMediumInsight
+          : sig.velocityWeakInsight,
     action:
-      velScore >= 70
-        ? "Maintain monthly cadence above 4 reviews."
-        : "Run a monthly review contest. Bumps velocity 3-5×.",
+      velScore >= 70 ? sig.velocityStrongAction : sig.velocityWeakAction,
   });
 
   // Photos in last 60 days (weight: 10)
@@ -171,19 +317,15 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
         : 10;
   signals.push({
     id: "photos",
-    label: "Photo freshness",
+    label: sig.photosLabel,
     icon: Camera,
     score: photoScore,
-    weight: 10,
+    weight: 10 * mult.photos,
     status: photoScore >= 80 ? "strong" : photoScore >= 40 ? "medium" : "weak",
     insight:
-      photoScore >= 80
-        ? "Fresh photos with EXIF metadata feed E-E-A-T 'experience' signal."
-        : "Stale or stock photos hurt visibility. AI engines deprioritize them.",
+      photoScore >= 80 ? sig.photosStrongInsight : sig.photosWeakInsight,
     action:
-      photoScore >= 80
-        ? "Add 1-2 new photos per month."
-        : "Upload 5 new original photos this week. Phone-quality is fine, EXIF matters.",
+      photoScore >= 80 ? sig.photosStrongAction : sig.photosWeakAction,
   });
 
   // Category specificity (weight: 10)
@@ -195,19 +337,15 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
         : 20;
   signals.push({
     id: "categories",
-    label: "Category accuracy",
+    label: sig.catLabel,
     icon: Tag,
     score: catScore,
-    weight: 10,
+    weight: 10 * mult.categories,
     status: catScore >= 80 ? "strong" : catScore >= 40 ? "medium" : "weak",
     insight:
-      catScore >= 80
-        ? "Specific primary category drives 'near me' query matching."
-        : "Generic categories ('Restaurant' vs 'Sushi restaurant') lose 40% of voice queries.",
+      catScore >= 80 ? sig.catStrongInsight : sig.catWeakInsight,
     action:
-      catScore >= 80
-        ? "Review secondary categories quarterly."
-        : "Switch to most specific primary category that fits. Add 3-5 secondary categories.",
+      catScore >= 80 ? sig.catStrongAction : sig.catWeakAction,
   });
 
   // Attributes (weight: 8)
@@ -219,19 +357,15 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
         : 10;
   signals.push({
     id: "attributes",
-    label: "Attributes",
+    label: sig.attrLabel,
     icon: Sparkles,
     score: attrScore,
-    weight: 8,
+    weight: 8 * mult.attributes,
     status: attrScore >= 80 ? "strong" : attrScore >= 40 ? "medium" : "weak",
     insight:
-      attrScore >= 80
-        ? "Attributes power 'wheelchair access', 'kid-friendly', 'wifi' filtered queries."
-        : "Empty attributes mean you don't show up for filtered searches.",
+      attrScore >= 80 ? sig.attrStrongInsight : sig.attrWeakInsight,
     action:
-      attrScore >= 80
-        ? "Audit attributes quarterly as Google adds new ones."
-        : "Fill every applicable attribute. 20-minute task, recurring revenue impact.",
+      attrScore >= 80 ? sig.attrStrongAction : sig.attrWeakAction,
   });
 
   // Review response (weight: 12)
@@ -245,38 +379,28 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
           : 0;
   signals.push({
     id: "responses",
-    label: "Review responses",
+    label: sig.respLabel,
     icon: MessageSquare,
     score: respScore,
-    weight: 12,
+    weight: 12 * mult.responses,
     status: respScore >= 80 ? "strong" : respScore >= 40 ? "medium" : "weak",
     insight:
-      respScore >= 80
-        ? "Active responses signal engagement. Google rewards it in local pack ranking."
-        : "Unresponded reviews hurt trust. Especially negative ones with no reply.",
+      respScore >= 80 ? sig.respStrongInsight : sig.respWeakInsight,
     action:
-      respScore >= 80
-        ? "Maintain. Always respond to negative reviews within 24 hours."
-        : "Respond to all reviews from the last 90 days this week. Use Reviuzy's AI replies if volume is heavy.",
+      respScore >= 80 ? sig.respStrongAction : sig.respWeakAction,
   });
 
   // Q&A activity (weight: 5)
   const qaScore = answers.qa === "yes" ? 100 : 0;
   signals.push({
     id: "qa",
-    label: "Q&A active",
+    label: sig.qaLabel,
     icon: MessageSquare,
     score: qaScore,
-    weight: 5,
+    weight: 5 * mult.qa,
     status: qaScore >= 80 ? "strong" : "weak",
-    insight:
-      qaScore >= 80
-        ? "Q&A entries get crawled and feed AI answers."
-        : "Empty Q&A is a wasted SEO surface. Competitors might post questions you should answer first.",
-    action:
-      qaScore >= 80
-        ? "Audit Q&A monthly for new questions."
-        : "Seed 5 common questions yourself and answer them this week.",
+    insight: qaScore >= 80 ? sig.qaStrongInsight : sig.qaWeakInsight,
+    action: qaScore >= 80 ? sig.qaStrongAction : sig.qaWeakAction,
   });
 
   // NAP consistency (weight: 5)
@@ -288,25 +412,21 @@ function score(answers: Answers): { total: number; signals: Signal[] } {
         : 0;
   signals.push({
     id: "nap",
-    label: "NAP consistency",
+    label: sig.napLabel,
     icon: MapPin,
     score: napScore,
-    weight: 5,
+    weight: 5 * mult.nap,
     status: napScore >= 80 ? "strong" : napScore >= 40 ? "medium" : "weak",
     insight:
-      napScore >= 80
-        ? "Consistent Name/Address/Phone across the web is the entity foundation."
-        : "Inconsistent NAP cuts citation odds in half. AI engines treat you as multiple entities.",
+      napScore >= 80 ? sig.napStrongInsight : sig.napWeakInsight,
     action:
-      napScore >= 80
-        ? "Audit annually. Use a citation tool like BrightLocal or Whitespark."
-        : "Run a NAP audit on 20 high-DA citation sources. Fix mismatches this month.",
+      napScore >= 80 ? sig.napStrongAction : sig.napWeakAction,
   });
 
   // Weighted total
-  const totalWeight = signals.reduce((s, sig) => s + sig.weight, 0);
+  const totalWeight = signals.reduce((s, item) => s + item.weight, 0);
   const total = Math.round(
-    signals.reduce((s, sig) => s + sig.score * sig.weight, 0) / totalWeight,
+    signals.reduce((s, item) => s + item.score * item.weight, 0) / totalWeight,
   );
 
   return { total, signals };
@@ -320,6 +440,7 @@ const STORAGE_KEY = "ailys_gbp_pulse_last_run";
 
 export function GbpPulseEngine() {
   const navigate = useNavigate();
+  const { t } = useLang();
   const [phase, setPhase] = useState<Phase>("basics");
   const [basics, setBasics] = useState<Basics>({
     businessName: "",
@@ -389,7 +510,16 @@ export function GbpPulseEngine() {
     }, 1800);
   };
 
-  const result = useMemo(() => score(answers), [answers]);
+  const result = useMemo(
+    () => score(answers, t, basics.vertical),
+    [answers, t, basics.vertical],
+  );
+
+  // Translated vertical options for the chip selector
+  const verticals = VERTICAL_IDS.map((id) => ({
+    id,
+    label: t.audit.pulse[VERTICAL_I18N_KEY[id]],
+  }));
 
   // ── Phase 1: Basics ──
   if (phase === "basics") {
@@ -399,18 +529,17 @@ export function GbpPulseEngine() {
         className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-6 sm:p-8 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]"
       >
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-3">
-          Step 1 of 3 · 90 seconds total
+          {t.audit.pulse.step1of3}
         </div>
         <h2 className="font-display text-3xl sm:text-4xl tracking-tight mb-2">
-          About your business.
+          {t.audit.pulse.aboutBusiness}
         </h2>
         <p className="text-sm text-muted-foreground mb-6">
-          We will calculate your GBP Pulse score from a quick self-assessment.
-          No login, no email, instant result.
+          {t.audit.pulse.aboutBusinessDesc}
         </p>
 
         <div className="grid sm:grid-cols-2 gap-3 mb-3">
-          <Field label="Business name">
+          <Field label={t.audit.fields.businessName}>
             <Input
               value={basics.businessName}
               onChange={(e) =>
@@ -421,7 +550,7 @@ export function GbpPulseEngine() {
               className="bg-background/50 border-border/50"
             />
           </Field>
-          <Field label="City">
+          <Field label={t.audit.fields.city}>
             <Input
               value={basics.city}
               onChange={(e) => setBasics({ ...basics, city: e.target.value })}
@@ -432,9 +561,9 @@ export function GbpPulseEngine() {
           </Field>
         </div>
 
-        <Field label="Industry vertical">
+        <Field label={t.audit.pulse.industryVertical}>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {VERTICALS.map((v) => (
+            {verticals.map((v) => (
               <button
                 key={v.id}
                 type="button"
@@ -461,7 +590,7 @@ export function GbpPulseEngine() {
             boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
           }}
         >
-          Start the assessment
+          {t.audit.pulse.startAssessment}
           <ArrowRight className="w-4 h-4 ml-2" />
         </Button>
       </form>
@@ -474,65 +603,65 @@ export function GbpPulseEngine() {
       <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-6 sm:p-8 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]">
         <div className="flex items-center justify-between mb-6">
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90">
-            Step 2 of 3 · 8 questions
+            {t.audit.pulse.step2of3}
           </div>
           <button
             onClick={() => setPhase("basics")}
             className="text-xs text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
           >
-            <ArrowLeft className="w-3 h-3" /> Back
+            <ArrowLeft className="w-3 h-3" /> {t.audit.pulse.back}
           </button>
         </div>
 
         <div className="space-y-7">
           <Question
             n={1}
-            text="Is your Google Business Profile claimed and verified?"
+            text={t.audit.pulse.q1}
           >
             <Choice
               active={answers.claimed === "yes"}
               onClick={() => setAnswers({ ...answers, claimed: "yes" })}
             >
-              Yes, verified
+              {t.audit.pulse.yesVerified}
             </Choice>
             <Choice
               active={answers.claimed === "no"}
               onClick={() => setAnswers({ ...answers, claimed: "no" })}
             >
-              No
+              {t.audit.pulse.no}
             </Choice>
             <Choice
               active={answers.claimed === "unsure"}
               onClick={() => setAnswers({ ...answers, claimed: "unsure" })}
             >
-              Not sure
+              {t.audit.pulse.notSure}
             </Choice>
           </Question>
 
-          <Question n={2} text="Have you posted to GBP in the last 30 days?">
+          <Question n={2} text={t.audit.pulse.q2}>
             <Choice
               active={answers.posts30d === "yes"}
               onClick={() => setAnswers({ ...answers, posts30d: "yes" })}
             >
-              Yes
+              {t.audit.pulse.yes}
             </Choice>
             <Choice
               active={answers.posts30d === "no"}
               onClick={() => setAnswers({ ...answers, posts30d: "no" })}
             >
-              No
+              {t.audit.pulse.no}
             </Choice>
             <Choice
               active={answers.posts30d === "unsure"}
               onClick={() => setAnswers({ ...answers, posts30d: "unsure" })}
             >
-              Not sure
+              {t.audit.pulse.notSure}
             </Choice>
           </Question>
 
           <Question
             n={3}
-            text={`How many Google reviews do you have in total? (${answers.reviewCount})`}
+            text={`${t.audit.pulse.q3WithCount} (${answers.reviewCount})`}
           >
             <input
               type="range"
@@ -557,7 +686,7 @@ export function GbpPulseEngine() {
 
           <Question
             n={4}
-            text={`How many of those landed in the last 90 days? (${answers.recentReviews})`}
+            text={`${t.audit.pulse.q4WithCount} (${answers.recentReviews})`}
           >
             <input
               type="range"
@@ -585,32 +714,32 @@ export function GbpPulseEngine() {
 
           <Question
             n={5}
-            text="Have you uploaded photos in the last 60 days?"
+            text={t.audit.pulse.q5}
           >
             <Choice
               active={answers.photos60d === "yes"}
               onClick={() => setAnswers({ ...answers, photos60d: "yes" })}
             >
-              Yes, several
+              {t.audit.pulse.yesSeveral}
             </Choice>
             <Choice
               active={answers.photos60d === "some"}
               onClick={() => setAnswers({ ...answers, photos60d: "some" })}
             >
-              One or two
+              {t.audit.pulse.oneOrTwo}
             </Choice>
             <Choice
               active={answers.photos60d === "no"}
               onClick={() => setAnswers({ ...answers, photos60d: "no" })}
             >
-              No
+              {t.audit.pulse.no}
             </Choice>
           </Question>
 
           <Question
             n={6}
-            text="Is your primary GBP category specific to your service?"
-            hint='e.g. "Sushi restaurant" not just "Restaurant"'
+            text={t.audit.pulse.q6}
+            hint={t.audit.pulse.categoryHint}
           >
             <Choice
               active={answers.categorySpecific === "yes"}
@@ -618,7 +747,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, categorySpecific: "yes" })
               }
             >
-              Yes
+              {t.audit.pulse.yes}
             </Choice>
             <Choice
               active={answers.categorySpecific === "no"}
@@ -626,7 +755,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, categorySpecific: "no" })
               }
             >
-              No, generic
+              {t.audit.pulse.noGeneric}
             </Choice>
             <Choice
               active={answers.categorySpecific === "unsure"}
@@ -634,14 +763,14 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, categorySpecific: "unsure" })
               }
             >
-              Not sure
+              {t.audit.pulse.notSure}
             </Choice>
           </Question>
 
           <Question
             n={7}
-            text="Are your business attributes filled in?"
-            hint="Wheelchair access, payment methods, dietary, etc."
+            text={t.audit.pulse.q7}
+            hint={t.audit.pulse.attributesHint}
           >
             <Choice
               active={answers.attributesFilled === "all"}
@@ -649,7 +778,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, attributesFilled: "all" })
               }
             >
-              All filled
+              {t.audit.pulse.allFilled}
             </Choice>
             <Choice
               active={answers.attributesFilled === "some"}
@@ -657,7 +786,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, attributesFilled: "some" })
               }
             >
-              Some
+              {t.audit.pulse.someFilled}
             </Choice>
             <Choice
               active={answers.attributesFilled === "none"}
@@ -665,18 +794,18 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, attributesFilled: "none" })
               }
             >
-              None or few
+              {t.audit.pulse.noneFew}
             </Choice>
           </Question>
 
-          <Question n={8} text="How often do you respond to reviews?">
+          <Question n={8} text={t.audit.pulse.q8}>
             <Choice
               active={answers.reviewResponse === "always"}
               onClick={() =>
                 setAnswers({ ...answers, reviewResponse: "always" })
               }
             >
-              Always
+              {t.audit.pulse.always}
             </Choice>
             <Choice
               active={answers.reviewResponse === "sometimes"}
@@ -684,7 +813,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, reviewResponse: "sometimes" })
               }
             >
-              Sometimes
+              {t.audit.pulse.sometimes}
             </Choice>
             <Choice
               active={answers.reviewResponse === "rarely"}
@@ -692,7 +821,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, reviewResponse: "rarely" })
               }
             >
-              Rarely
+              {t.audit.pulse.rarely}
             </Choice>
             <Choice
               active={answers.reviewResponse === "never"}
@@ -700,29 +829,29 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, reviewResponse: "never" })
               }
             >
-              Never
+              {t.audit.pulse.never}
             </Choice>
           </Question>
 
-          <Question n={9} text="Do you use the GBP Q&A section?">
+          <Question n={9} text={t.audit.pulse.q9}>
             <Choice
               active={answers.qa === "yes"}
               onClick={() => setAnswers({ ...answers, qa: "yes" })}
             >
-              Yes
+              {t.audit.pulse.yes}
             </Choice>
             <Choice
               active={answers.qa === "no"}
               onClick={() => setAnswers({ ...answers, qa: "no" })}
             >
-              No
+              {t.audit.pulse.no}
             </Choice>
           </Question>
 
           <Question
             n={10}
-            text="Is your Name/Address/Phone consistent across the web?"
-            hint="Yelp, BBB, Yellowpages, Apple Maps, all match exactly"
+            text={t.audit.pulse.q10}
+            hint={t.audit.pulse.napHint}
           >
             <Choice
               active={answers.napConsistent === "yes"}
@@ -730,7 +859,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, napConsistent: "yes" })
               }
             >
-              Yes
+              {t.audit.pulse.yes}
             </Choice>
             <Choice
               active={answers.napConsistent === "no"}
@@ -738,7 +867,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, napConsistent: "no" })
               }
             >
-              No
+              {t.audit.pulse.no}
             </Choice>
             <Choice
               active={answers.napConsistent === "unsure"}
@@ -746,7 +875,7 @@ export function GbpPulseEngine() {
                 setAnswers({ ...answers, napConsistent: "unsure" })
               }
             >
-              Not sure
+              {t.audit.pulse.notSure}
             </Choice>
           </Question>
         </div>
@@ -763,12 +892,12 @@ export function GbpPulseEngine() {
             boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
           }}
         >
-          Calculate my Pulse score
+          {t.audit.pulse.calculateScore}
           <Sparkles className="w-4 h-4 ml-2" />
         </Button>
         {!allAnswered && (
           <p className="mt-3 text-xs text-center text-muted-foreground/70">
-            Answer all questions to unlock your score.
+            {t.audit.pulse.answerAll}
           </p>
         )}
       </div>
@@ -780,10 +909,9 @@ export function GbpPulseEngine() {
     return (
       <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-12 text-center">
         <Loader2 className="w-10 h-10 mx-auto mb-5 text-primary animate-spin" />
-        <h3 className="font-display text-2xl mb-2">Analyzing 10 signals...</h3>
+        <h3 className="font-display text-2xl mb-2">{t.audit.pulse.analyzing}</h3>
         <p className="text-sm text-muted-foreground">
-          Cross-referencing your answers against the GBP signals AI engines
-          care about most.
+          {t.audit.pulse.analyzingDesc}
         </p>
       </div>
     );
@@ -808,6 +936,7 @@ function ResultsPanel({
   onRestart: () => void;
   navigate: ReturnType<typeof useNavigate>;
 }) {
+  const { t } = useLang();
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
@@ -815,8 +944,8 @@ function ResultsPanel({
     const duration = 1400;
     const target = result.total;
     let raf = 0;
-    const loop = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
+    const loop = (ts: number) => {
+      const p = Math.min(1, (ts - start) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
       setAnimatedScore(Math.round(target * eased));
       if (p < 1) raf = requestAnimationFrame(loop);
@@ -827,12 +956,12 @@ function ResultsPanel({
 
   const tier =
     result.total >= 80
-      ? { label: "Strong", tone: "from-emerald-400 to-cyan-400", text: "text-emerald-300" }
+      ? { label: t.audit.tiers.strong, tone: "from-emerald-400 to-cyan-400", text: "text-emerald-300" }
       : result.total >= 60
-        ? { label: "Solid foundation", tone: "from-cyan-400 to-violet-400", text: "text-cyan-300" }
+        ? { label: t.audit.tiers.solid, tone: "from-cyan-400 to-violet-400", text: "text-cyan-300" }
         : result.total >= 40
-          ? { label: "Needs work", tone: "from-amber-400 to-orange-400", text: "text-amber-300" }
-          : { label: "Critical gaps", tone: "from-rose-500 to-pink-500", text: "text-rose-300" };
+          ? { label: t.audit.tiers.gaps, tone: "from-amber-400 to-orange-400", text: "text-amber-300" }
+          : { label: t.audit.tiers.critical, tone: "from-rose-500 to-pink-500", text: "text-rose-300" };
 
   // Top 3 priorities = 3 lowest-scoring signals weighted by importance
   const priorities = [...result.signals]
@@ -851,17 +980,17 @@ function ResultsPanel({
       <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-6 sm:p-10 shadow-[0_0_80px_-20px_hsl(var(--primary)/0.5)]">
         <div className="flex items-center justify-between mb-1">
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90">
-            GBP Pulse score
+            {t.audit.pulse.yourPulse}
           </div>
           <button
             onClick={onRestart}
             className="text-xs text-muted-foreground hover:text-primary inline-flex items-center gap-1"
           >
-            <ArrowLeft className="w-3 h-3" /> Run again
+            <ArrowLeft className="w-3 h-3" /> {t.audit.pulse.runAgain}
           </button>
         </div>
         <p className="text-xs text-muted-foreground mb-6">
-          For{" "}
+          {t.audit.pulse.forBusiness}{" "}
           <span className="text-foreground/95">
             {basics.businessName}, {basics.city}
           </span>
@@ -917,17 +1046,15 @@ function ResultsPanel({
             </span>
             <h2 className="font-display text-3xl sm:text-4xl tracking-tight mb-3 leading-tight">
               {result.total >= 80
-                ? "Your GBP is doing real work."
+                ? t.audit.pulse.headlineStrong
                 : result.total >= 60
-                  ? "You have a solid foundation. Three moves will sharpen it."
+                  ? t.audit.pulse.headlineSolid
                   : result.total >= 40
-                    ? "Real gaps. Most are 1-week fixes."
-                    : "Significant work to do. The good news: most fixes are free."}
+                    ? t.audit.pulse.headlineGaps
+                    : t.audit.pulse.headlineCritical}
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Score weights review velocity (15%), review count (13%), claim
-              status (12%), and review response rate (12%) most heavily. These
-              are the signals AI engines weight when deciding to cite you.
+              {t.audit.pulse.tierByline}
             </p>
           </div>
         </div>
@@ -938,7 +1065,7 @@ function ResultsPanel({
         <div className="flex items-center gap-2 mb-5">
           <Sparkles className="w-4 h-4 text-amber-300" />
           <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-amber-300">
-            Top 3 priorities for {basics.businessName}
+            {t.audit.pulse.topPriorities} {basics.businessName}
           </h3>
         </div>
         <ol className="space-y-4">
@@ -964,7 +1091,7 @@ function ResultsPanel({
                   </p>
                   <p className="text-sm text-foreground/85 leading-relaxed">
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-amber-300/80 mr-2">
-                      Action
+                      {t.audit.pulse.actionLabel}
                     </span>
                     {p.action}
                   </p>
@@ -978,7 +1105,7 @@ function ResultsPanel({
       {/* Per-signal breakdown */}
       <div className="rounded-2xl border border-border/40 bg-card/30 backdrop-blur-md p-6 sm:p-8">
         <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 mb-5">
-          Full 10-signal breakdown
+          {t.audit.pulse.breakdownTitle}
         </h3>
         <div className="grid sm:grid-cols-2 gap-3">
           {result.signals.map((s) => (
@@ -990,15 +1117,13 @@ function ResultsPanel({
       {/* Cross-sell to deeper audit */}
       <div className="rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/[0.08] via-cyan-500/[0.04] to-transparent backdrop-blur-md p-6 sm:p-8">
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-violet-300 mb-2">
-          Want to go deeper than GBP?
+          {t.audit.pulse.crossSellEyebrow}
         </div>
         <h3 className="font-display text-2xl sm:text-3xl mb-3">
-          Run the full AI Visibility Audit.
+          {t.audit.pulse.crossSellTitle}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-prose">
-          The Pulse covers Google Business Profile. The full audit checks
-          AEO, GEO, and E-E-A-T across ChatGPT, Perplexity, Claude, Gemini,
-          Google AIO, and Bing Copilot. 24-hour turnaround. Free.
+          {t.audit.pulse.crossSellDesc}
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <Button
@@ -1010,7 +1135,7 @@ function ResultsPanel({
               boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
             }}
           >
-            Run AI Visibility Audit
+            {t.audit.pulse.crossSellCta}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
           <Button
@@ -1019,14 +1144,13 @@ function ResultsPanel({
             className="rounded-full"
           >
             <Calendar className="w-4 h-4 mr-2" />
-            Talk to a human
+            {t.audit.pulse.talkHuman}
           </Button>
         </div>
       </div>
 
       <p className="text-xs text-center text-muted-foreground/60 max-w-2xl mx-auto">
-        Your Pulse score is saved locally so you can revisit it. We do not store
-        your answers on our servers.
+        {t.audit.pulse.footerNote}
       </p>
     </div>
   );

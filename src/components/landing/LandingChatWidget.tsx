@@ -13,8 +13,10 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useLang } from "@/i18n/LangContext";
 
 export function LandingChatWidget() {
+  const { t } = useLang();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [wasClosedByUser, setWasClosedByUser] = useState(false);
@@ -70,7 +72,7 @@ export function LandingChatWidget() {
     if (!leadName.trim() || !leadEmail.trim() || submittingLead) return;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(leadEmail.trim())) {
-      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      toast({ title: t.chat.toastInvalidEmail, description: t.chat.toastInvalidEmailDesc, variant: "destructive" });
       return;
     }
     setSubmittingLead(true);
@@ -87,7 +89,7 @@ export function LandingChatWidget() {
       setLeadSubmitted(true);
       setShowLeadForm(false);
     } catch {
-      toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
+      toast({ title: t.chat.toastError, description: t.chat.toastErrorDesc, variant: "destructive" });
     } finally {
       setSubmittingLead(false);
     }
@@ -104,7 +106,7 @@ export function LandingChatWidget() {
           <button
             onClick={() => setIsExpanded(true)}
             className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-110 transition-all duration-300"
-            aria-label="Open chat"
+            aria-label={t.chat.ariaOpen}
           >
             <Sparkles className="w-5 h-5 text-primary-foreground" />
           </button>
@@ -124,8 +126,8 @@ export function LandingChatWidget() {
               <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold text-sm text-foreground">Get More Reviews</h3>
-              <p className="text-xs text-muted-foreground">Ask how AI can grow your business, in any languages</p>
+              <h3 className="font-bold text-sm text-foreground">{t.chat.teaserTitle}</h3>
+              <p className="text-xs text-muted-foreground">{t.chat.teaserSubtitle}</p>
             </div>
             <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
           </div>
@@ -133,7 +135,7 @@ export function LandingChatWidget() {
         <button
           onClick={(e) => { e.stopPropagation(); setWasClosedByUser(true); }}
           className="absolute -top-2 -right-2 w-6 h-6 bg-muted rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors shadow-sm"
-          aria-label="Minimize">
+          aria-label={t.chat.ariaMinimize}>
           <X className="w-3 h-3" />
         </button>
       </div>
@@ -150,10 +152,10 @@ export function LandingChatWidget() {
               <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
             <div>
-              <h3 className="font-bold text-sm text-foreground">AiLys AI Search Advisor</h3>
+              <h3 className="font-bold text-sm text-foreground">{t.chat.headerTitle}</h3>
               <div className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full animate-pulse bg-[hsl(var(--primary))]" />
-                <p className="text-xs text-muted-foreground">Online — instant answers</p>
+                <p className="text-xs text-muted-foreground">{t.chat.headerStatus}</p>
               </div>
             </div>
           </div>
@@ -179,10 +181,10 @@ export function LandingChatWidget() {
                   </div>
                   <div className="bg-muted/60 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
                     <p className="text-sm text-foreground font-medium mb-1">
-                      Bonjour. I'm your AI Search Advisor.
+                      {t.chat.welcomeLine1}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      I help local businesses get cited inside ChatGPT, Perplexity and Google AIO. What would you like to know?
+                      {t.chat.welcomeLine2}
                     </p>
                   </div>
                 </div>
@@ -190,10 +192,10 @@ export function LandingChatWidget() {
                 {/* Quick actions */}
                 <div className="flex flex-wrap gap-2 pl-10">
               {[
-                { text: "What is AEO and GEO?", icon: Sparkles },
-                { text: "How much does AiLys cost?", icon: null },
-                { text: "How do I get cited by ChatGPT?", icon: Star },
-                { text: "Run my free AI Visibility Audit", icon: null }].
+                { text: t.chat.quickAction1, icon: Sparkles },
+                { text: t.chat.quickAction2, icon: null },
+                { text: t.chat.quickAction3, icon: Star },
+                { text: t.chat.quickAction4, icon: null }].
                 map((action) =>
                 <button
                   key={action.text}
@@ -254,10 +256,10 @@ export function LandingChatWidget() {
             {showLeadForm && !leadSubmitted &&
             <div className="mx-2 mb-2 p-4 bg-primary/5 border border-primary/20 rounded-xl space-y-3 animate-in slide-in-from-bottom-2 text-center">
                 <Sparkles className="w-6 h-6 text-primary mx-auto" />
-                <h4 className="text-sm font-semibold text-foreground">Ready to see your AI visibility?</h4>
-                <p className="text-xs text-muted-foreground">Free audit, no credit card.</p>
+                <h4 className="text-sm font-semibold text-foreground">{t.chat.leadHeading}</h4>
+                <p className="text-xs text-muted-foreground">{t.chat.leadSubtitle}</p>
                 <a href="/audit">
-                  <Button size="sm" className="w-full">Run my AI Visibility Audit</Button>
+                  <Button size="sm" className="w-full">{t.chat.leadCta}</Button>
                 </a>
               </div>
             }
@@ -274,7 +276,7 @@ export function LandingChatWidget() {
               onKeyDown={(e) => {if (e.key === "Enter" && !e.shiftKey) {e.preventDefault();handleSend();}}}
 
               className="flex-1 px-4 py-2.5 text-sm bg-muted/50 border border-border/50 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground"
-              disabled={isLoading} placeholder="Ask about LLM visibility, AEO, GEO, pricing" />
+              disabled={isLoading} placeholder={t.chat.inputPlaceholder} />
 
             <Button
               size="icon"
@@ -286,7 +288,7 @@ export function LandingChatWidget() {
             </Button>
           </div>
           <p className="text-[10px] text-muted-foreground text-center mt-2">
-            Powered by AiLys
+            {t.chat.poweredBy}
           </p>
         </div>
       </div>

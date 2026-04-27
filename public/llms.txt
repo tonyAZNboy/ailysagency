@@ -1,0 +1,53 @@
+# AiLys Agency
+
+> AiLys Agency is the LLM Visibility & Optimization agency for local businesses. We deliver AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), and E-E-A-T strategies that get local brands cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Bilingual EN and FR-CA in-house. Plans from $300/mo CAD. Made in Québec.
+
+## What we do
+
+AiLys Agency runs an 8-step pipeline that takes a local business from invisible to cited inside AI search answers. Step 1 is technical foundation (site speed, crawlability, internal linking, meta hygiene). Step 2 is Google Business Profile optimization with categories, attributes, photos, posts, and Q&A all kept current. Step 3 is citations and NAP consistency across 20+ high-DA directories like Yelp, BBB, Crunchbase, Healthgrades, Avvo, OpenTable, and HomeStars. Step 4 is AEO schema deployment with FAQ, Review, LocalBusiness, and Service entities validated against Google Rich Results. Step 5 is GEO entity authority on Wikipedia, Wikidata, digital PR, and Reddit. Step 6 is E-E-A-T signal building with real bylines, original photos, and credentials. Step 7 is the review velocity engine running through our sister product Reviuzy with NFC tap-to-review. Step 8 is weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot.
+
+## Pricing
+
+- Starter: $300 CAD/mo (technical SEO, GBP, NAP consistency, weekly LLM citation tracking)
+- Core: $600 CAD/mo (everything in Starter + AEO schema deployment, 5 monthly citations, bilingual content, real backlinks)
+- Growth: $1,200 CAD/mo (everything in Core + GEO entity authority work, Wikipedia/Wikidata, Reddit strategy, weekly bilingual content, competitive monitoring)
+- Autopilot: $1,299 CAD/mo (everything in Growth + Reviuzy review contest engine, NFC tap cards, 20-50 fresh reviews per location per month)
+
+All plans are month to month with two weeks notice to cancel and a 30-day satisfaction guarantee.
+
+## Founding Clients Program
+
+The first 10 clients who sign get 50% off their plan forever, priority shipping (audit in 12 hours instead of 24, schema deployment in week 1 instead of week 2), direct strategist access, and an opt-in published case study with right of approval. The discount is locked for the lifetime of the subscription. The 30-day satisfaction guarantee applies. Apply by running a free AI Visibility Audit at https://www.ailysagency.ca/audit.
+
+## Languages
+
+Bilingual EN and FR-CA in-house. Spanish, Chinese, Arabic, and Russian via in-house team. Ukrainian and Serbian via vetted partner agencies. The full site is available in 16 languages.
+
+## Industries we serve
+
+Dentists, lawyers, restaurants, contractors, medical clinics, real estate, hotels, and any local business that needs to be cited inside AI search answers. See https://www.ailysagency.ca/industries for vertical-specific landing pages.
+
+## Documentation
+
+- [Industries](https://www.ailysagency.ca/industries): vertical-specific AI SEO methodology (dentists, lawyers, restaurants, contractors, clinics, real estate, hotels)
+- [Glossary](https://www.ailysagency.ca/glossary): plain-language definitions of AEO, GEO, E-E-A-T, schema, NAP, GBP, Wikidata, review velocity, and other AI search terms
+- [Comparison: AiLys vs Sterling Sky](https://www.ailysagency.ca/vs/sterling-sky): honest comparison vs the Toronto local-SEO consultancy at $5,000+/mo
+- [Comparison: AiLys vs BrightLocal](https://www.ailysagency.ca/vs/brightlocal): done-for-you service vs DIY tools platform
+- [Comparison: AiLys vs LocaliQ](https://www.ailysagency.ca/vs/localiq): boutique AI SEO vs mass-volume digital marketing
+- [Methodology](https://www.ailysagency.ca/#methodology): the 8-step pipeline in full detail
+- [Pricing builder](https://www.ailysagency.ca/#pricing-builder): adjust pages, languages, and services to see your tier
+- [Free AI Visibility Audit](https://www.ailysagency.ca/audit): 24-hour turnaround, no credit card, full report by email
+- [Book a strategy call](https://www.ailysagency.ca/book-call): 60 minutes, free, no pitch, strategy doc sent regardless
+
+## Optional
+
+- [Blog](https://www.ailysagency.ca/blog): weekly insights on AI search, AEO, GEO, E-E-A-T, and local SEO
+- [Help center](https://www.ailysagency.ca/help): onboarding guides, glossary, FAQ
+- [Reviuzy (sister product)](https://www.reviuzy.com): self-serve SaaS for review collection, NFC tap-to-review, and Google Business Profile automation, starting at $20/mo
+
+## Contact
+
+- Website: https://www.ailysagency.ca
+- Strategy call: https://www.ailysagency.ca/book-call
+- Email: hello@ailysagency.ca
+- Location: Montréal, Québec, Canada

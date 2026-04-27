@@ -79,31 +79,35 @@ export function HeroSection() {
         </ParallaxLayer>
       </ParallaxBackground>
 
-      {/* Two-column layout: copy left, answer-engine visual right */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-10 lg:gap-14 items-center">
-        {/* LEFT — copy */}
-        <div className="text-center lg:text-left">
-          {/* Eyebrow tag — per benchmark "eyebrow label" component */}
+      {/* Two-column layout: copy left, answer-engine visual right.
+          On mobile (single column) the copy is split into two blocks so the
+          audit card sits between the subheadline and the 3-card flow. On
+          desktop the audit card spans both rows in the right column. */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-y-7 gap-x-10 lg:gap-x-14 lg:gap-y-0 items-start lg:items-center">
+        {/* COPY BLOCK 1 — eyebrow + headline + subheadline (above audit card on mobile) */}
+        <div className="text-center lg:text-left lg:row-start-1 lg:col-start-1">
+          {/* Eyebrow tag — fluid, wraps naturally on narrow screens */}
           <ScrollReveal variant="fade-up" delay={100} duration={500}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm">
-              <span className="relative flex h-1.5 w-1.5">
+            <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 px-3 py-1.5 mb-5 rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm max-w-full">
+              <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
               </span>
-              <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.18em] font-semibold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.14em] sm:tracking-[0.18em] font-semibold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 {t.hero.eyebrow}
               </span>
-              <span className="hidden sm:inline text-border">·</span>
-              <span className="hidden sm:inline text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80">
+              <span className="hidden md:inline text-border">·</span>
+              <span className="hidden md:inline text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80">
                 {t.hero.eyebrowPills}
               </span>
             </div>
           </ScrollReveal>
 
-          {/* Headline */}
+          {/* Headline — fluid clamp() so it never overflows narrow viewports */}
           <h1
             id="hero-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-5"
+            className="font-bold tracking-tight leading-[1.05] mb-5 break-words"
+            style={{ fontSize: "clamp(1.625rem, 6vw, 3.75rem)" }}
           >
             <TextReveal
               mode="words"
@@ -130,11 +134,24 @@ export function HeroSection() {
             >
               {t.hero.subheadline}
             </p>
-            <p className="text-sm text-muted-foreground/75 italic mb-6 mx-auto lg:mx-0">
+            <p className="text-sm text-muted-foreground/75 italic mb-2 mx-auto lg:mx-0">
               {t.hero.subheadlineSupport}
             </p>
           </ScrollReveal>
+        </div>
 
+        {/* AUDIT CARD — second on mobile (right after subheadline),
+            right column spanning both rows on desktop. */}
+        <div className="w-full lg:row-start-1 lg:row-span-2 lg:col-start-2 lg:self-center">
+          <ScrollReveal variant="fade-up" delay={300} duration={800}>
+            <FloatingElement amplitude={6} duration={6} delay={0}>
+              <HeroAuditCard />
+            </FloatingElement>
+          </ScrollReveal>
+        </div>
+
+        {/* COPY BLOCK 2 — 3-card flow + CTAs + ticker + trust + industries + compliance */}
+        <div className="text-center lg:text-left lg:row-start-2 lg:col-start-1">
           {/* 3-card flow — Reviews+GBP → Citations+E-E-A-T → LLM visibility */}
           <ScrollReveal variant="fade-up" delay={500} duration={650}>
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 sm:gap-1.5 mb-7 max-w-2xl mx-auto lg:mx-0">
@@ -163,12 +180,12 @@ export function HeroSection() {
 
           {/* Primary CTA: Book a Strategy Call (audit form lives in the right gradient card) */}
           <ScrollReveal variant="fade-up" delay={600} duration={700}>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4 max-w-xl">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-4">
               <MagneticWrapper strength={0.12}>
                 <Button
                   size="lg"
                   onClick={() => navigate("/book-call")}
-                  className="w-full sm:w-auto rounded-full font-semibold text-base px-7 py-6 group relative overflow-hidden"
+                  className="w-full sm:w-auto rounded-full font-semibold text-base px-6 sm:px-7 py-6 group relative overflow-hidden whitespace-nowrap"
                   style={{
                     boxShadow:
                       "0 0 32px hsl(var(--primary) / 0.45), 0 0 64px hsl(var(--secondary) / 0.25)",
@@ -176,22 +193,21 @@ export function HeroSection() {
                       "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)))",
                   }}
                 >
-                  <CalendarCheck className="w-5 h-5 mr-2" aria-hidden="true" />
-                  Book a 60-min strategy call
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <CalendarCheck className="w-5 h-5 mr-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="truncate">{t.heroExtras.bookCall60}</span>
+                  <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </MagneticWrapper>
               <button
                 type="button"
                 onClick={() => navigate("/audit/gbp")}
-                className="px-5 py-3 rounded-full border border-border/50 hover:border-primary/50 text-sm font-medium transition-colors text-foreground/85 hover:text-primary"
+                className="px-5 py-3 rounded-full border border-border/50 hover:border-primary/50 text-sm font-medium transition-colors text-foreground/85 hover:text-primary whitespace-nowrap"
               >
-                Score your GBP in 90 sec →
+                {t.heroExtras.scoreGbp90} →
               </button>
             </div>
             <p className="text-xs text-muted-foreground/70 mb-3 max-w-md">
-              Free, no pitch. Bilingual EN, FR-CA, ES, ZH, AR, RU, UK, SR.
-              We send a strategy doc whether you sign or not.
+              {t.heroExtras.bookHelper}
             </p>
           </ScrollReveal>
 
@@ -245,15 +261,6 @@ export function HeroSection() {
               />
               <span>{t.hero.compliance}</span>
             </div>
-          </ScrollReveal>
-        </div>
-
-        {/* RIGHT — punchy audit card */}
-        <div className="hidden lg:block">
-          <ScrollReveal variant="fade-up" delay={300} duration={800}>
-            <FloatingElement amplitude={6} duration={6} delay={0}>
-              <HeroAuditCard />
-            </FloatingElement>
           </ScrollReveal>
         </div>
       </div>

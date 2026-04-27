@@ -1,6 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { APP_CONFIG } from '@/config/app';
 
+interface AlternateLocale {
+  hrefLang: string;
+  href: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -13,6 +18,8 @@ interface SEOHeadProps {
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
+  /** hreflang alternates for multilingual SEO. One per supported language. */
+  alternateLocales?: AlternateLocale[];
 }
 
 export const SEOHead = ({
@@ -27,6 +34,7 @@ export const SEOHead = ({
   author = APP_CONFIG.name,
   publishedTime,
   modifiedTime,
+  alternateLocales,
 }: SEOHeadProps) => {
   const siteName = APP_CONFIG.name;
   const defaultImage = `${APP_CONFIG.url}${APP_CONFIG.logo}`;
@@ -43,6 +51,18 @@ export const SEOHead = ({
       <meta name="author" content={author} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+      {/* hreflang alternates — tells search engines about each translated version */}
+      {alternateLocales?.map(({ hrefLang, href }) => (
+        <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+      ))}
+      {alternateLocales?.length ? (
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={alternateLocales.find((a) => a.hrefLang === 'en')?.href ?? canonicalUrl ?? ''}
+        />
+      ) : null}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />

@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { ScrollReveal, MagneticWrapper } from "@/components/animation";
 import { FleurDeLys } from "@/components/brand/FleurDeLys";
+import { useLang } from "@/i18n/LangContext";
 
 export function AuditCtaSection() {
   const navigate = useNavigate();
+  const { t } = useLang();
 
   return (
     <section
@@ -43,25 +45,23 @@ export function AuditCtaSection() {
             <div className="relative grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7">
                 <div className="ailys-section-no mb-5">
-                  <span>04 / Free audit</span>
+                  <span>{t.auditCta.sectionLabel}</span>
                 </div>
                 <h2
                   id="audit-cta-heading"
                   className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5"
                 >
-                  See if ChatGPT
+                  {t.auditCta.heading1}
                   <br />
                   <span className="italic bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                    cites you yet.
+                    {t.auditCta.heading2}
                   </span>
                 </h2>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-2">
-                  We run your business through 6 AI search engines, score your
-                  AEO, GEO and E-E-A-T signals, and send a 90-day action plan.
-                  Free, delivered within 24 hours of request.
+                  {t.auditCta.intro}
                 </p>
                 <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground/60 mb-7">
-                  No credit card. No discovery call required. Just answers.
+                  {t.auditCta.legal}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
@@ -76,7 +76,7 @@ export function AuditCtaSection() {
                       }}
                     >
                       <Sparkles className="w-5 h-5 mr-2" />
-                      Run my AI Visibility Audit
+                      {t.auditCta.cta}
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </MagneticWrapper>
@@ -88,18 +88,18 @@ export function AuditCtaSection() {
                 <div className="rounded-2xl border border-border/60 bg-card/50 backdrop-blur-md p-5 font-mono text-xs">
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-border/50">
                     <span className="uppercase tracking-[0.22em] text-muted-foreground/70">
-                      Sample audit output
+                      {t.auditCta.sampleHeading}
                     </span>
-                    <span className="text-[10px] text-primary">●  live</span>
+                    <span className="text-[10px] text-primary">●  {t.auditCta.sampleLive}</span>
                   </div>
                   <div className="space-y-3">
-                    <ScoreLine label="AEO score" value={42} max={100} tone="amber" />
-                    <ScoreLine label="GEO score" value={28} max={100} tone="rose" />
-                    <ScoreLine label="E-E-A-T score" value={67} max={100} tone="cyan" />
-                    <ScoreLine label="LLM citations" value={3} max={50} tone="violet" />
+                    <ScoreLine label={t.auditCta.sampleAeo} value={42} max={100} tone="amber" />
+                    <ScoreLine label={t.auditCta.sampleGeo} value={28} max={100} tone="rose" />
+                    <ScoreLine label={t.auditCta.sampleEeat} value={67} max={100} tone="cyan" />
+                    <ScoreLine label={t.auditCta.sampleCitations} value={3} max={50} tone="violet" />
                   </div>
                   <div className="mt-5 pt-3 border-t border-border/50 text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
-                    90-day plan included
+                    {t.auditCta.samplePlanNote}
                   </div>
                 </div>
               </div>
@@ -107,6 +107,7 @@ export function AuditCtaSection() {
           </div>
         </ScrollReveal>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.auditCta.srSeo}</div>
     </section>
   );
 }

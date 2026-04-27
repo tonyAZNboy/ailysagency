@@ -1,7 +1,10 @@
 import { ScrollReveal } from "@/components/animation";
 import { FleurDeLys } from "@/components/brand/FleurDeLys";
+import { useLang } from "@/i18n/LangContext";
 
 export function AboutSection() {
+  const { t } = useLang();
+
   return (
     <section
       id="about"
@@ -35,17 +38,17 @@ export function AboutSection() {
                 {/* Caption */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-background/95 via-background/60 to-transparent">
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-1">
-                    Plate 01 / Origin
+                    {t.about.plateLabel}
                   </div>
                   <p className="font-display text-base italic text-foreground/85 leading-snug">
-                    Montréal, where the agency is built.
+                    {t.about.plateCaption}
                   </p>
                 </div>
               </div>
 
               {/* Editorial caption beneath */}
               <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60">
-                Photo placeholder. Replace with team or city imagery.
+                {t.about.photoNote}
               </p>
             </ScrollReveal>
           </div>
@@ -54,55 +57,29 @@ export function AboutSection() {
           <div className="lg:col-span-7">
             <ScrollReveal variant="fade-up" delay={150} duration={700}>
               <div className="ailys-section-no mb-6">
-                <span>05 / Manifesto</span>
+                <span>{t.about.sectionLabel}</span>
               </div>
               <h2
                 id="about-heading"
                 className="font-display text-5xl sm:text-6xl leading-[0.95] tracking-tight mb-10"
               >
-                An AI search agency,
+                {t.about.heading1}
                 <br />
-                <span className="italic">written in two languages.</span>
+                <span className="italic">{t.about.heading2}</span>
               </h2>
 
               <div className="space-y-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-prose">
                 <p className="first-letter:font-display first-letter:text-6xl first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-[0.85] first-letter:text-foreground">
-                  AiLys is built on a thesis. The way buyers find local
-                  businesses is changing fast. Today, around 1.2 billion people
-                  search through AI engines every month. ChatGPT alone holds
-                  roughly 55 percent of that market. By the time the next
-                  provincial election runs, most local searches will pass
-                  through an AI layer first.
+                  {t.about.body1}
                 </p>
 
-                <p>
-                  Local businesses that get cited inside those answers will keep
-                  growing. The ones that do not will quietly fade from view.
-                </p>
+                <p>{t.about.body2}</p>
 
-                <p>
-                  We grew out of classical SEO discipline applied to the AI
-                  search era, not the reverse. Every plan we ship is built on
-                  the same foundation that worked for Google in 2010 and still
-                  works in 2026: clean technical SEO, complete Google Business
-                  Profile, NAP consistency, real backlinks, citations across
-                  high-authority sources. On top of that foundation we add
-                  AEO, GEO, and E-E-A-T work tuned for the LLM era. Skip the
-                  foundation and the AI layer has nothing to stand on.
-                </p>
+                <p>{t.about.body3}</p>
 
-                <p>
-                  We are based in Montréal. We work in English and French. Our
-                  delivery is automated where it should be, hand-crafted where
-                  it counts. We answer the phone. We send a real human to your
-                  quarterly review.
-                </p>
+                <p>{t.about.body4}</p>
 
-                <p className="text-foreground/95">
-                  The fleur-de-lys in our mark is not decoration. It is a
-                  commitment to do agency work the way Québec businesses
-                  actually need it done.
-                </p>
+                <p className="text-foreground/95">{t.about.body5}</p>
               </div>
 
               {/* Signature block */}
@@ -110,10 +87,10 @@ export function AboutSection() {
                 <FleurDeLys size={32} fill="gradient" />
                 <div>
                   <div className="font-display text-xl italic text-foreground">
-                    AiLys Agency
+                    {t.about.signatureBrand}
                   </div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60">
-                    Founded 2026 · Montréal · Bilingual
+                    {t.about.signatureMeta}
                   </div>
                 </div>
               </div>
@@ -121,6 +98,7 @@ export function AboutSection() {
           </div>
         </div>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.about.srSeo}</div>
     </section>
   );
 }

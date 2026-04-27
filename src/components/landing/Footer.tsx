@@ -16,14 +16,15 @@ export function Footer() {
     { label: t.nav.howItWorks, href: "#process" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.footer?.about ?? "About", href: "#about" },
+    { label: "Industries", href: "/industries" },
   ];
 
   const company = [
     { label: t.nav.blog, href: "/blog" },
-    { label: "Help center", href: "/help" },
-    { label: "Book a call", href: "/book-call" },
-    { label: "AI Visibility Audit", href: "/audit" },
-    { label: "GBP Pulse", href: "/audit/gbp" },
+    { label: t.footerExt.helpCenter, href: "/help" },
+    { label: t.footerExt.bookCall, href: "/book-call" },
+    { label: t.footerExt.auditLink, href: "/audit" },
+    { label: t.footerExt.gbpPulse, href: "/audit/gbp" },
     { label: t.footer?.contact ?? "Contact", href: `mailto:${APP_CONFIG.email}` },
   ];
 
@@ -66,7 +67,7 @@ export function Footer() {
                   </span>
                   <span className="text-foreground">Lys</span>
                   <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 align-middle">
-                    Agency
+                    {t.footerExt.agencyBadge}
                   </span>
                 </div>
               </div>
@@ -78,9 +79,9 @@ export function Footer() {
               {APP_CONFIG.description}
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
-              <span>Montréal · Québec</span>
+              <span>{t.footerExt.locationLine}</span>
               <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-              <span>Bilingual EN/FR-CA</span>
+              <span>{t.footerExt.bilingualLine}</span>
               <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
               <a
                 href={`mailto:${APP_CONFIG.email}`}
@@ -96,7 +97,7 @@ export function Footer() {
           {/* Sister product cross-link */}
           <div className="lg:col-span-5 lg:col-start-9">
             <div className="ailys-section-no mb-4">
-              <span>Sister product</span>
+              <span>{t.footerExt.sisterProduct}</span>
             </div>
             <a
               href="https://www.reviuzy.com"
@@ -109,13 +110,11 @@ export function Footer() {
                   <div className="font-display text-2xl mb-1.5">
                     Reviuzy
                     <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 ml-2 align-middle">
-                      SaaS
+                      {t.footerExt.reviuzyBadge}
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-snug max-w-xs">
-                    Self-serve review collection and Google Business Profile
-                    automation. The product engine that powers part of our
-                    delivery.
+                    {t.footerExt.reviuzyTagline}
                   </p>
                 </div>
                 <ArrowUpRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
@@ -126,7 +125,7 @@ export function Footer() {
 
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <FooterColumn label="Services">
+          <FooterColumn label={t.footerExt.colServices}>
             {services.map((link) => (
               <li key={link.label}>
                 <button
@@ -139,7 +138,7 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          <FooterColumn label="Company">
+          <FooterColumn label={t.footerExt.colCompany}>
             {company.map((link) => (
               <li key={link.label}>
                 {link.href.startsWith("/") ? (
@@ -161,7 +160,7 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          <FooterColumn label="Legal">
+          <FooterColumn label={t.footerExt.colLegal}>
             {legal.map((link) => (
               <li key={link.label}>
                 <Link
@@ -174,7 +173,7 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          <FooterColumn label="Tracked engines">
+          <FooterColumn label={t.footerExt.colTrackedEngines}>
             <li className="text-sm text-muted-foreground">ChatGPT</li>
             <li className="text-sm text-muted-foreground">Perplexity</li>
             <li className="text-sm text-muted-foreground">Claude</li>
@@ -193,10 +192,11 @@ export function Footer() {
             © {currentYear} AiLys Agency. {t.footer?.copyright ?? "All rights reserved."}
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60">
-            v0.1 · Made in Québec ⚜
+            {t.footerExt.versionLine}
           </p>
         </div>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.footerExt.srSeo}</div>
     </footer>
   );
 }

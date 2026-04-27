@@ -12,11 +12,13 @@ import { ProcessSection } from "@/components/landing/ProcessSection";
 import { MethodologySection } from "@/components/landing/MethodologySection";
 import { BookCallSection } from "@/components/landing/BookCallSection";
 import { WhyAiLysSection } from "@/components/landing/WhyAiLysSection";
+import { FoundingClientsSection } from "@/components/landing/FoundingClientsSection";
 import { AuditCtaSection } from "@/components/landing/AuditCtaSection";
 import { AboutSection } from "@/components/landing/AboutSection";
 import { FaqSection } from "@/components/landing/FaqSection";
 import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
+import { ExitIntentModal } from "@/components/landing/ExitIntentModal";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { APP_CONFIG } from "@/config/app";
 
@@ -128,6 +130,7 @@ const Index = () => {
           <ProcessSection />
           <BookCallSection />
           <WhyAiLysSection />
+          <FoundingClientsSection />
           <AuditCtaSection />
           <AboutSection />
           <FaqSection />
@@ -135,6 +138,7 @@ const Index = () => {
 
         <Footer />
         <LandingChatWidget />
+        <ExitIntentModal />
       </div>
     </>
   );

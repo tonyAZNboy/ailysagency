@@ -4,6 +4,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/animation";
 import { FleurDeLys } from "@/components/brand/FleurDeLys";
 import { useNavigate } from "react-router-dom";
+import { useLang } from "@/i18n/LangContext";
 
 type TierPalette = "teal" | "violet" | "amber" | "emerald";
 
@@ -19,88 +20,6 @@ interface Tier {
   featured?: boolean;
   palette: TierPalette;
 }
-
-const tiers: Tier[] = [
-  {
-    id: "starter",
-    number: "01",
-    name: "Starter",
-    price: "300",
-    per: "/mo CAD",
-    tagline:
-      "For solo restos, indie practitioners, small salons getting visible in AI search.",
-    features: [
-      "Technical SEO + on-page basics",
-      "Google Business Profile management",
-      "NAP consistency check across 20+ directories",
-      "LLM citation tracking across 6 engines",
-      "Monthly performance report",
-      "One strategy call per month",
-    ],
-    cta: "Begin with Starter",
-    palette: "teal",
-  },
-  {
-    id: "core",
-    number: "02",
-    name: "Core",
-    price: "600",
-    per: "/mo CAD",
-    tagline:
-      "For dentists, contractors, growing restos that need to be cited by name.",
-    features: [
-      "Everything in Starter",
-      "AEO schema implementation (FAQ, Review, LocalBusiness, HowTo)",
-      "Backlink building from real publications",
-      "Citation building, 5 per month",
-      "Bilingual content, one piece per month",
-      "Bi-weekly strategy call",
-    ],
-    cta: "Begin with Core",
-    featured: true,
-    palette: "violet",
-  },
-  {
-    id: "growth",
-    number: "03",
-    name: "Growth",
-    price: "1,200",
-    per: "/mo CAD",
-    tagline: "For multi-location, franchises, expansion plays.",
-    features: [
-      "Everything in Core",
-      "GEO entity authority (Wikipedia, Wikidata, digital PR)",
-      "Reddit + industry forum participation",
-      "Citation building, 10+ per month",
-      "Weekly bilingual content",
-      "Competitive monitoring",
-      "In-person quarterly review",
-    ],
-    cta: "Begin with Growth",
-    palette: "amber",
-  },
-  {
-    id: "autopilot",
-    number: "04",
-    name: "Autopilot",
-    price: "1,299",
-    per: "/mo CAD",
-    tagline:
-      "Done for you. Reviuzy SaaS bundled. Monthly contest engine running on your locations.",
-    features: [
-      "Everything in Growth",
-      "Reviuzy SaaS Max bundled in",
-      "Monthly review contest, run by us",
-      "Legal T&C handled, winner draw, prize handoff, social amp",
-      "Fresh review velocity, 20 to 50 per month per location",
-      "NFC tap cards shipped to your locations",
-      "Domain Speed Boost + Domain Shield included",
-      "Quarterly contest performance review",
-    ],
-    cta: "Go Autopilot",
-    palette: "emerald",
-  },
-];
 
 interface PaletteTokens {
   cardBg: string;
@@ -179,6 +98,86 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
 export function ServicesSection() {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<string | null>(null);
+  const { t } = useLang();
+
+  const tiers: Tier[] = [
+    {
+      id: "starter",
+      number: "01",
+      name: t.services.tier0Name,
+      price: "300",
+      per: t.services.perMo,
+      tagline: t.services.tier0Tagline,
+      features: [
+        t.services.tier0Feat1,
+        t.services.tier0Feat2,
+        t.services.tier0Feat3,
+        t.services.tier0Feat4,
+        t.services.tier0Feat5,
+        t.services.tier0Feat6,
+      ],
+      cta: t.services.tier0Cta,
+      palette: "teal",
+    },
+    {
+      id: "core",
+      number: "02",
+      name: t.services.tier1Name,
+      price: "600",
+      per: t.services.perMo,
+      tagline: t.services.tier1Tagline,
+      features: [
+        t.services.tier1Feat1,
+        t.services.tier1Feat2,
+        t.services.tier1Feat3,
+        t.services.tier1Feat4,
+        t.services.tier1Feat5,
+        t.services.tier1Feat6,
+      ],
+      cta: t.services.tier1Cta,
+      featured: true,
+      palette: "violet",
+    },
+    {
+      id: "growth",
+      number: "03",
+      name: t.services.tier2Name,
+      price: "1,200",
+      per: t.services.perMo,
+      tagline: t.services.tier2Tagline,
+      features: [
+        t.services.tier2Feat1,
+        t.services.tier2Feat2,
+        t.services.tier2Feat3,
+        t.services.tier2Feat4,
+        t.services.tier2Feat5,
+        t.services.tier2Feat6,
+        t.services.tier2Feat7,
+      ],
+      cta: t.services.tier2Cta,
+      palette: "amber",
+    },
+    {
+      id: "autopilot",
+      number: "04",
+      name: t.services.tier3Name,
+      price: "1,299",
+      per: t.services.perMo,
+      tagline: t.services.tier3Tagline,
+      features: [
+        t.services.tier3Feat1,
+        t.services.tier3Feat2,
+        t.services.tier3Feat3,
+        t.services.tier3Feat4,
+        t.services.tier3Feat5,
+        t.services.tier3Feat6,
+        t.services.tier3Feat7,
+        t.services.tier3Feat8,
+      ],
+      cta: t.services.tier3Cta,
+      palette: "emerald",
+    },
+  ];
 
   return (
     <section
@@ -200,35 +199,31 @@ export function ServicesSection() {
           <div className="lg:col-span-5">
             <ScrollReveal variant="fade-up" delay={50} duration={600}>
               <div className="ailys-section-no mb-6">
-                <span>01 / Services</span>
+                <span>{t.services.sectionLabel}</span>
               </div>
               <h2
                 id="services-heading"
                 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
               >
-                Four plans.
+                {t.services.heading1}
                 <br />
-                <span className="italic text-primary">One discipline.</span>
+                <span className="italic text-primary">{t.services.heading2}</span>
               </h2>
             </ScrollReveal>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
             <ScrollReveal variant="fade-up" delay={150} duration={650}>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-prose">
-                AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO,
-                E-E-A-T) at SMB prices. The only reason this works is that our
-                operational delivery is automated through our verified-review and
-                Google Business Profile engine. You get agency-quality work for
-                what most shops charge for tools.
+                {t.services.intro}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/70">
-                <span>$300 to $1,299 /mo</span>
+                <span>{t.services.metaPrice}</span>
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                <span>Bilingual EN/FR-CA</span>
+                <span>{t.services.metaBilingual}</span>
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                <span>Month to month</span>
+                <span>{t.services.metaMonthly}</span>
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                <span className="text-emerald-400/90">Autopilot includes Reviuzy</span>
+                <span className="text-emerald-400/90">{t.services.metaAutopilot}</span>
               </div>
             </ScrollReveal>
           </div>
@@ -264,14 +259,14 @@ export function ServicesSection() {
                     <div
                       className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-white font-semibold shadow-[0_4px_20px_-4px_rgba(167,139,250,0.5)]`}
                     >
-                      ★ Most chosen
+                      {t.services.badgeMostChosen}
                     </div>
                   )}
                   {isAutopilot && (
                     <div
                       className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.55)]`}
                     >
-                      ⚡ Autopilot · Done for you
+                      {t.services.badgeAutopilot}
                     </div>
                   )}
 
@@ -279,7 +274,7 @@ export function ServicesSection() {
                   <div className="flex items-center justify-between mb-7">
                     <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
                       <span className={`w-1.5 h-1.5 rounded-full ${p.accentDot}`} />
-                      Tier {tier.number} / {tier.name}
+                      {t.services.tierLabel} {tier.number} / {tier.name}
                     </span>
                     <span
                       className={`transition-transform duration-500 ${
@@ -355,12 +350,11 @@ export function ServicesSection() {
           <div className="mt-10 max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/[0.06] backdrop-blur-sm mb-4">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-emerald-300">
-                Why $300, not $2,000
+                {t.services.why300Eyebrow}
               </span>
             </div>
             <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
-              Reviuzy handles the operational layer (review collection, GBP, content drafting, citation tracking).
-              Our humans focus on strategy, schema, and the citations that actually move LLM rankings. The math works.
+              {t.services.why300Body}
             </p>
           </div>
         </ScrollReveal>
@@ -370,23 +364,23 @@ export function ServicesSection() {
           <div className="mt-16 max-w-4xl mx-auto rounded-2xl border border-border/50 bg-card/30 backdrop-blur-md overflow-hidden">
             <div className="grid grid-cols-3 text-xs sm:text-sm">
               <div className="p-5 sm:p-6 font-mono uppercase tracking-[0.22em] text-[10px] text-muted-foreground/70 border-r border-border/40">
-                Compare
+                {t.services.compareLabel}
               </div>
               <div className="p-5 sm:p-6 text-center font-mono uppercase tracking-[0.22em] text-[10px] text-muted-foreground/70 border-r border-border/40">
-                Mid-market agencies
+                {t.services.compareMidMarket}
               </div>
               <div className="p-5 sm:p-6 text-center font-mono uppercase tracking-[0.22em] text-[10px]">
                 <span className="bg-gradient-to-r from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent font-semibold">
-                  AiLys Agency
+                  {t.services.compareAilys}
                 </span>
               </div>
 
-              <ComparisonRow label="Starting price" left="$2,000/mo" right="$300/mo" highlight />
-              <ComparisonRow label="Languages served" left="EN, FR" right="EN, FR, ES, ZH, AR, RU, UK, SR" />
-              <ComparisonRow label="Focus" left="17 generalist services" right="Classical SEO + LLM visibility, layered" />
-              <ComparisonRow label="What we do" left="SEO, content, PPC, etc." right="Technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T" highlight />
-              <ComparisonRow label="Operational backbone" left="Hand-built" right="Reviuzy SaaS automated" />
-              <ComparisonRow label="Money-back guarantee" left="Yes" right="Yes, 30 days" highlight />
+              <ComparisonRow label={t.services.compareRow1Label} left={t.services.compareRow1Left} right={t.services.compareRow1Right} highlight />
+              <ComparisonRow label={t.services.compareRow2Label} left={t.services.compareRow2Left} right={t.services.compareRow2Right} />
+              <ComparisonRow label={t.services.compareRow3Label} left={t.services.compareRow3Left} right={t.services.compareRow3Right} />
+              <ComparisonRow label={t.services.compareRow4Label} left={t.services.compareRow4Left} right={t.services.compareRow4Right} highlight />
+              <ComparisonRow label={t.services.compareRow5Label} left={t.services.compareRow5Left} right={t.services.compareRow5Right} />
+              <ComparisonRow label={t.services.compareRow6Label} left={t.services.compareRow6Left} right={t.services.compareRow6Right} highlight />
             </div>
           </div>
         </ScrollReveal>
@@ -394,18 +388,9 @@ export function ServicesSection() {
         {/* Money-back guarantee + trust signals */}
         <ScrollReveal variant="fade-up" delay={900} duration={600}>
           <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <TrustChip
-              eyebrow="Risk reversal"
-              line="30-day satisfaction guarantee. Refund if no measurable schema or citation lift."
-            />
-            <TrustChip
-              eyebrow="No lock-in"
-              line="Month to month. Two weeks notice, no clawback. Keep the schema and citations we shipped."
-            />
-            <TrustChip
-              eyebrow="Quebec-anchored"
-              line="Bilingual EN/FR-CA in-house. Spanish, Chinese, Arabic, Russian via partner network."
-            />
+            <TrustChip eyebrow={t.services.chip1Eyebrow} line={t.services.chip1Line} />
+            <TrustChip eyebrow={t.services.chip2Eyebrow} line={t.services.chip2Line} />
+            <TrustChip eyebrow={t.services.chip3Eyebrow} line={t.services.chip3Line} />
           </div>
         </ScrollReveal>
 
@@ -413,13 +398,11 @@ export function ServicesSection() {
         <ScrollReveal variant="fade-up" delay={950} duration={600}>
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs font-mono text-muted-foreground/60">
             <span className="ailys-cite">†</span>
-            <span>
-              All plans run month to month. Cancel any time, two weeks notice.
-              No setup fees.
-            </span>
+            <span>{t.services.footnote}</span>
           </div>
         </ScrollReveal>
       </div>
+      <div className="sr-only" aria-hidden="false">{t.services.srSeo}</div>
     </section>
   );
 }

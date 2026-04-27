@@ -24,7 +24,7 @@ export function Navbar() {
     { label: t.nav.pricing, href: "#pricing-builder" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.blog, href: blogHref },
-    { label: "Help", href: helpHref },
+    { label: t.navExt.help, href: helpHref },
   ];
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export function Navbar() {
                   onClick={() => navigate('/audit')}
                   className="hover:bg-primary/10 text-xs lg:text-sm px-2 lg:px-4 hidden lg:inline-flex"
                 >
-                  Free Audit
+                  {t.navExt.freeAudit}
                 </Button>
                 <MagneticWrapper strength={0.1}>
                   <Button
@@ -149,7 +149,7 @@ export function Navbar() {
                       background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))',
                     }}
                   >
-                    Book a call
+                    {t.navExt.bookCall}
                   </Button>
                 </MagneticWrapper>
               </div>
@@ -189,8 +189,9 @@ export function Navbar() {
           ref={mobileMenuScrollRef}
           className={`absolute top-full left-2 transition-all duration-300 ease-out rounded-xl ${mobileMenuOpen ? 'opacity-100 max-h-[80vh] overflow-y-auto overflow-x-hidden' : 'opacity-0 max-h-0 overflow-hidden pointer-events-none'}`}
           style={{
-            width: '50%',
+            width: 'min(calc(100vw - 1rem), 240px)',
             minWidth: '180px',
+            maxWidth: 'calc(100vw - 1rem)',
             background: 'rgba(0, 20, 25, 0.75)',
             backdropFilter: 'blur(20px) saturate(180%)',
             WebkitBackdropFilter: 'blur(20px) saturate(180%)',
