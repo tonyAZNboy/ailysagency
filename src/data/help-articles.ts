@@ -1039,7 +1039,7 @@ AiLys 为本地企业提供 AEO、GEO 和 E-E-A-T 服务。换句话说: 让您�
 
 - **价格**: 我们起步 $300/月。同类代理起步 $2,000/月。我们能更便宜,是因为 Reviuzy SaaS 把运营层自动化了。
 - **语言**: 通过合作伙伴网络支持 8 种语言(EN、FR、ES、ZH、AR、RU、UK、SR)。多数代理只做 EN 加 FR。
-- **聚焦**: 我们只做一件事——LLM 可见度,且做得深。不做综合代理。
+- **聚焦**: 我们只做一件事,即 LLM 可见度,且做得深。不做综合代理。
 
 ## 如何开始
 
@@ -3155,7 +3155,7 @@ Si votre situation est une des suivantes, on n'est PAS le bon match (et on vous 
 
 ChatGPT, Perplexity, and Claude weight Reddit signals heavily because Reddit is one of the few platforms with genuine human discussion at scale. Industry subreddits often outweigh your own blog as a citation source. A single substantive thread where your business name appears naturally can drive AI citations for months.
 
-But the bar to participate authentically is high. Reddit detects and bans bots, paid promoters, and obvious self-promotion within days. The community downvotes anyone who posts only to link their site. So we do not run Reddit campaigns on your behalf — we give you this playbook so you can do it the right way.
+But the bar to participate authentically is high. Reddit detects and bans bots, paid promoters, and obvious self-promotion within days. The community downvotes anyone who posts only to link their site. So we do not run Reddit campaigns on your behalf. We give you this playbook so you can do it the right way.
 
 ## Step 1: pick the right subreddits
 
@@ -3238,7 +3238,7 @@ If you cannot participate yourself, skip Reddit. Focus on the channels we can mo
 
 ChatGPT, Perplexity et Claude pondèrent fortement les signaux Reddit parce que Reddit est une des rares plateformes avec une discussion humaine authentique à grande échelle. Les subreddits d'industrie pèsent souvent plus lourd que votre propre blogue comme source de citation. Un seul fil substantiel où le nom de votre commerce apparaît naturellement peut générer des citations IA pendant des mois.
 
-Mais la barre pour participer authentiquement est haute. Reddit détecte et bannit les bots, les promoteurs payés et l'auto-promotion évidente en quelques jours. La communauté downvote quiconque poste juste pour partager son site. Donc on n'opère pas de campagnes Reddit en votre nom — on vous donne ce guide pour que vous puissiez le faire de la bonne façon.
+Mais la barre pour participer authentiquement est haute. Reddit détecte et bannit les bots, les promoteurs payés et l'auto-promotion évidente en quelques jours. La communauté downvote quiconque poste juste pour partager son site. Donc on n'opère pas de campagnes Reddit en votre nom. On vous donne ce guide pour que vous puissiez le faire de la bonne façon.
 
 ## Étape 1 : choisir les bons subreddits
 
