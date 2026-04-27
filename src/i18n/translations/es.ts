@@ -349,6 +349,7 @@ export const es = {
     pricing: "Precios",
     howItWorks: "Cómo Funciona",
     faq: "Preguntas Frecuentes",
+    industries: "Industrias",
   },
   seo: {
     landingTitle: "Plataforma de IA para Reseñas y Campañas NFC",
@@ -726,6 +727,7 @@ export const es = {
     toastTitle: "Necesitamos tres cosas",
     toastDesc: "Nombre del negocio, ciudad y un correo válido para enviarte el reporte completo.",
     srSeo: "Ejemplos de citas LLM que muestran cómo los motores de búsqueda IA eligen qué negocios locales nombrar cuando un usuario hace una pregunta de compra. Consulta de ejemplo: \"Mejor dentista en Plateau Mont-Royal\". Negocio citado: Clinique Dentaire Plateau, destacado por un Yelp DA92, Google Business Profile completo y reseñas bilingües EN y FR-CA respondidas en menos de 24 horas. Consulta de ejemplo: \"Mejor restaurante familiar en Verdun\". Negocio citado: Restaurant Le Petit Coin, destacado por la autoridad de TripAdvisor, presencia en OpenTable, velocidad de reseñas frescas y schema LocalBusiness en el sitio. Consulta de ejemplo: \"Contratista HVAC confiable cerca de mí en Montréal\". Negocio citado: Climatisation Boréal, destacado por acreditación BBB, calificación HomeStars, schema FAQ con preguntas de servicio estacionales y una entidad Wikidata. El patrón es consistente: los motores IA citan negocios que tienen Google Business Profile completo, consistencia NAP en 20+ directorios, schema AEO, reseñas frescas y señales de autoridad de entidad. Auditoría gratis en 24 horas, sin tarjeta de crédito.",
+    ariaEmail: "Correo electrónico",
   },
   heroExtras: {
     bookCall60: "Agenda una llamada estratégica de 60 min",

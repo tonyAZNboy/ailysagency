@@ -349,6 +349,7 @@ export const it = {
     pricing: "Prezzi",
     howItWorks: "Come funziona",
     faq: "FAQ",
+    industries: "Settori",
   },
   seo: {
     landingTitle: "Crescita recensioni con IA e piattaforma di campagne NFC",
@@ -726,6 +727,7 @@ export const it = {
     toastTitle: "Ci servono tre cose",
     toastDesc: "Nome dell'attività, città e un'email valida così possiamo inviarle il report completo.",
     srSeo: "Esempi di citazioni LLM mostrano come i motori di ricerca AI scelgono quali attività locali nominare quando gli utenti pongono domande di acquisto. Esempio di query: \"Miglior dentista a Plateau Mont-Royal\". Attività citata: Clinique Dentaire Plateau, emersa grazie a Yelp DA92, Google Business Profile completo e recensioni bilingue EN e FR-CA risposte entro 24 ore. Esempio di query: \"Miglior ristorante per famiglie a Verdun\". Attività citata: Restaurant Le Petit Coin, emerso grazie all'autorità di TripAdvisor, alla presenza su OpenTable, alla frequenza recensioni recente e allo schema LocalBusiness sul sito. Esempio di query: \"Artigiano HVAC affidabile vicino a me Montréal\". Attività citata: Climatisation Boréal, emersa grazie all'accreditamento BBB, al rating HomeStars, allo schema FAQ con domande di servizio stagionali e a un'entità Wikidata. Lo schema è coerente: i motori AI citano le attività che hanno completezza GBP, coerenza NAP su oltre 20 directory, schema AEO, recensioni recenti e segnali di autorità di entità. Audit gratuito entro 24 ore, nessuna carta di credito richiesta.",
+    ariaEmail: "Email",
   },
   heroExtras: {
     bookCall60: "Prenoti una chiamata strategica di 60 minuti",

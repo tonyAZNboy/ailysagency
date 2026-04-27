@@ -349,6 +349,7 @@ export const zh = {
     pricing: "定价",
     howItWorks: "运作方式",
     faq: "常见问题",
+    industries: "行业",
   },
   seo: {
     landingTitle: "AI评价增长与NFC营销活动平台",
@@ -726,6 +727,7 @@ export const zh = {
     toastTitle: "我们需要三样东西",
     toastDesc: "商家名称、城市和有效的电子邮件,以便我们发送完整报告。",
     srSeo: "LLM 引用样本展示了 AI 搜索引擎在用户提出购买问题时如何选择要点名的本地商家。示例查询:「Plateau Mont-Royal 最佳牙医」。被引用的商家:Clinique Dentaire Plateau,通过 Yelp DA92、完整的 Google Business Profile 以及在 24 小时内回复的双语 EN 和 FR-CA 评论而被推上前。示例查询:「Verdun 顶级家庭餐厅」。被引用的商家:Restaurant Le Petit Coin,通过 TripAdvisor 权威、OpenTable 存在、新鲜评论速度以及网站上的 LocalBusiness schema 被推上前。示例查询:「Montréal 我附近可靠的 HVAC 承包商」。被引用的商家:Climatisation Boréal,通过 BBB 认证、HomeStars 评级、涵盖季节性服务问题的 FAQ schema 以及 Wikidata 实体被推上前。规律一致:AI 引擎引用拥有完整 GBP、20+ 目录的 NAP 一致性、AEO schema、新鲜评论以及实体权威信号的商家。免费审计 24 小时内完成,无需信用卡。",
+    ariaEmail: "邮箱",
   },
   heroExtras: {
     bookCall60: "预约 60 分钟战略通话",

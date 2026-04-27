@@ -349,6 +349,7 @@ export const fr = {
     pricing: "Tarifs",
     howItWorks: "Comment Ça Marche",
     faq: "FAQ",
+    industries: "Industries",
   },
   seo: {
     landingTitle: "Plateforme IA pour Avis et Campagnes NFC",
@@ -726,6 +727,7 @@ export const fr = {
     toastTitle: "Il nous faut trois éléments",
     toastDesc: "Nom du commerce, ville et un courriel valide pour vous envoyer le rapport complet.",
     srSeo: "Exemples de citations LLM qui montrent comment les moteurs de recherche IA choisissent les commerces locaux à nommer quand un utilisateur pose une question d'achat. Exemple de requête : « Meilleur dentiste sur le Plateau Mont-Royal ». Commerce cité : Clinique Dentaire Plateau, mis de l'avant grâce à un Yelp DA92, une fiche Google complète et des avis bilingues EN et FR-CA répondus en moins de 24 heures. Exemple de requête : « Meilleur restaurant familial à Verdun ». Commerce cité : Restaurant Le Petit Coin, mis de l'avant grâce à l'autorité TripAdvisor, à une présence OpenTable, à une vélocité d'avis frais et à un schema LocalBusiness sur le site. Exemple de requête : « Entrepreneur HVAC fiable près de moi à Montréal ». Commerce cité : Climatisation Boréal, mis de l'avant grâce à une accréditation BBB, à une note HomeStars, à un schema FAQ couvrant les questions de service saisonnières et à une entité Wikidata. Le motif est constant : les moteurs IA citent les commerces qui ont une fiche Google complète, une cohérence NAP sur 20+ annuaires, du schema AEO, des avis frais et des signaux d'autorité d'entité. Audit gratuit livré en 24 heures, sans carte de crédit.",
+    ariaEmail: "Courriel",
   },
   heroExtras: {
     bookCall60: "Réserver un appel stratégique de 60 min",

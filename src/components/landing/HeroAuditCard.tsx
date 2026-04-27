@@ -210,7 +210,7 @@ export function HeroAuditCard() {
               placeholder={t.heroAuditCard.placeholderEmail}
               className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
               required
-              aria-label="Email"
+              aria-label={t.heroAuditCard.ariaEmail ?? "Email"}
             />
             <Button
               type="submit"

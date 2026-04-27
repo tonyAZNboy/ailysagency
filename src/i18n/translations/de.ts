@@ -349,6 +349,7 @@ export const de = {
     pricing: "Preise",
     howItWorks: "Wie es funktioniert",
     faq: "FAQ",
+    industries: "Branchen",
   },
   seo: {
     landingTitle: "KI-Bewertungswachstum & NFC-Kampagnenplattform",
@@ -726,6 +727,7 @@ export const de = {
     toastTitle: "Wir benötigen drei Angaben",
     toastDesc: "Firmenname, Stadt und eine gültige E-Mail, damit wir den vollständigen Bericht senden können.",
     srSeo: "Beispielhafte LLM-Zitationen zeigen, wie KI-Suchmaschinen auswählen, welche lokalen Unternehmen sie nennen, wenn Nutzer Kaufentscheidungen treffen. Beispielanfrage: \"Bester Zahnarzt in Plateau Mont-Royal\". Zitiertes Unternehmen: Clinique Dentaire Plateau, sichtbar durch Yelp DA92, vollständiges Google Business Profile und zweisprachige EN- und FR-CA-Bewertungen, die innerhalb von 24 Stunden beantwortet werden. Beispielanfrage: \"Top-Familienrestaurant in Verdun\". Zitiertes Unternehmen: Restaurant Le Petit Coin, sichtbar durch TripAdvisor-Autorität, OpenTable-Präsenz, frische Bewertungsfrequenz und LocalBusiness-Schema auf der Website. Beispielanfrage: \"Zuverlässiger HVAC-Handwerker in der Nähe Montréal\". Zitiertes Unternehmen: Climatisation Boréal, sichtbar durch BBB-Akkreditierung, HomeStars-Bewertung, FAQ-Schema mit saisonalen Servicefragen und einer Wikidata-Entität. Das Muster ist konsistent: KI-Engines zitieren Unternehmen mit GBP-Vollständigkeit, NAP-Konsistenz über 20+ Verzeichnisse, AEO-Schema, frischen Bewertungen und Entitätsautoritätssignalen. Kostenloses 24-Stunden-Audit, keine Kreditkarte erforderlich.",
+    ariaEmail: "E-Mail",
   },
   heroExtras: {
     bookCall60: "60-minütiges Strategiegespräch buchen",

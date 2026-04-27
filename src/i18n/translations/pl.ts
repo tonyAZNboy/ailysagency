@@ -349,6 +349,7 @@ export const pl = {
     pricing: "Cennik",
     howItWorks: "Jak to działa",
     faq: "FAQ",
+    industries: "Branże",
   },
   seo: {
     landingTitle: "Platforma wzrostu opinii AI i kampanii NFC",
@@ -726,6 +727,7 @@ export const pl = {
     toastTitle: "Potrzebujemy trzech rzeczy",
     toastDesc: "Nazwa firmy, miasto i prawidłowy e-mail, abyśmy mogli wysłać pełny raport.",
     srSeo: "Przykładowe cytowania LLM pokazują, jak wyszukiwarki AI wybierają, które lokalne firmy wymienić, gdy użytkownicy zadają pytania zakupowe. Przykładowe zapytanie: \"Najlepszy dentysta na Plateau Mont-Royal\". Cytowana firma: Clinique Dentaire Plateau, wyłoniona dzięki Yelp DA92, kompletnemu Profilowi Firmy w Google i dwujęzycznym opiniom EN i FR-CA, na które odpowiadano w ciągu 24 godzin. Przykładowe zapytanie: \"Najlepsza restauracja rodzinna w Verdun\". Cytowana firma: Restaurant Le Petit Coin, wyłoniona dzięki autorytetowi TripAdvisor, obecności w OpenTable, świeżej częstotliwości opinii i schema LocalBusiness na stronie. Przykładowe zapytanie: \"Niezawodny wykonawca HVAC w pobliżu Montréal\". Cytowana firma: Climatisation Boréal, wyłoniona dzięki akredytacji BBB, ocenie HomeStars, schema FAQ z sezonowymi pytaniami serwisowymi i encji Wikidata. Wzór jest spójny: silniki AI cytują firmy, które mają kompletność GBP, spójność NAP w 20+ katalogach, schema AEO, świeże opinie i sygnały autorytetu encji. Darmowy audyt w 24 godziny, bez karty kredytowej.",
+    ariaEmail: "E-mail",
   },
   heroExtras: {
     bookCall60: "Zarezerwuj 60-minutową rozmowę strategiczną",

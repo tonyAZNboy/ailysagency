@@ -349,6 +349,7 @@ export const vi = {
     pricing: "Bảng giá",
     howItWorks: "Cách hoạt động",
     faq: "Câu hỏi thường gặp",
+    industries: "Ngành",
   },
   seo: {
     landingTitle: "Nền tảng Tăng trưởng Đánh giá AI và Chiến dịch NFC",
@@ -726,6 +727,7 @@ export const vi = {
     toastTitle: "Chúng tôi cần ba thứ",
     toastDesc: "Tên doanh nghiệp, thành phố và một email hợp lệ để có thể gửi báo cáo đầy đủ.",
     srSeo: "Các trích dẫn LLM mẫu cho thấy cách công cụ tìm kiếm AI chọn doanh nghiệp địa phương để nêu tên khi người dùng đặt câu hỏi mua hàng. Truy vấn ví dụ: \"Nha sĩ tốt nhất ở Plateau Mont-Royal\". Doanh nghiệp được trích dẫn: Clinique Dentaire Plateau, được nêu thông qua Yelp DA92, Google Business Profile hoàn chỉnh và đánh giá song ngữ EN và FR-CA được trả lời trong vòng 24 giờ. Truy vấn ví dụ: \"Nhà hàng gia đình hàng đầu ở Verdun\". Doanh nghiệp được trích dẫn: Restaurant Le Petit Coin, được nêu thông qua quyền uy TripAdvisor, hiện diện trên OpenTable, tốc độ đánh giá tươi mới và schema LocalBusiness trên website. Truy vấn ví dụ: \"Nhà thầu HVAC đáng tin cậy gần tôi Montréal\". Doanh nghiệp được trích dẫn: Climatisation Boréal, được nêu thông qua chứng nhận BBB, xếp hạng HomeStars, schema FAQ với câu hỏi dịch vụ theo mùa và một thực thể Wikidata. Mô hình nhất quán: công cụ AI trích dẫn các doanh nghiệp có GBP hoàn chỉnh, nhất quán NAP trên 20+ thư mục, schema AEO, đánh giá mới và tín hiệu thẩm quyền thực thể. Kiểm tra miễn phí trong 24 giờ, không cần thẻ tín dụng.",
+    ariaEmail: "Email",
   },
   heroExtras: {
     bookCall60: "Đặt cuộc gọi chiến lược 60 phút",

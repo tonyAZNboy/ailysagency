@@ -349,6 +349,7 @@ export const ko = {
     pricing: "요금제",
     howItWorks: "작동 방식",
     faq: "FAQ",
+    industries: "업종",
   },
   seo: {
     landingTitle: "AI 리뷰 성장 및 NFC 캠페인 플랫폼",
@@ -726,6 +727,7 @@ export const ko = {
     toastTitle: "세 가지가 필요합니다",
     toastDesc: "전체 보고서를 보내드릴 수 있도록 비즈니스 이름, 도시, 유효한 이메일을 입력해 주십시오.",
     srSeo: "샘플 LLM 인용은 사용자가 구매 관련 질문을 할 때 AI 검색 엔진이 어떤 로컬 비즈니스를 호명할지 선택하는 방식을 보여줍니다. 예시 쿼리: \"Plateau Mont-Royal의 최고 치과\". 인용된 비즈니스: Clinique Dentaire Plateau, Yelp DA92, 완성된 Google 비즈니스 프로필, 24시간 내 응답된 영어 및 캐나다 프랑스어 이중 언어 리뷰를 통해 노출됨. 예시 쿼리: \"Verdun 최고의 가족 레스토랑\". 인용된 비즈니스: Restaurant Le Petit Coin, TripAdvisor 권위, OpenTable 입지, 신선한 리뷰 속도, 웹사이트의 LocalBusiness 스키마를 통해 노출됨. 예시 쿼리: \"Montréal 근처 신뢰할 만한 HVAC 시공업체\". 인용된 비즈니스: Climatisation Boréal, BBB 인증, HomeStars 평점, 계절별 서비스 질문이 담긴 FAQ 스키마, Wikidata 엔티티를 통해 노출됨. 패턴은 일관됩니다. AI 엔진은 GBP 완성도, 20여 개 디렉터리에 걸친 NAP 일관성, AEO 스키마, 신선한 리뷰, 엔티티 권위 신호를 갖춘 비즈니스를 인용합니다. 24시간 내 무료 감사, 신용카드 불필요.",
+    ariaEmail: "이메일",
   },
   heroExtras: {
     bookCall60: "60분 전략 콜 예약",

@@ -349,6 +349,7 @@ export const hi = {
     pricing: "मूल्य निर्धारण",
     howItWorks: "यह कैसे काम करता है",
     faq: "अक्सर पूछे जाने वाले प्रश्न",
+    industries: "उद्योग",
   },
   seo: {
     landingTitle: "AI समीक्षा विकास और NFC अभियान प्लेटफ़ॉर्म",
@@ -726,6 +727,7 @@ export const hi = {
     toastTitle: "हमें तीन चीज़ें चाहिए",
     toastDesc: "व्यवसाय का नाम, शहर, और एक मान्य ईमेल ताकि हम पूरी रिपोर्ट भेज सकें.",
     srSeo: "नमूना LLM उद्धरण दिखाते हैं कि AI सर्च इंजन कैसे चुनते हैं कि उपयोगकर्ता ख़रीदारी के प्रश्न पूछने पर किन स्थानीय व्यवसायों का नाम लें. उदाहरण क्वेरी: \"Best dentist in Plateau Mont-Royal\". उद्धृत व्यवसाय: Clinique Dentaire Plateau, Yelp DA92, पूर्ण Google Business Profile, और 24 घंटे के भीतर उत्तर दी गई द्विभाषी EN और FR-CA समीक्षाओं के माध्यम से सामने आया. उदाहरण क्वेरी: \"Top family restaurant in Verdun\". उद्धृत व्यवसाय: Restaurant Le Petit Coin, TripAdvisor प्राधिकरण, OpenTable उपस्थिति, ताज़ा समीक्षा गति, और वेबसाइट पर LocalBusiness schema के माध्यम से सामने आया. उदाहरण क्वेरी: \"Reliable HVAC contractor near me Montréal\". उद्धृत व्यवसाय: Climatisation Boréal, BBB मान्यता, HomeStars रेटिंग, मौसमी सेवा प्रश्नों के साथ FAQ schema, और एक Wikidata इकाई के माध्यम से सामने आया. पैटर्न लगातार है: AI इंजन उन व्यवसायों को उद्धृत करते हैं जिनके पास GBP पूर्णता, 20+ डायरेक्ट्री में NAP स्थिरता, AEO schema, ताज़ा समीक्षाएँ, और इकाई प्राधिकरण संकेत हों. मुफ़्त 24-घंटे का ऑडिट, कोई क्रेडिट कार्ड आवश्यक नहीं.",
+    ariaEmail: "ईमेल",
   },
   heroExtras: {
     bookCall60: "60-मिनट की रणनीति कॉल बुक करें",

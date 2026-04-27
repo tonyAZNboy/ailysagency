@@ -349,6 +349,7 @@ export const tr = {
     pricing: "Fiyatlandırma",
     howItWorks: "Nasıl Çalışır",
     faq: "SSS",
+    industries: "Sektörler",
   },
   seo: {
     landingTitle: "Yapay Zeka Yorum Büyüme ve NFC Kampanya Platformu",
@@ -726,6 +727,7 @@ export const tr = {
     toastTitle: "Üç şeye ihtiyacımız var",
     toastDesc: "İşletme adı, şehir ve tam raporu gönderebilmemiz için geçerli bir e-posta.",
     srSeo: "Örnek LLM atıfları, kullanıcılar satın alma soruları sorduğunda yapay zeka arama motorlarının hangi yerel işletmeleri isimlendireceğini nasıl seçtiğini gösterir. Örnek sorgu: \"Plateau Mont-Royal'de en iyi diş hekimi\". Atıf yapılan işletme: Clinique Dentaire Plateau, Yelp DA92, eksiksiz Google Business Profile ve 24 saat içinde yanıtlanan iki dilli EN ve FR-CA yorumlar üzerinden öne çıktı. Örnek sorgu: \"Verdun'da en iyi aile restoranı\". Atıf yapılan işletme: Restaurant Le Petit Coin, TripAdvisor otoritesi, OpenTable varlığı, yüksek yorum hızı ve web sitesindeki LocalBusiness şeması üzerinden öne çıktı. Örnek sorgu: \"Yakınımdaki güvenilir HVAC müteahhidi Montréal\". Atıf yapılan işletme: Climatisation Boréal, BBB akreditasyonu, HomeStars puanı, mevsimsel hizmet sorularıyla FAQ şeması ve bir Wikidata varlığı üzerinden öne çıktı. Örüntü tutarlı: yapay zeka motorları; GBP tamlığı, 20'den fazla dizinde NAP tutarlılığı, AEO şeması, yeni yorumlar ve varlık otorite sinyalleri olan işletmeleri atıf yapar. Ücretsiz 24 saatlik denetim, kredi kartı gerekmez.",
+    ariaEmail: "E-posta",
   },
   heroExtras: {
     bookCall60: "60 dakikalık strateji görüşmesi rezerve edin",

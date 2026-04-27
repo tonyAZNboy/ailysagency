@@ -349,6 +349,7 @@ export const ja = {
     pricing: "料金",
     howItWorks: "仕組み",
     faq: "FAQ",
+    industries: "業種",
   },
   seo: {
     landingTitle: "AI レビュー成長＆ NFC キャンペーンプラットフォーム",
@@ -726,6 +727,7 @@ export const ja = {
     toastTitle: "3つの情報が必要です",
     toastDesc: "完全なレポートをお送りするため、ビジネス名、都市、有効なメールアドレスをご入力ください。",
     srSeo: "LLM 引用のサンプルは、ユーザーが購買に関する質問をする際に、AI 検索エンジンがどのローカルビジネスを名指しするかを示しています。クエリ例：「Plateau Mont-Royal で最も優れた歯科医」。引用されたビジネス：Clinique Dentaire Plateau。Yelp DA92、完全な Google ビジネスプロフィール、24時間以内に返信される英語・カナダ仏語のバイリンガルレビューを通じて表示されました。クエリ例：「Verdun の家族向けレストラン人気店」。引用されたビジネス：Restaurant Le Petit Coin。TripAdvisor の権威、OpenTable のプレゼンス、新鮮なレビュー速度、ウェブサイト上の LocalBusiness スキーマを通じて表示されました。クエリ例：「Montréal 近くで信頼できる HVAC 業者」。引用されたビジネス：Climatisation Boréal。BBB 認定、HomeStars の評価、季節サービスに関する FAQ スキーマ、Wikidata エンティティを通じて表示されました。パターンは一貫しています。AI エンジンは、GBP の完全性、20以上のディレクトリ全体での NAP整合性、AEO スキーマ、新鮮なレビュー、エンティティ権威シグナルを備えたビジネスを引用します。24時間以内に納品される無料監査、クレジットカード不要。",
+    ariaEmail: "メール",
   },
   heroExtras: {
     bookCall60: "60分の戦略コールを予約",

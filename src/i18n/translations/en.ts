@@ -332,6 +332,7 @@ export const en = {
   // Footer
   footer: {
     description: "AiLys Agency is a Quebec-based AI search reputation agency. We get local businesses cited by ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot through technical SEO, AEO, GEO, and E-E-A-T work.",
+    industries: "Industries",
     product: "Product",
     company: "Company",
     legal: "Legal",
@@ -741,6 +742,7 @@ export const en = {
     badgeFree: "Free + instant",
     toastTitle: "We need three things",
     toastDesc: "Business name, city, and a valid email so we can send the full report.",
+    ariaEmail: "Email",
 
     srSeo: "Sample LLM citations show how AI search engines pick which local businesses to name when users ask buying questions. Example query: \"Best dentist in Plateau Mont-Royal\". Cited business: Clinique Dentaire Plateau, surfaced through Yelp DA92, complete Google Business Profile, and bilingual EN and FR-CA reviews answered within 24 hours. Example query: \"Top family restaurant in Verdun\". Cited business: Restaurant Le Petit Coin, surfaced through TripAdvisor authority, OpenTable presence, fresh review velocity, and LocalBusiness schema on the website. Example query: \"Reliable HVAC contractor near me Montréal\". Cited business: Climatisation Boréal, surfaced through BBB accreditation, HomeStars rating, FAQ schema with seasonal service questions, and a Wikidata entity. The pattern is consistent: AI engines cite businesses that have GBP completeness, NAP consistency across 20+ directories, AEO schema, fresh reviews, and entity authority signals. Free 24-hour audit, no credit card required.",
   },

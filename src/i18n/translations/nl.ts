@@ -349,6 +349,7 @@ export const nl = {
     pricing: "Prijzen",
     howItWorks: "Hoe het werkt",
     faq: "FAQ",
+    industries: "Sectoren",
   },
   seo: {
     landingTitle: "AI-beoordelingsgroei- en NFC-campagneplatform",
@@ -726,6 +727,7 @@ export const nl = {
     toastTitle: "We hebben drie dingen nodig",
     toastDesc: "Bedrijfsnaam, stad en een geldig e-mailadres zodat we het volledige rapport kunnen sturen.",
     srSeo: "Voorbeelden van LLM-citaties laten zien hoe AI-zoekmachines kiezen welke lokale ondernemingen ze noemen wanneer gebruikers koopvragen stellen. Voorbeeldzoekopdracht: \"Beste tandarts in Plateau Mont-Royal\". Geciteerde onderneming: Clinique Dentaire Plateau, naar voren gehaald via Yelp DA92, een volledig Google Bedrijfsprofiel en tweetalige EN- en FR-CA-beoordelingen die binnen 24 uur worden beantwoord. Voorbeeldzoekopdracht: \"Top familierestaurant in Verdun\". Geciteerde onderneming: Restaurant Le Petit Coin, naar voren gehaald via TripAdvisor-autoriteit, OpenTable-aanwezigheid, vers beoordelingsvolume en LocalBusiness-schema op de website. Voorbeeldzoekopdracht: \"Betrouwbare HVAC-aannemer bij mij in de buurt Montréal\". Geciteerde onderneming: Climatisation Boréal, naar voren gehaald via BBB-accreditatie, HomeStars-beoordeling, FAQ-schema met seizoensgebonden servicevragen en een Wikidata-entiteit. Het patroon is consistent: AI-engines citeren ondernemingen met een volledig GBP, NAP-consistentie over 20+ vermeldingsbronnen, AEO-schema-opmaak, verse beoordelingen en signalen voor entiteitsautoriteit. Gratis audit binnen 24 uur, geen creditcard vereist.",
+    ariaEmail: "E-mail",
   },
   heroExtras: {
     bookCall60: "Boek een strategiegesprek van 60 minuten",

@@ -16,7 +16,7 @@ export function Footer() {
     { label: t.nav.howItWorks, href: "#process" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.footer?.about ?? "About", href: "#about" },
-    { label: "Industries", href: "/industries" },
+    { label: t.footer?.industries ?? "Industries", href: "/industries" },
   ];
 
   const company = [
