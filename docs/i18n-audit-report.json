@@ -343,6 +343,7 @@
         "audit.results.sentiment",
         "audit.pulse.verticalRestaurant",
         "heroAuditCard.badgeLive",
+        "services.tier2Feat3",
         "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
@@ -503,5 +504,5 @@
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-04-27T13:14:24.275Z"
+  "generatedAt": "2026-04-27T13:42:13.389Z"
 }
