@@ -68,6 +68,228 @@ export const HELP_CATEGORY_META: Record<
 export const helpArticles: HelpArticle[] = [
   // ─── Getting started ───────────────────────────────────────
   {
+    slug: "citation-building",
+    title: "How citation building works (Core 5/mo, Growth 10+/mo)",
+    excerpt:
+      "We submit your business to a curated catalog of 25+ directories, prioritized by tier and vertical. Here is the workflow, the directories, and how we track each submission.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## What citation building actually means
+
+A "citation" is your business name, address, and phone number listed on a third-party directory like Yelp, BBB, Yellow Pages, Bing Places, Apple Business Connect, or a vertical-specific site like OpenTable or Healthgrades. Citations matter for two reasons:
+
+1. **Trust signal for AI engines.** ChatGPT, Perplexity, Claude, Gemini, and Google AI Overviews cross-reference your brand across directories before they cite you in an answer. The more consistent and high-authority your citations, the more often you appear.
+2. **Trust signal for Google.** Google's local algorithm uses citation count and consistency as one of the strongest off-profile ranking factors.
+
+## What you get per tier
+
+- **Core ($600 mo)**: 5 fresh citations per month, plus quarterly verification of existing ones
+- **Growth ($1,200 mo)**: 10+ fresh citations per month, plus monthly verification
+- **Autopilot ($1,599 mo)**: 10+ per month plus all the strategic placements (Wikidata entry, vertical-specific submissions)
+
+A "fresh citation" is a new directory we add you to. A "verification" is us going back to a known directory and confirming the listing is still live and the NAP is still correct.
+
+## The directory catalog
+
+We submit to a hand-curated catalog of 25+ directories, organized by tier:
+
+**Tier 1 (must-have for every business)**: Google Business Profile, Bing Places, Apple Business Connect, Facebook Pages, Yelp, BBB.
+
+**Tier 2 (high-value general)**: Yellow Pages (US and Canada), Foursquare, Tripadvisor, Trustpilot, Manta, Hotfrog, Brownbook, Wikidata, Yandex Business (for Russian, Turkish, Belarusian, Kazakh markets).
+
+**Tier 3 (vertical-specific)**: Healthgrades, Vitals, RateMDs (healthcare); Avvo, Justia (legal); OpenTable, Zomato (restaurants); Houzz, HomeAdvisor, Thumbtack (contractors); Zillow, Realtor.com (real estate).
+
+We do not chase the "200 directories" claim other agencies make. Past the curated catalog, the long tail is dominated by spammy directories that hurt rather than help. Quality over quantity.
+
+## Workflow
+
+For each new client we run this loop, monthly:
+
+1. **Audit current citations.** Pull what exists across the directory list. Flag gaps and inconsistencies.
+2. **Submit new ones.** Top of the priority list each month, biased toward vertical-specific Tier 3 sites for your category.
+3. **Verify previous submissions.** Check that what we submitted last month is now live with correct NAP.
+4. **Update inconsistencies.** If we find a directory with a wrong phone number or an old address, we fix it.
+5. **Document.** Every submission writes a tamper-evident audit record (which directory, when, listing URL, status).
+
+## Where you see the work
+
+Open **Reviuzy, citation manager** in your workspace. Five tabs:
+
+- **Suggested**: directories appropriate for your category and country, ordered by tier and authority. Click Queue to add to the work pipeline.
+- **Queued**: directories the operator is about to submit
+- **Submitted**: awaiting verification (typically 7 to 14 days for the directory to publish)
+- **Verified**: live citations with the listing URL captured
+- **Issues**: rejected, dropped, or delisted entries with the reason
+
+## Rate of work
+
+Realistic pace: 5 to 10 new submissions per month per location. Faster than that and we either hit directory anti-spam systems (your listings get rejected) or we burn budget on low-DA sites that do not move the needle.
+
+## Failures
+
+- **Rejected**: the directory refused the submission. Usually means our submission did not match their category guidelines, or your business is in a category they do not accept.
+- **Delisted**: a previously verified citation got removed by the directory. Common with Yelp (their algorithmic moderation is aggressive). We refile.
+- **Dropped**: we decided not to pursue a directory after starting (e.g. it requires a paid placement we did not budget for).`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le citation building (Core 5/mois, Growth 10+/mois)",
+        excerpt:
+          "Nous soumettons votre entreprise à un catalogue ciblé de 25+ annuaires, priorisés par palier et par secteur. Voici le flux de travail, les annuaires, et comment nous suivons chaque soumission.",
+        body: `## Ce que veut dire concrètement le citation building
+
+Une "citation" est votre nom d'entreprise, adresse et téléphone listés sur un annuaire tiers comme Yelp, BBB, Pages Jaunes, Bing Places, Apple Business Connect, ou un site sectoriel comme OpenTable ou Healthgrades. Les citations comptent pour deux raisons :
+
+1. **Signal de confiance pour les moteurs IA.** ChatGPT, Perplexity, Claude, Gemini et les AI Overviews de Google recoupent votre marque à travers les annuaires avant de vous citer dans une réponse. Plus vos citations sont cohérentes et de haute autorité, plus vous apparaissez.
+2. **Signal de confiance pour Google.** L'algorithme local de Google utilise le nombre et la cohérence des citations comme un des facteurs de classement hors-profil les plus forts.
+
+## Ce que vous obtenez par palier
+
+- **Core (600 $ mois)** : 5 nouvelles citations par mois, plus vérification trimestrielle des citations existantes
+- **Growth (1 200 $ mois)** : 10+ nouvelles citations par mois, plus vérification mensuelle
+- **Autopilot (1 599 $ mois)** : 10+ par mois plus tous les placements stratégiques (entrée Wikidata, soumissions sectorielles)
+
+Une "nouvelle citation" est un nouvel annuaire où nous vous ajoutons. Une "vérification" est notre retour à un annuaire connu pour confirmer que la fiche est toujours en ligne et que le NAP est toujours exact.
+
+## Le catalogue d'annuaires
+
+Nous soumettons à un catalogue ciblé de 25+ annuaires, organisé par palier :
+
+**Palier 1 (incontournable pour toute entreprise)** : Google Business Profile, Bing Places, Apple Business Connect, Facebook Pages, Yelp, BBB.
+
+**Palier 2 (généralistes à haute valeur)** : Pages Jaunes (US et Canada), Foursquare, Tripadvisor, Trustpilot, Manta, Hotfrog, Brownbook, Wikidata, Yandex Business (pour les marchés russe, turc, biélorusse, kazakh).
+
+**Palier 3 (sectoriels)** : Healthgrades, Vitals, RateMDs (santé) ; Avvo, Justia (juridique) ; OpenTable, Zomato (restaurants) ; Houzz, HomeAdvisor, Thumbtack (entrepreneurs) ; Zillow, Realtor.com (immobilier).
+
+Nous ne courons pas après le marketing "200 annuaires" des autres agences. Au-delà du catalogue ciblé, la longue traîne est dominée par des annuaires douteux qui nuisent plus qu'ils n'aident. Qualité plutôt que quantité.
+
+## Flux de travail
+
+Pour chaque nouveau client nous roulons cette boucle, mensuellement :
+
+1. **Audit des citations actuelles.** Récupérer ce qui existe à travers la liste d'annuaires. Signaler les manques et les incohérences.
+2. **Soumettre les nouveaux.** Haut de la liste de priorité chaque mois, biaisé vers les sites sectoriels de Palier 3 pour votre catégorie.
+3. **Vérifier les soumissions précédentes.** Confirmer que ce que nous avons soumis le mois dernier est maintenant en ligne avec le bon NAP.
+4. **Mettre à jour les incohérences.** Si nous trouvons un annuaire avec un mauvais numéro ou une vieille adresse, nous corrigeons.
+5. **Documenter.** Chaque soumission écrit un enregistrement d'audit infalsifiable (quel annuaire, quand, URL de la fiche, statut).
+
+## Où vous voyez le travail
+
+Ouvrez **Reviuzy, gestionnaire de citations** dans votre espace de travail. Cinq onglets :
+
+- **Suggérés** : annuaires appropriés pour votre catégorie et pays, triés par palier et autorité. Cliquez Mettre en file pour ajouter au pipeline.
+- **En file** : annuaires que l'opérateur est sur le point de soumettre
+- **Soumis** : en attente de vérification (typiquement 7 à 14 jours pour que l'annuaire publie)
+- **Vérifié** : citations en ligne avec l'URL de la fiche enregistrée
+- **Problèmes** : entrées rejetées, abandonnées, ou retirées avec la raison
+
+## Cadence du travail
+
+Cadence réaliste : 5 à 10 nouvelles soumissions par mois par emplacement. Plus vite que ça et on déclenche les systèmes anti-pourriel des annuaires (vos fiches sont rejetées) ou on brûle du budget sur des sites de faible autorité qui ne bougent pas l'aiguille.
+
+## Échecs
+
+- **Rejeté** : l'annuaire a refusé la soumission. Habituellement parce que notre soumission ne correspondait pas à leurs guides de catégorie, ou parce que votre entreprise est dans une catégorie qu'ils n'acceptent pas.
+- **Retiré** : une citation précédemment vérifiée a été retirée par l'annuaire. Fréquent avec Yelp (leur modération algorithmique est agressive). Nous resoumettons.
+- **Abandonné** : nous avons décidé de ne pas poursuivre un annuaire après avoir commencé (ex: il exigeait un placement payant pas budgété).`,
+      },
+    },
+  },
+  {
+    slug: "nap-consistency",
+    title: "Why NAP consistency matters and how we audit it",
+    excerpt:
+      "If your business name, address, and phone disagree across directories, AI engines and Google penalize you. Here is what consistency means and how we keep yours clean.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 3,
+    body: `## What NAP consistency means
+
+NAP stands for Name, Address, Phone. Consistency means the exact same NAP appears on every directory where your business is listed. Even small differences hurt:
+
+- "Café du Soleil" vs "Café du Soleil Inc." vs "Cafe du Soleil"
+- "123 Main St" vs "123 Main Street" vs "123 Main Street, Suite 200"
+- "(514) 555-0100" vs "514.555.0100" vs "5145550100"
+
+Each variant tells AI engines and Google that you might be a different business, splitting the trust signal across what they think are duplicates.
+
+## Why it matters more in 2026
+
+Two reasons:
+
+1. **AI engines disambiguate businesses by NAP.** When Perplexity or ChatGPT decides whether to cite "Café du Soleil" in answer to "best Quebec coffee", it cross-references the brand across Yelp, OpenTable, Wikidata, and others. If those sources disagree, the engine flags the brand as low-confidence and either cites it less or cites a competitor instead.
+2. **Google's local algorithm penalizes inconsistency.** Internal Google documentation surfaced via leak in 2024 confirmed that NAP variance counts negatively in the local ranking model.
+
+## How we audit
+
+Our process is operator-driven (no scraper that breaks every time a directory redesigns). For each location, we:
+
+1. **Lock a canonical NAP.** Pull from your Google Business Profile, confirm with you, save as the source of truth.
+2. **Visit each directory.** Open the listing, copy what is shown.
+3. **Diff against canonical.** Our tool flags any field that does not match.
+4. **Fix on-site.** For any flagged directory, we go back to the directory and update the listing to match canonical.
+
+## Cadence
+
+We run a full audit per location quarterly (or monthly for Growth and Autopilot tiers). When you call to tell us "we just changed our phone number", we run an immediate audit and fix all directories within the work-week.
+
+## Where you see it
+
+Open **Reviuzy, NAP consistency checker** in your workspace. The page shows your canonical NAP at the top, a form to log a new directory observation, and the history of every observation we have ever recorded with a clear pass-or-fail flag per directory.
+
+## Failure modes
+
+- **Directory redesigned**: the visit fails because the directory moved its listing edit page. We track these and update our process.
+- **Listing deleted**: a previously verified citation went missing. Refile.
+- **Field permanently inconsistent**: some directories truncate names or restrict address formats. We document these as "expected variance" so they stop cluttering the diff view.`,
+    i18n: {
+      fr: {
+        title: "Pourquoi la cohérence NAP compte et comment nous l'auditons",
+        excerpt:
+          "Si le nom, l'adresse et le téléphone de votre entreprise se contredisent à travers les annuaires, les moteurs IA et Google vous pénalisent. Voici ce que la cohérence veut dire et comment nous gardons la vôtre propre.",
+        body: `## Ce que veut dire la cohérence NAP
+
+NAP veut dire Nom, Adresse, Téléphone (Name, Address, Phone). La cohérence veut dire que le même NAP exact apparaît sur chaque annuaire où votre entreprise est listée. Même les petites différences nuisent :
+
+- "Café du Soleil" vs "Café du Soleil Inc." vs "Cafe du Soleil"
+- "123 rue Main" vs "123 rue Main, Bureau 200" vs "123 main"
+- "(514) 555-0100" vs "514.555.0100" vs "5145550100"
+
+Chaque variante dit aux moteurs IA et à Google que vous pourriez être une entreprise différente, divisant le signal de confiance entre ce qu'ils pensent être des doublons.
+
+## Pourquoi ça compte plus en 2026
+
+Deux raisons :
+
+1. **Les moteurs IA désambiguïsent les entreprises par NAP.** Quand Perplexity ou ChatGPT décide de citer "Café du Soleil" en réponse à "meilleur café au Québec", il recoupe la marque à travers Yelp, OpenTable, Wikidata et d'autres. Si ces sources se contredisent, le moteur signale la marque comme à faible confiance et soit la cite moins, soit cite un concurrent à sa place.
+2. **L'algorithme local de Google pénalise l'incohérence.** La documentation interne de Google révélée par fuite en 2024 a confirmé que la variance NAP compte négativement dans le modèle de classement local.
+
+## Comment nous auditons
+
+Notre processus est opérateur-piloté (pas de scraper qui casse à chaque fois qu'un annuaire redessine). Pour chaque emplacement, nous :
+
+1. **Verrouillons un NAP canonique.** Tiré de votre Google Business Profile, confirmé avec vous, sauvegardé comme source de vérité.
+2. **Visitons chaque annuaire.** Ouvrir la fiche, copier ce qui est montré.
+3. **Comparons au canonique.** Notre outil signale tout champ qui ne concorde pas.
+4. **Corrigeons sur place.** Pour chaque annuaire signalé, nous retournons à l'annuaire et mettons la fiche à jour pour qu'elle concorde avec le canonique.
+
+## Cadence
+
+Nous faisons un audit complet par emplacement chaque trimestre (ou mensuellement pour les paliers Growth et Autopilot). Quand vous appelez pour nous dire "on vient de changer de numéro", nous faisons un audit immédiat et corrigeons tous les annuaires dans la semaine de travail.
+
+## Où vous voyez ça
+
+Ouvrez **Reviuzy, vérificateur de cohérence NAP** dans votre espace de travail. La page montre votre NAP canonique en haut, un formulaire pour journaliser une nouvelle observation d'annuaire, et l'historique de chaque observation jamais enregistrée avec un drapeau pass-ou-fail clair par annuaire.
+
+## Modes de défaillance
+
+- **Annuaire redessiné** : la visite échoue parce que l'annuaire a déplacé sa page d'édition de fiche. Nous suivons ces cas et mettons à jour notre processus.
+- **Fiche supprimée** : une citation précédemment vérifiée a disparu. Resoumission.
+- **Champ incohérent en permanence** : certains annuaires tronquent les noms ou restreignent les formats d'adresse. Nous documentons ces cas comme "variance attendue" pour qu'ils arrêtent d'encombrer la vue diff.`,
+      },
+    },
+  },
+  {
     slug: "gbp-attributes",
     title: "How GBP attributes work and why they matter for AI search",
     excerpt:
