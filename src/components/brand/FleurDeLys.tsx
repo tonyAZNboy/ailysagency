@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useId } from "react";
 
 interface FleurDeLysProps {
   size?: number;
@@ -9,8 +9,18 @@ interface FleurDeLysProps {
 }
 
 /**
- * Stylized fleur-de-lys, the AiLys mark.
- * Modern symmetric geometry, scales cleanly from 16px (favicon) to 96px+ (hero).
+ * AiLys mark · stylized fleur-de-lys.
+ *
+ * Geometry rebuilt from scratch for a cleaner silhouette:
+ *  - Center top: a single elongated almond/flame petal
+ *  - Two side petals: outward-swooping arcs that read as a single curve at small sizes
+ *  - Band: thin rounded belt
+ *  - Bottom: tapered teardrop that tracks the central axis
+ *
+ * Symmetric about x=32. ViewBox 64×64 so coordinates map 1:1 to "px units"
+ * for visual reasoning. Scales cleanly from 14px (favicon) to 96px+ (hero).
+ *
+ * useId() over Math.random() so SSR + hydration produce stable IDs.
  */
 export function FleurDeLys({
   size = 24,
@@ -18,7 +28,9 @@ export function FleurDeLys({
   style,
   fill = "gradient",
 }: FleurDeLysProps) {
-  const gradientId = `fdl-grad-${Math.random().toString(36).slice(2, 8)}`;
+  const reactId = useId();
+  const gradientId = `fdl-grad-${reactId.replace(/:/g, "")}`;
+  const highlightId = `fdl-hl-${reactId.replace(/:/g, "")}`;
   const fillValue = fill === "gradient" ? `url(#${gradientId})` : fill;
 
   return (
@@ -35,41 +47,61 @@ export function FleurDeLys({
       {fill === "gradient" && (
         <defs>
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(185 100% 55%)" />
-            <stop offset="50%" stopColor="hsl(265 90% 65%)" />
-            <stop offset="100%" stopColor="hsl(310 90% 65%)" />
+            <stop offset="0%" stopColor="hsl(185 100% 58%)" />
+            <stop offset="50%" stopColor="hsl(265 92% 66%)" />
+            <stop offset="100%" stopColor="hsl(310 92% 66%)" />
+          </linearGradient>
+          <linearGradient id={highlightId} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.55)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
           </linearGradient>
         </defs>
       )}
+
+      {/* Left side petal — single graceful arc swooping out and back */}
       <path
-        d="M32 4 C 28 12, 26 18, 28 24 C 26 22, 22 22, 22 26 C 22 30, 28 30, 32 30 C 36 30, 42 30, 42 26 C 42 22, 38 22, 36 24 C 38 18, 36 12, 32 4 Z"
+        d="M 30 30 C 22 32, 12 30, 6 20 C 12 24, 22 28, 30 30 Z"
+        fill={fillValue}
+        opacity="0.92"
+      />
+
+      {/* Right side petal — mirror */}
+      <path
+        d="M 34 30 C 42 32, 52 30, 58 20 C 52 24, 42 28, 34 30 Z"
+        fill={fillValue}
+        opacity="0.92"
+      />
+
+      {/* Center top petal — elongated almond / flame */}
+      <path
+        d="M 32 4
+           C 27 12, 24 22, 28 30
+           Q 32 32 36 30
+           C 40 22, 37 12, 32 4 Z"
         fill={fillValue}
       />
+
+      {/* Belt — thin rounded band */}
+      <rect x="8" y="31.5" width="48" height="3.5" rx="1.75" fill={fillValue} />
+
+      {/* Bottom drop — tapered teardrop with a subtle waist at y=46 */}
       <path
-        d="M22 26 C 14 28, 8 36, 10 44 C 12 38, 18 34, 24 34 C 22 32, 22 28, 22 26 Z"
-        fill={fillValue}
-        opacity="0.9"
-      />
-      <path
-        d="M42 26 C 50 28, 56 36, 54 44 C 52 38, 46 34, 40 34 C 42 32, 42 28, 42 26 Z"
-        fill={fillValue}
-        opacity="0.9"
-      />
-      <rect x="14" y="34" width="36" height="4" rx="2" fill={fillValue} opacity="0.85" />
-      <path
-        d="M28 38 L 28 50 C 28 55, 30 58, 32 60 C 34 58, 36 55, 36 50 L 36 38 Z"
+        d="M 28 35
+           C 27.5 42, 28.5 50, 32 60
+           C 35.5 50, 36.5 42, 36 35 Z"
         fill={fillValue}
       />
-      <path
-        d="M24 42 C 20 46, 18 52, 22 56 C 22 52, 24 48, 28 46 Z"
-        fill={fillValue}
-        opacity="0.8"
-      />
-      <path
-        d="M40 42 C 44 46, 46 52, 42 56 C 42 52, 40 48, 36 46 Z"
-        fill={fillValue}
-        opacity="0.8"
-      />
+
+      {/* Optional top-petal highlight: only visible at larger sizes,
+          adds depth without clogging small renders. Cuts off when
+          fill is a solid color (caller has full control then). */}
+      {fill === "gradient" && size >= 32 && (
+        <path
+          d="M 32 6 C 30 12, 29 20, 30.5 26 C 31.5 22, 31.5 14, 32 6 Z"
+          fill={`url(#${highlightId})`}
+          opacity="0.9"
+        />
+      )}
     </svg>
   );
 }
