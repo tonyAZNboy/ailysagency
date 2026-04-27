@@ -68,6 +68,124 @@ export const HELP_CATEGORY_META: Record<
 export const helpArticles: HelpArticle[] = [
   // ─── Getting started ───────────────────────────────────────
   {
+    slug: "gbp-qa-monitoring",
+    title: "How GBP Q&A monitoring and auto-draft replies work",
+    excerpt:
+      "We watch for new customer questions on your Google Business Profile, draft a reply, and post it after your approval. Here is what happens at each step.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 4,
+    body: `## What this is
+
+Google Business Profile lets customers ask questions on your listing. If those questions go unanswered for days or weeks, two bad things happen: customers lose trust in your responsiveness, and other customers post their own (often wrong) answers. Our Q&A monitor pulls every unanswered question to a queue, our AiLys engine drafts a polite reply, and we post the final version to Google after your approval.
+
+This service is included in Core, Growth, and Autopilot tiers. Starter clients get the monitoring layer (you can see queued questions) but not the AI drafts.
+
+## Cadence
+
+We pull questions on three triggers:
+
+1. **Daily**: an automatic scan at the same time every morning, in your time zone
+2. **On demand**: you click the Pull button in the admin center
+3. **On reply**: when a question is answered (by us or anyone else), we update the status so the queue stays clean
+
+## How a single question moves through the queue
+
+Each question has four possible states:
+
+- **Draft**: question pulled from Google. AI reply not generated yet (Starter) or auto-generated (Core and above)
+- **Approved**: you reviewed the draft and clicked Approve. Not yet posted to Google
+- **Posted**: the reply is live on your Google Business Profile
+- **Rejected**: you decided not to reply (off-topic, spam, hostile)
+
+You can edit the draft inline before approving. You can also click "Approve and post" in one step if the draft looks good as-is.
+
+## What the draft looks like
+
+Drafts are short (1 to 3 sentences, under 200 characters when possible), in first person plural ("we"), and stay strictly factual. If our engine is unsure of a specific (price, hours, policy), the draft says so politely and points the customer to call or visit. We do not invent specifics.
+
+The draft is grounded on your business profile data: business name, category, address, phone, and website. If you keep these accurate in your Reviuzy settings, the drafts get better.
+
+## Where you see and control this
+
+Open **Reviuzy, GBP Q&A manager** in your workspace. Four tabs:
+
+- **Drafts**: questions waiting for a draft or approval
+- **Approved**: drafts you approved but have not posted yet
+- **Posted**: posted answers, with timestamp and the exact text we sent to Google
+- **Rejected**: questions you declined to answer
+
+Every action writes a tamper-evident audit record (who clicked Approve, who edited, what was posted, when).
+
+## Rate limits
+
+Per workspace per hour: 30 question pulls, 50 AI drafts, 30 posts to Google. These caps protect your Google account from automation flags and let you review queued items before they pile up.
+
+## Failures and recovery
+
+If Google rejects a posted reply (rare, usually only if the text triggers their spam filter), the audit log shows the reason and the draft returns to status Approved. Edit and try again.
+
+If your Google authentication expires, every action returns a 401 with a "reconnect Google" prompt. Reconnecting in Settings, Organization clears it.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne la surveillance Q&R GBP avec brouillons automatiques",
+        excerpt:
+          "Nous surveillons les nouvelles questions de clients sur votre profil Google Business, rédigeons un brouillon de réponse, et publions après votre approbation. Voici ce qui se passe à chaque étape.",
+        body: `## De quoi s'agit-il
+
+Google Business Profile permet aux clients de poser des questions sur votre fiche. Si ces questions restent sans réponse pendant des jours ou des semaines, deux choses fâcheuses arrivent : les clients perdent confiance en votre réactivité, et d'autres clients publient leurs propres réponses (souvent erronées). Notre surveillance Q&R récupère chaque question sans réponse dans une file, notre moteur AiLys rédige une réponse polie, et nous publions la version finale sur Google après votre approbation.
+
+Ce service est inclus aux paliers Core, Growth et Autopilot. Les clients Starter obtiennent la couche de surveillance (vous voyez les questions en file) mais pas les brouillons IA.
+
+## Cadence
+
+Nous récupérons les questions sur trois déclencheurs :
+
+1. **Quotidien** : un scan automatique à la même heure chaque matin, dans votre fuseau horaire
+2. **Sur demande** : vous cliquez sur le bouton Récupérer dans le centre d'administration
+3. **Sur réponse** : quand une question reçoit une réponse (par nous ou par quelqu'un d'autre), nous mettons le statut à jour pour garder la file propre
+
+## Comment une question circule dans la file
+
+Chaque question a quatre états possibles :
+
+- **Brouillon** : question récupérée de Google. Réponse IA pas encore générée (Starter) ou générée automatiquement (Core et plus)
+- **Approuvé** : vous avez revu le brouillon et cliqué sur Approuver. Pas encore publié sur Google
+- **Publié** : la réponse est en ligne sur votre profil Google Business
+- **Rejeté** : vous avez décidé de ne pas répondre (hors sujet, pourriel, hostile)
+
+Vous pouvez modifier le brouillon en ligne avant l'approbation. Vous pouvez aussi cliquer "Approuver et publier" en une étape si le brouillon vous convient tel quel.
+
+## À quoi ressemble le brouillon
+
+Les brouillons sont courts (1 à 3 phrases, moins de 200 caractères quand possible), à la première personne du pluriel ("nous"), et restent strictement factuels. Si notre moteur n'est pas certain d'un détail spécifique (prix, horaires, politique), le brouillon le dit poliment et invite le client à appeler ou à passer. Nous n'inventons pas de détails.
+
+Le brouillon s'appuie sur vos données de profil d'entreprise : nom, catégorie, adresse, téléphone, site web. Si vous gardez ces informations exactes dans vos paramètres Reviuzy, les brouillons s'améliorent.
+
+## Où vous voyez et contrôlez ceci
+
+Ouvrez **Reviuzy, gestionnaire Q&R GBP** dans votre espace de travail. Quatre onglets :
+
+- **Brouillons** : questions en attente de brouillon ou d'approbation
+- **Approuvés** : brouillons approuvés pas encore publiés
+- **Publiés** : réponses publiées, avec horodatage et le texte exact envoyé à Google
+- **Rejetés** : questions auxquelles vous avez choisi de ne pas répondre
+
+Chaque action écrit un enregistrement d'audit infalsifiable (qui a cliqué sur Approuver, qui a modifié, ce qui a été publié, quand).
+
+## Limites de débit
+
+Par espace de travail par heure : 30 récupérations de questions, 50 brouillons IA, 30 publications sur Google. Ces plafonds protègent votre compte Google des signaux d'automatisation et vous permettent de revoir les éléments en file avant qu'ils s'accumulent.
+
+## Échecs et récupération
+
+Si Google rejette une réponse publiée (rare, généralement seulement si le texte déclenche leur filtre anti-pourriel), le journal d'audit montre la raison et le brouillon retourne au statut Approuvé. Modifiez et réessayez.
+
+Si votre authentification Google expire, chaque action renvoie un 401 avec une invite "reconnecter Google". La reconnexion dans Paramètres, Organisation règle ce cas.`,
+      },
+    },
+  },
+  {
     slug: "gbp-photo-uploads",
     title: "How GBP photo uploads work",
     excerpt:
