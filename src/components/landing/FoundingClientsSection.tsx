@@ -161,8 +161,8 @@ export function FoundingClientsSection() {
                   <li>
                     <strong className="text-foreground">{T("50% discount", "Rabais 50 %")}:</strong>{" "}
                     {T(
-                      "applies to your plan tier (Starter, Core, Growth, or Autopilot) for the lifetime of your subscription. Locked in.",
-                      "s'applique à votre forfait (Starter, Core, Growth ou Autopilot) pour la durée de votre abonnement. Verrouillé.",
+                      "applies to your plan tier (Starter, Core, Growth, or Agency) for the lifetime of your subscription. Locked in.",
+                      "s'applique à votre forfait (Starter, Core, Growth ou Agency) pour la durée de votre abonnement. Verrouillé.",
                     )}
                   </li>
                   <li>
@@ -238,8 +238,8 @@ export function FoundingClientsSection() {
         {/* sr-only SEO summary */}
         <div className="sr-only" aria-hidden="false">
           {T(
-            `AiLys Agency Founding Clients Program: the first 10 clients who sign get 50 percent off their plan forever, priority shipping (audit in 12 hours, schema in week one), direct strategist access, and an opt-in published case study with right of approval over every metric, name, and quote. The discount is locked for the lifetime of the subscription. The 30-day satisfaction guarantee applies. Currently ${SLOTS_REMAINING} of ${TOTAL_SLOTS} spots remaining. Apply by running a free AI Visibility Audit. We respond to founding-client applications within 48 hours. No credit card to apply. Available for plans Starter ($300/mo), Core ($600/mo), Growth ($1,200/mo), and Autopilot ($1,599/mo).`,
-            `Programme clients fondateurs AiLys Agency : les 10 premiers clients qui signent obtiennent 50 % de rabais à vie sur leur forfait, livraison prioritaire (audit en 12 heures, schema en semaine 1), accès direct au stratège, et une étude de cas publiée optionnelle avec droit d'approbation sur chaque chiffre, nom et citation. Le rabais est verrouillé pour la durée de l'abonnement. La garantie satisfaction 30 jours s'applique. Actuellement ${SLOTS_REMAINING} places sur ${TOTAL_SLOTS} restantes. Postulez en lançant un audit gratuit de visibilité IA. On répond aux candidatures fondateurs en 48 heures. Aucune carte de crédit pour postuler. Disponible pour les forfaits Starter (300 $/mois), Core (600 $/mois), Growth (1 200 $/mois) et Autopilot (1 299 $/mois).`,
+            `AiLys Agency Founding Clients Program: the first 10 clients who sign get 50 percent off their plan forever, priority shipping (audit in 12 hours, schema in week one), direct strategist access, and an opt-in published case study with right of approval over every metric, name, and quote. The discount is locked for the lifetime of the subscription. The 30-day satisfaction guarantee applies. Currently ${SLOTS_REMAINING} of ${TOTAL_SLOTS} spots remaining. Apply by running a free AI Visibility Audit. We respond to founding-client applications within 48 hours. No credit card to apply. Available for plans Starter ($300/mo), Core ($600/mo), Growth ($1,200/mo), and Agency ($2,499/mo).`,
+            `Programme clients fondateurs AiLys Agency : les 10 premiers clients qui signent obtiennent 50 % de rabais à vie sur leur forfait, livraison prioritaire (audit en 12 heures, schema en semaine 1), accès direct au stratège, et une étude de cas publiée optionnelle avec droit d'approbation sur chaque chiffre, nom et citation. Le rabais est verrouillé pour la durée de l'abonnement. La garantie satisfaction 30 jours s'applique. Actuellement ${SLOTS_REMAINING} places sur ${TOTAL_SLOTS} restantes. Postulez en lançant un audit gratuit de visibilité IA. On répond aux candidatures fondateurs en 48 heures. Aucune carte de crédit pour postuler. Disponible pour les forfaits Starter (300 $/mois), Core (600 $/mois), Growth (1 200 $/mois) et Agency (1 299 $/mois).`,
           )}
         </div>
       </div>

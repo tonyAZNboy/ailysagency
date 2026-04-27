@@ -25,6 +25,7 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 10. **Help center documentation, no proprietary disclosure.** Every shipped feature gets a help center article (in EN + FR-CA at minimum, then 14 secondary locales) before it appears in the marketing UI. Articles describe the user-visible behavior and inputs. Articles MUST NOT name the AI provider (Anthropic, Claude, Gemini, OpenAI, Google), the model family, internal scoring formulas, prompt structures, or vendor APIs. Refer to engines collectively as "our AI engine" or "the AiLys engine" and to scoring as "our proprietary score." This protects competitive moat and reduces switching risk if a provider changes.
 11. **Admin Center is mandatory for every feature.** New shipped capabilities must add a panel in the admin dashboard for: enabling/disabling per tenant, viewing recent invocations (last 50 with timestamp + status + tenant), cost telemetry (calls per day, $/day estimate), and per-tier feature gating. No "ghost features" with no admin surface.
 12. **Tests must pass before delivery.** Before any merge to main: `npx tsc --noEmit` clean, `node scripts/audit-translations-deep.mjs` exit 0, em-dash count 0 across `src/i18n/translations/*.ts`, build succeeds, and the feature has been opened in the browser at least once and clicked through. CI failure or skipped test is a non-merge.
+13. **Mobile-first, 100% native and responsive.** Every page, every modal, every form, every chart MUST be designed mobile-first (375x812 baseline) and verified across iOS Safari and Android Chrome before delivery. No desktop-only layouts. No fixed pixel widths that break under 380px. Use `min-h-screen`, fluid typography (`text-base sm:text-lg`), `flex-col sm:flex-row` patterns, `sm:` and `lg:` breakpoints, safe-area inset padding for notched devices (`env(safe-area-inset-bottom)`), and tap targets >= 44x44 px. Test before claiming done at: 375x812 (iPhone SE/14), 390x844 (iPhone 15), 412x915 (Pixel 8), 768x1024 (iPad portrait). Modals must not exceed viewport height; long content scrolls inside the modal, never the body.
 
 ## Project posture
 
@@ -32,8 +33,11 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 - **Stack:** Vite + React + TypeScript + Tailwind + shadcn/ui, deployed on Cloudflare Pages
 - **Sister product:** Reviuzy SaaS (https://www.reviuzy.com)
 - **Home market:** Quebec, bilingual EN/FR-CA in-house
-- **Pricing:** $300 / $600 / $1,200 / $1,599 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee
-- **Tier post cadence (GBP):** Starter 1/mo, Core 4/mo (1/wk), Growth 8/mo (2/wk), Autopilot 12/mo (3/wk).
+- **Pricing:** $300 (Starter) / $600 (Core) / $1,200 (Growth) / $2,499 (Agency) CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
+- **Tier 4 renamed:** "Autopilot" → **"Agency"** (positioning shift to brand and agency clients). Display name only; i18n key prefix `tier3*` stays for backwards compatibility.
+- **Reviuzy automation add-on:** $100 CAD/month, available as toggle on Starter / Core / Growth. Bundled by default in Agency tier. Includes the full Reviuzy SaaS surface: NFC review collection + AI review generation + auto-replies + contest engine with video winner announcement + legal T&C generator + fake review detection + the entire Phase 2-4 stack (GBP automation, citations, NAP, AI Visibility, AI Traffic).
+- **Agency tier exclusive (vs add-on):** multi-location dashboard, white-label PDF reports, Slack SLA <4h business hours, API access (Share of Model / AI Traffic / Visibility scores), custom integrations (HubSpot, Salesforce, hospitality PMS), quarterly executive deck presented in person, dedicated senior strategist, daily AI Visibility probes (vs weekly Growth), 12 GBP posts/mo + 4-6 photos/mo, Domain Shield + Domain Speed Boost.
+- **Tier post cadence (GBP):** Starter 1/mo, Core 4/mo (1/wk), Growth 8/mo (2/wk), Agency 12/mo (3/wk).
 
 ## i18n discipline
 

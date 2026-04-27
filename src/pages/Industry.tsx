@@ -21,14 +21,14 @@ const TIER_PRICE: Record<RecommendedTier, string> = {
   starter: "$300",
   core: "$600",
   growth: "$1,200",
-  autopilot: "$1,599",
+  autopilot: "$2,499",
 };
 
 const TIER_NAME: Record<RecommendedTier, string> = {
   starter: "Starter",
   core: "Core",
   growth: "Growth",
-  autopilot: "Autopilot",
+  autopilot: "Agency",
 };
 
 export default function Industry() {

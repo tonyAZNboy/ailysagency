@@ -864,7 +864,7 @@ const restaurants: Industry = {
     ],
     recommendedTier: "core",
     recommendationReason:
-      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through Reviuzy NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Autopilot ($1,599/mo) which includes the full Reviuzy contest engine.",
+      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through Reviuzy NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Agency ($2,499/mo) which includes the full Reviuzy contest engine.",
     faq: [
       {
         q: "How long until my restaurant gets cited by ChatGPT?",
@@ -1017,7 +1017,7 @@ const restaurants: Industry = {
     ],
     recommendedTier: "core",
     recommendationReason:
-      "Les restaurants bénéficient le plus du forfait Core (600 $/mois) parce que le déploiement schema, la vélocité d'avis hebdomadaire via Reviuzy NFC et les 5 citations mensuelles aux annuaires alimentaires génèrent une augmentation mesurable des citations IA en 14 à 30 jours. Les restaurants à fort volume ou multi-emplacements bénéficient d'Autopilot (1 299 $/mois) qui inclut le moteur complet de concours Reviuzy.",
+      "Les restaurants bénéficient le plus du forfait Core (600 $/mois) parce que le déploiement schema, la vélocité d'avis hebdomadaire via Reviuzy NFC et les 5 citations mensuelles aux annuaires alimentaires génèrent une augmentation mesurable des citations IA en 14 à 30 jours. Les restaurants à fort volume ou multi-emplacements bénéficient d'Agency (1 299 $/mois) qui inclut le moteur complet de concours Reviuzy.",
     faq: [
       {
         q: "Combien de temps avant que mon restaurant soit cité par ChatGPT?",
@@ -1257,8 +1257,8 @@ function buildPlaceholderContent(
     sampleCitations: [],
     recommendedTier: tier,
     recommendationReason: T(
-      `Based on competitive intensity and the complexity of entity authority work in this vertical, ${tier === "starter" ? "Starter" : tier === "core" ? "Core" : tier === "growth" ? "Growth" : "Autopilot"} delivers the right balance of citation building, schema depth, and content production.`,
-      `Basé sur l'intensité concurrentielle et la complexité du travail d'autorité d'entité dans ce secteur, ${tier === "starter" ? "Starter" : tier === "core" ? "Core" : tier === "growth" ? "Growth" : "Autopilot"} offre l'équilibre approprié entre construction de citations, profondeur schema et production de contenu.`,
+      `Based on competitive intensity and the complexity of entity authority work in this vertical, ${tier === "starter" ? "Starter" : tier === "core" ? "Core" : tier === "growth" ? "Growth" : "Agency"} delivers the right balance of citation building, schema depth, and content production.`,
+      `Basé sur l'intensité concurrentielle et la complexité du travail d'autorité d'entité dans ce secteur, ${tier === "starter" ? "Starter" : tier === "core" ? "Core" : tier === "growth" ? "Growth" : "Agency"} offre l'équilibre approprié entre construction de citations, profondeur schema et production de contenu.`,
     ),
     faq: [
       {

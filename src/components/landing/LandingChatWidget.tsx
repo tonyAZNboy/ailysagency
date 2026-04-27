@@ -1,14 +1,16 @@
-// AiLys AI Search Advisor — landing chat widget.
-// NOTE: Currently uses Reviuzy's Supabase backend (ai-engine-classify + ai-engine-respond
-// edge functions at qucxhksrpqunlyjjvuae.supabase.co). The system prompts inside those
-// functions are tuned for Reviuzy product questions (NFC, contests, reviews), so chat
-// answers will lean Reviuzy-flavored until we deploy AiLys-specific prompts.
-// TODO(ailys-chat): spin up dedicated Supabase project OR pass an "agency" mode through
-// useAIEngine that routes to a different prompt config tuned for AEO/GEO/E-E-A-T.
+// AiLys AI Search Advisor · landing chat widget.
+//
+// Backed by /api/chat-advisor (Cloudflare Pages Function calling
+// Anthropic Claude Opus 4.7 with adaptive thinking + prompt caching).
+// System prompt lives in functions/api/chat-advisor.ts and is tuned for
+// AiLys consulting questions (AEO, GEO, E-E-A-T, pricing tiers, Founding
+// Clients program). Streams SSE tokens back so the user sees the reply
+// build up in real time. Replaces the previous Reviuzy edge function
+// dependency (was hanging + Reviuzy-flavored answers).
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Minimize2, Send, ArrowRight, Star, Sparkles, CalendarCheck } from "lucide-react";
+import { X, Minimize2, Send, ArrowRight, Star, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useAIEngine, type AIEngineMessage } from "@/hooks/useAIEngine";
+import { useAIEngine } from "@/hooks/useAIEngine";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { supabase } from "@/integrations/supabase/client";

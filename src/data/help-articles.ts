@@ -68,6 +68,128 @@ export const HELP_CATEGORY_META: Record<
 export const helpArticles: HelpArticle[] = [
   // ─── Getting started ───────────────────────────────────────
   {
+    slug: "add-ons-explained",
+    title: "Add-ons explained: Reviuzy reputation system + Premium Ops trio",
+    excerpt:
+      "Two ways to upgrade any tier without jumping to Agency. Reputation system at $100/mo, Premium Ops trio at $79/mo bundle (or $35 each). All bundled by default in Agency.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## Why add-ons exist
+
+Most clients sit on Starter, Core, or Growth (between $300/mo and $1,200/mo). The Agency tier at $2,499/mo is built for brands with multiple locations, agencies who resell, and operators who need a turnkey premium stack. Most clients do not need that, but they do want one or two pieces of it. Add-ons let any tier layer the missing piece without paying the Agency price.
+
+## Add-on 1: Reviuzy reputation system, $100/mo
+
+What the client gets, self-serve through the Reviuzy app:
+
+- NFC review collection cards shipped to the location
+- Customer review submission form (15 second guided flow)
+- AI-generated review drafts (the customer validates and submits)
+- AI auto-replies on every review received
+- Contest engine: monthly review draw, automated winner pick
+- Video winner announcement, generated and published
+- Legal T&C generator for 20+ countries
+- Fake review detection (Domain Shield basics)
+
+What the agency delivers in the background, you see only the outcomes:
+
+- Google Business Profile post automation, photo uploads, Q&A monitoring
+- Citation building and NAP consistency checks
+- AI Visibility dashboard probes and reports
+- AI Traffic conversion tracking
+
+Why the split: most clients are not technically inclined and do not want to manage 8 admin panels. We give self-serve access to the daily-use tool (the review system) and deliver the rest as a service with monthly reports.
+
+## Add-on 2: Premium Ops trio, $79/mo bundle (or $35 each)
+
+Three independent add-ons, available individually or as a discounted bundle.
+
+**Domain Shield ($35/mo individual)**: Always-on fake review detection across every connected location. Watches for competitor attacks, policy violations, and unusual review patterns. Alerts you within minutes of suspicious activity.
+
+**Domain Speed Boost ($35/mo individual)**: Performance optimization layer on the client website. Image lazy loading, lightweight cache, server response tuning. Faster Core Web Vitals score, better Google ranking signal, lower bounce rate.
+
+**Dedicated strategist ($35/mo individual)**: The same senior strategist on your account every month, not pooled. Direct line on Slack or email, retains context across calls, no re-explaining the business each time. Faster decisions, lower friction.
+
+**Bundle the trio: $79/mo, save $26/mo** vs. paying $35 each ($105 individually). Most clients who take one of the three end up taking all three within 90 days, so the bundle is the natural pick.
+
+## Bundled in Agency by default
+
+Agency tier ($2,499/mo) includes both add-ons at no extra cost:
+
+- Full Reviuzy reputation system bundled
+- Domain Shield, Domain Speed Boost, dedicated strategist all bundled
+- Plus the Agency-only items: multi-location dashboard, white-label PDF reports, Slack SLA under 4 hours, API access, custom integrations (HubSpot, Salesforce, hospitality PMS), quarterly executive deck
+
+## How to add or drop
+
+Open **AiLys, billing, add-ons** in your account. Toggle each add-on on or off. Changes take effect at the start of the next billing cycle. We do not pro-rate mid-cycle additions or removals.
+
+## Money-back guarantee applies
+
+Every add-on is covered by the 30-day satisfaction guarantee that applies to all AiLys plans. If you add Reviuzy and the contest engine does not produce results in the first month, we refund the add-on portion. No clawback on what we already shipped on the base plan.`,
+    i18n: {
+      fr: {
+        title: "Add-ons expliqués : système de réputation Reviuzy + trio Premium Ops",
+        excerpt:
+          "Deux façons de bonifier n'importe quel forfait sans passer à Agency. Système de réputation à 100 $/mois, trio Premium Ops à 79 $/mois en bundle (ou 35 $ chacun). Tout inclus par défaut dans Agency.",
+        body: `## Pourquoi les add-ons existent
+
+La plupart des clients sont sur Starter, Core ou Growth (entre 300 $/mois et 1 200 $/mois). Le palier Agency à 2 499 $/mois est conçu pour les marques multi-emplacements, les agences qui revendent, et les opérateurs qui veulent une stack premium clé en main. La plupart des clients n'en ont pas besoin, mais ils veulent une ou deux pièces. Les add-ons permettent à n'importe quel forfait d'ajouter la pièce manquante sans payer le prix Agency.
+
+## Add-on 1 : Système de réputation Reviuzy, 100 $/mois
+
+Ce que le client obtient en libre-service via l'app Reviuzy :
+
+- Cartes NFC de collecte d'avis expédiées à l'emplacement
+- Formulaire client de soumission d'avis (flux guidé de 15 secondes)
+- Brouillons d'avis générés par IA (le client valide et soumet)
+- Réponses automatiques par IA sur chaque avis reçu
+- Moteur de concours : tirage mensuel d'avis, choix de gagnant automatisé
+- Annonce vidéo du gagnant, générée et publiée
+- Générateur de T&C juridiques pour 20+ pays
+- Détection de faux avis (Domain Shield basics)
+
+Ce que l'agence livre en coulisse, vous voyez seulement les résultats :
+
+- Automatisation Google Business Profile : publications, téléversements de photos, surveillance Q&R
+- Construction de citations et vérifications de cohérence NAP
+- Sondes du tableau de bord visibilité IA et rapports
+- Suivi de conversion du trafic IA
+
+Pourquoi la séparation : la plupart des clients ne sont pas techniques et ne veulent pas gérer 8 panneaux d'admin. On donne l'accès libre-service à l'outil quotidien (le système de réputation) et on livre le reste comme un service avec des rapports mensuels.
+
+## Add-on 2 : Trio Premium Ops, 79 $/mois en bundle (ou 35 $ chacun)
+
+Trois add-ons indépendants, disponibles à la pièce ou en bundle remisé.
+
+**Domain Shield (35 $/mois à la pièce)** : Détection de faux avis toujours active sur chaque emplacement connecté. Surveille les attaques concurrentielles, les violations de politique, et les schémas d'avis inhabituels. Vous alerte en quelques minutes en cas d'activité suspecte.
+
+**Domain Speed Boost (35 $/mois à la pièce)** : Couche d'optimisation de performance sur le site client. Chargement paresseux d'images, cache léger, ajustement de réponse serveur. Score Core Web Vitals amélioré, meilleur signal de classement Google, taux de rebond réduit.
+
+**Stratège attitré (35 $/mois à la pièce)** : Le même stratège senior sur votre compte chaque mois, pas un pool. Ligne directe sur Slack ou courriel, conserve le contexte d'un appel à l'autre, pas besoin de ré-expliquer l'entreprise à chaque fois. Décisions plus rapides, moins de friction.
+
+**Bundle du trio : 79 $/mois, économisez 26 $/mois** vs. payer 35 $ chacun (105 $ à la pièce). La plupart des clients qui prennent un des trois finissent par prendre les trois dans les 90 jours, donc le bundle est le choix naturel.
+
+## Inclus dans Agency par défaut
+
+Le palier Agency (2 499 $/mois) inclut les deux add-ons sans frais supplémentaires :
+
+- Système de réputation Reviuzy au complet inclus
+- Domain Shield, Domain Speed Boost, stratège attitré tous inclus
+- Plus les éléments propres à Agency : tableau de bord multi-emplacements, rapports PDF en marque blanche, SLA Slack sous 4 heures, accès API, intégrations sur mesure (HubSpot, Salesforce, PMS hospitalier), présentation exécutive trimestrielle
+
+## Comment ajouter ou retirer
+
+Ouvrez **AiLys, facturation, add-ons** dans votre compte. Activez ou désactivez chaque add-on. Les changements prennent effet au début du prochain cycle de facturation. On ne fait pas de prorata pour les ajouts ou retraits en milieu de cycle.
+
+## La garantie de remboursement s'applique
+
+Chaque add-on est couvert par la garantie satisfaction de 30 jours qui s'applique à tous les forfaits AiLys. Si vous ajoutez Reviuzy et que le moteur de concours ne produit pas de résultats dans le premier mois, on rembourse la portion add-on. Aucune récupération sur ce qu'on a déjà livré sur le forfait de base.`,
+      },
+    },
+  },
+  {
     slug: "ai-visibility-engine",
     title: "How the AI Visibility engine works (Share of Model, sentiment, freshness)",
     excerpt:
@@ -83,7 +205,7 @@ Three deliverables bundled into one engine:
 2. **Brand sentiment**: positive, neutral, or negative tone of any mention.
 3. **Citation freshness alerts**: notification when a previously-mentioned brand stops being cited, when a new mention appears, or when a brand's position in the ranked answer shifts materially.
 
-This is included in the Growth and Autopilot tiers, with manual on-demand probes included in Core.
+This is included in the Growth and Agency tiers, with manual on-demand probes included in Core.
 
 ## How a probe works
 
@@ -97,7 +219,7 @@ We probe each engine separately because they will not always agree. ChatGPT may 
 
 - **On-demand**: any tier can trigger a probe from the admin center
 - **Weekly automatic**: Growth tier (every Monday morning, default query)
-- **Daily automatic**: Autopilot tier
+- **Daily automatic**: Agency tier
 - **Rate-limited**: 20 full probes per workspace per hour
 
 ## What you see
@@ -137,7 +259,7 @@ Trois livrables groupés dans un seul moteur :
 2. **Sentiment de marque** : ton positif, neutre, ou négatif de toute mention.
 3. **Alertes de fraîcheur des citations** : notification quand une marque précédemment mentionnée n'est plus citée, quand une nouvelle mention apparaît, ou quand la position d'une marque dans la réponse classée change significativement.
 
-Inclus dans les paliers Growth et Autopilot, avec des sondes manuelles à la demande incluses dans Core.
+Inclus dans les paliers Growth et Agency, avec des sondes manuelles à la demande incluses dans Core.
 
 ## Comment fonctionne une sonde
 
@@ -151,7 +273,7 @@ Nous sondons chaque moteur séparément parce qu'ils ne sont pas toujours d'acco
 
 - **À la demande** : n'importe quel palier peut déclencher une sonde depuis le centre d'administration
 - **Hebdomadaire automatique** : palier Growth (chaque lundi matin, requête par défaut)
-- **Quotidienne automatique** : palier Autopilot
+- **Quotidienne automatique** : palier Agency
 - **Limité en débit** : 20 sondes complètes par espace de travail par heure
 
 ## Ce que vous voyez
@@ -183,7 +305,7 @@ La classification de sentiment est plus fiable quand le moteur mentionne effecti
   },
   {
     slug: "ai-traffic-tracker",
-    title: "How AI traffic conversion tracking works (Autopilot)",
+    title: "How AI traffic conversion tracking works (Agency)",
     excerpt:
       "Drop a tiny script on your site to track which visits and conversions came from AI search engines vs traditional channels.",
     category: "getting-started",
@@ -193,7 +315,7 @@ La classification de sentiment est plus fiable quand le moteur mentionne effecti
 
 Most analytics tools group AI search traffic under "direct" or "referral" buckets, hiding what is actually the fastest-growing acquisition channel of 2026. Our AI traffic tracker fixes that. It detects visits from ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot, and you.com (via referrer host AND utm_source matching), tags them with the engine name, and rolls them up into a per-engine conversion dashboard.
 
-This is included in the Autopilot tier as part of "AI traffic conversion tracker, UTM attribution from AI search to bookings".
+This is included in the Agency tier as part of "AI traffic conversion tracker, UTM attribution from AI search to bookings".
 
 ## How it works
 
@@ -232,14 +354,14 @@ The most common issue is the snippet placed in the &lt;head&gt; instead of befor
 Browser ad blockers will sometimes block the beacon. We accept this as a known limitation; the data still skews toward your real customers (ad blockers correlate with technical sophistication, which correlates with using ChatGPT for search anyway).`,
     i18n: {
       fr: {
-        title: "Comment fonctionne le suivi de conversion du trafic IA (Autopilot)",
+        title: "Comment fonctionne le suivi de conversion du trafic IA (Agency)",
         excerpt:
           "Déposez un petit script sur votre site pour suivre quelles visites et conversions sont venues des moteurs de recherche IA vs des canaux traditionnels.",
         body: `## C'est quoi
 
 La plupart des outils d'analyse regroupent le trafic de recherche IA dans les catégories "direct" ou "référence", cachant ce qui est en fait le canal d'acquisition à la croissance la plus rapide de 2026. Notre suivi de trafic IA corrige cela. Il détecte les visites depuis ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot et you.com (via correspondance de l'hôte référent ET de utm_source), les étiquette avec le nom du moteur, et les regroupe dans un tableau de bord de conversion par moteur.
 
-Inclus dans le palier Autopilot dans le cadre du "Suivi de conversion du trafic IA, attribution UTM des recherches IA aux réservations".
+Inclus dans le palier Agency dans le cadre du "Suivi de conversion du trafic IA, attribution UTM des recherches IA aux réservations".
 
 ## Comment ça fonctionne
 
@@ -298,7 +420,7 @@ A "citation" is your business name, address, and phone number listed on a third-
 
 - **Core ($600 mo)**: 5 fresh citations per month, plus quarterly verification of existing ones
 - **Growth ($1,200 mo)**: 10+ fresh citations per month, plus monthly verification
-- **Autopilot ($1,599 mo)**: 10+ per month plus all the strategic placements (Wikidata entry, vertical-specific submissions)
+- **Agency ($2,499 mo)**: 10+ per month plus all the strategic placements (Wikidata entry, vertical-specific submissions)
 
 A "fresh citation" is a new directory we add you to. A "verification" is us going back to a known directory and confirming the listing is still live and the NAP is still correct.
 
@@ -359,7 +481,7 @@ Une "citation" est votre nom d'entreprise, adresse et téléphone listés sur un
 
 - **Core (600 $ mois)** : 5 nouvelles citations par mois, plus vérification trimestrielle des citations existantes
 - **Growth (1 200 $ mois)** : 10+ nouvelles citations par mois, plus vérification mensuelle
-- **Autopilot (1 599 $ mois)** : 10+ par mois plus tous les placements stratégiques (entrée Wikidata, soumissions sectorielles)
+- **Agency (1 599 $ mois)** : 10+ par mois plus tous les placements stratégiques (entrée Wikidata, soumissions sectorielles)
 
 Une "nouvelle citation" est un nouvel annuaire où nous vous ajoutons. Une "vérification" est notre retour à un annuaire connu pour confirmer que la fiche est toujours en ligne et que le NAP est toujours exact.
 
@@ -443,7 +565,7 @@ Our process is operator-driven (no scraper that breaks every time a directory re
 
 ## Cadence
 
-We run a full audit per location quarterly (or monthly for Growth and Autopilot tiers). When you call to tell us "we just changed our phone number", we run an immediate audit and fix all directories within the work-week.
+We run a full audit per location quarterly (or monthly for Growth and Agency tiers). When you call to tell us "we just changed our phone number", we run an immediate audit and fix all directories within the work-week.
 
 ## Where you see it
 
@@ -487,7 +609,7 @@ Notre processus est opérateur-piloté (pas de scraper qui casse à chaque fois 
 
 ## Cadence
 
-Nous faisons un audit complet par emplacement chaque trimestre (ou mensuellement pour les paliers Growth et Autopilot). Quand vous appelez pour nous dire "on vient de changer de numéro", nous faisons un audit immédiat et corrigeons tous les annuaires dans la semaine de travail.
+Nous faisons un audit complet par emplacement chaque trimestre (ou mensuellement pour les paliers Growth et Agency). Quand vous appelez pour nous dire "on vient de changer de numéro", nous faisons un audit immédiat et corrigeons tous les annuaires dans la semaine de travail.
 
 ## Où vous voyez ça
 
@@ -597,7 +719,7 @@ Si votre authentification Google expire, chaque action renvoie un 401 avec une i
 
 Google Business Profile lets customers ask questions on your listing. If those questions go unanswered for days or weeks, two bad things happen: customers lose trust in your responsiveness, and other customers post their own (often wrong) answers. Our Q&A monitor pulls every unanswered question to a queue, our AiLys engine drafts a polite reply, and we post the final version to Google after your approval.
 
-This service is included in Core, Growth, and Autopilot tiers. Starter clients get the monitoring layer (you can see queued questions) but not the AI drafts.
+This service is included in Core, Growth, and Agency tiers. Starter clients get the monitoring layer (you can see queued questions) but not the AI drafts.
 
 ## Cadence
 
@@ -653,7 +775,7 @@ If your Google authentication expires, every action returns a 401 with a "reconn
 
 Google Business Profile permet aux clients de poser des questions sur votre fiche. Si ces questions restent sans réponse pendant des jours ou des semaines, deux choses fâcheuses arrivent : les clients perdent confiance en votre réactivité, et d'autres clients publient leurs propres réponses (souvent erronées). Notre surveillance Q&R récupère chaque question sans réponse dans une file, notre moteur AiLys rédige une réponse polie, et nous publions la version finale sur Google après votre approbation.
 
-Ce service est inclus aux paliers Core, Growth et Autopilot. Les clients Starter obtiennent la couche de surveillance (vous voyez les questions en file) mais pas les brouillons IA.
+Ce service est inclus aux paliers Core, Growth et Agency. Les clients Starter obtiennent la couche de surveillance (vous voyez les questions en file) mais pas les brouillons IA.
 
 ## Cadence
 
@@ -713,14 +835,14 @@ Si votre authentification Google expire, chaque action renvoie un 401 avec une i
     readingTimeMin: 3,
     body: `## What this is
 
-Every Autopilot client gets 4 to 6 fresh photos uploaded to their Google Business Profile each month. Visual freshness is one of the strongest 2026 GBP ranking signals, and Google now down-ranks profiles with no photo activity in 30 days.
+Every Agency client gets 4 to 6 fresh photos uploaded to their Google Business Profile each month. Visual freshness is one of the strongest 2026 GBP ranking signals, and Google now down-ranks profiles with no photo activity in 30 days.
 
 ## Cadence by tier
 
 - **Starter**: 0 photo uploads (1 GBP post per month covers the freshness signal)
 - **Core**: 0 photo uploads (4 GBP posts per month)
 - **Growth**: optional add-on
-- **Autopilot**: 4 to 6 photo uploads per month, included
+- **Agency**: 4 to 6 photo uploads per month, included
 
 ## What we upload
 
@@ -766,14 +888,14 @@ If Google rejects an upload, the audit record explains why (most commonly: image
           "Cadence par forfait, catégories prises en charge, ce qui se passe après le téléversement, et comment suivre l'activité.",
         body: `## De quoi s'agit-il
 
-Chaque client Autopilot reçoit 4 à 6 photos fraîches téléversées sur son profil Google Business Profile chaque mois. La fraîcheur visuelle est un des signaux de classement GBP les plus forts pour 2026, et Google rétrograde maintenant les profils sans activité photo depuis 30 jours.
+Chaque client Agency reçoit 4 à 6 photos fraîches téléversées sur son profil Google Business Profile chaque mois. La fraîcheur visuelle est un des signaux de classement GBP les plus forts pour 2026, et Google rétrograde maintenant les profils sans activité photo depuis 30 jours.
 
 ## Cadence par forfait
 
 - **Starter**: 0 téléversement de photo (1 publication GBP par mois couvre le signal de fraîcheur)
 - **Core**: 0 téléversement de photo (4 publications GBP par mois)
 - **Growth**: option ajoutable
-- **Autopilot**: 4 à 6 téléversements de photos par mois, inclus
+- **Agency**: 4 à 6 téléversements de photos par mois, inclus
 
 ## Ce que nous téléversons
 
@@ -1202,7 +1324,7 @@ Each tier includes a different cadence:
 - **Starter**: Monthly 30-min call + monthly report
 - **Core**: Bi-weekly 30-min call + monthly report
 - **Growth**: Weekly 30-min call + monthly report + quarterly in-person review (Quebec, Toronto, Montreal)
-- **Autopilot**: Same as Growth, plus Reviuzy SaaS dashboard access
+- **Agency**: Same as Growth, plus Reviuzy SaaS dashboard access
 
 ## Between calls
 
@@ -1233,7 +1355,7 @@ Chaque forfait inclut une cadence différente :
 - **Starter** : appel mensuel de 30 min et rapport mensuel
 - **Core** : appel bimensuel de 30 min et rapport mensuel
 - **Growth** : appel hebdomadaire de 30 min, rapport mensuel et revue trimestrielle en personne (Québec, Toronto, Montréal)
-- **Autopilot** : identique à Growth, plus accès au tableau de bord Reviuzy SaaS
+- **Agency** : identique à Growth, plus accès au tableau de bord Reviuzy SaaS
 
 ## Entre les appels
 
@@ -1264,7 +1386,7 @@ Cada plan incluye una cadencia distinta:
 - **Starter**: llamada mensual de 30 min y reporte mensual
 - **Core**: llamada quincenal de 30 min y reporte mensual
 - **Growth**: llamada semanal de 30 min, reporte mensual y revisión trimestral en persona (Quebec, Toronto, Montreal)
-- **Autopilot**: igual que Growth, más acceso al dashboard de Reviuzy SaaS
+- **Agency**: igual que Growth, más acceso al dashboard de Reviuzy SaaS
 
 ## Entre llamadas
 
@@ -1295,7 +1417,7 @@ Números reales, lenguaje claro, sin relleno.`,
 - **Starter**: 每月一次 30 分钟通话加月度报告
 - **Core**: 每两周一次 30 分钟通话加月度报告
 - **Growth**: 每周一次 30 分钟通话、月度报告,加每季度一次现场评审(魁北克、多伦多、蒙特利尔)
-- **Autopilot**: 与 Growth 相同,另含 Reviuzy SaaS 仪表盘访问权
+- **Agency**: 与 Growth 相同,另含 Reviuzy SaaS 仪表盘访问权
 
 ## 通话之间
 
@@ -1326,7 +1448,7 @@ Números reales, lenguaje claro, sin relleno.`,
 - **Starter**: ежемесячный звонок на 30 минут и ежемесячный отчёт
 - **Core**: звонок раз в две недели на 30 минут и ежемесячный отчёт
 - **Growth**: еженедельный звонок на 30 минут, ежемесячный отчёт и ежеквартальная очная встреча (Квебек, Торонто, Монреаль)
-- **Autopilot**: то же, что и Growth, плюс доступ к панели Reviuzy SaaS
+- **Agency**: то же, что и Growth, плюс доступ к панели Reviuzy SaaS
 
 ## Между звонками
 
@@ -1357,7 +1479,7 @@ Números reales, lenguaje claro, sin relleno.`,
 - **Starter**: مكالمة شهرية مدتها 30 دقيقة وتقرير شهري
 - **Core**: مكالمة كل أسبوعين مدتها 30 دقيقة وتقرير شهري
 - **Growth**: مكالمة أسبوعية مدتها 30 دقيقة، تقرير شهري، ومراجعة فصلية حضورية (كيبيك، تورونتو، مونتريال)
-- **Autopilot**: نفس Growth إضافة إلى الوصول إلى لوحة تحكم Reviuzy SaaS
+- **Agency**: نفس Growth إضافة إلى الوصول إلى لوحة تحكم Reviuzy SaaS
 
 ## بين المكالمات
 
@@ -1897,7 +2019,7 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
     slug: "which-tier-is-right-for-me",
     title: "Which tier is right for my business?",
     excerpt:
-      "Quick decision tree to pick between Starter, Core, Growth, and Autopilot.",
+      "Quick decision tree to pick between Starter, Core, Growth, and Agency.",
     category: "pricing-plans",
     updatedAt: "2026-04-15",
     readingTimeMin: 3,
@@ -1921,7 +2043,7 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
 - You need GEO entity authority work and weekly content
 - You want competitive monitoring
 
-**Autopilot, $1,599/mo** is right if:
+**Agency, $2,499/mo** is right if:
 - Everything Growth covers, plus you want zero ops
 - You want Reviuzy SaaS bundled in
 - You want a monthly review contest run for you
@@ -1929,12 +2051,12 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
 
 ## The "I am unsure" rule
 
-Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most local businesses need. You can upgrade to Growth or Autopilot any time, no penalty.`,
+Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most local businesses need. You can upgrade to Growth or Agency any time, no penalty.`,
     i18n: {
       fr: {
         title: "Quel forfait convient à mon entreprise?",
         excerpt:
-          "Arbre de décision rapide pour choisir entre Starter, Core, Growth et Autopilot.",
+          "Arbre de décision rapide pour choisir entre Starter, Core, Growth et Agency.",
         body: `## Arbre de décision rapide
 
 **Starter, 300 $/mois** convient si :
@@ -1955,7 +2077,7 @@ Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most l
 - Vous avez besoin de travail d'autorité d'entité GEO et de contenu hebdomadaire
 - Vous voulez une surveillance concurrentielle
 
-**Autopilot, 1 299 $/mois** convient si :
+**Agency, 1 299 $/mois** convient si :
 - Tout ce que couvre Growth, plus vous voulez zéro opération
 - Vous voulez Reviuzy SaaS inclus dans le lot
 - Vous voulez un concours d'avis mensuel mené pour vous
@@ -1963,12 +2085,12 @@ Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most l
 
 ## La règle « je ne sais pas »
 
-Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 % des besoins de la plupart des entreprises locales. Vous pouvez passer à Growth ou Autopilot n'importe quand, sans pénalité.`,
+Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 % des besoins de la plupart des entreprises locales. Vous pouvez passer à Growth ou Agency n'importe quand, sans pénalité.`,
       },
       es: {
         title: "¿Qué plan es el adecuado para mi negocio?",
         excerpt:
-          "Árbol de decisión rápido para elegir entre Starter, Core, Growth y Autopilot.",
+          "Árbol de decisión rápido para elegir entre Starter, Core, Growth y Agency.",
         body: `## Árbol de decisión rápido
 
 **Starter, $300/mes** le conviene si:
@@ -1989,7 +2111,7 @@ Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 
 - Necesita trabajo de autoridad de entidad GEO y contenido semanal
 - Quiere monitoreo competitivo
 
-**Autopilot, $1,599/mes** le conviene si:
+**Agency, $2,499/mes** le conviene si:
 - Todo lo que cubre Growth, más cero operaciones de su lado
 - Quiere Reviuzy SaaS incluido
 - Quiere un concurso mensual de reseñas operado por nosotros
@@ -1997,12 +2119,12 @@ Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 
 
 ## La regla "no estoy seguro"
 
-Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita la mayoría de los negocios locales. Puede subir a Growth o Autopilot en cualquier momento, sin penalización.`,
+Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita la mayoría de los negocios locales. Puede subir a Growth o Agency en cualquier momento, sin penalización.`,
       },
       zh: {
         title: "哪个套餐适合我的企业?",
         excerpt:
-          "快速决策树,帮您在 Starter、Core、Growth 与 Autopilot 中做选择。",
+          "快速决策树,帮您在 Starter、Core、Growth 与 Agency 中做选择。",
         body: `## 快速决策树
 
 **Starter,$300/月** 适合:
@@ -2023,7 +2145,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - 需要 GEO 实体权威工作与每周内容
 - 希望进行竞争对手监测
 
-**Autopilot,$1,599/月** 适合:
+**Agency,$2,499/月** 适合:
 - 涵盖 Growth 的全部,且您希望运营全部托管
 - 希望打包 Reviuzy SaaS
 - 希望由我们代为运行每月评论征集活动
@@ -2031,12 +2153,12 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 
 ## "我不确定" 法则
 
-选 Core。它成为最受欢迎套餐是有原因的: 覆盖了大多数本地企业 80% 的需求。您可以随时升级到 Growth 或 Autopilot,无任何罚则。`,
+选 Core。它成为最受欢迎套餐是有原因的: 覆盖了大多数本地企业 80% 的需求。您可以随时升级到 Growth 或 Agency,无任何罚则。`,
       },
       ru: {
         title: "Какой тариф подойдёт моему бизнесу?",
         excerpt:
-          "Быстрое дерево решений для выбора между Starter, Core, Growth и Autopilot.",
+          "Быстрое дерево решений для выбора между Starter, Core, Growth и Agency.",
         body: `## Быстрое дерево решений
 
 **Starter, $300/мес.** подойдёт, если:
@@ -2057,7 +2179,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - Нужна работа с авторитетом сущности под GEO и еженедельный контент
 - Хотите мониторинг конкурентов
 
-**Autopilot, $1,599/мес.** подойдёт, если:
+**Agency, $2,499/мес.** подойдёт, если:
 - Всё, что покрывает Growth, плюс вы хотите ноль операционки
 - Хотите Reviuzy SaaS в комплекте
 - Хотите ежемесячный конкурс отзывов, организованный за вас
@@ -2065,12 +2187,12 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 
 ## Правило «я не уверен»
 
-Берите Core. Это самый популярный тариф не просто так: он закрывает 80% потребностей большинства локальных бизнесов. Перейти на Growth или Autopilot можно в любой момент без штрафов.`,
+Берите Core. Это самый популярный тариф не просто так: он закрывает 80% потребностей большинства локальных бизнесов. Перейти на Growth или Agency можно в любой момент без штрафов.`,
       },
       ar: {
         title: "أي خطة تناسب نشاطي التجاري؟",
         excerpt:
-          "شجرة قرار سريعة للاختيار بين Starter وCore وGrowth وAutopilot.",
+          "شجرة قرار سريعة للاختيار بين Starter وCore وGrowth وAgency.",
         body: `## شجرة القرار السريعة
 
 **Starter بسعر $300 شهرياً** مناسبة إذا:
@@ -2091,7 +2213,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - تحتاج إلى عمل سلطة الكيان لـ GEO ومحتوى أسبوعي
 - ترغب في مراقبة المنافسين
 
-**Autopilot بسعر $1,599 شهرياً** مناسبة إذا:
+**Agency بسعر $2,499 شهرياً** مناسبة إذا:
 - أردت كل ما تشمله Growth، إضافة إلى تشغيل بلا أي عمليات من جانبك
 - أردت Reviuzy SaaS ضمن الباقة
 - أردت إدارة مسابقة مراجعات شهرية بالنيابة عنك
@@ -2099,7 +2221,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 
 ## قاعدة «لست متأكداً»
 
-اختر Core. هذه هي الأكثر اختياراً لسبب وجيه، فهي تغطي 80% مما تحتاجه معظم الأعمال المحلية. يمكنك الترقية إلى Growth أو Autopilot في أي وقت دون أي غرامة.`,
+اختر Core. هذه هي الأكثر اختياراً لسبب وجيه، فهي تغطي 80% مما تحتاجه معظم الأعمال المحلية. يمكنك الترقية إلى Growth أو Agency في أي وقت دون أي غرامة.`,
       },
     },
   },
@@ -2128,7 +2250,7 @@ Email hello@ailysagency.ca within 35 days of your start date with subject line "
 ## What is not covered
 
 - Months 2 onward (these are month-to-month, you can cancel any time with 2 weeks notice)
-- Reviuzy SaaS fees inside the Autopilot tier (these are separate and follow Reviuzy's own refund policy)
+- Reviuzy SaaS fees inside the Agency tier (these are separate and follow Reviuzy's own refund policy)
 
 ## Why we offer this
 
@@ -2155,7 +2277,7 @@ Envoyez un courriel à hello@ailysagency.ca dans les 35 jours suivant votre date
 ## Ce qui n'est pas couvert
 
 - Les mois 2 et suivants (ils sont au mois, vous pouvez résilier en tout temps avec 2 semaines de préavis)
-- Les frais Reviuzy SaaS inclus dans le forfait Autopilot (ils sont distincts et suivent la politique de remboursement de Reviuzy)
+- Les frais Reviuzy SaaS inclus dans le forfait Agency (ils sont distincts et suivent la politique de remboursement de Reviuzy)
 
 ## Pourquoi nous l'offrons
 
@@ -2182,7 +2304,7 @@ Envíe correo a hello@ailysagency.ca dentro de los 35 días desde su fecha de in
 ## Qué no cubre
 
 - Mes 2 en adelante (son mes a mes, puede cancelar cuando guste con 2 semanas de aviso)
-- Las cuotas de Reviuzy SaaS dentro del plan Autopilot (son aparte y siguen la política de reembolso de Reviuzy)
+- Las cuotas de Reviuzy SaaS dentro del plan Agency (son aparte y siguen la política de reembolso de Reviuzy)
 
 ## Por qué la ofrecemos
 
@@ -2209,7 +2331,7 @@ Comprar servicios de agencia por internet es una prueba de credibilidad. Estamos
 ## 不涵盖范围
 
 - 第 2 个月及以后(按月计费,任何时候可提前 2 周通知取消)
-- Autopilot 套餐内的 Reviuzy SaaS 费用(独立计费,遵循 Reviuzy 自有的退款政策)
+- Agency 套餐内的 Reviuzy SaaS 费用(独立计费,遵循 Reviuzy 自有的退款政策)
 
 ## 我们为什么提供它
 
@@ -2236,7 +2358,7 @@ Comprar servicios de agencia por internet es una prueba de credibilidad. Estamos
 ## Что не покрывается
 
 - Месяц 2 и далее (это помесячная оплата, отменить можно в любой момент за 2 недели до даты)
-- Платежи Reviuzy SaaS внутри тарифа Autopilot (они отдельные и подчиняются собственной политике возврата Reviuzy)
+- Платежи Reviuzy SaaS внутри тарифа Agency (они отдельные и подчиняются собственной политике возврата Reviuzy)
 
 ## Почему мы это предлагаем
 
@@ -2263,7 +2385,7 @@ Comprar servicios de agencia por internet es una prueba de credibilidad. Estamos
 ## ما لا يشمله الضمان
 
 - الشهر الثاني وما بعده (الفوترة شهرية، ويمكنك الإلغاء في أي وقت بإشعار قبل أسبوعين)
-- رسوم Reviuzy SaaS داخل خطة Autopilot (مستقلة وتخضع لسياسة استرداد Reviuzy الخاصة)
+- رسوم Reviuzy SaaS داخل خطة Agency (مستقلة وتخضع لسياسة استرداد Reviuzy الخاصة)
 
 ## لماذا نقدّم هذا الضمان
 

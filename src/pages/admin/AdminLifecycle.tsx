@@ -88,7 +88,7 @@ export default function AdminLifecycle() {
         </h1>
         <p className="text-sm text-muted-foreground max-w-3xl">
           Pre-built sequences for welcome, education, soft pitch, hard pitch, win-back,
-          and tier-specific client onboarding (Starter, Core, Growth, Autopilot). Each
+          and tier-specific client onboarding (Starter, Core, Growth, Agency). Each
           sequence has multiple steps with delay days. Activate to start auto-enrolling
           users when the trigger condition fires.
         </p>

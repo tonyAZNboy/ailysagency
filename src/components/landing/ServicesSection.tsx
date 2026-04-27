@@ -34,64 +34,76 @@ interface PaletteTokens {
   separator: string;
 }
 
+// Neon-glow palette tokens — Truvizy-inspired. Each tier wears its own
+// vivid color: bright cyan (Starter), magenta-violet (Core, the featured
+// pick), orange-rose (Growth), emerald-cyan (Agency). Glow uses heavy
+// blur shadows + bright borders for a "neon outlined" feel.
 const paletteMap: Record<TierPalette, PaletteTokens> = {
   teal: {
-    cardBg: "bg-gradient-to-br from-cyan-500/[0.10] via-teal-500/[0.05] to-transparent",
-    border: "border-cyan-400/30 hover:border-cyan-400/60",
-    glow: "shadow-[0_0_50px_-15px_rgba(34,211,238,0.35)]",
-    priceGrad: "bg-gradient-to-br from-cyan-300 via-teal-300 to-sky-400 bg-clip-text text-transparent",
-    numberMarker: "text-cyan-400",
-    arrow: "text-cyan-400/70 group-hover:text-cyan-300",
-    accentDot: "bg-cyan-400",
+    cardBg:
+      "bg-gradient-to-br from-cyan-500/[0.14] via-sky-500/[0.06] to-transparent",
+    border: "border-cyan-400/80 hover:border-cyan-300/100",
+    glow:
+      "shadow-[0_0_0_2px_rgba(34,211,238,0.45),0_0_50px_0_rgba(34,211,238,0.55),0_0_120px_-4px_rgba(34,211,238,0.85),0_0_220px_-30px_rgba(34,211,238,0.6),inset_0_1px_0_rgba(255,255,255,0.10)] hover:shadow-[0_0_0_2px_rgba(34,211,238,0.7),0_0_70px_4px_rgba(34,211,238,0.75),0_0_160px_-2px_rgba(34,211,238,1),0_0_280px_-24px_rgba(34,211,238,0.8),inset_0_1px_0_rgba(255,255,255,0.16)]",
+    priceGrad:
+      "bg-gradient-to-br from-cyan-200 via-cyan-300 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.6)]",
+    numberMarker: "text-cyan-300",
+    arrow: "text-cyan-300 group-hover:text-cyan-200",
+    accentDot: "bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.9)]",
     buttonClass:
-      "bg-gradient-to-r from-cyan-500/15 to-teal-500/15 text-cyan-200 border border-cyan-400/40 hover:bg-cyan-500/25 hover:border-cyan-300",
-    ribbonGrad: "from-cyan-400 to-teal-400",
-    separator: "via-cyan-500/30",
+      "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-100 border border-cyan-400/60 hover:bg-cyan-500/30 hover:border-cyan-300 shadow-[0_0_20px_-4px_rgba(34,211,238,0.5)]",
+    ribbonGrad: "from-cyan-300 to-sky-400",
+    separator: "via-cyan-400/50",
   },
   violet: {
     cardBg:
-      "bg-gradient-to-br from-violet-600/20 via-fuchsia-500/10 to-cyan-500/15",
-    border: "border-violet-400/50 hover:border-violet-300/70",
+      "bg-gradient-to-br from-fuchsia-600/25 via-violet-600/15 to-cyan-500/15",
+    border: "border-fuchsia-400/85 hover:border-fuchsia-300/100",
     glow:
-      "shadow-[0_0_70px_-12px_rgba(167,139,250,0.55),inset_0_1px_0_rgba(255,255,255,0.1)]",
+      "shadow-[0_0_0_2px_rgba(217,70,239,0.55),0_0_60px_4px_rgba(217,70,239,0.75),0_0_140px_-2px_rgba(217,70,239,1),0_0_240px_-20px_rgba(167,139,250,0.7),0_0_360px_-40px_rgba(34,211,238,0.4),inset_0_1px_0_rgba(255,255,255,0.16)] hover:shadow-[0_0_0_2px_rgba(217,70,239,0.8),0_0_80px_8px_rgba(217,70,239,0.95),0_0_180px_2px_rgba(217,70,239,1),0_0_300px_-14px_rgba(167,139,250,0.85),0_0_440px_-30px_rgba(34,211,238,0.6),inset_0_1px_0_rgba(255,255,255,0.22)]",
     priceGrad:
-      "bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(167,139,250,0.4)]",
-    numberMarker: "text-violet-300",
-    arrow: "text-violet-300 group-hover:text-fuchsia-300",
-    accentDot: "bg-gradient-to-r from-violet-400 to-fuchsia-400",
+      "bg-gradient-to-br from-cyan-200 via-fuchsia-300 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(217,70,239,0.7)]",
+    numberMarker: "text-fuchsia-300",
+    arrow: "text-fuchsia-300 group-hover:text-fuchsia-200",
+    accentDot:
+      "bg-gradient-to-r from-fuchsia-400 to-violet-400 shadow-[0_0_14px_rgba(217,70,239,1)]",
     buttonClass:
-      "bg-gradient-to-r from-cyan-400 via-violet-500 to-fuchsia-500 text-white hover:opacity-90 shadow-[0_0_30px_-8px_rgba(167,139,250,0.6)]",
-    ribbonGrad: "from-cyan-400 via-violet-500 to-fuchsia-500",
-    separator: "via-violet-400/40",
+      "bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-violet-500 text-white hover:opacity-95 shadow-[0_0_40px_-6px_rgba(217,70,239,0.85)] hover:shadow-[0_0_55px_-4px_rgba(217,70,239,1)]",
+    ribbonGrad: "from-cyan-300 via-fuchsia-400 to-violet-400",
+    separator: "via-fuchsia-400/60",
   },
   amber: {
-    cardBg: "bg-gradient-to-br from-amber-500/[0.12] via-orange-500/[0.06] to-rose-500/[0.05]",
-    border: "border-amber-400/40 hover:border-amber-300/70",
-    glow: "shadow-[0_0_55px_-15px_rgba(245,158,11,0.4)]",
-    priceGrad: "bg-gradient-to-br from-amber-200 via-orange-300 to-rose-400 bg-clip-text text-transparent",
-    numberMarker: "text-amber-400",
-    arrow: "text-amber-400/80 group-hover:text-amber-300",
-    accentDot: "bg-amber-400",
+    cardBg:
+      "bg-gradient-to-br from-orange-500/[0.18] via-rose-500/[0.10] to-amber-500/[0.06]",
+    border: "border-orange-400/85 hover:border-orange-300/100",
+    glow:
+      "shadow-[0_0_0_2px_rgba(251,146,60,0.5),0_0_55px_2px_rgba(251,146,60,0.65),0_0_130px_-4px_rgba(251,146,60,0.9),0_0_240px_-24px_rgba(244,63,94,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] hover:shadow-[0_0_0_2px_rgba(251,146,60,0.75),0_0_75px_6px_rgba(251,146,60,0.85),0_0_170px_-2px_rgba(251,146,60,1),0_0_300px_-18px_rgba(244,63,94,0.7),inset_0_1px_0_rgba(255,255,255,0.18)]",
+    priceGrad:
+      "bg-gradient-to-br from-amber-200 via-orange-300 to-rose-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,146,60,0.65)]",
+    numberMarker: "text-orange-300",
+    arrow: "text-orange-300 group-hover:text-orange-200",
+    accentDot: "bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.95)]",
     buttonClass:
-      "bg-gradient-to-r from-amber-500/15 to-rose-500/15 text-amber-100 border border-amber-400/40 hover:bg-amber-500/25 hover:border-amber-300",
-    ribbonGrad: "from-amber-400 to-rose-400",
-    separator: "via-amber-500/30",
+      "bg-gradient-to-r from-orange-500/20 to-rose-500/20 text-orange-100 border border-orange-400/65 hover:bg-orange-500/30 hover:border-orange-300 shadow-[0_0_20px_-4px_rgba(251,146,60,0.55)]",
+    ribbonGrad: "from-orange-300 to-rose-400",
+    separator: "via-orange-400/55",
   },
   emerald: {
     cardBg:
-      "bg-gradient-to-br from-emerald-500/15 via-cyan-500/10 to-teal-500/12",
-    border: "border-emerald-400/50 hover:border-emerald-300/70",
+      "bg-gradient-to-br from-emerald-500/22 via-cyan-500/12 to-teal-500/15",
+    border: "border-emerald-400/85 hover:border-emerald-300/100",
     glow:
-      "shadow-[0_0_70px_-12px_rgba(52,211,153,0.5),inset_0_1px_0_rgba(255,255,255,0.1)]",
+      "shadow-[0_0_0_2px_rgba(52,211,153,0.55),0_0_60px_4px_rgba(52,211,153,0.75),0_0_140px_-2px_rgba(52,211,153,1),0_0_240px_-20px_rgba(34,211,238,0.65),0_0_360px_-40px_rgba(20,184,166,0.45),inset_0_1px_0_rgba(255,255,255,0.16)] hover:shadow-[0_0_0_2px_rgba(52,211,153,0.8),0_0_80px_8px_rgba(52,211,153,0.95),0_0_180px_2px_rgba(52,211,153,1),0_0_300px_-14px_rgba(34,211,238,0.8),0_0_440px_-30px_rgba(20,184,166,0.6),inset_0_1px_0_rgba(255,255,255,0.22)]",
     priceGrad:
-      "bg-gradient-to-br from-emerald-200 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(52,211,153,0.4)]",
+      "bg-gradient-to-br from-emerald-200 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(52,211,153,0.7)]",
     numberMarker: "text-emerald-300",
     arrow: "text-emerald-300 group-hover:text-cyan-200",
-    accentDot: "bg-gradient-to-r from-emerald-400 to-cyan-400",
+    accentDot:
+      "bg-gradient-to-r from-emerald-400 to-cyan-400 shadow-[0_0_14px_rgba(52,211,153,1)]",
     buttonClass:
-      "bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 text-background hover:opacity-90 shadow-[0_0_30px_-8px_rgba(52,211,153,0.6)]",
-    ribbonGrad: "from-emerald-400 via-cyan-400 to-teal-400",
-    separator: "via-emerald-400/35",
+      "bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 text-background hover:opacity-95 shadow-[0_0_40px_-6px_rgba(52,211,153,0.85)] hover:shadow-[0_0_55px_-4px_rgba(52,211,153,1)]",
+    ribbonGrad: "from-emerald-300 via-cyan-400 to-teal-400",
+    separator: "via-emerald-400/55",
   },
 };
 
@@ -163,7 +175,7 @@ export function ServicesSection() {
       id: "autopilot",
       number: "04",
       name: t.services.tier3Name,
-      price: "1,599",
+      price: "2,499",
       per: t.services.perMo,
       tagline: t.services.tier3Tagline,
       features: [
@@ -232,8 +244,8 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Tier cards, four-column grid with Core elevated and Autopilot accented */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 items-stretch">
+        {/* Tier cards, four-column grid with Core elevated and Agency accented */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 lg:gap-10 items-stretch py-6">
           {tiers.map((tier, i) => {
             const p = paletteMap[tier.palette];
             const isAutopilot = tier.id === "autopilot";
@@ -334,6 +346,22 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Reviuzy add-on indicator: bundled in Agency, optional add-on elsewhere */}
+                  <div className="mb-4 flex items-center gap-2">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-mono uppercase tracking-[0.18em] ${
+                        isAutopilot
+                          ? "border-emerald-400/60 bg-emerald-500/[0.10] text-emerald-300"
+                          : "border-border/40 bg-background/30 text-muted-foreground/80"
+                      }`}
+                    >
+                      <Check className="w-3 h-3" />
+                      {isAutopilot
+                        ? t.services.addOnBadgeIncluded
+                        : t.services.addOnBadgeAvailable}
+                    </span>
+                  </div>
 
                   <Button
                     onClick={() => navigate("/audit")}

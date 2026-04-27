@@ -8,6 +8,12 @@
       "port": 8080
     },
     {
+      "name": "dev:functions",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wrangler", "pages", "dev", "--proxy", "8080", "--port", "8788", "--", "npm", "run", "dev"],
+      "port": 8788
+    },
+    {
       "name": "preview",
       "runtimeExecutable": "node",
       "runtimeArgs": ["node_modules/vite/bin/vite.js", "preview", "--port", "4173"],

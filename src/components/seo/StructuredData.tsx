@@ -318,7 +318,7 @@ export const generateServiceSchema = () => ({
         availability: 'https://schema.org/InStock',
         itemOffered: {
           '@type': 'Service',
-          name: 'AiLys Autopilot',
+          name: 'AiLys Agency',
           description:
             'Done-for-you AI search visibility for multi-location brands. Includes Reviuzy review growth platform.',
         },

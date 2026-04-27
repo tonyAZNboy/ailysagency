@@ -1,5 +1,5 @@
 {
-  "enKeyCount": 1106,
+  "enKeyCount": 1139,
   "locales": {
     "fr": {
       "missing": [],
@@ -11,14 +11,15 @@
         "audit.fields.industryOptions.restaurant",
         "audit.pulse.verticalRestaurant",
         "services.sectionLabel",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step8Signal",
@@ -36,7 +37,7 @@
         "cofounders.tagLabels.vi_vietnam",
         "cofounders.tagLabels.nl_benelux"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "es": {
@@ -45,14 +46,15 @@
         "hero.trustEngines",
         "who.colReviuzy",
         "who.r1Reviuzy",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -66,7 +68,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "zh": {
@@ -77,12 +79,13 @@
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.tier3Name",
         "services.compareAilys",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -97,7 +100,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "ar": {
@@ -108,13 +111,14 @@
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.tier3Name",
         "services.compareAilys",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step4Signal",
@@ -128,7 +132,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "ru": {
@@ -139,14 +143,15 @@
         "who.r1Reviuzy",
         "audit.fields.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -160,7 +165,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "de": {
@@ -171,14 +176,15 @@
         "who.r1Reviuzy",
         "audit.fields.industryOptions.restaurant",
         "audit.pulse.verticalRestaurant",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -199,7 +205,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "hi": {
@@ -210,14 +216,15 @@
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -235,7 +242,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "it": {
@@ -245,7 +252,6 @@
         "who.colReviuzy",
         "who.r1Reviuzy",
         "footer.poweredBy",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
@@ -253,7 +259,9 @@
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
         "pricingBuilder.svc8Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -278,7 +286,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "ja": {
@@ -292,12 +300,13 @@
         "audit.fields.emailPlaceholder",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.tier3Name",
         "services.compareAilys",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step8Signal",
@@ -313,7 +322,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "ko": {
@@ -327,15 +336,15 @@
         "audit.fields.emailPlaceholder",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
-        "services.badgeAutopilot",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step8Signal",
@@ -351,7 +360,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "nl": {
@@ -365,7 +374,6 @@
         "audit.pulse.verticalRestaurant",
         "heroAuditCard.badgeLive",
         "services.tier2Feat3",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
@@ -373,7 +381,10 @@
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
         "pricingBuilder.svc8Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsTitle",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step5Short",
@@ -397,7 +408,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "pl": {
@@ -406,7 +417,6 @@
         "hero.trustEngines",
         "who.colReviuzy",
         "who.r1Reviuzy",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
@@ -414,7 +424,9 @@
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
         "pricingBuilder.svc8Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
         "methodology.step5Short",
@@ -430,7 +442,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "pt": {
@@ -439,14 +451,15 @@
         "hero.trustEngines",
         "who.colReviuzy",
         "who.r1Reviuzy",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -466,7 +479,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "tr": {
@@ -475,14 +488,15 @@
         "hero.trustEngines",
         "who.colReviuzy",
         "who.r1Reviuzy",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -501,7 +515,7 @@
         "cofounders.tagLabels.vi_vietnam",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     },
     "vi": {
@@ -513,14 +527,15 @@
         "audit.unlockPlaceholder",
         "audit.fields.industryOptions.salon",
         "audit.pulse.verticalSalon",
-        "services.tier3Name",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.tierAutopilot",
+        "pricingBuilder.premiumOpsRowLabel",
+        "pricingBuilder.domainShieldLabel",
+        "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
@@ -541,9 +556,9 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1106,
+      "totalKeys": 1139,
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-04-27T15:04:25.381Z"
+  "generatedAt": "2026-04-27T17:31:04.128Z"
 }

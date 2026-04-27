@@ -7,22 +7,32 @@ import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 
+/**
+ * Terms of Service for AiLys Agency.
+ *
+ * AiLys Agency is a consulting agency, not a SaaS platform. The terms
+ * cover: a consulting engagement (the agency does work on the client's
+ * behalf), the optional Reviuzy reputation system add-on (delivered
+ * through the sister product Reviuzy), and the public website itself.
+ *
+ * Jurisdiction: Quebec, Canada. Loi 25 + PIPEDA + (where applicable)
+ * GDPR + CCPA. Disputes settled by Quebec courts.
+ */
+
 export default function TermsOfService() {
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Force dark mode
   useEffect(() => {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
     return () => {
-      const stored = localStorage.getItem('theme');
-      if (stored === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else if (stored === 'system') {
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', isDark);
+      const stored = localStorage.getItem("theme");
+      if (stored === "light") {
+        document.documentElement.classList.remove("dark");
+      } else if (stored === "system") {
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.classList.toggle("dark", isDark);
       }
     };
   }, []);
@@ -33,7 +43,7 @@ export default function TermsOfService() {
     <>
       <SEOHead
         title="Terms of Service"
-        description="Read the terms and conditions for using Reviuzy's review management and social media automation platform."
+        description="Terms and conditions for the AiLys Agency consulting service and website."
         canonicalUrl={`${APP_CONFIG.url}/terms`}
         noindex={false}
       />
@@ -41,215 +51,149 @@ export default function TermsOfService() {
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <div className="max-w-4xl mx-auto px-4 py-12 pt-28">
-          {/* Header */}
           <div className="mb-12">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
             </Link>
             <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
-            <p className="text-muted-foreground">Last updated: February 4, 2025</p>
+            <p className="text-muted-foreground">Last updated: April 27, 2026</p>
           </div>
 
-          {/* Content */}
           <div className="prose prose-invert max-w-none space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing or using Reviuzy ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service. These Terms apply to all visitors, users, and others who access or use the Service.
+                These Terms of Service ("Terms") govern your access to and use of the AiLys Agency website at <strong>ailysagency.ca</strong> and any consulting engagement you enter into with AiLys Agency ("AiLys", "we", "us", "our"). By accessing the site or signing a consulting agreement, you agree to be bound by these Terms.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">2. Description of Service</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Reviuzy is an AI-powered review management and social media automation platform designed for local businesses. Our Service includes:
+              <h2 className="text-2xl font-semibold mb-4">2. About AiLys Agency</h2>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                AiLys Agency is a Quebec-based AI search reputation agency. We provide consulting services that help local businesses and brands get cited inside answers from ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews, and Bing Copilot. Our work covers:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-muted-foreground mt-4">
-                <li>NFC and QR code review collection</li>
-                <li>AI-generated review responses</li>
-                <li>Google Business Profile integration</li>
-                <li>Social media content scheduling and automation</li>
-                <li>Domain speed optimization and protection</li>
-                <li>Analytics and reporting tools</li>
+              <ul className="list-disc list-inside text-muted-foreground leading-relaxed space-y-1">
+                <li>Technical SEO and on-page work</li>
+                <li>Google Business Profile management, citation building, and NAP consistency</li>
+                <li>AEO (Answer Engine Optimization) schema deployment</li>
+                <li>GEO (Generative Engine Optimization) entity authority work on Wikipedia, Wikidata, Reddit, and digital PR</li>
+                <li>E-E-A-T (Experience, Expertise, Authoritativeness, Trust) content production</li>
+                <li>AI Visibility and AI Traffic measurement and reporting</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mt-3">
+                Optional add-ons include the Reviuzy reputation system (delivered through our sister product Reviuzy SaaS), Domain Shield, Domain Speed Boost, and a dedicated strategist. Each add-on is governed by these Terms plus any specific add-on terms communicated at signup.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">3. Plans, Pricing, and Cancellation</h2>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                We offer four monthly plans: Starter ($300 CAD), Core ($600 CAD), Growth ($1,200 CAD), and Agency ($2,499 CAD). Plans run month-to-month. You may cancel by giving two weeks written notice (email is sufficient) before the next billing cycle. We do not require long-term contracts and there is no clawback on the schema, citations, or content we delivered before cancellation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                A 30-day satisfaction guarantee applies to every plan. If, in the first 30 days, we have not delivered a measurable schema, citation, or content output you agreed to in your kickoff document, we refund the first month in full. The guarantee covers the base plan; add-ons are refunded pro-rata.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Pricing is in Canadian dollars. Taxes (GST/QST or applicable VAT) are added at invoice. We do not pro-rate mid-cycle additions or removals of add-ons; changes take effect at the next billing date.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">4. The Founding Clients Program</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                The first ten clients who sign a consulting agreement receive a 50% discount on their plan tier (Starter, Core, Growth, or Agency) for the lifetime of the subscription, locked in at signup. Founding Clients also receive priority delivery (audit in 12 hours, schema in week one), direct strategist access, and an opt-in published case study with right of approval over every metric, name, and quote. The 30-day satisfaction guarantee applies. To apply, run a free AI Visibility Audit at <Link to="/audit" className="text-primary underline">/audit</Link>.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">5. Client Responsibilities</h2>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                For us to deliver the agreed work, you agree to:
+              </p>
+              <ul className="list-disc list-inside text-muted-foreground leading-relaxed space-y-1">
+                <li>Provide accurate business information (name, address, phone, hours, category) and keep us updated when it changes</li>
+                <li>Grant the access required to do the work (Google Business Profile owner access, website CMS or hosting access, social account access where relevant)</li>
+                <li>Approve schema, content drafts, and citation submissions in a reasonable timeframe (we ask for response within 5 business days; longer delays may slow delivery)</li>
+                <li>Not engage another agency to do the same work in parallel without telling us; conflicting work can void the satisfaction guarantee</li>
+                <li>Pay invoices within 14 days of receipt</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">3. Account Registration</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                To use our Service, you must:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                <li>Be at least 18 years of age</li>
-                <li>Provide accurate and complete registration information</li>
-                <li>Maintain the security of your account credentials</li>
-                <li>Notify us immediately of any unauthorized access</li>
-                <li>Accept responsibility for all activities under your account</li>
-              </ul>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                We reserve the right to refuse service, terminate accounts, or remove content at our sole discretion.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">4. Subscription and Payment</h2>
-              
-              <h3 className="text-xl font-medium mb-3">Free Trial</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                We offer a 3-day free trial for new users. A valid credit card is required to start the trial. At the end of the trial period, you will be automatically charged for your selected plan unless you cancel before the trial ends. You may cancel at any time.
-              </p>
-
-              <h3 className="text-xl font-medium mb-3">Subscription Plans</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Our subscription plans are billed monthly or annually. Prices are listed in USD and are subject to change with 30 days' notice. Current pricing:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                <li>Starter Plan: $20/month (additional locations: $15/month each)</li>
-                <li>Pro Plan: $35/month (additional locations: $20/month each)</li>
-                <li>Additional domains: $5/month each</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mb-3 mt-6">Payment Processing</h3>
+              <h2 className="text-2xl font-semibold mb-4">6. AI-Assisted Work</h2>
               <p className="text-muted-foreground leading-relaxed">
-                All payments are processed securely through Stripe. By providing payment information, you authorize us to charge the applicable fees. Subscriptions automatically renew unless cancelled before the renewal date.
+                Parts of our delivery are accelerated by our internal AI engine (we refer to it generically as "the AiLys engine" in client-facing materials). AI-assisted outputs include schema drafts, content briefs, review reply drafts, and AI Visibility scoring. Every AI-assisted output is reviewed by a human strategist before it is shipped or published. You retain final approval rights on anything that goes live under your name. We are not liable for any consequences arising from publishing AI-assisted content that you approved without review.
               </p>
+            </section>
 
-              <h3 className="text-xl font-medium mb-3 mt-6">Refunds</h3>
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">7. Intellectual Property</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We do not offer refunds for partial subscription periods. If you cancel your subscription, you will retain access until the end of your current billing period.
+                The AiLys Agency name, logo, methodology documents, and the proprietary terms (Share of Model, AiLys engine, AiLys score) are our intellectual property. Schema, content, citations, and reports we produce for you become your property at the moment of delivery; you may keep using them after the agreement ends. We retain the right to use your engagement (anonymized, unless you opt into a published case study) in our internal benchmarks and aggregated marketing materials.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">5. User Responsibilities</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                You agree to:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                <li>Use the Service in compliance with all applicable laws</li>
-                <li>Not use the Service for fraudulent or deceptive purposes</li>
-                <li>Not generate fake reviews or manipulate review content dishonestly</li>
-                <li>Respect the terms of connected third-party platforms (Google, social media)</li>
-                <li>Not interfere with or disrupt the Service or servers</li>
-                <li>Not attempt to gain unauthorized access to any part of the Service</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">6. Intellectual Property</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                The Service and its original content, features, and functionality are owned by Reviuzy and are protected by international copyright, trademark, and other intellectual property laws.
-              </p>
+              <h2 className="text-2xl font-semibold mb-4">8. Confidentiality</h2>
               <p className="text-muted-foreground leading-relaxed">
-                You retain ownership of content you create or upload. By using the Service, you grant us a license to use, store, and process your content as necessary to provide the Service.
+                Both parties keep confidential information confidential. We will not share your business performance data, traffic, customer lists, or internal documents with third parties without your written consent. We may share aggregated, anonymized benchmark data (e.g., median citation rate across Core-tier dental practices) where no individual client can be identified.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">7. Prohibited Uses</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                You may not use the Service to:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                <li>Violate any laws or regulations</li>
-                <li>Infringe on intellectual property rights</li>
-                <li>Transmit malware, viruses, or harmful code</li>
-                <li>Spam, harass, or abuse other users</li>
-                <li>Collect user information without consent</li>
-                <li>Impersonate others or misrepresent your affiliation</li>
-                <li>Engage in activities that could damage our reputation</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">8. Third-Party Integrations</h2>
+              <h2 className="text-2xl font-semibold mb-4">9. Limitation of Liability</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our Service integrates with third-party platforms including Google Business Profile, social media networks, and payment processors. Your use of these integrations is subject to the respective platform's terms of service. We are not responsible for the actions, content, or policies of third-party services.
+                We do not guarantee specific search rankings, AI engine citations, traffic counts, or conversions. AI search engines are third-party systems with their own algorithms; outcomes depend on factors outside our control. Our total liability for any claim arising from these Terms or our services is limited to the fees you paid us in the three months preceding the claim. We are not liable for indirect, incidental, or consequential damages.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">9. AI-Generated Content</h2>
+              <h2 className="text-2xl font-semibold mb-4">10. Privacy and Data Protection</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our Service uses AI to generate review responses and content suggestions. While we strive for accuracy and quality, AI-generated content may contain errors or inaccuracies. You are responsible for reviewing and approving all content before publication. We are not liable for any consequences arising from the use of AI-generated content.
+                Our handling of personal data is governed by our <Link to="/privacy" className="text-primary underline">Privacy Policy</Link>. We comply with Loi 25 (Quebec), PIPEDA (Canada federal), and where applicable GDPR (EU/UK) and CCPA (California). Cookie usage on the website is governed by our <Link to="/cookies" className="text-primary underline">Cookie Policy</Link>.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">10. Limitation of Liability</h2>
+              <h2 className="text-2xl font-semibold mb-4">11. Governing Law and Disputes</h2>
               <p className="text-muted-foreground leading-relaxed">
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, REVIUZY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR GOODWILL, RESULTING FROM YOUR ACCESS TO OR USE OF THE SERVICE.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                Our total liability for any claims arising from or related to the Service shall not exceed the amount you paid us in the twelve (12) months preceding the claim.
+                These Terms are governed by the laws of the Province of Quebec and the federal laws of Canada applicable therein. Any dispute arising from these Terms or the services will be brought before the courts of the judicial district of Montreal, Quebec, unless mandatory consumer protection laws of your home jurisdiction require otherwise.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">11. Disclaimer of Warranties</h2>
+              <h2 className="text-2xl font-semibold mb-4">12. Changes to These Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE, OR THAT DEFECTS WILL BE CORRECTED.
+                We may update these Terms when our service or the law changes. Material changes are communicated by email at least 30 days before they take effect. Continued use of the website or the service after the effective date constitutes acceptance of the updated Terms.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">12. Indemnification</h2>
+              <h2 className="text-2xl font-semibold mb-4">13. Contact</h2>
               <p className="text-muted-foreground leading-relaxed">
-                You agree to indemnify and hold harmless Reviuzy and its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of the Service, violation of these Terms, or infringement of any rights of another party.
+                For questions about these Terms, the service, or to give the cancellation notice in section 3:
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">13. Termination</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                We may terminate or suspend your account immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties, or for any other reason at our sole discretion.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                Upon termination, your right to use the Service will cease immediately. Provisions that by their nature should survive termination will survive, including ownership, warranty disclaimers, and limitations of liability.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">14. Governing Law</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Reviuzy operates, without regard to conflict of law principles. Any disputes shall be resolved in the competent courts of that jurisdiction.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">15. Changes to Terms</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on this page and updating the "Last updated" date. Your continued use of the Service after changes constitutes acceptance of the new Terms.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">16. Contact Us</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                If you have questions about these Terms of Service, please contact us at:
-              </p>
-              <div className="mt-4 p-4 bg-muted/20 rounded-lg">
-                <p className="text-foreground font-medium">Reviuzy</p>
-                <p className="text-muted-foreground">Email: support@reviuzy.com (Subject: Legal/Privacy)</p>
-                <p className="text-muted-foreground">Website: www.reviuzy.com</p>
+              <div className="mt-3 p-4 rounded-lg border border-border/40 bg-card/30">
+                <p className="text-foreground font-medium">AiLys Agency</p>
+                <p className="text-muted-foreground text-sm">Montreal, Quebec, Canada</p>
+                <p className="text-muted-foreground text-sm">
+                  Email: <a href={`mailto:${APP_CONFIG.email}`} className="text-primary underline">{APP_CONFIG.email}</a>
+                </p>
               </div>
             </section>
-          </div>
 
-          {/* Footer */}
-          <div className="mt-16 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-            <p>© {currentYear} {APP_CONFIG.name}. All rights reserved.</p>
+            <p className="text-xs text-muted-foreground/60 pt-8 border-t border-border/30">
+              © {currentYear} AiLys Agency. All rights reserved.
+            </p>
           </div>
         </div>
-
-        {/* Landing Chat Widget */}
-        <LandingChatWidget />
         <Footer />
       </div>
+      <LandingChatWidget />
     </>
   );
 }

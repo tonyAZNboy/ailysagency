@@ -10,8 +10,18 @@ interface ServiceOption {
   label: string;
   description: string;
   monthlyAdd: number;
-  minTier: 0 | 1 | 2 | 3; // 0=Starter, 1=Core, 2=Growth, 3=Autopilot
+  minTier: 0 | 1 | 2 | 3; // 0=Starter, 1=Core, 2=Growth, 3=Agency
 }
+
+interface ExtraLanguageOption {
+  id: string;
+  label: string;
+}
+
+const EXTRA_LANGUAGE_PRICE = 50;
+const REVIUZY_ADDON_PRICE = 100;
+const PREMIUM_OPS_INDIVIDUAL = 35;
+const PREMIUM_OPS_BUNDLE = 79;
 
 export function PricingBuilderSection() {
   const navigate = useNavigate();
@@ -30,45 +40,99 @@ export function PricingBuilderSection() {
     { id: "contest", label: t.pricingBuilder.svc10Label, description: t.pricingBuilder.svc10Desc, monthlyAdd: 250, minTier: 3 },
   ];
 
-  const languages = [
-    { id: "en", label: t.pricingBuilder.lang1, multiplier: 1 },
-    { id: "en-fr", label: t.pricingBuilder.lang2, multiplier: 1 },
-    { id: "en-fr-es", label: t.pricingBuilder.lang3, multiplier: 1.15 },
-    { id: "en-fr-es-zh", label: t.pricingBuilder.lang4, multiplier: 1.3 },
-    { id: "all-eight", label: t.pricingBuilder.lang5, multiplier: 1.5 },
+  // Extra-cost languages beyond the always-included EN + FR-CA base.
+  // Each adds +$50/mo to the calculated plan price.
+  const extraLanguageOptions: ExtraLanguageOption[] = [
+    { id: "es", label: t.pricingBuilder.langEs },
+    { id: "zh", label: t.pricingBuilder.langZh },
+    { id: "ar", label: t.pricingBuilder.langAr },
+    { id: "ru", label: t.pricingBuilder.langRu },
+    { id: "uk", label: t.pricingBuilder.langUk },
+    { id: "sr", label: t.pricingBuilder.langSr },
   ];
 
   function tierForPrice(p: number) {
     if (p <= 350) return { name: t.pricingBuilder.tierStarter, price: 300 };
     if (p <= 750) return { name: t.pricingBuilder.tierCore, price: 600 };
     if (p <= 1250) return { name: t.pricingBuilder.tierGrowth, price: 1200 };
-    return { name: t.pricingBuilder.tierAutopilot, price: 1599 };
+    return { name: t.pricingBuilder.tierAutopilot, price: 2499 };
   }
 
   const [pages, setPages] = useState<number>(15);
-  const [selectedServices, setSelectedServices] = useState<string[]>([
-    "gbp",
-    "tracking",
-  ]);
-  const [language, setLanguage] = useState<string>("en-fr");
+  const [selectedServices, setSelectedServices] = useState<string[]>(["gbp", "tracking"]);
+  const [extraLanguages, setExtraLanguages] = useState<Set<string>>(new Set());
+  const [reviuzyAddon, setReviuzyAddon] = useState<boolean>(false);
+  const [domainShield, setDomainShield] = useState<boolean>(false);
+  const [domainSpeedBoost, setDomainSpeedBoost] = useState<boolean>(false);
+  const [dedicatedStrategist, setDedicatedStrategist] = useState<boolean>(false);
 
+  // Pricing model:
+  //   base + page scale + services -> snap to one of 4 tiers
+  //   + extra language fee ($50 per language beyond EN+FR-CA)
+  //   + Reviuzy add-on ($100, free on Agency)
+  //   + Premium Ops items: bundle ($79 for the trio) OR individual ($35 each), free on Agency
   const computed = useMemo(() => {
-    const base = 300; // Starter floor
-    const pageScale = Math.min(150, Math.max(0, (pages - 5) * 4)); // up to +150 for 50 pages
+    const base = 300;
+    const pageScale = Math.min(150, Math.max(0, (pages - 5) * 4));
     const servicesAdd = services
       .filter((s) => selectedServices.includes(s.id))
       .reduce((acc, s) => acc + s.monthlyAdd, 0);
-    const langMult = languages.find((l) => l.id === language)?.multiplier ?? 1;
-    const subtotal = (base + pageScale + servicesAdd) * langMult;
-    const clamped = Math.min(1299, Math.max(300, Math.round(subtotal / 50) * 50));
-    return { subtotal: Math.round(subtotal), clamped, tier: tierForPrice(clamped) };
+    const subtotal = base + pageScale + servicesAdd;
+    const tierPrice = Math.min(2499, Math.max(300, Math.round(subtotal / 50) * 50));
+    const tier = tierForPrice(tierPrice);
+    const isAgency = tier.price === 2499;
+
+    const languageCost = extraLanguages.size * EXTRA_LANGUAGE_PRICE;
+
+    const allThreeOps = domainShield && domainSpeedBoost && dedicatedStrategist;
+    const opsIndividualCount =
+      (domainShield ? 1 : 0) + (domainSpeedBoost ? 1 : 0) + (dedicatedStrategist ? 1 : 0);
+    const opsCost = isAgency
+      ? 0
+      : allThreeOps
+        ? PREMIUM_OPS_BUNDLE
+        : opsIndividualCount * PREMIUM_OPS_INDIVIDUAL;
+    const reviuzyCost = isAgency ? 0 : reviuzyAddon ? REVIUZY_ADDON_PRICE : 0;
+    const addonsCost = reviuzyCost + opsCost;
+    const clamped = tierPrice + languageCost + addonsCost;
+
+    return {
+      subtotal: Math.round(subtotal),
+      tierPrice,
+      languageCost,
+      reviuzyCost,
+      opsCost,
+      allThreeOps,
+      opsIndividualCount,
+      addonsCost,
+      clamped,
+      tier,
+      isAgency,
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pages, selectedServices, language]);
+  }, [
+    pages,
+    selectedServices,
+    extraLanguages,
+    reviuzyAddon,
+    domainShield,
+    domainSpeedBoost,
+    dedicatedStrategist,
+  ]);
 
   const toggleService = (id: string) => {
     setSelectedServices((prev) =>
       prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
     );
+  };
+
+  const toggleLanguage = (id: string) => {
+    setExtraLanguages((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   };
 
   const inputsRef = useRef<HTMLDivElement>(null);
@@ -135,143 +199,279 @@ export function PricingBuilderSection() {
         <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
           {/* Inputs */}
           <div ref={inputsRef} className="rounded-2xl border border-border/50 bg-card/40 backdrop-blur-md p-6 sm:p-7 space-y-7">
-              {/* Pages slider */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
-                    {t.pricingBuilder.pagesLabel}
-                  </label>
-                  <span className="font-display text-2xl tabular-nums">
-                    {pages}
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min={1}
-                  max={100}
-                  value={pages}
-                  onChange={(e) => setPages(Number(e.target.value))}
-                  className="w-full h-2 rounded-full appearance-none cursor-pointer bg-muted/40 accent-primary"
-                  style={{
-                    background: `linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--secondary)) ${pages}%, hsl(var(--muted)) ${pages}%)`,
-                  }}
-                />
-                <div className="flex justify-between mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
-                  <span>1</span>
-                  <span>50</span>
-                  <span>100+</span>
-                </div>
+            {/* Pages slider */}
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
+                  {t.pricingBuilder.pagesLabel}
+                </label>
+                <span className="font-display text-2xl tabular-nums">{pages}</span>
               </div>
+              <input
+                type="range"
+                min={1}
+                max={100}
+                value={pages}
+                onChange={(e) => setPages(Number(e.target.value))}
+                className="w-full h-2 rounded-full appearance-none cursor-pointer bg-muted/40 accent-primary"
+                style={{
+                  background: `linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--secondary)) ${pages}%, hsl(var(--muted)) ${pages}%)`,
+                }}
+              />
+              <div className="flex justify-between mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
+                <span>1</span>
+                <span>50</span>
+                <span>100+</span>
+              </div>
+            </div>
 
-              {/* Languages */}
-              <div>
-                <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 block mb-3">
+            {/* Languages — EN + FR-CA included, each extra adds $50/mo */}
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
                   {t.pricingBuilder.languagesLabel}
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {languages.map((l) => (
+                <span className="font-mono text-[10px] text-muted-foreground/60">
+                  +${EXTRA_LANGUAGE_PRICE}/{t.pricingBuilder.perLangSuffix}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="px-3 py-1.5 rounded-full text-xs font-medium border border-emerald-400/40 bg-emerald-500/[0.08] text-emerald-200">
+                  {t.pricingBuilder.langIncluded}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {extraLanguageOptions.map((l) => {
+                  const active = extraLanguages.has(l.id);
+                  return (
                     <button
                       key={l.id}
                       type="button"
-                      onClick={() => setLanguage(l.id)}
-                      className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all ${
-                        language === l.id
+                      onClick={() => toggleLanguage(l.id)}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all flex items-center justify-between gap-2 ${
+                        active
                           ? "border-primary bg-primary/10 text-primary"
                           : "border-border/40 bg-background/30 text-muted-foreground hover:border-border"
                       }`}
                     >
-                      {l.label}
+                      <span>{l.label}</span>
+                      <span className="font-mono text-[9px] opacity-70">+${EXTRA_LANGUAGE_PRICE}</span>
                     </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Services */}
-              <div>
-                <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 block mb-3">
-                  {t.pricingBuilder.servicesLabel}
-                </label>
-                <div className="space-y-2">
-                  {services.map((s) => {
-                    const active = selectedServices.includes(s.id);
-                    return (
-                      <label
-                        key={s.id}
-                        className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
-                          active
-                            ? "border-primary/40 bg-primary/[0.06]"
-                            : "border-border/40 bg-background/30 hover:bg-background/50"
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={active}
-                          onChange={() => toggleService(s.id)}
-                          className="mt-1 h-4 w-4 rounded border-border accent-primary cursor-pointer"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-foreground/95">
-                              {s.label}
-                            </span>
-                            {s.monthlyAdd > 0 && (
-                              <span className="font-mono text-[10px] text-muted-foreground/70">
-                                +${s.monthlyAdd}/mo
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-xs text-muted-foreground mt-0.5">
-                            {s.description}
-                          </p>
-                        </div>
-                      </label>
-                    );
-                  })}
-                </div>
+                  );
+                })}
               </div>
             </div>
 
+            {/* Services */}
+            <div>
+              <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 block mb-3">
+                {t.pricingBuilder.servicesLabel}
+              </label>
+              <div className="space-y-2">
+                {services.map((s) => {
+                  const active = selectedServices.includes(s.id);
+                  return (
+                    <label
+                      key={s.id}
+                      className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                        active
+                          ? "border-primary/40 bg-primary/[0.06]"
+                          : "border-border/40 bg-background/30 hover:bg-background/50"
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={active}
+                        onChange={() => toggleService(s.id)}
+                        className="mt-1 h-4 w-4 rounded border-border accent-primary cursor-pointer"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-foreground/95">{s.label}</span>
+                          {s.monthlyAdd > 0 && (
+                            <span className="font-mono text-[10px] text-muted-foreground/70">
+                              +${s.monthlyAdd}/mo
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-0.5">{s.description}</p>
+                      </div>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Add-ons section */}
+            <div className="pt-2 space-y-3">
+              <label className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 block">
+                {t.pricingBuilder.addOnSectionLabel}
+              </label>
+
+              {/* Reviuzy automation add-on */}
+              <AddonRow
+                checked={reviuzyAddon || computed.isAgency}
+                disabled={computed.isAgency}
+                onToggle={() => setReviuzyAddon((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.addOnLabel}
+                description={t.pricingBuilder.addOnDesc}
+                priceLabel={
+                  computed.isAgency
+                    ? t.pricingBuilder.addOnIncludedNote
+                    : `+$${REVIUZY_ADDON_PRICE}/${t.pricingBuilder.perMoSuffix}`
+                }
+                priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* Premium Ops trio */}
+              <div className="rounded-lg border border-cyan-400/30 bg-cyan-500/[0.04] p-3 space-y-2">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="text-sm font-semibold text-foreground/95">
+                    {t.pricingBuilder.premiumOpsTitle}
+                  </span>
+                  {computed.isAgency ? (
+                    <span className="font-mono text-[10px] text-emerald-300">
+                      {t.pricingBuilder.addOnIncludedNote}
+                    </span>
+                  ) : computed.allThreeOps ? (
+                    <span className="font-mono text-[10px] text-cyan-300">
+                      {t.pricingBuilder.bundleAppliedLabel} +${PREMIUM_OPS_BUNDLE}
+                    </span>
+                  ) : (
+                    <span className="font-mono text-[10px] text-muted-foreground/70">
+                      {t.pricingBuilder.bundleSavingsHint}
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {t.pricingBuilder.premiumOpsDesc}
+                </p>
+
+                <AddonRow
+                  checked={domainShield || computed.isAgency}
+                  disabled={computed.isAgency}
+                  onToggle={() => setDomainShield((v) => !v)}
+                  accent="cyan"
+                  title={t.pricingBuilder.domainShieldLabel}
+                  description={t.pricingBuilder.domainShieldDesc}
+                  priceLabel={
+                    computed.isAgency
+                      ? t.pricingBuilder.addOnIncludedNote
+                      : `+$${PREMIUM_OPS_INDIVIDUAL}/${t.pricingBuilder.perMoSuffix}`
+                  }
+                  priceTone={computed.isAgency ? "muted-included" : "default"}
+                  compact
+                />
+                <AddonRow
+                  checked={domainSpeedBoost || computed.isAgency}
+                  disabled={computed.isAgency}
+                  onToggle={() => setDomainSpeedBoost((v) => !v)}
+                  accent="cyan"
+                  title={t.pricingBuilder.domainSpeedBoostLabel}
+                  description={t.pricingBuilder.domainSpeedBoostDesc}
+                  priceLabel={
+                    computed.isAgency
+                      ? t.pricingBuilder.addOnIncludedNote
+                      : `+$${PREMIUM_OPS_INDIVIDUAL}/${t.pricingBuilder.perMoSuffix}`
+                  }
+                  priceTone={computed.isAgency ? "muted-included" : "default"}
+                  compact
+                />
+                <AddonRow
+                  checked={dedicatedStrategist || computed.isAgency}
+                  disabled={computed.isAgency}
+                  onToggle={() => setDedicatedStrategist((v) => !v)}
+                  accent="cyan"
+                  title={t.pricingBuilder.dedicatedStrategistLabel}
+                  description={t.pricingBuilder.dedicatedStrategistDesc}
+                  priceLabel={
+                    computed.isAgency
+                      ? t.pricingBuilder.addOnIncludedNote
+                      : `+$${PREMIUM_OPS_INDIVIDUAL}/${t.pricingBuilder.perMoSuffix}`
+                  }
+                  priceTone={computed.isAgency ? "muted-included" : "default"}
+                  compact
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Price output (sticky on desktop, follows scroll) */}
           <div ref={breakdownRef} className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-7 lg:sticky lg:top-24 lg:self-start">
-              <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
-                <Sliders className="w-4 h-4 text-primary" />
-                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
-                  {t.pricingBuilder.estimatedHeading}
+            <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
+              <Sliders className="w-4 h-4 text-primary" />
+              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80">
+                {t.pricingBuilder.estimatedHeading}
+              </span>
+            </div>
+
+            <div className="mb-5">
+              <div className="flex items-baseline gap-1.5 mb-2">
+                <span className="font-display text-2xl text-muted-foreground/70">$</span>
+                <span
+                  className={`font-display text-7xl leading-none tracking-tight bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent tabular-nums transition-transform duration-300 ${
+                    pricePulsing ? "scale-105" : "scale-100"
+                  }`}
+                >
+                  {computed.clamped}
                 </span>
+                <span className="font-mono text-xs text-muted-foreground/60 ml-1">/mo CAD</span>
               </div>
-
-              <div className="mb-5">
-                <div className="flex items-baseline gap-1.5 mb-2">
-                  <span className="font-display text-2xl text-muted-foreground/70">$</span>
-                  <span className="font-display text-7xl leading-none tracking-tight bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent tabular-nums">
-                    {computed.clamped}
-                  </span>
-                  <span className="font-mono text-xs text-muted-foreground/60 ml-1">
-                    /mo CAD
-                  </span>
-                </div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-                  {t.pricingBuilder.closestTier} · {computed.tier.name}
-                </div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+                {t.pricingBuilder.closestTier} · {computed.tier.name}
               </div>
+            </div>
 
-              <div className="space-y-2 mb-6 text-xs text-muted-foreground border-t border-border/30 pt-4">
-                <Row label={t.pricingBuilder.rowPages} value={`${pages}`} />
-                <Row label={t.pricingBuilder.rowLanguages} value={languages.find((l) => l.id === language)?.label ?? "."} />
-                <Row label={t.pricingBuilder.rowServices} value={`${selectedServices.length} ${t.pricingBuilder.servicesSelected}`} />
-              </div>
+            <div className="space-y-2 mb-6 text-xs text-muted-foreground border-t border-border/30 pt-4">
+              <Row label={t.pricingBuilder.rowPages} value={`${pages}`} />
+              <Row
+                label={t.pricingBuilder.rowLanguages}
+                value={
+                  extraLanguages.size === 0
+                    ? t.pricingBuilder.langIncluded
+                    : `${t.pricingBuilder.langIncluded} +${extraLanguages.size} (+$${computed.languageCost})`
+                }
+              />
+              <Row
+                label={t.pricingBuilder.rowServices}
+                value={`${selectedServices.length} ${t.pricingBuilder.servicesSelected}`}
+              />
+              <Row
+                label={t.pricingBuilder.addOnRowLabel}
+                value={
+                  computed.isAgency
+                    ? t.pricingBuilder.addOnIncludedNote
+                    : reviuzyAddon
+                      ? `${t.pricingBuilder.addOnRowOn} +$${REVIUZY_ADDON_PRICE}`
+                      : t.pricingBuilder.addOnRowOff
+                }
+              />
+              <Row
+                label={t.pricingBuilder.premiumOpsRowLabel}
+                value={
+                  computed.isAgency
+                    ? t.pricingBuilder.addOnIncludedNote
+                    : computed.allThreeOps
+                      ? `${t.pricingBuilder.bundleAppliedLabel} +$${PREMIUM_OPS_BUNDLE}`
+                      : computed.opsIndividualCount === 0
+                        ? t.pricingBuilder.addOnRowOff
+                        : `${computed.opsIndividualCount} × $${PREMIUM_OPS_INDIVIDUAL} = +$${computed.opsCost}`
+                }
+              />
+            </div>
 
-              <Button
-                onClick={() => navigate("/audit")}
-                className="w-full rounded-full font-semibold mb-2"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
-                  boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
-                }}
-              >
-                {t.pricingBuilder.startWith} {computed.tier.name}
-                <ArrowRight className="w-4 h-4 ml-2" />
+            <Button
+              onClick={() => navigate("/audit")}
+              className="w-full rounded-full font-semibold mb-2"
+              style={{
+                background:
+                  "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
+                boxShadow: "0 0 24px -8px hsl(var(--primary) / 0.5)",
+              }}
+            >
+              {t.pricingBuilder.startWith} {computed.tier.name}
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <p className="text-[10px] text-center text-muted-foreground/70 font-mono uppercase tracking-[0.18em]">
               {t.pricingBuilder.legal}
@@ -344,5 +544,77 @@ function Row({ label, value }: { label: string; value: string }) {
       <span className="text-muted-foreground/70">{label}</span>
       <span className="font-mono text-foreground tabular-nums">{value}</span>
     </div>
+  );
+}
+
+interface AddonRowProps {
+  checked: boolean;
+  disabled: boolean;
+  onToggle: () => void;
+  accent: "emerald" | "cyan";
+  title: string;
+  description: string;
+  priceLabel: string;
+  priceTone: "default" | "muted-included";
+  compact?: boolean;
+}
+
+function AddonRow({
+  checked,
+  disabled,
+  onToggle,
+  accent,
+  title,
+  description,
+  priceLabel,
+  priceTone,
+  compact,
+}: AddonRowProps) {
+  const accentBorder =
+    accent === "emerald"
+      ? checked
+        ? "border-emerald-400/50 bg-emerald-500/[0.08]"
+        : "border-border/40 bg-background/30 hover:bg-background/50"
+      : checked
+        ? "border-cyan-400/50 bg-cyan-500/[0.08]"
+        : "border-border/40 bg-background/30 hover:bg-background/50";
+  const accentClass =
+    accent === "emerald" ? "accent-emerald-500" : "accent-cyan-500";
+
+  return (
+    <label
+      className={`flex items-start gap-3 ${compact ? "p-2.5" : "p-4"} rounded-lg border cursor-pointer transition-all ${accentBorder} ${disabled ? "opacity-90" : ""}`}
+    >
+      <input
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        onChange={() => !disabled && onToggle()}
+        className={`mt-1 h-4 w-4 rounded border-border ${accentClass} cursor-pointer disabled:opacity-60`}
+      />
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <span
+            className={`${compact ? "text-sm" : "text-sm font-semibold"} text-foreground/95`}
+          >
+            {title}
+          </span>
+          <span
+            className={`font-mono text-[10px] tracking-wide ${
+              priceTone === "muted-included"
+                ? "text-emerald-300"
+                : "text-muted-foreground/70"
+            }`}
+          >
+            {priceLabel}
+          </span>
+        </div>
+        <p
+          className={`text-xs text-muted-foreground ${compact ? "mt-0.5" : "mt-1"} leading-relaxed`}
+        >
+          {description}
+        </p>
+      </div>
+    </label>
   );
 }

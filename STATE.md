@@ -1,10 +1,18 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 (all Phases 1-4 shipped end-to-end, live domain pending)
-**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `0d43a2d` (ailysagency) + `25a2491` (reviuzy)
-**Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy`; auto-deploy webhook is broken since 2026-04-26, see known limitations)
-**Pricing:** $300 / $600 / $1,200 / $1,599 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
-**GBP post cadence:** Starter 1/mo · Core 4/mo (1/wk) · Growth 8/mo (2/wk) · Autopilot 12/mo (3/wk).
+**Last updated:** 2026-04-27 (Phase 4 + Cofounders + DNS shipped; Tier 3 rebrand to Agency + add-ons in flight)
+**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `cf0f360` (ailysagency, before rebrand) + `25a2491` (reviuzy)
+**Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy`; auto-deploy webhook broken since 2026-04-26).
+**Custom domain (DNS done, redirect rule pending user manual step):** `ailysagency.ca` apex CNAME + www CNAME → ailysagency.pages.dev (proxied), Pages verification active. `ailysagency.com` AAAA placeholders for redirect rule. Redirect rule (`*ailysagency.com/* → https://ailysagency.ca/$1`, 301, preserve query) needs manual creation at https://dash.cloudflare.com/3b889a272b6925fa7cbc892a83999541/ailysagency.com/rules/redirect-rules.
+**Pricing (rebrand in progress):** $300 (Starter) / $600 (Core) / $1,200 (Growth) / **$2,499 (Agency, was Autopilot at $1,599)** CAD per month, month-to-month, 30-day satisfaction guarantee.
+**Add-ons (in flight, dispo on Starter / Core / Growth, bundled in Agency):**
+  - **Reviuzy reputation system** at +$100/mo (NFC reviews, AI review gen, contest engine with video, AI auto-replies, T&C generator, fake review detection — client self-serve; agency delivers GBP/citations/NAP/AI Visibility/AI Traffic in background)
+  - **Domain Shield** at +$35/mo individual
+  - **Domain Speed Boost** at +$35/mo individual
+  - **Dedicated strategist** at +$35/mo individual
+  - **Premium Ops trio bundle** (Shield + Boost + Strategist) at $79/mo (saves $26 vs $105 individual)
+**Languages (rebrand in progress):** EN + FR-CA included, each additional language (ES, ZH, AR, RU, UK, SR) at +$50/mo.
+**GBP post cadence:** Starter 1/mo · Core 4/mo · Growth 8/mo · Agency 12/mo.
 **Phase 2-4 Reviuzy features:** all shipped end-to-end across 8 admin pages + 7 edge functions + 4 migrations.
 
 ---

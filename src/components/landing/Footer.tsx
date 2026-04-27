@@ -76,7 +76,7 @@ export function Footer() {
               className="text-base text-muted-foreground leading-relaxed max-w-xl mb-5"
               itemProp="description"
             >
-              {APP_CONFIG.description}
+              {t.footer?.description ?? APP_CONFIG.description}
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
               <span>{t.footerExt.locationLine}</span>
