@@ -6,6 +6,8 @@ import { APP_CONFIG } from "@/config/app";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import { useLang } from "@/i18n/LangContext";
+import { TermsContentFr } from "./content/TermsContentFr";
 
 /**
  * Terms of Service for AiLys Agency.
@@ -20,6 +22,9 @@ import { Footer } from "@/components/landing/Footer";
  */
 
 export default function TermsOfService() {
+  const { lang } = useLang();
+  const isFr = lang === "fr";
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,8 +47,12 @@ export default function TermsOfService() {
   return (
     <>
       <SEOHead
-        title="Terms of Service"
-        description="Terms and conditions for the AiLys Agency consulting service and website."
+        title={isFr ? "Conditions de service" : "Terms of Service"}
+        description={
+          isFr
+            ? "Conditions générales du service de consultation et du site web d'AiLys Agency."
+            : "Terms and conditions for the AiLys Agency consulting service and website."
+        }
         canonicalUrl={`${APP_CONFIG.url}/terms`}
         noindex={false}
       />
@@ -57,12 +66,19 @@ export default function TermsOfService() {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Home
+              {isFr ? "Retour à l'accueil" : "Back to Home"}
             </Link>
-            <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
-            <p className="text-muted-foreground">Last updated: April 27, 2026</p>
+            <h1 className="text-4xl font-bold mb-4">
+              {isFr ? "Conditions de service" : "Terms of Service"}
+            </h1>
+            <p className="text-muted-foreground">
+              {isFr ? "Dernière mise à jour : 27 avril 2026" : "Last updated: April 27, 2026"}
+            </p>
           </div>
 
+          {isFr ? (
+            <TermsContentFr currentYear={currentYear} />
+          ) : (
           <div className="prose prose-invert max-w-none space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
@@ -190,6 +206,7 @@ export default function TermsOfService() {
               © {currentYear} AiLys Agency. All rights reserved.
             </p>
           </div>
+          )}
         </div>
         <Footer />
       </div>

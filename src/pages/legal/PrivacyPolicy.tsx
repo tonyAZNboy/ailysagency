@@ -6,6 +6,8 @@ import { APP_CONFIG } from "@/config/app";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import { useLang } from "@/i18n/LangContext";
+import { PrivacyContentFr } from "./content/PrivacyContentFr";
 
 /**
  * Privacy Policy for AiLys Agency.
@@ -21,6 +23,9 @@ import { Footer } from "@/components/landing/Footer";
  */
 
 export default function PrivacyPolicy() {
+  const { lang } = useLang();
+  const isFr = lang === "fr";
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,8 +48,12 @@ export default function PrivacyPolicy() {
   return (
     <>
       <SEOHead
-        title="Privacy Policy"
-        description="How AiLys Agency collects, uses, and protects your personal information under Loi 25, PIPEDA, GDPR, and CCPA."
+        title={isFr ? "Politique de confidentialité" : "Privacy Policy"}
+        description={
+          isFr
+            ? "Comment AiLys Agency collecte, utilise et protège vos renseignements personnels sous la Loi 25, la LPRPDE, le RGPD et le CCPA."
+            : "How AiLys Agency collects, uses, and protects your personal information under Loi 25, PIPEDA, GDPR, and CCPA."
+        }
         canonicalUrl={`${APP_CONFIG.url}/privacy`}
         noindex={false}
       />
@@ -58,12 +67,19 @@ export default function PrivacyPolicy() {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Home
+              {isFr ? "Retour à l'accueil" : "Back to Home"}
             </Link>
-            <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
-            <p className="text-muted-foreground">Last updated: April 27, 2026</p>
+            <h1 className="text-4xl font-bold mb-4">
+              {isFr ? "Politique de confidentialité" : "Privacy Policy"}
+            </h1>
+            <p className="text-muted-foreground">
+              {isFr ? "Dernière mise à jour : 27 avril 2026" : "Last updated: April 27, 2026"}
+            </p>
           </div>
 
+          {isFr ? (
+            <PrivacyContentFr currentYear={currentYear} />
+          ) : (
           <div className="prose prose-invert max-w-none space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Who We Are</h2>
@@ -220,6 +236,7 @@ export default function PrivacyPolicy() {
               © {currentYear} AiLys Agency. All rights reserved.
             </p>
           </div>
+          )}
         </div>
         <Footer />
       </div>
