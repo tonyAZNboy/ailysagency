@@ -68,6 +68,218 @@ export const HELP_CATEGORY_META: Record<
 export const helpArticles: HelpArticle[] = [
   // ─── Getting started ───────────────────────────────────────
   {
+    slug: "ai-visibility-engine",
+    title: "How the AI Visibility engine works (Share of Model, sentiment, freshness)",
+    excerpt:
+      "We probe 6 AI engines for how they answer queries about your brand, then turn their answers into a Share of Model dashboard, sentiment trends, and freshness alerts.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## What this covers
+
+Three deliverables bundled into one engine:
+
+1. **Share of Model**: how often your brand is mentioned by ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, and Bing Copilot when answering a relevant local query, vs. how often your competitors are mentioned.
+2. **Brand sentiment**: positive, neutral, or negative tone of any mention.
+3. **Citation freshness alerts**: notification when a previously-mentioned brand stops being cited, when a new mention appears, or when a brand's position in the ranked answer shifts materially.
+
+This is included in the Growth and Autopilot tiers, with manual on-demand probes included in Core.
+
+## How a probe works
+
+For each location and each query, our AiLys engine simulates how each of the 6 AI search engines would answer. Then it self-classifies its own answer along five axes: brandMentioned, brandPosition, competitorsMentioned, sentiment, and sentimentConfidence. The structured analysis is what powers the dashboards; the raw answer text is stored for audit.
+
+Default query is automatically generated from the location's category and city: "best [category] in [city]". You can override with a custom query for a specific run (e.g. "highest-rated dentist in Plateau open Saturday").
+
+We probe each engine separately because they will not always agree. ChatGPT may cite you while Bing Copilot does not. Knowing the spread is the point.
+
+## Cadence
+
+- **On-demand**: any tier can trigger a probe from the admin center
+- **Weekly automatic**: Growth tier (every Monday morning, default query)
+- **Daily automatic**: Autopilot tier
+- **Rate-limited**: 20 full probes per workspace per hour
+
+## What you see
+
+Open **Reviuzy, AI Visibility dashboard** in your workspace. Sections:
+
+- **Share of Model**: bar chart of mention rate per engine across the last 30 days
+- **Latest sentiment**: per-engine tone of the most recent mention
+- **Competitors mentioned**: rollup of competitor names that came up in the last run
+- **Freshness alerts**: per-engine flags ("Lost mention", "New mention", "Demoted", "Promoted")
+- **Named competitors**: editable list of direct competitors to ground the prompts (the engine knows who to look for)
+
+## Honest limitations
+
+The 6 engine probes use one underlying AI engine to simulate all 6 (driven by the engine name in the prompt). This is a tractable approximation, not a literal query of each engine's production API. Two reasons we ship this way:
+
+1. Native APIs for ChatGPT, Perplexity, Gemini, etc. each cost money and have separate rate limits. Bundling them into one provider lets us deliver the deliverable at the included tier price.
+2. The simulated answers correlate well with real-world variance in our internal benchmark, especially for the directional question that matters most ("are we mentioned?"). They correlate less well for exact ranking position, which we surface but do not over-promise on.
+
+Roadmap: we plan to swap individual engine simulations for native API calls as their pricing comes down. Your dashboard data will not change shape; only the source of the answer string will.
+
+## Failure modes
+
+If a probe fails for one engine (rare), that engine's row will say "No data" and the rest of the run completes. We retry the failed engine on the next probe.
+
+Sentiment classification is most reliable when the engine actually mentions the brand. When the engine says "I do not have enough information about [brand]", we record this as not_mentioned and skip sentiment.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le moteur de visibilité IA (Share of Model, sentiment, fraîcheur)",
+        excerpt:
+          "Nous sondons 6 moteurs IA sur la façon dont ils répondent aux requêtes concernant votre marque, puis transformons leurs réponses en tableau de bord Share of Model, tendances de sentiment et alertes de fraîcheur.",
+        body: `## Ce que ça couvre
+
+Trois livrables groupés dans un seul moteur :
+
+1. **Share of Model** : à quelle fréquence votre marque est mentionnée par ChatGPT, Perplexity, Claude, Gemini, Google AI Overview et Bing Copilot quand ils répondent à une requête locale pertinente, vs à quelle fréquence vos concurrents sont mentionnés.
+2. **Sentiment de marque** : ton positif, neutre, ou négatif de toute mention.
+3. **Alertes de fraîcheur des citations** : notification quand une marque précédemment mentionnée n'est plus citée, quand une nouvelle mention apparaît, ou quand la position d'une marque dans la réponse classée change significativement.
+
+Inclus dans les paliers Growth et Autopilot, avec des sondes manuelles à la demande incluses dans Core.
+
+## Comment fonctionne une sonde
+
+Pour chaque emplacement et chaque requête, notre moteur AiLys simule comment chacun des 6 moteurs de recherche IA répondrait. Puis il auto-classifie sa propre réponse selon cinq axes : brandMentioned, brandPosition, competitorsMentioned, sentiment, et sentimentConfidence. L'analyse structurée alimente les tableaux de bord ; le texte de réponse brut est conservé pour audit.
+
+La requête par défaut est générée automatiquement à partir de la catégorie et de la ville de l'emplacement : "meilleur [catégorie] à [ville]". Vous pouvez surcharger avec une requête personnalisée pour une exécution spécifique (ex: "dentiste le mieux noté au Plateau ouvert le samedi").
+
+Nous sondons chaque moteur séparément parce qu'ils ne sont pas toujours d'accord. ChatGPT peut vous citer alors que Bing Copilot ne le fait pas. Connaître l'écart, c'est le but.
+
+## Cadence
+
+- **À la demande** : n'importe quel palier peut déclencher une sonde depuis le centre d'administration
+- **Hebdomadaire automatique** : palier Growth (chaque lundi matin, requête par défaut)
+- **Quotidienne automatique** : palier Autopilot
+- **Limité en débit** : 20 sondes complètes par espace de travail par heure
+
+## Ce que vous voyez
+
+Ouvrez **Reviuzy, tableau de bord visibilité IA** dans votre espace de travail. Sections :
+
+- **Share of Model** : graphique en barres du taux de mention par moteur sur les 30 derniers jours
+- **Sentiment récent** : ton par moteur de la mention la plus récente
+- **Concurrents mentionnés** : récapitulatif des noms de concurrents apparus dans la dernière exécution
+- **Alertes de fraîcheur** : drapeaux par moteur ("Mention perdue", "Nouvelle mention", "Rétrogradé", "Promu")
+- **Concurrents nommés** : liste éditable des concurrents directs pour ancrer les prompts (le moteur sait qui chercher)
+
+## Limitations honnêtes
+
+Les 6 sondes de moteur utilisent un seul moteur IA sous-jacent pour simuler les 6 (piloté par le nom du moteur dans le prompt). C'est une approximation traitable, pas une interrogation littérale de l'API de production de chaque moteur. Deux raisons pour livrer ainsi :
+
+1. Les API natives pour ChatGPT, Perplexity, Gemini, etc. coûtent chacune de l'argent et ont des limites de débit séparées. Les regrouper dans un seul fournisseur nous permet de livrer le livrable au prix du palier inclus.
+2. Les réponses simulées corrèlent bien avec la variance du monde réel dans notre repère interne, surtout pour la question directionnelle qui compte le plus ("sommes-nous mentionnés ?"). Elles corrèlent moins bien pour la position de classement exacte, que nous montrons mais ne sur-promettons pas.
+
+Feuille de route : nous prévoyons de remplacer les simulations de moteur individuelles par des appels d'API natifs au fur et à mesure que leur prix baissera. La forme de vos données de tableau de bord ne changera pas ; seule la source de la chaîne de réponse changera.
+
+## Modes de défaillance
+
+Si une sonde échoue pour un moteur (rare), la ligne de ce moteur dira "Pas de données" et le reste de l'exécution se termine. Nous réessayons le moteur défaillant à la prochaine sonde.
+
+La classification de sentiment est plus fiable quand le moteur mentionne effectivement la marque. Quand le moteur dit "Je n'ai pas assez d'informations sur [marque]", nous enregistrons ceci comme not_mentioned et sautons le sentiment.`,
+      },
+    },
+  },
+  {
+    slug: "ai-traffic-tracker",
+    title: "How AI traffic conversion tracking works (Autopilot)",
+    excerpt:
+      "Drop a tiny script on your site to track which visits and conversions came from AI search engines vs traditional channels.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 4,
+    body: `## What this is
+
+Most analytics tools group AI search traffic under "direct" or "referral" buckets, hiding what is actually the fastest-growing acquisition channel of 2026. Our AI traffic tracker fixes that. It detects visits from ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot, and you.com (via referrer host AND utm_source matching), tags them with the engine name, and rolls them up into a per-engine conversion dashboard.
+
+This is included in the Autopilot tier as part of "AI traffic conversion tracker, UTM attribution from AI search to bookings".
+
+## How it works
+
+Two pieces:
+
+1. **Beacon snippet**: a 20-line script you paste before the closing &lt;/body&gt; tag on every page. On every page load, it inspects the URL's UTM parameters and the document referrer. If either matches an AI engine signature, it fires one POST to our ingest endpoint with the engine name, the UTM bundle, and the landing path. Cookieless, no PII collected.
+2. **Conversion call**: a one-line fetch you fire from your booking, signup, or purchase flow. Includes the conversion type ("booking", "signup", "purchase") and optional value. We tie it back to the visit.
+
+## What you see
+
+Open **Reviuzy, AI traffic dashboard** in your workspace. Top stats: total visits, AI-attributed visits, conversions, AI conversion rate. Per-engine breakdown bar chart. Recent visits feed showing landing path, engine, and conversion flag.
+
+## Setup (5 minutes)
+
+1. Open the AI traffic dashboard.
+2. Click "Generate token". Copy the value shown (it appears once, then we only store the SHA-256 hash).
+3. Click "Copy snippet" and paste it into your site's HTML or your tag manager.
+4. Add the conversion call to your booking/checkout flow.
+5. Wait 24 to 48 hours, then check the dashboard.
+
+## Why it matters
+
+Two reasons even Starter and Core clients eventually want this:
+
+1. You cannot prove ROI on AI visibility work without an attribution path. Knowing that 12 percent of bookings now come from AI engines (vs 0 percent six months ago) is the single number that justifies the agency relationship.
+2. Conversion rate per engine tells you which engines actually drive your business. If ChatGPT visits convert at 4 percent and Perplexity at 0.5 percent, you know where to weight your AEO and GEO work.
+
+## Privacy
+
+We do not store IP addresses or user agents in the clear. We store SHA-256 hashes only, used for rate limiting (so one botted IP cannot flood your dashboard). No third-party trackers in the snippet. The token in the snippet is rotatable from the dashboard at any time.
+
+## Failure modes
+
+The most common issue is the snippet placed in the &lt;head&gt; instead of before &lt;/body&gt;. The snippet relies on document.referrer being available, which it is by &lt;/body&gt; but not always in &lt;head&gt; on some platforms. If you see zero entries after a day, this is the first thing to check.
+
+Browser ad blockers will sometimes block the beacon. We accept this as a known limitation; the data still skews toward your real customers (ad blockers correlate with technical sophistication, which correlates with using ChatGPT for search anyway).`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le suivi de conversion du trafic IA (Autopilot)",
+        excerpt:
+          "Déposez un petit script sur votre site pour suivre quelles visites et conversions sont venues des moteurs de recherche IA vs des canaux traditionnels.",
+        body: `## C'est quoi
+
+La plupart des outils d'analyse regroupent le trafic de recherche IA dans les catégories "direct" ou "référence", cachant ce qui est en fait le canal d'acquisition à la croissance la plus rapide de 2026. Notre suivi de trafic IA corrige cela. Il détecte les visites depuis ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot et you.com (via correspondance de l'hôte référent ET de utm_source), les étiquette avec le nom du moteur, et les regroupe dans un tableau de bord de conversion par moteur.
+
+Inclus dans le palier Autopilot dans le cadre du "Suivi de conversion du trafic IA, attribution UTM des recherches IA aux réservations".
+
+## Comment ça fonctionne
+
+Deux pièces :
+
+1. **Script de balise** : un script de 20 lignes que vous collez avant la balise &lt;/body&gt; fermante sur chaque page. À chaque chargement de page, il inspecte les paramètres UTM de l'URL et le référent du document. Si l'un ou l'autre correspond à une signature de moteur IA, il déclenche un POST vers notre endpoint d'ingestion avec le nom du moteur, le bundle UTM et le chemin d'atterrissage. Sans cookies, aucune PII collectée.
+2. **Appel de conversion** : un fetch d'une ligne que vous déclenchez depuis votre flux de réservation, d'inscription ou d'achat. Inclut le type de conversion ("booking", "signup", "purchase") et la valeur optionnelle. Nous le rattachons à la visite.
+
+## Ce que vous voyez
+
+Ouvrez **Reviuzy, tableau de bord trafic IA** dans votre espace de travail. Stats du haut : visites totales, visites attribuées IA, conversions, taux de conversion IA. Répartition par moteur en graphique en barres. Flux des visites récentes montrant chemin d'atterrissage, moteur, et drapeau de conversion.
+
+## Configuration (5 minutes)
+
+1. Ouvrez le tableau de bord trafic IA.
+2. Cliquez "Générer un jeton". Copiez la valeur affichée (elle apparaît une fois, ensuite nous ne stockons que le hash SHA-256).
+3. Cliquez "Copier le script" et collez-le dans le HTML de votre site ou votre gestionnaire de balises.
+4. Ajoutez l'appel de conversion à votre flux de réservation/paiement.
+5. Attendez 24 à 48 heures, puis vérifiez le tableau de bord.
+
+## Pourquoi ça compte
+
+Deux raisons pour lesquelles même les clients Starter et Core finissent par vouloir ceci :
+
+1. Vous ne pouvez pas prouver le ROI sur le travail de visibilité IA sans un chemin d'attribution. Savoir que 12 pour cent des réservations viennent maintenant des moteurs IA (vs 0 pour cent il y a six mois) est le seul chiffre qui justifie la relation avec l'agence.
+2. Le taux de conversion par moteur vous dit quels moteurs font effectivement marcher votre entreprise. Si les visites ChatGPT convertissent à 4 pour cent et Perplexity à 0,5 pour cent, vous savez où peser votre travail AEO et GEO.
+
+## Vie privée
+
+Nous ne stockons pas les adresses IP ni les user agents en clair. Nous stockons seulement les hashs SHA-256, utilisés pour la limitation de débit (pour qu'un IP boté ne puisse pas inonder votre tableau de bord). Pas de traceurs tiers dans le script. Le jeton dans le script est rotable depuis le tableau de bord à tout moment.
+
+## Modes de défaillance
+
+Le problème le plus courant est le script placé dans le &lt;head&gt; au lieu de avant &lt;/body&gt;. Le script s'appuie sur document.referrer étant disponible, ce qui est le cas à &lt;/body&gt; mais pas toujours dans &lt;head&gt; sur certaines plateformes. Si vous voyez zéro entrée après une journée, c'est la première chose à vérifier.
+
+Les bloqueurs de publicité de navigateur bloquent parfois la balise. Nous l'acceptons comme une limitation connue ; les données penchent toujours vers vos vrais clients (les bloqueurs de publicité corrèlent avec la sophistication technique, qui corrèle de toute façon avec l'utilisation de ChatGPT pour la recherche).`,
+      },
+    },
+  },
+  {
     slug: "citation-building",
     title: "How citation building works (Core 5/mo, Growth 10+/mo)",
     excerpt:
