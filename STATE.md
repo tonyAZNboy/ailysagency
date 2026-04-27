@@ -1,7 +1,7 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 (Phase 4 + Cofounders + DNS shipped; Tier 3 rebrand to Agency + add-ons in flight)
-**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `cf0f360` (ailysagency, before rebrand) + `25a2491` (reviuzy)
+**Last updated:** 2026-04-27 PM (Tier 3 rebrand + neon UI + legal pages + AiLys-native chat advisor shipped; ANTHROPIC_API_KEY needs to be set)
+**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `0b763b3` (chat advisor + pricing rebrand + legal pages + mobile-first hard rule) + `25a2491` (reviuzy)
 **Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy`; auto-deploy webhook broken since 2026-04-26).
 **Custom domain (DNS done, redirect rule pending user manual step):** `ailysagency.ca` apex CNAME + www CNAME → ailysagency.pages.dev (proxied), Pages verification active. `ailysagency.com` AAAA placeholders for redirect rule. Redirect rule (`*ailysagency.com/* → https://ailysagency.ca/$1`, 301, preserve query) needs manual creation at https://dash.cloudflare.com/3b889a272b6925fa7cbc892a83999541/ailysagency.com/rules/redirect-rules.
 **Pricing (rebrand in progress):** $300 (Starter) / $600 (Core) / $1,200 (Growth) / **$2,499 (Agency, was Autopilot at $1,599)** CAD per month, month-to-month, 30-day satisfaction guarantee.
@@ -58,6 +58,8 @@
 | `places-lookup` | live | `GOOGLE_PLACES_API_KEY` (+ `PLACES_CACHE` KV) |
 | `places-nearby` | live | `GOOGLE_PLACES_API_KEY` (+ `PLACES_CACHE` KV) |
 | `newsletter-subscribe` | live | optional `RESEND_API_KEY` |
+| `chat-advisor` | live (returns offline fallback until key set) | **`ANTHROPIC_API_KEY` (REQUIRED)** + optional `CHAT_RATE_LIMIT` KV |
+| `cofounders-apply` | live | `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` |
 
 All functions return graceful sample fallback when their API key is missing.
 
