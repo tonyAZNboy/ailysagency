@@ -2793,4 +2793,352 @@ Tres opciones:
       },
     },
   },
+
+  // ─── Scope clarifications (added 2026-04-27) ─────────────────
+  {
+    slug: "contest-scope-client-runs-it",
+    title: "Who runs the monthly review contest? You do, with our tools",
+    excerpt:
+      "AiLys gives you the Reviuzy contest engine, the legal templates, the NFC cards, and the help docs. The contest itself is yours to run because every business has its own audience, prize, and timing.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 4,
+    body: `## What we deliver
+
+When you activate the Reviuzy reputation system (included in Agency, $100 add-on on other tiers), you get:
+
+- **The contest engine itself**. NFC tap-to-enter, AI-generated review submission, automatic participant tracking, video winner announcement.
+- **Legal templates**. Auto-generated Terms and Conditions tuned to your jurisdiction. Quebec rules, Canada-wide rules, US state-specific rules, EU/UK rules. Skill-testing question for Canadian and Mexican contests as required.
+- **NFC cards**. Branded with your logo. Shipped to your location ready to deploy at the counter.
+- **Setup support**. Your strategist walks you through the first contest in week one of onboarding.
+- **This help center**. Step-by-step playbooks for every stage.
+
+## What you do
+
+You run the contest. Specifically:
+
+- **Pick the prize**. A free service, a gift card, a product bundle. Something on-brand and meaningful to your customers.
+- **Pick the duration**. We recommend monthly (the 1st to the last day) so the cadence is predictable.
+- **Promote it**. In-store signage, your social channels, your email list, your staff handing out NFC cards.
+- **Pick the winner**. Reviuzy auto-draws fairly from eligible entries. You confirm.
+- **Hand over the prize**. Photo, video, social post. Reviuzy auto-generates a winner announcement video you can share.
+- **Repeat next month**. Fresh prize, fresh promotion.
+
+## Why we do not run the contest for you
+
+Three reasons:
+
+1. **Each business is different**. Your audience, your prize budget, your timing, your in-store presence. We cannot pick those for you without becoming a marketing agency, which is not our service.
+2. **Liability sits with you**. Contests have legal exposure (privacy, fairness, jurisdiction-specific rules). The business running the contest carries that. We provide the templates so you stay compliant, but the operator must be you.
+3. **Authentic local promotion beats centralized**. Your staff handing a card to a regular at the counter beats anything we could do from Montreal. The contest works because it is yours.
+
+## What if I do not have time to run a contest?
+
+That is normal in month one. Most clients pause the contest engine for the first 30 to 60 days while we get the foundations in place (GBP completeness, citation building, schema). Then in month two or three, with the operations stable, you launch your first contest.
+
+The contest is a velocity multiplier on review collection, not a base requirement. Your AI Visibility, citations, and GBP work all run regardless of whether the contest is active.
+
+## Need a different jurisdiction's rules?
+
+The Reviuzy T&C generator covers Canada (federal + Quebec specific), USA (state-by-state), Mexico, EU, UK, Australia, Brazil, India, and 12 other markets. If you operate in a market we do not yet cover, email us and we will research and add it within 2 weeks.`,
+    i18n: {
+      "fr-ca": {
+        title: "Qui opère le concours d'avis mensuel ? Vous, avec nos outils",
+        excerpt:
+          "AiLys vous fournit le moteur de concours Reviuzy, les modèles légaux, les cartes NFC et la documentation. Le concours lui-même, vous l'opérez, parce que chaque commerce a son propre public, son propre prix et son propre calendrier.",
+        body: `## Ce que nous livrons
+
+Quand vous activez le système Reviuzy (inclus dans Agency, ajoutable à 100 $ sur les autres plans) :
+
+- **Le moteur de concours**. Tap NFC pour participer, génération d'avis par IA, suivi automatique des participants, vidéo d'annonce du gagnant.
+- **Modèles légaux**. T&C générés automatiquement selon votre juridiction. Règles Quebec, règles canadiennes, règles américaines état par état, règles UE/UK. Question d'habileté mathématique requise au Canada et au Mexique.
+- **Cartes NFC**. Brandées avec votre logo. Livrées chez vous prêtes à déployer au comptoir.
+- **Support de mise en place**. Votre stratège vous guide dans le premier concours pendant la semaine 1 d'onboarding.
+- **Ce centre d'aide**. Guides étape par étape pour chaque phase.
+
+## Ce que vous faites
+
+Vous opérez le concours. Plus précisément :
+
+- **Choisir le prix**. Un service gratuit, une carte cadeau, un produit. Quelque chose qui colle à votre marque et qui parle à vos clients.
+- **Choisir la durée**. On recommande mensuel (du 1er au dernier jour) pour que la cadence soit prévisible.
+- **Le promouvoir**. Affichage en succursale, vos réseaux sociaux, votre liste courriel, votre équipe qui remet les cartes NFC.
+- **Tirer le gagnant**. Reviuzy fait le tirage automatique parmi les participants éligibles. Vous confirmez.
+- **Remettre le prix**. Photo, vidéo, publication sociale. Reviuzy génère automatiquement la vidéo d'annonce.
+- **Recommencer le mois suivant**. Nouveau prix, nouvelle promotion.
+
+## Pourquoi on n'opère pas le concours pour vous
+
+Trois raisons :
+
+1. **Chaque commerce est différent**. Votre public, votre budget de prix, votre calendrier, votre présence en succursale. On ne peut pas choisir ça à votre place sans devenir une agence marketing, ce qui n'est pas notre service.
+2. **La responsabilité légale est à vous**. Les concours impliquent des risques (vie privée, équité, règles juridictionnelles). Le commerce qui opère le concours porte cette responsabilité. On vous fournit les modèles pour rester conforme, mais l'opérateur doit être vous.
+3. **La promotion locale authentique bat la promotion centralisée**. Votre équipe qui remet une carte à un client régulier au comptoir bat tout ce qu'on pourrait faire depuis Montréal. Le concours marche parce qu'il est à vous.
+
+## Et si je n'ai pas le temps d'opérer un concours ?
+
+C'est normal au mois 1. La plupart des clients mettent le moteur de concours en pause les 30 à 60 premiers jours pendant qu'on installe les fondations (GBP complet, citations, schema). Au mois 2 ou 3, avec les opérations stables, vous lancez votre premier concours.
+
+Le concours est un multiplicateur de vélocité sur la collecte d'avis, pas une exigence de base. Votre AI Visibility, vos citations et votre travail GBP roulent peu importe que le concours soit actif ou non.
+
+## Besoin d'une autre juridiction ?
+
+Le générateur de T&C Reviuzy couvre le Canada (fédéral + Quebec spécifique), les USA (état par état), le Mexique, l'UE, le UK, l'Australie, le Brésil, l'Inde, et 12 autres marchés. Si vous opérez dans un marché qu'on ne couvre pas encore, envoyez-nous un courriel et on l'ajoute en 2 semaines.`,
+      },
+    },
+  },
+  {
+    slug: "photo-flow-client-uploads-via-app",
+    title: "How GBP photos work: you take them, our app publishes them",
+    excerpt:
+      "Real photos from your phone are an E-E-A-T 'experience' signal that AI engines weight heavily. We do not source photos for you. You upload via the Reviuzy app at your tier-gated monthly quota, and the app handles the rest.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 3,
+    body: `## Why client-sourced photos matter
+
+AI search engines (Google AI Overviews, ChatGPT with image context, Perplexity) read your Google Business Profile photos as a signal of how recently and authentically your business is operating. Two patterns trigger trust loss:
+
+1. **Stock photos**. AI engines have become very good at detecting them. A stock photo of "smiling dentist with patient" tells the engine you have not bothered to show your real practice.
+2. **Stale photos**. If your last photo is from 2022, AI engines weigh you as inactive.
+
+Real photos taken on your phone, with EXIF metadata showing recent dates and your location, score the highest "experience" signal in the Google E-E-A-T rubric. You cannot fake this. We will not try.
+
+## The monthly quota by tier
+
+Each tier comes with a built-in monthly upload quota in the Reviuzy app:
+
+- **Starter $300**: 1 photo per month
+- **Core $600**: 2 photos per month
+- **Growth $1,200**: 4 photos per month
+- **Agency $2,499**: 8 photos per month
+
+The counter resets the 1st of every month. Unused slots do not roll over.
+
+## How to upload
+
+1. Open the **Reviuzy app** on your phone (or login at reviuzy.com).
+2. Go to **GBP > Photos**.
+3. The app shows you "Slots remaining: X of Y this month".
+4. Tap **Upload** and either pick from your camera roll or take a photo on the spot.
+5. The app extracts EXIF (date, location, device) automatically.
+6. AI generates a caption and alt-text aligned with your business profile and language. You can edit before publishing.
+7. The photo enters the queue. Your strategist QAs it (typically same day) and Reviuzy publishes to your Google Business Profile via the official API.
+
+## What kinds of photos work best
+
+Order of impact for AI search:
+
+1. **Inside your business**. The waiting room, the dining area, the workshop, the salon chair. Shows the place is real and active.
+2. **Your team**. Group shot, owner shot, "meet your hygienist" portraits. Builds the "people" signal of E-E-A-T.
+3. **Work in progress / work delivered**. The plate at the restaurant, the smile after dental cleaning, the haircut, the contract signed. Connects your business to the outcome.
+4. **Your storefront from the street**. Helps the entity-graph match your physical location.
+5. **Seasonal / event photos**. New menu launch, holiday decor, a community event you sponsored. Keeps the profile feeling fresh.
+
+Avoid: logos as photos, stock images, screenshots of reviews, photos older than 6 months without context.
+
+## What happens if I do not upload?
+
+Your strategist will nudge you mid-month if the slot is unused. We do NOT auto-publish stock photos to fill the gap, because that would hurt your AI visibility instead of helping it. Empty slots simply pass.
+
+## What if I have more photos than my quota allows?
+
+Your photo collection is not capped, only your monthly publish rate is. You can upload as many as you want into the Reviuzy library (drafts), and we publish from the queue at the tier rate. Upgrade to a higher tier if you have a lot of fresh visual content and want to push more per month.`,
+    i18n: {
+      "fr-ca": {
+        title: "Comment fonctionnent les photos GBP : vous les prenez, notre app les publie",
+        excerpt:
+          "Les vraies photos prises sur votre téléphone sont un signal d'expérience E-E-A-T fortement pondéré par les moteurs IA. On ne va pas chercher de photos pour vous. Vous les téléversez via l'app Reviuzy selon votre quota mensuel par tier, et l'app gère le reste.",
+        body: `## Pourquoi les photos venant du client sont importantes
+
+Les moteurs IA (Google AI Overviews, ChatGPT avec contexte image, Perplexity) lisent les photos de votre Google Business Profile comme un signal de fraîcheur et d'authenticité. Deux patterns détruisent la confiance :
+
+1. **Photos stock**. Les moteurs IA sont devenus très bons pour les détecter. Une photo stock de "dentiste souriant avec patient" leur dit que vous n'avez pas pris la peine de montrer votre vraie pratique.
+2. **Photos périmées**. Si votre dernière photo date de 2022, les moteurs IA vous considèrent inactif.
+
+Les vraies photos prises sur votre téléphone, avec métadonnées EXIF montrant des dates récentes et votre localisation, obtiennent le meilleur signal "experience" dans la grille E-E-A-T de Google. Ça ne se fausse pas. On n'essaiera pas.
+
+## Le quota mensuel par tier
+
+Chaque plan inclut un quota mensuel de téléversements dans l'app Reviuzy :
+
+- **Starter 300 $** : 1 photo par mois
+- **Core 600 $** : 2 photos par mois
+- **Growth 1 200 $** : 4 photos par mois
+- **Agency 2 499 $** : 8 photos par mois
+
+Le compteur recommence le 1er de chaque mois. Les slots inutilisés ne se reportent pas.
+
+## Comment téléverser
+
+1. Ouvrez l'**app Reviuzy** sur votre téléphone (ou loguez-vous sur reviuzy.com).
+2. Allez à **GBP > Photos**.
+3. L'app affiche "Slots restants : X de Y ce mois".
+4. Tapez **Téléverser** et choisissez de votre rouleau de caméra ou prenez une photo sur le moment.
+5. L'app extrait l'EXIF (date, localisation, appareil) automatiquement.
+6. L'IA génère une légende et un alt-text alignés avec votre profil de commerce et votre langue. Vous pouvez éditer avant de publier.
+7. La photo entre dans la queue. Votre stratège fait le QA (généralement le jour même) et Reviuzy publie sur votre Google Business Profile via l'API officielle.
+
+## Quels types de photos fonctionnent le mieux
+
+Ordre d'impact pour le AI search :
+
+1. **L'intérieur de votre commerce**. Salle d'attente, salle à manger, atelier, fauteuil de salon. Prouve que la place est réelle et active.
+2. **Votre équipe**. Photo de groupe, photo du proprio, portraits "rencontrez votre hygiéniste". Construit le signal "personnes" de E-E-A-T.
+3. **Travail en cours / travail livré**. L'assiette au resto, le sourire après le nettoyage dentaire, la coupe, le contrat signé. Connecte votre commerce au résultat.
+4. **Votre devanture vue de la rue**. Aide le graphe d'entités à confirmer votre emplacement physique.
+5. **Photos saisonnières / d'événements**. Lancement de menu, déco des fêtes, événement communautaire que vous avez commandité. Garde le profil frais.
+
+À éviter : logos comme photos, images stock, captures d'écran d'avis, photos de plus de 6 mois sans contexte.
+
+## Et si je ne téléverse pas ?
+
+Votre stratège vous relance en mi-mois si le slot est inutilisé. On ne publie PAS de photos stock pour combler le vide, parce que ça nuirait à votre visibilité IA au lieu d'aider. Les slots vides passent simplement.
+
+## Et si j'ai plus de photos que mon quota ?
+
+Votre collection n'a pas de plafond, seulement votre cadence mensuelle de publication. Vous pouvez téléverser autant de drafts que vous voulez dans la bibliothèque Reviuzy, et on publie de la queue au rythme du tier. Passez à un tier supérieur si vous avez beaucoup de contenu visuel frais et voulez en pousser plus par mois.`,
+      },
+    },
+  },
+  {
+    slug: "why-no-link-building",
+    title: "Why AiLys does not do active link-building (and why that helps you)",
+    excerpt:
+      "We do not run paid PR, journalist outreach, Wikipedia article creation, or Reddit participation campaigns. We do entity-graph work via Wikidata, citations, GBP, and schema. Here is why that is actually better positioning for AI search.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## What we do not do
+
+If you have worked with traditional SEO agencies, you have probably seen line items like:
+
+- "5 backlinks per month from DR 50+ publications"
+- "Wikipedia article creation"
+- "Reddit thread participation"
+- "Digital PR campaigns"
+- "HARO sourcing for journalist mentions"
+
+We do not promise any of those. Three reasons follow.
+
+## Why active link-building is a fragile service
+
+**1. Most agencies that promise it do not actually deliver it.** The link-building industry has a long tail of bait-and-switch: paid links from low-quality networks, AI-generated guest posts on shell sites, link exchanges that Google penalizes when they detect them. The result for clients is either no value, or worse, a manual penalty.
+
+**2. The activities that genuinely move the needle require expert humans.** Wikipedia editing requires a wikipedian who understands notability, sourcing, and neutral point of view. Reddit voice cannot be outsourced or botted because Reddit detects it within days. Real journalist outreach requires real relationships built over years. None of these scale via SaaS.
+
+**3. AI search engines weight backlinks less than they weight entity-graph signals.** Google still uses links. ChatGPT and Perplexity weight Wikidata, structured data, fresh citations, and reviews much more heavily. The signal mix has moved.
+
+## What we do instead
+
+Our deliverables are tuned to the AI search era, not the 2015 SEO era:
+
+**Citation building**. We get your business listed on 5 to 15 high-authority directories per month (Yelp, BBB, Yellow Pages, Foursquare, Apple Business Connect, Bing Places, industry-specific sites). NAP-consistent, verified, with backlinks generated as a natural side effect.
+
+**Wikidata structured-data work**. We create your business as a Wikidata entity (Q-number) with proper external IDs (Google Place ID, Yelp ID, GBP CID, website, founder, founded date). LLMs read Wikidata heavily because it is structured and verifiable. This is the closest thing to "Wikipedia for AI search" that we offer, and it is significantly more accessible than Wikipedia (no notability gatekeeping).
+
+**GBP optimization**. Your Google Business Profile is itself the most important "backlink" you have. We complete every attribute, optimize categories, manage Q&A, schedule weekly posts, and refresh photos at your tier quota.
+
+**Schema layers**. JSON-LD blocks for LocalBusiness, Service, FAQPage, Person (for author bylines), BreadcrumbList. This is what AI engines parse to understand your business structure and offerings.
+
+**E-E-A-T content**. Real bylines, real expertise markers, structured data for credentials and awards.
+
+## What about the backlinks I get from these activities?
+
+You get them. We just do not promise them. Most directory citations come with a clickable link to your site (so does Wikidata, when properly sourced). These are organic, high-trust backlinks. We track them in your monthly report under "passive backlinks earned" so you have visibility, but we do not gate the deliverable on hitting a specific count.
+
+## What if I really need a link-building campaign?
+
+Two cases come up:
+
+1. **You are launching a brand and need press coverage**. We refer you to a digital PR specialist (we have 2 partners we trust). They will run a 90-day campaign for $5,000 to $15,000 depending on scope. Separate engagement from your AiLys plan.
+2. **You are recovering from a Google penalty and need link disavowals + clean replacements**. This is also outside our scope. We refer you to a technical SEO specialist for the disavow file and a link-building specialist for the rebuild. Again separate engagement.
+
+We will not pretend to deliver something we cannot deliver well. That is the rule.
+
+## How do I know AiLys is right for me?
+
+If your situation is one of the following, we are a strong fit:
+
+- Local business that needs to be cited by AI engines for "best [vertical] in [city]" queries
+- Brand or agency reseller that needs a multi-tenant AI Visibility dashboard
+- Multi-location operator who needs consistent NAP and entity-graph work at scale
+- Any business that wants to layer AI search optimization on top of an existing site (not a website redesign)
+
+If your situation is one of the following, we are NOT the right fit (and we will say so honestly):
+
+- You need a marketing agency that runs paid ads, designs creative, manages social calendars. We are SEO and AI search only.
+- You need a website built or redesigned. We work on the site you have.
+- You need active link-building or paid PR. Refer to a specialist as described above.
+- You expect guaranteed first-page rankings or guaranteed AI citation counts. AI engines are third-party black boxes; nobody can promise that. We promise delivery (citations, schema, posts, content) and measure outcomes monthly.`,
+    i18n: {
+      "fr-ca": {
+        title: "Pourquoi AiLys ne fait pas de link-building actif (et pourquoi ça vous aide)",
+        excerpt:
+          "On ne fait pas de PR payée, de démarchage de journalistes, de création d'articles Wikipedia, ni de campagnes de participation Reddit. On fait du travail de graphe d'entités via Wikidata, citations, GBP et schema. Voici pourquoi c'est en fait un meilleur positionnement pour le AI search.",
+        body: `## Ce qu'on ne fait pas
+
+Si vous avez travaillé avec des agences SEO traditionnelles, vous avez probablement vu des lignes comme :
+
+- "5 backlinks par mois de publications DR 50+"
+- "Création d'article Wikipedia"
+- "Participation à des fils Reddit"
+- "Campagnes de PR digitale"
+- "Sourcing HARO pour mentions de journalistes"
+
+On ne promet aucune de ces lignes. Trois raisons.
+
+## Pourquoi le link-building actif est un service fragile
+
+**1. La plupart des agences qui le promettent ne le livrent pas vraiment.** L'industrie du link-building a une longue traînée de bait-and-switch : liens payants venant de réseaux de faible qualité, articles invités générés par IA sur des sites coquilles, échanges de liens que Google pénalise quand il les détecte. Le résultat pour les clients est soit aucune valeur, soit pire, une pénalité manuelle.
+
+**2. Les activités qui font vraiment bouger l'aiguille demandent des humains experts.** L'édition Wikipedia demande un wikipédien qui comprend la notabilité, le sourcing, et le point de vue neutre. La voix Reddit ne peut pas être externalisée ou bottée parce que Reddit la détecte en quelques jours. Le démarchage journalistique réel demande de vraies relations construites sur des années. Aucune de ces choses ne scale via SaaS.
+
+**3. Les moteurs de recherche IA pondèrent les backlinks moins que les signaux de graphe d'entités.** Google utilise encore les liens. ChatGPT et Perplexity pondèrent Wikidata, les données structurées, les citations fraîches et les avis beaucoup plus fortement. Le mix de signaux a changé.
+
+## Ce qu'on fait à la place
+
+Nos livrables sont accordés à l'ère du AI search, pas à l'ère SEO 2015 :
+
+**Citation building**. On fait inscrire votre commerce sur 5 à 15 annuaires haute autorité par mois (Yelp, BBB, Pages Jaunes, Foursquare, Apple Business Connect, Bing Places, sites verticaux). NAP-cohérent, vérifié, avec des backlinks générés comme effet de bord naturel.
+
+**Travail de données structurées Wikidata**. On crée votre commerce comme entité Wikidata (Q-number) avec les bons IDs externes (Google Place ID, Yelp ID, GBP CID, site web, fondateur, date de fondation). Les LLM lisent Wikidata fortement parce que c'est structuré et vérifiable. C'est l'équivalent le plus proche de "Wikipedia pour AI search" qu'on offre, et c'est nettement plus accessible que Wikipedia (pas de barrière de notabilité).
+
+**Optimisation GBP**. Votre Google Business Profile est en lui-même le "backlink" le plus important que vous ayez. On remplit chaque attribut, optimise les catégories, gère les Q&R, planifie les publications hebdomadaires et rafraîchit les photos selon votre quota de tier.
+
+**Couches de schema**. Blocs JSON-LD pour LocalBusiness, Service, FAQPage, Person (pour les bylines d'auteurs), BreadcrumbList. C'est ce que les moteurs IA parsent pour comprendre la structure de votre commerce et vos offres.
+
+**Contenu E-E-A-T**. Vraies signatures d'auteurs, vrais marqueurs d'expertise, données structurées pour les références et prix.
+
+## Et les backlinks que je gagne via ces activités ?
+
+Vous les avez. On ne les promet juste pas. La plupart des citations annuaires viennent avec un lien cliquable vers votre site (pareil pour Wikidata, quand bien sourcé). Ce sont des backlinks organiques de haute confiance. On les track dans votre rapport mensuel sous "backlinks passifs gagnés" pour que vous ayez la visibilité, mais on ne gate pas le livrable sur un compte spécifique.
+
+## Et si j'ai vraiment besoin d'une campagne de link-building ?
+
+Deux cas se présentent :
+
+1. **Vous lancez une marque et avez besoin de couverture presse**. On vous réfère à un spécialiste de PR digitale (on a 2 partenaires en qui on a confiance). Ils opèrent une campagne de 90 jours à 5 000 $ à 15 000 $ selon la portée. Engagement séparé de votre plan AiLys.
+2. **Vous récupérez d'une pénalité Google et avez besoin de désaveux de liens + remplacements propres**. C'est aussi hors de notre portée. On vous réfère à un spécialiste SEO technique pour le fichier de désaveu et à un spécialiste de link-building pour la reconstruction. Encore engagement séparé.
+
+On ne prétendra pas livrer quelque chose qu'on ne peut pas livrer bien. C'est la règle.
+
+## Comment savoir si AiLys est fait pour moi ?
+
+Si votre situation est une des suivantes, on est un excellent match :
+
+- Commerce local qui doit être cité par les moteurs IA pour les requêtes "meilleur [vertical] à [ville]"
+- Marque ou agence revendeur qui a besoin d'un dashboard AI Visibility multi-tenant
+- Opérateur multi-emplacements qui a besoin de cohérence NAP et de travail de graphe d'entités à l'échelle
+- Tout commerce qui veut superposer l'optimisation AI search sur un site existant (pas une refonte)
+
+Si votre situation est une des suivantes, on n'est PAS le bon match (et on vous le dira honnêtement) :
+
+- Vous avez besoin d'une agence marketing qui fait des pubs payantes, du design créatif, de la gestion de calendriers sociaux. On est SEO et AI search seulement.
+- Vous avez besoin de construire ou refaire un site web. On travaille sur le site que vous avez.
+- Vous avez besoin de link-building actif ou de PR payée. Référez-vous à un spécialiste comme décrit plus haut.
+- Vous attendez un classement garanti en première page ou un nombre garanti de citations IA. Les moteurs IA sont des boîtes noires tierces ; personne ne peut promettre ça. On promet la livraison (citations, schema, publications, contenu) et on mesure les résultats mensuellement.`,
+      },
+    },
+  },
 ];
