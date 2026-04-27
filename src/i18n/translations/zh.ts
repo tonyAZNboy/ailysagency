@@ -332,7 +332,7 @@ export const zh = {
     button: "加入Beta发布",
   },
   footer: {
-    description: "AiLys Agency 是一家位于魁北克的 AI 搜索声誉机构。我们通过 AEO、GEO 和 E-E-A-T 工作,让本地商家被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 引用。",
+    description: "AiLys Agency 是一家位于魁北克的 AI 搜索声誉机构。我们通过技术 SEO、AEO、GEO 和 E-E-A-T 工作,让本地商家被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 引用。",
     product: "产品",
     company: "公司",
     legal: "法律",

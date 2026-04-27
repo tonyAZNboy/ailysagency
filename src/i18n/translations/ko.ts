@@ -332,7 +332,7 @@ export const ko = {
     button: "베타 릴리스 참여하기",
   },
   footer: {
-    description: "AiLys Agency는 Quebec 기반의 AI 검색 평판 에이전시입니다. AEO, GEO, E-E-A-T 작업을 통해 ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot이 로컬 비즈니스를 인용하도록 만듭니다.",
+    description: "AiLys Agency는 Quebec 기반의 AI 검색 평판 에이전시입니다. 테크니컬 SEO, AEO, GEO, E-E-A-T 작업을 통해 ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot이 로컬 비즈니스를 인용하도록 만듭니다.",
     product: "제품",
     company: "회사",
     legal: "법적 정보",

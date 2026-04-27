@@ -332,7 +332,7 @@ export const tr = {
     button: "Beta Release'e Katılın",
   },
   footer: {
-    description: "AiLys Agency, Quebec merkezli bir AI arama itibarı ajansıdır. Yerel işletmelerin AEO, GEO ve E-E-A-T çalışmaları yoluyla ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot tarafından alıntılanmasını sağlıyoruz.",
+    description: "AiLys Agency, Quebec merkezli bir AI arama itibarı ajansıdır. Yerel işletmelerin teknik SEO, AEO, GEO ve E-E-A-T çalışmaları yoluyla ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot tarafından alıntılanmasını sağlıyoruz.",
     product: "Ürün",
     company: "Şirket",
     legal: "Hukuki",

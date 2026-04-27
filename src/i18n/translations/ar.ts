@@ -332,7 +332,7 @@ export const ar = {
     button: "انضم للإصدار التجريبي",
   },
   footer: {
-    description: "AiLys Agency وكالة سمعة في البحث بالذكاء الاصطناعي مقرها Quebec. نحرص على أن تُذكر الأعمال المحلية في إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot عبر عمل AEO و GEO و E-E-A-T.",
+    description: "AiLys Agency وكالة سمعة في البحث بالذكاء الاصطناعي مقرها Quebec. نحرص على أن تُذكر الأعمال المحلية في إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot عبر عمل SEO تقني و AEO و GEO و E-E-A-T.",
     product: "المنتج",
     company: "الشركة",
     legal: "قانوني",

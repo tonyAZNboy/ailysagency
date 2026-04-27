@@ -332,7 +332,7 @@ export const pl = {
     button: "Dołącz do beta release",
   },
   footer: {
-    description: "AiLys Agency to agencja reputacji w wyszukiwaniu AI z siedzibą w Quebec. Sprawiamy, że lokalne firmy są cytowane przez ChatGPT, Perplexity, Claude, Gemini, Google AIO i Bing Copilot dzięki pracy AEO, GEO i E-E-A-T.",
+    description: "AiLys Agency to agencja reputacji w wyszukiwaniu AI z siedzibą w Quebec. Sprawiamy, że lokalne firmy są cytowane przez ChatGPT, Perplexity, Claude, Gemini, Google AIO i Bing Copilot dzięki pracy technicznej SEO, AEO, GEO i E-E-A-T.",
     product: "Produkt",
     company: "Firma",
     legal: "Prawne",

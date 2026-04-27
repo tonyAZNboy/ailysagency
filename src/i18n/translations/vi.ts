@@ -332,7 +332,7 @@ export const vi = {
     button: "Tham gia Beta Release",
   },
   footer: {
-    description: "AiLys Agency là agency danh tiếng tìm kiếm AI có trụ sở tại Quebec. Chúng tôi giúp doanh nghiệp địa phương được trích dẫn bởi ChatGPT, Perplexity, Claude, Gemini, Google AIO và Bing Copilot thông qua công việc AEO, GEO và E-E-A-T.",
+    description: "AiLys Agency là agency danh tiếng tìm kiếm AI có trụ sở tại Quebec. Chúng tôi giúp doanh nghiệp địa phương được trích dẫn bởi ChatGPT, Perplexity, Claude, Gemini, Google AIO và Bing Copilot thông qua công việc SEO kỹ thuật, AEO, GEO và E-E-A-T.",
     product: "Sản phẩm",
     company: "Công ty",
     legal: "Pháp lý",

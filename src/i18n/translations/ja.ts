@@ -332,7 +332,7 @@ export const ja = {
     button: "ベータリリースに参加",
   },
   footer: {
-    description: "AiLys Agency は Quebec を拠点とする AI 検索レピュテーション・エージェンシーです。AEO・GEO・E-E-A-T の取り組みを通じて、ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot にローカルビジネスを引用させます。",
+    description: "AiLys Agency は Quebec を拠点とする AI 検索レピュテーション・エージェンシーです。テクニカル SEO・AEO・GEO・E-E-A-T の取り組みを通じて、ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot にローカルビジネスを引用させます。",
     product: "製品",
     company: "会社",
     legal: "法的情報",

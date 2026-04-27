@@ -332,7 +332,7 @@ export const ru = {
     button: "Присоединиться к бета-релизу",
   },
   footer: {
-    description: "AiLys Agency, агентство репутации в AI-поиске из Квебека. Мы добиваемся упоминания локальных бизнесов в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot через работу AEO, GEO и E-E-A-T.",
+    description: "AiLys Agency, агентство репутации в AI-поиске из Квебека. Мы добиваемся упоминания локальных бизнесов в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot через технический SEO, AEO, GEO и E-E-A-T.",
     product: "Продукт",
     company: "Компания",
     legal: "Правовая информация",

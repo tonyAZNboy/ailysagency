@@ -332,7 +332,7 @@ export const hi = {
     button: "बीटा रिलीज़ में शामिल हों",
   },
   footer: {
-    description: "AiLys Agency एक Quebec-स्थित AI सर्च रेपुटेशन एजेंसी है। हम AEO, GEO और E-E-A-T कार्य के माध्यम से ChatGPT, Perplexity, Claude, Gemini, Google AIO और Bing Copilot द्वारा स्थानीय व्यवसायों को उद्धृत कराते हैं।",
+    description: "AiLys Agency एक Quebec-स्थित AI सर्च रेपुटेशन एजेंसी है। हम तकनीकी SEO, AEO, GEO और E-E-A-T कार्य के माध्यम से ChatGPT, Perplexity, Claude, Gemini, Google AIO और Bing Copilot द्वारा स्थानीय व्यवसायों को उद्धृत कराते हैं।",
     product: "उत्पाद",
     company: "कंपनी",
     legal: "कानूनी",
