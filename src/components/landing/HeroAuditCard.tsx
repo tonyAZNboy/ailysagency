@@ -110,9 +110,9 @@ export function HeroAuditCard() {
         }}
       />
 
-      {/* Main card — tighter padding on mobile */}
+      {/* Main card — much tighter on mobile, full design on sm+ */}
       <div
-        className="relative rounded-3xl p-5 sm:p-9 overflow-hidden"
+        className="relative rounded-3xl p-4 sm:p-9 overflow-hidden"
         style={{
           background:
             "linear-gradient(135deg, hsl(185 100% 42%) 0%, hsl(220 95% 55%) 25%, hsl(265 95% 60%) 55%, hsl(310 95% 60%) 100%)",
@@ -148,50 +148,50 @@ export function HeroAuditCard() {
         <div className="relative">
           {/* LLM citation preview — real Anthropic-pulled data, KV-cached on the edge */}
           {citationLoading && (
-            <div className="mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
-              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/85 mb-1.5 flex items-center gap-1.5">
+            <div className="mb-3 sm:mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3 py-2 sm:px-3.5 sm:py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/85 mb-1 sm:mb-1.5 flex items-center gap-1.5">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full rounded-full opacity-80 bg-emerald-300 animate-ping" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
                 </span>
                 <span>{t.heroAuditCard.citationLabel}</span>
               </div>
-              <div className="h-3.5 rounded bg-white/10 animate-pulse" />
+              <div className="h-3 sm:h-3.5 rounded bg-white/10 animate-pulse" />
             </div>
           )}
           {!citationLoading && citation && (
-            <div className="mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
-              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white mb-1.5 flex items-center gap-1.5">
+            <div className="mb-3 sm:mb-5 rounded-xl bg-black/30 backdrop-blur-md border border-white/30 px-3 py-2 sm:px-3.5 sm:py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-white mb-1 sm:mb-1.5 flex items-center gap-1.5">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full rounded-full opacity-80 bg-emerald-300 animate-ping" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
                 </span>
                 <span>{t.heroAuditCard.citationLabel}</span>
               </div>
-              <p className="text-[12px] sm:text-[13px] text-white leading-snug italic">
+              <p className="text-[11.5px] sm:text-[13px] text-white leading-snug italic line-clamp-2 sm:line-clamp-none">
                 "{citation.query}" → <span className="font-semibold not-italic">{citation.cited_business}</span>
               </p>
             </div>
           )}
 
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/95 mb-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
+          <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/95 mb-2 sm:mb-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
             {t.heroAuditCard.eyebrow}
           </div>
-          <h3 className="font-display text-white leading-[1.05] tracking-tight mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]" style={{ fontSize: "clamp(1.5rem, 5.5vw, 2.25rem)" }}>
+          <h3 className="font-display text-white leading-[1.05] tracking-tight mb-1.5 sm:mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]" style={{ fontSize: "clamp(1.25rem, 5vw, 2.25rem)" }}>
             {t.heroAuditCard.title1}
             <br />
             <span className="italic text-white">{t.heroAuditCard.title2}</span>
           </h3>
-          <p className="text-[13px] sm:text-sm text-white/95 leading-relaxed mb-5 sm:mb-6">
+          <p className="text-[12px] sm:text-sm text-white/95 leading-snug sm:leading-relaxed mb-3 sm:mb-6">
             {t.heroAuditCard.subtitle}
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-2.5">
+          <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-2.5">
             <Input
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
               placeholder={t.heroAuditCard.placeholderBusiness}
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
               required
               aria-label={t.heroAuditCard.placeholderBusiness}
             />
@@ -199,7 +199,7 @@ export function HeroAuditCard() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               placeholder={t.heroAuditCard.placeholderCity}
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
               required
               aria-label={t.heroAuditCard.placeholderCity}
             />
@@ -208,7 +208,7 @@ export function HeroAuditCard() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t.heroAuditCard.placeholderEmail}
-              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-base"
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
               required
               aria-label="Email"
             />
@@ -216,7 +216,7 @@ export function HeroAuditCard() {
               type="submit"
               disabled={submitting}
               size="lg"
-              className="w-full h-12 rounded-full font-semibold bg-foreground text-background hover:bg-foreground/90 group shadow-[0_10px_40px_-5px_rgba(0,0,0,0.5)]"
+              className="w-full h-11 sm:h-12 rounded-full font-semibold bg-foreground text-background hover:bg-foreground/90 group shadow-[0_10px_40px_-5px_rgba(0,0,0,0.5)] text-sm sm:text-base"
             >
               {submitting ? (
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -228,7 +228,7 @@ export function HeroAuditCard() {
             </Button>
           </form>
 
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 text-center">
+          <p className="mt-2.5 sm:mt-4 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/85 text-center">
             {t.heroAuditCard.legal}
           </p>
         </div>
