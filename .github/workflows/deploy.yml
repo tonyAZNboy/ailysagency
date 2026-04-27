@@ -29,9 +29,42 @@ jobs:
 
       - run: npm run build
 
+      # Sanity check: token presence + scope verification BEFORE invoking
+      # wrangler-action. wrangler-action@v3 swallows wrangler stderr when
+      # the auth call fails, so the run shows only "exit code 1" with no
+      # actionable signal. This step calls /user/tokens/verify so we see
+      # the real Cloudflare error message in the run log.
+      - name: Verify Cloudflare API token
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CF_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN secret is empty or missing in repo settings"
+            exit 1
+          fi
+          echo "Token length: ${#CF_API_TOKEN}"
+          RESP=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/user/tokens/verify")
+          echo "Verify response: $RESP"
+          if ! echo "$RESP" | grep -q '"status":"active"'; then
+            echo "::error::Token verify failed; check token scopes and validity"
+            exit 1
+          fi
+          # Sanity: can we list pages projects in this account?
+          ACCT="3b889a272b6925fa7cbc892a83999541"
+          PROJ_RESP=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$ACCT/pages/projects?per_page=1")
+          if ! echo "$PROJ_RESP" | grep -q '"success":true'; then
+            echo "::error::Token cannot list Pages projects in account $ACCT"
+            echo "Response: $PROJ_RESP"
+            exit 1
+          fi
+          echo "Token has Pages access on the right account."
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 3b889a272b6925fa7cbc892a83999541
+          wranglerVersion: "4"
           command: pages deploy dist --project-name=ailysagency --branch=main
