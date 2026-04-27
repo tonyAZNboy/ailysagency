@@ -1,5 +1,14 @@
 export const ja = {
-  nav: { features: "サービス", howItWorks: "プロセス", audit: "無料監査", blog: "ジャーナル", pricing: "料金", faq: "FAQ", login: "サインイン", startTrial: "無料監査を実行" },
+  nav: {
+    features: "サービス",
+    howItWorks: "プロセス",
+    audit: "無料監査",
+    blog: "ジャーナル",
+    pricing: "料金",
+    faq: "FAQ",
+    login: "サインイン",
+    startTrial: "無料監査を実行",
+  },
   hero: {
     eyebrow: "AiLys Agency · 最新SEO + LLM可視性",
     eyebrowPills: "クラシカルSEO · AEO · GEO · E-E-A-T · Made in Québec",
@@ -7,30 +16,22 @@ export const ja = {
     headline2: "ローカルビジネスのために構築。",
     subheadline: "AiLys は、ローカルビジネス向けの AI 検索レピュテーションエージェンシーです。レビュー、引用、Google ビジネスプロフィールを、毎月 12億人 が検索する LLM 回答内であなたのブランド名が呼ばれるシグナルへと変えます。",
     subheadlineSupport: "プランは月額 $300 から。英語・カナダ仏語のバイリンガル対応。Quebec 拠点。",
-
     flowCard1Label: "レビュー + GBP シグナル",
     flowCard1Stat: "更新直後のページで引用が1.9倍",
     flowCard2Label: "引用 + E-E-A-T",
     flowCard2Stat: "引用ブランドの LLM 再浮上 +40%",
     flowCard3Label: "LLM 可視性",
     flowCard3Stat: "AI 検索の55%が ChatGPT 経由",
-
     cta1: "AI 可視性監査を実行する",
     cta2: "料金を見る",
     ctaCompliance: "無料監査。クレジットカード不要。24時間以内に納品。",
-
     tickerGoal: "目標：第4四半期までに毎月100ブランドを LLM 回答で引用",
     tickerStatus: "現在プライベートベータ中",
-
     trustLabel: "対象エンジン",
     trustEngines: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-
     industriesLabel: "次の地域のローカルビジネス向けに構築",
-
     compliance: "英語・カナダ仏語のバイリンガル対応。スキーマ対応。E-E-A-T 整合。カナダ、米国、20カ国以上に準拠。",
-
     srOnly: "AiLys Agency は、ローカルビジネス向けの LLM 可視性および最適化エージェンシーです。AEO（Answer Engine Optimization）、GEO（Generative Engine Optimization）、E-E-A-T 戦略を提供し、ローカルブランドが ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot の回答内で引用されるよう支援します。当社のサービスは、検証済みレビュー収集、Google ビジネスプロフィール管理、引用構築、スキーママークアップ、エンティティ権威シグナルを組み合わせています。英語・カナダ仏語のバイリンガル対応。プランは月額 $300 CAD から。Made in Québec。",
-
     trusted: "AiLys Agency · LLM 可視性と最適化",
     chip1: "NFC タップ・トゥ・フィードバックキャンペーン",
     chip2: "自動コンテストと当選者抽選",
@@ -84,35 +85,59 @@ export const ja = {
     f1Title: "NFC レビューキャンペーン",
     f1Desc: "お客様がタップしてレビューし、自動的にコンテストに参加します。",
     f1Long: "NFC によるレビュー収集と自動コンテストキャンペーンを組み合わせます。お客様がスマートフォンを NFC タグにかざすと、AI が SEO 最適化レビューを生成し、即座にキャンペーンに登録されます。スプレッドシートも手動追跡も不要です。",
-    f1b1: "タップで参加できるレビューコンテスト", f1b2: "参加者の自動追跡", f1b3: "ブランディング入りのカスタム NFC カード", f1b4: "QR コードのフォールバック対応",
+    f1b1: "タップで参加できるレビューコンテスト",
+    f1b2: "参加者の自動追跡",
+    f1b3: "ブランディング入りのカスタム NFC カード",
+    f1b4: "QR コードのフォールバック対応",
     f2Title: "自動当選者抽選",
     f2Desc: "AiLys Roulette™ でワンクリックで当選者を選択。",
     f2Long: "ランダム名前選択ツールも手動選択も不要です。AiLys Agency が参加者全員を追跡し、ルールに基づき資格を確認したうえで、自動的に当選者を選びます。SNS 用の当選者発表動画もオプションで生成できます。",
-    f2b1: "ワンクリック当選者選択", f2b2: "資格確認", f2b3: "当選者発表動画", f2b4: "受け取り追跡と確認",
+    f2b1: "ワンクリック当選者選択",
+    f2b2: "資格確認",
+    f2b3: "当選者発表動画",
+    f2b4: "受け取り追跡と確認",
     f3Title: "法的 T&C ジェネレーター",
     f3Desc: "20カ国以上に準拠したコンテスト規則を自動生成。",
     f3Long: "コンテストの合法性を心配する必要はありません。AiLys Agency が、カナダとメキシコ向けのスキルテスト問題、英国向けの無料応募ルート、米国向けの州登録アラートなど、管轄区域別の利用規約テンプレートを自動生成します。",
-    f3b1: "20カ国以上のテンプレート", f3b2: "スキルテスト対応（カナダ・メキシコ）", f3b3: "無料応募ルート（英国）", f3b4: "米国州登録アラート",
+    f3b1: "20カ国以上のテンプレート",
+    f3b2: "スキルテスト対応（カナダ・メキシコ）",
+    f3b3: "無料応募ルート（英国）",
+    f3b4: "米国州登録アラート",
     f4Title: "AI フィードバック生成",
     f4Desc: "お客様が気に入った点を選ぶと、AI がレビューを書きます。",
     f4Long: "Gemini を活用した AI が、お客様が選んだ特徴に基づいてパーソナライズされた SEO 最適化レビューを生成します。タイピング不要。レビューには貴店のキーワードや独自の強みが自然に組み込まれます。",
-    f4b1: "タイピング不要", f4b2: "SEO キーワード統合", f4b3: "訪問ごとにパーソナライズ", f4b4: "16言語対応",
+    f4b1: "タイピング不要",
+    f4b2: "SEO キーワード統合",
+    f4b3: "訪問ごとにパーソナライズ",
+    f4b4: "16言語対応",
     f5Title: "AI 自動返信",
     f5Desc: "すべてのレビューに、即座にパーソナライズされた SEO 最適化返信。",
     f5Long: "レビューを返信なしのままにしません。AI がフィードバックに応答しつつ、貴店のキーワードを自然に組み込んだパーソナライズ返信を作成します。自動承認ルールを設定するか、投稿前に手動でレビューすることもできます。",
-    f5b1: "即時返信生成", f5b2: "ブランドボイスの一致", f5b3: "自動承認ルール", f5b4: "多言語返信",
+    f5b1: "即時返信生成",
+    f5b2: "ブランドボイスの一致",
+    f5b3: "自動承認ルール",
+    f5b4: "多言語返信",
     f6Title: "偽レビュー検出",
     f6Desc: "AI による検出が、疑わしいレビューを即座に特定します。",
     f6Long: "偽レビューや競合からの攻撃から評判を守ります。Domain Shield が AI を使って疑わしいパターン、ポリシー違反、組織的な攻撃を継続的に監視し、被害が出る前に通知します。",
-    f6b1: "24時間365日の自動監視", f6b2: "競合攻撃の検出", f6b3: "ポリシー違反アラート", f6b4: "ワンクリック異議申し立て",
+    f6b1: "24時間365日の自動監視",
+    f6b2: "競合攻撃の検出",
+    f6b3: "ポリシー違反アラート",
+    f6b4: "ワンクリック異議申し立て",
     f7Title: "SNS 自動投稿",
     f7Desc: "Google、Facebook、Instagram でスケジュールして自動公開。",
     f7Long: "1つのダッシュボードからすべての SNS 運用を管理できます。投稿のスケジュール設定、コンテンツの自動公開、キャンペーン結果の全プラットフォームでの共有により、レビュー成長の勢いを増幅します。",
-    f7b1: "ビジュアルコンテンツカレンダー", f7b2: "AI コンテンツ提案", f7b3: "キャンペーン結果の共有", f7b4: "クロスプラットフォーム公開",
+    f7b1: "ビジュアルコンテンツカレンダー",
+    f7b2: "AI コンテンツ提案",
+    f7b3: "キャンペーン結果の共有",
+    f7b4: "クロスプラットフォーム公開",
     f8Title: "マルチロケーションダッシュボード",
     f8Desc: "すべての拠点でキャンペーンとレビューを管理。",
     f8Long: "フランチャイズや複数拠点ビジネスに最適です。各拠点ごとに別々のキャンペーン、分析、レビュー収集、NFC カードを持ちながら、1つの統一ダッシュボードから全体を統括できます。",
-    f8b1: "拠点数無制限", f8b2: "拠点別キャンペーン", f8b3: "中央集権型の分析", f8b4: "拠点ごとのチーム権限",
+    f8b1: "拠点数無制限",
+    f8b2: "拠点別キャンペーン",
+    f8b3: "中央集権型の分析",
+    f8b4: "拠点ごとのチーム権限",
     srOnly: "AiLys Agency の機能：タップで応募できる NFC レビューキャンペーン、AiLys Roulette による自動当選者抽選、20カ国以上に対応した法的 T&C ジェネレーター、AI フィードバック生成、AI 自動返信、Domain Shield による偽レビュー検出、SNS 自動投稿、マルチロケーションダッシュボード。",
   },
   guardrails: {
@@ -148,7 +173,7 @@ export const ja = {
     badge: "Google 認定データ",
     heading: "継続的なレビューが多いほど = Google ランキングが向上",
     desc: "Google の公式ドキュメントは、レビュー数とスコアがローカル検索順位に影響することを認めています。安定したレビュー速度を持つビジネスがローカルパックを支配しています。",
-    quote: '"より多くのレビューと高評価は、ビジネスのローカルランキングを向上させることができます。"',
+    quote: "\"より多くのレビューと高評価は、ビジネスのローカルランキングを向上させることができます。\"",
     quoteSource: "Google ビジネスプロフィール ヘルプセンター",
     readMore: "出典付きの完全な根拠を読む",
     stat1Label: "ローカルパック順位の根拠 = レビューシグナル",
@@ -184,12 +209,24 @@ export const ja = {
     comparisonSub: "手動の仕組みはレビューを集めます。AiLys Agency はレビュー成長の勢いを生み出します。",
     colManual: "手動",
     colReviuzy: "AiLys Agency",
-    r1Feature: "顧客のレビュー方法", r1Manual: "書くよう依頼", r1Reviuzy: "NFC タップ・トゥ・エンター",
-    r2Feature: "参加者の追跡", r2Manual: "スプレッドシート", r2Reviuzy: "自動追跡",
-    r3Feature: "当選者選択", r3Manual: "ランダム名前選択", r3Reviuzy: "標準搭載の安全な抽選",
-    r4Feature: "法的コンプライアンス", r4Manual: "ガイダンスなし", r4Reviuzy: "国別の T&C",
-    r5Feature: "レビュー返信", r5Manual: "手動返信", r5Reviuzy: "AI による SEO 最適化",
-    r6Feature: "成長戦略", r6Manual: "なし", r6Reviuzy: "継続的キャンペーンエンジン",
+    r1Feature: "顧客のレビュー方法",
+    r1Manual: "書くよう依頼",
+    r1Reviuzy: "NFC タップ・トゥ・エンター",
+    r2Feature: "参加者の追跡",
+    r2Manual: "スプレッドシート",
+    r2Reviuzy: "自動追跡",
+    r3Feature: "当選者選択",
+    r3Manual: "ランダム名前選択",
+    r3Reviuzy: "標準搭載の安全な抽選",
+    r4Feature: "法的コンプライアンス",
+    r4Manual: "ガイダンスなし",
+    r4Reviuzy: "国別の T&C",
+    r5Feature: "レビュー返信",
+    r5Manual: "手動返信",
+    r5Reviuzy: "AI による SEO 最適化",
+    r6Feature: "成長戦略",
+    r6Manual: "なし",
+    r6Reviuzy: "継続的キャンペーンエンジン",
   },
   testimonials: {
     badge: "お客様の声",
@@ -253,9 +290,12 @@ export const ja = {
     addonsHeading: "柔軟なアドオン。必要なものだけお支払い",
     perMonth: "月額",
     cta: "ベータリリースに参加",
-    plan1Name: "スターター", plan1Desc: "レビュー成長に注力する単拠点ビジネス向け。",
-    plan2Name: "プロ", plan2Desc: "キャンペーンでスケールする成長重視ビジネス向け。",
-    plan3Name: "マックス", plan3Desc: "規模の大きいマルチロケーションブランド・エージェンシー向け。",
+    plan1Name: "スターター",
+    plan1Desc: "レビュー成長に注力する単拠点ビジネス向け。",
+    plan2Name: "プロ",
+    plan2Desc: "キャンペーンでスケールする成長重視ビジネス向け。",
+    plan3Name: "マックス",
+    plan3Desc: "規模の大きいマルチロケーションブランド・エージェンシー向け。",
   },
   faq: {
     badge: "FAQ",
@@ -298,9 +338,17 @@ export const ja = {
     legal: "法的情報",
     copyright: "All rights reserved.",
     poweredBy: "Powered by Gemini AI",
-    about: "会社概要", blog: "ブログ", careers: "採用情報", contact: "お問い合わせ",
-    privacy: "プライバシーポリシー", terms: "利用規約", cookies: "クッキーポリシー",
-    features: "機能", pricing: "料金", howItWorks: "仕組み", faq: "FAQ",
+    about: "会社概要",
+    blog: "ブログ",
+    careers: "採用情報",
+    contact: "お問い合わせ",
+    privacy: "プライバシーポリシー",
+    terms: "利用規約",
+    cookies: "クッキーポリシー",
+    features: "機能",
+    pricing: "料金",
+    howItWorks: "仕組み",
+    faq: "FAQ",
   },
   seo: {
     landingTitle: "AI レビュー成長＆ NFC キャンペーンプラットフォーム",
@@ -383,7 +431,6 @@ export const ja = {
       emailPlaceholder: "you@business.ca",
       legal: "メール必須、URL は任意。完全なレポートと90日間プランをお送りします。",
     },
-
     ai: {
       eyebrow: "AI 可視性監査・自動監査",
       headline: "AI エンジンが貴社を引用しているか確認しましょう。",
@@ -402,7 +449,6 @@ export const ja = {
       lockDesc: "メールアドレスを入力すると、完全なアクションプラン、競合ギャップ分析、収益予測をご覧いただけます。スパムも電話勧誘もありません。",
       sendCopy: "完全な GBP レポートを送ってもらう",
     },
-
     toasts: {
       fourThings: "4つの情報が必要です",
       fourThingsDesc: "ビジネス名、業種、都市、有効なメールアドレス。",
@@ -415,20 +461,17 @@ export const ja = {
       unlockedDesc: "完全なレポートを画面に表示し、受信トレイにも送信中です。",
       cantUnlock: "ロック解除できませんでした",
     },
-
     loading: {
       pullingData: "ライブデータを取得中...",
       cantReach: "監査エンジンに接続できませんでした。",
       cantRecord: "メールアドレスを記録できませんでした。",
     },
-
     tiers: {
       strong: "強い",
       solid: "堅実な基盤",
       gaps: "明確なギャップ",
       critical: "重大なギャップ",
     },
-
     results: {
       diagnosticSummary: "診断サマリー。",
       runAgain: "もう一度実行",
@@ -454,7 +497,6 @@ export const ja = {
       free: "無料、クレジットカード不要、30秒",
       emailRequired: "メール必須。完全なレポートとアクションプランをお送りします",
     },
-
     crossLinks: {
       needAi: "完全な AI 可視性分析をご希望ですか？",
       needAiDesc: "GBP は入力の1つです。AI 可視性監査では、6つの LLM エンジン全体で AEO、GEO、E-E-A-T を確認します。",
@@ -466,7 +508,6 @@ export const ja = {
       talkHumanDesc: "EN、FR-CA、ES、ZH、AR、RU、UK、SR で60分の戦略コール。無料、売り込みなし。",
       talkHumanCta: "戦略コールを予約",
     },
-
     pulse: {
       step1of3: "全体のうちステップ 1/3、合計90秒",
       step2of3: "ステップ 2/3、8つの質問",
@@ -593,7 +634,6 @@ export const ja = {
         napWeakAction: "高 DA の引用元20サイトで NAP 監査を実施してください。今月中に不一致を修正しましょう。",
       },
     },
-
     matrix: {
       eyebrow: "LLM 引用マトリックス",
       sample: "サンプル",
@@ -662,7 +702,6 @@ export const ja = {
     errorDuplicate: "このメールアドレスは既にウェイティングリストに登録されています。",
     errorTryLater: "しばらくしてからもう一度お試しください。",
   },
-
   heroAuditCard: {
     citationLabel: "LLM がローカルビジネスを引用する仕組み",
     eyebrow: "無料 AI 可視性監査・24時間以内に納品",
@@ -679,22 +718,19 @@ export const ja = {
     badgeFree: "無料＋即時",
     toastTitle: "3つの情報が必要です",
     toastDesc: "完全なレポートをお送りするため、ビジネス名、都市、有効なメールアドレスをご入力ください。",
-
     srSeo: "LLM 引用のサンプルは、ユーザーが購買に関する質問をする際に、AI 検索エンジンがどのローカルビジネスを名指しするかを示しています。クエリ例：「Plateau Mont-Royal で最も優れた歯科医」。引用されたビジネス：Clinique Dentaire Plateau。Yelp DA92、完全な Google ビジネスプロフィール、24時間以内に返信される英語・カナダ仏語のバイリンガルレビューを通じて表示されました。クエリ例：「Verdun の家族向けレストラン人気店」。引用されたビジネス：Restaurant Le Petit Coin。TripAdvisor の権威、OpenTable のプレゼンス、新鮮なレビュー速度、ウェブサイト上の LocalBusiness スキーマを通じて表示されました。クエリ例：「Montréal 近くで信頼できる HVAC 業者」。引用されたビジネス：Climatisation Boréal。BBB 認定、HomeStars の評価、季節サービスに関する FAQ スキーマ、Wikidata エンティティを通じて表示されました。パターンは一貫しています。AI エンジンは、GBP の完全性、20以上のディレクトリ全体での NAP整合性、AEO スキーマ、新鮮なレビュー、エンティティ権威シグナルを備えたビジネスを引用します。24時間以内に納品される無料監査、クレジットカード不要。",
   },
-
   heroExtras: {
     bookCall60: "60分の戦略コールを予約",
     scoreGbp90: "GBP を90秒で採点",
     bookHelper: "無料、売り込みなし。EN、FR-CA、ES、ZH、AR、RU、UK、SR のバイリンガル対応。契約に至らなくても戦略ドキュメントをお送りします。",
   },
-
   services: {
     sectionLabel: "01 / サービス",
     heading1: "4つのプラン。",
     heading2: "1つの専門領域。",
     intro: "AiLys は、ティア1エージェンシーと同じ専門領域（AEO、GEO、E-E-A-T）を SMB 価格で提供します。これが成立する唯一の理由は、運用デリバリーが当社の検証済みレビューおよび Google ビジネスプロフィールエンジンによって自動化されているからです。多くの代理店がツールに対して請求する金額で、エージェンシー品質の仕事を受けられます。",
-    metaPrice: "月額 $300〜$1,299",
+    metaPrice: "月額 $300〜$1,599",
     metaBilingual: "EN/FR-CA バイリンガル",
     metaMonthly: "月単位の契約",
     metaAutopilot: "Autopilot には Reviuzy 同梱",
@@ -702,53 +738,47 @@ export const ja = {
     badgeAutopilot: "⚡ Autopilot・お任せ運用",
     tierLabel: "ティア",
     perMo: "/月 CAD",
-
     tier0Name: "Starter",
     tier0Tagline: "AI 検索での可視化を始めたい個人経営の飲食店、独立系の専門家、小規模サロン向け。",
     tier0Cta: "Starter から始める",
     tier0Feat1: "テクニカル SEO + オンページ基本対応",
-    tier0Feat2: "Google ビジネスプロフィール管理",
+    tier0Feat2: "Google Business Profile 管理および月 1 件の GBP post",
     tier0Feat3: "20以上のディレクトリにわたる NAP整合性チェック",
-    tier0Feat4: "6つのエンジン全体での LLM 引用トラッキング",
+    tier0Feat4: "6 エンジンでの LLM 引用トラッキング（ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot）",
     tier0Feat5: "毎月のパフォーマンスレポート",
     tier0Feat6: "月1回の戦略コール",
-
     tier1Name: "Core",
     tier1Tagline: "名指しで引用される必要のある歯科医、請負業者、成長中の飲食店向け。",
     tier1Cta: "Core から始める",
     tier1Feat1: "Starter の全内容",
-    tier1Feat2: "AEO スキーマ実装（FAQ、Review、LocalBusiness、HowTo）",
-    tier1Feat3: "実在する出版物からのバックリンク構築",
-    tier1Feat4: "引用構築、月5件",
+    tier1Feat2: "GBP posts：月 4 件（週次ペース）",
+    tier1Feat3: "AEO スキーマ（FAQ、Review、LocalBusiness、HowTo）および AEO コンテンツブリーフジェネレーター",
+    tier1Feat4: "月 5 件のサイテーション構築と実在媒体からの被リンク",
     tier1Feat5: "バイリンガルコンテンツ、月1本",
-    tier1Feat6: "隔週の戦略コール",
-
+    tier1Feat6: "GBP の Q&A 監視と自動下書き返信",
     tier2Name: "Growth",
     tier2Tagline: "マルチロケーション、フランチャイズ、拡大戦略向け。",
     tier2Cta: "Growth から始める",
     tier2Feat1: "Core の全内容",
-    tier2Feat2: "GEO エンティティ権威構築（Wikipedia、Wikidata、デジタル PR）",
-    tier2Feat3: "Reddit ＋業界フォーラムへの参加",
-    tier2Feat4: "引用構築、月10件以上",
-    tier2Feat5: "毎週のバイリンガルコンテンツ",
-    tier2Feat6: "競合モニタリング",
-    tier2Feat7: "四半期ごとの対面レビュー",
-
+    tier2Feat2: "GBP posts：月 8 件（週 2 件）",
+    tier2Feat3: "GEO エンティティ権威性（Wikipedia、Wikidata、デジタル PR）",
+    tier2Feat4: "Reddit および業界フォーラムへの参加",
+    tier2Feat5: "月 10 件以上のサイテーション構築",
+    tier2Feat6: "Share of Model ダッシュボード、指定 3 競合に対する LLM 全体でのブランド言及",
+    tier2Feat7: "ブランドセンチメントとサイテーション鮮度のアラート",
     tier3Name: "Autopilot",
     tier3Tagline: "お任せ運用。Reviuzy SaaS 同梱。毎月のコンテストエンジンを貴社拠点で稼働。",
     tier3Cta: "Autopilot を選ぶ",
     tier3Feat1: "Growth の全内容",
-    tier3Feat2: "Reviuzy SaaS Max 同梱",
-    tier3Feat3: "毎月のレビューコンテストを当社が運営",
-    tier3Feat4: "法的 T&C 対応、当選者抽選、賞品引き渡し、SNS 増幅まで対応",
-    tier3Feat5: "新鮮なレビュー速度、拠点ごとに月20〜50件",
-    tier3Feat6: "貴社拠点に NFC タップカードを発送",
+    tier3Feat2: "GBP posts：月 12 件（週 3 件）と月 4 から 6 枚の写真アップロード",
+    tier3Feat3: "Reviuzy SaaS Max を同梱、毎月のレビューコンテストを当社が運営",
+    tier3Feat4: "法的 T&C 対応、当選者抽選、賞品引き渡し、ソーシャル拡散",
+    tier3Feat5: "新規レビューの速度、拠点ごとに月 20 から 50 件、NFC カード発送",
+    tier3Feat6: "AI トラフィックのコンバージョントラッカー、AI 検索から予約への UTM アトリビューション",
     tier3Feat7: "Domain Speed Boost + Domain Shield 同梱",
-    tier3Feat8: "四半期ごとのコンテストパフォーマンスレビュー",
-
+    tier3Feat8: "専任サクセスストラテジストと月次エグゼクティブブリーフィング",
     why300Eyebrow: "なぜ $2,000 ではなく $300 なのか",
     why300Body: "Reviuzy が運用レイヤー（レビュー収集、GBP、コンテンツドラフト、引用トラッキング）を担います。当社の人員は、戦略、スキーマ、そして実際に LLM ランキングを動かす引用に集中します。計算は合います。",
-
     compareLabel: "比較",
     compareMidMarket: "ミッドマーケットエージェンシー",
     compareAilys: "AiLys Agency",
@@ -770,19 +800,18 @@ export const ja = {
     compareRow6Label: "返金保証",
     compareRow6Left: "あり",
     compareRow6Right: "あり、30日間",
-
     chip1Eyebrow: "リスク反転",
     chip1Line: "30日間満足度保証。測定可能なスキーマや引用の向上がなければ返金します。",
     chip2Eyebrow: "ロックインなし",
     chip2Line: "月単位契約。2週間前の通知で解約可能、クローバックなし。納品したスキーマと引用はそのままお持ちいただけます。",
     chip3Eyebrow: "Quebec 拠点",
     chip3Line: "EN/FR-CA バイリンガルを社内対応。スペイン語、中国語、アラビア語、ロシア語はパートナーネットワーク経由で対応。",
-
     footnote: "すべてのプランは月単位での契約です。いつでも解約可能（2週間前通知）。セットアップ費用なし。",
-
-    srSeo: "AiLys Agency は、AI 検索回答内で引用される必要があるローカルビジネス向けに、月額の4プランを提供します。Starter は月額 $300 CAD で、テクニカルSEO、Google ビジネスプロフィール管理、20以上のディレクトリにわたる NAP整合性、ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot 全体での週次 LLM 引用トラッキングをカバーします。Core は月額 $600 CAD で、AEO スキーマ実装（FAQ、Review、LocalBusiness、HowTo）、月5件の引用構築、バイリンガルコンテンツ、実在出版物からのバックリンクを追加します。Growth は月額 $1,200 CAD で、Wikipedia と Wikidata での GEO エンティティ権威構築、Reddit とフォーラムへの参加、毎週のバイリンガルコンテンツ、競合モニタリングを追加します。Autopilot は月額 $1,299 CAD で、Reviuzy レビューコンテストエンジン同梱、全拠点への NFC タップカード発送、拠点あたり月20〜50件の新鮮なレビュー速度を実現します。すべてのプランは月単位の契約で、解約は2週間前の通知のみ、30日間満足度保証付き。EN/FR-CA バイリンガルを社内対応。Quebec 拠点。",
+    srSeo: "AiLys Agency は、AI 検索回答内で引用される必要があるローカルビジネス向けに、月額の4プランを提供します。Starter は月額 $300 CAD で、テクニカルSEO、Google ビジネスプロフィール管理、20以上のディレクトリにわたる NAP整合性、ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot 全体での週次 LLM 引用トラッキングをカバーします。Core は月額 $600 CAD で、AEO スキーマ実装（FAQ、Review、LocalBusiness、HowTo）、月5件の引用構築、バイリンガルコンテンツ、実在出版物からのバックリンクを追加します。Growth は月額 $1,200 CAD で、Wikipedia と Wikidata での GEO エンティティ権威構築、Reddit とフォーラムへの参加、毎週のバイリンガルコンテンツ、競合モニタリングを追加します。Autopilot は月額 $1,599 CAD で、Reviuzy レビューコンテストエンジン同梱、全拠点への NFC タップカード発送、拠点あたり月20〜50件の新鮮なレビュー速度を実現します。すべてのプランは月単位の契約で、解約は2週間前の通知のみ、30日間満足度保証付き。EN/FR-CA バイリンガルを社内対応。Quebec 拠点。",
+    tier1Feat7: "隔週の戦略コール",
+    tier2Feat8: "四半期ごとの対面レビュー",
+    tier3Feat9: "四半期コンテストパフォーマンスレビュー",
   },
-
   pricingDrivers: {
     sectionLabel: "料金の根拠",
     heading1: "なぜ AiLys の料金が",
@@ -798,15 +827,13 @@ export const ja = {
     d4Body: "EN/FR-CA バイリンガルはすべてのティアに含まれます。パートナーネットワーク経由でスペイン語、中国語、アラビア語、ロシア語、ウクライナ語、セルビア語を追加すると制作コストが加算されます。各追加言語が個別の引用フットプリントを引き連れてきます。",
     d5Title: "引用獲得のペース",
     d5Body: "引用構築は実際のアウトリーチ活動です。Core では月5件の高 DA 引用、Growth では10件以上。コスト差はリサーチとアウトリーチの工数を反映しており、恣意的なティア分けではありません。",
-
     srSeo: "AiLys の料金がクライアントによって異なるのは、5つの実在する要因がコストを左右するためです。第一に、LLM エンジンのカバレッジ：ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot 全体で引用をトラッキングし、価格は単に監視するのではなく積極的に最適化するエンジンの数に応じてスケールします。第二に、業種の複雑さ：E-E-A-T の重みは業種によって異なるため、医療や法律はレストランには不要な資格保有者による執筆や引用密度が必要です。第三に、スキーマとエンティティの範囲：5ページの WordPress サイトと、200ページのマルチロケーション対応 Shopify カタログでは作業の形が異なります。第四に、コンテンツの言語の深さ：EN/FR-CA バイリンガルはすべてのティアに含まれ、スペイン語、中国語、アラビア語、ロシア語、ウクライナ語、セルビア語を追加すると制作コストが加算されます。第五に、引用獲得のペース：Core では月5件の高 DA 引用、Growth では10件以上であり、実際のリサーチとアウトリーチの工数を反映しています。",
   },
-
   pricingBuilder: {
     sectionLabel: "プランビルダー",
     heading1: "プランを組み立てて、",
     heading2: "価格を確認しましょう。",
-    intro: "入力を調整してください。価格は当社の4ティア（$300〜$1,299）のいずれかに自動的に収まります。「お見積もりください」の小芝居はありません。",
+    intro: "入力を調整してください。価格は当社の4ティア（$300〜$1,599）のいずれかに自動的に収まります。「お見積もりください」の小芝居はありません。",
     pagesLabel: "サイトのページ数",
     languagesLabel: "対応言語",
     servicesLabel: "含まれるサービス",
@@ -820,13 +847,11 @@ export const ja = {
     legal: "まず無料監査・クレジットカード不要",
     footnote: "見積もりのみ。最終価格は契約締結時に確定します。プランは月単位の契約で、解約は2週間前の通知です。",
     chipAria: "見積もりプラン、タップで完全な内訳を表示",
-
     lang1: "EN のみ",
     lang2: "EN + FR-CA",
     lang3: "EN + FR + ES",
     lang4: "EN + FR + ES + ZH",
     lang5: "全8言語",
-
     svc1Label: "GBP 管理",
     svc1Desc: "カテゴリ、属性、写真、Q&A。",
     svc2Label: "LLM 引用トラッキング",
@@ -847,15 +872,12 @@ export const ja = {
     svc9Desc: "毎週のトラッカー＋月次インサイトドキュメント。",
     svc10Label: "月次レビューコンテストエンジン",
     svc10Desc: "Reviuzy SaaS ＋お任せコンテスト。",
-
     tierStarter: "Starter",
     tierCore: "Core",
     tierGrowth: "Growth",
     tierAutopilot: "Autopilot",
-
-    srSeo: "AiLys プランは3つの入力を調整して構築でき、価格は月額 $300〜$1,299 CAD の4ティアのいずれかに自動的に収まります。入力項目は、サイトのページ数、対応言語（EN のみ、EN + FR-CA、EN + FR + ES、EN + FR + ES + ZH、または全8言語）、含めるサービスです。利用可能なサービスは、Google ビジネスプロフィール管理、6つの AI エンジン全体での週次ポーリングを伴う LLM 引用トラッキング、AEO スキーマ実装（FAQ、Review、LocalBusiness、HowTo）、月5件または10件以上の引用構築、月1本の EN/FR バイリンガルコンテンツ、月4本の毎週のコンテンツ制作、Wikipedia と Wikidata での GEO エンティティ権威構築、毎週のトラッカーを伴う競合モニタリング、Reviuzy 月次レビューコンテストエンジンです。まず無料監査。クレジットカード不要。プランは月単位の契約で、解約は2週間前の通知です。",
+    srSeo: "AiLys プランは3つの入力を調整して構築でき、価格は月額 $300〜$1,599 CAD の4ティアのいずれかに自動的に収まります。入力項目は、サイトのページ数、対応言語（EN のみ、EN + FR-CA、EN + FR + ES、EN + FR + ES + ZH、または全8言語）、含めるサービスです。利用可能なサービスは、Google ビジネスプロフィール管理、6つの AI エンジン全体での週次ポーリングを伴う LLM 引用トラッキング、AEO スキーマ実装（FAQ、Review、LocalBusiness、HowTo）、月5件または10件以上の引用構築、月1本の EN/FR バイリンガルコンテンツ、月4本の毎週のコンテンツ制作、Wikipedia と Wikidata での GEO エンティティ権威構築、毎週のトラッカーを伴う競合モニタリング、Reviuzy 月次レビューコンテストエンジンです。まず無料監査。クレジットカード不要。プランは月単位の契約で、解約は2週間前の通知です。",
   },
-
   methodology: {
     sectionLabel: "エンジン・AiLys が貴社を LLM 回答に押し上げる方法",
     heading1: "見えない状態から引用される状態へ",
@@ -865,84 +887,67 @@ export const ja = {
     stepsAria: "メソドロジーのステップ",
     closingQuote: "「8つの入力が AI エンジンに供給されます。多くのエージェンシーは1つか2つしか直しません。当社は毎月、8つすべてを稼働させます。」",
     closingCaption: "AiLys エンジン",
-
     layerClassical: "クラシカルSEO",
     layerAeoGeo: "AEO + GEO",
     layerEeat: "E-E-A-T",
     layerTracking: "トラッキング",
-
     step1Title: "テクニカル基盤",
     step1Short: "AI エンジンがクロールする部分を整える",
     step1Detail: "サイト速度、クロール可能性、内部リンク、メタ情報の整理、リンク切れ。AI エンジンは Google が使うのと同じウェブインデックスから情報を引きます。サイトが遅かったり壊れていたりすれば、どんな AI レイヤーも救ってくれません。",
     step1Signal: "TTFB 200ms 未満・100% クロール可能な URL・整ったメタデータ",
-
     step2Title: "Google ビジネスプロフィール",
     step2Short: "カテゴリ、属性、営業時間、写真、投稿、Q&A",
     step2Detail: "GBP の完全性は、ローカル AI 回答の35〜60%を左右します。属性をすべて埋め、カテゴリを最適化し、四半期ごとに写真を更新し、Q&A を投入し、毎週投稿します。すべてのティアの基盤です。",
     step2Signal: "属性100%入力済み・月5枚以上の写真・Q&A 投入済み・週次投稿",
-
     step3Title: "引用と NAP整合性",
     step3Short: "20以上の高 DA ディレクトリ、完全一致のリスティング",
     step3Detail: "ウェブ全体での名前、住所、電話番号の不一致は引用される確率を半減させます。AI エンジンは NAP のバリエーションを別エンティティとして扱います。Yelp、BBB、Yellowpages、業種特化の20以上の高 DA ディレクトリすべてを修正します。",
     step3Signal: "Yelp · BBB · Crunchbase · Avvo · Healthgrades · OpenTable",
-
     step4Title: "AEO スキーマ実装",
     step4Short: "FAQ + Review + LocalBusiness + Service エンティティ",
     step4Detail: "AEO とは、コンテンツを抽出可能な状態にすることです。AI エンジンが競合を要約する代わりに貴社サイトからきれいな回答を引き出せるよう、構造化データを実装します。Google Rich Results Test で検証済み。",
     step4Signal: "FAQ スキーマ・Review aggregateRating・LocalBusiness・Service",
-
     step5Title: "GEO エンティティ権威",
     step5Short: "Wikipedia、Wikidata、デジタル PR、Reddit",
     step5Detail: "ChatGPT と Perplexity は Wikipedia と Reddit のシグナルを強く重視します。検証可能な Wikidata エントリを構築し、ビジネスが真に注目に値する場合は Wikipedia への掲載を提案し、業界のトップ3〜5サブレディットで実質的に存在感を示します。",
     step5Signal: "Wikidata エントリ・Reddit での発信・四半期ごとに1件以上のプレス言及",
-
     step6Title: "E-E-A-T シグナル",
     step6Short: "実在する署名、オリジナル写真、資格情報",
     step6Detail: "Google の E-E-A-T 評価軸（Experience、Expertise、Authoritativeness、Trust）は、AI エンジンが誰のコンテンツを引用するか選ぶ際に使うものです。著者向けの Person スキーマ、EXIF メタデータ付きのオリジナル写真、資格マークアップ、賞のスキーマを追加します。",
     step6Signal: "著者の署名・EXIF 付き写真・資格情報・受賞歴・信頼バッジ",
-
     step7Title: "レビュー速度エンジン",
     step7Short: "月次の新鮮なレビュー、AI による返信、多言語対応",
     step7Detail: "レビューは AI エンジンが利用する最も強い新鮮さのシグナルです。Reviuzy（NFC タップ、QR コード、コンテストエンジン）を通じてレビュー収集を運用し、拠点ごとに月4〜50件の新鮮なレビューを維持し、24時間以内に顧客が書いた言語で返信します。",
     step7Signal: "拠点ごとに月4〜50件のレビュー・24時間以内の返信・16言語対応",
-
     step8Title: "LLM 引用トラッキング",
     step8Short: "6エンジン、週次ポーリング、月次レポート",
     step8Detail: "ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot に対し、貴社のサービスと都市を組み合わせた高インテントのプロンプトで毎週ポーリングします。貴社の名前が出るタイミング、何が引用されているか、競合がどこでまだ勝っているかを追跡します。虚栄指標ではなく、実数値です。",
     step8Signal: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-
     srSeo: "AiLys のメソドロジーは、ローカルビジネスを目に見えない状態から AI 検索回答内で引用される状態へと移行させる8ステップのパイプラインを稼働します。ステップ1はテクニカル基盤：サイト速度、クロール可能性、内部リンク、メタ情報の整理。ステップ2は Google ビジネスプロフィールで、カテゴリ、属性、写真、投稿、Q&A をすべて最新に保ちます。ステップ3は引用と NAP整合性で、Yelp、BBB、Crunchbase など20以上の高 DA ディレクトリ全体で対応。ステップ4は AEO スキーマ実装で、Google Rich Results に対して検証された FAQ、Review、LocalBusiness、Service エンティティを実装。ステップ5は Wikipedia、Wikidata、デジタル PR、Reddit での GEO エンティティ権威。ステップ6は実在する署名、オリジナル写真、資格情報による E-E-A-T シグナル構築。ステップ7は Reviuzy を通じて稼働するレビュー速度エンジン。ステップ8は ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot 全体での週次 LLM 引用トラッキング。各ステップが次のステップへとつながります。",
   },
-
   process: {
     sectionLabel: "02 / プロセス",
     heading1: "引用がどのように",
     heading2: "実際に構築されるか。",
     intro: "エージェンシーの小芝居はなし。各フェーズに、手に取れる成果物が伴う4つのフェーズ。無料監査から始め、次のステップが予算に見合うかをご判断いただきます。",
-
     phase1Name: "監査",
     phase1Duration: "0日目から2日目",
     phase1Body: "現在の AI 検索フットプリントをマッピングします。引用されている場所、欠けている場所、競合が突いているスキーマや引用のギャップ。監査は無料で、依頼から24時間以内に受信トレイに届きます。",
     phase1Pull: "無料、24時間。",
-
     phase2Name: "戦略",
     phase2Duration: "1週目",
     phase2Body: "90日間プランを構築します。スキーマの優先順位、引用ターゲット、貴社のサービスと都市に合わせたコンテンツカレンダー。本番に手を加える前にプランをご確認いただけます。",
     phase2Pull: "プランが先。アクションは後。",
-
     phase3Name: "実行",
     phase3Duration: "2週目以降",
     phase3Body: "スキーマ実装、引用アウトリーチ、GBP 最適化、コンテンツ制作。必要な箇所はバイリンガルで対応。当社が作業を行い、お客様は本業に集中いただけます。",
     phase3Pull: "電話に出ます。",
-
     phase4Name: "レポーティング",
     phase4Duration: "30日目以降",
     phase4Body: "月次 LLM 引用レポート。新たに出現した場所、貴社を引き出している回答、まだ閉ざされている部分。実数値、平易な言葉。虚栄指標はなし。",
     phase4Pull: "実数値、誇張なし。",
-
     srSeo: "AiLys のプロセスは、各段階に成果物が伴う4つのフェーズで進行します。フェーズ1は監査で、0日目から2日目：現在の AI 検索フットプリント、引用されている場所、欠けている場所、競合が突いているスキーマや引用のギャップをマッピングします。監査は無料で、依頼から24時間以内に受信トレイに届きます。フェーズ2は1週目の戦略：スキーマの優先順位、引用ターゲット、貴社のサービスと都市に合わせたコンテンツカレンダーを盛り込んだ90日間プランを構築します。本番に手を加える前にプランをご確認いただけます。フェーズ3は2週目以降の実行：スキーマ実装、引用アウトリーチ、GBP 最適化、コンテンツ制作。必要な箇所はバイリンガルで対応。フェーズ4は30日目以降のレポーティング：新たに出現した場所、貴社を引き出している回答、まだ閉ざされている部分をカバーする月次 LLM 引用レポート。実数値、平易な言葉。",
   },
-
   bookCall: {
     sectionLabel: "03b / 戦略コール",
     heading1: "60分のコール。",
@@ -972,7 +977,6 @@ export const ja = {
     successHeading: "了解しました。",
     successBody: "ご依頼内容を当社チームにメールしました。12時間以内に3つの候補時間と、コールの進行に関する1ページのご案内が届きます。",
     successCheck: "受信トレイをご確認ください・スパムフォルダもお忘れなく",
-
     lang1Name: "英語",
     lang2Name: "フランス語",
     lang3Name: "スペイン語",
@@ -981,10 +985,8 @@ export const ja = {
     lang6Name: "ロシア語",
     lang7Name: "ウクライナ語",
     lang8Name: "セルビア語",
-
     srSeo: "AiLys Agency と60分の無料戦略コールを予約しましょう。AI 検索でのポジションをマッピングし、監査結果を一緒に確認し、AiLys が適切かをお伝えします。適切でなければ、それでも1ページの戦略ドキュメントをお送りします。コールは英語、フランス語、スペイン語、中国語、アラビア語、ロシア語で社内チームメンバーが対応します。ウクライナ語とセルビア語は、同じプレイブックで吟味済みのパートナーエージェンシーが対応します。コールは無料、クレジットカード不要、売り込みなし。依頼から12時間以内に3つの候補時間で返信します。契約に至るかどうかに関わらず、いずれにせよ実行可能な何かを持ち帰っていただけます。",
   },
-
   chat: {
     teaserTitle: "もっとレビューを獲得",
     teaserSubtitle: "AI でビジネスを成長させる方法を、どの言語でも質問してください。",
@@ -1008,7 +1010,6 @@ export const ja = {
     ariaOpen: "チャットを開く",
     ariaMinimize: "最小化",
   },
-
   whyAilys: {
     sectionLabel: "03 / ポジショニング",
     heading1: "市場における",
@@ -1020,34 +1021,28 @@ export const ja = {
     colAilys: "AiLys のポジション",
     closingQuote: "「来年あなたのローカルビジネスが ChatGPT に引用されるなら、誰かが今年スキーマ、引用、エンティティの仕事をしなければなりません。」",
     closingCaption: "AiLys の根底にあるテーゼ",
-
     row1Segment: "ティア1グローバル",
     row1Examples: "Jellyfish · Seer · Siege Media · NP Digital",
     row1Price: "月額 $5,000〜$25,000以上",
     row1Weakness: "エンタープライズ専用。独自の AI トラッキング。ローカルビジネスにはアクセス不能。",
     row1Ailys: "デリバリーが自動化されているため、同じ専門領域（AEO、GEO、E-E-A-T）を SMB 価格で提供。",
-
     row2Segment: "大量生産型 SMB",
     row2Examples: "LocaliQ · Boostability · Marketing 360",
     row2Price: "月額 $10〜$2,300",
     row2Weakness: "工業化。スケールに伴い品質低下。コールセンター的な雰囲気。",
     row2Ailys: "クライアント数を絞った運営。コールセンターなし。EN/FR-CA バイリンガル対応。電話に出ます。",
-
     row3Segment: "ツールのみのプラットフォーム",
     row3Examples: "BrightLocal · Whitespark",
-    row3Price: "月額 $799〜$1,299",
+    row3Price: "月額 $799〜$1,599",
     row3Weakness: "ダッシュボードを購入することになります。実際の作業は依然として自分で行う必要があります。",
     row3Ailys: "お任せ運用。当社チームが実行します。さらにもう1つツールにログインするための認証情報ではなく、引用そのものを受け取れます。",
-
     row4Segment: "ローカル専門業者",
     row4Examples: "Sterling Sky · Rablab · 地域の代理店",
     row4Price: "個別見積、多くは月額 $3,000以上",
     row4Weakness: "クラシカルなローカルSEO に強い。AEO/GEO/E-E-A-T の統合は弱い。",
     row4Ailys: "同じクラシカルSEO の基盤（テクニカル、オンページ、引用、GBP）に、初日から AEO + GEO + E-E-A-T のレイヤーを組み込みます。両者が相互に補完し合います。",
-
-    srSeo: "AiLys Agency は4つの競合セグメントの間に位置します。Jellyfish、Seer、Siege Media、NP Digital のようなティア1グローバルエージェンシーは月額 $5,000〜$25,000 以上を請求し、ローカルビジネスがアクセスできない独自の AI トラッキングを伴うエンタープライズ専用です。LocaliQ、Boostability、Marketing 360 のような大量生産型 SMB ショップは月額 $10〜$2,300 を請求しますが、スケールに伴い品質が低下し、作業は工業化された印象を受けます。BrightLocal、Whitespark のようなツールのみのプラットフォームは、月額 $799〜$1,299 で、依然として自分で運用しなければならないダッシュボードを提供します。Sterling Sky や Rablab のようなローカル専門業者は、クラシカルなローカルSEO に強いものの、AEO、GEO、E-E-A-T の統合は弱めです。AiLys は、デリバリーレイヤーが Reviuzy を通じて自動化されているため、ティア1エージェンシーと同じ専門領域（AEO、GEO、E-E-A-T）を月額 $300〜$1,299 の SMB 価格で提供します。EN/FR-CA バイリンガルを社内対応。電話に出ます。",
+    srSeo: "AiLys Agency は4つの競合セグメントの間に位置します。Jellyfish、Seer、Siege Media、NP Digital のようなティア1グローバルエージェンシーは月額 $5,000〜$25,000 以上を請求し、ローカルビジネスがアクセスできない独自の AI トラッキングを伴うエンタープライズ専用です。LocaliQ、Boostability、Marketing 360 のような大量生産型 SMB ショップは月額 $10〜$2,300 を請求しますが、スケールに伴い品質が低下し、作業は工業化された印象を受けます。BrightLocal、Whitespark のようなツールのみのプラットフォームは、月額 $799〜$1,599 で、依然として自分で運用しなければならないダッシュボードを提供します。Sterling Sky や Rablab のようなローカル専門業者は、クラシカルなローカルSEO に強いものの、AEO、GEO、E-E-A-T の統合は弱めです。AiLys は、デリバリーレイヤーが Reviuzy を通じて自動化されているため、ティア1エージェンシーと同じ専門領域（AEO、GEO、E-E-A-T）を月額 $300〜$1,599 の SMB 価格で提供します。EN/FR-CA バイリンガルを社内対応。電話に出ます。",
   },
-
   auditCta: {
     sectionLabel: "04 / 無料監査",
     heading1: "ChatGPT が貴社をまだ引用しているか",
@@ -1062,10 +1057,8 @@ export const ja = {
     sampleEeat: "E-E-A-T スコア",
     sampleCitations: "LLM 引用",
     samplePlanNote: "90日間プラン同梱",
-
     srSeo: "AiLys Agency の無料 AI 可視性監査を実行しましょう。貴社のビジネスを6つの AI 検索エンジン（ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot）に通し、AEO、GEO、E-E-A-T のシグナルを採点し、90日間のアクションプランをメールでお送りします。監査は無料で、クレジットカード不要、ディスカバリーコール不要。納期は依頼から24時間。サンプル出力には、AEO スコア、GEO スコア、E-E-A-T スコア、6つのエンジン全体での現在の LLM 引用、スキーマの優先順位、引用ターゲット、貴社のサービスと都市に合わせたコンテンツカレンダーを盛り込んだ90日間プランが含まれます。",
   },
-
   about: {
     sectionLabel: "05 / マニフェスト",
     plateLabel: "プレート 01 / 起源",
@@ -1080,10 +1073,8 @@ export const ja = {
     body5: "当社のマークにあるフルール・ド・リスは装飾ではありません。Québec のビジネスが本当に必要としている形でエージェンシーの仕事を行うという約束です。",
     signatureBrand: "AiLys Agency",
     signatureMeta: "2026年設立 · Montréal · バイリンガル",
-
     srSeo: "AiLys Agency は2026年に Québec の Montréal で設立されました。EN/FR-CA バイリンガルを社内対応し、スペイン語、中国語、アラビア語、ロシア語、ウクライナ語、セルビア語をパートナーネットワーク経由でカバーしています。当社は、AI 検索時代に適用されたクラシカルSEO の規律から育ちました。逆ではありません。当社が納品するすべてのプランは、2010年に Google で機能し、2026年でもなお機能する基盤の上に構築されています：きれいなテクニカルSEO、完全な Google ビジネスプロフィール、NAP整合性、実在のバックリンク、権威性の高い情報源全体での引用。その基盤の上に、LLM 時代に合わせた AEO、GEO、E-E-A-T 作業を加えます。基盤を飛ばせば、AI レイヤーは立つ場所がなくなります。現在、約12億人が毎月 AI エンジンを通じて検索しており、ChatGPT 単体でその市場の約55%を占めています。それらの回答内で引用されるローカルビジネスは成長を続けます。引用されないものは静かに視界から消えていきます。",
   },
-
   faqLanding: {
     sectionLabel: "06 / 質問",
     heading1: "実際に寄せられる",
@@ -1110,10 +1101,8 @@ export const ja = {
     a10: "いいえ。順位や AI 引用を保証する人は煙を売っています。当社が約束するのはプロセスです：90日間プラン、月次レポート、目に見える作業。順位や引用はそれに続いて現れます。",
     q11: "解約したらどうなりますか？",
     a11: "2週間前の通知をいただければ業務を巻き取ります。納品済みのスキーマ、獲得した引用、監査レポートはそのままお持ちいただけます。クローバックも、保留される資産もありません。",
-
-    srSeo: "AiLys Agency に関するよくある質問に平易な言葉でお答えします。当社は SEO エージェンシーと AI 検索エージェンシーの両方です。なぜなら ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot のような AI エンジンは、クラシカルな Google 検索が使うのと同じウェブインデックスから情報を引くからです。すべてのプランにはクラシカルSEO の基盤が含まれます：テクニカルSEO 監査、オンページ最適化、NAP整合性、GBP 管理、引用構築。AEO は Answer Engine Optimization で、AI エンジンがきれいな回答を抽出できるよう、スキーママークアップと Q&A 形式でコンテンツを構造化することです。GEO は Generative Engine Optimization で、Wikipedia、Wikidata、Reddit、デジタル PR を通じて、AI の実際の回答内で貴社のブランドが名指しされるようにすることです。E-E-A-T は Experience、Expertise、Authoritativeness、Trust であり、AI エンジンが誰のコンテンツを引用するか選ぶ際に使います。Reddit が重要なのは、ChatGPT と Perplexity が本物の人間の議論の情報源としてそれを強く重視するからです。クラシカルSEO の結果は30〜60日、実際の LLM 引用の伸びは90〜120日で表れます。当社は順位を保証しません、プロセスのみを約束します。料金は月額 $300〜$1,299 CAD です。",
+    srSeo: "AiLys Agency に関するよくある質問に平易な言葉でお答えします。当社は SEO エージェンシーと AI 検索エージェンシーの両方です。なぜなら ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot のような AI エンジンは、クラシカルな Google 検索が使うのと同じウェブインデックスから情報を引くからです。すべてのプランにはクラシカルSEO の基盤が含まれます：テクニカルSEO 監査、オンページ最適化、NAP整合性、GBP 管理、引用構築。AEO は Answer Engine Optimization で、AI エンジンがきれいな回答を抽出できるよう、スキーママークアップと Q&A 形式でコンテンツを構造化することです。GEO は Generative Engine Optimization で、Wikipedia、Wikidata、Reddit、デジタル PR を通じて、AI の実際の回答内で貴社のブランドが名指しされるようにすることです。E-E-A-T は Experience、Expertise、Authoritativeness、Trust であり、AI エンジンが誰のコンテンツを引用するか選ぶ際に使います。Reddit が重要なのは、ChatGPT と Perplexity が本物の人間の議論の情報源としてそれを強く重視するからです。クラシカルSEO の結果は30〜60日、実際の LLM 引用の伸びは90〜120日で表れます。当社は順位を保証しません、プロセスのみを約束します。料金は月額 $300〜$1,599 CAD です。",
   },
-
   footerExt: {
     colServices: "サービス",
     colCompany: "会社",
@@ -1130,10 +1119,8 @@ export const ja = {
     locationLine: "Montréal · Québec",
     bilingualLine: "EN/FR-CA バイリンガル",
     versionLine: "v0.1 · Made in Québec ⚜",
-
     srSeo: "AiLys Agency は Québec の Montréal を拠点とし、EN/FR-CA バイリンガルデリバリーを社内対応しています。姉妹製品の Reviuzy は、レビュー収集と Google ビジネスプロフィール自動化のセルフサービス型 SaaS であり、当社のエージェンシーデリバリーの一部を支える製品エンジンです。クイックリンクは、サービス（テクニカルSEO、GBP、引用、スキーマ、AEO、GEO、E-E-A-T）、会社ページ（ブログ、ヘルプセンター、コール予約、AI 可視性監査、GBP Pulse、お問い合わせ）、法的ページ（プライバシーポリシー、利用規約、クッキーポリシー）、当社が追跡する6つの AI エンジン（ChatGPT、Perplexity、Claude、Gemini、Google AIO、Bing Copilot）をカバーしています。サイトは英語、フランス語、スペイン語、中国語、アラビア語、ロシア語、ドイツ語、ヒンディー語、イタリア語、日本語、韓国語、オランダ語、ポーランド語、ポルトガル語、トルコ語、ベトナム語を含む16言語で利用可能です。",
   },
-
   navExt: {
     help: "ヘルプ",
     freeAudit: "無料監査",

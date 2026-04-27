@@ -1173,7 +1173,7 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
 - You need GEO entity authority work and weekly content
 - You want competitive monitoring
 
-**Autopilot, $1,299/mo** is right if:
+**Autopilot, $1,599/mo** is right if:
 - Everything Growth covers, plus you want zero ops
 - You want Reviuzy SaaS bundled in
 - You want a monthly review contest run for you
@@ -1241,7 +1241,7 @@ Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 
 - Necesita trabajo de autoridad de entidad GEO y contenido semanal
 - Quiere monitoreo competitivo
 
-**Autopilot, $1,299/mes** le conviene si:
+**Autopilot, $1,599/mes** le conviene si:
 - Todo lo que cubre Growth, más cero operaciones de su lado
 - Quiere Reviuzy SaaS incluido
 - Quiere un concurso mensual de reseñas operado por nosotros
@@ -1275,7 +1275,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - 需要 GEO 实体权威工作与每周内容
 - 希望进行竞争对手监测
 
-**Autopilot,$1,299/月** 适合:
+**Autopilot,$1,599/月** 适合:
 - 涵盖 Growth 的全部,且您希望运营全部托管
 - 希望打包 Reviuzy SaaS
 - 希望由我们代为运行每月评论征集活动
@@ -1309,7 +1309,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - Нужна работа с авторитетом сущности под GEO и еженедельный контент
 - Хотите мониторинг конкурентов
 
-**Autopilot, $1,299/мес.** подойдёт, если:
+**Autopilot, $1,599/мес.** подойдёт, если:
 - Всё, что покрывает Growth, плюс вы хотите ноль операционки
 - Хотите Reviuzy SaaS в комплекте
 - Хотите ежемесячный конкурс отзывов, организованный за вас
@@ -1343,7 +1343,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - تحتاج إلى عمل سلطة الكيان لـ GEO ومحتوى أسبوعي
 - ترغب في مراقبة المنافسين
 
-**Autopilot بسعر $1,299 شهرياً** مناسبة إذا:
+**Autopilot بسعر $1,599 شهرياً** مناسبة إذا:
 - أردت كل ما تشمله Growth، إضافة إلى تشغيل بلا أي عمليات من جانبك
 - أردت Reviuzy SaaS ضمن الباقة
 - أردت إدارة مسابقة مراجعات شهرية بالنيابة عنك

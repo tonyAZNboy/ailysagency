@@ -1,5 +1,14 @@
 export const nl = {
-  nav: { features: "Diensten", howItWorks: "Proces", audit: "Gratis audit", blog: "Journaal", pricing: "Prijzen", faq: "FAQ", login: "Inloggen", startTrial: "Start gratis audit" },
+  nav: {
+    features: "Diensten",
+    howItWorks: "Proces",
+    audit: "Gratis audit",
+    blog: "Journaal",
+    pricing: "Prijzen",
+    faq: "FAQ",
+    login: "Inloggen",
+    startTrial: "Start gratis audit",
+  },
   hero: {
     eyebrow: "AiLys Agency · Moderne SEO + LLM-zichtbaarheid",
     eyebrowPills: "Klassieke SEO · AEO · GEO · E-E-A-T · Made in Québec",
@@ -7,30 +16,22 @@ export const nl = {
     headline2: "Gebouwd voor lokale ondernemingen.",
     subheadline: "AiLys is een AI-zoekreputatiebureau voor lokale ondernemingen. Wij zetten uw beoordelingen, vermeldingen en Google Bedrijfsprofiel om in de signalen die uw merk laten noemen in LLM-antwoorden, waar 1,2 miljard mensen elke maand zoeken.",
     subheadlineSupport: "Pakketten vanaf $300/maand. Tweetalig EN/FR-CA. Verankerd in Québec.",
-
     flowCard1Label: "Reviews + GBP-signalen",
     flowCard1Stat: "1,9× meer citaties op recent bijgewerkte pagina's",
     flowCard2Label: "Vermeldingen + E-E-A-T",
     flowCard2Stat: "+40% LLM-heropleving voor geciteerde merken",
     flowCard3Label: "LLM-zichtbaarheid",
     flowCard3Stat: "55 procent van de AI-zoekopdrachten loopt via ChatGPT",
-
     cta1: "Start mijn AI-zichtbaarheidsaudit",
     cta2: "Bekijk prijzen",
     ctaCompliance: "Gratis audit. Geen creditcard. Resultaat binnen 24 uur.",
-
     tickerGoal: "Doel: 100 merken maandelijks geciteerd in LLM-antwoorden tegen Q4",
     tickerStatus: "Momenteel in besloten bèta",
-
     trustLabel: "Gevolgd op",
     trustEngines: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-
     industriesLabel: "Gebouwd voor lokale ondernemingen in",
-
     compliance: "Tweetalig EN en FR-CA. Schema-klaar. E-E-A-T-conform. Conform Canada, VS en 20+ landen.",
-
     srOnly: "AiLys Agency is het bureau voor LLM-zichtbaarheid en optimalisatie voor lokale ondernemingen. Wij leveren AEO (Answer Engine Optimization), GEO (Generative Engine Optimization) en E-E-A-T-strategieën die lokale merken geciteerd krijgen in antwoorden van ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot. Onze dienst combineert geverifieerde beoordelingsverzameling, beheer van Google Bedrijfsprofiel, opbouw van vermeldingen, schema-opmaak en signalen voor entiteitsautoriteit. Tweetalig EN en FR-CA. Pakketten vanaf $300/maand CAD. Made in Québec.",
-
     trusted: "AiLys Agency · LLM-zichtbaarheid en optimalisatie",
     chip1: "NFC tap-to-feedback campagnes",
     chip2: "Geautomatiseerde wedstrijd en winnaarstrekking",
@@ -84,35 +85,59 @@ export const nl = {
     f1Title: "NFC-beoordelingscampagnes",
     f1Desc: "Klanten tikken om te beoordelen en nemen automatisch deel aan uw wedstrijd.",
     f1Long: "Combineer NFC-aangedreven beoordelingsverzameling met geautomatiseerde wedstrijdcampagnes. Klanten tikken hun smartphone op uw NFC-tag, AI genereert een SEO-geoptimaliseerde beoordeling en ze worden direct ingeschreven voor uw campagne. Geen spreadsheets, geen handmatig bijhouden.",
-    f1b1: "Tap-to-enter beoordelingswedstrijden", f1b2: "Automatisch deelnemers bijhouden", f1b3: "Aangepaste NFC-kaarten met huisstijl", f1b4: "QR-code als terugvaloptie",
+    f1b1: "Tap-to-enter beoordelingswedstrijden",
+    f1b2: "Automatisch deelnemers bijhouden",
+    f1b3: "Aangepaste NFC-kaarten met huisstijl",
+    f1b4: "QR-code als terugvaloptie",
     f2Title: "Geautomatiseerde winnaarstrekking",
     f2Desc: "Selecteer winnaars met één klik via AiLys Roulette™.",
     f2Long: "Geen willekeurige naampickers of handmatige selectie meer. AiLys Agency volgt alle deelnemers, controleert geschiktheid op basis van uw regels en selecteert automatisch winnaars. Genereer optioneel een winnaarsaankondigingsvideo voor sociale media.",
-    f2b1: "Eénklik winnaarselectie", f2b2: "Geschiktheidscontrole", f2b3: "Winnaarsaankondigingsvideo", f2b4: "Claimtracking en verificatie",
+    f2b1: "Eénklik winnaarselectie",
+    f2b2: "Geschiktheidscontrole",
+    f2b3: "Winnaarsaankondigingsvideo",
+    f2b4: "Claimtracking en verificatie",
     f3Title: "Juridische T&C-generator",
     f3Desc: "Automatisch gegenereerde wedstrijdregels conform 20+ landen.",
     f3Long: "Stop met zorgen over de legaliteit van wedstrijden. AiLys Agency genereert automatisch sjablonen voor algemene voorwaarden specifiek voor uw rechtsgebied, met vaardigheidstestvragen voor Canada en Mexico, gratis inschrijvingsroutes voor het VK en registratiemeldingen voor de Verenigde Staten.",
-    f3b1: "20+ landensjablonen", f3b2: "Vaardigheidstestondersteuning (Canada en Mexico)", f3b3: "Gratis inschrijvingsroutes (VK)", f3b4: "Staatregistratiemeldingen voor VS",
+    f3b1: "20+ landensjablonen",
+    f3b2: "Vaardigheidstestondersteuning (Canada en Mexico)",
+    f3b3: "Gratis inschrijvingsroutes (VK)",
+    f3b4: "Staatregistratiemeldingen voor VS",
     f4Title: "AI-feedbackgeneratie",
     f4Desc: "Klanten selecteren wat ze geweldig vonden, AI schrijft de beoordeling.",
     f4Long: "Onze door Gemini aangedreven AI genereert gepersonaliseerde, SEO-geoptimaliseerde beoordelingen op basis van door klanten geselecteerde kenmerken. Geen typewerk vereist. Beoordelingen verwerken op natuurlijke wijze uw bedrijfstrefwoorden en unieke verkooppunten.",
-    f4b1: "Geen typen vereist", f4b2: "SEO-trefwoordintegratie", f4b3: "Gepersonaliseerd voor elk bezoek", f4b4: "Ondersteuning voor 16 talen",
+    f4b1: "Geen typen vereist",
+    f4b2: "SEO-trefwoordintegratie",
+    f4b3: "Gepersonaliseerd voor elk bezoek",
+    f4b4: "Ondersteuning voor 16 talen",
     f5Title: "AI automatische reacties",
     f5Desc: "Elke beoordeling krijgt direct een gepersonaliseerd, SEO-geoptimaliseerd antwoord.",
     f5Long: "Laat nooit een beoordeling onbeantwoord. AI stelt gepersonaliseerde reacties op die feedback erkennen en uw bedrijfstrefwoorden op natuurlijke wijze opnemen. Stel automatische goedkeuringsregels in of beoordeel handmatig voor publicatie.",
-    f5b1: "Directe reactiegeneratie", f5b2: "Afgestemd op uw merkstem", f5b3: "Automatische goedkeuringsregels", f5b4: "Meertalige antwoorden",
+    f5b1: "Directe reactiegeneratie",
+    f5b2: "Afgestemd op uw merkstem",
+    f5b3: "Automatische goedkeuringsregels",
+    f5b4: "Meertalige antwoorden",
     f6Title: "Detectie van valse beoordelingen",
     f6Desc: "AI-aangedreven detectie identificeert verdachte beoordelingen direct.",
     f6Long: "Bescherm uw reputatie tegen valse beoordelingen en concurrentaanvallen. Domain Shield gebruikt AI om continu te controleren op verdachte patronen, beleidsschendingen en gecoördineerde aanvallen, en waarschuwt u voordat schade is aangericht.",
-    f6b1: "24/7 geautomatiseerde monitoring", f6b2: "Detectie van concurrentaanvallen", f6b3: "Meldingen van beleidsschendingen", f6b4: "Eénklik geschillenindiening",
+    f6b1: "24/7 geautomatiseerde monitoring",
+    f6b2: "Detectie van concurrentaanvallen",
+    f6b3: "Meldingen van beleidsschendingen",
+    f6b4: "Eénklik geschillenindiening",
     f7Title: "Automatisch publiceren op sociale media",
     f7Desc: "Plan en publiceer automatisch op Google, Facebook en Instagram.",
     f7Long: "Beheer uw volledige sociale aanwezigheid vanuit één dashboard. Plan berichten, publiceer automatisch inhoud en deel campagneresultaten op alle platforms om uw beoordelingsgroeimomentum te versterken.",
-    f7b1: "Visuele inhoudskalender", f7b2: "AI-inhoudssuggesties", f7b3: "Campagneresultaten delen", f7b4: "Cross-platform publiceren",
+    f7b1: "Visuele inhoudskalender",
+    f7b2: "AI-inhoudssuggesties",
+    f7b3: "Campagneresultaten delen",
+    f7b4: "Cross-platform publiceren",
     f8Title: "Multi-locatie dashboard",
     f8Desc: "Beheer campagnes en beoordelingen over alle locaties.",
     f8Long: "Perfect voor franchises en multi-locatiebedrijven. Elke locatie krijgt aparte campagnes, analyses, beoordelingsverzameling en NFC-kaarten, terwijl u toezicht houdt vanuit één gezamenlijk dashboard.",
-    f8b1: "Onbeperkte locaties", f8b2: "Locatiespecifieke campagnes", f8b3: "Gecentraliseerde analyses", f8b4: "Teamrechten per locatie",
+    f8b1: "Onbeperkte locaties",
+    f8b2: "Locatiespecifieke campagnes",
+    f8b3: "Gecentraliseerde analyses",
+    f8b4: "Teamrechten per locatie",
     srOnly: "AiLys Agency-functies: NFC-beoordelingscampagnes voor tap-to-enter wedstrijden, geautomatiseerde winnaarstrekking met AiLys Roulette, juridische T&C-generator voor 20+ landen, AI-feedbackgeneratie, AI automatische reacties, detectie van valse beoordelingen via Domain Shield, automatisch publiceren op sociale media en multi-locatie dashboard.",
   },
   guardrails: {
@@ -148,7 +173,7 @@ export const nl = {
     badge: "Door Google geverifieerde data",
     heading: "Meer terugkerende beoordelingen = hogere Google-rangschikkingen",
     desc: "De eigen documentatie van Google bevestigt dat het aantal beoordelingen en de beoordelingsscore meewegen in de lokale zoekrangschikking. Bedrijven met een consistent beoordelingsvolume domineren de Local Pack.",
-    quote: '"Meer beoordelingen en positieve waarderingen kunnen de lokale rangschikking van uw bedrijf verbeteren."',
+    quote: "\"Meer beoordelingen en positieve waarderingen kunnen de lokale rangschikking van uw bedrijf verbeteren.\"",
     quoteSource: "Helpcentrum Google Bedrijfsprofiel",
     readMore: "Lees het volledige bewijs met bronnen",
     stat1Label: "van Local Pack-rangschikking = beoordelingssignalen",
@@ -184,12 +209,24 @@ export const nl = {
     comparisonSub: "Handmatige systemen verzamelen beoordelingen. AiLys Agency bouwt beoordelingsgroeimomentum.",
     colManual: "Handmatig",
     colReviuzy: "AiLys Agency",
-    r1Feature: "Hoe klanten beoordelen", r1Manual: "Vraag ze te schrijven", r1Reviuzy: "NFC tap-to-enter",
-    r2Feature: "Deelnemers bijhouden", r2Manual: "Spreadsheets", r2Reviuzy: "Automatisch bijhouden",
-    r3Feature: "Winnaarselectie", r3Manual: "Willekeurige naampicker", r3Reviuzy: "Ingebouwde veilige trekking",
-    r4Feature: "Juridische naleving", r4Manual: "Geen begeleiding", r4Reviuzy: "Landspecifieke T&C",
-    r5Feature: "Beoordelingsreacties", r5Manual: "Handmatige antwoorden", r5Reviuzy: "AI SEO-geoptimaliseerd",
-    r6Feature: "Groeistrategie", r6Manual: "Geen", r6Reviuzy: "Terugkerende campagne-engine",
+    r1Feature: "Hoe klanten beoordelen",
+    r1Manual: "Vraag ze te schrijven",
+    r1Reviuzy: "NFC tap-to-enter",
+    r2Feature: "Deelnemers bijhouden",
+    r2Manual: "Spreadsheets",
+    r2Reviuzy: "Automatisch bijhouden",
+    r3Feature: "Winnaarselectie",
+    r3Manual: "Willekeurige naampicker",
+    r3Reviuzy: "Ingebouwde veilige trekking",
+    r4Feature: "Juridische naleving",
+    r4Manual: "Geen begeleiding",
+    r4Reviuzy: "Landspecifieke T&C",
+    r5Feature: "Beoordelingsreacties",
+    r5Manual: "Handmatige antwoorden",
+    r5Reviuzy: "AI SEO-geoptimaliseerd",
+    r6Feature: "Groeistrategie",
+    r6Manual: "Geen",
+    r6Reviuzy: "Terugkerende campagne-engine",
   },
   testimonials: {
     badge: "Getuigenissen",
@@ -253,9 +290,12 @@ export const nl = {
     addonsHeading: "Flexibele add-ons, betaal alleen wat u nodig hebt",
     perMonth: "per maand",
     cta: "Doe mee aan de bètarelease",
-    plan1Name: "Starter", plan1Desc: "Voor eenlocatiebedrijven gericht op beoordelingsgroei.",
-    plan2Name: "Pro", plan2Desc: "Voor groeigerichte bedrijven die schalen met campagnes.",
-    plan3Name: "Max", plan3Desc: "Voor multi-locatiemerken en bureaus op schaal.",
+    plan1Name: "Starter",
+    plan1Desc: "Voor eenlocatiebedrijven gericht op beoordelingsgroei.",
+    plan2Name: "Pro",
+    plan2Desc: "Voor groeigerichte bedrijven die schalen met campagnes.",
+    plan3Name: "Max",
+    plan3Desc: "Voor multi-locatiemerken en bureaus op schaal.",
   },
   faq: {
     badge: "FAQ",
@@ -298,9 +338,17 @@ export const nl = {
     legal: "Juridisch",
     copyright: "Alle rechten voorbehouden.",
     poweredBy: "Aangedreven door Gemini AI",
-    about: "Over ons", blog: "Blog", careers: "Carrières", contact: "Contact",
-    privacy: "Privacybeleid", terms: "Servicevoorwaarden", cookies: "Cookiebeleid",
-    features: "Functies", pricing: "Prijzen", howItWorks: "Hoe het werkt", faq: "FAQ",
+    about: "Over ons",
+    blog: "Blog",
+    careers: "Carrières",
+    contact: "Contact",
+    privacy: "Privacybeleid",
+    terms: "Servicevoorwaarden",
+    cookies: "Cookiebeleid",
+    features: "Functies",
+    pricing: "Prijzen",
+    howItWorks: "Hoe het werkt",
+    faq: "FAQ",
   },
   seo: {
     landingTitle: "AI-beoordelingsgroei- en NFC-campagneplatform",
@@ -383,7 +431,6 @@ export const nl = {
       emailPlaceholder: "u@bedrijf.nl",
       legal: "E-mail vereist, URL optioneel. We sturen het volledige rapport en het 90-dagenplan.",
     },
-
     ai: {
       eyebrow: "AI-zichtbaarheidsaudit, auto-audit",
       headline: "Ontdek of AI-engines u citeren.",
@@ -402,7 +449,6 @@ export const nl = {
       lockDesc: "Voer uw e-mail in om het volledige actieplan, de concurrentielacune-analyse en de omzetprognose te zien. Geen spam, geen telefoontjes.",
       sendCopy: "Stuur mij het volledige GBP-rapport",
     },
-
     toasts: {
       fourThings: "We hebben vier dingen nodig",
       fourThingsDesc: "Bedrijfsnaam, branche, stad en een geldig e-mailadres.",
@@ -415,20 +461,17 @@ export const nl = {
       unlockedDesc: "Volledig rapport op uw scherm en onderweg naar uw inbox.",
       cantUnlock: "Kon niet ontgrendelen",
     },
-
     loading: {
       pullingData: "Live data wordt opgehaald...",
       cantReach: "We konden de auditmotor niet bereiken.",
       cantRecord: "We konden uw e-mail niet vastleggen.",
     },
-
     tiers: {
       strong: "Sterk",
       solid: "Solide basis",
       gaps: "Echte hiaten",
       critical: "Kritieke hiaten",
     },
-
     results: {
       diagnosticSummary: "Diagnostische samenvatting.",
       runAgain: "Opnieuw uitvoeren",
@@ -454,7 +497,6 @@ export const nl = {
       free: "Gratis, geen creditcard, 30 seconden",
       emailRequired: "E-mail vereist, we sturen het volledige rapport en het actieplan daarheen",
     },
-
     crossLinks: {
       needAi: "Wilt u de volledige AI-zichtbaarheidsanalyse?",
       needAiDesc: "GBP is één input. De AI-zichtbaarheidsaudit controleert AEO, GEO en E-E-A-T over 6 LLM-engines.",
@@ -466,7 +508,6 @@ export const nl = {
       talkHumanDesc: "Strategiegesprek van 60 minuten in EN, FR-CA, ES, ZH, AR, RU, UK, SR. Gratis, geen verkooppraatje.",
       talkHumanCta: "Boek een strategiegesprek",
     },
-
     pulse: {
       step1of3: "Stap 1 van 3, in totaal 90 seconden",
       step2of3: "Stap 2 van 3, 8 vragen",
@@ -593,7 +634,6 @@ export const nl = {
         napWeakAction: "Voer een NAP-audit uit op 20 vermeldingsbronnen met hoge DA. Corrigeer afwijkingen deze maand.",
       },
     },
-
     matrix: {
       eyebrow: "LLM-citatiematrix",
       sample: "Voorbeeld",
@@ -662,7 +702,6 @@ export const nl = {
     errorDuplicate: "Dit e-mailadres staat al op de wachtlijst!",
     errorTryLater: "Probeer het later opnieuw.",
   },
-
   heroAuditCard: {
     citationLabel: "Hoe LLM's lokale ondernemingen citeren",
     eyebrow: "Gratis AI-zichtbaarheidsaudit · doorlooptijd 24 uur",
@@ -679,22 +718,19 @@ export const nl = {
     badgeFree: "Gratis en direct",
     toastTitle: "We hebben drie dingen nodig",
     toastDesc: "Bedrijfsnaam, stad en een geldig e-mailadres zodat we het volledige rapport kunnen sturen.",
-
     srSeo: "Voorbeelden van LLM-citaties laten zien hoe AI-zoekmachines kiezen welke lokale ondernemingen ze noemen wanneer gebruikers koopvragen stellen. Voorbeeldzoekopdracht: \"Beste tandarts in Plateau Mont-Royal\". Geciteerde onderneming: Clinique Dentaire Plateau, naar voren gehaald via Yelp DA92, een volledig Google Bedrijfsprofiel en tweetalige EN- en FR-CA-beoordelingen die binnen 24 uur worden beantwoord. Voorbeeldzoekopdracht: \"Top familierestaurant in Verdun\". Geciteerde onderneming: Restaurant Le Petit Coin, naar voren gehaald via TripAdvisor-autoriteit, OpenTable-aanwezigheid, vers beoordelingsvolume en LocalBusiness-schema op de website. Voorbeeldzoekopdracht: \"Betrouwbare HVAC-aannemer bij mij in de buurt Montréal\". Geciteerde onderneming: Climatisation Boréal, naar voren gehaald via BBB-accreditatie, HomeStars-beoordeling, FAQ-schema met seizoensgebonden servicevragen en een Wikidata-entiteit. Het patroon is consistent: AI-engines citeren ondernemingen met een volledig GBP, NAP-consistentie over 20+ vermeldingsbronnen, AEO-schema-opmaak, verse beoordelingen en signalen voor entiteitsautoriteit. Gratis audit binnen 24 uur, geen creditcard vereist.",
   },
-
   heroExtras: {
     bookCall60: "Boek een strategiegesprek van 60 minuten",
     scoreGbp90: "Beoordeel uw GBP in 90 seconden",
     bookHelper: "Gratis, geen verkooppraatje. Tweetalig EN, FR-CA, ES, ZH, AR, RU, UK, SR. We sturen een strategiedocument, of u nu tekent of niet.",
   },
-
   services: {
     sectionLabel: "01 / Diensten",
     heading1: "Vier pakketten.",
     heading2: "Eén discipline.",
     intro: "AiLys levert dezelfde disciplines als tier-1-bureaus (AEO, GEO, E-E-A-T) tegen mkb-prijzen. De enige reden dat dit werkt, is dat onze operationele uitvoering geautomatiseerd is via onze engine voor geverifieerde beoordelingen en Google Bedrijfsprofiel. U krijgt bureaukwaliteit voor wat de meeste aanbieders alleen al voor tools rekenen.",
-    metaPrice: "$300 tot $1.299/maand",
+    metaPrice: "$300 tot $1.599/maand",
     metaBilingual: "Tweetalig EN/FR-CA",
     metaMonthly: "Maandelijks opzegbaar",
     metaAutopilot: "Autopilot bevat Reviuzy",
@@ -702,53 +738,47 @@ export const nl = {
     badgeAutopilot: "⚡ Autopilot · volledig ontzorgd",
     tierLabel: "Niveau",
     perMo: "/maand CAD",
-
     tier0Name: "Starter",
     tier0Tagline: "Voor solo-restaurants, zelfstandige praktijkhouders en kleine salons die zichtbaar willen worden in AI-zoeken.",
     tier0Cta: "Begin met Starter",
     tier0Feat1: "Technische SEO en on-page basis",
-    tier0Feat2: "Beheer Google Bedrijfsprofiel",
+    tier0Feat2: "Google Business Profile beheer en 1 GBP post per maand",
     tier0Feat3: "NAP-consistentiecontrole over 20+ vermeldingsbronnen",
-    tier0Feat4: "LLM-citatietracking over 6 engines",
+    tier0Feat4: "LLM citatie tracking over 6 engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot)",
     tier0Feat5: "Maandelijks prestatierapport",
     tier0Feat6: "Eén strategiegesprek per maand",
-
     tier1Name: "Core",
     tier1Tagline: "Voor tandartsen, aannemers en groeiende restaurants die met naam geciteerd moeten worden.",
     tier1Cta: "Begin met Core",
     tier1Feat1: "Alles uit Starter",
-    tier1Feat2: "AEO schema-implementatie (FAQ, Review, LocalBusiness, HowTo)",
-    tier1Feat3: "Backlinkopbouw via echte publicaties",
-    tier1Feat4: "Citation building, 5 per maand",
+    tier1Feat2: "GBP posts: 4 per maand (wekelijkse cadans)",
+    tier1Feat3: "AEO schema (FAQ, Review, LocalBusiness, HowTo) en AEO content brief generator",
+    tier1Feat4: "Citatie opbouw 5 per maand en backlinks van echte publicaties",
     tier1Feat5: "Tweetalige content, één stuk per maand",
-    tier1Feat6: "Tweewekelijks strategiegesprek",
-
+    tier1Feat6: "GBP Q&A monitoring met automatische conceptantwoorden",
     tier2Name: "Growth",
     tier2Tagline: "Voor multi-locatie, franchises en expansieplannen.",
     tier2Cta: "Begin met Growth",
     tier2Feat1: "Alles uit Core",
-    tier2Feat2: "GEO-entiteitsautoriteit (Wikipedia, Wikidata, digital PR)",
-    tier2Feat3: "Reddit- en branchefora-deelname",
-    tier2Feat4: "Citation building, 10+ per maand",
-    tier2Feat5: "Wekelijkse tweetalige content",
-    tier2Feat6: "Concurrentiemonitoring",
-    tier2Feat7: "Driemaandelijkse persoonlijke evaluatie",
-
+    tier2Feat2: "GBP posts: 8 per maand (2 per week)",
+    tier2Feat3: "GEO entity autoriteit (Wikipedia, Wikidata, digitale PR)",
+    tier2Feat4: "Deelname op Reddit en branche forums",
+    tier2Feat5: "Citatie opbouw 10 of meer per maand",
+    tier2Feat6: "Share of Model dashboard, merkvermeldingen versus 3 benoemde concurrenten op LLMs",
+    tier2Feat7: "Merksentiment en citatie versheid alerts",
     tier3Name: "Autopilot",
     tier3Tagline: "Volledig ontzorgd. Reviuzy SaaS inbegrepen. Maandelijkse wedstrijd-engine draait op uw locaties.",
     tier3Cta: "Ga voor Autopilot",
     tier3Feat1: "Alles uit Growth",
-    tier3Feat2: "Reviuzy SaaS Max inbegrepen",
-    tier3Feat3: "Maandelijkse beoordelingswedstrijd, door ons uitgevoerd",
-    tier3Feat4: "Juridische T&C verzorgd, winnaarstrekking, prijsoverdracht, social-versterking",
-    tier3Feat5: "Vers beoordelingsvolume, 20 tot 50 per maand per locatie",
-    tier3Feat6: "NFC-tap-kaarten verzonden naar uw locaties",
+    tier3Feat2: "GBP posts: 12 per maand (3 per week) en 4 tot 6 foto uploads per maand",
+    tier3Feat3: "Reviuzy SaaS Max inbegrepen, maandelijkse reviewwedstrijd door ons uitgevoerd",
+    tier3Feat4: "Juridische T&C afgehandeld, winnaar trekking, prijsoverhandiging, social amplification",
+    tier3Feat5: "Verse review velocity, 20 tot 50 per maand per locatie, NFC kaarten verzonden",
+    tier3Feat6: "AI traffic conversie tracker, UTM attributie van AI search naar boekingen",
     tier3Feat7: "Domain Speed Boost en Domain Shield inbegrepen",
-    tier3Feat8: "Driemaandelijkse evaluatie van wedstrijdprestaties",
-
+    tier3Feat8: "Toegewijde success strategist en maandelijkse executive briefing",
     why300Eyebrow: "Waarom $300 in plaats van $2.000",
     why300Body: "Reviuzy verzorgt de operationele laag (beoordelingsverzameling, GBP, contentopzet, citatietracking). Onze mensen richten zich op strategie, schema-opmaak en de citaties die LLM-rangschikkingen daadwerkelijk in beweging zetten. De rekensom klopt.",
-
     compareLabel: "Vergelijken",
     compareMidMarket: "Middensegment-bureaus",
     compareAilys: "AiLys Agency",
@@ -770,19 +800,18 @@ export const nl = {
     compareRow6Label: "Niet-goed-geld-teruggarantie",
     compareRow6Left: "Ja",
     compareRow6Right: "Ja, 30 dagen",
-
     chip1Eyebrow: "Risico-omkering",
     chip1Line: "Tevredenheidsgarantie van 30 dagen. Terugbetaling als er geen meetbare schema- of citatiewinst is.",
     chip2Eyebrow: "Geen lock-in",
     chip2Line: "Maandelijks opzegbaar. Twee weken opzegtermijn, geen terugvordering. Behoud de schema-opmaak en vermeldingen die we hebben opgeleverd.",
     chip3Eyebrow: "Verankerd in Québec",
     chip3Line: "Tweetalig EN/FR-CA in huis. Spaans, Chinees, Arabisch en Russisch via partnernetwerk.",
-
     footnote: "Alle pakketten zijn maandelijks opzegbaar. Annuleer op elk moment, twee weken opzegtermijn. Geen instelkosten.",
-
-    srSeo: "AiLys Agency biedt vier maandelijkse pakketten voor lokale ondernemingen die geciteerd moeten worden in AI-zoekantwoorden. Starter kost $300 CAD per maand en omvat technische SEO, beheer van Google Bedrijfsprofiel, NAP-consistentie over 20+ vermeldingsbronnen en wekelijkse LLM-citatietracking op ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot. Core kost $600 CAD en voegt AEO schema-implementatie toe (FAQ, Review, LocalBusiness, HowTo), citation building van 5 per maand, tweetalige content en backlinks van echte publicaties. Growth kost $1.200 CAD en voegt GEO-entiteitsautoriteitswerk toe op Wikipedia en Wikidata, deelname aan Reddit en fora, wekelijkse tweetalige content en concurrentiemonitoring. Autopilot kost $1.299 CAD met de Reviuzy-beoordelingswedstrijdengine inbegrepen, NFC-tap-kaarten verzonden naar elke locatie en een vers beoordelingsvolume van 20 tot 50 per locatie per maand. Elk pakket is maandelijks opzegbaar met twee weken opzegtermijn en een tevredenheidsgarantie van 30 dagen. Tweetalig EN en FR-CA in huis. Verankerd in Québec.",
+    srSeo: "AiLys Agency biedt vier maandelijkse pakketten voor lokale ondernemingen die geciteerd moeten worden in AI-zoekantwoorden. Starter kost $300 CAD per maand en omvat technische SEO, beheer van Google Bedrijfsprofiel, NAP-consistentie over 20+ vermeldingsbronnen en wekelijkse LLM-citatietracking op ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot. Core kost $600 CAD en voegt AEO schema-implementatie toe (FAQ, Review, LocalBusiness, HowTo), citation building van 5 per maand, tweetalige content en backlinks van echte publicaties. Growth kost $1.200 CAD en voegt GEO-entiteitsautoriteitswerk toe op Wikipedia en Wikidata, deelname aan Reddit en fora, wekelijkse tweetalige content en concurrentiemonitoring. Autopilot kost $1.599 CAD met de Reviuzy-beoordelingswedstrijdengine inbegrepen, NFC-tap-kaarten verzonden naar elke locatie en een vers beoordelingsvolume van 20 tot 50 per locatie per maand. Elk pakket is maandelijks opzegbaar met twee weken opzegtermijn en een tevredenheidsgarantie van 30 dagen. Tweetalig EN en FR-CA in huis. Verankerd in Québec.",
+    tier1Feat7: "Tweewekelijks strategiegesprek",
+    tier2Feat8: "Kwartaalreview op locatie",
+    tier3Feat9: "Kwartaal review van wedstrijdprestaties",
   },
-
   pricingDrivers: {
     sectionLabel: "Prijsonderbouwing",
     heading1: "Waarom AiLys-prijzen",
@@ -798,15 +827,13 @@ export const nl = {
     d4Body: "Tweetalig EN en FR-CA zit in elk niveau. Spaans, Chinees, Arabisch, Russisch, Oekraïens of Servisch toevoegen via ons partnernetwerk verhoogt de productiekosten. Elke extra taal trekt een aparte citatievoetafdruk met zich mee.",
     d5Title: "Tempo van vermeldingsacquisitie",
     d5Body: "Citation building is echt outreachwerk. Vijf hoog-DA-vermeldingen per maand bij Core, tien of meer bij Growth. Het verschil in kosten weerspiegelt onderzoeks- en outreachuren, geen willekeurige niveau-indeling.",
-
     srSeo: "AiLys-prijzen variëren per klant omdat vijf reële factoren de kosten bepalen. Ten eerste, LLM-engine-dekking: we volgen citaties op ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot, en de prijs schaalt mee met hoeveel engines we actief optimaliseren, niet enkel monitoren. Ten tweede, branchecomplexiteit: het E-E-A-T-gewicht varieert per branche, dus gezondheidszorg en juridische dienstverlening hebben gecertificeerd auteurschap en citatiedichtheid nodig die restaurants niet vergen. Ten derde, schema- en entiteitsomvang: een WordPress-site van 5 pagina's is een ander soort werk dan een Shopify-catalogus van 200 pagina's met meerdere locaties. Ten vierde, diepte van talige content: tweetalig EN en FR-CA zit in elk niveau, en Spaans, Chinees, Arabisch, Russisch, Oekraïens of Servisch toevoegen verhoogt de productiekosten. Ten vijfde, tempo van vermeldingsacquisitie: 5 hoog-DA-vermeldingen per maand bij Core, 10 of meer bij Growth, wat reële onderzoeks- en outreachuren weergeeft.",
   },
-
   pricingBuilder: {
     sectionLabel: "Pakket-configurator",
     heading1: "Bouw uw pakket,",
     heading2: "zie de prijs.",
-    intro: "Pas de invoer aan. De prijs schiet door naar één van onze vier niveaus ($300 tot $1.299). Geen \"vraag een offerte aan\"-circus.",
+    intro: "Pas de invoer aan. De prijs schiet door naar één van onze vier niveaus ($300 tot $1.599). Geen \"vraag een offerte aan\"-circus.",
     pagesLabel: "Pagina's op uw site",
     languagesLabel: "Bediende talen",
     servicesLabel: "Inbegrepen diensten",
@@ -820,13 +847,11 @@ export const nl = {
     legal: "Eerst gratis audit · geen creditcard",
     footnote: "Alleen schattingen. De definitieve prijs wordt vastgelegd bij contractondertekening. Pakketten zijn maandelijks opzegbaar met twee weken opzegtermijn.",
     chipAria: "Geschat pakket, tik voor volledige uitsplitsing",
-
     lang1: "Alleen EN",
     lang2: "EN + FR-CA",
     lang3: "EN + FR + ES",
     lang4: "EN + FR + ES + ZH",
     lang5: "Alle 8 talen",
-
     svc1Label: "GBP-beheer",
     svc1Desc: "Categorieën, attributen, foto's, Q&A.",
     svc2Label: "LLM-citatietracking",
@@ -847,15 +872,12 @@ export const nl = {
     svc9Desc: "Wekelijkse tracker en maandelijks inzichtendocument.",
     svc10Label: "Maandelijkse beoordelingswedstrijd-engine",
     svc10Desc: "Reviuzy SaaS plus volledig ontzorgde wedstrijd.",
-
     tierStarter: "Starter",
     tierCore: "Core",
     tierGrowth: "Growth",
     tierAutopilot: "Autopilot",
-
-    srSeo: "Bouw uw AiLys-pakket door drie inputs aan te passen, en de prijs schiet door naar één van vier niveaus tussen $300 en $1.299 CAD per maand. De inputs zijn pagina's op uw site, bediende talen (alleen EN, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, of alle 8 talen) en de diensten die u opneemt. Beschikbare diensten zijn beheer van Google Bedrijfsprofiel, LLM-citatietracking op 6 AI-engines met wekelijkse polls, AEO schema-implementatie (FAQ, Review, LocalBusiness, HowTo), citation building van 5 per maand of 10 of meer per maand, tweetalige EN- en FR-content van één stuk per maand, wekelijkse contentproductie van 4 stuks per maand, GEO-entiteitsautoriteitswerk op Wikipedia en Wikidata, concurrentiemonitoring met een wekelijkse tracker en de maandelijkse Reviuzy-beoordelingswedstrijd-engine. Eerst gratis audit. Geen creditcard. Pakketten zijn maandelijks opzegbaar met twee weken opzegtermijn.",
+    srSeo: "Bouw uw AiLys-pakket door drie inputs aan te passen, en de prijs schiet door naar één van vier niveaus tussen $300 en $1.599 CAD per maand. De inputs zijn pagina's op uw site, bediende talen (alleen EN, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, of alle 8 talen) en de diensten die u opneemt. Beschikbare diensten zijn beheer van Google Bedrijfsprofiel, LLM-citatietracking op 6 AI-engines met wekelijkse polls, AEO schema-implementatie (FAQ, Review, LocalBusiness, HowTo), citation building van 5 per maand of 10 of meer per maand, tweetalige EN- en FR-content van één stuk per maand, wekelijkse contentproductie van 4 stuks per maand, GEO-entiteitsautoriteitswerk op Wikipedia en Wikidata, concurrentiemonitoring met een wekelijkse tracker en de maandelijkse Reviuzy-beoordelingswedstrijd-engine. Eerst gratis audit. Geen creditcard. Pakketten zijn maandelijks opzegbaar met twee weken opzegtermijn.",
   },
-
   methodology: {
     sectionLabel: "Engine · hoe AiLys u in LLM-antwoorden brengt",
     heading1: "Acht stappen van",
@@ -865,84 +887,67 @@ export const nl = {
     stepsAria: "Methodologiestappen",
     closingQuote: "\"Acht inputs voeden de AI-engines. De meeste bureaus repareren er één of twee. Wij draaien alle acht, elke maand.\"",
     closingCaption: "De AiLys-engine",
-
     layerClassical: "Klassieke SEO",
     layerAeoGeo: "AEO + GEO",
     layerEeat: "E-E-A-T",
     layerTracking: "Tracking",
-
     step1Title: "Technisch fundament",
     step1Short: "Repareer wat AI-engines crawlen",
     step1Detail: "Sitesnelheid, crawlbaarheid, interne links, metahygiëne, gebroken links. AI-engines halen uit dezelfde web-index die Google gebruikt. Als uw site traag of kapot is, redt geen AI-laag u.",
     step1Signal: "TTFB onder 200 ms · 100 procent crawlbare URL's · schone metadata",
-
     step2Title: "Google Bedrijfsprofiel",
     step2Short: "Categorieën, attributen, openingstijden, foto's, posts, Q&A",
     step2Detail: "GBP-volledigheid drijft 35 tot 60 procent van de lokale AI-antwoorden aan. We vullen elk attribuut, optimaliseren categorieën, vernieuwen foto's per kwartaal, zaaien Q&A en posten wekelijks. Fundamenteel voor elk niveau.",
     step2Signal: "100 procent attributen ingevuld · 5+ foto's/maand · Q&A gezaaid · wekelijkse posts",
-
     step3Title: "Vermeldingen en NAP-consistentie",
     step3Short: "20+ hoog-DA-vermeldingsbronnen, exacte vermeldingen",
     step3Detail: "Inconsistente naam, adres en telefoon op het web halveert de citatiekansen. AI-engines behandelen NAP-varianten als aparte entiteiten. Wij corrigeren alle 20+ hoog-DA-vermeldingsbronnen: Yelp, BBB, Yellowpages, branchespecifieke.",
     step3Signal: "Yelp · BBB · Crunchbase · Avvo · Healthgrades · OpenTable",
-
     step4Title: "AEO schema-implementatie",
     step4Short: "FAQ + Review + LocalBusiness + Service-entiteiten",
     step4Detail: "AEO maakt uw content extractie-klaar. We zetten gestructureerde data in zodat AI-engines een schoon antwoord uit uw site kunnen halen in plaats van een concurrent te parafraseren. Gevalideerd via de Google Rich Results Test.",
     step4Signal: "FAQ-schema · Review aggregateRating · LocalBusiness · Service",
-
     step5Title: "GEO-entiteitsautoriteit",
     step5Short: "Wikipedia, Wikidata, digital PR, Reddit",
     step5Detail: "ChatGPT en Perplexity wegen Wikipedia- en Reddit-signalen zwaar. Wij bouwen verifieerbare Wikidata-vermeldingen, stellen Wikipedia-vermeldingen voor waar de onderneming oprecht noemenswaardig is, en zijn substantieel aanwezig in de top 3 tot 5 subreddits van uw branche.",
     step5Signal: "Wikidata-vermelding · Reddit-stem · 1+ persvermelding per kwartaal",
-
     step6Title: "E-E-A-T-signalen",
     step6Short: "Echte auteurslijnen, originele foto's, kwalificaties",
     step6Detail: "Het E-E-A-T-raster van Google (Experience, Expertise, Authoritativeness, Trust) is wat AI-engines gebruiken om te kiezen wiens content ze citeren. Wij voegen Person-schema toe voor auteurs, originele fotografie met EXIF-metadata, kwalificatiemarkup en awardschema.",
     step6Signal: "Auteurslijnen · EXIF-foto's · kwalificaties · awards · vertrouwensbadges",
-
     step7Title: "Beoordelingsvolume-engine",
     step7Short: "Verse beoordelingen maandelijks, AI-beantwoord, meertalig",
     step7Detail: "Beoordelingen zijn het sterkste verssignaal dat AI-engines gebruiken. We laten beoordelingsverzameling lopen via Reviuzy (NFC-tap, QR-codes, wedstrijd-engine) zodat u 4 tot 50 verse beoordelingen per maand per locatie aanhoudt, beantwoord binnen 24 uur, in de taal waarin de klant schreef.",
     step7Signal: "4 tot 50 beoordelingen/maand per locatie · 24-uurs reactie · 16 talen",
-
     step8Title: "LLM-citatietracking",
     step8Short: "6 engines, wekelijkse polling, maandelijks rapport",
     step8Detail: "We bevragen ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot wekelijks met prompts met hoge koopintentie in uw dienst plus stad. We volgen wanneer uw naam verschijnt, wat geciteerd wordt en waar concurrenten u nog steeds verslaan. Echte cijfers, geen ijdele metrieken.",
     step8Signal: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-
     srSeo: "De AiLys-methodologie draait een 8-staps pipeline die een lokale onderneming brengt van onzichtbaar naar geciteerd in AI-zoekantwoorden. Stap 1 is het technische fundament: sitesnelheid, crawlbaarheid, interne links en metahygiëne. Stap 2 is Google Bedrijfsprofiel, met categorieën, attributen, foto's, posts en Q&A allemaal up-to-date gehouden. Stap 3 zijn vermeldingen en NAP-consistentie over 20+ hoog-DA-vermeldingsbronnen zoals Yelp, BBB en Crunchbase. Stap 4 is AEO schema-implementatie met FAQ-, Review-, LocalBusiness- en Service-entiteiten gevalideerd tegen Google Rich Results. Stap 5 is GEO-entiteitsautoriteit op Wikipedia, Wikidata, digital PR en Reddit. Stap 6 is opbouw van E-E-A-T-signalen met echte auteurslijnen, originele foto's en kwalificaties. Stap 7 is de beoordelingsvolume-engine die via Reviuzy loopt. Stap 8 is wekelijkse LLM-citatietracking op ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot. Elke stap voedt de volgende.",
   },
-
   process: {
     sectionLabel: "02 / Proces",
     heading1: "Hoe een citatie",
     heading2: "echt wordt opgebouwd.",
     intro: "Geen bureautheater. Vier fasen, elk met een tastbare uitkomst. We beginnen met een gratis audit en u beslist of de volgende stap het budget waard is.",
-
     phase1Name: "Audit",
     phase1Duration: "Dag 0 tot dag 2",
     phase1Body: "We brengen uw huidige AI-zoekvoetafdruk in kaart. Waar u geciteerd wordt, waar u ontbreekt, welke schema- en vermeldingshiaten concurrenten benutten. De audit is gratis en landt binnen 24 uur na aanvraag in uw inbox.",
     phase1Pull: "Gratis, 24 uur.",
-
     phase2Name: "Strategie",
     phase2Duration: "Week 1",
     phase2Body: "We bouwen een 90-dagen plan. Schema-prioriteiten, vermeldingsdoelen, contentkalender afgestemd op uw dienst en stad. U ziet het plan voordat we iets live aanraken.",
     phase2Pull: "Eerst plannen. Dan handelen.",
-
     phase3Name: "Uitvoering",
     phase3Duration: "Vanaf week 2",
     phase3Body: "Schema-implementatie, vermeldings-outreach, GBP-optimalisatie, contentproductie. Tweetalig waar het ertoe doet. Wij doen het werk, u houdt uw dag.",
     phase3Pull: "Wij nemen de telefoon op.",
-
     phase4Name: "Rapportage",
     phase4Duration: "Vanaf dag 30",
     phase4Body: "Maandelijks LLM-citatierapport. Waar u nieuw verscheen, welke antwoorden u erbij halen, wat nog vergrendeld is. Echte cijfers, klare taal. Geen ijdele metrieken.",
     phase4Pull: "Echte cijfers, geen gebakken lucht.",
-
     srSeo: "Het AiLys-proces draait in vier fasen met een tastbaar resultaat in elke fase. Fase 1 is de Audit, van dag 0 tot dag 2: we brengen uw huidige AI-zoekvoetafdruk in kaart, waar u geciteerd wordt, waar u ontbreekt, welke schema- en vermeldingshiaten concurrenten benutten. De audit is gratis en landt binnen 24 uur na aanvraag in uw inbox. Fase 2 is Strategie in week 1: we bouwen een 90-dagen plan met schema-prioriteiten, vermeldingsdoelen en een contentkalender afgestemd op uw dienst en stad. U ziet het plan voordat we iets live aanraken. Fase 3 is Uitvoering vanaf week 2: schema-implementatie, vermeldings-outreach, GBP-optimalisatie, contentproductie, tweetalig waar het ertoe doet. Fase 4 is Rapportage vanaf dag 30: een maandelijks LLM-citatierapport over waar u nieuw verscheen, welke antwoorden u erbij halen en wat nog vergrendeld is. Echte cijfers, klare taal.",
   },
-
   bookCall: {
     sectionLabel: "03b / Strategiegesprek",
     heading1: "Een gesprek van 60 minuten.",
@@ -972,7 +977,6 @@ export const nl = {
     successHeading: "Begrepen.",
     successBody: "We hebben uw aanvraag zojuist naar ons team gemaild. U ontvangt binnen 12 uur drie tijdsvakopties plus een eenpagina-overzicht over hoe het gesprek verloopt.",
     successCheck: "Controleer uw inbox · ook de spammap",
-
     lang1Name: "Engels",
     lang2Name: "Frans",
     lang3Name: "Spaans",
@@ -981,10 +985,8 @@ export const nl = {
     lang6Name: "Russisch",
     lang7Name: "Oekraïens",
     lang8Name: "Servisch",
-
     srSeo: "Boek een gratis strategiegesprek van 60 minuten met AiLys Agency. We brengen uw AI-zoekpositie in kaart, lopen de auditresultaten door en vertellen u of AiLys de juiste partij is. Zo niet, dan sturen we toch een eenpaginastrategiedocument. Gesprekken worden gevoerd in Engels, Frans, Spaans, Chinees, Arabisch en Russisch met teamleden in huis. Oekraïens en Servisch lopen via gescreende partnerbureaus volgens hetzelfde draaiboek. Het gesprek is gratis, zonder creditcard en zonder verkooppraatje. We reageren binnen 12 uur na aanvraag met drie tijdsvakopties. U vertrekt hoe dan ook met iets dat u kunt toepassen, of u nu tekent of niet.",
   },
-
   chat: {
     teaserTitle: "Krijg meer beoordelingen",
     teaserSubtitle: "Vraag hoe AI uw bedrijf kan laten groeien, in elke taal.",
@@ -1008,7 +1010,6 @@ export const nl = {
     ariaOpen: "Chat openen",
     ariaMinimize: "Minimaliseren",
   },
-
   whyAilys: {
     sectionLabel: "03 / Positionering",
     heading1: "Waar wij staan",
@@ -1020,34 +1021,28 @@ export const nl = {
     colAilys: "AiLys-positie",
     closingQuote: "\"Als uw lokale onderneming volgend jaar door ChatGPT geciteerd moet worden, moet iemand dit jaar de schema-opmaak, de vermeldingen en het entiteitswerk doen.\"",
     closingCaption: "De these achter AiLys",
-
     row1Segment: "Tier-1 wereldwijd",
     row1Examples: "Jellyfish · Seer · Siege Media · NP Digital",
     row1Price: "$5.000 tot $25.000+ /maand",
     row1Weakness: "Alleen voor enterprise. Gesloten AI-tracking. Ontoegankelijk voor lokale ondernemingen.",
     row1Ailys: "Dezelfde disciplines (AEO, GEO, E-E-A-T) tegen mkb-prijzen omdat onze uitvoering geautomatiseerd is.",
-
     row2Segment: "Massavolume mkb",
     row2Examples: "LocaliQ · Boostability · Marketing 360",
     row2Price: "$10 tot $2.300 /maand",
     row2Weakness: "Geïndustrialiseerd. Kwaliteit daalt bij schaal. Callcentersfeer.",
     row2Ailys: "Klein klantenbestand. Geen callcenters. Tweetalig EN/FR-CA. Wij nemen de telefoon op.",
-
     row3Segment: "Alleen-tools-platforms",
     row3Examples: "BrightLocal · Whitespark",
-    row3Price: "$799 tot $1.299 /maand",
+    row3Price: "$799 tot $1.599 /maand",
     row3Weakness: "U koopt het dashboard. Het echte werk moet u zelf nog doen.",
     row3Ailys: "Volledig ontzorgd. Ons team voert uit. U ontvangt vermeldingen, geen inloggegevens voor weer een tool.",
-
     row4Segment: "Lokale specialisten",
     row4Examples: "Sterling Sky · Rablab · regionale aanbieders",
     row4Price: "Op maat, vaak $3.000+ /maand",
     row4Weakness: "Sterk in klassieke lokale SEO. Licht op AEO/GEO/E-E-A-T-integratie.",
     row4Ailys: "Hetzelfde klassieke SEO-fundament (technisch, on-page, vermeldingen, GBP), met de AEO + GEO + E-E-A-T-laag vanaf dag één ingebouwd. De twee helften voeden elkaar.",
-
-    srSeo: "AiLys Agency staat tussen vier concurrentiesegmenten in. Tier-1 wereldwijde bureaus zoals Jellyfish, Seer, Siege Media en NP Digital rekenen $5.000 tot $25.000 of meer per maand en zijn alleen voor enterprise met gesloten AI-tracking die lokale ondernemingen niet kunnen benaderen. Massavolume-mkb-aanbieders zoals LocaliQ, Boostability en Marketing 360 rekenen $10 tot $2.300 per maand maar de kwaliteit daalt bij schaal en het werk voelt geïndustrialiseerd. Alleen-tools-platforms zoals BrightLocal en Whitespark rekenen $799 tot $1.299 per maand voor dashboards die u zelf moet bedienen. Lokale specialisten zoals Sterling Sky en Rablab zijn sterk in klassieke lokale SEO maar licht op AEO-, GEO- en E-E-A-T-integratie. AiLys levert dezelfde disciplines als tier-1-bureaus (AEO, GEO, E-E-A-T) tegen mkb-prijzen van $300 tot $1.299 per maand omdat onze uitvoeringslaag geautomatiseerd is via Reviuzy. Tweetalig EN en FR-CA in huis. Wij nemen de telefoon op.",
+    srSeo: "AiLys Agency staat tussen vier concurrentiesegmenten in. Tier-1 wereldwijde bureaus zoals Jellyfish, Seer, Siege Media en NP Digital rekenen $5.000 tot $25.000 of meer per maand en zijn alleen voor enterprise met gesloten AI-tracking die lokale ondernemingen niet kunnen benaderen. Massavolume-mkb-aanbieders zoals LocaliQ, Boostability en Marketing 360 rekenen $10 tot $2.300 per maand maar de kwaliteit daalt bij schaal en het werk voelt geïndustrialiseerd. Alleen-tools-platforms zoals BrightLocal en Whitespark rekenen $799 tot $1.599 per maand voor dashboards die u zelf moet bedienen. Lokale specialisten zoals Sterling Sky en Rablab zijn sterk in klassieke lokale SEO maar licht op AEO-, GEO- en E-E-A-T-integratie. AiLys levert dezelfde disciplines als tier-1-bureaus (AEO, GEO, E-E-A-T) tegen mkb-prijzen van $300 tot $1.599 per maand omdat onze uitvoeringslaag geautomatiseerd is via Reviuzy. Tweetalig EN en FR-CA in huis. Wij nemen de telefoon op.",
   },
-
   auditCta: {
     sectionLabel: "04 / Gratis audit",
     heading1: "Ontdek of ChatGPT",
@@ -1062,10 +1057,8 @@ export const nl = {
     sampleEeat: "E-E-A-T-score",
     sampleCitations: "LLM-citaties",
     samplePlanNote: "90-dagen plan inbegrepen",
-
     srSeo: "Voer een gratis AI-zichtbaarheidsaudit uit van AiLys Agency. We laten uw bedrijf langs 6 AI-zoekmachines lopen (ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot), scoren uw AEO-, GEO- en E-E-A-T-signalen en sturen een 90-dagen actieplan per e-mail. De audit is gratis, zonder creditcard en zonder verplicht kennismakingsgesprek. Doorlooptijd is 24 uur na aanvraag. Het voorbeeldresultaat bevat AEO-score, GEO-score, E-E-A-T-score, huidige LLM-citaties op alle 6 engines en een 90-dagen plan met schema-prioriteiten, vermeldingsdoelen en een contentkalender afgestemd op uw dienst en stad.",
   },
-
   about: {
     sectionLabel: "05 / Manifest",
     plateLabel: "Plaat 01 / oorsprong",
@@ -1080,10 +1073,8 @@ export const nl = {
     body5: "De fleur-de-lys in ons logo is geen versiering. Het is een belofte om bureauwerk te doen op de manier waarop ondernemingen in Québec het echt nodig hebben.",
     signatureBrand: "AiLys Agency",
     signatureMeta: "Opgericht 2026 · Montréal · tweetalig",
-
     srSeo: "AiLys Agency werd in 2026 opgericht in Montréal, Québec. We zijn tweetalig EN en FR-CA in huis, met partnernetwerk-dekking in Spaans, Chinees, Arabisch, Russisch, Oekraïens en Servisch. We zijn voortgekomen uit klassieke SEO-discipline toegepast op het tijdperk van AI-zoeken, niet andersom. Elk pakket dat we leveren rust op hetzelfde fundament dat in 2010 voor Google werkte en in 2026 nog steeds werkt: schone technische SEO, een volledig Google Bedrijfsprofiel, NAP-consistentie, echte backlinks, vermeldingen op autoritatieve bronnen. Op dat fundament voegen we AEO-, GEO- en E-E-A-T-werk toe, afgestemd op het LLM-tijdperk. Sla het fundament over en de AI-laag heeft niets om op te staan. Ongeveer 1,2 miljard mensen zoeken nu maandelijks via AI-engines en ChatGPT alleen heeft circa 55 procent van die markt. Lokale ondernemingen die in die antwoorden geciteerd worden, blijven groeien. Wie dat niet doet, verdwijnt stilletjes uit beeld.",
   },
-
   faqLanding: {
     sectionLabel: "06 / Vragen",
     heading1: "Wat mensen",
@@ -1110,10 +1101,8 @@ export const nl = {
     a10: "Nee. Wie rangschikkingen of AI-citaties garandeert, verkoopt u gebakken lucht. Wij beloven het proces: een 90-dagen plan, maandrapportages en zichtbaar werk. De rangschikkingen en citaties volgen.",
     q11: "Wat gebeurt er als ik opzeg?",
     a11: "Twee weken opzegtermijn en we wikkelen af. U behoudt de schema-opmaak die we hebben opgeleverd, de vermeldingen die we hebben binnengehaald en de auditrapporten. Geen terugvorderingen, geen achtergehouden middelen.",
-
-    srSeo: "Veelgestelde vragen over AiLys Agency in klare taal beantwoord. We zijn zowel een SEO-bureau als een AI-zoekbureau, omdat AI-engines zoals ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot putten uit dezelfde web-index die de klassieke Google-zoekmachine gebruikt. Elk pakket bevat het klassieke SEO-fundament: technische SEO-audit, on-page optimalisatie, NAP-consistentie, GBP-beheer en citation building. AEO is Answer Engine Optimization, waarbij wij content structureren met schema-opmaak en Q&A-formats zodat AI-engines schone antwoorden extraheren. GEO is Generative Engine Optimization, waarbij wij uw merk met naam laten noemen in daadwerkelijke AI-antwoorden via Wikipedia, Wikidata, Reddit en digital PR. E-E-A-T is Experience, Expertise, Authoritativeness en Trust, wat AI-engines gebruiken om te kiezen wiens content ze citeren. Reddit is belangrijk omdat ChatGPT en Perplexity het zwaar wegen als bron van echte menselijke discussie. Klassieke SEO-resultaten verschijnen in 30 tot 60 dagen, echte LLM-citatiestijging in 90 tot 120 dagen. We garanderen geen rangschikkingen, alleen het proces. Prijzen lopen van $300 tot $1.299 CAD per maand.",
+    srSeo: "Veelgestelde vragen over AiLys Agency in klare taal beantwoord. We zijn zowel een SEO-bureau als een AI-zoekbureau, omdat AI-engines zoals ChatGPT, Perplexity, Claude, Gemini, Google AIO en Bing Copilot putten uit dezelfde web-index die de klassieke Google-zoekmachine gebruikt. Elk pakket bevat het klassieke SEO-fundament: technische SEO-audit, on-page optimalisatie, NAP-consistentie, GBP-beheer en citation building. AEO is Answer Engine Optimization, waarbij wij content structureren met schema-opmaak en Q&A-formats zodat AI-engines schone antwoorden extraheren. GEO is Generative Engine Optimization, waarbij wij uw merk met naam laten noemen in daadwerkelijke AI-antwoorden via Wikipedia, Wikidata, Reddit en digital PR. E-E-A-T is Experience, Expertise, Authoritativeness en Trust, wat AI-engines gebruiken om te kiezen wiens content ze citeren. Reddit is belangrijk omdat ChatGPT en Perplexity het zwaar wegen als bron van echte menselijke discussie. Klassieke SEO-resultaten verschijnen in 30 tot 60 dagen, echte LLM-citatiestijging in 90 tot 120 dagen. We garanderen geen rangschikkingen, alleen het proces. Prijzen lopen van $300 tot $1.599 CAD per maand.",
   },
-
   footerExt: {
     colServices: "Diensten",
     colCompany: "Bedrijf",
@@ -1130,10 +1119,8 @@ export const nl = {
     locationLine: "Montréal · Québec",
     bilingualLine: "Tweetalig EN/FR-CA",
     versionLine: "v0.1 · Made in Québec ⚜",
-
     srSeo: "AiLys Agency is gevestigd in Montréal, Québec, met tweetalige EN- en FR-CA-uitvoering in huis. Ons zusterproduct Reviuzy is een selfservice-SaaS voor beoordelingsverzameling en automatisering van Google Bedrijfsprofiel, en de productmotor die een deel van onze bureau-uitvoering aandrijft. Snelkoppelingen dekken diensten (technische SEO, GBP, vermeldingen, schema-opmaak, AEO, GEO, E-E-A-T), bedrijfspagina's (blog, helpcentrum, boek een gesprek, AI-zichtbaarheidsaudit, GBP Pulse, contact), juridische pagina's (privacybeleid, servicevoorwaarden, cookiebeleid) en de 6 AI-engines die wij volgen (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot). Site beschikbaar in 16 talen, waaronder Engels, Frans, Spaans, Chinees, Arabisch, Russisch, Duits, Hindi, Italiaans, Japans, Koreaans, Nederlands, Pools, Portugees, Turks en Vietnamees.",
   },
-
   navExt: {
     help: "Hulp",
     freeAudit: "Gratis audit",

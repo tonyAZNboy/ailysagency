@@ -1,5 +1,5 @@
 {
-  "enKeyCount": 1032,
+  "enKeyCount": 1035,
   "locales": {
     "fr": {
       "missing": [],
@@ -31,7 +31,7 @@
         "faqLanding.sectionLabel",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "es": {
@@ -58,7 +58,7 @@
         "whyAilys.row3Examples",
         "about.signatureBrand"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "zh": {
@@ -89,7 +89,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "ar": {
@@ -120,7 +120,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "ru": {
@@ -152,7 +152,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "de": {
@@ -185,7 +185,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "hi": {
@@ -221,7 +221,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "it": {
@@ -257,7 +257,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "ja": {
@@ -292,7 +292,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "ko": {
@@ -330,7 +330,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "nl": {
@@ -366,7 +366,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "pl": {
@@ -398,7 +398,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "pt": {
@@ -431,7 +431,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "tr": {
@@ -464,7 +464,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     },
     "vi": {
@@ -499,9 +499,9 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1032,
+      "totalKeys": 1035,
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-04-27T04:35:26.120Z"
+  "generatedAt": "2026-04-27T13:14:24.275Z"
 }

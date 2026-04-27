@@ -864,7 +864,7 @@ const restaurants: Industry = {
     ],
     recommendedTier: "core",
     recommendationReason:
-      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through Reviuzy NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Autopilot ($1,299/mo) which includes the full Reviuzy contest engine.",
+      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through Reviuzy NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Autopilot ($1,599/mo) which includes the full Reviuzy contest engine.",
     faq: [
       {
         q: "How long until my restaurant gets cited by ChatGPT?",

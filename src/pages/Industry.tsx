@@ -21,7 +21,7 @@ const TIER_PRICE: Record<RecommendedTier, string> = {
   starter: "$300",
   core: "$600",
   growth: "$1,200",
-  autopilot: "$1,299",
+  autopilot: "$1,599",
 };
 
 const TIER_NAME: Record<RecommendedTier, string> = {

@@ -21,6 +21,10 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 6. **Security-first by default.** Server-side input validation everywhere, no raw SQL, rate-limiting on every public API endpoint, CSP headers, no PII without consent, double-opt-in for newsletter, audit-trail consent IDs without PII.
 7. **Verify agent output 100%.** When dispatching agents (general-purpose, Explore, Plan), do NOT trust their summaries. Always verify with `grep`, `tsc`, browser tests, and explicit assertions before claiming success.
 8. **Translation completeness is binary.** A page is not "shipped" until all 6 majors render in the user's selected language: EN, FR-CA, ES, ZH, AR, RU.
+9. **Government-grade security on every new feature.** Anything new that touches auth, data, third-party APIs, or admin actions must ship with: server-side input validation (zod or equivalent), rate-limiting (KV-backed token bucket on Cloudflare or Supabase RPC throttle), output encoding, audit logging (tenant_id + actor + action + timestamp + payload hash, no PII in clear), least-privilege RLS, secrets only via env (never inlined), CORS lockdown, and CSP-safe asset loading. No feature merges without these defaults.
+10. **Help center documentation, no proprietary disclosure.** Every shipped feature gets a help center article (in EN + FR-CA at minimum, then 14 secondary locales) before it appears in the marketing UI. Articles describe the user-visible behavior and inputs. Articles MUST NOT name the AI provider (Anthropic, Claude, Gemini, OpenAI, Google), the model family, internal scoring formulas, prompt structures, or vendor APIs. Refer to engines collectively as "our AI engine" or "the AiLys engine" and to scoring as "our proprietary score." This protects competitive moat and reduces switching risk if a provider changes.
+11. **Admin Center is mandatory for every feature.** New shipped capabilities must add a panel in the admin dashboard for: enabling/disabling per tenant, viewing recent invocations (last 50 with timestamp + status + tenant), cost telemetry (calls per day, $/day estimate), and per-tier feature gating. No "ghost features" with no admin surface.
+12. **Tests must pass before delivery.** Before any merge to main: `npx tsc --noEmit` clean, `node scripts/audit-translations-deep.mjs` exit 0, em-dash count 0 across `src/i18n/translations/*.ts`, build succeeds, and the feature has been opened in the browser at least once and clicked through. CI failure or skipped test is a non-merge.
 
 ## Project posture
 
@@ -28,7 +32,8 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 - **Stack:** Vite + React + TypeScript + Tailwind + shadcn/ui, deployed on Cloudflare Pages
 - **Sister product:** Reviuzy SaaS (https://www.reviuzy.com)
 - **Home market:** Quebec, bilingual EN/FR-CA in-house
-- **Pricing:** $300 / $600 / $1,200 / $1,299 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee
+- **Pricing:** $300 / $600 / $1,200 / $1,599 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee
+- **Tier post cadence (GBP):** Starter 1/mo, Core 4/mo (1/wk), Growth 8/mo (2/wk), Autopilot 12/mo (3/wk).
 
 ## i18n discipline
 
@@ -48,8 +53,22 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 
 Before declaring any task complete:
 1. Run `npx tsc --noEmit` (typecheck)
-2. Open the affected page(s) in the browser preview
-3. Click the affected control / submit the affected form / verify the affected output
-4. Switch the language to a non-EN locale and verify translation works
-5. Test on mobile viewport (375x812) for any UI changes
-6. Document the result before claiming done
+2. Run `node scripts/audit-translations-deep.mjs` (must exit 0)
+3. Em-dash audit: `grep -rn "—" src/i18n/translations/` must return zero matches in code (only legitimate copy in `as const` strings is allowed if it survives our hard rule)
+4. Open the affected page(s) in the browser preview
+5. Click the affected control / submit the affected form / verify the affected output
+6. Switch the language to a non-EN locale and verify translation works
+7. Test on mobile viewport (375x812) for any UI changes
+8. For new server endpoints: confirm rate-limit, input validation, audit-log entry, and admin panel visibility
+9. For new features: confirm help center article exists in EN + FR-CA before the UI surface goes live
+10. Document the result before claiming done
+
+## Roadmap snapshot (live)
+
+See `STATE.md` for the active roadmap. The current 4-phase delivery plan covers:
+- **Phase 1 — Tier ladder rebuild** (post cadence 1/4/8/12, Tier 3 → $1,599, surface 2-3 new features per tier)
+- **Phase 2 — Reviuzy GBP gaps** (photo upload automation, Q&A bot, both with admin + help docs)
+- **Phase 3 — Citation directory + NAP checker** (closes the "5/10 citations per month" promise)
+- **Phase 4 — AI visibility advanced** (Share of Model, sentiment, citation freshness alerts, AI traffic attribution)
+
+Each phase MUST satisfy hard rules 9, 10, 11, 12 before merging.

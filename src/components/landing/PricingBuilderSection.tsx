@@ -42,7 +42,7 @@ export function PricingBuilderSection() {
     if (p <= 350) return { name: t.pricingBuilder.tierStarter, price: 300 };
     if (p <= 750) return { name: t.pricingBuilder.tierCore, price: 600 };
     if (p <= 1250) return { name: t.pricingBuilder.tierGrowth, price: 1200 };
-    return { name: t.pricingBuilder.tierAutopilot, price: 1299 };
+    return { name: t.pricingBuilder.tierAutopilot, price: 1599 };
   }
 
   const [pages, setPages] = useState<number>(15);

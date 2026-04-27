@@ -85,35 +85,59 @@ export const tr = {
     f1Title: "NFC Yorum Kampanyaları",
     f1Desc: "Müşteriler yorum için dokunuyor ve otomatik olarak yarışmanıza katılıyor.",
     f1Long: "NFC destekli yorum toplamayı otomatik yarışma kampanyalarıyla birleştirin.",
-    f1b1: "Tap-to-enter yorum yarışmaları", f1b2: "Otomatik katılımcı takibi", f1b3: "Markalı NFC kartları", f1b4: "QR kodu yedek seçeneği",
+    f1b1: "Tap-to-enter yorum yarışmaları",
+    f1b2: "Otomatik katılımcı takibi",
+    f1b3: "Markalı NFC kartları",
+    f1b4: "QR kodu yedek seçeneği",
     f2Title: "Otomatik Kazanan Çekilişi",
     f2Desc: "AiLys Roulette™ ile tek tıklamayla kazanan seçin.",
     f2Long: "Artık manuel seçime gerek yok. AiLys Agency tüm katılımcıları takip eder ve kazananları otomatik seçer.",
-    f2b1: "Tek tıklamayla kazanan seçimi", f2b2: "Uygunluk doğrulama", f2b3: "Kazanan duyuru videosu", f2b4: "Talep takibi",
+    f2b1: "Tek tıklamayla kazanan seçimi",
+    f2b2: "Uygunluk doğrulama",
+    f2b3: "Kazanan duyuru videosu",
+    f2b4: "Talep takibi",
     f3Title: "Yasal Şartlar ve Koşullar Üreticisi",
     f3Desc: "20'den fazla ülke için otomatik oluşturulan yarışma kuralları.",
     f3Long: "Yarışmanın yasallığı konusunda endişelenmeyi bırakın. AiLys Agency yetki alanınıza özel Şartlar ve Koşullar şablonlarını otomatik oluşturur.",
-    f3b1: "20+ ülke şablonu", f3b2: "Beceri testi desteği", f3b3: "Ücretsiz katılım yolları", f3b4: "ABD eyalet kayıt uyarıları",
+    f3b1: "20+ ülke şablonu",
+    f3b2: "Beceri testi desteği",
+    f3b3: "Ücretsiz katılım yolları",
+    f3b4: "ABD eyalet kayıt uyarıları",
     f4Title: "Yapay Zeka Geri Bildirim Üretimi",
     f4Desc: "Müşteriler beğendiklerini seçiyor, yapay zeka yorumu yazıyor.",
     f4Long: "Gemini destekli yapay zekamız kişiselleştirilmiş, SEO optimizeli yorumlar üretiyor.",
-    f4b1: "Yazmak gerekmiyor", f4b2: "SEO anahtar kelime entegrasyonu", f4b3: "Her ziyarete özel kişiselleştirme", f4b4: "16 dil desteği",
+    f4b1: "Yazmak gerekmiyor",
+    f4b2: "SEO anahtar kelime entegrasyonu",
+    f4b3: "Her ziyarete özel kişiselleştirme",
+    f4b4: "16 dil desteği",
     f5Title: "Yapay Zeka Otomatik Yanıtlar",
     f5Desc: "Her yorum anında kişiselleştirilmiş, SEO optimizeli yanıt alıyor.",
     f5Long: "Hiçbir yorumu yanıtsız bırakmayın. Yapay zeka kişiselleştirilmiş yanıtlar hazırlıyor.",
-    f5b1: "Anında yanıt oluşturma", f5b2: "Marka sesi eşleştirme", f5b3: "Otomatik onay kuralları", f5b4: "Çok dilli yanıtlar",
+    f5b1: "Anında yanıt oluşturma",
+    f5b2: "Marka sesi eşleştirme",
+    f5b3: "Otomatik onay kuralları",
+    f5b4: "Çok dilli yanıtlar",
     f6Title: "Sahte Yorum Tespiti",
     f6Desc: "Yapay zeka destekli tespit şüpheli yorumları anında belirliyor.",
     f6Long: "İtibarınızı sahte yorumlardan ve rakip saldırılarından koruyun.",
-    f6b1: "7/24 otomatik izleme", f6b2: "Rakip saldırı tespiti", f6b3: "Politika ihlali uyarıları", f6b4: "Tek tıklamayla itiraz",
+    f6b1: "7/24 otomatik izleme",
+    f6b2: "Rakip saldırı tespiti",
+    f6b3: "Politika ihlali uyarıları",
+    f6b4: "Tek tıklamayla itiraz",
     f7Title: "Sosyal Medya Otomatik Gönderme",
     f7Desc: "Google, Facebook ve Instagram'da zamanlayın ve otomatik yayınlayın.",
     f7Long: "Tüm sosyal varlığınızı tek bir panelden yönetin.",
-    f7b1: "Görsel içerik takvimi", f7b2: "Yapay zeka içerik önerileri", f7b3: "Kampanya sonuçlarını paylaşma", f7b4: "Çok platformlu yayınlama",
+    f7b1: "Görsel içerik takvimi",
+    f7b2: "Yapay zeka içerik önerileri",
+    f7b3: "Kampanya sonuçlarını paylaşma",
+    f7b4: "Çok platformlu yayınlama",
     f8Title: "Çok Şubeli Panel",
     f8Desc: "Tüm şubelerde kampanyaları ve yorumları yönetin.",
     f8Long: "Franchiseler ve çok şubeli işletmeler için mükemmel.",
-    f8b1: "Sınırsız şube", f8b2: "Şubeye özel kampanyalar", f8b3: "Merkezi analitik", f8b4: "Şube başına ekip izinleri",
+    f8b1: "Sınırsız şube",
+    f8b2: "Şubeye özel kampanyalar",
+    f8b3: "Merkezi analitik",
+    f8b4: "Şube başına ekip izinleri",
     srOnly: "AiLys Agency özellikleri: NFC Yorum Kampanyaları, AiLys Roulette ile Otomatik Kazanan Çekilişi, 20+ ülke için Yasal Şartlar ve Koşullar Üreticisi, Yapay Zeka Geri Bildirim Üretimi, Yapay Zeka Otomatik Yanıtlar, Domain Shield ile Sahte Yorum Tespiti, Sosyal Medya Otomatik Gönderme ve Çok Şubeli Panel.",
   },
   guardrails: {
@@ -149,7 +173,7 @@ export const tr = {
     badge: "Google Doğrulamalı Veriler",
     heading: "Daha Fazla Düzenli Yorum = Daha Yüksek Google Sıralaması",
     desc: "Google'ın kendi dokümantasyonu yorum sayısının ve puanın yerel arama sıralamasını etkilediğini doğruluyor.",
-    quote: '"Daha fazla yorum ve olumlu puan, işletmenizin yerel sıralamasını iyileştirebilir."',
+    quote: "\"Daha fazla yorum ve olumlu puan, işletmenizin yerel sıralamasını iyileştirebilir.\"",
     quoteSource: "Google Business Profile Yardım Merkezi",
     readMore: "Kaynaklı tam kanıtı okuyun",
     stat1Label: "Yerel Paket sıralaması = yorum sinyalleri",
@@ -185,12 +209,24 @@ export const tr = {
     comparisonSub: "Manuel sistemler yorum toplar. AiLys Agency yorum büyüme momentumu oluşturur.",
     colManual: "Manuel",
     colReviuzy: "AiLys Agency",
-    r1Feature: "Müşteriler nasıl yorum yapıyor", r1Manual: "Yazmalarını isteyin", r1Reviuzy: "NFC Tap-to-Enter",
-    r2Feature: "Katılımcı takibi", r2Manual: "Tablolar", r2Reviuzy: "Otomatik takip",
-    r3Feature: "Kazanan seçimi", r3Manual: "Rastgele isim seçici", r3Reviuzy: "Yerleşik güvenli çekiliş",
-    r4Feature: "Yasal uyumluluk", r4Manual: "Kılavuz yok", r4Reviuzy: "Ülkeye özel Şartlar ve Koşullar",
-    r5Feature: "Yorum yanıtları", r5Manual: "Manuel yanıtlar", r5Reviuzy: "SEO optimizeli yapay zeka",
-    r6Feature: "Büyüme stratejisi", r6Manual: "Yok", r6Reviuzy: "Tekrarlayan kampanya motoru",
+    r1Feature: "Müşteriler nasıl yorum yapıyor",
+    r1Manual: "Yazmalarını isteyin",
+    r1Reviuzy: "NFC Tap-to-Enter",
+    r2Feature: "Katılımcı takibi",
+    r2Manual: "Tablolar",
+    r2Reviuzy: "Otomatik takip",
+    r3Feature: "Kazanan seçimi",
+    r3Manual: "Rastgele isim seçici",
+    r3Reviuzy: "Yerleşik güvenli çekiliş",
+    r4Feature: "Yasal uyumluluk",
+    r4Manual: "Kılavuz yok",
+    r4Reviuzy: "Ülkeye özel Şartlar ve Koşullar",
+    r5Feature: "Yorum yanıtları",
+    r5Manual: "Manuel yanıtlar",
+    r5Reviuzy: "SEO optimizeli yapay zeka",
+    r6Feature: "Büyüme stratejisi",
+    r6Manual: "Yok",
+    r6Reviuzy: "Tekrarlayan kampanya motoru",
   },
   testimonials: {
     badge: "Referanslar",
@@ -221,16 +257,23 @@ export const tr = {
     shareArticle: "Bu makaleyi paylaşın:",
     relatedArticles: "İlgili Makaleler",
     searchPlaceholder: "Makale ara...",
-    sortNewest: "En yeni", sortOldest: "En eski",
-    readingTime: "Okuma süresi", readingAll: "Tümü",
-    readingQuick: "Kısa (<5 dk)", readingMedium: "Orta (5-10 dk)", readingLong: "Uzun (10+ dk)",
+    sortNewest: "En yeni",
+    sortOldest: "En eski",
+    readingTime: "Okuma süresi",
+    readingAll: "Tümü",
+    readingQuick: "Kısa (<5 dk)",
+    readingMedium: "Orta (5-10 dk)",
+    readingLong: "Uzun (10+ dk)",
     beginnerPathTitle: "Buradan başlayın: Öğrenme yolunuz",
     beginnerPathDesc: "Yorum yönetiminde yeni misiniz? Sağlam bir temel oluşturmak için bu adımları izleyin.",
-    collapse: "Daralt", expand: "Genişlet",
-    popularTopics: "Popüler konular", clearTag: "Temizle",
+    collapse: "Daralt",
+    expand: "Genişlet",
+    popularTopics: "Popüler konular",
+    clearTag: "Temizle",
     noSearchResults: "Makale bulunamadı",
     noSearchResultsDesc: "Farklı bir arama terimi deneyin veya aramayı temizleyin.",
-    clearSearch: "Aramayı temizle", resultsFound: "sonuç bulundu",
+    clearSearch: "Aramayı temizle",
+    resultsFound: "sonuç bulundu",
   },
   pricing: {
     badge: "Fiyatlandırma",
@@ -247,9 +290,12 @@ export const tr = {
     addonsHeading: "Esnek Eklentiler, Yalnızca İhtiyacınız Olanı Ödeyin",
     perMonth: "aylık",
     cta: "Beta Release'e Katılın",
-    plan1Name: "Başlangıç", plan1Desc: "Yorum büyümesine odaklanan tek şubeli işletmeler için.",
-    plan2Name: "Pro", plan2Desc: "Kampanyalarla ölçeklenen büyüme odaklı işletmeler için.",
-    plan3Name: "Maks", plan3Desc: "Ölçekteki çok şubeli markalar ve ajanslar için.",
+    plan1Name: "Başlangıç",
+    plan1Desc: "Yorum büyümesine odaklanan tek şubeli işletmeler için.",
+    plan2Name: "Pro",
+    plan2Desc: "Kampanyalarla ölçeklenen büyüme odaklı işletmeler için.",
+    plan3Name: "Maks",
+    plan3Desc: "Ölçekteki çok şubeli markalar ve ajanslar için.",
   },
   faq: {
     badge: "SSS",
@@ -292,9 +338,17 @@ export const tr = {
     legal: "Hukuki",
     copyright: "Tüm hakları saklıdır.",
     poweredBy: "Gemini AI ile desteklenmektedir",
-    about: "Hakkında", blog: "Blog", careers: "Kariyer", contact: "İletişim",
-    privacy: "Gizlilik Politikası", terms: "Hizmet Şartları", cookies: "Çerez Politikası",
-    features: "Özellikler", pricing: "Fiyatlandırma", howItWorks: "Nasıl Çalışır", faq: "SSS",
+    about: "Hakkında",
+    blog: "Blog",
+    careers: "Kariyer",
+    contact: "İletişim",
+    privacy: "Gizlilik Politikası",
+    terms: "Hizmet Şartları",
+    cookies: "Çerez Politikası",
+    features: "Özellikler",
+    pricing: "Fiyatlandırma",
+    howItWorks: "Nasıl Çalışır",
+    faq: "SSS",
   },
   seo: {
     landingTitle: "Yapay Zeka Yorum Büyüme ve NFC Kampanya Platformu",
@@ -377,7 +431,6 @@ export const tr = {
       emailPlaceholder: "siz@isletmeniz.ca",
       legal: "E-posta zorunlu, URL isteğe bağlı. Tam raporu ve 90 günlük planı gönderiyoruz.",
     },
-
     ai: {
       eyebrow: "Yapay Zeka Görünürlük Denetimi, Oto-denetim",
       headline: "Yapay zeka motorlarının sizi atıf yapıp yapmadığını görün.",
@@ -396,7 +449,6 @@ export const tr = {
       lockDesc: "Tam eylem planını, rakip boşluğu analizini ve gelir projeksiyonunu görmek için e-postanızı girin. Spam yok, telefon yok.",
       sendCopy: "Tam GBP raporunu bana gönder",
     },
-
     toasts: {
       fourThings: "Dört şeye ihtiyacımız var",
       fourThingsDesc: "İşletme adı, sektör, şehir ve geçerli bir e-posta.",
@@ -409,20 +461,17 @@ export const tr = {
       unlockedDesc: "Tam rapor ekranda ve gelen kutunuza yolda.",
       cantUnlock: "Kilit açılamadı",
     },
-
     loading: {
       pullingData: "Canlı veriler çekiliyor...",
       cantReach: "Denetim motoruna ulaşamadık.",
       cantRecord: "E-postanızı kaydedemedik.",
     },
-
     tiers: {
       strong: "Güçlü",
       solid: "Sağlam temel",
       gaps: "Gerçek boşluklar",
       critical: "Kritik boşluklar",
     },
-
     results: {
       diagnosticSummary: "Tanısal özet.",
       runAgain: "Yeniden çalıştır",
@@ -448,7 +497,6 @@ export const tr = {
       free: "Ücretsiz, Kredi kartı yok, 30 saniye",
       emailRequired: "E-posta zorunlu, Tam raporu ve eylem planını oraya gönderiyoruz",
     },
-
     crossLinks: {
       needAi: "Tam Yapay Zeka Görünürlük analizini ister misiniz?",
       needAiDesc: "GBP tek bir girdi. Yapay Zeka Görünürlük Denetimi, 6 LLM motoru genelinde AEO, GEO ve E-E-A-T'yi kontrol eder.",
@@ -460,7 +508,6 @@ export const tr = {
       talkHumanDesc: "60 dakikalık strateji görüşmesi, EN, FR-CA, ES, ZH, AR, RU, UK, SR dillerinde. Ücretsiz, satış konuşması yok.",
       talkHumanCta: "Strateji görüşmesi rezerve et",
     },
-
     pulse: {
       step1of3: "Adım 1 / 3, toplam 90 saniye",
       step2of3: "Adım 2 / 3, 8 soru",
@@ -507,7 +554,6 @@ export const tr = {
       verticalRealEstate: "Emlak",
       verticalHotel: "Otel, konaklama",
       verticalOther: "Başka bir şey",
-      // Tier headlines for results panel
       headlineStrong: "GBP'niz gerçek bir iş çıkarıyor.",
       headlineSolid: "Sağlam bir temeliniz var. Üç hamle bunu keskinleştirecek.",
       headlineGaps: "Gerçek boşluklar. Çoğu 1 haftalık düzeltmeler.",
@@ -588,7 +634,6 @@ export const tr = {
         napWeakAction: "Yüksek DA'lı 20 atıf kaynağında bir NAP denetimi çalıştırın. Bu ay uyumsuzlukları düzeltin.",
       },
     },
-
     matrix: {
       eyebrow: "LLM atıf matrisi",
       sample: "Örnek",
@@ -657,7 +702,6 @@ export const tr = {
     errorDuplicate: "Bu e-posta zaten bekleme listesinde!",
     errorTryLater: "Lütfen daha sonra tekrar deneyin.",
   },
-
   heroAuditCard: {
     citationLabel: "LLM'ler yerel işletmeleri nasıl atıf yapar",
     eyebrow: "Ücretsiz Yapay Zeka Görünürlük Denetimi · 24 saatte sonuç",
@@ -674,22 +718,19 @@ export const tr = {
     badgeFree: "Ücretsiz + anında",
     toastTitle: "Üç şeye ihtiyacımız var",
     toastDesc: "İşletme adı, şehir ve tam raporu gönderebilmemiz için geçerli bir e-posta.",
-
     srSeo: "Örnek LLM atıfları, kullanıcılar satın alma soruları sorduğunda yapay zeka arama motorlarının hangi yerel işletmeleri isimlendireceğini nasıl seçtiğini gösterir. Örnek sorgu: \"Plateau Mont-Royal'de en iyi diş hekimi\". Atıf yapılan işletme: Clinique Dentaire Plateau, Yelp DA92, eksiksiz Google Business Profile ve 24 saat içinde yanıtlanan iki dilli EN ve FR-CA yorumlar üzerinden öne çıktı. Örnek sorgu: \"Verdun'da en iyi aile restoranı\". Atıf yapılan işletme: Restaurant Le Petit Coin, TripAdvisor otoritesi, OpenTable varlığı, yüksek yorum hızı ve web sitesindeki LocalBusiness şeması üzerinden öne çıktı. Örnek sorgu: \"Yakınımdaki güvenilir HVAC müteahhidi Montréal\". Atıf yapılan işletme: Climatisation Boréal, BBB akreditasyonu, HomeStars puanı, mevsimsel hizmet sorularıyla FAQ şeması ve bir Wikidata varlığı üzerinden öne çıktı. Örüntü tutarlı: yapay zeka motorları; GBP tamlığı, 20'den fazla dizinde NAP tutarlılığı, AEO şeması, yeni yorumlar ve varlık otorite sinyalleri olan işletmeleri atıf yapar. Ücretsiz 24 saatlik denetim, kredi kartı gerekmez.",
   },
-
   heroExtras: {
     bookCall60: "60 dakikalık strateji görüşmesi rezerve edin",
     scoreGbp90: "GBP'nizi 90 saniyede puanlayın",
     bookHelper: "Ücretsiz, satış konuşması yok. İki dilli EN, FR-CA, ES, ZH, AR, RU, UK, SR. İmzalasanız da imzalamasanız da bir strateji dokümanı gönderiyoruz.",
   },
-
   services: {
     sectionLabel: "01 / Hizmetler",
     heading1: "Dört plan.",
     heading2: "Tek bir disiplin.",
     intro: "AiLys, tier-1 ajanslarla aynı disiplinleri (AEO, GEO, E-E-A-T) KOBİ fiyatlarıyla sunar. Bunun işlemesinin tek nedeni, operasyonel teslimatımızın doğrulanmış yorum ve Google Business Profile motorumuz aracılığıyla otomatikleştirilmiş olmasıdır. Çoğu ajansın yalnızca araçlar için aldığı ücrete ajans kalitesinde iş alırsınız.",
-    metaPrice: "$300 ila $1,299 /ay",
+    metaPrice: "$300 ila $1,599 /ay",
     metaBilingual: "İki dilli EN/FR-CA",
     metaMonthly: "Aydan aya",
     metaAutopilot: "Autopilot'a Reviuzy dahildir",
@@ -697,53 +738,47 @@ export const tr = {
     badgeAutopilot: "⚡ Autopilot · Sizin için yapılır",
     tierLabel: "Kademe",
     perMo: "/ay CAD",
-
     tier0Name: "Starter",
     tier0Tagline: "Yapay zeka aramasında görünür olmak isteyen tek başına restoranlar, bağımsız uygulayıcılar ve küçük salonlar için.",
     tier0Cta: "Starter ile başla",
     tier0Feat1: "Teknik SEO + sayfa içi temeller",
-    tier0Feat2: "Google Business Profile yönetimi",
+    tier0Feat2: "Google Business Profile yönetimi ve ayda 1 GBP post",
     tier0Feat3: "20'den fazla dizinde NAP tutarlılık kontrolü",
-    tier0Feat4: "6 motor genelinde LLM atıf takibi",
+    tier0Feat4: "6 motorda LLM atıf takibi (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot)",
     tier0Feat5: "Aylık performans raporu",
     tier0Feat6: "Ayda bir strateji görüşmesi",
-
     tier1Name: "Core",
     tier1Tagline: "İsmiyle atıf yapılması gereken diş hekimleri, müteahhitler ve büyüyen restoranlar için.",
     tier1Cta: "Core ile başla",
     tier1Feat1: "Starter'daki her şey",
-    tier1Feat2: "AEO şema uygulaması (FAQ, Review, LocalBusiness, HowTo)",
-    tier1Feat3: "Gerçek yayınlardan backlink oluşturma",
-    tier1Feat4: "Atıf oluşturma, ayda 5",
+    tier1Feat2: "GBP posts: ayda 4 (haftalık tempo)",
+    tier1Feat3: "AEO şeması (FAQ, Review, LocalBusiness, HowTo) ve AEO içerik özeti üretici",
+    tier1Feat4: "Ayda 5 atıf inşası ve gerçek yayınlardan geri bağlantılar",
     tier1Feat5: "İki dilli içerik, ayda bir parça",
-    tier1Feat6: "İki haftada bir strateji görüşmesi",
-
+    tier1Feat6: "GBP Q&A izleme ve otomatik yanıt taslağı",
     tier2Name: "Growth",
     tier2Tagline: "Çok şubeli işletmeler, franchiseler ve genişleme hamleleri için.",
     tier2Cta: "Growth ile başla",
     tier2Feat1: "Core'daki her şey",
-    tier2Feat2: "GEO varlık otoritesi (Wikipedia, Wikidata, dijital PR)",
-    tier2Feat3: "Reddit + sektör forumu katılımı",
-    tier2Feat4: "Atıf oluşturma, ayda 10+",
-    tier2Feat5: "Haftalık iki dilli içerik",
-    tier2Feat6: "Rekabet izleme",
-    tier2Feat7: "Üç ayda bir yüz yüze değerlendirme",
-
+    tier2Feat2: "GBP posts: ayda 8 (haftada 2)",
+    tier2Feat3: "GEO varlık otoritesi (Wikipedia, Wikidata, dijital PR)",
+    tier2Feat4: "Reddit ve sektör forumlarına katılım",
+    tier2Feat5: "Ayda 10 ve üzeri atıf inşası",
+    tier2Feat6: "Share of Model panosu, LLM genelinde 3 belirlenmiş rakibe karşı marka anılmaları",
+    tier2Feat7: "Marka duyarlılığı ve atıf tazeliği uyarıları",
     tier3Name: "Autopilot",
     tier3Tagline: "Sizin için yapılır. Reviuzy SaaS dahil. Aylık yarışma motoru şubelerinizde çalışır.",
     tier3Cta: "Autopilot'a geçin",
     tier3Feat1: "Growth'taki her şey",
-    tier3Feat2: "Reviuzy SaaS Max dahil",
-    tier3Feat3: "Aylık yorum yarışması, bizim tarafımızdan yürütülür",
-    tier3Feat4: "Yasal Şartlar ve Koşullar yürütülür, kazanan çekilişi, ödül teslimi, sosyal medya yükseltme",
-    tier3Feat5: "Yüksek yorum hızı, şube başına ayda 20 ila 50",
-    tier3Feat6: "Şubelerinize gönderilen NFC dokunma kartları",
+    tier3Feat2: "GBP posts: ayda 12 (haftada 3) ve ayda 4 ile 6 fotoğraf yüklemesi",
+    tier3Feat3: "Reviuzy SaaS Max dahil, aylık değerlendirme yarışması bizim tarafımızdan işletilir",
+    tier3Feat4: "Hukuki T&C ele alındı, kazanan çekilişi, ödül teslimi, sosyal yayma",
+    tier3Feat5: "Taze değerlendirme hızı, lokasyon başına ayda 20 ile 50, NFC kartlar gönderilir",
+    tier3Feat6: "AI trafik dönüşüm izleyicisi, AI aramadan rezervasyona UTM atıfı",
     tier3Feat7: "Domain Speed Boost + Domain Shield dahil",
-    tier3Feat8: "Üç aylık yarışma performans değerlendirmesi",
-
+    tier3Feat8: "Adanmış başarı stratejisti ve aylık yönetici brifingi",
     why300Eyebrow: "Neden $2,000 değil $300",
     why300Body: "Reviuzy, operasyonel katmanı yönetir (yorum toplama, GBP, içerik taslağı, atıf takibi). İnsanlarımız ise strateji, şema ve LLM sıralamalarını gerçekten değiştiren atıflara odaklanır. Hesap tutuyor.",
-
     compareLabel: "Karşılaştır",
     compareMidMarket: "Orta segment ajanslar",
     compareAilys: "AiLys Agency",
@@ -765,19 +800,18 @@ export const tr = {
     compareRow6Label: "Para iade garantisi",
     compareRow6Left: "Evet",
     compareRow6Right: "Evet, 30 gün",
-
     chip1Eyebrow: "Risk tersine çevirme",
     chip1Line: "30 günlük memnuniyet garantisi. Ölçülebilir şema veya atıf artışı yoksa iade.",
     chip2Eyebrow: "Bağlanma yok",
     chip2Line: "Aydan aya. İki hafta önceden bildirim, geri alma yok. Teslim ettiğimiz şema ve atıfları sizde kalır.",
     chip3Eyebrow: "Québec merkezli",
     chip3Line: "İki dilli EN/FR-CA şirket içi. İspanyolca, Çince, Arapça, Rusça partner ağı üzerinden.",
-
     footnote: "Tüm planlar aydan aya çalışır. İstediğiniz zaman, iki hafta önceden bildirimle iptal edin. Kurulum ücreti yok.",
-
-    srSeo: "AiLys Agency, yapay zeka arama yanıtlarında atıf yapılması gereken yerel işletmeler için dört aylık plan sunar. Starter, ayda $300 CAD'dir ve teknik SEO, Google Business Profile yönetimi, 20'den fazla dizinde NAP tutarlılığı ve ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot genelinde haftalık LLM atıf takibini kapsar. Core, $600 CAD'dir ve AEO şema kurulumu (FAQ, Review, LocalBusiness, HowTo), ayda 5 atıf oluşturma, iki dilli içerik ve gerçek yayınlardan backlink ekler. Growth, $1,200 CAD'dir ve Wikipedia ile Wikidata üzerinde GEO varlık otorite çalışması, Reddit ve forum katılımı, haftalık iki dilli içerik ve rekabet izleme ekler. Autopilot, $1,299 CAD'dir ve Reviuzy yorum yarışma motoru dahil, her şubeye gönderilen NFC dokunma kartları ve şube başına ayda 20 ila 50 yeni yorum hızı içerir. Her plan aydan aya, iki hafta önceden iptal bildirimi ve 30 günlük memnuniyet garantisi ile çalışır. İki dilli EN ve FR-CA şirket içi. Québec merkezli.",
+    srSeo: "AiLys Agency, yapay zeka arama yanıtlarında atıf yapılması gereken yerel işletmeler için dört aylık plan sunar. Starter, ayda $300 CAD'dir ve teknik SEO, Google Business Profile yönetimi, 20'den fazla dizinde NAP tutarlılığı ve ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot genelinde haftalık LLM atıf takibini kapsar. Core, $600 CAD'dir ve AEO şema kurulumu (FAQ, Review, LocalBusiness, HowTo), ayda 5 atıf oluşturma, iki dilli içerik ve gerçek yayınlardan backlink ekler. Growth, $1,200 CAD'dir ve Wikipedia ile Wikidata üzerinde GEO varlık otorite çalışması, Reddit ve forum katılımı, haftalık iki dilli içerik ve rekabet izleme ekler. Autopilot, $1,599 CAD'dir ve Reviuzy yorum yarışma motoru dahil, her şubeye gönderilen NFC dokunma kartları ve şube başına ayda 20 ila 50 yeni yorum hızı içerir. Her plan aydan aya, iki hafta önceden iptal bildirimi ve 30 günlük memnuniyet garantisi ile çalışır. İki dilli EN ve FR-CA şirket içi. Québec merkezli.",
+    tier1Feat7: "İki haftada bir strateji görüşmesi",
+    tier2Feat8: "Yüz yüze üç aylık değerlendirme",
+    tier3Feat9: "Üç aylık yarışma performans değerlendirmesi",
   },
-
   pricingDrivers: {
     sectionLabel: "Fiyat mantığı",
     heading1: "AiLys fiyatları neden",
@@ -793,15 +827,13 @@ export const tr = {
     d4Body: "İki dilli EN ve FR-CA her kademede vardır. Partner ağımız üzerinden İspanyolca, Çince, Arapça, Rusça, Ukraynaca veya Sırpça eklemek üretim maliyetini artırır. Her ek dil ayrı bir atıf ayak izi getirir.",
     d5Title: "Atıf edinme hızı",
     d5Body: "Atıf oluşturma, gerçek bir iletişim çabasıdır. Core'da ayda beş yüksek DA atıfı, Growth'ta on ve üzeri. Maliyet farkı, keyfi kademelendirmeyi değil, araştırma ve iletişim saatlerini yansıtır.",
-
     srSeo: "AiLys fiyatları müşteriye göre değişir çünkü beş gerçek faktör maliyeti belirler. Birincisi, LLM motor kapsamı: ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot genelinde atıfları takip ediyoruz ve fiyat, sadece izlediğimiz değil aktif olarak optimize ettiğimiz motor sayısıyla ölçeklenir. İkincisi, sektör karmaşıklığı: E-E-A-T ağırlığı dikeye göre değişir, dolayısıyla sağlık ve hukuk, restoranların ihtiyaç duymadığı belgelenmiş yazarlık ve atıf yoğunluğuna ihtiyaç duyar. Üçüncüsü, şema ve varlık kapsamı: 5 sayfalık bir WordPress sitesi, 200 sayfalık çok şubeli bir Shopify kataloğundan farklı bir iş şeklidir. Dördüncüsü, içerik dil derinliği: iki dilli EN ve FR-CA her kademede vardır, İspanyolca, Çince, Arapça, Rusça, Ukraynaca veya Sırpça eklemek üretim maliyetini artırır. Beşincisi, atıf edinme hızı: Core'da ayda 5 yüksek DA atıfı, Growth'ta 10 ve üzeri, gerçek araştırma ve iletişim saatlerini yansıtır.",
   },
-
   pricingBuilder: {
     sectionLabel: "Plan oluşturucu",
     heading1: "Planınızı oluşturun,",
     heading2: "fiyatı görün.",
-    intro: "Girdileri ayarlayın. Fiyat, dört kademeden birine ($300 ila $1,299) oturur. \"Teklif isteyin\" tiyatrosu yok.",
+    intro: "Girdileri ayarlayın. Fiyat, dört kademeden birine ($300 ila $1,599) oturur. \"Teklif isteyin\" tiyatrosu yok.",
     pagesLabel: "Sitenizdeki sayfa sayısı",
     languagesLabel: "Hizmet verilen diller",
     servicesLabel: "Dahil edilen hizmetler",
@@ -815,13 +847,11 @@ export const tr = {
     legal: "Önce ücretsiz denetim · Kredi kartı yok",
     footnote: "Yalnızca tahminler. Nihai fiyat sözleşme imzasında kilitlenir. Planlar aydan aya, iki hafta önceden iptal bildirimiyle.",
     chipAria: "Tahmini plan, tam döküm için dokunun",
-
     lang1: "Yalnızca EN",
     lang2: "EN + FR-CA",
     lang3: "EN + FR + ES",
     lang4: "EN + FR + ES + ZH",
     lang5: "Tüm 8 dil",
-
     svc1Label: "GBP yönetimi",
     svc1Desc: "Kategoriler, nitelikler, fotoğraflar, Soru-Cevap.",
     svc2Label: "LLM atıf takibi",
@@ -842,15 +872,12 @@ export const tr = {
     svc9Desc: "Haftalık takipçi + aylık içgörü dokümanı.",
     svc10Label: "Aylık yorum yarışma motoru",
     svc10Desc: "Reviuzy SaaS + sizin için yapılan yarışma.",
-
     tierStarter: "Starter",
     tierCore: "Core",
     tierGrowth: "Growth",
     tierAutopilot: "Autopilot",
-
-    srSeo: "Üç girdiyi ayarlayarak AiLys planınızı oluşturun, fiyat ayda $300 ila $1,299 CAD arasındaki dört kademeden birine oturur. Girdiler; sitenizdeki sayfa sayısı, hizmet verilen diller (yalnızca EN, EN artı FR-CA, EN artı FR artı ES, EN artı FR artı ES artı ZH veya tüm 8 dil) ve dahil ettiğiniz hizmetlerdir. Mevcut hizmetler; Google Business Profile yönetimi, 6 yapay zeka motoru genelinde haftalık sorgularla LLM atıf takibi, AEO şema kurulumu (FAQ, Review, LocalBusiness, HowTo), ayda 5 veya ayda 10 ve üzeri atıf oluşturma, ayda bir parça iki dilli EN ve FR içerik, ayda 4 parça haftalık içerik üretimi, Wikipedia ve Wikidata üzerinde GEO varlık otorite çalışması, haftalık takipçi ile rekabet izleme ve Reviuzy aylık yorum yarışma motorudur. Önce ücretsiz denetim. Kredi kartı yok. Planlar aydan aya, iki hafta önceden iptal bildirimiyle.",
+    srSeo: "Üç girdiyi ayarlayarak AiLys planınızı oluşturun, fiyat ayda $300 ila $1,599 CAD arasındaki dört kademeden birine oturur. Girdiler; sitenizdeki sayfa sayısı, hizmet verilen diller (yalnızca EN, EN artı FR-CA, EN artı FR artı ES, EN artı FR artı ES artı ZH veya tüm 8 dil) ve dahil ettiğiniz hizmetlerdir. Mevcut hizmetler; Google Business Profile yönetimi, 6 yapay zeka motoru genelinde haftalık sorgularla LLM atıf takibi, AEO şema kurulumu (FAQ, Review, LocalBusiness, HowTo), ayda 5 veya ayda 10 ve üzeri atıf oluşturma, ayda bir parça iki dilli EN ve FR içerik, ayda 4 parça haftalık içerik üretimi, Wikipedia ve Wikidata üzerinde GEO varlık otorite çalışması, haftalık takipçi ile rekabet izleme ve Reviuzy aylık yorum yarışma motorudur. Önce ücretsiz denetim. Kredi kartı yok. Planlar aydan aya, iki hafta önceden iptal bildirimiyle.",
   },
-
   methodology: {
     sectionLabel: "Motor · AiLys sizi LLM yanıtlarına nasıl yükseltir",
     heading1: "Görünmezden atıf yapılana,",
@@ -860,84 +887,67 @@ export const tr = {
     stepsAria: "Metodoloji adımları",
     closingQuote: "\"Sekiz girdi yapay zeka motorlarını besler. Çoğu ajans bir veya ikisini düzeltir. Biz her ay sekizinin tamamını işletiyoruz.\"",
     closingCaption: "AiLys motoru",
-
     layerClassical: "Klasik SEO",
     layerAeoGeo: "AEO + GEO",
     layerEeat: "E-E-A-T",
     layerTracking: "Takip",
-
     step1Title: "Teknik temel",
     step1Short: "Yapay zeka motorlarının taradığını düzelt",
     step1Detail: "Site hızı, taranabilirlik, dahili bağlantı, meta hijyeni, kırık bağlantılar. Yapay zeka motorları, Google'ın kullandığı aynı web dizininden çeker. Siteniz yavaş veya bozuksa hiçbir yapay zeka katmanı sizi kurtarmaz.",
     step1Signal: "200 ms altında TTFB · %100 taranabilir URL'ler · temiz meta veri",
-
     step2Title: "Google Business Profile",
     step2Short: "Kategoriler, nitelikler, çalışma saatleri, fotoğraflar, gönderiler, Soru-Cevap",
     step2Detail: "GBP tamlığı, yerel yapay zeka yanıtlarının yüzde 35 ila 60'ını yönlendirir. Her niteliği dolduruyor, kategorileri optimize ediyor, fotoğrafları üç ayda bir yeniliyor, Soru-Cevap'a kaynak ekliyor ve haftalık gönderi paylaşıyoruz. Her kademe için temel.",
     step2Signal: "%100 nitelik dolu · ayda 5+ fotoğraf · Soru-Cevap dolu · haftalık gönderiler",
-
     step3Title: "Atıflar ve NAP tutarlılığı",
     step3Short: "20'den fazla yüksek DA dizini, tam eşleşmeli listelemeler",
     step3Detail: "Web genelinde tutarsız Ad, Adres, Telefon atıf şansını yarıya indirir. Yapay zeka motorları NAP varyantlarını ayrı varlıklar olarak ele alır. 20'den fazla yüksek DA dizininin tamamını düzeltiyoruz: Yelp, BBB, Yellowpages, sektöre özel.",
     step3Signal: "Yelp · BBB · Crunchbase · Avvo · Healthgrades · OpenTable",
-
     step4Title: "AEO şema kurulumu",
     step4Short: "FAQ + Review + LocalBusiness + Service varlıkları",
     step4Detail: "AEO, içeriğinizi alıntılanmaya hazır hale getirmektir. Yapay zeka motorlarının bir rakibi başka kelimelerle anlatmak yerine sitenizden temiz bir yanıt çekebilmesi için yapılandırılmış veri kuruyoruz. Google Rich Results Test'e karşı doğrulanır.",
     step4Signal: "FAQ şeması · Review aggregateRating · LocalBusiness · Service",
-
     step5Title: "GEO varlık otoritesi",
     step5Short: "Wikipedia, Wikidata, dijital PR, Reddit",
     step5Detail: "ChatGPT ve Perplexity, Wikipedia ve Reddit sinyallerine ağırlık verir. Doğrulanabilir Wikidata girişleri oluşturuyoruz, işletmenin gerçekten dikkate değer olduğu yerlerde Wikipedia'da bahsedilmesini öneriyoruz ve sektörünüzün en önemli 3 ila 5 subreddit'inde anlamlı şekilde yer alıyoruz.",
     step5Signal: "Wikidata girişi · Reddit varlığı · üç ayda 1+ basın bahsi",
-
     step6Title: "E-E-A-T sinyalleri",
     step6Short: "Gerçek imzalar, orijinal fotoğraflar, kimlikler",
     step6Detail: "Google'ın E-E-A-T rubriği (Experience, Expertise, Authoritativeness, Trust), yapay zeka motorlarının kimin içeriğini atıf yapacağını seçerken kullandığı şeydir. Yazarlar için Person şeması, EXIF meta verili orijinal fotoğraflar, kimlik işaretlemesi ve ödül şeması ekliyoruz.",
     step6Signal: "Yazar imzaları · EXIF fotoğraflar · kimlikler · ödüller · güven rozetleri",
-
     step7Title: "Yorum hızı motoru",
     step7Short: "Aylık yeni yorumlar, yapay zeka yanıtlı, çok dilli",
     step7Detail: "Yorumlar, yapay zeka motorlarının kullandığı en güçlü taze sinyaldir. Yorum toplamayı Reviuzy üzerinden (NFC dokunma, QR kodları, yarışma motoru) yürüterek şube başına ayda 4 ila 50 yeni yorum, 24 saat içinde müşterinin yazdığı dilde yanıtlanmış olarak korumanızı sağlıyoruz.",
     step7Signal: "Şube başına ayda 4 ila 50 yorum · 24 saatte yanıt · 16 dil",
-
     step8Title: "LLM atıf takibi",
     step8Short: "6 motor, haftalık sorgulama, aylık rapor",
     step8Detail: "Hizmetiniz artı şehir kombinasyonunda yüksek niyetli sorgularla ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot'u haftalık sorguluyoruz. İsminizin ne zaman göründüğünü, neyin atıf yapıldığını ve rakiplerin sizi nerede hâlâ geçtiğini takip ediyoruz. Gerçek rakamlar, gösteriş metrikleri değil.",
     step8Signal: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
-
     srSeo: "AiLys metodolojisi, yerel bir işletmeyi görünmezden yapay zeka arama yanıtlarında atıf yapılana taşıyan 8 adımlı bir boru hattı yürütür. Adım 1, teknik temeldir: site hızı, taranabilirlik, dahili bağlantı, meta hijyeni. Adım 2, Google Business Profile'dır; kategoriler, nitelikler, fotoğraflar, gönderiler ve Soru-Cevap güncel tutulur. Adım 3, Yelp, BBB ve Crunchbase gibi 20'den fazla yüksek DA dizininde atıflar ve NAP tutarlılığıdır. Adım 4, Google Rich Results'a karşı doğrulanmış FAQ, Review, LocalBusiness ve Service varlıklarıyla AEO şema kurulumudur. Adım 5, Wikipedia, Wikidata, dijital PR ve Reddit üzerinde GEO varlık otoritesidir. Adım 6, gerçek imzalar, orijinal fotoğraflar ve kimliklerle E-E-A-T sinyal oluşturmadır. Adım 7, Reviuzy üzerinden çalışan yorum hızı motorudur. Adım 8, ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot genelinde haftalık LLM atıf takibidir. Her adım bir sonrakini besler.",
   },
-
   process: {
     sectionLabel: "02 / Süreç",
     heading1: "Bir atıfın",
     heading2: "gerçekten nasıl inşa edildiği.",
     intro: "Ajans tiyatrosu yok. Dört aşama, her birinin elinizde tutabileceğiniz bir teslimatı var. Ücretsiz bir denetimle başlıyoruz ve bir sonraki adımın bütçeye değip değmeyeceğine siz karar veriyorsunuz.",
-
     phase1Name: "Denetim",
     phase1Duration: "0. Günden 2. Güne",
     phase1Body: "Mevcut yapay zeka arama ayak izinizi haritalandırıyoruz. Nerede atıf yapıldığınızı, nerede eksik olduğunuzu, rakiplerin hangi şema ve atıf boşluklarını kullandığını. Denetim ücretsizdir ve talepten sonra 24 saat içinde gelen kutunuza ulaşır.",
     phase1Pull: "Ücretsiz, 24 saat.",
-
     phase2Name: "Strateji",
     phase2Duration: "1. Hafta",
     phase2Body: "90 günlük bir plan oluşturuyoruz. Şema öncelikleri, atıf hedefleri, hizmet ve şehrinize göre ayarlanmış içerik takvimi. Canlı hiçbir şeye dokunmadan önce planı görürsünüz.",
     phase2Pull: "Önce plan. Sonra eylem.",
-
     phase3Name: "Uygulama",
     phase3Duration: "2. Haftadan itibaren",
     phase3Body: "Şema uygulaması, atıf iletişimi, GBP optimizasyonu, içerik üretimi. Önemli olduğu yerde iki dilli. İşi biz yapıyoruz, gününüz size kalıyor.",
     phase3Pull: "Telefonu açıyoruz.",
-
     phase4Name: "Raporlama",
     phase4Duration: "30. Günden itibaren",
     phase4Body: "Aylık LLM atıf raporu. Yeni nerede göründüğünüz, hangi yanıtların sizi içeri çektiği, neyin hâlâ kapalı olduğu. Gerçek rakamlar, sade dil. Gösteriş metrikleri yok.",
     phase4Pull: "Gerçek rakamlar, abartı yok.",
-
     srSeo: "AiLys süreci, her aşamada bir teslimatla dört aşamada çalışır. 1. Aşama Denetim'dir, 0. Günden 2. Güne: mevcut yapay zeka arama ayak izinizi, nerede atıf yapıldığınızı, nerede eksik olduğunuzu, rakiplerin hangi şema ve atıf boşluklarını kullandığını haritalandırırız. Denetim ücretsizdir ve talepten sonra 24 saat içinde gelen kutunuza ulaşır. 2. Aşama 1. Haftada Strateji'dir: şema öncelikleri, atıf hedefleri ve hizmet ile şehrinize göre ayarlanmış içerik takvimiyle 90 günlük bir plan oluştururuz. Canlı hiçbir şeye dokunmadan önce planı görürsünüz. 3. Aşama 2. Haftadan itibaren Uygulama'dır: şema uygulaması, atıf iletişimi, GBP optimizasyonu, içerik üretimi, önemli olduğu yerde iki dilli. 4. Aşama 30. Günden itibaren Raporlama'dır: yeni nerede göründüğünüzü, hangi yanıtların sizi içeri çektiğini ve neyin hâlâ kapalı olduğunu kapsayan aylık bir LLM atıf raporu. Gerçek rakamlar, sade dil.",
   },
-
   bookCall: {
     sectionLabel: "03b / Strateji görüşmesi",
     heading1: "60 dakikalık bir görüşme.",
@@ -967,7 +977,6 @@ export const tr = {
     successHeading: "Anlaşıldı.",
     successBody: "Az önce talebinizi ekibimize e-postaladık. 12 saat içinde üç saat seçeneği ve görüşmenin nasıl yürütüldüğüne dair tek sayfalık bir doküman alacaksınız.",
     successCheck: "Gelen kutunuzu kontrol edin · spam dahil",
-
     lang1Name: "İngilizce",
     lang2Name: "Fransızca",
     lang3Name: "İspanyolca",
@@ -976,10 +985,8 @@ export const tr = {
     lang6Name: "Rusça",
     lang7Name: "Ukraynaca",
     lang8Name: "Sırpça",
-
     srSeo: "AiLys Agency ile ücretsiz 60 dakikalık strateji görüşmesi rezerve edin. Yapay zeka arama konumunuzu haritalandırırız, denetim sonuçlarını birlikte gözden geçirir ve AiLys'in doğru tercih olup olmadığını söyleriz. Doğru tercih değilsek, yine de tek sayfalık bir strateji dokümanı gönderiyoruz. Görüşmeler şirket içi ekip üyeleriyle İngilizce, Fransızca, İspanyolca, Çince, Arapça ve Rusça olarak yürütülür. Ukraynaca ve Sırpça, aynı oyun planıyla incelenmiş partner ajanslar üzerinden yürütülür. Görüşme ücretsizdir, kredi kartı yoktur ve satış konuşması yapılmaz. Talepten sonra 12 saat içinde üç saat seçeneğiyle yanıtlıyoruz. İmzalasanız da imzalamasanız da elinizde uygulanabilir bir şey ile çıkarsınız.",
   },
-
   chat: {
     teaserTitle: "Daha fazla yorum alın",
     teaserSubtitle: "Yapay zekanın işletmenizi nasıl büyütebileceğini istediğiniz dilde sorun.",
@@ -1003,7 +1010,6 @@ export const tr = {
     ariaOpen: "Sohbeti aç",
     ariaMinimize: "Küçült",
   },
-
   whyAilys: {
     sectionLabel: "03 / Konumlandırma",
     heading1: "Pazarda nerede",
@@ -1015,34 +1021,28 @@ export const tr = {
     colAilys: "AiLys konumu",
     closingQuote: "\"Yerel işletmenizin önümüzdeki yıl ChatGPT tarafından atıf yapılması için, birinin bu yıl şemayı, atıfları ve varlık çalışmasını yapması gerekiyor.\"",
     closingCaption: "AiLys'in arkasındaki tez",
-
     row1Segment: "Tier-1 global",
     row1Examples: "Jellyfish · Seer · Siege Media · NP Digital",
     row1Price: "$5,000 ila $25,000+ /ay",
     row1Weakness: "Yalnızca kurumsal. Tescilli yapay zeka takibi. Yerel işletmelere erişilemez.",
     row1Ailys: "Aynı disiplinler (AEO, GEO, E-E-A-T), KOBİ fiyatlarıyla, çünkü teslimatımız otomatikleştirilmiş.",
-
     row2Segment: "Yüksek hacimli KOBİ",
     row2Examples: "LocaliQ · Boostability · Marketing 360",
     row2Price: "$10 ila $2,300 /ay",
     row2Weakness: "Endüstrileştirilmiş. Ölçekle birlikte kalite düşer. Çağrı merkezi havası.",
     row2Ailys: "Küçük müşteri kadrosu. Çağrı merkezi yok. İki dilli EN/FR-CA. Telefonu açıyoruz.",
-
     row3Segment: "Yalnızca araç platformları",
     row3Examples: "BrightLocal · Whitespark",
-    row3Price: "$799 ila $1,299 /ay",
+    row3Price: "$799 ila $1,599 /ay",
     row3Weakness: "Paneli satın alıyorsunuz. Asıl işi yine de siz yapmak zorundasınız.",
     row3Ailys: "Sizin için yapılır. Ekibimiz uygular. Bir başka araca giriş yapmak için kimlik bilgileri yerine atıflar alırsınız.",
-
     row4Segment: "Yerel uzmanlar",
     row4Examples: "Sterling Sky · Rablab · bölgesel ajanslar",
     row4Price: "Özel, genellikle $3K+ /ay",
     row4Weakness: "Klasik yerel SEO'da güçlü. AEO/GEO/E-E-A-T entegrasyonunda zayıf.",
     row4Ailys: "Aynı klasik SEO temeli (teknik, sayfa içi, atıflar, GBP), ilk günden entegre AEO + GEO + E-E-A-T katmanıyla. İki yarı birbirini besler.",
-
-    srSeo: "AiLys Agency dört rekabet segmenti arasında konumlanır. Jellyfish, Seer, Siege Media ve NP Digital gibi tier-1 global ajanslar ayda $5,000 ila $25,000 ve üzeri ücret alır ve yerel işletmelerin erişemeyeceği tescilli yapay zeka takibiyle yalnızca kurumsaldır. LocaliQ, Boostability ve Marketing 360 gibi yüksek hacimli KOBİ ajansları ayda $10 ila $2,300 ücret alır, ancak ölçekle birlikte kalite düşer ve iş endüstrileştirilmiş hisseder. BrightLocal ve Whitespark gibi yalnızca araç platformları, kendiniz işletmek zorunda olduğunuz paneller için ayda $799 ila $1,299 ücret alır. Sterling Sky ve Rablab gibi yerel uzmanlar klasik yerel SEO'da güçlüdür ancak AEO, GEO ve E-E-A-T entegrasyonunda zayıftır. AiLys, tier-1 ajanslarla aynı disiplinleri (AEO, GEO, E-E-A-T) ayda $300 ila $1,299 KOBİ fiyatlarıyla sunar, çünkü teslimat katmanımız Reviuzy üzerinden otomatikleştirilmiştir. İki dilli EN ve FR-CA şirket içi. Telefonu açıyoruz.",
+    srSeo: "AiLys Agency dört rekabet segmenti arasında konumlanır. Jellyfish, Seer, Siege Media ve NP Digital gibi tier-1 global ajanslar ayda $5,000 ila $25,000 ve üzeri ücret alır ve yerel işletmelerin erişemeyeceği tescilli yapay zeka takibiyle yalnızca kurumsaldır. LocaliQ, Boostability ve Marketing 360 gibi yüksek hacimli KOBİ ajansları ayda $10 ila $2,300 ücret alır, ancak ölçekle birlikte kalite düşer ve iş endüstrileştirilmiş hisseder. BrightLocal ve Whitespark gibi yalnızca araç platformları, kendiniz işletmek zorunda olduğunuz paneller için ayda $799 ila $1,599 ücret alır. Sterling Sky ve Rablab gibi yerel uzmanlar klasik yerel SEO'da güçlüdür ancak AEO, GEO ve E-E-A-T entegrasyonunda zayıftır. AiLys, tier-1 ajanslarla aynı disiplinleri (AEO, GEO, E-E-A-T) ayda $300 ila $1,599 KOBİ fiyatlarıyla sunar, çünkü teslimat katmanımız Reviuzy üzerinden otomatikleştirilmiştir. İki dilli EN ve FR-CA şirket içi. Telefonu açıyoruz.",
   },
-
   auditCta: {
     sectionLabel: "04 / Ücretsiz denetim",
     heading1: "ChatGPT'nin sizi atıf yapıp",
@@ -1057,10 +1057,8 @@ export const tr = {
     sampleEeat: "E-E-A-T puanı",
     sampleCitations: "LLM atıfları",
     samplePlanNote: "90 günlük plan dahildir",
-
     srSeo: "AiLys Agency'den ücretsiz Yapay Zeka Görünürlük Denetimini çalıştırın. İşletmenizi 6 yapay zeka arama motoru (ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot) üzerinden çekiyoruz, AEO, GEO ve E-E-A-T sinyallerinizi puanlıyoruz ve 90 günlük bir eylem planını e-postayla gönderiyoruz. Denetim ücretsizdir, kredi kartı ve keşif görüşmesi gerekmez. Talepten sonra 24 saat içinde sonuçlanır. Örnek çıktı; AEO puanı, GEO puanı, E-E-A-T puanı, 6 motorun tamamı genelinde mevcut LLM atıfları ve şema öncelikleri, atıf hedefleri ile hizmet ve şehrinize göre ayarlanmış bir içerik takvimi içeren 90 günlük bir plan içerir.",
   },
-
   about: {
     sectionLabel: "05 / Manifesto",
     plateLabel: "Plaka 01 / Köken",
@@ -1075,10 +1073,8 @@ export const tr = {
     body5: "İşaretimizdeki fleur-de-lys süs değildir. Québec işletmelerinin gerçekten ihtiyaç duyduğu şekilde ajans işi yapma taahhüdüdür.",
     signatureBrand: "AiLys Agency",
     signatureMeta: "Kuruluş 2026 · Montréal · İki dilli",
-
     srSeo: "AiLys Agency 2026'da Montréal, Québec'te kurulmuştur. Şirket içi iki dilli EN ve FR-CA hizmet sunuyoruz, partner ağı kapsamında İspanyolca, Çince, Arapça, Rusça, Ukraynaca ve Sırpça da mevcuttur. Yapay zeka arama dönemine uygulanan klasik SEO disiplininden çıktık, tersi değil. Sevk ettiğimiz her plan, Google için 2010'da işe yarayan ve 2026'da hâlâ işe yarayan aynı temel üzerine inşa edilmiştir: temiz teknik SEO, eksiksiz Google Business Profile, NAP tutarlılığı, gerçek backlinkler, yüksek otoriteli kaynaklarda atıflar. Bu temelin üzerine LLM dönemi için ayarlanmış AEO, GEO ve E-E-A-T çalışmasını ekliyoruz. Temeli atlayın, yapay zeka katmanının üzerinde duracak hiçbir şey kalmaz. Bugün her ay yaklaşık 1,2 milyar kişi yapay zeka motorları üzerinden arama yapıyor ve yalnızca ChatGPT bu pazarın yaklaşık %55'ini elinde tutuyor. Bu yanıtların içinde atıf yapılan yerel işletmeler büyümeye devam edecek. Olmayanlar ise sessizce gözden kaybolacak.",
   },
-
   faqLanding: {
     sectionLabel: "06 / Sorular",
     heading1: "İnsanların gerçekten",
@@ -1105,10 +1101,8 @@ export const tr = {
     a10: "Hayır. Sıralama veya yapay zeka atıfı garantileyen herkes size duman satıyordur. Süreç vaat ediyoruz: 90 günlük plan, aylık raporlar ve görünür iş. Sıralamalar ve atıflar takip eder.",
     q11: "İptal edersem ne olur?",
     a11: "İki hafta önceden bildirim ve süreci sonlandırırız. Sevk ettiğimiz şemayı, kazandığımız atıfları ve denetim raporlarını sizde tutarsınız. Geri alma yok, tutulan varlık yok.",
-
-    srSeo: "AiLys Agency hakkındaki yaygın sorular sade dilde yanıtlanıyor. Hem bir SEO ajansıyız hem de bir yapay zeka arama ajansıyız çünkü ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot gibi yapay zeka motorları, klasik Google aramasının kullandığı aynı web dizininden çekim yapar. Her plan klasik SEO temelini içerir: teknik SEO denetimi, sayfa içi optimizasyon, NAP tutarlılığı, GBP yönetimi ve atıf oluşturma. AEO, Answer Engine Optimization'dır; içeriği şema işaretlemesi ve Soru-Cevap formatlarıyla yapılandırırız, böylece yapay zeka motorları temiz yanıtlar çıkarır. GEO, Generative Engine Optimization'dır; markanızın Wikipedia, Wikidata, Reddit ve dijital PR aracılığıyla gerçek yapay zeka yanıtlarında isimlendirilmesini sağlıyoruz. E-E-A-T; Experience, Expertise, Authoritativeness ve Trust'tır ve yapay zeka motorlarının kimin içeriğini atıf yapacağını seçerken kullandığıdır. Reddit önemlidir çünkü ChatGPT ve Perplexity onu gerçek bir insan tartışma kaynağı olarak ağırlıkla değerlendirir. Klasik SEO sonuçları 30 ila 60 günde, gerçek LLM atıf artışı 90 ila 120 günde görünür. Sıralama garantisi vermiyoruz, yalnızca süreç. Fiyatlandırma ayda $300 ila $1,299 CAD'dır.",
+    srSeo: "AiLys Agency hakkındaki yaygın sorular sade dilde yanıtlanıyor. Hem bir SEO ajansıyız hem de bir yapay zeka arama ajansıyız çünkü ChatGPT, Perplexity, Claude, Gemini, Google AIO ve Bing Copilot gibi yapay zeka motorları, klasik Google aramasının kullandığı aynı web dizininden çekim yapar. Her plan klasik SEO temelini içerir: teknik SEO denetimi, sayfa içi optimizasyon, NAP tutarlılığı, GBP yönetimi ve atıf oluşturma. AEO, Answer Engine Optimization'dır; içeriği şema işaretlemesi ve Soru-Cevap formatlarıyla yapılandırırız, böylece yapay zeka motorları temiz yanıtlar çıkarır. GEO, Generative Engine Optimization'dır; markanızın Wikipedia, Wikidata, Reddit ve dijital PR aracılığıyla gerçek yapay zeka yanıtlarında isimlendirilmesini sağlıyoruz. E-E-A-T; Experience, Expertise, Authoritativeness ve Trust'tır ve yapay zeka motorlarının kimin içeriğini atıf yapacağını seçerken kullandığıdır. Reddit önemlidir çünkü ChatGPT ve Perplexity onu gerçek bir insan tartışma kaynağı olarak ağırlıkla değerlendirir. Klasik SEO sonuçları 30 ila 60 günde, gerçek LLM atıf artışı 90 ila 120 günde görünür. Sıralama garantisi vermiyoruz, yalnızca süreç. Fiyatlandırma ayda $300 ila $1,599 CAD'dır.",
   },
-
   footerExt: {
     colServices: "Hizmetler",
     colCompany: "Şirket",
@@ -1125,10 +1119,8 @@ export const tr = {
     locationLine: "Montréal · Québec",
     bilingualLine: "İki dilli EN/FR-CA",
     versionLine: "v0.1 · Made in Québec ⚜",
-
     srSeo: "AiLys Agency, şirket içi iki dilli EN ve FR-CA teslimatıyla Montréal, Québec'te merkezlidir. Kardeş ürünümüz Reviuzy, yorum toplama ve Google Business Profile otomasyonu için bir self-servis SaaS'tır ve ajans teslimatımızın bir kısmını besleyen ürün motorudur. Hızlı bağlantılar; hizmetleri (teknik SEO, GBP, atıflar, şema, AEO, GEO, E-E-A-T), şirket sayfalarını (blog, yardım merkezi, görüşme rezervasyonu, Yapay Zeka Görünürlük Denetimi, GBP Pulse, iletişim), yasal sayfaları (gizlilik politikası, hizmet şartları, çerez politikası) ve takip ettiğimiz 6 yapay zeka motorunu (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) kapsar. Site; İngilizce, Fransızca, İspanyolca, Çince, Arapça, Rusça, Almanca, Hintçe, İtalyanca, Japonca, Korece, Hollandaca, Lehçe, Portekizce, Türkçe ve Vietnamca dahil 16 dilde mevcuttur.",
   },
-
   navExt: {
     help: "Yardım",
     freeAudit: "Ücretsiz Denetim",
