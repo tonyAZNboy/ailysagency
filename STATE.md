@@ -1,10 +1,11 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 (Phase 1 tier rebuild, post cadence + features 2026)
-**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit (local):** TBD after Phase 1 commit
-**Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy` until GitHub→Cloudflare hook is reconnected — see Open known limitations)
-**Pricing (current):** $300 / $600 / $1,200 / $1,599 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
+**Last updated:** 2026-04-27 (all Phases 1-4 shipped end-to-end, live domain pending)
+**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `0d43a2d` (ailysagency) + `25a2491` (reviuzy)
+**Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy`; auto-deploy webhook is broken since 2026-04-26, see known limitations)
+**Pricing:** $300 / $600 / $1,200 / $1,599 CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
 **GBP post cadence:** Starter 1/mo · Core 4/mo (1/wk) · Growth 8/mo (2/wk) · Autopilot 12/mo (3/wk).
+**Phase 2-4 Reviuzy features:** all shipped end-to-end across 8 admin pages + 7 edge functions + 4 migrations.
 
 ---
 
@@ -81,7 +82,37 @@ All functions return graceful sample fallback when their API key is missing.
 
 ## Open issues / next session
 
-### Priority A (Phase 1 — DONE this session)
+### Phase 2-4 SHIPPED (2026-04-27 session, all features built end-to-end in Reviuzy)
+
+**Phase 2 — Reviuzy GBP gaps (B.1, B.2, B.3):**
+- B.1 GBP photo upload: edge function `google-upload-photo` + admin `/gbp/photos` + help article. Migration `rate_limits` table.
+- B.2 GBP Q&A bot: 3 edge functions (`google-fetch-questions`, `gbp-draft-reply` calling Claude Opus 4.7, `google-post-answer`) + admin `/gbp/questions` 4-tab queue + help article. Migration `gbp_question_drafts` table.
+- B.3 GBP attributes: edge function `google-attributes` (fetch + update modes) + admin `/gbp/attributes` + help article.
+
+**Phase 3 — Citation building + NAP (C.1, C.2, C.3):**
+- C.1 Citation directory tracker: hand-curated catalog of 27 directories (`src/data/citationDirectories.ts`) + admin `/citations` 5-tab workflow + help article. Migration `citation_submissions` table.
+- C.2 NAP consistency checker: admin `/nap` with canonical lock + diff detection + observation history + help article. Migration `nap_snapshots` table.
+- C.3 Citation tracking dashboard: subsumed by CitationManager Verified tab + audit log.
+
+**Phase 4 — AI visibility advanced (D.1, D.2, D.3, D.4):**
+- D.1+D.2+D.3 AI Visibility engine: edge function `ai-visibility-run` probing 6 engines via Claude Opus 4.7 (thinking adaptive, effort high, prompt cache on system prompt) + admin `/ai-visibility` with Share of Model bar chart, sentiment per engine, competitor rollup, freshness alerts, named-competitor editor + help article. Migration `ai_visibility_runs`, `ai_competitors`, `ai_traffic_visits` tables.
+- D.4 AI Traffic conversion tracker: public edge function `ai-traffic-ingest` (no auth, token-based, SHA-256 hashed at rest, IP-bucket rate limit, AI engine detection from utm_source AND referrer host across 10 patterns) + admin `/ai-traffic` with token generator, copy-paste snippet, conversion call template, per-engine breakdown + help article.
+
+**Help articles in AiLys help center (EN + FR-CA, all per CLAUDE.md hard rule #10 — no proprietary disclosure):**
+- `gbp-photo-uploads`, `gbp-qa-monitoring`, `gbp-attributes`, `citation-building`, `nap-consistency`, `ai-visibility-engine`, `ai-traffic-tracker`. 7 new articles, all bilingual.
+
+**Reviuzy commits:** `5a411f8` (B.1), `8d3cc4c` (B.2), `408306a` (B.3), `871bede` (Phase 3), `25a2491` (Phase 4).
+**ailysagency commits:** `496cbc1`, `6b2da40`, `3b5f181`, `2b8ae00`, `0d43a2d` (5 help-article commits).
+
+**⚠️ Operator action items before features go live:**
+1. Apply 3 new Reviuzy migrations via Supabase SQL Editor (https://supabase.com/dashboard/project/qucxhksrpqunlyjjvuae/sql/new):
+   - `20260427100000_create_gbp_question_drafts.sql`
+   - `20260427110000_create_citation_submissions.sql`
+   - `20260427120000_create_ai_visibility_tables.sql` (also adds `tenants.ai_traffic_token_hash` column)
+2. Deploy 7 new Reviuzy edge functions: `npx supabase functions deploy google-upload-photo google-fetch-questions gbp-draft-reply google-post-answer google-attributes ai-visibility-run ai-traffic-ingest --project-ref qucxhksrpqunlyjjvuae`
+3. Set `ANTHROPIC_API_KEY` in Reviuzy Supabase function secrets (used by `gbp-draft-reply` and `ai-visibility-run`).
+
+### Priority A (Phase 1 — DONE earlier this session)
 - **Tier 3 Autopilot price** raised from $1,299 to $1,599 across 16 locales + code (114 + 32 = 146 substitutions).
 - **GBP post cadence ladder** wired into tier features (1 / 4 / 8 / 12 per month).
 - **2-3 net-new 2026 features per tier** added to the marketing surface: AEO content brief generator, GBP Q&A monitoring, Share of Model dashboard, brand sentiment + citation freshness alerts, AI traffic conversion tracker, dedicated success strategist + monthly executive briefing.
