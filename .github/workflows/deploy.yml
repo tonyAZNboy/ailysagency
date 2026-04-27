@@ -1,23 +1,13 @@
 name: Deploy to Cloudflare Pages
 
-# Auto-trigger on push is DISABLED until CLOUDFLARE_API_TOKEN secret is set
-# in the repo. Without that secret, wrangler-action exits 1 on every push and
-# spams failure notifications. Until then we ship via manual `wrangler pages
-# deploy dist --project-name=ailysagency` from a local checkout (the wrangler
-# OAuth flow on the maintainer's machine handles auth there).
-#
-# To re-enable auto-deploy:
-#   1. Generate a Cloudflare API token at
-#      https://dash.cloudflare.com/profile/api-tokens
-#      with scope: Account > Cloudflare Pages > Edit (and Account Read).
-#   2. Add it to the repo as a secret named CLOUDFLARE_API_TOKEN at
-#      https://github.com/tonyAZNboy/ailysagency/settings/secrets/actions
-#   3. Uncomment the `push` block below and remove this notice.
+# Auto-deploy on every push to main + manual trigger fallback.
+# Requires repo secret CLOUDFLARE_API_TOKEN with scope:
+#   Account > Cloudflare Pages > Edit  +  Account > Account Settings > Read
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
-  # push:
-  #   branches: [main]
 
 permissions:
   contents: read
