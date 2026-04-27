@@ -158,23 +158,41 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navbar - icon + menu toggle only */}
-      <div className="md:hidden fixed top-0 left-0 z-50" ref={menuRef}>
-        {/* Compact top-left bar: icon + menu toggle */}
-        <div className="flex items-center gap-0 p-2 px-[2px] py-[2px]">
+      {/* Mobile Navbar - icon + menu toggle. Now wrapped in a real glass
+          backdrop pill so the logo + hamburger stop reading on top of hero
+          headings (was: transparent, AiLys wordmark overlapped "Get cited
+          by..." on iPhone). Pill is offset from screen edge with safe-area
+          inset so it sits cleanly above the notch. */}
+      <div
+        className="md:hidden fixed top-0 left-0 z-50"
+        ref={menuRef}
+        style={{ paddingTop: "env(safe-area-inset-top, 0)" }}
+      >
+        {/* Compact top-left pill: icon + menu toggle on a real backdrop */}
+        <div
+          className="flex items-center gap-1 m-2 px-2.5 py-1.5 rounded-full"
+          style={{
+            background: "rgba(0, 12, 18, 0.78)",
+            backdropFilter: "blur(18px) saturate(160%)",
+            WebkitBackdropFilter: "blur(18px) saturate(160%)",
+            border: "1px solid rgba(0, 243, 255, 0.22)",
+            boxShadow:
+              "0 6px 24px rgba(0, 0, 0, 0.45), 0 0 12px rgba(0, 243, 255, 0.08)",
+          }}
+        >
           <button
             onClick={() => {
               if (window.location.pathname !== '/') navigate('/');else
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center justify-center transition-all duration-300"
+            className="flex items-center justify-center transition-all duration-300 pl-0.5 pr-1.5"
             aria-label="Go to home">
 
             <AiLysLogo variant="wordmark" size="sm" />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex items-center justify-center transition-all duration-300"
+            className="flex items-center justify-center transition-all duration-300 pl-1 pr-0.5"
             aria-label="Toggle menu">
 
             <div className="relative w-5 h-5">

@@ -177,7 +177,7 @@ export function HeroAuditCard() {
           <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/95 mb-2 sm:mb-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
             {t.heroAuditCard.eyebrow}
           </div>
-          <h3 className="font-display text-white leading-[1.05] tracking-tight mb-1.5 sm:mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]" style={{ fontSize: "clamp(1.25rem, 5vw, 2.25rem)" }}>
+          <h3 className="font-display text-white leading-[1.05] tracking-tight mb-1.5 sm:mb-2 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]" style={{ fontSize: "clamp(1.125rem, 4.6vw, 2.25rem)", overflowWrap: "anywhere", maxWidth: "100%" }}>
             {t.heroAuditCard.title1}
             <br />
             <span className="italic text-white">{t.heroAuditCard.title2}</span>

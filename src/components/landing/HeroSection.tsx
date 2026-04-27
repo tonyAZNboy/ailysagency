@@ -103,11 +103,18 @@ export function HeroSection() {
             </div>
           </ScrollReveal>
 
-          {/* Headline — fluid clamp() so it never overflows narrow viewports */}
+          {/* Headline — fluid clamp() so it never overflows narrow viewports.
+              `overflowWrap: anywhere` is the only rule that survives long unbreakable
+              brand-name runs ("ChatGPT, Perplexity, Claude") on 360px screens. */}
           <h1
             id="hero-heading"
-            className="font-bold tracking-tight leading-[1.05] mb-5 break-words"
-            style={{ fontSize: "clamp(1.625rem, 6vw, 3.75rem)" }}
+            className="font-bold tracking-tight leading-[1.05] mb-5"
+            style={{
+              fontSize: "clamp(1.375rem, 5.5vw, 3.75rem)",
+              overflowWrap: "anywhere",
+              wordBreak: "normal",
+              maxWidth: "100%",
+            }}
           >
             <TextReveal
               mode="words"

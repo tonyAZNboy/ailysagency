@@ -22,7 +22,7 @@ export function AiLysLogo({
       className={`inline-flex items-center gap-2 ${className}`}
       aria-label="AiLys Agency"
     >
-      <FleurDeLys size={sizeMap.mark} fill="gradient" />
+      <FleurDeLys size={sizeMap.mark} fill="quebec" />
       <span className="inline-flex items-baseline gap-1.5">
         <span className={`${sizeMap.text} font-bold tracking-tight leading-none`}>
           <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">

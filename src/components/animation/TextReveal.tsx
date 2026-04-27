@@ -52,10 +52,11 @@ export function TextReveal({
       {elements.map(({
       text,
       key
-    }, index) => <span key={key} className="inline-block overflow-hidden" style={{
-      marginRight: mode === 'words' ? '0.25em' : undefined
+    }, index) => <span key={key} className="inline-block overflow-hidden align-baseline" style={{
+      marginRight: mode === 'words' ? '0.25em' : undefined,
+      maxWidth: '100%'
     }}>
-          <span className="inline-block text-xl pl-[2px] pr-[2px]" style={{
+          <span className="inline-block" style={{
         transform: isInView ? 'translateY(0)' : 'translateY(100%)',
         opacity: isInView ? 1 : 0,
         transition: `transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${index * staggerDelay}ms, opacity ${duration}ms ease-out ${index * staggerDelay}ms`,
