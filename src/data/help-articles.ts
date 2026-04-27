@@ -3141,4 +3141,356 @@ Si votre situation est une des suivantes, on n'est PAS le bon match (et on vous 
       },
     },
   },
+
+  // ─── Operational playbooks (added 2026-04-27) ────────────────
+  {
+    slug: "reddit-playbook-for-local-business",
+    title: "Reddit playbook: how to participate without getting banned",
+    excerpt:
+      "We don't run Reddit campaigns for clients because authentic Reddit voice cannot be outsourced. If you want to participate yourself, this is the playbook: pick the right subreddits, build karma first, contribute before linking, and follow the rules of the room.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 6,
+    body: `## Why Reddit matters for AI search
+
+ChatGPT, Perplexity, and Claude weight Reddit signals heavily because Reddit is one of the few platforms with genuine human discussion at scale. Industry subreddits often outweigh your own blog as a citation source. A single substantive thread where your business name appears naturally can drive AI citations for months.
+
+But the bar to participate authentically is high. Reddit detects and bans bots, paid promoters, and obvious self-promotion within days. The community downvotes anyone who posts only to link their site. So we do not run Reddit campaigns on your behalf — we give you this playbook so you can do it the right way.
+
+## Step 1: pick the right subreddits
+
+For a local Montreal dentist, the right subreddits are:
+- **r/montreal** (general Montreal community, 200K+ members)
+- **r/AskMontreal** (questions specifically about the city)
+- **r/Quebec** (broader Quebec community)
+- **r/askdentists** (dental questions, 100K+ members)
+- **r/Dentistry** (industry community)
+
+Find your equivalents by searching Reddit for your city + your service. Bookmark 3 to 5. Visit them daily for a week before you ever post. Read 50 to 100 threads to understand the room's tone, what gets upvoted, what gets downvoted, what kinds of self-promotion are tolerated.
+
+## Step 2: build karma first
+
+Reddit users see your karma score (post karma + comment karma) on every comment you make. New accounts with low karma get downvoted automatically because they look like spam.
+
+Before you post anything related to your business:
+1. Comment in non-business subreddits for 2 to 4 weeks. r/AskCanada, r/personalfinance, r/cooking, whatever you actually know about.
+2. Aim for 200+ comment karma minimum before posting in industry subreddits.
+3. Never copy-paste comments. Reddit's spam detection flags repeated text.
+
+## Step 3: contribute before linking
+
+The single biggest mistake businesses make on Reddit: they post a question or a "hot take" with a link to their site. The community sees through it instantly.
+
+The right pattern:
+- **Answer questions in your area of expertise** without linking. A dentist answering r/askdentists questions for 3 months, with no link, builds reputation.
+- **When someone asks for a Montreal dentist** specifically, you can mention you run one. Be transparent: "I'm a dentist in Plateau Mont-Royal, here are 3 things to look for when picking..." Then disclose: "Full disclosure, my clinic is one option but here's how to evaluate any clinic." That earns trust.
+- **Never link to your homepage.** Link to a specific blog post that answers a specific question. Or to a Google review the patient mentioned. Specific beats generic 100% of the time.
+
+## Step 4: follow the rules of each subreddit
+
+Every subreddit has a wiki and a sidebar with rules. Read them before posting. Common rules:
+- "No self-promotion" → never link to your business
+- "Self-promotion allowed only in pinned thread" → check for the weekly thread
+- "All claims must be sourced" → cite a peer-reviewed paper or a government site, not your blog
+- "No referral spam" → no affiliate links, no Uber referrals, no app referrals
+
+Some subreddits ban any comment from a user who has any other comments mentioning their business. Test before you commit.
+
+## Step 5: measure what works
+
+We track Reddit signals in your monthly report:
+- Brand mentions in your priority subreddits (we monitor 3 to 5 of them)
+- Sentiment of those mentions (positive, neutral, negative)
+- Whether any AI engine started citing those threads in answers (we test prompts that surface "best Reddit dentist Montreal" to see if your name pops)
+
+If you participate consistently for 3 to 6 months, you'll see measurable lift in AI Visibility for prompts that include "reddit" or "review" in the user's intent.
+
+## Common pitfalls and how to avoid them
+
+**Pitfall 1: Sock-puppet accounts**. Creating multiple accounts to upvote your own posts. Reddit detects this via IP, browser fingerprint, and posting timing. One ban kills all related accounts.
+
+**Pitfall 2: Astroturfing**. Paying or asking employees/family to post positive reviews of your business. Reddit's anti-astroturf detection has caught major brands. The reputation damage if discovered is permanent.
+
+**Pitfall 3: Outrage farming**. Writing inflammatory takes to drive engagement. Even if it works short-term, it associates your name with negativity in the AI corpus. Bad for AI search, worse for trust.
+
+**Pitfall 4: Linking your site every time**. Even legitimate links get downvoted if posted too frequently. Rule of thumb: 1 self-link per 20 substantive comments.
+
+## How much time is realistic?
+
+A local business owner who participates well spends 30 to 60 minutes per week on Reddit. That's enough to:
+- Make 3 to 5 substantive comments per week
+- Answer 1 to 2 industry questions per week
+- Post 1 to 2 substantive original posts per month
+
+If you cannot commit that, do not start. Sporadic Reddit presence reads worse than no Reddit presence.
+
+## What if I want to outsource it?
+
+Honestly: do not. The agencies that promise Reddit participation either bot it (gets banned) or have offshore teams who post obvious low-quality comments (gets downvoted, hurts your name). The signal Reddit gives AI search is "this human is real and trusted in this community", and that signal cannot be faked at scale.
+
+If you cannot participate yourself, skip Reddit. Focus on the channels we can move for you (citations, GBP, schema, Wikidata, content). Those are 80% of AI Visibility lift anyway.`,
+    i18n: {
+      "fr-ca": {
+        title: "Guide Reddit : comment participer sans se faire bannir",
+        excerpt:
+          "On n'opère pas de campagnes Reddit pour les clients parce que la voix authentique sur Reddit ne peut pas être externalisée. Si vous voulez participer vous-même, voici le guide : choisir les bons subreddits, bâtir du karma d'abord, contribuer avant de partager des liens, suivre les règles de la salle.",
+        body: `## Pourquoi Reddit compte pour le AI search
+
+ChatGPT, Perplexity et Claude pondèrent fortement les signaux Reddit parce que Reddit est une des rares plateformes avec une discussion humaine authentique à grande échelle. Les subreddits d'industrie pèsent souvent plus lourd que votre propre blogue comme source de citation. Un seul fil substantiel où le nom de votre commerce apparaît naturellement peut générer des citations IA pendant des mois.
+
+Mais la barre pour participer authentiquement est haute. Reddit détecte et bannit les bots, les promoteurs payés et l'auto-promotion évidente en quelques jours. La communauté downvote quiconque poste juste pour partager son site. Donc on n'opère pas de campagnes Reddit en votre nom — on vous donne ce guide pour que vous puissiez le faire de la bonne façon.
+
+## Étape 1 : choisir les bons subreddits
+
+Pour un dentiste de Montreal local, les bons subreddits sont :
+- **r/montreal** (communauté générale de Montreal, 200K+ membres)
+- **r/AskMontreal** (questions spécifiquement sur la ville)
+- **r/Quebec** (communauté Quebec plus large)
+- **r/askdentists** (questions dentaires, 100K+ membres)
+- **r/Dentistry** (communauté d'industrie)
+
+Trouvez vos équivalents en cherchant Reddit pour votre ville + votre service. Bookmarkez 3 à 5. Visitez-les chaque jour pendant une semaine avant de poster quoi que ce soit. Lisez 50 à 100 fils pour comprendre le ton de la salle, ce qui se fait upvoter, ce qui se fait downvoter, quels types d'auto-promotion sont tolérés.
+
+## Étape 2 : bâtir du karma d'abord
+
+Les utilisateurs Reddit voient votre score karma (karma de posts + karma de commentaires) sur chaque commentaire que vous faites. Les nouveaux comptes à faible karma se font downvoter automatiquement parce qu'ils ont l'air de spam.
+
+Avant de poster quoi que ce soit lié à votre commerce :
+1. Commentez dans des subreddits non-commerciaux pendant 2 à 4 semaines. r/AskCanada, r/personalfinance, r/cooking, peu importe sur quoi vous connaissez vraiment.
+2. Visez 200+ karma de commentaires minimum avant de poster dans les subreddits d'industrie.
+3. Ne copiez-collez jamais de commentaires. La détection de spam de Reddit flag les textes répétés.
+
+## Étape 3 : contribuer avant de partager des liens
+
+La plus grosse erreur que les commerces font sur Reddit : ils postent une question ou un « hot take » avec un lien vers leur site. La communauté voit clair instantanément.
+
+Le bon pattern :
+- **Répondez aux questions dans votre domaine d'expertise** sans lien. Un dentiste qui répond aux questions r/askdentists pendant 3 mois, sans lien, bâtit sa réputation.
+- **Quand quelqu'un demande un dentiste à Montreal** spécifiquement, vous pouvez mentionner que vous en opérez un. Soyez transparent : « Je suis dentiste au Plateau Mont-Royal, voici 3 choses à regarder en choisissant... » Puis divulguez : « Pleine divulgation, ma clinique en est une option mais voici comment évaluer n'importe quelle clinique. » Ça construit la confiance.
+- **Ne partagez jamais le lien de votre page d'accueil.** Partagez un lien vers un article de blogue spécifique qui répond à une question spécifique. Ou vers un avis Google que le patient a mentionné. Spécifique bat générique 100 % du temps.
+
+## Étape 4 : suivre les règles de chaque subreddit
+
+Chaque subreddit a un wiki et une barre latérale avec des règles. Lisez-les avant de poster. Règles communes :
+- « Pas d'auto-promotion » → ne partagez jamais le lien vers votre commerce
+- « Auto-promotion permise seulement dans le fil épinglé » → cherchez le fil hebdomadaire
+- « Toutes les affirmations doivent être sourcées » → citez un papier révisé par les pairs ou un site gouvernemental, pas votre blogue
+- « Pas de spam de référencement » → pas de liens d'affiliation, pas de référencements Uber, pas de référencements d'apps
+
+Certains subreddits bannissent tout commentaire d'un utilisateur qui a d'autres commentaires mentionnant son commerce. Testez avant de vous engager.
+
+## Étape 5 : mesurer ce qui fonctionne
+
+On suit les signaux Reddit dans votre rapport mensuel :
+- Mentions de marque dans vos subreddits prioritaires (on en surveille 3 à 5)
+- Sentiment de ces mentions (positif, neutre, négatif)
+- Si un moteur IA a commencé à citer ces fils dans des réponses (on teste des prompts qui font remonter « meilleur dentiste reddit Montreal » pour voir si votre nom apparaît)
+
+Si vous participez constamment pendant 3 à 6 mois, vous verrez une amélioration mesurable de l'AI Visibility pour les prompts qui incluent « reddit » ou « review » dans l'intention de l'utilisateur.
+
+## Pièges communs et comment les éviter
+
+**Piège 1 : Comptes sock-puppet.** Créer plusieurs comptes pour upvoter ses propres posts. Reddit détecte ça via l'IP, l'empreinte du navigateur et le timing des posts. Un ban tue tous les comptes liés.
+
+**Piège 2 : Astroturfing.** Payer ou demander aux employés/à la famille de poster des avis positifs sur votre commerce. La détection anti-astroturf de Reddit a attrapé des grosses marques. Le dommage de réputation si découvert est permanent.
+
+**Piège 3 : Cultiver l'outrage.** Écrire des hot takes inflammatoires pour générer de l'engagement. Même si ça marche à court terme, ça associe votre nom à de la négativité dans le corpus IA. Mauvais pour l'AI search, pire pour la confiance.
+
+**Piège 4 : Partager le lien de votre site à chaque fois.** Même les liens légitimes se font downvoter s'ils sont postés trop fréquemment. Règle du pouce : 1 auto-lien par 20 commentaires substantiels.
+
+## Combien de temps est réaliste ?
+
+Un proprio de commerce local qui participe bien passe 30 à 60 minutes par semaine sur Reddit. C'est assez pour :
+- Faire 3 à 5 commentaires substantiels par semaine
+- Répondre à 1 à 2 questions d'industrie par semaine
+- Poster 1 à 2 posts originaux substantiels par mois
+
+Si vous ne pouvez pas vous engager à ça, ne commencez pas. Une présence Reddit sporadique paraît pire qu'aucune présence Reddit.
+
+## Et si je veux l'externaliser ?
+
+Honnêtement : ne le faites pas. Les agences qui promettent de la participation Reddit soit bottent (se font bannir) soit ont des équipes offshore qui postent des commentaires obviously bas de gamme (se font downvoter, nuit à votre nom). Le signal que Reddit donne au AI search est « cet humain est vrai et de confiance dans cette communauté », et ce signal ne peut pas être falsifié à grande échelle.
+
+Si vous ne pouvez pas participer vous-même, sautez Reddit. Concentrez-vous sur les canaux qu'on peut bouger pour vous (citations, GBP, schema, Wikidata, contenu). Ceux-là représentent 80 % de l'amélioration en AI Visibility de toute façon.`,
+      },
+    },
+  },
+  {
+    slug: "what-the-onboarding-audit-covers",
+    title: "What the AiLys onboarding audit covers in week one",
+    excerpt:
+      "Every new client gets a free 5-section audit in the first week before any monthly delivery starts. Here is what we look at, what we deliver as part of the report, and what tools we use.",
+    category: "audit",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## Why we audit before we build
+
+Most agencies start delivering the moment the contract is signed. We do not. Week one of every engagement, on every tier, is an audit week. The reasons:
+
+1. We need to know your starting point so we can measure lift over the next 3, 6, and 12 months.
+2. Some sites have foundation issues (broken redirects, missing schema, NAP inconsistency) that would make any subsequent work less effective. Fixing the foundation first multiplies the impact of everything we do later.
+3. The audit doubles as your kickoff document. Everything we deliver in months 2 onward maps back to a baseline issue surfaced in this audit.
+
+## The five audit sections
+
+### 1. Technical SEO foundation
+
+What we look at:
+- Core Web Vitals (LCP, INP, CLS) via Lighthouse + PageSpeed Insights
+- Mobile-first indexing: viewport meta, tap targets, responsive layout
+- Crawlability: robots.txt, sitemap.xml present and submitted, no rogue noindex tags
+- Indexation status: Google Search Console pages indexed vs total, coverage errors
+- HTTP status codes: 404 vs 200, redirect chains, hreflang correctness if multilingual
+- HTTPS everywhere, valid certificate, no mixed content
+
+What we deliver: a 1-page technical scorecard with each signal scored Pass / Warning / Fail, and the top 3 critical fixes ranked by impact.
+
+### 2. Google Business Profile
+
+What we look at:
+- Profile completeness: name, address, phone, hours, primary + secondary categories, attributes, services list
+- Photo freshness: when was the last photo uploaded, is there owner-generated imagery vs stock
+- Posts cadence: are there any GBP posts? When was the last one?
+- Q&A: how many questions, how many answered, response speed
+- Reviews: total count, average rating, response rate, response speed, sentiment
+
+What we deliver: GBP completeness percentage (out of 100), the missing fields enumerated, a recommended reply for the 5 most recent unanswered reviews.
+
+### 3. Citations and NAP consistency
+
+What we look at:
+- Presence on the 50 highest-DA Canadian directories prioritized for your vertical (Yelp, BBB, YP, Foursquare, Apple Business Connect, Bing Places, plus industry-specific)
+- NAP consistency: every variation of your name, address, phone found across the web. Even small variants ("St" vs "Street", different phone formats) count as inconsistencies that hurt you
+- Duplicates and stale listings: directories where you appear twice, where the listing is wrong, where the URL is dead
+
+What we deliver: a citation matrix showing which directories list you correctly, which list you incorrectly, which do not list you, and a prioritized fix list with our recommended cadence per tier.
+
+### 4. AI Visibility baseline
+
+What we look at:
+- We poll all 6 AI engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) with 10 to 15 high-intent prompts in your service plus city
+- Example prompts for a Montreal dentist: "best dentist in Plateau accepting new patients", "bilingual dentist Montreal", "[your business name] reviews", "emergency dentist Montreal Saturday"
+- We track when your name appears, where you are positioned in the answer, what citations the engine pulled, who your competitors that DID get cited are
+
+What we deliver: your starting Share of Model score across the 6 engines, the prompts you currently win, the prompts your top 3 competitors win, and a 90-day projection of where the citation work should move you.
+
+### 5. E-E-A-T signal review
+
+What we look at:
+- Author bylines on your blog or service pages: are real humans named with photos, credentials, bios?
+- Credential markup: degrees, certifications, awards, press mentions present in schema?
+- Original photography: EXIF metadata showing real recent dates and locations vs stock photos
+- Trust signals: testimonials, third-party reviews embedded, badges (BBB, industry associations)
+- Content freshness: when was the last substantive content update?
+
+What we deliver: an E-E-A-T scorecard (0 to 100) with each signal flagged, plus the 3 highest-impact additions you could make in the first 30 days.
+
+## Tools we use internally
+
+We use a mix of paid SaaS, free tools, and our own AiLys engine:
+- **Lighthouse + PageSpeed Insights** (free) for Core Web Vitals
+- **Google Search Console + Bing Webmaster Tools** (free) for indexation status
+- **Schema.org validator + Google Rich Results Test** (free) for schema validation
+- **The AiLys engine** (proprietary) for AI Visibility probes across 6 engines
+- **BrightLocal-style citation sweep** (paid) for citation matrix
+- **Ahrefs / Semrush** (paid, Growth+ tiers only) for backlink analysis context
+
+Clients do not see the tool names in the deliverable, only the consolidated scorecard.
+
+## When you receive it
+
+The audit is delivered within 7 calendar days of contract signing for Starter, Core, and Growth tiers. Agency tier (with the in-person quarterly cadence) gets the audit in 5 calendar days plus a 60-minute Zoom walkthrough with the dedicated strategist.
+
+## What happens next
+
+The audit becomes the input for your kickoff document. The kickoff doc lists the work we will do in months 1 to 3, mapped one-to-one to issues surfaced in the audit. You sign off on the kickoff before any work starts. The 30-day satisfaction guarantee is gated on us delivering the kickoff outputs, so we have skin in the game on getting the audit right.`,
+    i18n: {
+      "fr-ca": {
+        title: "Ce que couvre l'audit de démarrage AiLys en semaine 1",
+        excerpt:
+          "Chaque nouveau client reçoit un audit gratuit de 5 sections en première semaine, avant que la livraison mensuelle ne commence. Voici ce qu'on regarde, ce qu'on livre dans le rapport, et les outils qu'on utilise.",
+        body: `## Pourquoi on audite avant de construire
+
+La plupart des agences commencent à livrer dès que le contrat est signé. Nous, non. La semaine 1 de chaque mandat, sur chaque tier, est une semaine d'audit. Les raisons :
+
+1. On a besoin de connaître votre point de départ pour pouvoir mesurer l'amélioration sur 3, 6 et 12 mois.
+2. Certains sites ont des problèmes de fondation (redirections cassées, schema manquant, incohérence NAP) qui rendraient tout travail subséquent moins efficace. Régler la fondation d'abord multiplie l'impact de tout ce qu'on fait après.
+3. L'audit sert aussi de document de démarrage. Tout ce qu'on livre à partir du mois 2 fait référence à un problème de référence soulevé dans cet audit.
+
+## Les cinq sections de l'audit
+
+### 1. Fondation SEO technique
+
+Ce qu'on regarde :
+- Core Web Vitals (LCP, INP, CLS) via Lighthouse et PageSpeed Insights
+- Indexation mobile-first : viewport meta, cibles tactiles, mise en page responsive
+- Capacité de crawl : robots.txt, sitemap.xml présent et soumis, pas de tags noindex parasites
+- Statut d'indexation : pages indexées vs total dans Google Search Console, erreurs de couverture
+- Codes HTTP : 404 vs 200, chaînes de redirection, hreflang correct si multilingue
+- HTTPS partout, certificat valide, aucun contenu mixte
+
+Ce qu'on livre : une fiche d'évaluation technique d'une page avec chaque signal noté Réussi / Avertissement / Échec, et le top 3 des correctifs critiques classés par impact.
+
+### 2. Google Business Profile
+
+Ce qu'on regarde :
+- Complétude du profil : nom, adresse, téléphone, heures, catégorie principale + secondaires, attributs, liste des services
+- Fraîcheur des photos : date du dernier téléversement, imagerie générée par le proprio vs stock
+- Cadence des publications : y a-t-il des publications GBP ? Quand était la dernière ?
+- Q&R : combien de questions, combien de réponses, vitesse de réponse
+- Avis : nombre total, note moyenne, taux de réponse, vitesse de réponse, sentiment
+
+Ce qu'on livre : pourcentage de complétude GBP (sur 100), les champs manquants énumérés, une réponse recommandée pour les 5 avis non répondus les plus récents.
+
+### 3. Citations et cohérence NAP
+
+Ce qu'on regarde :
+- Présence sur les 50 annuaires canadiens à plus haut DA priorisés pour votre vertical (Yelp, BBB, Pages Jaunes, Foursquare, Apple Business Connect, Bing Places, plus les annuaires verticaux d'industrie)
+- Cohérence NAP : toutes les variations de votre nom, adresse, téléphone trouvées sur le web. Même les petites variantes (« St » vs « Street », formats de téléphone différents) comptent comme des incohérences qui vous nuisent
+- Doublons et listings périmés : annuaires où vous apparaissez deux fois, où le listing est faux, où l'URL est morte
+
+Ce qu'on livre : une matrice de citations montrant quels annuaires vous listent correctement, lesquels vous listent incorrectement, lesquels ne vous listent pas, et une liste de correctifs priorisée avec notre cadence recommandée par tier.
+
+### 4. Référence AI Visibility
+
+Ce qu'on regarde :
+- On interroge les 6 moteurs IA (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) avec 10 à 15 prompts à haute intention sur votre service + ville
+- Exemples de prompts pour un dentiste à Montreal : « meilleur dentiste au Plateau acceptant nouveaux patients », « dentiste bilingue Montreal », « [nom de votre commerce] avis », « dentiste d'urgence Montreal samedi »
+- On suit quand votre nom apparaît, où vous êtes positionné dans la réponse, quelles citations le moteur a tirées, qui sont vos 3 concurrents qui ONT été cités
+
+Ce qu'on livre : votre score de Share of Model de départ sur les 6 moteurs, les prompts que vous gagnez actuellement, les prompts que vos 3 concurrents principaux gagnent, et une projection à 90 jours sur où le travail de citations devrait vous amener.
+
+### 5. Revue des signaux E-E-A-T
+
+Ce qu'on regarde :
+- Signatures d'auteurs sur votre blogue ou pages de service : de vrais humains nommés avec photos, références, bios ?
+- Marquage des références : diplômes, certifications, prix, mentions dans la presse présents dans le schema ?
+- Photographie originale : métadonnées EXIF montrant vraies dates et localisations récentes vs photos stock
+- Signaux de confiance : témoignages, avis tiers intégrés, badges (BBB, associations d'industrie)
+- Fraîcheur du contenu : quand était la dernière mise à jour substantielle ?
+
+Ce qu'on livre : une fiche d'évaluation E-E-A-T (0 à 100) avec chaque signal flagué, plus les 3 ajouts à plus haut impact que vous pourriez faire dans les 30 premiers jours.
+
+## Outils qu'on utilise à l'interne
+
+On utilise un mix de SaaS payant, d'outils gratuits et de notre propre moteur AiLys :
+- **Lighthouse + PageSpeed Insights** (gratuit) pour les Core Web Vitals
+- **Google Search Console + Bing Webmaster Tools** (gratuit) pour le statut d'indexation
+- **Validateur Schema.org + Google Rich Results Test** (gratuit) pour la validation de schema
+- **Le moteur AiLys** (propriétaire) pour les sondes AI Visibility sur les 6 moteurs
+- **Sweep de citations façon BrightLocal** (payant) pour la matrice de citations
+- **Ahrefs / Semrush** (payant, tiers Growth+ seulement) pour le contexte d'analyse de backlinks
+
+Les clients ne voient pas les noms d'outils dans le livrable, seulement la fiche d'évaluation consolidée.
+
+## Quand vous le recevez
+
+L'audit est livré dans les 7 jours calendrier suivant la signature du contrat pour les tiers Starter, Core et Growth. Le tier Agency (avec sa cadence trimestrielle en personne) reçoit l'audit en 5 jours calendrier plus une visite guidée Zoom de 60 minutes avec le stratège dédié.
+
+## Ce qui se passe ensuite
+
+L'audit devient l'intrant de votre document de démarrage. Le doc de démarrage liste le travail qu'on fera dans les mois 1 à 3, mappé un-pour-un aux problèmes soulevés dans l'audit. Vous validez le doc de démarrage avant que tout travail ne commence. La garantie de satisfaction de 30 jours est conditionnée à ce qu'on livre les outputs du démarrage, donc on a la peau dans le jeu sur faire l'audit correctement.`,
+      },
+    },
+  },
 ];
