@@ -656,6 +656,13 @@ export const tr = {
       cantReach: "Canlı API'ye ulaşılamadı",
       showingSample: "Örnek matris gösteriliyor.",
     },
+    aiVisPage: {
+      eyebrow: "AI görünürlük denetimi · Canlı veri",
+      title1: "Sizden alıntı yapıyor mu",
+      title2: "ChatGPT, Perplexity ve Google AIO?",
+      subtitle: "Canlı veri denetimi. İşletmenizi 6 AI arama motorunda tarıyor, AEO, GEO ve E-E-A-T sinyallerini puanlıyor ve rakiplerinize göre konumunuzu öngörüyoruz. Ücretsiz, 30 saniye.",
+      switchToGbp: "GBP Pulse'a geç",
+    },
   },
   signup: {
     pageTitle: "Beta Sürümüne Katıl | AiLys Agency",

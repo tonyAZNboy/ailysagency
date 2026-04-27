@@ -656,6 +656,13 @@ export const es = {
       cantReach: "No se pudo alcanzar la API en vivo",
       showingSample: "Mostrando matriz de muestra.",
     },
+    aiVisPage: {
+      eyebrow: "Auditoría de visibilidad IA · Datos en vivo",
+      title1: "¿Te citan",
+      title2: "ChatGPT, Perplexity y Google AIO?",
+      subtitle: "Auditoría con datos reales. Escaneamos tu negocio en 6 motores de búsqueda IA, puntuamos las señales AEO, GEO y E-E-A-T, y proyectamos tu posición frente a tus competidores. Gratis, 30 segundos.",
+      switchToGbp: "Cambiar a GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "Únete al Beta Release | AiLys Agency",

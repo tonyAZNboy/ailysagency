@@ -656,6 +656,13 @@ export const ar = {
       cantReach: "تعذر الوصول إلى API المباشر",
       showingSample: "عرض مصفوفة العينة.",
     },
+    aiVisPage: {
+      eyebrow: "تدقيق الظهور في الذكاء الاصطناعي · بيانات حية",
+      title1: "هل يتم الاستشهاد بك في",
+      title2: "ChatGPT و Perplexity و Google AIO؟",
+      subtitle: "تدقيق ببيانات حية. نمسح نشاطك التجاري عبر 6 محركات بحث ذكاء اصطناعي، نقيّم إشارات AEO و GEO و E-E-A-T، ونتوقع موقعك مقارنة بمنافسيك. مجاني، 30 ثانية.",
+      switchToGbp: "التبديل إلى GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "انضم إلى الإصدار التجريبي | AiLys Agency",

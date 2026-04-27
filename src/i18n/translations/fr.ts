@@ -656,6 +656,13 @@ export const fr = {
       cantReach: "Impossible de joindre l'API en direct",
       showingSample: "Affichage de la matrice exemple.",
     },
+    aiVisPage: {
+      eyebrow: "Audit de visibilité IA · Données en direct",
+      title1: "Êtes-vous cité par",
+      title2: "ChatGPT, Perplexity et Google AIO?",
+      subtitle: "Audit en données réelles. Nous balayons votre commerce sur 6 moteurs IA, mesurons les signaux AEO, GEO et E-E-A-T, et projetons votre position face à vos concurrents. Gratuit, 30 secondes.",
+      switchToGbp: "Passer au GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "Rejoindre la Bêta Release | AiLys Agency",

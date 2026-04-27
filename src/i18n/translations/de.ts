@@ -656,6 +656,13 @@ export const de = {
       cantReach: "Live-API konnte nicht erreicht werden",
       showingSample: "Beispielmatrix wird angezeigt.",
     },
+    aiVisPage: {
+      eyebrow: "KI-Sichtbarkeits-Audit · Live-Daten",
+      title1: "Werden Sie zitiert von",
+      title2: "ChatGPT, Perplexity und Google AIO?",
+      subtitle: "Audit mit Live-Daten. Wir scannen Ihr Unternehmen über 6 KI-Suchmaschinen, bewerten AEO-, GEO- und E-E-A-T-Signale und prognostizieren Ihre Position gegenüber Wettbewerbern. Kostenlos, 30 Sekunden.",
+      switchToGbp: "Zum GBP Pulse wechseln",
+    },
   },
   signup: {
     pageTitle: "Beta Release beitreten | AiLys Agency",

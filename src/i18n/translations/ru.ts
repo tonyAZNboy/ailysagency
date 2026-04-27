@@ -656,6 +656,13 @@ export const ru = {
       cantReach: "Не удалось связаться с живым API",
       showingSample: "Показ образца матрицы.",
     },
+    aiVisPage: {
+      eyebrow: "Аудит видимости в AI · Данные в реальном времени",
+      title1: "Цитируют ли вас",
+      title2: "ChatGPT, Perplexity и Google AIO?",
+      subtitle: "Аудит на живых данных. Мы сканируем ваш бизнес в 6 AI-поисковиках, оцениваем сигналы AEO, GEO и E-E-A-T, и прогнозируем вашу позицию относительно конкурентов. Бесплатно, 30 секунд.",
+      switchToGbp: "Перейти к GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "Присоединиться к Бета-релизу | AiLys Agency",

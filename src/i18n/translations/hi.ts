@@ -656,6 +656,13 @@ export const hi = {
       cantReach: "लाइव API तक नहीं पहुँच सके",
       showingSample: "नमूना मैट्रिक्स दिखा रहे हैं.",
     },
+    aiVisPage: {
+      eyebrow: "AI विज़िबिलिटी ऑडिट · लाइव डेटा",
+      title1: "क्या आपको उद्धृत करते हैं",
+      title2: "ChatGPT, Perplexity और Google AIO?",
+      subtitle: "लाइव डेटा ऑडिट। हम आपके व्यवसाय को 6 AI सर्च इंजनों में स्कैन करते हैं, AEO, GEO और E-E-A-T संकेतों का स्कोर देते हैं, और प्रतिस्पर्धियों की तुलना में आपकी स्थिति का प्रोजेक्शन करते हैं। मुफ्त, 30 सेकंड।",
+      switchToGbp: "GBP Pulse पर स्विच करें",
+    },
   },
   signup: {
     pageTitle: "बीटा रिलीज़ में शामिल हों | AiLys Agency",

@@ -412,6 +412,15 @@ export const en = {
     // Back button
     back: "Back",
 
+    // ─── AuditAIVisibility page header (i18n for /audit) ───
+    aiVisPage: {
+      eyebrow: "AI Visibility Audit · Live data",
+      title1: "Are you cited by",
+      title2: "ChatGPT, Perplexity & Google AIO?",
+      subtitle: "Live data audit. We scan your business across 6 AI search engines, score AEO + GEO + E-E-A-T signals, and project where you sit vs competitors. Free, 30 seconds.",
+      switchToGbp: "Switch to GBP Pulse",
+    },
+
     // ─── AutoAuditEngine / GbpPulseEngine / LlmCitationMatrix ───
     fields: {
       businessName: "Business name",

@@ -656,6 +656,13 @@ export const nl = {
       cantReach: "Live API niet bereikbaar",
       showingSample: "Voorbeeldmatrix wordt getoond.",
     },
+    aiVisPage: {
+      eyebrow: "AI-zichtbaarheidsaudit · Live data",
+      title1: "Word je geciteerd door",
+      title2: "ChatGPT, Perplexity en Google AIO?",
+      subtitle: "Audit op live data. We scannen je bedrijf via 6 AI-zoekmachines, scoren AEO-, GEO- en E-E-A-T-signalen, en voorspellen je positie ten opzichte van concurrenten. Gratis, 30 seconden.",
+      switchToGbp: "Wisselen naar GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "Doe mee aan de bètarelease | AiLys Agency",

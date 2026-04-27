@@ -656,6 +656,13 @@ export const vi = {
       cantReach: "Không thể kết nối tới API trực tiếp",
       showingSample: "Đang hiển thị ma trận mẫu.",
     },
+    aiVisPage: {
+      eyebrow: "Kiểm tra hiển thị AI · Dữ liệu trực tiếp",
+      title1: "Bạn có được trích dẫn bởi",
+      title2: "ChatGPT, Perplexity và Google AIO không?",
+      subtitle: "Kiểm tra trên dữ liệu trực tiếp. Chúng tôi quét doanh nghiệp của bạn trên 6 công cụ tìm kiếm AI, đánh giá tín hiệu AEO, GEO và E-E-A-T, và dự đoán vị trí của bạn so với đối thủ. Miễn phí, 30 giây.",
+      switchToGbp: "Chuyển sang GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "Tham gia Beta Release | AiLys Agency",

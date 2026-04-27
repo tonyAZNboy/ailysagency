@@ -7,8 +7,26 @@ import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { AutoAuditEngine } from "@/components/audit/AutoAuditEngine";
+import { useLang } from "@/i18n/LangContext";
 
 export default function AuditAIVisibility() {
+  const { t } = useLang();
+  const aiVisPage = (t.audit as typeof t.audit & {
+    aiVisPage?: {
+      eyebrow: string;
+      title1: string;
+      title2: string;
+      subtitle: string;
+      switchToGbp: string;
+    };
+  }).aiVisPage ?? {
+    eyebrow: "AI Visibility Audit · Live data",
+    title1: "Are you cited by",
+    title2: "ChatGPT, Perplexity & Google AIO?",
+    subtitle:
+      "Live data audit. We scan your business across 6 AI search engines, score AEO + GEO + E-E-A-T signals, and project where you sit vs competitors. Free, 30 seconds.",
+    switchToGbp: "Switch to GBP Pulse",
+  };
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute("data-force-dark", "true");
@@ -48,12 +66,12 @@ export default function AuditAIVisibility() {
               className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/70 hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Switch to GBP Pulse
+              {aiVisPage.switchToGbp}
             </Link>
 
             <header className="mb-10">
               <div className="ailys-section-no mb-6">
-                <span>AI Visibility Audit · Live data</span>
+                <span>{aiVisPage.eyebrow}</span>
               </div>
               <div className="flex items-start gap-4">
                 <div className="hidden sm:flex flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 border border-secondary/30 items-center justify-center">
@@ -61,16 +79,14 @@ export default function AuditAIVisibility() {
                 </div>
                 <div className="flex-1">
                   <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-4">
-                    Are you cited by
+                    {aiVisPage.title1}
                     <br />
                     <span className="italic bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                      ChatGPT, Perplexity & Google AIO?
+                      {aiVisPage.title2}
                     </span>
                   </h1>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-prose">
-                    Live data audit. We scan your business across 6 AI search
-                    engines, score AEO + GEO + E-E-A-T signals, and project
-                    where you sit vs competitors. Free, 30 seconds.
+                    {aiVisPage.subtitle}
                   </p>
                 </div>
               </div>

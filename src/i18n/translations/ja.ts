@@ -656,6 +656,13 @@ export const ja = {
       cantReach: "ライブ API に接続できませんでした",
       showingSample: "サンプルマトリックスを表示しています。",
     },
+    aiVisPage: {
+      eyebrow: "AI 可視性監査 · ライブデータ",
+      title1: "あなたのビジネスは",
+      title2: "ChatGPT、Perplexity、Google AIO に引用されていますか?",
+      subtitle: "ライブデータ監査。6 つの AI 検索エンジンでビジネスをスキャンし、AEO、GEO、E-E-A-T シグナルをスコアリングして、競合他社に対するあなたの位置を予測します。無料、30 秒。",
+      switchToGbp: "GBP Pulse に切り替え",
+    },
   },
   signup: {
     pageTitle: "ベータリリースに参加 | AiLys Agency",

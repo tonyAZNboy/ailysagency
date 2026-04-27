@@ -656,6 +656,13 @@ export const zh = {
       cantReach: "无法连接到实时 API",
       showingSample: "显示示例矩阵。",
     },
+    aiVisPage: {
+      eyebrow: "AI 可见性审计 · 实时数据",
+      title1: "你的业务是否被",
+      title2: "ChatGPT、Perplexity 和 Google AIO 引用?",
+      subtitle: "实时数据审计。我们在 6 个 AI 搜索引擎中扫描您的业务,评估 AEO、GEO 和 E-E-A-T 信号,并预测您与竞争对手的相对位置。免费,30 秒。",
+      switchToGbp: "切换到 GBP Pulse",
+    },
   },
   signup: {
     pageTitle: "加入测试版 | AiLys Agency",

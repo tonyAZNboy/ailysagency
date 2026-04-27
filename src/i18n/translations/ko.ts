@@ -656,6 +656,13 @@ export const ko = {
       cantReach: "라이브 API에 연결할 수 없습니다",
       showingSample: "샘플 매트릭스를 표시합니다.",
     },
+    aiVisPage: {
+      eyebrow: "AI 가시성 감사 · 실시간 데이터",
+      title1: "당신은 인용되고 있나요",
+      title2: "ChatGPT, Perplexity 및 Google AIO에?",
+      subtitle: "실시간 데이터 감사. 6개 AI 검색 엔진에서 귀하의 비즈니스를 스캔하고, AEO, GEO, E-E-A-T 신호를 점수화하며, 경쟁사 대비 위치를 예측합니다. 무료, 30초.",
+      switchToGbp: "GBP Pulse로 전환",
+    },
   },
   signup: {
     pageTitle: "베타 릴리스 참여 | AiLys Agency",
