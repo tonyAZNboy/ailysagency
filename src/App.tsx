@@ -24,6 +24,7 @@ import BlogPost from "./pages/BlogPost";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
+import Cofounders from "./pages/Cofounders";
 import Help from "./pages/Help";
 import HelpArticle from "./pages/HelpArticle";
 import Industries from "./pages/Industries";
@@ -92,6 +93,12 @@ const App = () => {
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
                 <Route path="/:lang/book-call" element={<BookCall />} />
+
+                {/* Cofounder and partner application */}
+                <Route path="/cofounders" element={<Cofounders />} />
+                <Route path="/:lang/cofounders" element={<Cofounders />} />
+                <Route path="/cofondateurs" element={<Cofounders />} />
+                <Route path="/:lang/cofondateurs" element={<Cofounders />} />
 
                 {/* Help center */}
                 <Route path="/help" element={<Help />} />

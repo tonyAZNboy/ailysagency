@@ -1203,6 +1203,95 @@ export const en = {
     freeAudit: "Free Audit",
     bookCall: "Book a call",
   },
+
+  cofounders: {
+    lang: "en",
+    metaTitle: "Cofounders and partners · AiLys Agency",
+    metaDescription: "Help us cover under-served communities in AI search. Apply as a cofounder or community partner. We are looking for operators who bring access to a linguistic, vertical, or geographic niche we cannot reach alone.",
+
+    eyebrow: "Cofounders and partners",
+    heading1: "Help us cover",
+    heading2: "the communities we cannot reach alone",
+    subheading: "AiLys is bilingual EN / FR-CA in-house. Spanish, Chinese, Arabic, and Russian come from a partner network. We need cofounders and community partners for the languages, verticals, and regions still missing. Tell us which one is yours, and we will figure out the rest together.",
+
+    value1Title: "Stake in the brand",
+    value1Body: "Cofounder partnerships earn equity, revenue share, or named-partner status depending on the scope. Community partners earn revenue share on every client we close in their community.",
+    value2Title: "Skip the cold start",
+    value2Body: "We bring the AI visibility playbook, the Reviuzy SaaS engine, and the operator tooling. You bring trust inside the community. The first ten clients pay for the next hundred.",
+    value3Title: "Real autonomy",
+    value3Body: "You set the cadence and pricing inside your community within our guardrails. We do not micromanage. We compare notes monthly.",
+
+    formTitle: "Apply as a cofounder or partner",
+    formDescription: "Three minutes. We read every submission and reply within five business days, in your language.",
+
+    fieldName: "Full name",
+    fieldEmail: "Email",
+    fieldPhone: "Phone (optional)",
+    fieldLinkedin: "LinkedIn URL (optional)",
+
+    fieldCommunity: "Community you bring",
+    fieldCommunityPlaceholder: "Quebec dental clinics, Latam restaurants, Hindi-speaking dentists in Toronto, etc.",
+    fieldCommunityHelp: "One sentence on the community where you have real trust.",
+
+    interestsLabel: "Tag your interests",
+    interestsHelp: "Pick up to 12. We use these to route the application to the right strategist on our side.",
+    interestsLanguagesTitle: "Languages and regions",
+    interestsVerticalsTitle: "Verticals",
+    interestsOpsTitle: "Operations",
+
+    fieldMissing: "Communities you think we should pursue next",
+    fieldMissingPlaceholder: "Anything from a specific dialect to a specific city to a specific industry niche. Be concrete: 'Cantonese-speaking restaurants in Vancouver' beats 'more Asian markets'.",
+    fieldMissingHelp: "Free-form. We use this to prioritize where we expand the partner network.",
+
+    fieldMotivation: "Why AiLys, why now",
+    fieldMotivationPlaceholder: "Two or three sentences on what made you reach out. Honest.",
+
+    submit: "Submit application",
+    submitting: "Sending...",
+    legal: "We respond in five business days. Your information stays internal and is only used to evaluate the application.",
+
+    errorName: "Full name is required.",
+    errorEmail: "Enter a valid email.",
+    errorLinkedin: "LinkedIn URL must start with http or https.",
+
+    toastSuccessTitle: "Application received",
+    toastErrorTitle: "Something went wrong",
+
+    successHeading: "Application received",
+    successBody: "Thanks for taking the time. A strategist will review and reply within five business days, in your language. If your community is on our active prospect list, expect a quick coffee call to align on next steps.",
+
+    tagLabels: {
+      fr_canada: "FR Canada",
+      es_latam: "ES LATAM",
+      zh_china: "ZH China",
+      zh_taiwan: "ZH Taiwan",
+      ar_mena: "AR MENA",
+      ru_eastern_europe: "RU Eastern Europe",
+      uk_ukraine: "UK Ukraine",
+      sr_balkans: "SR Balkans",
+      pt_brazil: "PT Brazil",
+      ja_japan: "JA Japan",
+      ko_korea: "KO Korea",
+      hi_india: "HI India",
+      vi_vietnam: "VI Vietnam",
+      tr_turkey: "TR Turkey",
+      de_dach: "DE DACH",
+      it_italy: "IT Italy",
+      nl_benelux: "NL Benelux",
+      vertical_dental: "Dental",
+      vertical_legal: "Legal",
+      vertical_restaurant: "Restaurant",
+      vertical_realestate: "Real estate",
+      vertical_clinic: "Clinic",
+      vertical_contractor: "Contractor",
+      vertical_hotel: "Hotel",
+      operations_quebec: "Quebec ops",
+      ops_growth_marketing: "Growth marketing",
+      ops_engineering: "Engineering",
+      ops_design: "Design",
+      ops_sales: "Sales",
+    },
+  },
 };
 
 export type TranslationKeys = typeof en;

@@ -1,5 +1,5 @@
 {
-  "enKeyCount": 1035,
+  "enKeyCount": 1106,
   "locales": {
     "fr": {
       "missing": [],
@@ -29,9 +29,14 @@
         "whyAilys.row3Examples",
         "about.signatureBrand",
         "faqLanding.sectionLabel",
-        "footerExt.locationLine"
+        "footerExt.locationLine",
+        "cofounders.tagLabels.fr_canada",
+        "cofounders.tagLabels.uk_ukraine",
+        "cofounders.tagLabels.sr_balkans",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.nl_benelux"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "es": {
@@ -56,9 +61,12 @@
         "whyAilys.row1Examples",
         "whyAilys.row2Examples",
         "whyAilys.row3Examples",
-        "about.signatureBrand"
+        "about.signatureBrand",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "zh": {
@@ -89,7 +97,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "ar": {
@@ -120,7 +128,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "ru": {
@@ -152,7 +160,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "de": {
@@ -183,9 +191,15 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.interestsOpsTitle",
+        "cofounders.tagLabels.zh_taiwan",
+        "cofounders.tagLabels.uk_ukraine",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "hi": {
@@ -221,7 +235,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "it": {
@@ -255,9 +269,16 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.interestsOpsTitle",
+        "cofounders.tagLabels.fr_canada",
+        "cofounders.tagLabels.zh_taiwan",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.ops_growth_marketing",
+        "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "ja": {
@@ -292,7 +313,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "ko": {
@@ -330,7 +351,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "nl": {
@@ -365,9 +386,18 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.interestsVerticalsTitle",
+        "cofounders.interestsOpsTitle",
+        "cofounders.tagLabels.fr_canada",
+        "cofounders.tagLabels.zh_taiwan",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.operations_quebec",
+        "cofounders.tagLabels.ops_growth_marketing",
+        "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "pl": {
@@ -397,9 +427,10 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "pt": {
@@ -430,9 +461,12 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.tagLabels.zh_taiwan",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "tr": {
@@ -463,9 +497,11 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.tagLabels.vi_vietnam",
+        "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     },
     "vi": {
@@ -498,11 +534,16 @@
         "about.signatureBrand",
         "footerExt.gbpPulse",
         "footerExt.locationLine",
-        "footerExt.versionLine"
+        "footerExt.versionLine",
+        "cofounders.tagLabels.fr_canada",
+        "cofounders.tagLabels.uk_ukraine",
+        "cofounders.tagLabels.pt_brazil",
+        "cofounders.tagLabels.nl_benelux",
+        "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1035,
+      "totalKeys": 1106,
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-04-27T13:42:13.389Z"
+  "generatedAt": "2026-04-27T15:04:25.381Z"
 }
