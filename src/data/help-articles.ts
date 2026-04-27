@@ -68,6 +68,90 @@ export const HELP_CATEGORY_META: Record<
 export const helpArticles: HelpArticle[] = [
   // ─── Getting started ───────────────────────────────────────
   {
+    slug: "gbp-attributes",
+    title: "How GBP attributes work and why they matter for AI search",
+    excerpt:
+      "GBP attributes (wheelchair accessible, outdoor seating, free Wi-Fi) feed directly into AI Overview answers and Google's filter UI. Here is how we manage them.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 3,
+    body: `## What attributes are
+
+Every Google Business Profile has a set of yes-or-no flags that describe what the business offers: "wheelchair accessible", "outdoor seating", "free Wi-Fi", "accepts reservations", and dozens more. The available list depends on your category. A restaurant gets food-related ones; a dentist gets accessibility and language ones.
+
+These attributes are not just decoration. Two reasons they matter for AI search:
+
+1. **Google AI Overviews and AI Mode read attributes directly** when generating answers like "wheelchair-accessible dentists near me" or "restaurants with outdoor seating in Plateau". Missing or wrong attributes = invisible in those answers.
+2. **Google's filter UI** on Maps and Search uses attributes to narrow results. A user filtering on "outdoor seating" never sees you if the flag is off.
+
+## Cadence
+
+Attributes do not change often. We review them once per quarter as part of the GBP audit, plus on demand when you tell us something has changed (e.g. you just installed a wheelchair ramp). All tiers from Starter up include attribute review.
+
+## What you see in the admin center
+
+Open **Reviuzy, GBP attributes manager** in your workspace. You pick a location, click Load, and see all the on-or-off attributes Google has for your category, grouped by section. Toggle the ones that apply. Click Save when done. Changes go live on Google within minutes.
+
+The manager only shows on-or-off (BOOL) attributes. Multi-choice and free-text attributes (rare for SMB) you edit directly on Google's interface.
+
+## What we recommend
+
+- Turn on every attribute that is genuinely true. False positives risk customer complaints and Google may flag your profile.
+- Be aggressive on accessibility. "Wheelchair accessible entrance", "wheelchair accessible parking", "wheelchair accessible restroom" are some of the most-filtered attributes by users with disabilities, and many businesses have these without realizing it.
+- For service businesses, fill in identity attributes ("women-owned", "Black-owned", "LGBTQ-friendly") if they apply. They are part of Google's diversity surface and feed the AI engines.
+
+## Audit log
+
+Every change writes a tamper-evident audit record (which attribute was added or removed, when, by whom). Useful when Google's filter UI changes and you need to verify what your profile claimed at a given date.
+
+## Failures and recovery
+
+If Google rejects an update (rare), the audit log shows the reason. Most common cause: an attribute is no longer offered for your category because Google reorganized their schema. The manager will refuse to send it on the next save attempt.
+
+If your Google authentication expires, every action returns a 401 with a "reconnect Google" prompt. Reconnecting in Settings, Organization clears it.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionnent les attributs GBP et pourquoi ils comptent pour la recherche IA",
+        excerpt:
+          "Les attributs GBP (accès en fauteuil roulant, terrasse, Wi-Fi gratuit) alimentent directement les réponses des AI Overviews de Google et l'interface de filtres. Voici comment nous les gérons.",
+        body: `## C'est quoi les attributs
+
+Chaque profil Google Business Profile a un ensemble de drapeaux oui-ou-non qui décrivent ce que l'entreprise offre : "accessible en fauteuil roulant", "terrasse", "Wi-Fi gratuit", "accepte les réservations", et des dizaines d'autres. La liste disponible dépend de votre catégorie. Un restaurant en a sur la nourriture, un dentiste en a sur l'accessibilité et les langues.
+
+Ces attributs ne sont pas que décoratifs. Deux raisons pour lesquelles ils comptent pour la recherche IA :
+
+1. **Les AI Overviews de Google et le mode IA lisent les attributs directement** quand ils génèrent des réponses comme "dentistes accessibles en fauteuil roulant près de moi" ou "restaurants avec terrasse au Plateau". Attributs manquants ou erronés = invisible dans ces réponses.
+2. **L'interface de filtres de Google** sur Maps et Search utilise les attributs pour cibler les résultats. Un utilisateur qui filtre sur "terrasse" ne vous voit jamais si le drapeau est désactivé.
+
+## Cadence
+
+Les attributs ne changent pas souvent. Nous les révisons une fois par trimestre dans le cadre de l'audit GBP, plus sur demande quand vous nous dites que quelque chose a changé (ex: vous venez d'installer une rampe d'accès). Tous les paliers à partir de Starter incluent la révision des attributs.
+
+## Ce que vous voyez dans le centre d'administration
+
+Ouvrez **Reviuzy, gestionnaire d'attributs GBP** dans votre espace de travail. Vous choisissez un emplacement, cliquez sur Charger, et vous voyez tous les attributs oui-ou-non que Google a pour votre catégorie, groupés par section. Activez ceux qui s'appliquent. Cliquez Enregistrer quand vous avez fini. Les changements sont en ligne sur Google en quelques minutes.
+
+Le gestionnaire montre seulement les attributs oui-ou-non (BOOL). Les attributs à choix multiples et texte libre (rares pour PME) se modifient directement sur l'interface de Google.
+
+## Ce que nous recommandons
+
+- Activez chaque attribut véritablement vrai. Les faux positifs risquent les plaintes de clients et Google peut signaler votre profil.
+- Soyez agressif sur l'accessibilité. "Entrée accessible en fauteuil roulant", "stationnement accessible en fauteuil roulant", "toilettes accessibles en fauteuil roulant" sont parmi les attributs les plus filtrés par les utilisateurs en situation de handicap, et beaucoup d'entreprises les ont sans le réaliser.
+- Pour les services professionnels, remplissez les attributs d'identité ("entreprise dirigée par des femmes", "entreprise dirigée par des Noirs", "LGBTQ-friendly") s'ils s'appliquent. Ils font partie de la surface diversité de Google et alimentent les moteurs IA.
+
+## Journal d'audit
+
+Chaque changement écrit un enregistrement d'audit infalsifiable (quel attribut a été ajouté ou retiré, quand, par qui). Utile quand l'interface de filtres de Google change et vous devez vérifier ce que votre profil déclarait à une date donnée.
+
+## Échecs et récupération
+
+Si Google rejette une mise à jour (rare), le journal d'audit montre la raison. Cause la plus fréquente : un attribut n'est plus offert pour votre catégorie parce que Google a réorganisé son schéma. Le gestionnaire refusera de l'envoyer à la prochaine tentative d'enregistrement.
+
+Si votre authentification Google expire, chaque action renvoie un 401 avec une invite "reconnecter Google". La reconnexion dans Paramètres, Organisation règle ce cas.`,
+      },
+    },
+  },
+  {
     slug: "gbp-qa-monitoring",
     title: "How GBP Q&A monitoring and auto-draft replies work",
     excerpt:
