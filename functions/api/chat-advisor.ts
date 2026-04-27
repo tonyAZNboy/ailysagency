@@ -194,10 +194,14 @@ WHAT AILYS DOES
 - AI Visibility and AI Traffic measurement and reporting
 
 PRICING (CAD per month, month-to-month, 30-day satisfaction guarantee)
-- Starter $300: 1 GBP post/mo, weekly AI Visibility check, foundational schema
-- Core $600: 4 GBP posts/mo (1/wk), 5 citations/mo, AEO schema deployment
-- Growth $1,200: 8 GBP posts/mo (2/wk), 10 citations/mo, GEO entity work, weekly AI Visibility, AI Traffic UTM tracking
-- Agency $2,499: 12 GBP posts/mo (3/wk), 15 citations/mo, multi-location dashboard, white-label PDF reports, Slack SLA <4h, API access, dedicated senior strategist, Domain Shield + Domain Speed Boost included, daily AI Visibility probes
+- Starter $300: 1 GBP post/mo, 1 GBP photo/mo, weekly AI Visibility check, foundational schema
+- Core $600: 4 GBP posts/mo (1/wk), 2 GBP photos/mo, 5 citations/mo, AEO schema deployment
+- Growth $1,200: 8 GBP posts/mo (2/wk), 4 GBP photos/mo, 10 citations/mo, GEO entity work, weekly AI Visibility, AI Traffic UTM tracking
+- Agency $2,499: 12 GBP posts/mo (3/wk), 8 GBP photos/mo, 15 citations/mo, multi-location dashboard, white-label PDF reports, Slack SLA <4h, API access, dedicated senior strategist, Domain Shield + Domain Speed Boost included, daily AI Visibility probes
+
+NOTE ON CITATIONS: in this context "citations" means NAP listings on local-business directories (Yelp, BBB, Yellow Pages, Foursquare, Apple Business Connect, Bing Places, industry-specific sites). NOT blog posts. These citations are how AI engines build the entity confidence graph that decides whether to cite the business in answers.
+
+NOTE ON CONTESTS: the Reviuzy add-on includes a contest engine (NFC tap-to-enter, AI review generation, video winner announce, legal T&C generator). **The client runs their own contest** because each business has its own audience, prize, timing, and local rules. AiLys provides the tool, the help center docs, and setup help. AiLys does NOT execute monthly contests on behalf of clients.
 
 ADD-ONS (toggleable on Starter/Core/Growth, included in Agency)
 - Reviuzy reputation system: $100/mo (NFC review collection, AI replies, contests, fake review detection)

@@ -38,6 +38,8 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 - **Reviuzy automation add-on:** $100 CAD/month, available as toggle on Starter / Core / Growth. Bundled by default in Agency tier. Includes the full Reviuzy SaaS surface: NFC review collection + AI review generation + auto-replies + contest engine with video winner announcement + legal T&C generator + fake review detection + the entire Phase 2-4 stack (GBP automation, citations, NAP, AI Visibility, AI Traffic).
 - **Agency tier exclusive (vs add-on):** multi-location dashboard, white-label PDF reports, Slack SLA <4h business hours, API access (Share of Model / AI Traffic / Visibility scores), custom integrations (HubSpot, Salesforce, hospitality PMS), quarterly executive deck presented in person, dedicated senior strategist, daily AI Visibility probes (vs weekly Growth), 12 GBP posts/mo + 4-6 photos/mo, Domain Shield + Domain Speed Boost.
 - **Tier post cadence (GBP):** Starter 1/mo, Core 4/mo (1/wk), Growth 8/mo (2/wk), Agency 12/mo (3/wk).
+- **Tier photo cadence (GBP):** Starter 1/mo, Core 2/mo, Growth 4/mo, Agency 8/mo.
+- **Contest scope (CRITICAL):** Reviuzy SaaS provides the contest engine (NFC, AI review gen, video winner announce, legal T&C generator), but **the client runs the contest, not the agency**. Each business has its own audience, prize, and timing; managing them centrally is unworkable. We deliver: (1) Reviuzy SaaS access, (2) setup help in week 1, (3) jurisdiction-aware T&C templates, (4) help center documentation. We do NOT execute the monthly contest, draw the winner, or amplify socially on behalf of the client.
 
 ## i18n discipline
 
