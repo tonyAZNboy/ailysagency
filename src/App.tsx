@@ -141,10 +141,17 @@ const App = () => {
                   <Route path="settings" element={<AdminSettings />} />
                 </Route>
 
-                {/* Legal */}
+                {/* Legal — bilingual EN/FR-CA via useLang switch inside the
+                    component. Locale-prefixed paths route to the same
+                    components; the component detects lang from context (not
+                    URL) but the prefixed routes exist for direct linking + SEO
+                    so /fr/terms, /es/privacy etc. all work. */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/cookies" element={<CookiePolicy />} />
+                <Route path="/:lang/privacy" element={<PrivacyPolicy />} />
+                <Route path="/:lang/terms" element={<TermsOfService />} />
+                <Route path="/:lang/cookies" element={<CookiePolicy />} />
 
                 {/* Auth scaffold (no public links yet, reserved for future client portal) */}
                 <Route path="/auth/login" element={<Login />} />
