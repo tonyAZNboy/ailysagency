@@ -1,7 +1,7 @@
 # AiLys Agency — Project State
 
-**Last updated:** session ending at v0.2.0 tag
-**Branch:** `main` · **Tag:** `v0.2.0` · **Commit:** `dfe517b`
+**Last updated:** 2026-04-27 (post HI translation pass)
+**Branch:** `main` · **Tag:** `v0.2.0` · **Commit:** `d9cca4b`
 **Production:** https://ailysagency.pages.dev (auto-deploys from main via Cloudflare Pages)
 
 ---
@@ -71,17 +71,17 @@ All functions return graceful sample fallback when their API key is missing.
 | ko | secondary | 100% | 31 ✅ translated | 0 |
 | tr | secondary | 100% | 26 ✅ translated | 0 |
 | vi | secondary | 100% | 28 ✅ translated | 0 |
-| **hi** | **secondary** | **100%** | **~547 ⚠️ DEFERRED** | 0 |
+| hi | secondary | 100% | 29 ✅ translated | 0 |
 
-**15 of 16 locales fully translated.** Hindi is the only outstanding locale.
+**16 of 16 locales fully translated.** All locales now sit between 20 and 31 placeholders (legitimate brand lists, email placeholders, Latin-script schema/tech names).
 
 ---
 
 ## Open issues / next session
 
 ### Priority A (do first next session)
-1. **Translate HI (Hindi)** — last secondary locale. Use the same agent prompt template as DE/IT/PT/NL/PL/JA/KO/TR/VI. Expected outcome: ~547 placeholders → ~25-30 (legitimate brand/cognate).
-2. **Build + deploy production** with HI translations included. Last live deploy was bundle `index-BOlCDSzU.js` from before HI work.
+1. **Deploy HI to production.** Build is green locally (bundle `index-Dtxbs6-R.js`, contains ~36k Devanagari chars including 547 newly-translated keys). Push to main is committed at `d9cca4b` but not yet pushed. Either `git push origin main` (auto-deploy) or `npm run build && npx wrangler pages deploy dist --project-name=ailysagency --branch=main`.
+2. **Verify production** at /hi after deploy: hero, audit form, services, pricing builder, methodology section should all render in Devanagari.
 
 ### Priority B (deferred audit engine enhancements)
 Documented in `docs/audit-engine-roadmap.md`:
@@ -120,6 +120,8 @@ KV namespace bindings recommended:
 | `scripts/rebrand-translations.mjs` | Reviuzy → AiLys Agency rebrand pass |
 | `scripts/dump-major-placeholders.mjs` | Lists placeholder keys per major locale for review |
 | `scripts/dump-priority-keys.mjs` | Extracts priority translation keys |
+| `scripts/extract-hi-placeholders.mjs` | Dumps HI placeholder keys + EN values to JSON (reusable per-locale pattern) |
+| `scripts/merge-hi-translations.mjs` | Applies a JSON of translations back into hi.ts and re-serializes the locale file |
 | `scripts/generate-sitemap.mjs` | Regenerates sitemap.xml + 16 per-language sitemaps |
 
 ---
@@ -135,10 +137,10 @@ KV namespace bindings recommended:
 
 ## Pickup checklist for next session
 
-1. `git pull` to sync latest main
-2. Run `node scripts/audit-translations-deep.mjs` — confirm 15 of 16 locales at 100% with placeholders, HI still at ~547 placeholders
-3. Dispatch HI translation agent with same prompt template as DE/IT/PT/NL/PL/JA/KO/TR/VI
-4. Verify HI: audit row + typecheck + em-dash count
-5. `npm run build && npx wrangler pages deploy dist --project-name=ailysagency --branch=main`
-6. Verify production bundle contains HI strings via curl + grep
-7. Optionally start Phase B.4 (PDF export) per `docs/audit-engine-roadmap.md`
+1. `git pull` to sync latest main (HI commit `d9cca4b` should be present)
+2. Run `node scripts/audit-translations-deep.mjs` — confirm 16 of 16 locales at 100%, HI at 29 placeholders (legitimate)
+3. If HI commit not yet on origin: `git push origin main` to trigger Cloudflare auto-deploy
+4. Or manual deploy: `npm run build && npx wrangler pages deploy dist --project-name=ailysagency --branch=main`
+5. Verify https://ailysagency.pages.dev/hi renders Devanagari across hero, audit, services, pricing, methodology
+6. Bundle id check: prod should serve `index-Dtxbs6-R.js` (or newer) with ~36k Devanagari chars
+7. Optionally start Phase B.4 (PDF export, ~10h) per `docs/audit-engine-roadmap.md`
