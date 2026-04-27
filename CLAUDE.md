@@ -1,5 +1,16 @@
 # AiLys Agency — Claude operating rules
 
+## START HERE — every new session
+
+**Before doing anything else, read `STATE.md`.** It has the current state of work, what shipped at the last tag, what's deferred, the Cloudflare env-var checklist, and a numbered pickup checklist. Do not start work without reading it. After reading, briefly summarize what's outstanding back to the user so they know you're synced.
+
+Also reference (linked from STATE.md):
+- `docs/audit-engine-roadmap.md` — Phase B-D enhancement plan with effort estimates
+- `docs/i18n-translation-queue.md` — translation queue tracker
+- `docs/i18n-audit-report.json` — last machine-readable audit run
+
+When you finish meaningful work in any session, **update `STATE.md`** before committing. Bump the tag if shipping. Push to GitHub.
+
 ## Hard rules (non-negotiable)
 
 1. **Always test what you deliver, every time.** Typecheck is not testing. Open the actual feature in the browser, click the actual button, verify the actual output. Before claiming a task is done, you must have demonstrated it working — not just compiled.
