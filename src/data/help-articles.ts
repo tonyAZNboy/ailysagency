@@ -4753,4 +4753,132 @@ La réponse de crise est un jugement. On fait remonter ; vous répondez.
       },
     },
   },
+  {
+    slug: "how-the-visibility-dashboard-works",
+    title: "How the visibility dashboard works",
+    excerpt:
+      "A daily snapshot of your Google Search Console keyword rankings plus AI engine citations, in one client-facing dashboard. Tier-gated keyword limits and history window. No surprise data, no live calls.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 5,
+    body: `## What this is
+
+Two cards over time, in one place:
+
+1. **Google ranking evolution** for the keywords your site already ranks for, pulled from your Google Search Console property each day.
+2. **LLM citation summary** across six AI engines (ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot), aggregated from the visibility probes we run for you.
+
+The dashboard reads daily snapshots, not live API calls. So loading is fast and there is no risk of a third-party outage taking down your view.
+
+## Setup, once
+
+1. Go to **Settings > Organization > Connected Google Accounts**.
+2. Connect Google if you have not already (this also covers Business Profile).
+3. Click **Set GSC Property** on the connected account row, pick the Search Console property that matches this organization, save.
+4. Open **Visibility dashboard** and click **Sync rankings** once to backfill.
+
+The sync also runs daily on its own. You only click Sync rankings when you want a same-day refresh.
+
+## What the rankings card shows
+
+- One line per selected keyword: average daily position from Search Console.
+- Y axis is reversed because position 1 is the goal: higher up the chart is better.
+- The keyword picker lists every keyword your site received impressions for in the time window.
+
+## What the citations card shows
+
+For each of the six AI engines:
+
+- **Mention rate**: how often your brand was mentioned across all probes that ran in the window.
+- **Avg position**: when mentioned, the typical place in the answer (1 is best).
+- **Trend**: last 7 days vs the prior 7 days. Up arrow if mentions improved, down arrow if they slipped.
+
+## Tier limits
+
+| Tier | Keywords | History | Competitor overlay |
+|---|---|---|---|
+| Starter | 10 | 30 days | no |
+| Core / Pro | 50 | 90 days | no |
+| Growth | 200 | 180 days | yes |
+| Agency / Max | unlimited (capped 500) | 12 months | yes |
+
+The hard ceiling of 500 keywords per organization keeps the daily sync fast for everybody.
+
+## What we do NOT do
+
+- We do not invent keywords. The Google card shows what your site actually receives impressions for. To track keywords you do not yet rank for, ask your strategist about gap analysis (separate workflow).
+- We do not paraphrase or hide your raw query. The query text stays in the underlying probe table. Only a hash lives in the snapshot table that drives the chart.
+- We do not push notifications based on rank movement here. Crisis early warning alerts (Phase 10) handle critical drops separately.
+
+## FAQ
+
+**Why does my rank look different from what I see in incognito?** Search Console reports averages, weighted by impressions across all your users in that period. Manual incognito checks are point samples, often biased toward your default location and language.
+
+**Can I export this?** Yes. The PDF executive report (Agency tier) now includes a Search visibility section with top keywords and the engine summary.
+
+**How often does the data refresh?** GSC reports lag 2 to 3 days, so the daily sync pulls "ending two days ago". The LLM citations refresh whenever an AI Visibility run completes, or on demand via the Refresh citations button.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le tableau de bord de visibilité",
+        excerpt:
+          "Un instantané quotidien de vos positions Google Search Console et de vos citations sur les moteurs IA, dans un seul tableau de bord client. Limites par palier et fenêtre d'historique. Pas de données surprises, pas d'appels en direct.",
+        body: `## Ce que c'est
+
+Deux cartes dans le temps, en un seul endroit :
+
+1. **Évolution du classement Google** pour les mots-clés où votre site se classe déjà, tirés chaque jour de votre propriété Google Search Console.
+2. **Résumé de citations IA** sur six moteurs (ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot), agrégé des sondes de visibilité qu'on lance pour vous.
+
+Le tableau lit des instantanés quotidiens, pas des appels en direct. Le chargement est rapide et une panne tierce ne prive pas votre affichage.
+
+## Configuration, une seule fois
+
+1. Allez dans **Paramètres > Organisation > Comptes Google connectés**.
+2. Connectez Google si ce n'est pas fait (couvre aussi Business Profile).
+3. Cliquez **Définir propriété GSC** sur la ligne du compte connecté, choisissez la propriété Search Console qui correspond à cette organisation, enregistrez.
+4. Ouvrez **Tableau de bord de visibilité** et cliquez **Sync rankings** une fois pour préremplir.
+
+La synchronisation tourne aussi quotidiennement seule. Vous ne cliquez Sync que si vous voulez une mise à jour le jour même.
+
+## Ce que la carte rankings montre
+
+- Une ligne par mot-clé sélectionné : position moyenne quotidienne via Search Console.
+- L'axe Y est inversé puisque la position 1 est l'objectif : plus haut sur le graphique, c'est mieux.
+- Le sélecteur de mots-clés liste tous ceux qui ont reçu des impressions dans la fenêtre.
+
+## Ce que la carte citations montre
+
+Pour chacun des six moteurs IA :
+
+- **Taux de mention** : à quelle fréquence votre marque a été citée sur l'ensemble des sondes lancées dans la fenêtre.
+- **Position moyenne** : quand mentionnée, la place typique dans la réponse (1 est le mieux).
+- **Tendance** : 7 derniers jours vs 7 jours précédents. Flèche vers le haut si les mentions s'améliorent, vers le bas si elles glissent.
+
+## Limites par palier
+
+| Palier | Mots-clés | Historique | Surimpression concurrents |
+|---|---|---|---|
+| Starter | 10 | 30 jours | non |
+| Core / Pro | 50 | 90 jours | non |
+| Growth | 200 | 180 jours | oui |
+| Agency / Max | illimité (plafond 500) | 12 mois | oui |
+
+Le plafond de 500 mots-clés par organisation garde la synchronisation quotidienne rapide pour tous.
+
+## Ce qu'on ne fait PAS
+
+- On n'invente pas de mots-clés. La carte Google montre ce que votre site reçoit réellement comme impressions. Pour suivre des mots-clés où vous ne vous classez pas encore, demandez à votre stratège l'analyse d'écart (workflow séparé).
+- On ne paraphrase pas et on ne cache pas votre requête brute. Le texte de la requête reste dans la table de sondes en dessous. Seul un hachage vit dans la table d'instantanés qui alimente le graphique.
+- On ne pousse pas de notifications de mouvement de rang ici. Les alertes d'avertissement précoce (Phase 10) gèrent séparément les chutes critiques.
+
+## Questions fréquentes
+
+**Pourquoi mon rang est-il différent de ce que je vois en navigation privée ?** Search Console rapporte des moyennes pondérées par impressions sur l'ensemble de vos utilisateurs dans la période. Les vérifications privées sont des échantillons ponctuels, souvent biaisés vers votre lieu et langue par défaut.
+
+**Puis-je exporter ?** Oui. Le rapport PDF exécutif (palier Agency) inclut maintenant une section visibilité avec mots-clés du haut et résumé par moteur.
+
+**À quelle fréquence les données se rafraîchissent ?** GSC accuse un retard de 2 à 3 jours, donc la synchronisation quotidienne tire "se terminant il y a deux jours". Les citations IA se rafraîchissent quand une exécution AI Visibility se termine, ou à la demande via le bouton Refresh citations.`,
+      },
+    },
+  },
 ];
