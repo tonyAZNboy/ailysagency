@@ -4047,4 +4047,168 @@ Une photo sur Google Business Profile est permanente jusqu'à ce que vous la ret
       },
     },
   },
+  {
+    slug: "reddit-signal-monitoring",
+    title: "Reddit signal monitoring (we listen, you decide)",
+    excerpt:
+      "We poll configured subreddits for brand mentions, classify each as positive / neutral / negative, and surface high-priority items. We do not post on Reddit on your behalf, that is a hard rule.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A passive listening layer that watches Reddit for posts mentioning your brand or your competitors, classifies each by sentiment, and flags the items most likely to harm your reputation if left unanswered. You see the list, you decide what to do.
+
+## What this is NOT
+
+- We do **not** post replies on Reddit on your behalf.
+- We do **not** create accounts that look like real users.
+- We do **not** vote on threads.
+- We do **not** participate in conversations under any persona.
+
+This is a hard scope rule from our service contract. Active Reddit participation requires authentic human relationships and editorial judgment that an agency cannot fake without crossing into manipulation. Reddit users detect agency behavior immediately and the consequences (subreddit bans, brand-name discussions about manipulation) outweigh any short-term gain. So we monitor; the response decision belongs to you and your team.
+
+## How configuration works
+
+In your dashboard, **Reddit monitor**, you configure two pieces:
+
+1. **Subreddits to watch**: free-form list. Pick the communities where your customers actually hang out. Restaurants might pick r/Montreal, r/MontrealFood. A SaaS might pick r/saas, r/entrepreneur, r/<your-niche>. We do not auto-pick subreddits because the right list is specific to you.
+2. **Keywords to match per subreddit**: your brand name plus 2 to 5 variants (the way customers actually type it, including misspellings if frequent). Optionally include competitor names if you want to monitor share-of-voice.
+
+Polling runs on demand from the dashboard for now (cron schedule comes later). One click runs all keywords across all active subreddits for your tenant. Typical run takes 10 to 30 seconds.
+
+## What appears in the dashboard
+
+For each match, we store and display:
+
+- The original Reddit post URL (one-click external link)
+- Subreddit, title, body excerpt (first 280 chars)
+- Author handle (Reddit username)
+- Upvote count and comment count at time of poll
+- The keyword that matched
+- A sentiment classification (positive / neutral / negative) with a confidence score
+
+Mentions sit in three groups in the UI:
+
+1. **Need attention**: negative recent (under a week) OR negative high-upvote (100+ upvotes) regardless of age. These are surfaced separately because Reddit threads with high upvotes rank in Google search results and keep harming reputation long after they stop getting active comments.
+2. **Recent mentions**: last 100 across all targets, ordered by date observed.
+3. **Summary counters**: total / positive / negative / unclassified.
+
+## How sentiment is classified
+
+Our engine reads the post title and body excerpt and outputs one of three labels (positive / neutral / negative) with a confidence score from 0 to 1. The classification considers context (sarcasm, conditional language) but is not perfect. Roughly 5 to 8 percent of mentions get a label that a human would disagree with. When you see a misclassification, just know the label is a guide, not gospel.
+
+## Why this matters even though we do not respond
+
+Three reasons to monitor even without responding:
+
+1. **Crisis early warning**: A negative thread that gets 50 upvotes in an hour usually escalates. Catching it within a day means you can decide internally if and how to respond before it becomes the top Google result for your brand name.
+2. **Product feedback signal**: Negative recurring patterns (multiple unrelated mentions of the same complaint) indicate a real problem worth fixing in the product or operations, separate from the Reddit visibility issue.
+3. **Share of voice**: If you also monitor competitor names, you see relative mention volume over time. A competitor getting 5x your Reddit mentions for the same product category is a marketing signal worth investigating.
+
+## What you do with the data
+
+Your call. The most common patterns we see:
+
+- **Internal Slack alert**: copy the URL into your team channel, decide who responds (founder, support, nobody).
+- **Direct response from the founder**: the founder logs into their personal Reddit account (not an agency account, theirs) and replies in their own voice.
+- **No response, just track**: some negative mentions are best left alone. Engaging makes them more visible. Tracking still tells you the volume.
+
+We can advise on response strategy in your monthly briefing if you ask. We do not write or send the responses.
+
+## Common questions
+
+**How often does the system poll?** On demand for now. You click "Poll now" in the dashboard. A scheduled cron is on the roadmap.
+
+**What if a mention is misclassified?** The classification is informational; the action is yours regardless of label. We do not have a "correct the label" button yet (it would feed our model training but introduce labeling noise).
+
+**Can you monitor private subreddits?** No. Reddit's API only returns public content. Private subs are invisible.
+
+**Do you store the full post text?** No. We store a 280-character excerpt of the body plus the title. The full thread always lives on Reddit and you click through to read it.
+
+**What if my brand name is generic (e.g., "Apex" or "Core")?** Use highly specific variants (e.g., "Apex Pizza Montreal", "Core Coffee BC") in the keyword list. Generic single words trigger huge false positive volume.
+
+**Can you remove a Reddit post?** No. We have no admin power on Reddit. Posts can be removed only by the original poster, the subreddit moderators, or Reddit's policy enforcement. We can only observe.`,
+    i18n: {
+      fr: {
+        title: "Surveillance des signaux Reddit (on écoute, vous décidez)",
+        excerpt:
+          "On interroge les subreddits configurés pour les mentions de marque, on classifie chacune comme positive / neutre / négative, et on fait remonter les items prioritaires. On ne publie pas sur Reddit en votre nom, c'est une règle stricte.",
+        body: `## Ce que c'est
+
+Une couche d'écoute passive qui surveille Reddit pour les publications mentionnant votre marque ou vos concurrents, classifie chacune par sentiment, et signale les items les plus susceptibles de nuire à votre réputation si laissés sans réponse. Vous voyez la liste, vous décidez quoi faire.
+
+## Ce que ce n'est PAS
+
+- On ne publie **pas** de réponses sur Reddit en votre nom.
+- On ne crée **pas** de comptes qui ressemblent à de vrais utilisateurs.
+- On ne vote **pas** sur les fils.
+- On ne participe **pas** aux conversations sous aucune persona.
+
+C'est une règle de portée stricte de notre contrat de service. La participation active sur Reddit requiert des relations humaines authentiques et un jugement éditorial qu'une agence ne peut pas simuler sans franchir vers la manipulation. Les utilisateurs Reddit détectent immédiatement le comportement d'agence et les conséquences (bannissements de subreddits, discussions sur la manipulation autour du nom de marque) l'emportent sur tout gain à court terme. Donc on surveille ; la décision de réponse appartient à vous et votre équipe.
+
+## Comment fonctionne la configuration
+
+Dans votre tableau de bord, **Surveillance Reddit**, vous configurez deux pièces :
+
+1. **Subreddits à surveiller** : liste libre. Choisissez les communautés où vos clients passent vraiment du temps. Les restaurants pourraient choisir r/Montreal, r/MontrealFood. Un SaaS pourrait choisir r/saas, r/entrepreneur, r/<votre-niche>. On ne choisit pas automatiquement les subreddits parce que la bonne liste vous est spécifique.
+2. **Mots-clés à matcher par subreddit** : votre nom de marque plus 2 à 5 variantes (la façon dont les clients tapent réellement, incluant les fautes de frappe si fréquentes). Incluez optionnellement les noms de concurrents si vous voulez surveiller le partage de voix.
+
+Le sondage tourne sur demande depuis le tableau de bord pour l'instant (un horaire cron arrive plus tard). Un clic exécute tous les mots-clés sur tous les subreddits actifs pour votre tenant. Une exécution typique prend 10 à 30 secondes.
+
+## Ce qui apparaît dans le tableau de bord
+
+Pour chaque correspondance, on stocke et affiche :
+
+- L'URL originale du post Reddit (lien externe en un clic)
+- Subreddit, titre, extrait du corps (premiers 280 caractères)
+- Nom d'utilisateur de l'auteur
+- Compte de votes positifs et compte de commentaires au moment du sondage
+- Le mot-clé qui a matché
+- Une classification de sentiment (positive / neutre / négative) avec un score de confiance
+
+Les mentions s'affichent en trois groupes dans l'UI :
+
+1. **Attention requise** : négatives récentes (moins d'une semaine) OU négatives à fort vote positif (100+ votes) peu importe l'âge. Celles-ci sont mises en évidence séparément parce que les fils Reddit avec beaucoup de votes positifs se classent dans les résultats de recherche Google et continuent de nuire à la réputation longtemps après qu'ils cessent de recevoir des commentaires actifs.
+2. **Mentions récentes** : 100 dernières sur toutes les cibles, ordonnées par date observée.
+3. **Compteurs sommaires** : total / positives / négatives / non classifiées.
+
+## Comment le sentiment est classifié
+
+Notre moteur lit le titre et l'extrait du corps du post et produit une des trois étiquettes (positive / neutre / négative) avec un score de confiance de 0 à 1. La classification considère le contexte (sarcasme, langage conditionnel) mais n'est pas parfaite. Environ 5 à 8 pour cent des mentions reçoivent une étiquette qu'un humain rejetterait. Quand vous voyez une erreur de classification, sachez que l'étiquette est un guide, pas une vérité.
+
+## Pourquoi ça compte même si on ne répond pas
+
+Trois raisons de surveiller même sans répondre :
+
+1. **Alerte précoce de crise** : Un fil négatif qui obtient 50 votes positifs en une heure escalade habituellement. L'attraper en moins d'un jour vous permet de décider à l'interne si et comment répondre avant que ça devienne le top résultat Google pour votre nom de marque.
+2. **Signal de feedback produit** : Des patterns négatifs récurrents (plusieurs mentions non liées de la même plainte) indiquent un vrai problème qui vaut la peine d'être réglé dans le produit ou les opérations, séparément du problème de visibilité Reddit.
+3. **Partage de voix** : Si vous surveillez aussi les noms de concurrents, vous voyez le volume relatif de mentions dans le temps. Un concurrent qui obtient 5 fois plus de mentions Reddit que vous pour la même catégorie de produit est un signal marketing qui mérite enquête.
+
+## Ce que vous faites avec les données
+
+À vous de voir. Les patterns les plus communs qu'on voit :
+
+- **Alerte Slack interne** : copiez l'URL dans votre canal d'équipe, décidez qui répond (fondateur, support, personne).
+- **Réponse directe du fondateur** : le fondateur se connecte sur son compte Reddit personnel (pas un compte d'agence, le sien) et répond en sa propre voix.
+- **Aucune réponse, juste suivre** : certaines mentions négatives sont mieux laissées tranquilles. S'engager les rend plus visibles. Le suivi vous dit quand même le volume.
+
+On peut conseiller sur la stratégie de réponse dans votre briefing mensuel si vous demandez. On n'écrit pas et n'envoie pas les réponses.
+
+## Questions fréquentes
+
+**À quelle fréquence le système sonde-t-il ?** Sur demande pour l'instant. Vous cliquez "Sonder maintenant" dans le tableau de bord. Un cron planifié est dans la feuille de route.
+
+**Que se passe-t-il si une mention est mal classifiée ?** La classification est informative ; l'action vous appartient peu importe l'étiquette. On n'a pas encore de bouton "corriger l'étiquette" (ça nourrirait notre entraînement de modèle mais introduirait du bruit d'étiquetage).
+
+**Pouvez-vous surveiller les subreddits privés ?** Non. L'API Reddit ne retourne que du contenu public. Les subreddits privés sont invisibles.
+
+**Stockez-vous le texte complet du post ?** Non. On stocke un extrait de 280 caractères du corps plus le titre. Le fil complet vit toujours sur Reddit et vous cliquez pour aller le lire.
+
+**Et si mon nom de marque est générique (ex. "Apex" ou "Core") ?** Utilisez des variantes très spécifiques (ex. "Apex Pizza Montreal", "Core Coffee BC") dans la liste de mots-clés. Les mots simples génériques déclenchent un volume énorme de faux positifs.
+
+**Pouvez-vous retirer un post Reddit ?** Non. On n'a aucun pouvoir admin sur Reddit. Les posts ne peuvent être retirés que par le posteur original, les modérateurs du subreddit, ou l'application des politiques de Reddit. On ne peut qu'observer.`,
+      },
+    },
+  },
 ];
