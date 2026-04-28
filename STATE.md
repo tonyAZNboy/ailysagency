@@ -1,7 +1,8 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Reviuzy Phases 4.5 + 5 + 6 + 7 + 8 + 9 + 10 all SHIPPED + MERGED to main as PR #2 + tagged v0.3.0-arch-decided; 181 unit tests pass; 30 atomic commits preserved in merge history)
+**Last updated:** 2026-04-28 (Reviuzy lint debt FULLY ELIMINATED — 420 errors → 0; 181 tests pass; pushed to `claude/heuristic-saha-53f443`)
 **Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `5575d84` (lint debt documented)
+**Reviuzy active branch:** `claude/heuristic-saha-53f443` (afe6bf3, 6 atomic lint commits ahead of main, ready to PR)
 **Reviuzy main:** merge commit `251f136` (PR #2 closed 2026-04-28T06:22:23Z) · branch `claude/determined-agnesi-e1a262` retained for history
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
@@ -115,9 +116,26 @@ tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.
 
 **Test totals after Phase 10:** 181 unit tests pass.
 
-## ⚠️ LINT DEBT (Reviuzy repo, deferred to next session)
+## ✅ LINT DEBT FULLY CLEARED 2026-04-28 (Option C — hand-fix all)
 
-End-of-session lint audit on 2026-04-28: **416 errors across 148 files**, all
+**Final state:** `npm run lint` exits 0 (was 469 problems / 420 errors / 49 warnings).
+**Commits on `claude/heuristic-saha-53f443`** (pushed, ready to PR):
+- `e2bb182` Batch 1: 35 trivial rule fixes (no-empty, no-useless-escape, prefer-const, no-misleading-character-class, no-unused-expressions, no-empty-object-type, no-control-regex, no-case-declarations, no-constant-binary-expression real bug fix in google-exchange, no-require-imports). Semantic-preserving.
+- `890970e` Batch 2: react-refresh/only-export-components 12 warnings. eslint config override for `src/components/ui/**` (shadcn convention) + 5 inline disables for context/provider hook colocation.
+- `7d7880e` Batch 3: react-hooks/exhaustive-deps 37 warnings. Conservative eslint-disable-next-line per site with specific reason (closes-over-tenant-id-only, mount-only, forward-reference, etc.). One real fix: SpinningWheel.tsx campaignName added to deps.
+- `eb08995` Batch 4: 121 no-explicit-any in `supabase/functions/**` (38 edge fn files). Specific interfaces, Record<string, unknown>, unknown + narrowing, SupabaseAdminClient = ReturnType<typeof createClient>.
+- `69d07f8` Batch 5: 43 no-explicit-any in `src/hooks` + `src/providers` (16 files). SmartOnboardingState, ScrapedData, OnboardingProgress, AIEngineMessage typed; TablesInsert<…> generated types.
+- `afe6bf3` Batch 6+7: 217 no-explicit-any in `src/components/**` (72) + `src/pages/**` (145). Two parallel agents, verified independently. Specific interfaces (GoogleExchangeData, SyncLocationsData, OauthCallbackResult, FacebookExchangeData, ThreadsExchangeData, DraftMetadata, etc.). LucideIcon for icon props. catch (err: unknown) + instanceof Error narrowing across ~50 sites.
+
+**Zero `as any`. Zero `@ts-ignore`. Zero `@ts-expect-error`. Zero `eslint-disable` for no-explicit-any.** Pure type strictness increase.
+
+**Verified at every commit:** 181/181 unit tests pass, `npx tsc --noEmit` exits 0, `npm run build` green.
+
+---
+
+## ⚠️ LINT DEBT (HISTORICAL — fully cleared, kept for context)
+
+Original audit on 2026-04-28: **416 errors across 148 files**, all
 pre-existing legacy code (NOT introduced by Phase 4.5-10 work). Files added
 this session pass lint with 0 errors / 1 ignorable warning.
 
