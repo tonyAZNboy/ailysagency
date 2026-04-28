@@ -1,12 +1,13 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Phase 12 Wave 1-4.2 shipped on `claude/phase-12-visibility-dashboard`, PR #5 open; 325 unit tests pass)
-**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `8cfe5db`
-**Reviuzy main:** merge commit `51f0b22` (PR #4 gitignore tidy merged 2026-04-28T12:59:55Z)
+**Last updated:** 2026-04-28 (Phase 12 Wave 1-4.2 MERGED to main as PR #5 `337146d`; 325 unit tests pass)
+**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `2032f70`
+**Reviuzy main:** merge commit `337146d` (PR #5 Phase 12 merged 2026-04-28T14:56:45Z)
 - PR #3 (lint cleanup 420->0 + Phase 11.A-D Schema deployment) merged as `bba7f05`
-- PR #4 (.gitignore .archive-worktree-patches) merged as `efd4f67`
+- PR #4 (.gitignore .archive-worktree-patches) merged as `51f0b22`
+- PR #5 (Phase 12 Wave 1-4.2 client visibility dashboard) merged as `337146d`
 
-**Reviuzy active branch:** `claude/phase-12-visibility-dashboard` (HEAD `6729ec5`), 10 atomic commits ahead of main, all pushed, **PR #5 open**:
+**Reviuzy `claude/phase-12-visibility-dashboard`** (MERGED, branch can be deleted), 11 atomic commits bundled in `337146d`:
 - Phase 12.C+12.D migrations: 5750608 (GSD planning + foundation tables)
 - Phase 12.A.1 GSC scope + column: 29b4874
 - Phase 12.A.2 gsc-list-properties edge fn: 885abce
@@ -194,6 +195,7 @@ Phase 12 ships `/dashboard/visibility`: client-facing two-card dashboard with Go
 | 12.E.1 | d2ff84e | useVisibilityDashboard hook: parallel rankings + citations queries, syncRankings + rebuildSnapshots mutations. Pure derive helpers: deriveKeywordSeries, deriveEngineSummaries, uniqueKeywords (11 tests) |
 | 12.E.2 | 0370a91 | /dashboard/visibility page: tier banner, Recharts line chart with reversed Y axis, 6-engine citation grid with trend arrows |
 | 12.F | 6729ec5 | ExecutiveReportPDF gains optional VisibilityReportSection (top keywords by impressions + 6-engine LLM summary). visibilityReportBuilder lib (8 tests) |
+| Admin | debb494 | Visibility nav entry in ExpandableNavbar (CLAUDE.md hard rule #11) |
 
 **Test totals after Phase 12 Wave 1-4.2:** 235 (post Phase 11) -> 325 unit tests pass (90 new).
 
