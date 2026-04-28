@@ -1,13 +1,24 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Reviuzy lint debt eliminated 420->0; Phase 11.A-D shipped; PR #3 MERGED to main as `bba7f05`; 235 unit tests pass)
-**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `a6d12c7`
-**Reviuzy main:** merge commit `bba7f05` (PR #3 merged 2026-04-28T12:05:01Z) bundling 11 atomic commits:
-- Lint cleanup: 7 commits (e2bb182 -> afe6bf3 + 6f3e332) - 420 errors -> 0
-- Phase 11.A schema libs: 663e5b0 (54 unit tests, TDD)
-- Phase 11.B+C migration + schema-audit edge fn: de20d80
-- Phase 11.D useSchemaAudits hook + /schema admin page: 21d8062
-- Phase 11 simplify (3-agent review, 8 HIGH+MEDIUM fixes): ce940ab
+**Last updated:** 2026-04-28 (Phase 12 Wave 1-4.2 shipped on `claude/phase-12-visibility-dashboard`, PR #5 open; 325 unit tests pass)
+**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `8cfe5db`
+**Reviuzy main:** merge commit `51f0b22` (PR #4 gitignore tidy merged 2026-04-28T12:59:55Z)
+- PR #3 (lint cleanup 420->0 + Phase 11.A-D Schema deployment) merged as `bba7f05`
+- PR #4 (.gitignore .archive-worktree-patches) merged as `efd4f67`
+
+**Reviuzy active branch:** `claude/phase-12-visibility-dashboard` (HEAD `6729ec5`), 10 atomic commits ahead of main, all pushed, **PR #5 open**:
+- Phase 12.C+12.D migrations: 5750608 (GSD planning + foundation tables)
+- Phase 12.A.1 GSC scope + column: 29b4874
+- Phase 12.A.2 gsc-list-properties edge fn: 885abce
+- Phase 12.A.2 GscPropertyPicker UI: 56e9cf6
+- Phase 12.B gscSync lib + sync edge fn: f2ed854 (31 lib tests)
+- Phase 12.D.2 llmCitationSnapshot lib + rebuild edge fn: af40053 (26 lib tests)
+- Phase 12.G visibility tier gating: c868562 (14 tests)
+- Phase 12.E.1 useVisibilityDashboard hook: d2ff84e (11 tests)
+- Phase 12.E.2 /dashboard/visibility page: 0370a91
+- Phase 12.F PDF VisibilityReport extension: 6729ec5 (8 tests)
+
+ailysagency `8cfe5db`: Phase 12.H help article 'how-the-visibility-dashboard-works' EN+FR-CA.
 **Reviuzy main:** merge commit `251f136` (PR #2 closed 2026-04-28T06:22:23Z) · branch `claude/determined-agnesi-e1a262` retained for history
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
@@ -153,7 +164,6 @@ Sub-phases shipped on `claude/heuristic-saha-53f443` (PR #3):
 **Test totals after Phase 11.A-D:** 235 unit tests pass (181 baseline + 54 new schema lib tests).
 
 **Phase 11 sub-phases REMAINING (next session):**
-- 11.E Help article in ailysagency repo (EN+FR-CA): "Schema audit and JSON-LD recommendations"
 - 11.3 WordPress integration (REST API push, ~8h)
 - 11.4 Wix integration (Velo API, ~8h)
 - 11.5 Webflow integration (CMS API, ~6h)
@@ -168,7 +178,49 @@ Sub-phases shipped on `claude/heuristic-saha-53f443` (PR #3):
 
 ---
 
-## ⚠️ LINT DEBT (HISTORICAL — fully cleared, kept for context)
+## PHASE 12 IN PROGRESS 2026-04-28 (Client visibility dashboard, PR #5 open)
+
+Phase 12 ships `/dashboard/visibility`: client-facing two-card dashboard with Google Search Console keyword ranking evolution and 6-engine LLM citation summary. Tier-gated quotas + PDF export extension.
+
+| Sub-phase | Commit | Deliverable |
+|-----------|--------|-------------|
+| 12.C+12.D | 5750608 | Migrations: keyword_rankings + llm_citation_snapshots, both with member+strategist RLS, append-only via service role. GSD planning artifacts in .planning/phase-12/ |
+| 12.A.1 | 29b4874 | google-connect-init: webmasters.readonly scope. Migration adds gsc_property_url to google_accounts |
+| 12.A.2 (1/2) | 885abce | gsc-list-properties edge fn (parallelized auth, refresh-on-demand, returns properties with permission level) |
+| 12.A.2 (2/2) | 56e9cf6 | GscPropertyPicker.tsx component, wired into Settings > Organization. types.ts gains gsc_property_url on google_accounts |
+| 12.B | f2ed854 | gscSync lib (TDD, 31 tests) covering normalization, clamps, defaultSyncWindow with 2-day GSC delay. gsc-sync-rankings edge fn with idempotent upsert ON CONFLICT |
+| 12.D.2 | af40053 | llmCitationSnapshot lib (TDD, 26 tests) reduces ai_visibility_runs to denormalized snapshots, hashes query via Web Crypto. llm-snapshot-rebuild edge fn |
+| 12.G | c868562 | featureCatalog: VISIBILITY_QUOTAS_REVIUZY/AILYS, resolveVisibilityQuota (AiLys tier wins when both present), hard ceiling 500 keywords (14 tests) |
+| 12.E.1 | d2ff84e | useVisibilityDashboard hook: parallel rankings + citations queries, syncRankings + rebuildSnapshots mutations. Pure derive helpers: deriveKeywordSeries, deriveEngineSummaries, uniqueKeywords (11 tests) |
+| 12.E.2 | 0370a91 | /dashboard/visibility page: tier banner, Recharts line chart with reversed Y axis, 6-engine citation grid with trend arrows |
+| 12.F | 6729ec5 | ExecutiveReportPDF gains optional VisibilityReportSection (top keywords by impressions + 6-engine LLM summary). visibilityReportBuilder lib (8 tests) |
+
+**Test totals after Phase 12 Wave 1-4.2:** 235 (post Phase 11) -> 325 unit tests pass (90 new).
+
+**Phase 12 sub-phases REMAINING (next session):**
+- 12.I integration tests + RLS isolation tests (cannot read other tenant's keyword_rankings/llm_citation_snapshots, ~4h)
+- /admin/visibility-debug strategist view (~2h)
+- 12.J SerpAPI gap analysis for keywords client does not yet rank for (~8h, deferred)
+
+**Operator action items (Phase 12, post-merge):**
+1. Apply 3 migrations via Supabase SQL Editor:
+   - `20260428160000_create_keyword_rankings.sql`
+   - `20260428170000_create_llm_citation_snapshots.sql`
+   - `20260428180000_add_gsc_property_url.sql`
+2. Deploy 4 edge fns:
+   ```
+   npx supabase functions deploy google-connect-init --project-ref qucxhksrpqunlyjjvuae
+   npx supabase functions deploy gsc-list-properties --project-ref qucxhksrpqunlyjjvuae
+   npx supabase functions deploy gsc-sync-rankings --project-ref qucxhksrpqunlyjjvuae
+   npx supabase functions deploy llm-snapshot-rebuild --project-ref qucxhksrpqunlyjjvuae
+   ```
+3. Reconnect Google in Settings > Organization to grant `webmasters.readonly` scope (existing connections lack it).
+4. Pick GSC property per tenant via the new picker UI.
+5. Run "Sync rankings" once to backfill, then daily sync handles it.
+
+---
+
+## LINT DEBT (HISTORICAL, fully cleared, kept for context)
 
 Original audit on 2026-04-28: **416 errors across 148 files**, all
 pre-existing legacy code (NOT introduced by Phase 4.5-10 work). Files added
