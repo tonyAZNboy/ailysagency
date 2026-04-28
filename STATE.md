@@ -1,8 +1,13 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Reviuzy lint debt FULLY ELIMINATED — 420 errors → 0; 181 tests pass; pushed to `claude/heuristic-saha-53f443`)
-**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `5575d84` (lint debt documented)
-**Reviuzy active branch:** `claude/heuristic-saha-53f443` (afe6bf3, 6 atomic lint commits ahead of main, ready to PR)
+**Last updated:** 2026-04-28 (Reviuzy lint debt eliminated 420->0; Phase 11.A-D shipped on same branch; 235 unit tests pass; PR #3 open)
+**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `ca97e14`
+**Reviuzy active branch:** `claude/heuristic-saha-53f443` (HEAD: ce940ab), 11 atomic commits ahead of main, all pushed, PR #3 open
+- Lint cleanup: 7 commits (e2bb182 -> afe6bf3 + 6f3e332)
+- Phase 11.A schema libs: 663e5b0 (54 unit tests)
+- Phase 11.B+C migration + schema-audit edge fn: de20d80
+- Phase 11.D useSchemaAudits hook + /schema admin page: 21d8062
+- Phase 11 simplify (3-agent review fixes): ce940ab
 **Reviuzy main:** merge commit `251f136` (PR #2 closed 2026-04-28T06:22:23Z) · branch `claude/determined-agnesi-e1a262` retained for history
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
@@ -130,6 +135,36 @@ tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.
 **Zero `as any`. Zero `@ts-ignore`. Zero `@ts-expect-error`. Zero `eslint-disable` for no-explicit-any.** Pure type strictness increase.
 
 **Verified at every commit:** 181/181 unit tests pass, `npx tsc --noEmit` exits 0, `npm run build` green.
+
+---
+
+## ✅ PHASE 11 IN PROGRESS 2026-04-28 (Schema deployment automation, GOD MODE technical moat)
+
+Sub-phases shipped on `claude/heuristic-saha-53f443` (PR #3):
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 11.1 (lib) | 663e5b0 | `src/lib/schemaAudit.ts` - extractJsonLdBlocks, detectMicrodata, detectRdfa, entityTypesFromJsonLd, computeMissingTypes, auditHtml + 26 tests (multi-block, malformed JSON, case-insensitive script tag, LocalBusiness subtypes, @graph traversal, RDFa+microdata flag isolation) |
+| 11.2 (lib) | 663e5b0 | `src/lib/schemaGenerator.ts` - generateLocalBusiness (industry-aware subtype: Restaurant, Dentist, HairSalon...), generateOrganization, generateFaqPage, generateService, generatePerson, generateBreadcrumbList, generateAllSchemaBlocks aggregator, jsonLdToScriptTag + 28 tests |
+| 11.B (DB) | de20d80 | Migration `20260428150000_create_schema_audits.sql` - schema_audits table (status enum, found_types[], missing_types[], microdata_present, rdfa_present, findings JSONB summary only), 2 indexes, RLS (members + AiLys strategists SELECT, INSERT via service role only, append-only) |
+| 11.C (edge) | de20d80 + ce940ab | `supabase/functions/schema-audit/index.ts` - POST {tenantId, url}, 10s timeout, 5MB stream-based content cap with reader.cancel() on overflow, SSRF guard rejects private/loopback IPs, parallelized auth+rate-limit Promise.all, fail-closed on rate-limit query error, 30 audits/hr/tenant rate limit |
+| 11.D (UI) | 21d8062 | `src/hooks/useSchemaAudits.ts` (React Query list+run mutation, narrow select to non-JSONB cols), `src/pages/SchemaAudit.tsx` `/schema` route - URL input + Run button, latest audit summary card with type pills, suggested JSON-LD generator (uses lib client-side via useSeoProfile), audit history table, copy-all clipboard |
+
+**Test totals after Phase 11.A-D:** 235 unit tests pass (181 baseline + 54 new schema lib tests).
+
+**Phase 11 sub-phases REMAINING (next session):**
+- 11.E Help article in ailysagency repo (EN+FR-CA): "Schema audit and JSON-LD recommendations"
+- 11.3 WordPress integration (REST API push, ~8h)
+- 11.4 Wix integration (Velo API, ~8h)
+- 11.5 Webflow integration (CMS API, ~6h)
+- 11.6 Shopify integration (Storefront API + metafields, ~6h)
+- 11.7 Headless / generic webhook fallback (~4h)
+- 11.8 Strategist QA before push (~4h)
+- 11.10 E2E + integration tests (~3h)
+
+**Operator action items (cumulative):**
+- Apply migration `20260428150000_create_schema_audits.sql` via Supabase SQL Editor
+- Deploy edge function: `npx supabase functions deploy schema-audit --project-ref qucxhksrpqunlyjjvuae`
 
 ---
 
