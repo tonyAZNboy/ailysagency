@@ -4211,4 +4211,156 @@ On peut conseiller sur la stratégie de réponse dans votre briefing mensuel si 
       },
     },
   },
+  {
+    slug: "white-label-executive-pdf-reports",
+    title: "White-label executive PDF reports (Agency tier exclusive)",
+    excerpt:
+      "Monthly one-click PDF that aggregates AI Visibility, AI Traffic, Citations, and Google Business Profile activity. Branded with your logo, name, and color, no Reviuzy or AiLys branding visible.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 3,
+    body: `## What it is
+
+A printable, shareable PDF report covering the past calendar month. Single click to generate, downloads instantly to your device. The report carries your logo and brand color in the header, your domain in the footer, and contains zero Reviuzy or AiLys visible branding (the "white-label" guarantee).
+
+## Who gets it
+
+Agency tier ($2,499 CAD/mo) only. Lower tiers see the report viewer with a paywall and an upgrade CTA.
+
+## How to set up your branding
+
+Open **Settings, Organization** in your dashboard. Look for the **Report branding** section (added once your account is on Agency tier).
+
+- **Logo**: paste a public URL to a PNG or SVG, max 600x200 px recommended. The image must be reachable without authentication; we do not store the image, we link to it.
+- **Brand name**: free text, shown next to the logo. Defaults to your account name when blank.
+- **Footer URL**: free text shown at the bottom of every page. Usually your website domain. Defaults to a brand-default footer when blank.
+- **Accent color**: 6-digit hex code (e.g., #1A3D8F). Used for the header divider, brand name color, and stat numbers. Defaults to neutral gray when blank.
+
+## What the report contains
+
+Always six sections in this order:
+
+1. **Header**: logo + brand name + period label (e.g., "April 2026")
+2. **Summary cards**: Share of Model %, AI traffic visits, conversions, citations verified
+3. **AI Visibility**: engines probed this period, positive sentiment count, negative sentiment count
+4. **AI Traffic by engine**: visit count per engine (chatgpt, perplexity, claude, gemini, copilot, googleaio, etc.)
+5. **Citations status**: queued, submitted, verified, rejected counts for the period
+6. **GBP activity**: posts published, photos published, questions answered
+
+Optional notes block at the bottom (operator-supplied, not yet wired into the UI). Footer on every page: your footer URL plus page numbers.
+
+## How to generate
+
+1. Open **Reports, Executive report** in your dashboard.
+2. The page loads the past month's data automatically (LETTER-format preview rendered in the browser).
+3. Verify the numbers look right.
+4. Click **Download PDF**. The browser builds the PDF locally and downloads as `{your-brand}-{YYYY-MM}.pdf`.
+
+Generation runs entirely in your browser; nothing is uploaded back to our servers during the export step. The data itself is read from your account database in the page load step (not the PDF step).
+
+## What data drives each number
+
+- **Share of Model**: ratio of LLM probes where your brand was mentioned divided by total probes for the period.
+- **AI traffic visits**: count of inbound visits with a known AI-engine UTM source or referrer.
+- **Conversions**: subset of AI traffic visits flagged as conversions (depends on your conversion call snippet on the site).
+- **Citations verified**: rows in the citation tracker with status=verified for the period.
+- **Photos published**: rows in the photo upload ledger with month_bucket = report period.
+- **Questions answered**: GBP Q&A drafts that posted to Google during the period.
+
+## Why client-side PDF
+
+Two reasons:
+
+1. **Data privacy**: Your account data never crosses our network when the PDF is built; the browser does the rendering. We process the source data on the read query, but the formatting + binary creation is local.
+2. **No infrastructure dependency**: Server-side PDF requires Puppeteer or a third-party service (PDFShift, DocRaptor, etc.) that adds cost, latency, and a vendor risk surface. Client-side is deterministic and free per generation.
+
+## Common questions
+
+**Can I customize the section order or hide a section?** Not yet. The template is fixed for this initial ship. Custom layouts are on the roadmap if there is demand.
+
+**Can I export multiple months at once?** Not yet. You generate one month at a time. A "year-end recap" PDF is on the roadmap.
+
+**The download button shows "Building PDF..." for more than 30 seconds**. Likely a slow or large logo URL. Check the logo URL loads in a fresh browser tab in under 2 seconds. Replace with a smaller file if needed.
+
+**Can I see the PDF before downloading?** No preview pane in this version (saves bundle size). Download and open with any PDF reader.
+
+**Can the PDF be auto-emailed monthly?** Not yet. Auto-delivery is on the roadmap (would attach the PDF to a Resend send-from-your-brand email on the first of each month). For now, manual download.
+
+**Where do my old PDFs live?** They do not. We do not archive. Each download is built fresh from current data. To keep a copy, save the file to your own storage after download.`,
+    i18n: {
+      fr: {
+        title: "Rapports PDF exécutifs en marque blanche (exclusif au palier Agency)",
+        excerpt:
+          "PDF mensuel en un clic qui agrège la visibilité IA, le trafic IA, les citations et l'activité Google Business Profile. Brandé avec votre logo, nom et couleur, sans aucune marque Reviuzy ou AiLys visible.",
+        body: `## Ce que c'est
+
+Un rapport PDF imprimable et partageable couvrant le mois calendaire écoulé. Un clic pour générer, téléchargement instantané sur votre appareil. Le rapport porte votre logo et votre couleur de marque dans l'en-tête, votre domaine dans le pied de page, et ne contient aucune marque Reviuzy ou AiLys visible (la garantie "marque blanche").
+
+## Qui l'obtient
+
+Palier Agency (2 499 $ CAD/mois) seulement. Les paliers inférieurs voient la vue du rapport avec un paywall et un CTA de bonification.
+
+## Comment configurer votre branding
+
+Ouvrez **Paramètres, Organisation** dans votre tableau de bord. Cherchez la section **Branding du rapport** (ajoutée quand votre compte est au palier Agency).
+
+- **Logo** : collez une URL publique vers un PNG ou SVG, 600x200 px max recommandé. L'image doit être accessible sans authentification ; on ne stocke pas l'image, on la lie.
+- **Nom de marque** : texte libre, affiché à côté du logo. Défaut au nom de votre compte si laissé vide.
+- **URL du pied de page** : texte libre affiché au bas de chaque page. Habituellement votre domaine web. Défaut à un pied de page par défaut de la marque si laissé vide.
+- **Couleur d'accent** : code hex de 6 chiffres (ex. #1A3D8F). Utilisé pour le séparateur d'en-tête, la couleur du nom de marque et les chiffres des stats. Défaut au gris neutre si laissé vide.
+
+## Ce que contient le rapport
+
+Toujours six sections dans cet ordre :
+
+1. **En-tête** : logo + nom de marque + libellé de période (ex. "Avril 2026")
+2. **Cartes sommaires** : Part du modèle %, visites de trafic IA, conversions, citations vérifiées
+3. **Visibilité IA** : moteurs sondés cette période, compte de sentiment positif, compte de sentiment négatif
+4. **Trafic IA par moteur** : compte de visites par moteur (chatgpt, perplexity, claude, gemini, copilot, googleaio, etc.)
+5. **Statut des citations** : compte de en attente, soumis, vérifié, rejeté pour la période
+6. **Activité GBP** : publications publiées, photos publiées, questions répondues
+
+Bloc optionnel de notes au bas (fourni par l'opérateur, pas encore câblé dans l'UI). Pied de page sur chaque page : votre URL de pied de page plus numéros de page.
+
+## Comment générer
+
+1. Ouvrez **Rapports, Rapport exécutif** dans votre tableau de bord.
+2. La page charge automatiquement les données du mois écoulé (aperçu format LETTER rendu dans le navigateur).
+3. Vérifiez que les chiffres ont du sens.
+4. Cliquez **Télécharger le PDF**. Le navigateur construit le PDF localement et télécharge sous `{votre-marque}-{YYYY-MM}.pdf`.
+
+La génération se fait entièrement dans votre navigateur ; rien n'est téléversé vers nos serveurs durant l'étape d'export. Les données elles-mêmes sont lues depuis votre base de compte à l'étape de chargement de la page (pas l'étape PDF).
+
+## Quelles données alimentent chaque chiffre
+
+- **Part du modèle** : ratio des sondes LLM où votre marque a été mentionnée divisé par le total des sondes pour la période.
+- **Visites de trafic IA** : compte des visites entrantes avec une source UTM ou référent connu d'un moteur IA.
+- **Conversions** : sous-ensemble des visites de trafic IA marquées comme conversions (dépend de votre extrait d'appel de conversion sur le site).
+- **Citations vérifiées** : lignes dans le suivi des citations avec statut=vérifié pour la période.
+- **Photos publiées** : lignes dans le registre de téléversement de photos avec month_bucket = période du rapport.
+- **Questions répondues** : brouillons GBP Q&R qui ont posté sur Google durant la période.
+
+## Pourquoi PDF côté client
+
+Deux raisons :
+
+1. **Confidentialité des données** : Vos données de compte ne traversent jamais notre réseau quand le PDF est construit ; le navigateur fait le rendu. On traite les données source sur la requête de lecture, mais le formatage et la création binaire sont locaux.
+2. **Pas de dépendance d'infrastructure** : Le PDF côté serveur requiert Puppeteer ou un service tiers (PDFShift, DocRaptor, etc.) qui ajoute coût, latence, et une surface de risque fournisseur. Côté client est déterministe et gratuit par génération.
+
+## Questions fréquentes
+
+**Puis-je personnaliser l'ordre des sections ou cacher une section ?** Pas encore. Le gabarit est fixe pour cette première mise en service. Les présentations personnalisées sont dans la feuille de route s'il y a de la demande.
+
+**Puis-je exporter plusieurs mois d'un coup ?** Pas encore. Vous générez un mois à la fois. Un PDF "récap de fin d'année" est dans la feuille de route.
+
+**Le bouton téléchargement reste à "Construction du PDF..." plus de 30 secondes.** Probablement une URL de logo lente ou trop volumineuse. Vérifiez que l'URL du logo se charge dans un nouvel onglet en moins de 2 secondes. Remplacez par un fichier plus petit si nécessaire.
+
+**Puis-je voir le PDF avant de télécharger ?** Pas de panneau d'aperçu dans cette version (économise sur la taille du bundle). Téléchargez et ouvrez avec n'importe quel lecteur PDF.
+
+**Le PDF peut-il être envoyé automatiquement par courriel chaque mois ?** Pas encore. La livraison automatique est dans la feuille de route (joindrait le PDF à un courriel Resend envoyé depuis votre marque le premier de chaque mois). Pour l'instant, téléchargement manuel.
+
+**Où vivent mes anciens PDF ?** Ils ne vivent pas. On n'archive pas. Chaque téléchargement est construit à neuf à partir des données actuelles. Pour garder une copie, sauvegardez le fichier dans votre propre stockage après le téléchargement.`,
+      },
+    },
+  },
 ];
