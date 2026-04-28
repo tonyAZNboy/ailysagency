@@ -1,8 +1,8 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 night (Reviuzy Phase 4.5.1-4.5.10 all SHIPPED on branch `claude/determined-agnesi-e1a262`: em-dash scrub + Vitest + client_type + BrandProvider + JWT brand claim + Stripe/Resend per-brand helpers + tenant_history audit + tier-features centralization + operator checklist; 85 unit tests pass)
-**Branch:** `main` · **Tag pending:** `v0.3.0-arch-decided` · **Active commit:** `65145d9` (em-dash fix in help articles) , to be pushed: Footer Reviuzy "produit jumeau" card removal + STATE.md update
-**Reviuzy work branch:** `claude/determined-agnesi-e1a262` · **Active commit:** `a5016cd` (Phase 4.5.9+10 ops checklist) · 9 Phase 4.5 commits to merge into Reviuzy main
+**Last updated:** 2026-04-28 (Reviuzy Phases 4.5 + 5 + 6 + 7 + 8 + 9 + 10 all SHIPPED + MERGED to main as PR #2 + tagged v0.3.0-arch-decided; 181 unit tests pass; 30 atomic commits preserved in merge history)
+**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `5575d84` (lint debt documented)
+**Reviuzy main:** merge commit `251f136` (PR #2 closed 2026-04-28T06:22:23Z) · branch `claude/determined-agnesi-e1a262` retained for history
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
 **.com → .ca redirect:** ✅ live via `functions/_middleware.ts` (Pages middleware, 301 with path/query preserved)
