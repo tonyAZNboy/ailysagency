@@ -3493,4 +3493,242 @@ L'audit devient l'intrant de votre document de démarrage. Le doc de démarrage 
       },
     },
   },
+  {
+    slug: "ailys-managed-accounts",
+    title: "How AiLys-managed accounts work (vs self-serve Reviuzy)",
+    excerpt:
+      "AiLys-managed accounts are operated by your dedicated strategist. The reputation app is the same, but the agency layer (citations, audits, monthly briefings, custom integrations) is delivered as a service. Here is what changes for you.",
+    category: "getting-started",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 5,
+    body: `## Two flavors of the same product
+
+Reviuzy is the self-serve reputation app. You log in, click around, run your own contests, post photos, write your own replies. It costs a fraction of an agency retainer because you do the operating.
+
+AiLys-managed accounts use the exact same reputation app under the hood, but a senior strategist owns the operating side. You get a dedicated point of contact, monthly written briefings, and the higher-effort deliverables (citation submissions, NAP fixes, AI Visibility analysis, schema deployments) are done for you, not by you.
+
+You do not need to choose between the two. If you start self-serve and decide later you want the strategist layer, your account upgrades in place. All of your reviews, photos, contest history, and reports stay. We never archive or migrate; we just turn on the agency layer.
+
+## What stays the same
+
+- The Reviuzy app itself: NFC review collection, AI review generation, auto-replies, contest engine, photo upload pipeline, Q&A monitor.
+- Your data: every review, every photo, every customer-facing interaction lives in the same backend with the same retention.
+- Login URL: AiLys-managed accounts log in at **my.ailysagency.ca** instead of reviuzy.com. Your existing reviuzy.com session is migrated automatically when the account upgrades.
+
+## What changes for AiLys-managed accounts
+
+1. **Dedicated strategist**: One named senior contact, not a queue. Reachable on Slack or email between visits, retains context across every conversation, owns the quarterly executive briefing.
+2. **Monthly written briefing**: A short report covering AI Visibility score movement, new citations submitted, NAP corrections applied, GBP post and photo cadence delivered, anomalies flagged.
+3. **Different billing line**: You see "REVIUZY INC * AILYS" on your statement, not "REVIUZY INC * REVIUZY". Same legal entity (Reviuzy Inc., Quebec), different product line.
+4. **Different sender on emails**: Operational emails come from noreply@ailysagency.ca instead of noreply@reviuzy.com so the brand surface is consistent with your strategist relationship.
+5. **AiLys-flavored UI**: The app's color, logo, and navigation labels reflect the agency relationship. Functionally identical, visually distinct.
+
+## Why two surfaces
+
+Self-serve and managed are two different operating models. A solo restaurant owner running their own reputation does not want quarterly executive briefings or a 12-page monthly report. A regional brand with seven locations and a marketing director does not want to log in at 11pm to draft a Q&A reply. Same engine, different operating overhead.
+
+We made the surfaces look distinct so the people on each side never confuse what they are paying for. AiLys clients see "your strategist did X this month." Self-serve clients see "you can do X yourself, here is the button."
+
+## How upgrades happen
+
+When you sign an AiLys engagement, an internal handoff fires automatically:
+
+1. Your existing Reviuzy account (if any) is marked as **AiLys-managed** in our backend.
+2. Your tier is set to one of Starter ($300), Core ($600), Growth ($1,200), or Agency ($2,499) CAD per month.
+3. Your dedicated strategist is assigned and can act on your account from day one.
+4. Future logins land on **my.ailysagency.ca** with the AiLys-branded UI; reviuzy.com keeps working but redirects you to the right place.
+
+Every transition is logged in your account history. You can request a full export of that history at any time.
+
+## How downgrades happen
+
+If you choose to step down from AiLys to self-serve Reviuzy at the end of an engagement, the account flips back. Strategist access is removed. The UI returns to the Reviuzy brand. Your data and history stay intact, including the period when you were AiLys-managed. The transition is also logged in your account history.
+
+## Questions worth asking before you sign up
+
+- Do you want operational work taken off your plate, or do you want a tool you operate? AiLys is the first; Reviuzy direct is the second.
+- How many locations? Multi-location is meaningfully easier with the Agency tier ($2,499/mo) which unlocks the multi-location dashboard.
+- Do you need quarterly in-person briefings? That is Agency-only.
+- Are you bound by an existing agency contract? AiLys engagements are month-to-month with a 30-day satisfaction guarantee, so you can run AiLys in parallel with another agency for the first 30 days at no risk.
+
+If unsure, book a 30-minute call from the AiLys site. We will not pitch; we will tell you which surface fits.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionnent les comptes gérés par AiLys (vs Reviuzy libre-service)",
+        excerpt:
+          "Les comptes gérés par AiLys sont opérés par votre stratège attitré. L'app de réputation est la même, mais la couche agence (citations, audits, briefings mensuels, intégrations sur mesure) est livrée comme un service. Voici ce qui change pour vous.",
+        body: `## Deux versions du même produit
+
+Reviuzy est l'app de réputation libre-service. Vous vous connectez, naviguez, lancez vos propres concours, publiez vos photos, écrivez vos propres réponses. Ça coûte une fraction d'un mandat d'agence parce que vous faites l'opération.
+
+Les comptes gérés par AiLys utilisent exactement la même app de réputation en arrière-plan, mais un stratège senior s'occupe du côté opérationnel. Vous avez un point de contact attitré, des briefings écrits mensuels, et les livrables à plus fort effort (soumissions de citations, corrections NAP, analyse de visibilité IA, déploiements de schemas) sont faits pour vous, pas par vous.
+
+Vous n'avez pas besoin de choisir entre les deux. Si vous commencez en libre-service et décidez plus tard que vous voulez la couche stratège, votre compte se bonifie sur place. Vos avis, photos, historique de concours et rapports restent. On n'archive jamais et on ne migre jamais ; on active simplement la couche agence.
+
+## Ce qui reste pareil
+
+- L'app Reviuzy elle-même : collecte d'avis NFC, génération d'avis IA, réponses automatiques, moteur de concours, pipeline de téléversement de photos, surveillance Q&R.
+- Vos données : chaque avis, chaque photo, chaque interaction client vit dans le même backend avec la même rétention.
+- URL de connexion : les comptes gérés par AiLys se connectent à **my.ailysagency.ca** au lieu de reviuzy.com. Votre session existante reviuzy.com est migrée automatiquement quand le compte est bonifié.
+
+## Ce qui change pour les comptes gérés par AiLys
+
+1. **Stratège attitré** : Un contact senior nommé, pas une file d'attente. Joignable sur Slack ou courriel entre les rencontres, conserve le contexte d'un échange à l'autre, livre le briefing exécutif trimestriel.
+2. **Briefing écrit mensuel** : Un rapport court couvrant le mouvement du score de visibilité IA, les nouvelles citations soumises, les corrections NAP appliquées, la cadence de publications et photos GBP livrée, les anomalies signalées.
+3. **Ligne de facturation différente** : Vous voyez "REVIUZY INC * AILYS" sur votre relevé, pas "REVIUZY INC * REVIUZY". Même entité légale (Reviuzy Inc., Québec), gamme de produits différente.
+4. **Expéditeur différent sur les courriels** : Les courriels opérationnels arrivent de noreply@ailysagency.ca au lieu de noreply@reviuzy.com pour que la surface de marque soit cohérente avec votre relation stratège.
+5. **UI aux couleurs AiLys** : La couleur, le logo et les libellés de navigation de l'app reflètent la relation d'agence. Fonctionnellement identique, visuellement distinct.
+
+## Pourquoi deux surfaces
+
+Libre-service et géré sont deux modèles d'opération différents. Un propriétaire de restaurant solo qui gère sa propre réputation ne veut pas de briefings exécutifs trimestriels ni de rapport mensuel de 12 pages. Une marque régionale avec sept emplacements et un directeur marketing ne veut pas se connecter à 23 h pour rédiger une réponse Q&R. Même moteur, charge opérationnelle différente.
+
+On a rendu les surfaces visuellement distinctes pour que les gens de chaque côté ne confondent jamais ce qu'ils paient. Les clients AiLys voient "votre stratège a fait X ce mois-ci". Les clients libre-service voient "vous pouvez faire X vous-même, voici le bouton".
+
+## Comment se passent les bonifications
+
+Quand vous signez un engagement AiLys, un transfert interne se déclenche automatiquement :
+
+1. Votre compte Reviuzy existant (s'il y en a un) est marqué **géré par AiLys** dans notre backend.
+2. Votre palier est réglé à Starter (300 $), Core (600 $), Growth (1 200 $) ou Agency (2 499 $) CAD par mois.
+3. Votre stratège attitré est assigné et peut agir sur votre compte dès le jour 1.
+4. Les connexions futures arrivent à **my.ailysagency.ca** avec l'UI aux couleurs AiLys ; reviuzy.com continue de fonctionner mais vous redirige au bon endroit.
+
+Chaque transition est journalisée dans l'historique de votre compte. Vous pouvez demander un export complet de cet historique en tout temps.
+
+## Comment se passent les retours
+
+Si vous choisissez de redescendre d'AiLys vers Reviuzy libre-service à la fin d'un engagement, le compte bascule en arrière. L'accès du stratège est retiré. L'UI revient à la marque Reviuzy. Vos données et votre historique restent intacts, y compris la période où vous étiez géré par AiLys. La transition est aussi journalisée dans l'historique du compte.
+
+## Questions à se poser avant de souscrire
+
+- Voulez-vous que le travail opérationnel soit pris en charge, ou voulez-vous un outil que vous opérez ? AiLys est le premier ; Reviuzy direct est le second.
+- Combien d'emplacements ? Le multi-emplacements est sensiblement plus simple avec le palier Agency (2 499 $/mois) qui débloque le tableau de bord multi-emplacements.
+- Avez-vous besoin de briefings trimestriels en personne ? C'est exclusif au palier Agency.
+- Êtes-vous lié à un contrat d'agence existant ? Les engagements AiLys sont mois-en-mois avec une garantie satisfaction de 30 jours, vous pouvez donc faire rouler AiLys en parallèle avec une autre agence pendant les 30 premiers jours sans risque.
+
+Si vous hésitez, réservez un appel de 30 minutes depuis le site AiLys. On ne fera pas de pitch ; on vous dira quelle surface vous convient.`,
+      },
+    },
+  },
+  {
+    slug: "account-history-and-your-data",
+    title: "Account history and your data (audit trail, GDPR exports)",
+    excerpt:
+      "Every change to your account type, plan tier, or strategist assignment is journaled. You can request a full export of this history at any time. Here is how it works and what is stored.",
+    category: "account-billing",
+    updatedAt: "2026-04-27",
+    readingTimeMin: 4,
+    body: `## What we journal
+
+Whenever your account changes between **self-serve** and **AiLys-managed**, or your AiLys tier moves between Starter, Core, Growth and Agency, we record an entry. The entry contains:
+
+- The date and time of the change (UTC).
+- The previous state and the new state.
+- The administrator who triggered the change (if applicable).
+- A short reason string when one is provided (for example, "Stripe webhook: AiLys Core subscription created" or "Operator approved upsell").
+
+The journal is **append-only**. Entries are never modified or deleted; corrections create a new entry rather than editing an existing one. This is by design so the trail is reliable for compliance reviews and dispute resolution.
+
+## What we do NOT store in this journal
+
+- Your reviews, photos, GBP posts, Q&A drafts, or any client-facing content. Those have their own retention rules.
+- Your card or banking information. Stripe handles that on their side; we never store it.
+- Your password or session tokens. Those live in our authentication subsystem with separate retention.
+
+## Who can see your account history
+
+- **You** (any owner or admin on the account) can view the history at any time from your account settings, once that surface is rolled out to the app.
+- **Your dedicated strategist** (only on AiLys-managed accounts) sees the history of your account, not other accounts.
+- **Reviuzy Inc. compliance staff** sees all account histories during routine compliance reviews, audit responses, and dispute resolution.
+- **Nobody else.** The history is row-level-secured at the database layer; cross-tenant reads are not possible from the application.
+
+## Requesting a full export (GDPR / Quebec Law 25)
+
+Under GDPR (EU), Quebec's Law 25, and equivalent provincial legislation in Canada, you have the right to request a complete machine-readable export of every record we hold about your account, including the account history journal.
+
+To request an export:
+
+1. Email **privacy@ailysagency.ca** with your account name and the email on file.
+2. We confirm your identity (we ask one verification question or send a confirmation link to your account email).
+3. Within 30 calendar days (typically under 7), you receive a JSON archive that includes the account history, your reviews, photos, contests, NAP snapshots, AI Visibility runs, and a metadata file describing the structure.
+4. The archive is downloadable through a one-time signed link. We do not email the data directly.
+
+There is no fee for this export. We do not require you to be a current customer; former customers retain the right to export their own data for as long as we hold it.
+
+## Retention
+
+- **Active customers**: history is retained for the lifetime of the account.
+- **Cancelled customers**: history is retained for 7 years after cancellation, the standard retention window for tax and audit obligations in Canada and Quebec.
+- **After 7 years**: history is hard-deleted on a quarterly cleanup cycle. You can request earlier deletion ("right to erasure") in writing; we comply unless an active legal hold applies.
+
+## Why this matters
+
+Account history is how disputes get resolved fairly. If you say "we never agreed to be on Growth tier," we can show you the exact timestamp and the trigger that put you there. If we made a mistake, we can roll it back and credit the difference. If a Stripe webhook misfired and double-charged you, we can identify the duplicate event and refund. Without a journal, both sides are guessing.
+
+## What you do not need to worry about
+
+You do not need to enable anything. The journal is on by default for every account, AiLys-managed or self-serve, on every tier including Starter. There is no opt-in, no setting to flip, no extra cost. It is part of how the system is built.
+
+If you have questions about a specific entry in your history, contact your strategist (AiLys-managed) or hello@reviuzy.com (self-serve). We can explain any line in plain language.`,
+    i18n: {
+      fr: {
+        title: "Historique de compte et vos données (piste d'audit, exports Loi 25)",
+        excerpt:
+          "Chaque changement à votre type de compte, palier ou assignation de stratège est journalisé. Vous pouvez demander un export complet de cet historique en tout temps. Voici comment ça fonctionne et ce qui est stocké.",
+        body: `## Ce qu'on journalise
+
+À chaque fois que votre compte change entre **libre-service** et **géré par AiLys**, ou que votre palier AiLys bouge entre Starter, Core, Growth et Agency, on enregistre une entrée. L'entrée contient :
+
+- La date et l'heure du changement (UTC).
+- L'état précédent et le nouvel état.
+- L'administrateur qui a déclenché le changement (le cas échéant).
+- Une courte chaîne de raison quand elle est fournie (par exemple, "Webhook Stripe : abonnement AiLys Core créé" ou "Opérateur a approuvé la bonification").
+
+Le journal est **en ajout seulement**. Les entrées ne sont jamais modifiées ni supprimées ; les corrections créent une nouvelle entrée plutôt que d'éditer une entrée existante. C'est conçu ainsi pour que la piste soit fiable lors des revues de conformité et des résolutions de litige.
+
+## Ce qu'on ne stocke PAS dans ce journal
+
+- Vos avis, photos, publications GBP, brouillons de Q&R, ou tout contenu côté client. Ceux-ci ont leurs propres règles de rétention.
+- Vos informations de carte ou bancaires. Stripe gère ça de son côté ; on ne stocke jamais ces données.
+- Votre mot de passe ou jetons de session. Ceux-ci vivent dans notre sous-système d'authentification avec une rétention séparée.
+
+## Qui peut voir votre historique de compte
+
+- **Vous** (tout propriétaire ou admin du compte) pouvez voir l'historique en tout temps depuis les paramètres de votre compte, une fois cette surface déployée dans l'app.
+- **Votre stratège attitré** (uniquement sur les comptes gérés par AiLys) voit l'historique de votre compte, pas celui d'autres comptes.
+- **Le personnel de conformité de Reviuzy Inc.** voit tous les historiques de compte lors des revues de conformité routinières, des réponses aux audits et des résolutions de litige.
+- **Personne d'autre.** L'historique est sécurisé au niveau ligne dans la base de données ; les lectures inter-tenants ne sont pas possibles depuis l'application.
+
+## Demander un export complet (Loi 25 du Québec / RGPD)
+
+En vertu de la Loi 25 du Québec, du RGPD (UE), et de la législation provinciale équivalente au Canada, vous avez le droit de demander un export complet, lisible par machine, de chaque enregistrement qu'on garde sur votre compte, incluant le journal d'historique du compte.
+
+Pour demander un export :
+
+1. Envoyez un courriel à **privacy@ailysagency.ca** avec le nom de votre compte et le courriel au dossier.
+2. On confirme votre identité (on pose une question de vérification ou on envoie un lien de confirmation à votre courriel de compte).
+3. Dans les 30 jours calendrier (typiquement sous 7), vous recevez une archive JSON qui inclut l'historique du compte, vos avis, photos, concours, instantanés NAP, sondes de visibilité IA, et un fichier de métadonnées décrivant la structure.
+4. L'archive est téléchargeable via un lien signé à usage unique. On n'envoie jamais les données directement par courriel.
+
+Aucuns frais pour cet export. On n'exige pas que vous soyez un client actuel ; les anciens clients conservent le droit d'exporter leurs propres données aussi longtemps qu'on les détient.
+
+## Rétention
+
+- **Clients actifs** : l'historique est retenu pendant la durée de vie du compte.
+- **Clients annulés** : l'historique est retenu pendant 7 ans après l'annulation, la fenêtre de rétention standard pour les obligations fiscales et d'audit au Canada et au Québec.
+- **Après 7 ans** : l'historique est supprimé définitivement lors d'un cycle de nettoyage trimestriel. Vous pouvez demander une suppression plus précoce ("droit à l'effacement") par écrit ; on s'y conforme sauf si une mise en demeure légale active s'applique.
+
+## Pourquoi ça compte
+
+L'historique de compte est la façon dont les litiges se règlent équitablement. Si vous dites "on n'a jamais accepté d'être au palier Growth", on peut vous montrer le timestamp exact et le déclencheur qui vous y a placé. Si on a fait une erreur, on peut faire marche arrière et créditer la différence. Si un webhook Stripe a dérapé et vous a chargé deux fois, on peut identifier l'événement en double et rembourser. Sans journal, les deux côtés devinent.
+
+## Ce dont vous n'avez pas à vous soucier
+
+Vous n'avez rien à activer. Le journal est actif par défaut pour chaque compte, géré par AiLys ou libre-service, sur chaque palier incluant Starter. Aucun opt-in, aucun réglage à activer, aucun frais supplémentaire. Ça fait partie de la conception du système.
+
+Si vous avez des questions sur une entrée spécifique de votre historique, contactez votre stratège (géré par AiLys) ou hello@reviuzy.com (libre-service). On peut expliquer n'importe quelle ligne en langage clair.`,
+      },
+    },
+  },
 ];
