@@ -61,20 +61,73 @@ tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.
 
 **Test totals after Phase 5:** 116 unit tests pass.
 
-**Operator action items** (from `docs/phase-4-5-ops.md` in Reviuzy repo):
-1. Apply 3 new migrations (20260427130000, 140000, 150000) via Supabase SQL Editor
+## ✅ PHASE 6 SHIPPED 2026-04-28 (photo flow complete)
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 6.A | 20dc327 | photoQuota lib (monthly ceiling per tier, multi-domain Agency scaling, NO_MONTHLY_LIMIT for self-serve) + 18 tests |
+| 6.B | 5630248 | gbp_photo_uploads ledger + gbp_photo_drafts QA queue migration + RLS |
+| 6.C | b71953e | photoCaption shared helper (Claude Haiku 4.5 vision, returns 10-25 word caption + 100-char alt-text) |
+| 6.D | 613c53b | google-upload-photo edge fn enforces monthly quota + AiLys QA enqueue path |
+| 6.E | 2b9a265 | /gbp/photos/queue page (strategist Approve/Reject) + usePhotoDrafts hook |
+| 6.F | e948e50 (ailysagency) | Help doc how-photo-uploads-work (EN+FR-CA) |
+
+## ✅ PHASE 7 SHIPPED 2026-04-28 (Reddit signal monitoring, passive only)
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 7.A | 2e999ef | redditMentions lib (recency buckets, summary, needsReplyAttention) + 11 tests |
+| 7.B | bed5953 | reddit_subreddit_targets + reddit_mentions tables + RLS |
+| 7.C | 7cb215a | reddit-poll edge fn (OAuth client_credentials, /r/<sub>/search.json, sentiment classification via Claude Haiku) |
+| 7.D | d637f4d | /reddit-monitor admin page + useRedditMonitor hook (targets CRUD, poll trigger, attention surface) |
+| 7.E | 3ce91df (ailysagency) | Help doc reddit-signal-monitoring with hard scope: passive monitoring only, no posting on client behalf |
+
+## ✅ PHASE 8 SHIPPED 2026-04-28 (white-label PDF reports)
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 8.A | d8389b9 | tenants.logo_url + brand_name + report_custom_domain + report_brand_color (hex CHECK) + executive-reports storage bucket with tenant-folder RLS |
+| 8.B+8.C | b91dff3 | @react-pdf/renderer added; reportBranding lib (resolveReportBranding fallbacks: brand_name->name, footer->reviuzy.com or ailysagency.ca, color->neutral gray) + 7 tests; ExecutiveReportPDF Document component (header+4 cards+4 sections+page-number footer) |
+| 8.D | 7e775c2 | /executive-report viewer page (lazy-loaded keeping main bundle at 894kB gzip; PDF chunk 493kB on demand) with PDFDownloadLink for one-click branded download |
+| 8.E | 9bccc7b (ailysagency) | Help doc white-label-executive-pdf-reports (Agency-only, why client-side PDF, six fixed sections explained) |
+
+## ✅ PHASE 9 SHIPPED 2026-04-28 (public API for Agency clients)
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 9.A | 361b289 | apiKey lib (generateApiKey rvz_+48 url-safe chars, isValidApiKeyFormat, apiKeyPrefix, maskApiKey) + 14 tests |
+| 9.B | 402a2b6 | api_keys (hash-only, partial-active prefix index) + api_request_log (audit + sliding-window source) + RLS |
+| 9.C | 25deb24 | public-api edge fn: 3 read endpoints (visibility/share-of-model, traffic/summary, citations/status), Bearer auth, SHA-256 hash compare, 1000 req/hour sliding-window rate limit, scope check, audit log every outcome (200/400/401/403/404/429), IP hashed |
+| 9.D | 0f679cf | /api-keys admin page + useApiKeys hook (Generate dialog reveals raw key once, Revoke permanent, last 50 invocations table with status badges) |
+| 9.E | b7719c9 (ailysagency) | Help doc api-access-for-agency-tier with full endpoint examples + scope/rate-limit/revocation reference |
+
+**Test totals after Phase 9:** 165 unit tests pass, 17 it.todo specs.
+
+**Operator action items** (cumulative across Phases 4.5 + 5 + 6 + 7 + 8 + 9):
+1. Apply 3 migrations (20260427130000, 140000, 150000) via Supabase SQL Editor
    ✅ DONE 2026-04-27 night
 2. Deploy `provision-ailys-tenant` edge function
    ✅ DONE 2026-04-27 night
-3. Enable Custom Access Token hook in Supabase Auth -> Hooks (otherwise brand claim is inert)
+3. Enable Custom Access Token hook in Supabase Auth -> Hooks
    ✅ DONE 2026-04-27 night
-4. Apply migration 20260428000000_create_tenant_domains.sql via SQL Editor (NEW, Phase 5.B)
-5. Redeploy admin-pricing edge function to pick up get_tenant_history action (NEW, follow-up)
-   `npx supabase functions deploy admin-pricing --project-ref qucxhksrpqunlyjjvuae`
-6. Wire `my.ailysagency.ca` as Cloudflare Pages custom domain on the Reviuzy project
+4. Apply 5 NEW migrations via SQL Editor (Phases 5-9):
+   - 20260428000000_create_tenant_domains.sql (Phase 5.B)
+   - 20260428100000_create_gbp_photo_pipeline.sql (Phase 6.B)
+   - 20260428110000_create_reddit_mentions.sql (Phase 7.B)
+   - 20260428120000_add_tenant_branding.sql (Phase 8.A)
+   - 20260428130000_create_api_keys.sql (Phase 9.B)
+5. Redeploy 3 edge functions:
+   - `npx supabase functions deploy admin-pricing --project-ref qucxhksrpqunlyjjvuae` (Phase 4.5 follow-up + Phase 5)
+   - `npx supabase functions deploy google-upload-photo --project-ref qucxhksrpqunlyjjvuae` (Phase 6.D)
+   - `npx supabase functions deploy reddit-poll --project-ref qucxhksrpqunlyjjvuae` (Phase 7.C, NEW)
+   - `npx supabase functions deploy public-api --project-ref qucxhksrpqunlyjjvuae` (Phase 9.C, NEW)
+6. Set Reddit OAuth secrets in Supabase function secrets (Phase 7):
+   REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USER_AGENT (e.g., "reviuzy-reddit-poll/1.0")
+   App created at reddit.com/prefs/apps, type "script", redirect uri http://localhost
+7. Wire `my.ailysagency.ca` as Cloudflare Pages custom domain on the Reviuzy project
    (NOTE: Reviuzy is on Workers static-assets; either migrate to Pages or use a
    Worker route, recommendation in ops doc)
-7. Resend domain auth for both `reviuzy.com` and `ailysagency.ca`
+8. Resend domain auth for both `reviuzy.com` and `ailysagency.ca`
 
 ---
 
