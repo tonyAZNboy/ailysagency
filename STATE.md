@@ -1,13 +1,13 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Reviuzy lint debt eliminated 420->0; Phase 11.A-D shipped on same branch; 235 unit tests pass; PR #3 open)
-**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `ca97e14`
-**Reviuzy active branch:** `claude/heuristic-saha-53f443` (HEAD: ce940ab), 11 atomic commits ahead of main, all pushed, PR #3 open
-- Lint cleanup: 7 commits (e2bb182 -> afe6bf3 + 6f3e332)
-- Phase 11.A schema libs: 663e5b0 (54 unit tests)
+**Last updated:** 2026-04-28 (Reviuzy lint debt eliminated 420->0; Phase 11.A-D shipped; PR #3 MERGED to main as `bba7f05`; 235 unit tests pass)
+**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `a6d12c7`
+**Reviuzy main:** merge commit `bba7f05` (PR #3 merged 2026-04-28T12:05:01Z) bundling 11 atomic commits:
+- Lint cleanup: 7 commits (e2bb182 -> afe6bf3 + 6f3e332) - 420 errors -> 0
+- Phase 11.A schema libs: 663e5b0 (54 unit tests, TDD)
 - Phase 11.B+C migration + schema-audit edge fn: de20d80
 - Phase 11.D useSchemaAudits hook + /schema admin page: 21d8062
-- Phase 11 simplify (3-agent review fixes): ce940ab
+- Phase 11 simplify (3-agent review, 8 HIGH+MEDIUM fixes): ce940ab
 **Reviuzy main:** merge commit `251f136` (PR #2 closed 2026-04-28T06:22:23Z) · branch `claude/determined-agnesi-e1a262` retained for history
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
