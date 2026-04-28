@@ -103,6 +103,53 @@ tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.
 
 **Test totals after Phase 9:** 165 unit tests pass, 17 it.todo specs.
 
+## ✅ PHASE 10 SHIPPED 2026-04-28 (crisis early warning)
+
+| Sub-phase | Commit  | Deliverable |
+|-----------|---------|-------------|
+| 10.A | 6097638 | anomalyDetection lib (4 threshold rules: negative_sentiment_spike, visibility_drop, citation_churn, review_bomb) + 16 tests |
+| 10.B | 6097638 | alerts table + UNIQUE (tenant_id, kind, fingerprint) dedup + RLS (members read, owner/admin/strategist UPDATE-dismiss only) |
+| 10.C | 6097638 | detect-anomalies edge fn (pulls 24h/7d/30d windows from reddit_mentions/ai_visibility_runs/citation_submissions/reviews; upserts alerts; sends Resend email on critical with brand-aware From) |
+| 10.D | 6097638 | /alerts AlertsCenter page (Run detection button, summary cards, open/dismissed lists, dismiss-with-reason dialog) |
+| 10.E | d4105ad (ailysagency) | Help doc crisis-early-warning-alerts (EN+FR-CA) |
+
+**Test totals after Phase 10:** 181 unit tests pass.
+
+## Final operator action queue (cumulative Phases 4.5 + 5 + 6 + 7 + 8 + 9 + 10)
+
+Already done:
+1. ✅ 3 migrations 20260427130000-150000 (Phase 4.5)
+2. ✅ provision-ailys-tenant deployed (Phase 4.5)
+3. ✅ Custom Access Token hook enabled (Phase 4.5)
+
+Pending (apply via Supabase SQL Editor):
+4. 20260428000000_create_tenant_domains.sql (Phase 5.B)
+5. 20260428100000_create_gbp_photo_pipeline.sql (Phase 6.B)
+6. 20260428110000_create_reddit_mentions.sql (Phase 7.B)
+7. 20260428120000_add_tenant_branding.sql (Phase 8.A) + executive-reports storage bucket
+8. 20260428130000_create_api_keys.sql (Phase 9.B)
+9. 20260428140000_create_alerts.sql (Phase 10.B)
+
+Pending (deploy via Supabase CLI from worktree):
+```
+npx supabase functions deploy admin-pricing --project-ref qucxhksrpqunlyjjvuae
+npx supabase functions deploy google-upload-photo --project-ref qucxhksrpqunlyjjvuae
+npx supabase functions deploy reddit-poll --project-ref qucxhksrpqunlyjjvuae
+npx supabase functions deploy public-api --project-ref qucxhksrpqunlyjjvuae
+npx supabase functions deploy detect-anomalies --project-ref qucxhksrpqunlyjjvuae
+```
+
+Pending (env vars in Supabase function secrets):
+- REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USER_AGENT (Phase 7)
+- ANTHROPIC_API_KEY already required by ai-visibility-run / gbp-draft-reply / photoCaption / reddit-poll
+- RESEND_API_KEY required by detect-anomalies critical email path
+
+Pending (Cloudflare + Resend):
+- my.ailysagency.ca custom domain on Reviuzy project (deferred since
+  Reviuzy is on Workers static-assets; either migrate to Pages or use
+  a Worker route)
+- Resend domain auth (SPF/DKIM/DMARC) for both reviuzy.com + ailysagency.ca
+
 **Operator action items** (cumulative across Phases 4.5 + 5 + 6 + 7 + 8 + 9):
 1. Apply 3 migrations (20260427130000, 140000, 150000) via Supabase SQL Editor
    ✅ DONE 2026-04-27 night
