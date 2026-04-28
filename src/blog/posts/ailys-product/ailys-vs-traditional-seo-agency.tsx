@@ -32,12 +32,12 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does AiLys compare to a traditional SEO agency in Quebec?',
       answer:
-        'AiLys ships AI Visibility, GBP, and citation work for Quebec local owners on a 300 to 2,499 dollar CAD monthly tier with bilingual EN and FR-CA copy in-house. Traditional agencies like Sterling Sky, BrightLocal, or LocalIQ typically start at 5,000 dollars a month, work English-first, and take two to three weeks for a discovery audit. AiLys runs the audit in 24 hours and ships first deliverables inside the first week.',
+        'AiLys ships AI Visibility, GBP, and citation work for Quebec local owners on a 300 to 2,500 dollar CAD monthly tier with bilingual EN and FR-CA copy in-house. Traditional agencies like Sterling Sky, BrightLocal, or LocalIQ typically start at 5,000 dollars a month, work English-first, and take two to three weeks for a discovery audit. AiLys runs the audit in 24 hours and ships first deliverables inside the first week.',
     },
     {
       question: 'Is AiLys cheaper than Sterling Sky or BrightLocal?',
       answer:
-        'Across the four AiLys tiers (Starter at 300 dollars, Core at 799 dollars, Growth at 1,499 dollars, Agency at 2,499 dollars), the entry point is significantly lower than Sterling Sky retainers and below most BrightLocal managed packages. The trade-off is scope: AiLys is built for the local-business AI Visibility lane, not enterprise content marketing or international link building.',
+        'Across the four AiLys tiers (Starter at 300 dollars, Core at 799 dollars, Growth at 1,499 dollars, Agency at 2,500 dollars), the entry point is significantly lower than Sterling Sky retainers and below most BrightLocal managed packages. The trade-off is scope: AiLys is built for the local-business AI Visibility lane, not enterprise content marketing or international link building.',
     },
     {
       question: 'Does AiLys really do French and English in-house?',
@@ -77,7 +77,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: '24 hours', label: 'AiLys free audit turnaround' },
           { value: 'EN and FR-CA', label: 'Bilingual delivery in-house at AiLys' },
         ]}
@@ -100,13 +100,13 @@ export function Content() {
         <p>The reference comparison pages on this site break down each direct competitor with line-by-line scope and pricing. See <InternalLink to="/vs/sterling-sky" title="AiLys vs Sterling Sky" description="Local SEO retainer comparison" />, <InternalLink to="/vs/brightlocal" title="AiLys vs BrightLocal" description="Citation tools and managed packages comparison" />, and <InternalLink to="/vs/localiq" title="AiLys vs LocalIQ" description="Multi-channel agency comparison" />.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD." />
 
       <SectionDivider />
 
       <h2 id="pricing-tiers-side-by-side">Pricing tiers, side by side</h2>
       <p>
-        The most visible difference is the entry point. AiLys Starter starts at 300 dollars CAD a month. Core is 799 dollars, Growth is 1,499 dollars, Agency is 2,499 dollars. Each tier is a fixed scope with a published deliverable list, no hourly billing. The pricing page shows the full tier matrix and the upgrade path.
+        The most visible difference is the entry point. AiLys Starter starts at 300 dollars CAD a month. Core is 799 dollars, Growth is 1,499 dollars, Agency is 2,500 dollars. Each tier is a fixed scope with a published deliverable list, no hourly billing. The pricing page shows the full tier matrix and the upgrade path.
       </p>
       <p>
         Traditional agencies typically price on a retainer plus scope-of-work model. Sterling Sky retainers start at 5,000 dollars a month for local SEO work. BrightLocal managed packages run 4,000 to 8,000 dollars depending on citation volume. LocalIQ multi-channel packages typically start above 5,000 dollars when GBP and content marketing are bundled. None of these are bad numbers for the scope offered. They are just a different scope.
@@ -117,7 +117,7 @@ export function Content() {
         <li>Starter (300 dollars): GBP optimization, monthly AI Visibility report, NAP audit on the top five citations</li>
         <li>Core (799 dollars): everything in Starter plus weekly GBP posts, citation cleanup on twenty targets, FAQ schema build, doctor or business byline schema</li>
         <li>Growth (1,499 dollars): everything in Core plus original photography sessions, monthly content production, Reviuzy reputation automation, two AI Visibility audits a quarter</li>
-        <li>Agency (2,499 dollars): everything in Growth plus white label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
+        <li>Agency (2,500 dollars): everything in Growth plus white label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
       </ul>
 
       <QuickQuiz
@@ -210,7 +210,7 @@ export function Content() {
 
       <KeyTakeaway
         points={[
-          'AiLys monthly tiers run 300 to 2,499 dollars CAD. Traditional agencies typically start at 5,000 dollars a month.',
+          'AiLys monthly tiers run 300 to 2,500 dollars CAD. Traditional agencies typically start at 5,000 dollars a month.',
           'AiLys delivers the free audit in 24 hours. Traditional discovery takes 2 to 3 weeks before the first deliverable.',
           'AiLys ships every deliverable bilingually EN and FR-CA in-house. Most traditional agencies subcontract French.',
           'AiLys focuses on AI Visibility, GBP, citations, and reputation. Traditional agencies cover broader scope at higher tiers.',

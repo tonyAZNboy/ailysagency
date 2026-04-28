@@ -13,10 +13,10 @@ import { meta } from './ailys-pricing-tiers-explained-cad'
 
 export const metaFr: BlogPostMeta = {
   ...meta,
-  title: 'Forfaits AiLys expliqués, de 300 à 2 499 dollars CAD par mois',
+  title: 'Forfaits AiLys expliqués, de 300 à 2 500 dollars CAD par mois',
   metaDescription:
     "Décortiqué palier par palier des forfaits AiLys en dollars canadiens. Ce qui est inclus dans Starter, Core, Growth et Agency. Modules, garantie et comment choisir.",
-  tldr: "AiLys propose quatre forfaits mensuels en CAD. Starter à 300 $ livre le SEO technique, GBP, cohérence NAP, suivi hebdomadaire des citations LLM, 1 publication GBP et 4 photos. Core à 600 $ ajoute le schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP et 8 photos. Growth à 1 200 $ ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP, 12 photos, contenu bilingue hebdomadaire et surveillance concurrentielle. Agency à 2 499 $ ajoute un tableau de bord multi-emplacements, des PDF en marque blanche, un SLA Slack sous 4 heures, l'accès API et un stratège senior dédié.",
+  tldr: "AiLys propose quatre forfaits mensuels en CAD. Starter à 300 $ livre le SEO technique, GBP, cohérence NAP, suivi hebdomadaire des citations LLM, 1 publication GBP et 4 photos. Core à 600 $ ajoute le schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP et 8 photos. Growth à 1 200 $ ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP, 12 photos, contenu bilingue hebdomadaire et surveillance concurrentielle. Agency à 2 500 $ ajoute un tableau de bord multi-emplacements, des PDF en marque blanche, un SLA Slack sous 4 heures, l'accès API et un stratège senior dédié.",
   faqItems: [
     {
       question: "Qu'est-ce qui est inclus dans le forfait Starter à 300 $ d'AiLys?",
@@ -34,9 +34,9 @@ export const metaFr: BlogPostMeta = {
         "Growth à 1 200 $ CAD par mois ajoute le travail d'autorité d'entité GEO, la présence Wikipedia et Wikidata quand la marque y est éligible, huit publications GBP par mois à deux par semaine, douze photos GBP par mois, la production de contenu bilingue hebdomadaire et la surveillance concurrentielle sur les moteurs IA. Il convient à un opérateur qui veut faire composer ses signaux d'entité sur le web ouvert plutôt que d'optimiser uniquement ses propres pages.",
     },
     {
-      question: "Quand le palier Agency à 2 499 $ a-t-il du sens?",
+      question: "Quand le palier Agency à 2 500 $ a-t-il du sens?",
       answer:
-        "Agency à 2 499 $ CAD par mois a du sens pour les opérateurs multi-emplacements ou pour les partenaires qui ont besoin d'un tableau de bord multi-emplacements, de rapports PDF en marque blanche, d'un SLA Slack sous quatre heures, de l'accès API, d'intégrations sur mesure, de douze publications GBP par mois à trois par semaine, jusqu'à douze photos par mois par domaine et d'un stratège senior dédié. Le module d'automatisation Reviuzy est inclus sans coût supplémentaire.",
+        "Agency à 2 500 $ CAD par mois a du sens pour les opérateurs multi-emplacements ou pour les partenaires qui ont besoin d'un tableau de bord multi-emplacements, de rapports PDF en marque blanche, d'un SLA Slack sous quatre heures, de l'accès API, d'intégrations sur mesure, de douze publications GBP par mois à trois par semaine, jusqu'à douze photos par mois par domaine et d'un stratège senior dédié. Le module d'automatisation Reviuzy est inclus sans coût supplémentaire.",
     },
     {
       question: "Les forfaits AiLys sont-ils mensuels avec une garantie?",
@@ -54,7 +54,7 @@ export const metaFr: BlogPostMeta = {
     { id: 'starter-300-le-palier-fondation', text: 'Starter à 300 $, le palier fondation' },
     { id: 'core-600-le-palier-contenu-et-aeo', text: 'Core à 600 $, le palier contenu et AEO' },
     { id: 'growth-1200-le-palier-autorite-d-entite', text: "Growth à 1 200 $, le palier autorité d'entité" },
-    { id: 'agency-2499-le-palier-multi-emplacements', text: 'Agency à 2 499 $, le palier multi-emplacements' },
+    { id: 'agency-2500-le-palier-multi-emplacements', text: 'Agency à 2 500 $, le palier multi-emplacements' },
     { id: 'modules-et-comment-les-empiler', text: 'Modules et comment les empiler' },
     { id: 'mensuel-et-garantie-30-jours', text: 'Mensuel et garantie 30 jours' },
     { id: 'comment-choisir-un-palier', text: 'Comment choisir un palier' },
@@ -66,12 +66,12 @@ export function ContentFr() {
   return (
     <article>
       <p>
-        AiLys propose quatre forfaits mensuels en dollars canadiens. Starter à 300 $, Core à 600 $, Growth à 1 200 $ et Agency à 2 499 $. Chaque palier est une portée fixe avec une liste de livrables publiée, sans facturation à l'heure, et toute la pile est mensuelle avec une garantie de satisfaction de 30 jours. Cette page explique palier par palier ce qui est livré, quels modules s'ajoutent à quel forfait, et comment un opérateur à un seul emplacement choisit un palier de départ sans suracheter.
+        AiLys propose quatre forfaits mensuels en dollars canadiens. Starter à 300 $, Core à 600 $, Growth à 1 200 $ et Agency à 2 500 $. Chaque palier est une portée fixe avec une liste de livrables publiée, sans facturation à l'heure, et toute la pile est mensuelle avec une garantie de satisfaction de 30 jours. Cette page explique palier par palier ce qui est livré, quels modules s'ajoutent à quel forfait, et comment un opérateur à un seul emplacement choisit un palier de départ sans suracheter.
       </p>
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits AiLys mensuels en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits AiLys mensuels en CAD' },
           { value: '30 jours', label: 'Garantie de satisfaction sur chaque forfait' },
           { value: 'Mensuel', label: "Pas d'engagement annuel sur aucun palier" },
         ]}
@@ -91,7 +91,7 @@ export function ContentFr() {
         <p>La page de tarifs liste chaque livrable à chaque palier avec la même formulation que dans le contrat. Voyez la matrice à jour sur <InternalLink to="/fr/pricing" title="Matrice de tarifs AiLys" description="Comparaison de paliers en direct avec tous les livrables" /> et lancez l'<InternalLink to="/fr/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts avant de choisir un palier" /> si vous voulez une recommandation de palier ancrée dans votre vraie part de citations.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 $ CAD à Agency à 2 499 $ CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 $ CAD à Agency à 2 500 $ CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
@@ -147,7 +147,7 @@ export function ContentFr() {
           'Starter à 300 $ CAD',
           'Core à 600 $ CAD',
           'Growth à 1 200 $ CAD',
-          'Agency à 2 499 $ CAD',
+          'Agency à 2 500 $ CAD',
         ]}
         correctIndex={2}
         explanation="Growth à 1 200 $ CAD par mois est le premier palier qui livre l'autorité d'entité GEO, incluant Wikipedia et Wikidata quand la marque y est éligible. Starter et Core se concentrent sur GBP, citations et contenu, tandis que Agency ajoute l'infrastructure multi-emplacements par-dessus tout ce qui est dans Growth."
@@ -164,7 +164,7 @@ export function ContentFr() {
 
       <SectionDivider />
 
-      <h2 id="agency-2499-le-palier-multi-emplacements">Agency à 2 499 $, le palier multi-emplacements</h2>
+      <h2 id="agency-2500-le-palier-multi-emplacements">Agency à 2 500 $, le palier multi-emplacements</h2>
       <p>
         Agency est conçu pour les partenaires et pour les opérateurs qui gèrent plusieurs marques ou plusieurs emplacements. En plus de tout ce qui est dans Growth, Agency livre un tableau de bord multi-emplacements, des rapports PDF en marque blanche (pour qu'un partenaire puisse remettre un livrable à sa propre marque à son client), un SLA Slack sous quatre heures les jours ouvrables, l'accès API, des intégrations sur mesure, douze publications GBP par mois à trois par semaine, jusqu'à douze photos par mois par domaine, et un stratège senior dédié qui pilote le compte de bout en bout.
       </p>
@@ -212,7 +212,7 @@ export function ContentFr() {
 
       <h2 id="comment-choisir-un-palier">Comment choisir un palier</h2>
       <p>
-        Trois questions tranchent le palier. Premièrement, voulez-vous du contenu produit pour vous en EN et FR-CA chaque semaine? Si oui, Core à 600 $ est le plancher. Si non, Starter à 300 $ couvre la base GBP et le suivi de citations. Deuxièmement, la marque est-elle éligible à Wikipedia ou Wikidata, ou voulez-vous la surveillance concurrentielle sur les moteurs IA? Si oui, Growth à 1 200 $ est le bon palier. Troisièmement, opérez-vous trois domaines ou plus, ou livrez-vous du travail sous une marque partenaire? Si oui, Agency à 2 499 $ est l'ajustement de qualité opérateur.
+        Trois questions tranchent le palier. Premièrement, voulez-vous du contenu produit pour vous en EN et FR-CA chaque semaine? Si oui, Core à 600 $ est le plancher. Si non, Starter à 300 $ couvre la base GBP et le suivi de citations. Deuxièmement, la marque est-elle éligible à Wikipedia ou Wikidata, ou voulez-vous la surveillance concurrentielle sur les moteurs IA? Si oui, Growth à 1 200 $ est le bon palier. Troisièmement, opérez-vous trois domaines ou plus, ou livrez-vous du travail sous une marque partenaire? Si oui, Agency à 2 500 $ est l'ajustement de qualité opérateur.
       </p>
       <p>
         Pour la plupart des opérateurs à un seul emplacement au Québec, le bon palier de départ est Core à 600 $ avec l'option d'ajouter le trio Premium Ops quand le budget le permet. Growth devient le bon palier une fois que la marque a un point d'ancrage Wikipedia ou Wikidata à défendre, ou une fois que deux concurrents du pack local citent aussi du contenu hebdomadaire. Lancez d'abord l'<InternalLink to="/fr/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de choisir un palier" /> puis lisez la <InternalLink to="/fr/pricing" title="Matrice de tarifs" description="Liste de livrables palier par palier" /> avec vos propres écarts devant vous.
@@ -228,7 +228,7 @@ export function ContentFr() {
           "Starter à 300 $ CAD livre le SEO technique, GBP, NAP, suivi hebdomadaire des citations LLM, 1 publication GBP et 4 photos par mois.",
           "Core à 600 $ CAD ajoute le schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP et 8 photos par mois.",
           "Growth à 1 200 $ CAD ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP et 12 photos, contenu hebdomadaire, surveillance concurrentielle.",
-          "Agency à 2 499 $ CAD ajoute le tableau de bord multi-emplacements, PDF en marque blanche, SLA Slack sous 4 heures, accès API, stratège senior dédié, et inclut Reviuzy.",
+          "Agency à 2 500 $ CAD ajoute le tableau de bord multi-emplacements, PDF en marque blanche, SLA Slack sous 4 heures, accès API, stratège senior dédié, et inclut Reviuzy.",
           "Chaque forfait est mensuel avec une garantie de satisfaction de 30 jours. Les modules s'empilent indépendamment sur n'importe quel palier.",
         ]}
       />

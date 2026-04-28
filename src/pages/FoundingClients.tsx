@@ -54,7 +54,7 @@ const TIERS = [
   { id: "starter", regular: 300, founding: 150 },
   { id: "core", regular: 600, founding: 300 },
   { id: "growth", regular: 1200, founding: 600 },
-  { id: "agency", regular: 2499, founding: 1250 },
+  { id: "agency", regular: 2500, founding: 1250 },
 ] as const;
 
 const VERTICALS = [
@@ -129,7 +129,7 @@ const COPY = {
       other: "Other",
     },
     fieldTier: "Plan you are considering",
-    tierOptions: { starter: "Starter ($300/mo)", core: "Core ($600/mo)", growth: "Growth ($1,200/mo)", agency: "Agency ($2,499/mo)", undecided: "Undecided, want to discuss" },
+    tierOptions: { starter: "Starter ($300/mo)", core: "Core ($600/mo)", growth: "Growth ($1,200/mo)", agency: "Agency ($2,500/mo)", undecided: "Undecided, want to discuss" },
     fieldCurrentSeo: "What SEO or marketing have you done so far?",
     fieldCurrentSeoPlaceholder: "Worked with another agency, DIY, just GBP, nothing yet, etc.",
     fieldMotivation: "Why this program, why now?",
@@ -216,7 +216,7 @@ const COPY = {
       other: "Autre",
     },
     fieldTier: "Forfait considéré",
-    tierOptions: { starter: "Starter (300 $/mois)", core: "Core (600 $/mois)", growth: "Growth (1 200 $/mois)", agency: "Agency (2 499 $/mois)", undecided: "Indécis, veux discuter" },
+    tierOptions: { starter: "Starter (300 $/mois)", core: "Core (600 $/mois)", growth: "Growth (1 200 $/mois)", agency: "Agency (2 500 $/mois)", undecided: "Indécis, veux discuter" },
     fieldCurrentSeo: "Quel SEO ou marketing avez-vous fait jusqu'ici?",
     fieldCurrentSeoPlaceholder: "Travaillé avec une autre agence, en autonomie, juste GBP, rien encore, etc.",
     fieldMotivation: "Pourquoi ce programme, pourquoi maintenant?",
@@ -303,7 +303,7 @@ const COPY = {
       other: "Khác",
     },
     fieldTier: "Gói đang cân nhắc",
-    tierOptions: { starter: "Starter (300 USD/tháng)", core: "Core (600 USD/tháng)", growth: "Growth (1 200 USD/tháng)", agency: "Agency (2 499 USD/tháng)", undecided: "Chưa quyết, muốn trao đổi" },
+    tierOptions: { starter: "Starter (300 USD/tháng)", core: "Core (600 USD/tháng)", growth: "Growth (1 200 USD/tháng)", agency: "Agency (2 500 USD/tháng)", undecided: "Chưa quyết, muốn trao đổi" },
     fieldCurrentSeo: "Bạn đã làm SEO hoặc marketing nào cho đến nay?",
     fieldCurrentSeoPlaceholder: "Đã làm với đại lý khác, tự làm, chỉ GBP, chưa làm gì, v.v.",
     fieldMotivation: "Tại sao chương trình này, tại sao bây giờ?",

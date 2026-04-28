@@ -21,7 +21,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte le module Reviuzy d'AiLys et qu'est-ce qu'il inclut?",
       answer:
-        "Le module Reviuzy coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 499 dollars par mois. La portée couvre les cartes NFC de collecte d'avis, la génération IA d'avis et de réponses, un moteur de concours avec tirage vidéo, un générateur de termes légaux selon la juridiction, la détection de faux avis et l'ensemble d'automatisation GBP qui comprend la mise en ligne de photos, le suivi des questions-réponses et la gestion des attributs.",
+        "Le module Reviuzy coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 500 dollars par mois. La portée couvre les cartes NFC de collecte d'avis, la génération IA d'avis et de réponses, un moteur de concours avec tirage vidéo, un générateur de termes légaux selon la juridiction, la détection de faux avis et l'ensemble d'automatisation GBP qui comprend la mise en ligne de photos, le suivi des questions-réponses et la gestion des attributs.",
     },
     {
       question: "Est-ce qu'AiLys opère le concours Reviuzy à la place du client?",
@@ -67,7 +67,7 @@ export function ContentFr() {
       <StatHighlight
         stats={[
           { value: '100 $ CAD', label: 'Prix mensuel du module Reviuzy' },
-          { value: 'Inclus', label: 'Dans le forfait Agency à 2 499 dollars' },
+          { value: 'Inclus', label: 'Dans le forfait Agency à 2 500 dollars' },
           { value: '8 modules', label: 'NFC, réponses IA, concours, légal, faux avis, photos, questions-réponses, attributs' },
         ]}
       />
@@ -86,13 +86,13 @@ export function ContentFr() {
         <p>Le module Reviuzy n'est pas le même produit que l'app Reviuzy autonome sur l'App Store et Google Play. L'app autonome est une version gratuite avec collecte d'avis manuelle seulement. Le module Reviuzy à 100 dollars par mois débloque le pipeline d'automatisation complet et l'intégration GBP. Voir <InternalLink to="/blog/reviuzy-review-automation-guide" title="Guide d'automatisation des avis Reviuzy" description="Le guide long sur l'app autonome et le module" /> pour la différence ligne par ligne.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez où s'insère le module Reviuzy dans les quatre forfaits AiLys, de Starter à 300 dollars à Agency à 2 499 dollars." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez où s'insère le module Reviuzy dans les quatre forfaits AiLys, de Starter à 300 dollars à Agency à 2 500 dollars." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
       <h2 id="tarifs-et-inclusion-agency">Tarifs et inclusion dans Agency</h2>
       <p>
-        Le module Reviuzy coûte 100 dollars CAD par mois forfaitaires. Il se greffe sur Starter (300 dollars), Core (799 dollars) ou Growth (1 499 dollars), portant ces forfaits à 400, 899 ou 1 599 dollars par mois respectivement. Au forfait Agency (2 499 dollars), Reviuzy est inclus, donc l'opérateur ne paie rien de plus. Cette décision reflète le positionnement du forfait Agency : c'est le palier multi-emplacements et marque blanche où le travail de réputation est l'attente par défaut, pas un ajout.
+        Le module Reviuzy coûte 100 dollars CAD par mois forfaitaires. Il se greffe sur Starter (300 dollars), Core (799 dollars) ou Growth (1 499 dollars), portant ces forfaits à 400, 899 ou 1 599 dollars par mois respectivement. Au forfait Agency (2 500 dollars), Reviuzy est inclus, donc l'opérateur ne paie rien de plus. Cette décision reflète le positionnement du forfait Agency : c'est le palier multi-emplacements et marque blanche où le travail de réputation est l'attente par défaut, pas un ajout.
       </p>
       <p>
         La facturation annuelle applique un léger rabais, et ajouter Reviuzy à l'inscription est le chemin le plus propre parce que les cartes NFC partent dans la trousse de bienvenue. L'ajouter plus tard veut dire un envoi de cartes séparé, ce qui retarde les premiers taps au comptoir d'une semaine. Le côté tableau de bord s'active la même journée que le module est activé, donc la file de réponses IA et l'automatisation GBP démarrent immédiatement même si les cartes sont encore en route.
@@ -103,7 +103,7 @@ export function ContentFr() {
         <li>Starter avec Reviuzy à 400 dollars : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales, plus la suite Reviuzy complète</li>
         <li>Core avec Reviuzy à 899 dollars : publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, plus Reviuzy</li>
         <li>Growth avec Reviuzy à 1 599 dollars : photographie originale, production de contenu mensuelle, deux audits AI Visibility par trimestre, plus Reviuzy</li>
-        <li>Agency à 2 499 dollars : Reviuzy est inclus, multi-emplacements et marque blanche compris, stratège dédié, rapports hebdomadaires</li>
+        <li>Agency à 2 500 dollars : Reviuzy est inclus, multi-emplacements et marque blanche compris, stratège dédié, rapports hebdomadaires</li>
       </ul>
 
       <SectionDivider />
@@ -139,7 +139,7 @@ export function ContentFr() {
           'Starter à 300 dollars CAD par mois',
           'Core à 799 dollars CAD par mois',
           'Growth à 1 499 dollars CAD par mois',
-          'Agency à 2 499 dollars CAD par mois',
+          'Agency à 2 500 dollars CAD par mois',
         ]}
         correctIndex={3}
         explanation="Reviuzy est inclus dans le forfait Agency. À Starter, Core et Growth, le module coûte 100 dollars CAD par mois en plus du prix du forfait. À Agency, il est inclus par défaut parce que l'automatisation de réputation est la portée standard au palier multi-emplacements et marque blanche."
@@ -209,7 +209,7 @@ export function ContentFr() {
       <KeyTakeaway
         translatedLabel="À retenir"
         points={[
-          "Le module Reviuzy coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 499 dollars par mois.",
+          "Le module Reviuzy coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 500 dollars par mois.",
           "Les cartes NFC sur le comptoir battent les codes QR pour la collecte d'avis parce que le geste correspond au paiement sans contact.",
           'Le concours est opéré par le client. AiLys livre uniquement la configuration, les termes légaux et les guides.',
           "Les photos pour l'automatisation GBP viennent toujours du client via l'app Reviuzy, ce qui préserve les vraies données EXIF.",

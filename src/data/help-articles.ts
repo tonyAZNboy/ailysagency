@@ -77,7 +77,7 @@ export const helpArticles: HelpArticle[] = [
     readingTimeMin: 5,
     body: `## Why add-ons exist
 
-Most clients sit on Starter, Core, or Growth (between $300/mo and $1,200/mo). The Agency tier at $2,499/mo is built for brands with multiple locations, agencies who resell, and operators who need a turnkey premium stack. Most clients do not need that, but they do want one or two pieces of it. Add-ons let any tier layer the missing piece without paying the Agency price.
+Most clients sit on Starter, Core, or Growth (between $300/mo and $1,200/mo). The Agency tier at $2,500/mo is built for brands with multiple locations, agencies who resell, and operators who need a turnkey premium stack. Most clients do not need that, but they do want one or two pieces of it. Add-ons let any tier layer the missing piece without paying the Agency price.
 
 ## Add-on 1: Reviuzy reputation system, $100/mo
 
@@ -115,7 +115,7 @@ Three independent add-ons, available individually or as a discounted bundle.
 
 ## Bundled in Agency by default
 
-Agency tier ($2,499/mo) includes both add-ons at no extra cost:
+Agency tier ($2,500/mo) includes both add-ons at no extra cost:
 
 - Full Reviuzy reputation system bundled
 - Domain Shield, Domain Speed Boost, dedicated strategist all bundled
@@ -135,7 +135,7 @@ Every add-on is covered by the 30-day satisfaction guarantee that applies to all
           "Deux façons de bonifier n'importe quel forfait sans passer à Agency. Système de réputation à 100 $/mois, trio Premium Ops à 79 $/mois en bundle (ou 35 $ chacun). Tout inclus par défaut dans Agency.",
         body: `## Pourquoi les add-ons existent
 
-La plupart des clients sont sur Starter, Core ou Growth (entre 300 $/mois et 1 200 $/mois). Le palier Agency à 2 499 $/mois est conçu pour les marques multi-emplacements, les agences qui revendent, et les opérateurs qui veulent une stack premium clé en main. La plupart des clients n'en ont pas besoin, mais ils veulent une ou deux pièces. Les add-ons permettent à n'importe quel forfait d'ajouter la pièce manquante sans payer le prix Agency.
+La plupart des clients sont sur Starter, Core ou Growth (entre 300 $/mois et 1 200 $/mois). Le palier Agency à 2 500 $/mois est conçu pour les marques multi-emplacements, les agences qui revendent, et les opérateurs qui veulent une stack premium clé en main. La plupart des clients n'en ont pas besoin, mais ils veulent une ou deux pièces. Les add-ons permettent à n'importe quel forfait d'ajouter la pièce manquante sans payer le prix Agency.
 
 ## Add-on 1 : Système de réputation Reviuzy, 100 $/mois
 
@@ -173,7 +173,7 @@ Trois add-ons indépendants, disponibles à la pièce ou en bundle remisé.
 
 ## Inclus dans Agency par défaut
 
-Le palier Agency (2 499 $/mois) inclut les deux add-ons sans frais supplémentaires :
+Le palier Agency (2 500 $/mois) inclut les deux add-ons sans frais supplémentaires :
 
 - Système de réputation Reviuzy au complet inclus
 - Domain Shield, Domain Speed Boost, stratège attitré tous inclus
@@ -420,7 +420,7 @@ A "citation" is your business name, address, and phone number listed on a third-
 
 - **Core ($600 mo)**: 5 fresh citations per month, plus quarterly verification of existing ones
 - **Growth ($1,200 mo)**: 10+ fresh citations per month, plus monthly verification
-- **Agency ($2,499 mo)**: 10+ per month plus all the strategic placements (Wikidata entry, vertical-specific submissions)
+- **Agency ($2,500 mo)**: 10+ per month plus all the strategic placements (Wikidata entry, vertical-specific submissions)
 
 A "fresh citation" is a new directory we add you to. A "verification" is us going back to a known directory and confirming the listing is still live and the NAP is still correct.
 
@@ -2043,7 +2043,7 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
 - You need GEO entity authority work and weekly content
 - You want competitive monitoring
 
-**Agency, $2,499/mo** is right if:
+**Agency, $2,500/mo** is right if:
 - Everything Growth covers, plus you want zero ops
 - You want Reviuzy SaaS bundled in
 - You want a monthly review contest run for you
@@ -2111,7 +2111,7 @@ Choisissez Core. C'est le forfait le plus choisi pour une raison : il couvre 80 
 - Necesita trabajo de autoridad de entidad GEO y contenido semanal
 - Quiere monitoreo competitivo
 
-**Agency, $2,499/mes** le conviene si:
+**Agency, $2,500/mes** le conviene si:
 - Todo lo que cubre Growth, más cero operaciones de su lado
 - Quiere Reviuzy SaaS incluido
 - Quiere un concurso mensual de reseñas operado por nosotros
@@ -2145,7 +2145,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - 需要 GEO 实体权威工作与每周内容
 - 希望进行竞争对手监测
 
-**Agency,$2,499/月** 适合:
+**Agency,$2,500/月** 适合:
 - 涵盖 Growth 的全部,且您希望运营全部托管
 - 希望打包 Reviuzy SaaS
 - 希望由我们代为运行每月评论征集活动
@@ -2179,7 +2179,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - Нужна работа с авторитетом сущности под GEO и еженедельный контент
 - Хотите мониторинг конкурентов
 
-**Agency, $2,499/мес.** подойдёт, если:
+**Agency, $2,500/мес.** подойдёт, если:
 - Всё, что покрывает Growth, плюс вы хотите ноль операционки
 - Хотите Reviuzy SaaS в комплекте
 - Хотите ежемесячный конкурс отзывов, организованный за вас
@@ -2213,7 +2213,7 @@ Elija Core. Es el más elegido por una razón: cubre el 80 % de lo que necesita 
 - تحتاج إلى عمل سلطة الكيان لـ GEO ومحتوى أسبوعي
 - ترغب في مراقبة المنافسين
 
-**Agency بسعر $2,499 شهرياً** مناسبة إذا:
+**Agency بسعر $2,500 شهرياً** مناسبة إذا:
 - أردت كل ما تشمله Growth، إضافة إلى تشغيل بلا أي عمليات من جانبك
 - أردت Reviuzy SaaS ضمن الباقة
 - أردت إدارة مسابقة مراجعات شهرية بالنيابة عنك
@@ -2911,7 +2911,7 @@ Each tier comes with a built-in monthly upload quota in the Reviuzy app:
 - **Starter $300**: 1 photo per month
 - **Core $600**: 2 photos per month
 - **Growth $1,200**: 4 photos per month
-- **Agency $2,499**: 8 photos per month
+- **Agency $2,500**: 8 photos per month
 
 The counter resets the 1st of every month. Unused slots do not roll over.
 
@@ -2965,7 +2965,7 @@ Chaque plan inclut un quota mensuel de téléversements dans l'app Reviuzy :
 - **Starter 300 $** : 1 photo par mois
 - **Core 600 $** : 2 photos par mois
 - **Growth 1 200 $** : 4 photos par mois
-- **Agency 2 499 $** : 8 photos par mois
+- **Agency 2 500 $** : 8 photos par mois
 
 Le compteur recommence le 1er de chaque mois. Les slots inutilisés ne se reportent pas.
 
@@ -3534,7 +3534,7 @@ We made the surfaces look distinct so the people on each side never confuse what
 When you sign an AiLys engagement, an internal handoff fires automatically:
 
 1. Your existing Reviuzy account (if any) is marked as **AiLys-managed** in our backend.
-2. Your tier is set to one of Starter ($300), Core ($600), Growth ($1,200), or Agency ($2,499) CAD per month.
+2. Your tier is set to one of Starter ($300), Core ($600), Growth ($1,200), or Agency ($2,500) CAD per month.
 3. Your dedicated strategist is assigned and can act on your account from day one.
 4. Future logins land on **my.ailysagency.ca** with the AiLys-branded UI; reviuzy.com keeps working but redirects you to the right place.
 
@@ -3547,7 +3547,7 @@ If you choose to step down from AiLys to self-serve Reviuzy at the end of an eng
 ## Questions worth asking before you sign up
 
 - Do you want operational work taken off your plate, or do you want a tool you operate? AiLys is the first; Reviuzy direct is the second.
-- How many locations? Multi-location is meaningfully easier with the Agency tier ($2,499/mo) which unlocks the multi-location dashboard.
+- How many locations? Multi-location is meaningfully easier with the Agency tier ($2,500/mo) which unlocks the multi-location dashboard.
 - Do you need quarterly in-person briefings? That is Agency-only.
 - Are you bound by an existing agency contract? AiLys engagements are month-to-month with a 30-day satisfaction guarantee, so you can run AiLys in parallel with another agency for the first 30 days at no risk.
 
@@ -3590,7 +3590,7 @@ On a rendu les surfaces visuellement distinctes pour que les gens de chaque côt
 Quand vous signez un engagement AiLys, un transfert interne se déclenche automatiquement :
 
 1. Votre compte Reviuzy existant (s'il y en a un) est marqué **géré par AiLys** dans notre backend.
-2. Votre palier est réglé à Starter (300 $), Core (600 $), Growth (1 200 $) ou Agency (2 499 $) CAD par mois.
+2. Votre palier est réglé à Starter (300 $), Core (600 $), Growth (1 200 $) ou Agency (2 500 $) CAD par mois.
 3. Votre stratège attitré est assigné et peut agir sur votre compte dès le jour 1.
 4. Les connexions futures arrivent à **my.ailysagency.ca** avec l'UI aux couleurs AiLys ; reviuzy.com continue de fonctionner mais vous redirige au bon endroit.
 
@@ -3603,7 +3603,7 @@ Si vous choisissez de redescendre d'AiLys vers Reviuzy libre-service à la fin d
 ## Questions à se poser avant de souscrire
 
 - Voulez-vous que le travail opérationnel soit pris en charge, ou voulez-vous un outil que vous opérez ? AiLys est le premier ; Reviuzy direct est le second.
-- Combien d'emplacements ? Le multi-emplacements est sensiblement plus simple avec le palier Agency (2 499 $/mois) qui débloque le tableau de bord multi-emplacements.
+- Combien d'emplacements ? Le multi-emplacements est sensiblement plus simple avec le palier Agency (2 500 $/mois) qui débloque le tableau de bord multi-emplacements.
 - Avez-vous besoin de briefings trimestriels en personne ? C'est exclusif au palier Agency.
 - Êtes-vous lié à un contrat d'agence existant ? Les engagements AiLys sont mois-en-mois avec une garantie satisfaction de 30 jours, vous pouvez donc faire rouler AiLys en parallèle avec une autre agence pendant les 30 premiers jours sans risque.
 
@@ -3748,7 +3748,7 @@ Most clients run one business at one website with one Google Business Profile. O
 - **Reviuzy Starter / Pro**: 1 domain included.
 - **Reviuzy Max**: up to 3 domains included.
 - **AiLys Starter, Core, Growth**: 1 domain included (the agency layer focuses on doing the operating well for one business at a time).
-- **AiLys Agency ($2,499 CAD/mo)**: multi-domain by default with no fixed cap. The strategist hours scale with the number of domains under management; we will discuss capacity if a single account starts to exceed what the assigned strategist can deliver.
+- **AiLys Agency ($2,500 CAD/mo)**: multi-domain by default with no fixed cap. The strategist hours scale with the number of domains under management; we will discuss capacity if a single account starts to exceed what the assigned strategist can deliver.
 
 Going over the included quota on Reviuzy Max prompts an extra-domain charge at the next billing cycle. AiLys Agency does not have a per-domain charge; it is bundled.
 
@@ -3815,7 +3815,7 @@ La plupart des clients gèrent une entreprise avec un site web et une fiche Goog
 - **Reviuzy Starter / Pro** : 1 domaine inclus.
 - **Reviuzy Max** : jusqu'à 3 domaines inclus.
 - **AiLys Starter, Core, Growth** : 1 domaine inclus (la couche agence se concentre sur bien opérer pour une entreprise à la fois).
-- **AiLys Agency (2 499 $ CAD/mois)** : multi-domaines par défaut sans plafond fixe. Les heures du stratège évoluent avec le nombre de domaines gérés ; on discutera de la capacité si un seul compte commence à dépasser ce que le stratège attitré peut livrer.
+- **AiLys Agency (2 500 $ CAD/mois)** : multi-domaines par défaut sans plafond fixe. Les heures du stratège évoluent avec le nombre de domaines gérés ; on discutera de la capacité si un seul compte commence à dépasser ce que le stratège attitré peut livrer.
 
 Dépasser la quota incluse sur Reviuzy Max déclenche un frais de domaine supplémentaire au prochain cycle de facturation. AiLys Agency n'a pas de frais par domaine ; c'est inclus.
 
@@ -3892,7 +3892,7 @@ We do not source photos. You take them; we publish them. This is intentional. Ph
 | AiLys Starter ($300/mo) | 4 |
 | AiLys Core ($600/mo) | 8 |
 | AiLys Growth ($1,200/mo) | 12 |
-| AiLys Agency ($2,499/mo) | 12 per domain |
+| AiLys Agency ($2,500/mo) | 12 per domain |
 
 Agency tier scales the quota with the number of domains under management. Three domains on Agency is 36 photos per month. Seven domains is 84.
 
@@ -3977,7 +3977,7 @@ On ne source pas les photos. Vous les prenez ; on les publie. C'est intentionnel
 | AiLys Starter (300 $/mois) | 4 |
 | AiLys Core (600 $/mois) | 8 |
 | AiLys Growth (1 200 $/mois) | 12 |
-| AiLys Agency (2 499 $/mois) | 12 par domaine |
+| AiLys Agency (2 500 $/mois) | 12 par domaine |
 
 Le palier Agency échelonne la quota avec le nombre de domaines sous gestion. Trois domaines sur Agency = 36 photos par mois. Sept domaines = 84.
 
@@ -4225,7 +4225,7 @@ A printable, shareable PDF report covering the past calendar month. Single click
 
 ## Who gets it
 
-Agency tier ($2,499 CAD/mo) only. Lower tiers see the report viewer with a paywall and an upgrade CTA.
+Agency tier ($2,500 CAD/mo) only. Lower tiers see the report viewer with a paywall and an upgrade CTA.
 
 ## How to set up your branding
 
@@ -4298,7 +4298,7 @@ Un rapport PDF imprimable et partageable couvrant le mois calendaire écoulé. U
 
 ## Qui l'obtient
 
-Palier Agency (2 499 $ CAD/mois) seulement. Les paliers inférieurs voient la vue du rapport avec un paywall et un CTA de bonification.
+Palier Agency (2 500 $ CAD/mois) seulement. Les paliers inférieurs voient la vue du rapport avec un paywall et un CTA de bonification.
 
 ## Comment configurer votre branding
 
@@ -4377,7 +4377,7 @@ A small REST API that exposes the same numbers you see in your dashboard, in a f
 
 ## Who gets it
 
-Agency tier ($2,499 CAD/mo) only. Lower tiers see the API keys page with a paywall and an upgrade CTA.
+Agency tier ($2,500 CAD/mo) only. Lower tiers see the API keys page with a paywall and an upgrade CTA.
 
 ## Generating a key
 
@@ -4515,7 +4515,7 @@ Une petite API REST qui expose les mêmes chiffres que vous voyez dans votre tab
 
 ## Qui l'obtient
 
-Palier Agency (2 499 $ CAD/mois) seulement. Les paliers inférieurs voient la page des clés API avec un paywall et un CTA de bonification.
+Palier Agency (2 500 $ CAD/mois) seulement. Les paliers inférieurs voient la page des clés API avec un paywall et un CTA de bonification.
 
 ## Générer une clé
 

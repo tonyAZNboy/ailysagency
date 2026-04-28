@@ -171,7 +171,7 @@ export function ContentFr() {
         Au-delà de ces trois, la cohérence NAP entre les citations alimente les attributs d'entité que les assistants vocaux utilisent pour vérifier que le commerce est réel et à jour. Les entrées Wikidata et les schémas Person ou Organization renforcent l'entité. Rien de cela n'est Speakable. Le plan honnête livre Speakable comme couche bon marché et met le plus gros budget sur le travail GBP, FAQPage, avis et NAP.
       </p>
 
-      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys conçus pour la voix et l'AI Visibility, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys conçus pour la voix et l'AI Visibility, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
@@ -191,7 +191,7 @@ export function ContentFr() {
 
       <h2 id="ou-ailys-le-livre">Où AiLys le livre</h2>
       <p>
-        Chaque palier AiLys livre le schéma Speakable comme partie de la pile par défaut. Starter à 300 dollars CAD inclut les schémas de fond (Article, FAQPage, Speakable, Organization) sur la page d'accueil et les pages de service principales. Core à 799 dollars l'étend à tout le site. Growth à 1 499 dollars ajoute les entrées Wikidata et la photographie originale pour le renforcement d'entité. Agency à 2 499 dollars ajoute les livrables en marque blanche et le temps de stratège dédié pour les déploiements vocaux multi-emplacements.
+        Chaque palier AiLys livre le schéma Speakable comme partie de la pile par défaut. Starter à 300 dollars CAD inclut les schémas de fond (Article, FAQPage, Speakable, Organization) sur la page d'accueil et les pages de service principales. Core à 799 dollars l'étend à tout le site. Growth à 1 499 dollars ajoute les entrées Wikidata et la photographie originale pour le renforcement d'entité. Agency à 2 500 dollars ajoute les livrables en marque blanche et le temps de stratège dédié pour les déploiements vocaux multi-emplacements.
       </p>
       <p>
         AiLys ne vend pas Speakable comme levier vocal principal parce que les preuves honnêtes ne soutiennent pas cette affirmation. La plateforme le livre parce qu'il est bon marché, recommandé, et qu'il ne nuit pas. Le plus gros travail vocal se passe sur GBP, FAQPage, avis et nettoyage NAP, qu'AiLys livre dans le même forfait. Pour voir où se situe le classement vocal aujourd'hui, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Sonde les surfaces vocales et IA ensemble" />.

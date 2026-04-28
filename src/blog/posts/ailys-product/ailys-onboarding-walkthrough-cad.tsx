@@ -259,7 +259,7 @@ export function Content() {
         <li><strong>Starter ($300 CAD/mo):</strong> audit, GBP pass, NAP consistency, weekly LLM citation tracking, 1 GBP post/mo, 4 photos/mo</li>
         <li><strong>Core ($600):</strong> all of Starter plus AEO schema, 5 monthly citations, bilingual content, 4 GBP posts/mo (1/week), 8 photos/mo</li>
         <li><strong>Growth ($1,200):</strong> all of Core plus GEO entity authority, Wikipedia and Wikidata, 8 GBP posts/mo (2/week), 12 photos/mo, weekly bilingual content, competitive monitoring</li>
-        <li><strong>Agency ($2,499):</strong> all of Growth plus multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, custom integrations, 12 GBP posts/mo (3/week), up to 12 photos/mo per domain, dedicated senior strategist, quarterly executive deck presented in person</li>
+        <li><strong>Agency ($2,500):</strong> all of Growth plus multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, custom integrations, 12 GBP posts/mo (3/week), up to 12 photos/mo per domain, dedicated senior strategist, quarterly executive deck presented in person</li>
       </ul>
 
       <InternalLink

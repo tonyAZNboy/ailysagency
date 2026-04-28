@@ -41,7 +41,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "AiLys fait-elle le travail Wikidata dans un forfait payant?",
       answer:
-        "Oui, dans le forfait Growth à 1 499 dollars CAD par mois et le forfait Agency à 2 499 dollars CAD par mois. Les forfaits Starter et Core ne couvrent pas Wikidata parce que le ROI est trop mince pour le palier d'entrée. Nous utilisons l'API MediaWiki pour rédiger et soumettre les modifications semi-automatiquement, puis un humain révise chaque modification avant qu'elle parte. Les opérateurs québécois reçoivent le même traitement que les opérateurs canadiens-anglais.",
+        "Oui, dans le forfait Growth à 1 499 dollars CAD par mois et le forfait Agency à 2 500 dollars CAD par mois. Les forfaits Starter et Core ne couvrent pas Wikidata parce que le ROI est trop mince pour le palier d'entrée. Nous utilisons l'API MediaWiki pour rédiger et soumettre les modifications semi-automatiquement, puis un humain révise chaque modification avant qu'elle parte. Les opérateurs québécois reçoivent le même traitement que les opérateurs canadiens-anglais.",
     },
     {
       question: "Une entrée Wikidata peut-elle être supprimée par un autre éditeur?",
@@ -71,7 +71,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '1 499 à 2 499 $', label: 'Forfaits AiLys avec Wikidata inclus' },
+          { value: '1 499 à 2 500 $', label: 'Forfaits AiLys avec Wikidata inclus' },
           { value: '24 heures', label: "Délai de l'audit AiLys gratuit" },
           { value: '5 à 15', label: 'Citations par mois aux paliers Core à Agency' },
         ]}
@@ -194,7 +194,7 @@ export function ContentFr() {
 
       <h2 id="quand-ailys-le-fait-pour-vous">Quand AiLys le fait pour vous</h2>
       <p>
-        AiLys s'occupe du travail Wikidata dans le forfait Growth à 1 499 dollars CAD par mois et le forfait Agency à 2 499 dollars CAD par mois. Nous utilisons l'API MediaWiki pour rédiger et soumettre les modifications semi-automatiquement, puis un humain de notre équipe bilingue révise chaque modification avant qu'elle parte. Les étiquettes en français du Québec sont rédigées à la main, avec graphies régionales et accents corrects.
+        AiLys s'occupe du travail Wikidata dans le forfait Growth à 1 499 dollars CAD par mois et le forfait Agency à 2 500 dollars CAD par mois. Nous utilisons l'API MediaWiki pour rédiger et soumettre les modifications semi-automatiquement, puis un humain de notre équipe bilingue révise chaque modification avant qu'elle parte. Les étiquettes en français du Québec sont rédigées à la main, avec graphies régionales et accents corrects.
       </p>
       <p>
         Le forfait Starter à 300 dollars et le forfait Core à 799 dollars n'incluent pas le travail Wikidata. La raison est honnête : à ces paliers, le temps consacré aux modifications Wikidata gruge le travail à plus haut ROI comme l'optimisation GBP et le nettoyage de citations. Nous préférons livrer le travail à plus haut ROI d'abord et ajouter Wikidata quand l'opérateur est prêt à passer à Growth.
@@ -204,7 +204,7 @@ export function ContentFr() {
         <p>Méfiez-vous des agences qui promettent Wikidata comme une case à cocher sans expliquer le risque de suppression. Une entrée mal sourcée créée sans preuve de notoriété peut être supprimée dans les 30 jours, et l'historique de révision de suppression reste rattaché à votre espace de Q-numéro de façon permanente. AiLys rédige les entrées avec de vraies sources citées et une formulation encyclopédique neutre qui survit à la révision. Nous n'avons eu qu'une entrée supprimée sur des centaines livrées, et c'était pour un commerce qui avait fermé avant la fin de la révision.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD avec Wikidata inclus." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD avec Wikidata inclus." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
@@ -227,7 +227,7 @@ export function ContentFr() {
           'Un Q-numéro plus trois IDs externes ou plus qui résolvent (CID GBP, OpenCorporates, site) est le minimum durable.',
           "Câblez le sameAs schema.org depuis le JSON-LD de votre site vers l'URL Wikidata pour boucler la boucle.",
           "Pour un commerce à un seul emplacement, attendez quelques pourcents de gain de citations sur six mois, pas un gain transformationnel.",
-          "AiLys s'occupe de Wikidata dans les forfaits Growth (1 499) et Agency (2 499) avec l'API MediaWiki et révision humaine.",
+          "AiLys s'occupe de Wikidata dans les forfaits Growth (1 499) et Agency (2 500) avec l'API MediaWiki et révision humaine.",
         ]}
       />
 

@@ -39,7 +39,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[92vh] flex items-center px-4 pt-24 lg:pt-28 pb-10 overflow-hidden max-w-[100vw]"
+      className="relative min-h-[92vh] flex items-center px-4 pt-32 sm:pt-28 lg:pt-28 pb-10 overflow-hidden max-w-[100vw]"
       aria-labelledby="hero-heading"
       itemScope
       itemType="https://schema.org/ProfessionalService"
@@ -110,7 +110,11 @@ export function HeroSection() {
             id="hero-heading"
             className="font-bold tracking-tight leading-[1.05] mb-5"
             style={{
-              fontSize: "clamp(1.375rem, 5.5vw, 3.75rem)",
+              /* Defensive clamp: lower bound uses min(rem, vw) so iOS Safari
+                 manual text-size zoom (the "aA" menu) cannot push the rem
+                 above what the viewport can contain. The vw cap dominates
+                 once user zoom would otherwise overflow. */
+              fontSize: "clamp(min(1.375rem, 5.5vw), 5.5vw, 3.75rem)",
               overflowWrap: "anywhere",
               wordBreak: "normal",
               maxWidth: "100%",

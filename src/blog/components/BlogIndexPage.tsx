@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from 'lucide-rea
 import { Helmet } from 'react-helmet-async'
 import { cn } from '@/lib/utils'
 import { BLOG_CATEGORIES } from '../categories'
-import { BLOG_POSTS } from '../registry'
+import { BLOG_POSTS, getLocalizedMeta } from '../registry'
 import { FULL_TRANSLATION_LANGS } from '../i18n-types'
 import type { BlogCategory } from '../types'
 import { BlogCard } from './BlogCard'
@@ -176,11 +176,47 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
         </div>
       </section>
 
-      {/* Sticky filters: translucent so article cards remain visible behind */}
+      {/* Sticky filters: compact on mobile (search + sort + category dropdown
+          in one row, ~64px), pills on sm+ (full layout). Translucent bg so
+          article cards stay visible behind. */}
       <div className="sticky top-[53px] z-40 border-b border-white/10 bg-[#0a0e1a]/40 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0e1a]/30">
-        <div className="mx-auto max-w-6xl px-4 py-4">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            {/* Search */}
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:py-4">
+          {/* Mobile compact bar (single row) */}
+          <div className="flex sm:hidden items-center gap-2">
+            <div className="relative flex-1 min-w-0">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40 pointer-events-none" />
+              <input
+                type="text"
+                placeholder={t.searchPlaceholder || 'Search articles...'}
+                value={search}
+                onChange={(e) => { setSearch(e.target.value); setPage(1) }}
+                className="w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 py-2 pl-9 pr-3 text-base text-white placeholder:text-white/30 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/30"
+              />
+            </div>
+            <select
+              value={activeCategory}
+              onChange={(e) => { setActiveCategory(e.target.value as BlogCategory | 'all'); setPage(1) }}
+              className="shrink-0 min-h-[44px] max-w-[42vw] rounded-xl border border-white/10 bg-white/5 px-2.5 text-sm text-white focus:border-cyan-500/50 focus:outline-none truncate"
+              aria-label={t.allCategories || 'Category'}
+            >
+              <option value="all">{t.allCategories || 'All'}</option>
+              {BLOG_CATEGORIES.map((cat) => (
+                <option key={cat.id} value={cat.id}>{t.categories?.[cat.id] || cat.label}</option>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={() => { setSort(sort === 'latest' ? 'oldest' : 'latest'); setPage(1) }}
+              className="shrink-0 min-h-[44px] min-w-[44px] grid place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+              aria-label={sort === 'latest' ? (t.sortLatest || 'Latest first') : (t.sortOldest || 'Oldest first')}
+              title={sort === 'latest' ? (t.sortLatest || 'Latest first') : (t.sortOldest || 'Oldest first')}
+            >
+              <SlidersHorizontal className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Desktop / tablet full layout (sm and up) */}
+          <div className="hidden sm:flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
               <input
@@ -188,17 +224,15 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
                 placeholder={t.searchPlaceholder || 'Search articles...'}
                 value={search}
                 onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-                className="w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-base sm:text-sm text-white placeholder:text-white/30 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/30"
+                className="w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-white/30 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/30"
               />
             </div>
-
-            {/* Sort */}
             <div className="flex items-center gap-2">
               <SlidersHorizontal className="h-4 w-4 text-white/40" />
               <select
                 value={sort}
                 onChange={(e) => { setSort(e.target.value as SortOrder); setPage(1) }}
-                className="min-h-[44px] rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-base sm:text-sm text-white focus:border-cyan-500/50 focus:outline-none"
+                className="min-h-[44px] rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:border-cyan-500/50 focus:outline-none"
               >
                 <option value="latest">{t.sortLatest || 'Latest First'}</option>
                 <option value="oldest">{t.sortOldest || 'Oldest First'}</option>
@@ -206,8 +240,8 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
             </div>
           </div>
 
-          {/* Category pills */}
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          {/* Category pills (sm and up only). Mobile uses the dropdown above. */}
+          <div className="hidden sm:flex mt-3 gap-2 overflow-x-auto pb-1 scrollbar-hide">
             <button
               onClick={() => { setActiveCategory('all'); setPage(1) }}
               className={cn(
@@ -242,17 +276,25 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
         {filtered.length > 0 ? (
           <>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {paginatedPosts.map((post) => (
-                <BlogCard
-                  key={post.slug}
-                  post={post}
-                  langPrefix={langPrefix}
-                  translatedTitle={t.posts?.[post.slug]?.title}
-                  translatedDescription={t.posts?.[post.slug]?.metaDescription}
-                  translatedCategoryLabel={t.categories?.[post.category]}
-                  lang={isTranslated ? lang : undefined}
-                />
-              ))}
+              {paginatedPosts.map((post) => {
+                /* For locales with hand-authored sister files (FR-CA today),
+                   pull the localized meta so card titles, excerpts and dates
+                   render in the user's language. For other locales, fall back
+                   to any t.posts[slug] override or to the EN canonical. */
+                const localized = getLocalizedMeta(post, lang || 'en')
+                const tOverride = t.posts?.[post.slug]
+                return (
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    langPrefix={langPrefix}
+                    translatedTitle={tOverride?.title ?? (localized !== post ? localized.title : undefined)}
+                    translatedDescription={tOverride?.metaDescription ?? (localized !== post ? localized.metaDescription : undefined)}
+                    translatedCategoryLabel={t.categories?.[post.category]}
+                    lang={lang}
+                  />
+                )
+              })}
             </div>
 
             {/* Pagination */}

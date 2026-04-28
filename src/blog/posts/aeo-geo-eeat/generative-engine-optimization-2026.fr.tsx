@@ -46,7 +46,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "AiLys fait-elle du travail GEO dans tous les forfaits?",
       answer:
-        "Oui. Le forfait Starter à 300 dollars CAD par mois couvre les fondations GEO : balisage schema, pages FAQ, optimisation GBP. Le forfait Core à 799 dollars ajoute le travail de fraîcheur de citations et la production de pages Q-R structurées. Le forfait Growth à 1 499 dollars ajoute Wikidata, séances de photographie originale et automatisation de réputation. Le forfait Agency à 2 499 dollars ajoute des livrables en marque blanche et du temps de stratège dédié.",
+        "Oui. Le forfait Starter à 300 dollars CAD par mois couvre les fondations GEO : balisage schema, pages FAQ, optimisation GBP. Le forfait Core à 799 dollars ajoute le travail de fraîcheur de citations et la production de pages Q-R structurées. Le forfait Growth à 1 499 dollars ajoute Wikidata, séances de photographie originale et automatisation de réputation. Le forfait Agency à 2 500 dollars ajoute des livrables en marque blanche et du temps de stratège dédié.",
     },
   ],
   headings: [
@@ -71,7 +71,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits AiLys mensuels en CAD couvrant la GEO' },
+          { value: '300 à 2 500 $', label: 'Forfaits AiLys mensuels en CAD couvrant la GEO' },
           { value: '6 moteurs', label: 'AiLys interroge ChatGPT, Perplexity, Claude, Gemini, AIO, Copilot' },
           { value: '24 heures', label: "Délai de l'audit AI Visibility gratuit" },
         ]}
@@ -207,14 +207,14 @@ export function ContentFr() {
         <li>Starter (300 dollars CAD par mois) : optimisation GBP, balisage schema de base, audit NAP sur les 5 citations principales, rapport AI Visibility mensuel</li>
         <li>Core (799 dollars) : tout ce qu'il y a dans Starter plus publications GBP hebdomadaires, 5 cycles de fraîcheur de citations mensuels, schéma FAQ, production de pages Q-R</li>
         <li>Growth (1 499 dollars) : tout ce qu'il y a dans Core plus 10 citations mensuelles, 8 photos mensuelles, séances de photographie originale, travail Wikidata, deux audits AI Visibility par trimestre, automatisation de réputation Reviuzy</li>
-        <li>Agency (2 499 dollars) : tout ce qu'il y a dans Growth plus 15 citations mensuelles, 12 photos mensuelles, livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
+        <li>Agency (2 500 dollars) : tout ce qu'il y a dans Growth plus 15 citations mensuelles, 12 photos mensuelles, livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
       </ul>
 
       <CalloutBox type="warning" translatedLabel="Attention">
         <p>L'erreur à éviter : courir après les tactiques GEO sans d'abord régler les fondations. Si votre fiche GBP a les mauvaises heures, vos citations NAP sont incohérentes et votre balisage schema est cassé ou manquant, aucune quantité de travail sur la densité de mentions de marque ne fera bouger la part de citations. AiLys audite toujours les fondations en premier et n'augmente les leviers GEO qu'une fois la base propre. La garantie de satisfaction de 30 jours sur chaque forfait existe pour exactement cette raison.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour cartographier votre plan GEO à quatre leviers? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />
 

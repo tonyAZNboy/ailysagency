@@ -13,10 +13,10 @@ import {
 
 export const meta: BlogPostMeta = {
   slug: 'ailys-pricing-tiers-explained-cad',
-  title: 'AiLys pricing tiers explained, $300 to $2,499 CAD per month',
+  title: 'AiLys pricing tiers explained, $300 to $2,500 CAD per month',
   metaDescription:
     'A tier-by-tier breakdown of AiLys pricing in Canadian dollars. What ships at Starter, Core, Growth, and Agency. Add-ons, guarantees, and how to pick a plan.',
-  tldr: 'AiLys runs four monthly tiers in CAD. Starter at $300 ships technical SEO, GBP, NAP consistency, weekly LLM citation tracking, 1 GBP post and 4 photos. Core at $600 adds AEO schema, 5 monthly citations, bilingual content, 4 GBP posts and 8 photos. Growth at $1,200 adds GEO entity authority, Wikipedia and Wikidata work, 8 GBP posts, 12 photos, weekly bilingual content, and competitive monitoring. Agency at $2,499 adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, and a dedicated senior strategist.',
+  tldr: 'AiLys runs four monthly tiers in CAD. Starter at $300 ships technical SEO, GBP, NAP consistency, weekly LLM citation tracking, 1 GBP post and 4 photos. Core at $600 adds AEO schema, 5 monthly citations, bilingual content, 4 GBP posts and 8 photos. Growth at $1,200 adds GEO entity authority, Wikipedia and Wikidata work, 8 GBP posts, 12 photos, weekly bilingual content, and competitive monitoring. Agency at $2,500 adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, and a dedicated senior strategist.',
   category: 'ailys-product',
   tags: ['pricing', 'plans', 'cad', 'ailys-product', 'starter', 'core', 'growth', 'agency'],
   publishedDate: '2026-03-09',
@@ -45,9 +45,9 @@ export const meta: BlogPostMeta = {
         'Growth at $1,200 CAD per month adds GEO entity authority work, Wikipedia and Wikidata presence where eligible, eight GBP posts per month at two per week, twelve GBP photos per month, weekly bilingual content production, and competitive monitoring across the AI engines. It fits an operator who wants to compound entity signals across the open web rather than only optimizing their own pages.',
     },
     {
-      question: 'When does the Agency tier at $2,499 make sense?',
+      question: 'When does the Agency tier at $2,500 make sense?',
       answer:
-        'Agency at $2,499 CAD per month makes sense for multi-location operators or for partners who need a multi-location dashboard, white-label PDF reporting, a Slack SLA under four hours, API access, custom integrations, twelve GBP posts per month at three per week, up to twelve photos per month per domain, and a dedicated senior strategist. It bundles the Reviuzy reputation automation add-on at no extra cost.',
+        'Agency at $2,500 CAD per month makes sense for multi-location operators or for partners who need a multi-location dashboard, white-label PDF reporting, a Slack SLA under four hours, API access, custom integrations, twelve GBP posts per month at three per week, up to twelve photos per month per domain, and a dedicated senior strategist. It bundles the Reviuzy reputation automation add-on at no extra cost.',
     },
     {
       question: 'Are AiLys plans month-to-month with a guarantee?',
@@ -66,7 +66,7 @@ export const meta: BlogPostMeta = {
     { id: 'starter-300-the-foundation-tier', text: 'Starter at $300, the foundation tier' },
     { id: 'core-600-the-content-and-aeo-tier', text: 'Core at $600, the content and AEO tier' },
     { id: 'growth-1200-the-entity-authority-tier', text: 'Growth at $1,200, the entity authority tier' },
-    { id: 'agency-2499-the-multi-location-tier', text: 'Agency at $2,499, the multi-location tier' },
+    { id: 'agency-2500-the-multi-location-tier', text: 'Agency at $2,500, the multi-location tier' },
     { id: 'add-ons-and-how-to-stack-them', text: 'Add-ons and how to stack them' },
     { id: 'month-to-month-and-the-30-day-guarantee', text: 'Month-to-month and the 30-day guarantee' },
     { id: 'how-to-pick-a-tier', text: 'How to pick a tier' },
@@ -78,12 +78,12 @@ export function Content() {
   return (
     <article>
       <p>
-        AiLys ships four monthly tiers in Canadian dollars. Starter at $300, Core at $600, Growth at $1,200, and Agency at $2,499. Each tier is a fixed scope with a published deliverable list, no hourly billing, and the entire stack is month-to-month with a 30-day satisfaction guarantee. This page explains tier by tier what ships, which add-ons stack on which plan, and how a single-location operator picks a starting tier without overbuying.
+        AiLys ships four monthly tiers in Canadian dollars. Starter at $300, Core at $600, Growth at $1,200, and Agency at $2,500. Each tier is a fixed scope with a published deliverable list, no hourly billing, and the entire stack is month-to-month with a 30-day satisfaction guarantee. This page explains tier by tier what ships, which add-ons stack on which plan, and how a single-location operator picks a starting tier without overbuying.
       </p>
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: '30 days', label: 'Satisfaction guarantee on every plan' },
           { value: 'Month-to-month', label: 'No annual lock-in on any tier' },
         ]}
@@ -103,7 +103,7 @@ export function Content() {
         <p>The pricing page lists every deliverable at every tier with the same wording used in the contract. See the live matrix at <InternalLink to="/pricing" title="AiLys pricing matrix" description="Live tier comparison with all deliverables" /> and run the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="See gaps before picking a tier" /> if you want a tier recommendation grounded in your real citation share.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at $300 CAD to Agency at $2,499 CAD." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at $300 CAD to Agency at $2,500 CAD." />
 
       <SectionDivider />
 
@@ -156,7 +156,7 @@ export function Content() {
           'Starter at $300 CAD',
           'Core at $600 CAD',
           'Growth at $1,200 CAD',
-          'Agency at $2,499 CAD',
+          'Agency at $2,500 CAD',
         ]}
         correctIndex={2}
         explanation="Growth at $1,200 CAD per month is the first tier that ships GEO entity authority, including Wikipedia and Wikidata where the brand qualifies. Starter and Core focus on GBP, citations, and content, while Agency adds multi-location infrastructure on top of everything in Growth."
@@ -173,7 +173,7 @@ export function Content() {
 
       <SectionDivider />
 
-      <h2 id="agency-2499-the-multi-location-tier">Agency at $2,499, the multi-location tier</h2>
+      <h2 id="agency-2500-the-multi-location-tier">Agency at $2,500, the multi-location tier</h2>
       <p>
         Agency is built for partners and for operators with several brands or several locations. On top of everything in Growth, Agency ships a multi-location dashboard, white-label PDF reporting (so a partner can hand a branded deliverable to their own client), a Slack SLA under four hours during business days, API access, custom integrations, twelve GBP posts per month at three per week, up to twelve photos per month per domain, and a dedicated senior strategist who runs the account end to end.
       </p>
@@ -221,7 +221,7 @@ export function Content() {
 
       <h2 id="how-to-pick-a-tier">How to pick a tier</h2>
       <p>
-        Three questions decide the tier. First, do you want content produced for you in EN and FR-CA every week? If yes, Core at $600 is the floor. If no, Starter at $300 covers the GBP and citation tracker baseline. Second, does the brand qualify for Wikipedia or Wikidata, or do you want competitive monitoring across the AI engines? If yes, Growth at $1,200 is the right tier. Third, do you operate three or more domains, or do you ship work under a partner brand? If yes, Agency at $2,499 is the operator-grade fit.
+        Three questions decide the tier. First, do you want content produced for you in EN and FR-CA every week? If yes, Core at $600 is the floor. If no, Starter at $300 covers the GBP and citation tracker baseline. Second, does the brand qualify for Wikipedia or Wikidata, or do you want competitive monitoring across the AI engines? If yes, Growth at $1,200 is the right tier. Third, do you operate three or more domains, or do you ship work under a partner brand? If yes, Agency at $2,500 is the operator-grade fit.
       </p>
       <p>
         For most single-location operators in Quebec, the right starting tier is Core at $600 with the option to add Premium Ops trio when budget allows. Growth becomes the right tier once the brand has a Wikipedia or Wikidata foothold to defend, or once two competitors in the local pack also start citing weekly content. Run the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="See citation gaps before picking a tier" /> first, then read the live <InternalLink to="/pricing" title="Pricing matrix" description="Tier-by-tier deliverable list" /> with your own gaps in front of you.
@@ -236,7 +236,7 @@ export function Content() {
           'Starter at $300 CAD ships technical SEO, GBP, NAP, weekly LLM citation tracking, 1 GBP post and 4 photos per month.',
           'Core at $600 CAD adds AEO schema, 5 monthly citations, bilingual content, 4 GBP posts and 8 photos per month.',
           'Growth at $1,200 CAD adds GEO entity authority, Wikipedia and Wikidata, 8 GBP posts and 12 photos, weekly content, competitive monitoring.',
-          'Agency at $2,499 CAD adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, dedicated senior strategist, and bundles Reviuzy.',
+          'Agency at $2,500 CAD adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, dedicated senior strategist, and bundles Reviuzy.',
           'Every plan is month-to-month with a 30-day satisfaction guarantee. Add-ons stack independently on any tier.',
         ]}
       />

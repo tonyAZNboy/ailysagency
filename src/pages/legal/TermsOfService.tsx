@@ -108,7 +108,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">3. Plans, Pricing, and Cancellation</h2>
               <p className="text-muted-foreground leading-relaxed mb-3">
-                We offer four monthly plans: Starter ($300 CAD), Core ($600 CAD), Growth ($1,200 CAD), and Agency ($2,499 CAD). Plans run month-to-month. You may cancel by giving two weeks written notice (email is sufficient) before the next billing cycle. We do not require long-term contracts and there is no clawback on the schema, citations, or content we delivered before cancellation.
+                We offer four monthly plans: Starter ($300 CAD), Core ($600 CAD), Growth ($1,200 CAD), and Agency ($2,500 CAD). Plans run month-to-month. You may cancel by giving two weeks written notice (email is sufficient) before the next billing cycle. We do not require long-term contracts and there is no clawback on the schema, citations, or content we delivered before cancellation.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-3">
                 A 30-day satisfaction guarantee applies to every plan. If, in the first 30 days, we have not delivered a measurable schema, citation, or content output you agreed to in your kickoff document, we refund the first month in full. The guarantee covers the base plan; add-ons are refunded pro-rata.

@@ -30,20 +30,35 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = navLinks.map((link) => link.href.slice(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
+      /* Active-section detection: pick the section whose top is at or above
+         the activation line (150px) AND whose bottom is still below it. That
+         is the section the reader is currently looking at. The previous
+         "first top <= 150 from the end" rule mis-flagged the next section
+         (e.g. Tarifs) when the user landed at the boundary between two
+         sections after clicking a nav link. */
+      const ACTIVATION_LINE = 150;
+      let bestSection = '';
+      let bestTop = -Infinity;
+      for (const link of navLinks) {
+        const id = link.href.startsWith('#') ? link.href.slice(1) : '';
+        if (!id) continue;
+        const element = document.getElementById(id);
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        // section visible at the activation line: top has crossed it AND bottom still below
+        if (rect.top <= ACTIVATION_LINE && rect.bottom > ACTIVATION_LINE) {
+          if (rect.top > bestTop) {
+            bestTop = rect.top;
+            bestSection = id;
           }
         }
       }
+      setActiveSection(bestSection);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // When mobile menu opens: if content overflows, enable scrolling and scroll to show last item (language selector)

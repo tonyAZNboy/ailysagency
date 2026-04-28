@@ -187,7 +187,7 @@ export function ContentFr() {
         Le travail d'audit est simple. Lister chaque surface publique qui nomme le commerce. Choisir le format NAP canonique. Réécrire chaque surface pour qu'elle corresponde. Soumettre les corrections via le flux d'édition de chaque annuaire, qui est parfois immédiat et parfois une file d'approbation de 30 jours. La surface lente est celle que le moteur respecte, parce que les corrections lentes sont plus difficiles à truquer. C'est pourquoi la cohérence NAP est le signal lent qui bouge sur un trimestre ou deux, et pourquoi elle vient en dernier dans l'ordre de priorité même si elle ressemble à une fondation.
       </p>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys qui livrent le travail de correction des cinq couches, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys qui livrent le travail de correction des cinq couches, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <InlineCTA variant="book" text="Vous voulez un audit guidé de 60 minutes qui note les cinq couches pour votre commerce? Sans pitch, fiche d'évaluation livrée." buttonText="Réserver un appel" />
 

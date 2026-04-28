@@ -37,7 +37,7 @@ export function TermsContentFr({ currentYear }: { currentYear: number }) {
       <section>
         <h2 className="text-2xl font-semibold mb-4">3. Plans, tarifs et annulation</h2>
         <p className="text-muted-foreground leading-relaxed mb-3">
-          Nous offrons quatre plans mensuels : Starter (300 $ CAD), Core (600 $ CAD), Growth (1 200 $ CAD) et Agency (2 499 $ CAD). Les plans sont mois par mois. Vous pouvez annuler en donnant un préavis écrit de deux semaines (un courriel suffit) avant le prochain cycle de facturation. Nous n'exigeons pas de contrat à long terme et il n'y a aucune reprise sur le schema, les citations ou le contenu livrés avant l'annulation.
+          Nous offrons quatre plans mensuels : Starter (300 $ CAD), Core (600 $ CAD), Growth (1 200 $ CAD) et Agency (2 500 $ CAD). Les plans sont mois par mois. Vous pouvez annuler en donnant un préavis écrit de deux semaines (un courriel suffit) avant le prochain cycle de facturation. Nous n'exigeons pas de contrat à long terme et il n'y a aucune reprise sur le schema, les citations ou le contenu livrés avant l'annulation.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-3">
           Une garantie de satisfaction de 30 jours s'applique à chaque plan. Si, dans les 30 premiers jours, nous n'avons pas livré un schema, une citation ou un contenu mesurable convenu dans votre document de démarrage, nous remboursons le premier mois en totalité. La garantie couvre le plan de base ; les ajouts sont remboursés au prorata.

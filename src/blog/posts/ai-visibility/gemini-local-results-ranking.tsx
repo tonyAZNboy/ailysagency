@@ -196,7 +196,7 @@ export function Content() {
         The audit work is straightforward. List every public surface that names the business. Pick the canonical NAP format. Rewrite every surface to match. Submit corrections through each directory's edit flow, which is sometimes immediate and sometimes a 30-day approval queue. The slow surface is the one the engine respects, because slow corrections are harder to spoof. This is why NAP consistency is the slow signal that moves over a quarter or two, and why it sits last in the priority order even though it sounds like a foundation.
       </p>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers that ship the five-layer fix work, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers that ship the five-layer fix work, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD." />
 
       <InlineCTA variant="book" text="Want a 60-minute audit walkthrough that scores all five layers for your business, no pitch, scorecard sent regardless?" />
 

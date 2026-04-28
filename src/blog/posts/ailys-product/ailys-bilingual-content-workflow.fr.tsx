@@ -226,7 +226,7 @@ export function ContentFr() {
         Pour la plupart des clients AiLys, l'audience est bilingue avec une majorité québécoise mais une part anglophone significative, alors le défaut EN canonique tient. Pour les clients uniquement québécois (une clinique à Sherbrooke, un restaurant à Québec, un entrepreneur au Saguenay-Lac-Saint-Jean), l'inversion FR-CA canonique est le meilleur ajustement. Le choix est documenté dans le doc d'intégration et révisé chaque trimestre. Pour comparer la portée et les tarifs à travers les forfaits AiLys qui incluent le flux bilingue, voyez le compagnon <InternalLink to="/blog/ailys-pricing-tiers-explained-cad" title="Forfaits AiLys expliqués" description="Les quatre paliers de Starter à Agency, en CAD" /> et lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Inclut la révision de préparation du contenu bilingue" /> pour une base.
       </p>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, qui incluent tous le flux de contenu bilingue sans coût supplémentaire. Starter à 300 dollars CAD jusqu'à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, qui incluent tous le flux de contenu bilingue sans coût supplémentaire. Starter à 300 dollars CAD jusqu'à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

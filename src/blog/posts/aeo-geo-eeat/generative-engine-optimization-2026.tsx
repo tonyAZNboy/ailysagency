@@ -57,7 +57,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Does AiLys do GEO work as part of every plan?',
       answer:
-        'Yes. The Starter tier at 300 dollars CAD a month covers the GEO foundations: schema markup, FAQ pages, GBP optimization. The Core tier at 799 dollars adds citation freshness work and structured Q-A page production. The Growth tier at 1,499 dollars adds Wikidata, original photography, and reputation automation. The Agency tier at 2,499 dollars adds white-label deliverables and dedicated strategist time.',
+        'Yes. The Starter tier at 300 dollars CAD a month covers the GEO foundations: schema markup, FAQ pages, GBP optimization. The Core tier at 799 dollars adds citation freshness work and structured Q-A page production. The Growth tier at 1,499 dollars adds Wikidata, original photography, and reputation automation. The Agency tier at 2,500 dollars adds white-label deliverables and dedicated strategist time.',
     },
   ],
   relatedSlugs: ['aeo-geo-eeat-explained-for-local-owners', 'why-chatgpt-cites-your-competitor'],
@@ -83,7 +83,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD covering GEO work' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD covering GEO work' },
           { value: '6 engines', label: 'AiLys probes ChatGPT, Perplexity, Claude, Gemini, AIO, Copilot' },
           { value: '24 hours', label: 'Free AI Visibility audit turnaround' },
         ]}
@@ -216,14 +216,14 @@ export function Content() {
         <li>Starter (300 dollars CAD a month): GBP optimization, baseline schema markup, NAP audit on the top 5 citations, monthly AI Visibility report</li>
         <li>Core (799 dollars): everything in Starter plus weekly GBP posts, 5 monthly citation freshness cycles, FAQ schema build, Q-A page production</li>
         <li>Growth (1,499 dollars): everything in Core plus 10 monthly citations, 8 monthly photos, original photography sessions, Wikidata work, two AI Visibility audits a quarter, Reviuzy reputation automation</li>
-        <li>Agency (2,499 dollars): everything in Growth plus 15 monthly citations, 12 monthly photos, white-label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
+        <li>Agency (2,500 dollars): everything in Growth plus 15 monthly citations, 12 monthly photos, white-label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
       </ul>
 
       <CalloutBox type="warning">
         <p>The mistake to avoid: chasing GEO tactics without first fixing the foundations. If your GBP listing has the wrong hours, your NAP citations are inconsistent, and your schema markup is broken or missing, no amount of brand mention density work will move citation share. AiLys always audits the foundations first and only ramps the GEO levers once the base is clean. The 30-day satisfaction guarantee on every tier exists for exactly this reason.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers side by side, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD." />
 
       <InlineCTA variant="book" text="Want a 60-minute GEO strategy call to map your four-lever plan, no pitch, strategy doc sent regardless?" />
 

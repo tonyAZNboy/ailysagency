@@ -19,6 +19,10 @@ interface Tier {
   cta: string;
   featured?: boolean;
   palette: TierPalette;
+  /** When set to "in-development", a small amber badge surfaces top-right
+      to flag the tier as not yet generally available (used for Agency at
+      $2,500 while final tooling lands). */
+  status?: "in-development";
 }
 
 interface PaletteTokens {
@@ -175,7 +179,7 @@ export function ServicesSection() {
       id: "autopilot",
       number: "04",
       name: t.services.tier3Name,
-      price: "2,499",
+      price: "2,500",
       per: t.services.perMo,
       tagline: t.services.tier3Tagline,
       features: [
@@ -191,6 +195,7 @@ export function ServicesSection() {
       ],
       cta: t.services.tier3Cta,
       palette: "emerald",
+      status: "in-development",
     },
   ];
 
@@ -282,6 +287,14 @@ export function ServicesSection() {
                       className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.55)]`}
                     >
                       {t.services.badgeAutopilot}
+                    </div>
+                  )}
+                  {tier.status === "in-development" && (
+                    <div
+                      className="absolute -top-3 right-7 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(251,191,36,0.55)]"
+                      title={t.services.statusInDevelopmentTitle || "In development"}
+                    >
+                      {t.services.statusInDevelopment || "In development"}
                     </div>
                   )}
 

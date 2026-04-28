@@ -21,12 +21,12 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Comment AiLys se compare-t-elle à une agence SEO traditionnelle au Québec?",
       answer:
-        "AiLys livre le travail d'AI Visibility, GBP et citations pour les commerçants locaux du Québec dans des forfaits mensuels de 300 à 2 499 dollars CAD, avec une production bilingue EN et FR-CA à l'interne. Les agences traditionnelles comme Sterling Sky, BrightLocal ou LocalIQ démarrent généralement à 5 000 dollars par mois, travaillent l'anglais d'abord et prennent deux à trois semaines pour un audit de découverte. AiLys livre l'audit en 24 heures et les premiers livrables dès la première semaine.",
+        "AiLys livre le travail d'AI Visibility, GBP et citations pour les commerçants locaux du Québec dans des forfaits mensuels de 300 à 2 500 dollars CAD, avec une production bilingue EN et FR-CA à l'interne. Les agences traditionnelles comme Sterling Sky, BrightLocal ou LocalIQ démarrent généralement à 5 000 dollars par mois, travaillent l'anglais d'abord et prennent deux à trois semaines pour un audit de découverte. AiLys livre l'audit en 24 heures et les premiers livrables dès la première semaine.",
     },
     {
       question: "AiLys est-elle moins chère que Sterling Sky ou BrightLocal?",
       answer:
-        "Sur les quatre forfaits AiLys (Starter à 300 dollars, Core à 799 dollars, Growth à 1 499 dollars, Agency à 2 499 dollars), le seuil d'entrée est nettement plus bas que les retainers Sterling Sky et sous la plupart des forfaits gérés BrightLocal. Le compromis tient à la portée : AiLys est conçue pour la voie AI Visibility des commerçants locaux, pas pour le marketing de contenu d'entreprise ou le link building international.",
+        "Sur les quatre forfaits AiLys (Starter à 300 dollars, Core à 799 dollars, Growth à 1 499 dollars, Agency à 2 500 dollars), le seuil d'entrée est nettement plus bas que les retainers Sterling Sky et sous la plupart des forfaits gérés BrightLocal. Le compromis tient à la portée : AiLys est conçue pour la voie AI Visibility des commerçants locaux, pas pour le marketing de contenu d'entreprise ou le link building international.",
     },
     {
       question: "AiLys fait-elle vraiment le français et l'anglais à l'interne?",
@@ -65,7 +65,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits AiLys mensuels en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits AiLys mensuels en CAD' },
           { value: '24 heures', label: "Délai de l'audit AiLys gratuit" },
           { value: 'EN et FR-CA', label: "Livraison bilingue à l'interne chez AiLys" },
         ]}
@@ -88,13 +88,13 @@ export function ContentFr() {
         <p>Les pages de comparaison de référence sur ce site détaillent chaque concurrent direct ligne par ligne sur la portée et les tarifs. Voir <InternalLink to="/vs/sterling-sky" title="AiLys vs Sterling Sky" description="Comparaison de retainer SEO local" />, <InternalLink to="/vs/brightlocal" title="AiLys vs BrightLocal" description="Comparaison des outils de citations et forfaits gérés" /> et <InternalLink to="/vs/localiq" title="AiLys vs LocalIQ" description="Comparaison d'agence multicanale" />.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
       <h2 id="tarifs-cote-a-cote">Tarifs, côte à côte</h2>
       <p>
-        La différence la plus visible, c'est le seuil d'entrée. AiLys Starter démarre à 300 dollars CAD par mois. Core est à 799 dollars, Growth à 1 499 dollars, Agency à 2 499 dollars. Chaque palier est une portée fixe avec une liste de livrables publiée, sans facturation à l'heure. La page de tarifs montre la matrice complète et le chemin de mise à niveau.
+        La différence la plus visible, c'est le seuil d'entrée. AiLys Starter démarre à 300 dollars CAD par mois. Core est à 799 dollars, Growth à 1 499 dollars, Agency à 2 500 dollars. Chaque palier est une portée fixe avec une liste de livrables publiée, sans facturation à l'heure. La page de tarifs montre la matrice complète et le chemin de mise à niveau.
       </p>
       <p>
         Les agences traditionnelles tarifient généralement sur un modèle retainer plus portée de travail. Les retainers Sterling Sky démarrent à 5 000 dollars par mois pour le SEO local. Les forfaits gérés BrightLocal vont de 4 000 à 8 000 dollars selon le volume de citations. Les forfaits multicanaux LocalIQ démarrent typiquement au-dessus de 5 000 dollars quand GBP et marketing de contenu sont combinés. Aucun de ces chiffres n'est mauvais pour la portée offerte. C'est simplement une portée différente.
@@ -105,7 +105,7 @@ export function ContentFr() {
         <li>Starter (300 dollars) : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales</li>
         <li>Core (799 dollars) : tout ce qu'il y a dans Starter plus publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, schéma de signature de médecin ou d'entreprise</li>
         <li>Growth (1 499 dollars) : tout ce qu'il y a dans Core plus séances de photographie originale, production de contenu mensuelle, automatisation de réputation Reviuzy, deux audits AI Visibility par trimestre</li>
-        <li>Agency (2 499 dollars) : tout ce qu'il y a dans Growth plus livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
+        <li>Agency (2 500 dollars) : tout ce qu'il y a dans Growth plus livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
       </ul>
 
       <QuickQuiz
@@ -200,7 +200,7 @@ export function ContentFr() {
       <KeyTakeaway
         translatedLabel="À retenir"
         points={[
-          'Les forfaits mensuels AiLys vont de 300 à 2 499 dollars CAD. Les agences traditionnelles démarrent typiquement à 5 000 dollars par mois.',
+          'Les forfaits mensuels AiLys vont de 300 à 2 500 dollars CAD. Les agences traditionnelles démarrent typiquement à 5 000 dollars par mois.',
           "AiLys livre l'audit gratuit en 24 heures. La découverte traditionnelle prend 2 à 3 semaines avant le premier livrable.",
           "AiLys livre chaque livrable bilingue EN et FR-CA à l'interne. La plupart des agences traditionnelles sous-traitent le français.",
           'AiLys se concentre sur AI Visibility, GBP, citations et réputation. Les agences traditionnelles couvrent une portée plus large à des paliers plus élevés.',

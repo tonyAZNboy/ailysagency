@@ -235,7 +235,7 @@ export function Content() {
         For most AiLys clients, the audience is bilingual with a Quebec majority but a meaningful English share, so the EN canonical default holds. For Quebec-only clients (a clinic in Sherbrooke, a restaurant in Quebec City, a contractor in Saguenay-Lac-Saint-Jean), the FR-CA canonical inversion is the better fit. The choice is documented in the onboarding doc and audited quarterly. To compare scope and pricing across the AiLys tiers that include the bilingual workflow, see the <InternalLink to="/blog/ailys-pricing-tiers-explained-cad" title="AiLys pricing tiers explained" description="The four tiers from Starter to Agency, in CAD" /> companion post and run the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="Includes bilingual content readiness review" /> for a baseline.
       </p>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers, all of which include the bilingual content workflow at no extra cost. Starter at 300 dollars CAD up to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers, all of which include the bilingual content workflow at no extra cost. Starter at 300 dollars CAD up to Agency at 2,500 dollars CAD." />
 
       <SectionDivider />
 

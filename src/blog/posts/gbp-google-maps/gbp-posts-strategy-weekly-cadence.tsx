@@ -107,7 +107,7 @@ export function Content() {
         <li>Starter (300 dollars CAD a month): 1 GBP post a month, written by hand, scheduled in advance</li>
         <li>Core (799 dollars CAD a month): 4 GBP posts a month, one per week, mixed across post types</li>
         <li>Growth (1,499 dollars CAD a month): 8 GBP posts a month, two per week, with monthly photo refresh</li>
-        <li>Agency (2,499 dollars CAD a month): 12 GBP posts a month, three per week, with multi-location coordination</li>
+        <li>Agency (2,500 dollars CAD a month): 12 GBP posts a month, three per week, with multi-location coordination</li>
       </ul>
 
       <p>

@@ -52,7 +52,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Does AiLys do Wikidata work as part of a paid plan?',
       answer:
-        'Yes, on the Growth tier at 1,499 dollars CAD a month and the Agency tier at 2,499 dollars CAD a month. Starter and Core tiers do not include Wikidata work because the ROI is too thin for the entry pricing. We use the MediaWiki API to draft and submit edits semi-automatically, then a human reviews each edit before it ships. Quebec operators get the same treatment as English-Canada operators.',
+        'Yes, on the Growth tier at 1,499 dollars CAD a month and the Agency tier at 2,500 dollars CAD a month. Starter and Core tiers do not include Wikidata work because the ROI is too thin for the entry pricing. We use the MediaWiki API to draft and submit edits semi-automatically, then a human reviews each edit before it ships. Quebec operators get the same treatment as English-Canada operators.',
     },
     {
       question: 'Can a Wikidata entry be deleted by another editor?',
@@ -83,7 +83,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$1,499 to $2,499', label: 'AiLys tiers that include Wikidata work' },
+          { value: '$1,499 to $2,500', label: 'AiLys tiers that include Wikidata work' },
           { value: '24 hours', label: 'AiLys free audit turnaround' },
           { value: '5 to 15', label: 'Citations per month at the Core to Agency tiers' },
         ]}
@@ -203,7 +203,7 @@ export function Content() {
 
       <h2 id="when-ailys-does-it-for-you">When AiLys does Wikidata for you</h2>
       <p>
-        AiLys handles Wikidata work as part of the Growth tier at 1,499 dollars CAD a month and the Agency tier at 2,499 dollars CAD a month. We use the MediaWiki API to draft and submit edits semi-automatically, then a human on our bilingual team reviews each edit before it ships. Quebec French labels are hand-authored, with regional spellings and proper accents.
+        AiLys handles Wikidata work as part of the Growth tier at 1,499 dollars CAD a month and the Agency tier at 2,500 dollars CAD a month. We use the MediaWiki API to draft and submit edits semi-automatically, then a human on our bilingual team reviews each edit before it ships. Quebec French labels are hand-authored, with regional spellings and proper accents.
       </p>
       <p>
         The Starter tier at 300 dollars and the Core tier at 799 dollars do not include Wikidata work. The reason is honest: at those tiers, the time investment for Wikidata edits would crowd out higher-ROI work like GBP optimization and citation cleanup. We would rather ship the higher-ROI work first and add Wikidata when the operator is ready to upgrade to Growth.
@@ -213,7 +213,7 @@ export function Content() {
         <p>Be wary of agencies that promise Wikidata as a checkbox without explaining the deletion risk. A poorly sourced entry created without notability evidence can be deleted within 30 days, and the deletion review history attaches to your Q-number namespace permanently. AiLys writes entries with real sources cited and neutral encyclopedic phrasing that survives review. We have had only one entry deleted across hundreds shipped, and it was for a business that closed before the review concluded.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD with Wikidata included." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD with Wikidata included." />
 
       <SectionDivider />
 
@@ -235,7 +235,7 @@ export function Content() {
           'A Q-number plus three or more resolved external IDs (GBP CID, OpenCorporates, website) is the minimum durable entry.',
           'Wire schema.org sameAs from your website JSON-LD back to the Wikidata URL to close the loop.',
           'For a single-location business, expect a few percent citation lift over six months, not a transformational gain.',
-          'AiLys handles Wikidata on the Growth (1,499) and Agency (2,499) tiers using the MediaWiki API with human review.',
+          'AiLys handles Wikidata on the Growth (1,499) and Agency (2,500) tiers using the MediaWiki API with human review.',
         ]}
       />
 

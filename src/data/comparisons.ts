@@ -103,7 +103,7 @@ const sterlingSky: Comparison = {
     ],
     pricing: {
       competitorRange: "$5,000+ /mo (custom quotes, retainer-based)",
-      ailysRange: "$300 to $2,499 /mo (transparent tiers, month to month)",
+      ailysRange: "$300 to $2,500 /mo (transparent tiers, month to month)",
       note: "Sterling Sky pricing is based on public statements from their team and case study posts. Final quotes vary by scope.",
     },
     rows: [
@@ -127,7 +127,7 @@ const sterlingSky: Comparison = {
     faq: [
       {
         q: "Is Sterling Sky better than AiLys for local SEO?",
-        a: "Sterling Sky is one of the strongest classical local SEO consultancies in North America. If your only need is Google Maps optimization and you have $5,000+/mo, they are excellent. AiLys delivers the same classical foundation plus the AI search layer (AEO, GEO, E-E-A-T) for ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot at $300 to $2,499/mo.",
+        a: "Sterling Sky is one of the strongest classical local SEO consultancies in North America. If your only need is Google Maps optimization and you have $5,000+/mo, they are excellent. AiLys delivers the same classical foundation plus the AI search layer (AEO, GEO, E-E-A-T) for ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot at $300 to $2,500/mo.",
       },
       {
         q: "Can AiLys handle Google Maps suspensions or spam disputes?",
@@ -150,7 +150,7 @@ const sterlingSky: Comparison = {
     ctaSecondary: "See AiLys pricing",
     seoTitle: "AiLys vs Sterling Sky · AI SEO Comparison · AEO, GEO, E-E-A-T at SMB Pricing",
     seoDescription:
-      "Honest comparison: AiLys Agency ($300 to $2,499/mo) vs Sterling Sky ($5,000+/mo). Both deliver classical local SEO. AiLys adds AEO, GEO, E-E-A-T optimization for ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot. Bilingual EN and FR-CA in-house. Quebec-anchored.",
+      "Honest comparison: AiLys Agency ($300 to $2,500/mo) vs Sterling Sky ($5,000+/mo). Both deliver classical local SEO. AiLys adds AEO, GEO, E-E-A-T optimization for ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot. Bilingual EN and FR-CA in-house. Quebec-anchored.",
     seoKeywords: [
       "AiLys vs Sterling Sky",
       "Sterling Sky alternative",
@@ -244,7 +244,7 @@ const sterlingSky: Comparison = {
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
-   COMPARISON 2 · BRIGHTLOCAL (tools-only platform, $799-$2,499/mo)
+   COMPARISON 2 · BRIGHTLOCAL (tools-only platform, $799-$2,500/mo)
    ────────────────────────────────────────────────────────────────────────── */
 
 const brightlocal: Comparison = {
@@ -258,7 +258,7 @@ const brightlocal: Comparison = {
     headline1: "BrightLocal sells you the dashboard.",
     headline2: "AiLys does the work.",
     subheadline:
-      "BrightLocal is a strong tools platform for agencies running local SEO at scale. They charge $799 to $2,499/mo for the software, and you operate it. AiLys is a done-for-you service at the same price range. We run the methodology, you get the citations.",
+      "BrightLocal is a strong tools platform for agencies running local SEO at scale. They charge $799 to $2,500/mo for the software, and you operate it. AiLys is a done-for-you service at the same price range. We run the methodology, you get the citations.",
     verdictTitle: "When AiLys is the right fit",
     verdictBody:
       "BrightLocal is excellent if you have an in-house SEO team and need software to multiply their throughput across many clients or locations. AiLys is for local business owners who do not have an SEO team and need someone to run the methodology end to end.",
@@ -275,15 +275,15 @@ const brightlocal: Comparison = {
       "You need very large-scale citation reporting (1,000+ locations) where dashboard reporting is critical.",
     ],
     pricing: {
-      competitorRange: "$79 to $2,499 /mo (DIY SaaS, you operate the tools)",
-      ailysRange: "$300 to $2,499 /mo (done-for-you service)",
+      competitorRange: "$79 to $2,500 /mo (DIY SaaS, you operate the tools)",
+      ailysRange: "$300 to $2,500 /mo (done-for-you service)",
       note: "BrightLocal pricing from brightlocal.com (verified November 2026). Multi-location plans scale higher. Their highest tier is comparable to AiLys Growth pricing.",
     },
     rows: [
       { feature: "Delivery model", competitor: "DIY SaaS dashboard", ailys: "Done-for-you service", outcome: "win" },
       { feature: "Starting price", competitor: "$79 /mo (Single Business)", ailys: "$300 /mo", outcome: "loss" },
       { feature: "Mid tier", competitor: "$179 to $349 /mo", ailys: "$600 /mo (full service)", outcome: "tie" },
-      { feature: "Top tier", competitor: "$2,499 /mo (Enterprise)", ailys: "$2,499 /mo (Agency)", outcome: "tie" },
+      { feature: "Top tier", competitor: "$2,500 /mo (Enterprise)", ailys: "$2,500 /mo (Agency)", outcome: "tie" },
       { feature: "Citation building", competitor: "DIY tool", ailys: "Done by us, 5-10+ per month", outcome: "win" },
       { feature: "GBP audit", competitor: "DIY tool", ailys: "Done by us, weekly monitoring", outcome: "win" },
       { feature: "Local rank tracker", competitor: "Yes (in-platform)", ailys: "Yes (in monthly report)", outcome: "tie" },
@@ -323,7 +323,7 @@ const brightlocal: Comparison = {
     ctaSecondary: "See AiLys pricing",
     seoTitle: "AiLys vs BrightLocal · Done-for-You vs DIY Tools · AI SEO Comparison",
     seoDescription:
-      "Honest comparison: AiLys Agency done-for-you ($300 to $2,499/mo) vs BrightLocal DIY tools ($79 to $2,499/mo). AiLys runs AEO, GEO, E-E-A-T optimization end to end. BrightLocal sells you the dashboard, you operate it. Bilingual EN and FR-CA delivery. Quebec-anchored.",
+      "Honest comparison: AiLys Agency done-for-you ($300 to $2,500/mo) vs BrightLocal DIY tools ($79 to $2,500/mo). AiLys runs AEO, GEO, E-E-A-T optimization end to end. BrightLocal sells you the dashboard, you operate it. Bilingual EN and FR-CA delivery. Quebec-anchored.",
     seoKeywords: [
       "AiLys vs BrightLocal",
       "BrightLocal alternative",
@@ -448,7 +448,7 @@ const localiq: Comparison = {
     ],
     pricing: {
       competitorRange: "$10 to $2,300 /mo (varies by service mix; ad spend separate)",
-      ailysRange: "$300 to $2,499 /mo (service only, ad spend would be separate)",
+      ailysRange: "$300 to $2,500 /mo (service only, ad spend would be separate)",
       note: "LocaliQ pricing is reported by third-party reviews and case studies (verified November 2026). Custom quotes vary widely.",
     },
     rows: [
@@ -494,7 +494,7 @@ const localiq: Comparison = {
     ctaSecondary: "See AiLys pricing",
     seoTitle: "AiLys vs LocaliQ · Boutique AI SEO vs Mass-Volume Marketing · Comparison",
     seoDescription:
-      "Honest comparison: AiLys Agency boutique AI SEO ($300 to $2,499/mo) vs LocaliQ mass-volume digital marketing ($10 to $2,300/mo). AiLys delivers AEO, GEO, E-E-A-T with same strategist throughout. LocaliQ runs at industrial scale. Bilingual EN and FR-CA. Quebec-anchored.",
+      "Honest comparison: AiLys Agency boutique AI SEO ($300 to $2,500/mo) vs LocaliQ mass-volume digital marketing ($10 to $2,300/mo). AiLys delivers AEO, GEO, E-E-A-T with same strategist throughout. LocaliQ runs at industrial scale. Bilingual EN and FR-CA. Quebec-anchored.",
     seoKeywords: [
       "AiLys vs LocaliQ",
       "LocaliQ alternative",

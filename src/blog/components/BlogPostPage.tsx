@@ -1,6 +1,6 @@
 import { useEffect, useState, Suspense } from 'react'
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { ChevronRight, Clock, Calendar } from 'lucide-react'
+import { Link, useParams, Navigate, useLocation } from 'react-router-dom'
+import { ChevronRight, Clock, Calendar, ArrowLeft } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { getCategoryInfo } from '../categories'
 import { BLOG_POSTS } from '../registry'
@@ -251,6 +251,55 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
           <RelatedPosts relatedSlugs={post.relatedSlugs} />
         )}
       </div>
+
+      {/* Floating "back to blog" button. Visible on every viewport so the
+          reader can return to the index from any scroll position. Bottom-left
+          to avoid the right-side reading-progress bar; safe-area-bottom
+          padding keeps it clear of the iOS home indicator. */}
+      <FloatingBackToBlog />
     </div>
   )
 }
+
+function FloatingBackToBlog() {
+  const { pathname } = useLocation()
+  /* Slug-first lang detection so a French reader on /fr/blog/<slug> sees
+     "Retour au journal" without depending on the global LangContext having
+     already resolved. */
+  const lang = pathname.startsWith('/fr')
+    ? 'fr'
+    : pathname.startsWith('/vi')
+    ? 'vi'
+    : pathname.startsWith('/es')
+    ? 'es'
+    : pathname.startsWith('/zh')
+    ? 'zh'
+    : pathname.startsWith('/ar')
+    ? 'ar'
+    : pathname.startsWith('/ru')
+    ? 'ru'
+    : 'en'
+  const labels: Record<string, string> = {
+    en: 'Back to blog',
+    fr: 'Retour au journal',
+    es: 'Volver al blog',
+    zh: '返回博客',
+    ar: 'العودة إلى المدونة',
+    ru: 'Назад к блогу',
+    vi: 'Quay lại blog',
+  }
+  const label = labels[lang] || labels.en
+  const blogHref = lang === 'en' ? '/blog' : `/${lang}/blog`
+  return (
+    <Link
+      to={blogHref}
+      aria-label={label}
+      className="group fixed left-4 z-30 flex items-center gap-2 rounded-full border border-white/15 bg-[#0a0e1a]/70 px-4 py-3 text-sm font-semibold text-white/90 backdrop-blur-xl shadow-[0_8px_32px_-8px_rgba(0,0,0,0.6)] hover:border-cyan-400/50 hover:text-cyan-300 transition-colors min-h-[48px]"
+      style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
+    >
+      <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+      <span>{label}</span>
+    </Link>
+  )
+}
+

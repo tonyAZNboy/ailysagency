@@ -32,7 +32,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'What does the AiLys Reviuzy add-on cost and include?',
       answer:
-        'The Reviuzy add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month. The scope covers NFC review collection cards, AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
+        'The Reviuzy add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,500 dollars a month. The scope covers NFC review collection cards, AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
     },
     {
       question: 'Does AiLys run the Reviuzy contest for the client?',
@@ -79,7 +79,7 @@ export function Content() {
       <StatHighlight
         stats={[
           { value: '$100 CAD', label: 'Reviuzy add-on monthly price' },
-          { value: 'Bundled', label: 'Inside the Agency tier at 2,499 dollars' },
+          { value: 'Bundled', label: 'Inside the Agency tier at 2,500 dollars' },
           { value: '8 modules', label: 'NFC, AI replies, contests, legal, fakes, photos, Q and A, attributes' },
         ]}
       />
@@ -98,13 +98,13 @@ export function Content() {
         <p>The Reviuzy add-on is not the same product as the standalone Reviuzy app on the App Store and Google Play. The standalone app is a free version with manual review collection only. The Reviuzy add-on at 100 dollars a month unlocks the full automation pipeline and the GBP integration. See <InternalLink to="/blog/reviuzy-review-automation-guide" title="Reviuzy review automation guide" description="The longer playbook on the standalone app and the add-on" /> for the line-by-line difference.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See where the Reviuzy add-on slots into the four AiLys tiers, from Starter at 300 dollars to Agency at 2,499 dollars." />
+      <InlineCTA variant="pricing" text="See where the Reviuzy add-on slots into the four AiLys tiers, from Starter at 300 dollars to Agency at 2,500 dollars." />
 
       <SectionDivider />
 
       <h2 id="pricing-and-bundling">Pricing and how Agency bundles it</h2>
       <p>
-        The Reviuzy add-on is 100 dollars CAD a month flat. It bolts onto Starter (300 dollars), Core (799 dollars), or Growth (1,499 dollars), bringing those tiers to 400, 899, or 1,599 dollars a month respectively. At the Agency tier (2,499 dollars), Reviuzy is bundled, so the operator does not pay extra. The bundling decision reflects how the Agency tier is positioned: it is the multi-location, white label tier where reputation work is the default expectation, not an upsell.
+        The Reviuzy add-on is 100 dollars CAD a month flat. It bolts onto Starter (300 dollars), Core (799 dollars), or Growth (1,499 dollars), bringing those tiers to 400, 899, or 1,599 dollars a month respectively. At the Agency tier (2,500 dollars), Reviuzy is bundled, so the operator does not pay extra. The bundling decision reflects how the Agency tier is positioned: it is the multi-location, white label tier where reputation work is the default expectation, not an upsell.
       </p>
       <p>
         Annual billing applies a small discount, and adding Reviuzy at sign-up is the cleanest path because the NFC cards ship inside the welcome kit. Adding it later means a separate fulfillment trip for the cards, which delays the first counter taps by a week. The dashboard side activates the same day the add-on is enabled, so the AI reply queue and the GBP automation start running immediately even if the cards are still in transit.
@@ -115,7 +115,7 @@ export function Content() {
         <li>Starter plus Reviuzy at 400 dollars: GBP optimization, monthly AI Visibility report, NAP audit on the top five citations, plus the full Reviuzy suite</li>
         <li>Core plus Reviuzy at 899 dollars: weekly GBP posts, citation cleanup on twenty targets, FAQ schema, plus Reviuzy</li>
         <li>Growth plus Reviuzy at 1,599 dollars: original photography, monthly content production, two AI Visibility audits a quarter, plus Reviuzy</li>
-        <li>Agency at 2,499 dollars: Reviuzy is bundled, multi-location and white label included, dedicated strategist, weekly reporting</li>
+        <li>Agency at 2,500 dollars: Reviuzy is bundled, multi-location and white label included, dedicated strategist, weekly reporting</li>
       </ul>
 
       <SectionDivider />
@@ -148,7 +148,7 @@ export function Content() {
           'Starter at 300 dollars CAD a month',
           'Core at 799 dollars CAD a month',
           'Growth at 1,499 dollars CAD a month',
-          'Agency at 2,499 dollars CAD a month',
+          'Agency at 2,500 dollars CAD a month',
         ]}
         correctIndex={3}
         explanation="Reviuzy is bundled inside the Agency tier. At Starter, Core, and Growth, the add-on is 100 dollars CAD a month on top of the tier price. At Agency, it is included by default because reputation automation is the standard scope at the multi-location and white label level."
@@ -217,7 +217,7 @@ export function Content() {
 
       <KeyTakeaway
         points={[
-          'The Reviuzy add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month.',
+          'The Reviuzy add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,500 dollars a month.',
           'NFC cards on the counter beat QR codes for review collection because the gesture matches contactless payment.',
           'The contest engine is run by the client. AiLys ships only the setup, the legal terms, and the help docs.',
           'Photos for GBP automation always come from the client through the Reviuzy app, which preserves real EXIF data.',

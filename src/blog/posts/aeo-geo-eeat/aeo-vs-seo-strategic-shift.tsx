@@ -130,7 +130,7 @@ export function Content() {
         <p>The cheapest AEO upgrade for an existing post is to rewrite the first paragraph as a 40 to 60 word direct answer to the headline question. Add FAQPage schema. That single change moves extraction rate measurably inside 30 to 60 days on most local categories.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the four AiLys tiers, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD, all shipping AEO and GEO work by default." />
+      <InlineCTA variant="pricing" text="See the four AiLys tiers, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD, all shipping AEO and GEO work by default." />
 
       <SectionDivider />
 
@@ -201,7 +201,7 @@ export function Content() {
 
       <h2 id="where-ailys-ships-the-stack">Where AiLys ships the stack</h2>
       <p>
-        Every AiLys tier ships the three-layer stack. Starter at 300 dollars CAD covers SEO foundations and AEO upgrades for the top pages. Core at 799 dollars adds GEO entity work (citation building, NAP cleanup, FAQPage schema at scale). Growth at 1,499 dollars adds Wikidata entries, original photography for entity signals, and reputation automation through Reviuzy. Agency at 2,499 dollars adds white-label deliverables, multi-location entity work, and dedicated strategist time.
+        Every AiLys tier ships the three-layer stack. Starter at 300 dollars CAD covers SEO foundations and AEO upgrades for the top pages. Core at 799 dollars adds GEO entity work (citation building, NAP cleanup, FAQPage schema at scale). Growth at 1,499 dollars adds Wikidata entries, original photography for entity signals, and reputation automation through Reviuzy. Agency at 2,500 dollars adds white-label deliverables, multi-location entity work, and dedicated strategist time.
       </p>
       <p>
         The platform is built for the local owner who does not want three vendors for three layers. One audit, one dashboard, one bilingual team, one bill. The pricing page shows the four tiers side by side and the upgrade path between them.

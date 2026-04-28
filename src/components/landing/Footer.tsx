@@ -95,7 +95,7 @@ export function Footer() {
 
           {/* Sister product cross-link removed 2026-04-27: showing Reviuzy SaaS
               (cheaper self-serve at lower price) on the AiLys marketing site
-              created downsell risk for AiLys clients paying $300-$2,499/mo.
+              created downsell risk for AiLys clients paying $300-$2,500/mo.
               Reviuzy stays as an internal operational backbone, not a public
               cross-product CTA. Decision: keep the brands distinct in client
               perception. */}

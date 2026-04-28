@@ -758,12 +758,14 @@ export const en = {
     heading1: "Four plans.",
     heading2: "One discipline.",
     intro: "AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO, E-E-A-T) at SMB prices. The only reason this works is that our operational delivery is automated through our verified-review and Google Business Profile engine. You get agency-quality work for what most shops charge for tools.",
-    metaPrice: "$300 to $2,499 /mo",
+    metaPrice: "$300 to $2,500 /mo",
     metaBilingual: "Bilingual EN/FR-CA",
     metaMonthly: "Month to month",
     metaAutopilot: "Agency tier includes everything",
     badgeMostChosen: "★ Most chosen",
     badgeAutopilot: "⚡ Agency · Brands and resellers",
+    statusInDevelopment: "🚧 In development",
+    statusInDevelopmentTitle: "This tier is being finalized. Apply for a founding spot to join the cohort.",
     tierLabel: "Tier",
     perMo: "/mo CAD",
 
@@ -853,7 +855,7 @@ export const en = {
     addOnBadgeAvailable: "+$100/mo reputation add-on",
     addOnBadgeIncluded: "Reputation bundled",
 
-    srSeo: "AiLys Agency offers four monthly plans for local businesses that need to be cited inside AI search answers. Starter is $300 CAD per month and covers technical SEO, Google Business Profile management, NAP consistency across 20+ directories, and weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Core is $600 CAD and adds AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month, bilingual content, and backlinks from real publications. Growth is $1,200 CAD and adds GEO entity authority work on Wikipedia and Wikidata, Reddit and forum participation, weekly bilingual content, and competitive monitoring. Agency is $2,499 CAD for brands and resellers, with Reviuzy automation bundled in, multi-location dashboard, white-label PDF reports, Slack SLA under 4 hours, API access, custom integrations including HubSpot and Salesforce, and a quarterly executive deck. Reviuzy automation is also available as a $100 per month add-on on Starter, Core, and Growth: NFC review collection, AI review generation, contest engine with video winner announcement, GBP post automation, citation tracker, NAP consistency, AI Visibility dashboard, and AI Traffic conversion tracker. Every plan is month to month with two weeks notice to cancel and a 30-day satisfaction guarantee. Bilingual EN and FR-CA in-house. Quebec-anchored.",
+    srSeo: "AiLys Agency offers four monthly plans for local businesses that need to be cited inside AI search answers. Starter is $300 CAD per month and covers technical SEO, Google Business Profile management, NAP consistency across 20+ directories, and weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Core is $600 CAD and adds AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month, bilingual content, and backlinks from real publications. Growth is $1,200 CAD and adds GEO entity authority work on Wikipedia and Wikidata, Reddit and forum participation, weekly bilingual content, and competitive monitoring. Agency is $2,500 CAD for brands and resellers, with Reviuzy automation bundled in, multi-location dashboard, white-label PDF reports, Slack SLA under 4 hours, API access, custom integrations including HubSpot and Salesforce, and a quarterly executive deck. Reviuzy automation is also available as a $100 per month add-on on Starter, Core, and Growth: NFC review collection, AI review generation, contest engine with video winner announcement, GBP post automation, citation tracker, NAP consistency, AI Visibility dashboard, and AI Traffic conversion tracker. Every plan is month to month with two weeks notice to cancel and a 30-day satisfaction guarantee. Bilingual EN and FR-CA in-house. Quebec-anchored.",
   },
 
   pricingDrivers: {
@@ -879,7 +881,7 @@ export const en = {
     sectionLabel: "Plan builder",
     heading1: "Build your plan,",
     heading2: "see the price.",
-    intro: "Adjust the inputs. The price snaps to one of our four tiers ($300 to $2,499). No \"request a quote\" theatre.",
+    intro: "Adjust the inputs. The price snaps to one of our four tiers ($300 to $2,500). No \"request a quote\" theatre.",
     pagesLabel: "Pages on your site",
     languagesLabel: "Languages served",
     servicesLabel: "Services included",
@@ -958,7 +960,7 @@ export const en = {
     dedicatedStrategistLabel: "Dedicated strategist",
     dedicatedStrategistDesc: "Same senior strategist on your account every month, not pooled. Direct line, retains context, faster decisions.",
 
-    srSeo: "Build your AiLys plan by adjusting three inputs and the price snaps to one of four tiers between $300 and $2,499 CAD per month. The inputs are pages on your site, languages served (EN only, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, or all 8 languages), and the services you include. Available services are Google Business Profile management, LLM citation tracking across 6 AI engines with weekly polls, AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month or 10 plus per month, bilingual EN and FR content at one piece per month, weekly content production at 4 pieces per month, GEO entity authority work on Wikipedia and Wikidata, competitive monitoring with weekly tracker, and the Reviuzy monthly review contest engine. Free audit first. No credit card. Plans are month to month with two weeks notice to cancel.",
+    srSeo: "Build your AiLys plan by adjusting three inputs and the price snaps to one of four tiers between $300 and $2,500 CAD per month. The inputs are pages on your site, languages served (EN only, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, or all 8 languages), and the services you include. Available services are Google Business Profile management, LLM citation tracking across 6 AI engines with weekly polls, AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month or 10 plus per month, bilingual EN and FR content at one piece per month, weekly content production at 4 pieces per month, GEO entity authority work on Wikipedia and Wikidata, competitive monitoring with weekly tracker, and the Reviuzy monthly review contest engine. Free audit first. No credit card. Plans are month to month with two weeks notice to cancel.",
   },
 
   methodology: {
@@ -1148,7 +1150,7 @@ export const en = {
 
     row3Segment: "Tools-only platforms",
     row3Examples: "BrightLocal · Whitespark",
-    row3Price: "$799 to $2,499 /mo",
+    row3Price: "$799 to $2,500 /mo",
     row3Weakness: "You buy the dashboard. You still have to do the actual work.",
     row3Ailys: "Done for you. Our team executes. You receive citations, not credentials to log into yet another tool.",
 
@@ -1158,7 +1160,7 @@ export const en = {
     row4Weakness: "Strong on classic local SEO. Light on AEO/GEO/E-E-A-T integration.",
     row4Ailys: "Same classical SEO foundation (technical, on-page, citations, GBP), with the AEO + GEO + E-E-A-T layer built in from day one. The two halves feed each other.",
 
-    srSeo: "AiLys Agency sits between four competitive segments. Tier-1 global agencies like Jellyfish, Seer, Siege Media, and NP Digital charge $5,000 to $25,000 plus per month and are enterprise-only with proprietary AI tracking that local businesses cannot access. Mass volume SMB shops like LocaliQ, Boostability, and Marketing 360 charge $10 to $2,300 per month but quality drops with scale and the work feels industrialized. Tools-only platforms like BrightLocal and Whitespark charge $799 to $2,499 per month for dashboards you still have to operate yourself. Local specialists like Sterling Sky and Rablab are strong on classical local SEO but light on AEO, GEO, and E-E-A-T integration. AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO, E-E-A-T) at SMB pricing of $300 to $2,499 per month because our delivery layer is automated through Reviuzy. Bilingual EN and FR-CA in-house. We answer the phone.",
+    srSeo: "AiLys Agency sits between four competitive segments. Tier-1 global agencies like Jellyfish, Seer, Siege Media, and NP Digital charge $5,000 to $25,000 plus per month and are enterprise-only with proprietary AI tracking that local businesses cannot access. Mass volume SMB shops like LocaliQ, Boostability, and Marketing 360 charge $10 to $2,300 per month but quality drops with scale and the work feels industrialized. Tools-only platforms like BrightLocal and Whitespark charge $799 to $2,500 per month for dashboards you still have to operate yourself. Local specialists like Sterling Sky and Rablab are strong on classical local SEO but light on AEO, GEO, and E-E-A-T integration. AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO, E-E-A-T) at SMB pricing of $300 to $2,500 per month because our delivery layer is automated through Reviuzy. Bilingual EN and FR-CA in-house. We answer the phone.",
   },
 
   auditCta: {
@@ -1224,7 +1226,7 @@ export const en = {
     q11: "What happens if I cancel?",
     a11: "Two weeks notice and we wind down. You keep the schema we shipped, the citations we landed, and the audit reports. No clawbacks, no held assets.",
 
-    srSeo: "Common questions about AiLys Agency answered in plain language. We are both an SEO agency and an AI search agency because AI engines like ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot pull from the same web index that classical Google search uses. Every plan includes the classical SEO foundation: technical SEO audit, on-page optimization, NAP consistency, GBP management, and citation building. AEO is Answer Engine Optimization, where we structure content with schema markup and Q&A formats so AI engines extract clean answers. GEO is Generative Engine Optimization, where we get your brand named inside actual AI responses through Wikipedia, Wikidata, Reddit, and digital PR. E-E-A-T is Experience, Expertise, Authoritativeness, and Trust, which AI engines use to pick whose content to cite. Reddit matters because ChatGPT and Perplexity weight it heavily as a genuine human discussion source. Classical SEO results show in 30 to 60 days, real LLM citation lift at 90 to 120 days. We do not guarantee rankings, only process. Pricing is $300 to $2,499 CAD per month.",
+    srSeo: "Common questions about AiLys Agency answered in plain language. We are both an SEO agency and an AI search agency because AI engines like ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot pull from the same web index that classical Google search uses. Every plan includes the classical SEO foundation: technical SEO audit, on-page optimization, NAP consistency, GBP management, and citation building. AEO is Answer Engine Optimization, where we structure content with schema markup and Q&A formats so AI engines extract clean answers. GEO is Generative Engine Optimization, where we get your brand named inside actual AI responses through Wikipedia, Wikidata, Reddit, and digital PR. E-E-A-T is Experience, Expertise, Authoritativeness, and Trust, which AI engines use to pick whose content to cite. Reddit matters because ChatGPT and Perplexity weight it heavily as a genuine human discussion source. Classical SEO results show in 30 to 60 days, real LLM citation lift at 90 to 120 days. We do not guarantee rankings, only process. Pricing is $300 to $2,500 CAD per month.",
   },
 
   footerExt: {

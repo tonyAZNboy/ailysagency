@@ -180,7 +180,7 @@ export function Content() {
         Beyond those three, NAP consistency across citations feeds the entity attributes that voice assistants use to verify the business is real and current. Wikidata entries and structured Person or Organization schema reinforce the entity. None of that is Speakable. The honest plan ships Speakable as a cheap layer and puts the bigger budget on GBP, FAQPage, reviews, and NAP work.
       </p>
 
-      <InlineCTA variant="pricing" text="See the AiLys tiers built for voice and AI Visibility, from Starter at 300 dollars CAD to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the AiLys tiers built for voice and AI Visibility, from Starter at 300 dollars CAD to Agency at 2,500 dollars CAD." />
 
       <SectionDivider />
 
@@ -200,7 +200,7 @@ export function Content() {
 
       <h2 id="where-ailys-ships-it">Where AiLys ships it</h2>
       <p>
-        Every AiLys tier ships Speakable schema as part of the default stack. Starter at 300 dollars CAD includes the foundation schema (Article, FAQPage, Speakable, Organization) on the homepage and the top service pages. Core at 799 dollars extends it to the full site. Growth at 1,499 dollars adds Wikidata entries and original photography for entity reinforcement. Agency at 2,499 dollars adds white-label deliverables and dedicated strategist time for multi-location voice rollouts.
+        Every AiLys tier ships Speakable schema as part of the default stack. Starter at 300 dollars CAD includes the foundation schema (Article, FAQPage, Speakable, Organization) on the homepage and the top service pages. Core at 799 dollars extends it to the full site. Growth at 1,499 dollars adds Wikidata entries and original photography for entity reinforcement. Agency at 2,500 dollars adds white-label deliverables and dedicated strategist time for multi-location voice rollouts.
       </p>
       <p>
         AiLys does not market Speakable as a primary voice lever because the honest evidence does not support that claim. The platform ships it because it is cheap, it is recommended, and it does not hurt. The bigger voice work happens on GBP, FAQPage, reviews, and NAP cleanup, all of which AiLys ships in the same plan. To see where voice ranking sits today, run the <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="Probes voice and AI surfaces together" />.

@@ -95,7 +95,7 @@ export function ContentFr() {
         <li>Starter (300 dollars CAD par mois) : 1 publication GBP par mois, écrite à la main, planifiée à l'avance</li>
         <li>Core (799 dollars CAD par mois) : 4 publications par mois, une par semaine, mélangées entre les types</li>
         <li>Growth (1 499 dollars CAD par mois) : 8 publications par mois, deux par semaine, avec rafraîchissement photo mensuel</li>
-        <li>Agency (2 499 dollars CAD par mois) : 12 publications par mois, trois par semaine, avec coordination multi-emplacements</li>
+        <li>Agency (2 500 dollars CAD par mois) : 12 publications par mois, trois par semaine, avec coordination multi-emplacements</li>
       </ul>
 
       <p>

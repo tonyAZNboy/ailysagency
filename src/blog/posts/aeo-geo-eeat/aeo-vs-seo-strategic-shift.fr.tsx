@@ -118,7 +118,7 @@ export function ContentFr() {
         <p>L'amélioration AEO la moins chère pour un billet existant, c'est de réécrire le premier paragraphe en réponse directe de 40 à 60 mots à la question principale. Ajouter les schémas FAQPage. Ce seul changement fait bouger le taux d'extraction de façon mesurable en 30 à 60 jours dans la plupart des catégories locales.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD, qui livrent tous l'AEO et le GEO par défaut." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys, de Starter à 300 dollars CAD à Agency à 2 500 dollars CAD, qui livrent tous l'AEO et le GEO par défaut." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
@@ -192,7 +192,7 @@ export function ContentFr() {
 
       <h2 id="ou-ailys-livre-la-pile">Où AiLys livre la pile</h2>
       <p>
-        Chaque palier AiLys livre la pile à trois couches. Starter à 300 dollars CAD couvre les fondations SEO et les améliorations AEO sur les pages principales. Core à 799 dollars ajoute le travail d'entité GEO (construction de citations, nettoyage NAP, schémas FAQPage à grande échelle). Growth à 1 499 dollars ajoute les entrées Wikidata, la photographie originale pour les signaux d'entité et l'automatisation de réputation par Reviuzy. Agency à 2 499 dollars ajoute les livrables en marque blanche, le travail d'entité multi-emplacements et du temps de stratège dédié.
+        Chaque palier AiLys livre la pile à trois couches. Starter à 300 dollars CAD couvre les fondations SEO et les améliorations AEO sur les pages principales. Core à 799 dollars ajoute le travail d'entité GEO (construction de citations, nettoyage NAP, schémas FAQPage à grande échelle). Growth à 1 499 dollars ajoute les entrées Wikidata, la photographie originale pour les signaux d'entité et l'automatisation de réputation par Reviuzy. Agency à 2 500 dollars ajoute les livrables en marque blanche, le travail d'entité multi-emplacements et du temps de stratège dédié.
       </p>
       <p>
         La plateforme est bâtie pour le commerçant local qui ne veut pas trois fournisseurs pour trois couches. Un audit, un tableau de bord, une équipe bilingue, une facture. La page de tarifs montre les quatre paliers côte à côte et le chemin de mise à niveau.

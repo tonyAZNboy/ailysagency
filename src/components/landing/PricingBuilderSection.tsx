@@ -55,7 +55,7 @@ export function PricingBuilderSection() {
     if (p <= 350) return { name: t.pricingBuilder.tierStarter, price: 300 };
     if (p <= 750) return { name: t.pricingBuilder.tierCore, price: 600 };
     if (p <= 1250) return { name: t.pricingBuilder.tierGrowth, price: 1200 };
-    return { name: t.pricingBuilder.tierAutopilot, price: 2499 };
+    return { name: t.pricingBuilder.tierAutopilot, price: 2500 };
   }
 
   const [pages, setPages] = useState<number>(15);
@@ -78,9 +78,9 @@ export function PricingBuilderSection() {
       .filter((s) => selectedServices.includes(s.id))
       .reduce((acc, s) => acc + s.monthlyAdd, 0);
     const subtotal = base + pageScale + servicesAdd;
-    const tierPrice = Math.min(2499, Math.max(300, Math.round(subtotal / 50) * 50));
+    const tierPrice = Math.min(2500, Math.max(300, Math.round(subtotal / 50) * 50));
     const tier = tierForPrice(tierPrice);
-    const isAgency = tier.price === 2499;
+    const isAgency = tier.price === 2500;
 
     const languageCost = extraLanguages.size * EXTRA_LANGUAGE_PRICE;
 

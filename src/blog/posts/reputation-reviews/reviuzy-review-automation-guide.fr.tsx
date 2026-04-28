@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte Reviuzy et comment l'ajouter à mon forfait AiLys?",
       answer:
-        "Reviuzy coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 499 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter Reviuzy sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut les autocollants NFC, le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques.",
+        "Reviuzy coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 500 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter Reviuzy sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut les autocollants NFC, le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques.",
     },
     {
       question: "Reviuzy opère-t-il mon concours ou est-ce moi qui l'opère?",
@@ -94,7 +94,7 @@ export function ContentFr() {
         <p>Le prix mensuel de 100 dollars couvre la trousse complète : accès au tableau de bord, autocollants NFC, suggestions de brouillon IA, flux de réponse automatique, moteur de concours, bibliothèque de gabarits juridiques et détection d'avis bidons. Il n'y a pas de surcharge par avis ni par emplacement pour les commerces à un seul emplacement. Les tarifs multi-emplacements sont calculés sur la page de tarifs AiLys selon le nombre d'emplacements.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où Reviuzy est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où Reviuzy est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

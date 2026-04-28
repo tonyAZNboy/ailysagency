@@ -1,4 +1,33 @@
-import type { BlogPostEntry } from './types'
+import type { BlogPostEntry, BlogPostMeta } from './types'
+
+// ── Eagerly load every FR sister file so the index can render localized
+//    titles, excerpts and FAQ items without triggering 51 dynamic imports.
+//    Each .fr.tsx file exports `metaFr` (BlogPostMeta) + `ContentFr` (component).
+//    Vite resolves this glob at build time. Adding a new FR sister auto-wires.
+type FrModule = { metaFr?: BlogPostMeta }
+const frSiblings = import.meta.glob<FrModule>('./posts/*/*.fr.tsx', { eager: true })
+const FR_META_BY_SLUG: Record<string, BlogPostMeta> = {}
+for (const [path, mod] of Object.entries(frSiblings)) {
+  if (mod && mod.metaFr) {
+    const slug = path.replace(/^.+\//, '').replace(/\.fr\.tsx$/, '')
+    FR_META_BY_SLUG[slug] = mod.metaFr
+  }
+}
+
+/**
+ * Return the meta for a given post in the requested locale. Falls back to
+ * the EN canonical meta when no localized sibling exists for the locale.
+ * Currently FR-CA is the only locale with hand-authored sister files; the
+ * 4 other majors (ES, ZH, AR, RU) and 10 secondaries fall back to EN until
+ * their sister files ship.
+ */
+export function getLocalizedMeta(post: BlogPostEntry | BlogPostMeta, lang: string): BlogPostMeta {
+  if (lang === 'fr') {
+    const fr = FR_META_BY_SLUG[post.slug]
+    if (fr) return fr
+  }
+  return post as BlogPostMeta
+}
 
 // ── Industry Playbooks ──────────────────────────────────────────────────────
 import { meta as quebecRestaurantsMaps2026Meta } from './posts/industry-playbook/what-quebec-restaurants-ask-google-maps-2026'
