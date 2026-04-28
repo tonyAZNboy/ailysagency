@@ -1,7 +1,8 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 EOD (legal pages bilingual EN/FR-CA + photo cadence 4/8/12/12-per-domain + 2 op playbooks + scope docs + Reviuzy SaaS implementation spec v1.2 + AiLys consulting contracts EN/FR-CA HTML drafted; SaaS implementation NOT YET STARTED — handoff to next session)
-**Branch:** `main` · **Tag pending:** `v0.3.0-arch-decided` · **Active commit:** `65145d9` (em-dash fix in help articles) — to be pushed: Footer Reviuzy "produit jumeau" card removal + STATE.md update
+**Last updated:** 2026-04-27 night (Reviuzy Phase 4.5.1-4.5.10 all SHIPPED on branch `claude/determined-agnesi-e1a262`: em-dash scrub + Vitest + client_type + BrandProvider + JWT brand claim + Stripe/Resend per-brand helpers + tenant_history audit + tier-features centralization + operator checklist; 85 unit tests pass)
+**Branch:** `main` · **Tag pending:** `v0.3.0-arch-decided` · **Active commit:** `65145d9` (em-dash fix in help articles) , to be pushed: Footer Reviuzy "produit jumeau" card removal + STATE.md update
+**Reviuzy work branch:** `claude/determined-agnesi-e1a262` · **Active commit:** `a5016cd` (Phase 4.5.9+10 ops checklist) · 9 Phase 4.5 commits to merge into Reviuzy main
 **Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
 **.com → .ca redirect:** ✅ live via `functions/_middleware.ts` (Pages middleware, 301 with path/query preserved)
@@ -15,6 +16,36 @@
 **Link-building scope:** AiLys does NOT do active link-building, Wikipedia editing, Reddit participation, journalist outreach. Wikidata kept (semi-automatable). Citations + GBP + schema + Wikidata are the deliverables.
 **Photo flow:** Client uploads via Reviuzy app (tier-gated quota). AiLys does NOT source photos.
 **Phase 2-4 Reviuzy features:** ✅ all shipped end-to-end across 8 admin pages + 7 edge functions + 4 migrations.
+
+---
+
+## ✅ PHASE 4.5 STATUS, SHIPPED 2026-04-27 night
+
+All 10 sub-phases delivered on `claude/determined-agnesi-e1a262` (commits 2d0e729 → a5016cd):
+
+| Sub-phase | Commit  | Deliverable                                                              |
+|-----------|---------|--------------------------------------------------------------------------|
+| 4.5.1     | 2d0e729 | Scrubbed 224 em-dashes from 16 i18n translation files                    |
+| 4.5.2     | 88455cf | Vitest + RTL + jsdom + 35 tests + featureCatalog lib + CI workflow       |
+| 4.5.3     | 262355b | client_type/ailys_tier columns + is_ailys_strategist + provision-ailys-tenant edge fn |
+| 4.5.4     | 4166a09 | resolveBrandFromHostname + BrandProvider + BrandRedirectGuard            |
+| 4.5.5     | 32f4a28 | custom_access_token_hook (brand claim) + brandGuard.ts edge helper       |
+| 4.5.6     | 43225f0 | brandConfig.ts (Stripe descriptor + Resend From per brand)               |
+| 4.5.7     | 4c68c38 | tenant_history audit table + journaling trigger + RLS                    |
+| 4.5.8     | 5509717 | Centralized TIER_QUOTAS_REVIUZY + TIER_QUOTAS_AILYS in featureCatalog    |
+| 4.5.9-10  | a5016cd | Operator checklist `docs/phase-4-5-ops.md` (DNS, Pages, Resend, hooks)   |
+
+**Test totals:** 85 unit tests pass, 17 it.todo specs scaffold deeper integration tests
+to be activated as upstream features land. Typecheck clean, build green at every commit.
+
+**Operator action items** (from `docs/phase-4-5-ops.md` in Reviuzy repo):
+1. Apply 3 new migrations (20260427130000, 140000, 150000) via Supabase SQL Editor
+2. Deploy `provision-ailys-tenant` edge function
+3. Enable Custom Access Token hook in Supabase Auth -> Hooks (otherwise brand claim is inert)
+4. Wire `my.ailysagency.ca` as Cloudflare Pages custom domain on the Reviuzy project
+   (NOTE: Reviuzy is on Workers static-assets; either migrate to Pages or use a
+   Worker route, recommendation in ops doc)
+5. Resend domain auth for both `reviuzy.com` and `ailysagency.ca`
 
 ---
 
