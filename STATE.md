@@ -115,6 +115,60 @@ tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.
 
 **Test totals after Phase 10:** 181 unit tests pass.
 
+## ⚠️ LINT DEBT (Reviuzy repo, deferred to next session)
+
+End-of-session lint audit on 2026-04-28: **416 errors across 148 files**, all
+pre-existing legacy code (NOT introduced by Phase 4.5-10 work). Files added
+this session pass lint with 0 errors / 1 ignorable warning.
+
+### Categories
+
+| Rule | Count | Difficulty |
+|------|-------|------------|
+| `@typescript-eslint/no-explicit-any` | 381 | High (each `any` needs caller-aware retype) |
+| `react-hooks/exhaustive-deps` | 37 | Medium (auto-add deps -> re-render infinite loops if wrong) |
+| `react-refresh/only-export-components` | 12 | Low (mostly shadcn UI, can override at directory) |
+| `no-empty` | 15 | Trivial (add comment or remove) |
+| `no-useless-escape` | 9 | Trivial (auto-fixable) |
+| `no-misleading-character-class` | 2 | Low |
+| `@typescript-eslint/no-unused-expressions` | 2 | Low |
+| `@typescript-eslint/no-empty-object-type` | 2 | Low |
+| `no-control-regex` | 1 | Low |
+| `no-constant-binary-expression` | 1 | Low |
+| `no-case-declarations` | 1 | Low |
+| `@typescript-eslint/no-require-imports` | 1 | Low (`tailwind.config.ts:163`) |
+
+Auto-fix already applied (469 -> 465 -> 416 after re-run, 4 trivial fixes).
+
+### Recommended approach (Option A from session handoff)
+
+Modify `eslint.config.js` to scope strict rules:
+- **error** for `no-explicit-any` and `exhaustive-deps` on Phase 4.5-10
+  paths: `src/lib/{photoQuota,redditMentions,reportBranding,apiKey,
+  anomalyDetection,clientType,brand,brandClaim,brandConfig,tenantDomains,
+  tenantHistory,featureCatalog}.ts`, `src/blog/**`, `src/contexts/**`,
+  `src/components/{admin,settings,reports}/**`, `src/components/FeatureGate.tsx`,
+  `src/hooks/{useTenantDomains,usePhotoDrafts,useRedditMonitor,useApiKeys}.ts`,
+  `src/pages/{GbpPhotoQueue,RedditMonitor,ExecutiveReportViewer,ApiKeysAdmin,AlertsCenter}.tsx`,
+  `src/test/**`
+- **warn** for the rest (legacy code, fix incrementally via boy scout rule
+  when touching the file)
+
+15 minutes config + commit. Lint passes immediately. Tech debt stays
+visible. New code cannot regress.
+
+### Alternative options considered
+
+- **Option B**: Suppress legacy with `// eslint-disable-next-line` + TODO
+  comment. ~1.5h. Clean lint but 418 TODOs sprinkled across the codebase.
+- **Option C**: Hand-fix all 416 errors properly. 6-12 hours across multiple
+  sessions. Highest quality but exceeds single-session budget.
+
+User chose to defer to a fresh session. Recommendation when reopening: start
+with Option A config split, then attack `no-empty` + `no-useless-escape` +
+the 1-off rules in batch (~30 min for ~30 errors), then optionally tackle
+`no-explicit-any` directory-by-directory in subsequent sessions.
+
 ## Final operator action queue (cumulative Phases 4.5 + 5 + 6 + 7 + 8 + 9 + 10)
 
 Already done:
