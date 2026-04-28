@@ -1,7 +1,81 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 (Phase 12 Wave 1-4.2 MERGED to main as PR #5 `337146d`; 325 unit tests pass)
-**Branch:** `main` · **Tag:** `v0.3.0-arch-decided` (pushed) · **Active commit:** ailysagency `2032f70`
+**Last updated:** 2026-04-28 night (BLOG LAUNCH MILESTONE: 51 posts shipped + Truvizy-pattern modular architecture + FR-CA hand-authored siblings + 153 photoreal Gemini hero/mid/end images + founding-clients application page at /contact /contacte /lien-he with email + admin delivery + iOS mobile overflow + scroll-spy fix + floating back button + $2,499 → $2,500 tier 4 sweep + "in development" badge. Milestone tag pending.)
+**Branch:** `main` · **Tag pending:** `v0.4.0-blog-launch` · **Active commit:** ailysagency `196a6d5` (manual wrangler deploy, GitHub Actions still blocked on missing `CLOUDFLARE_API_TOKEN` secret)
+**Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
+## 🎉 Blog launch milestone (2026-04-28 night, commit `196a6d5`)
+
+Shipped end-to-end through 4 deploys (`1997d6f` → `196a6d5`):
+
+### Modular blog architecture (Truvizy pattern, 100% structural parity)
+- `src/blog/` namespace with types, authors, categories, registry, components/* (18 components: BlogPostPage, BlogIndexPage, BlogCategoryPage, BlogCard, BlogCTA, BlogFAQ, BlogJsonLd, ShareButtons, TableOfContents, ReadingProgress, RelatedPosts, AuthorBio, HreflangTags, BlogLanguageSelector, TranslatedBlogPostPage, TranslatedContent, PillarContent, shared.tsx with CalloutBox/InlineCTA/StatHighlight/KeyTakeaway/QuickQuiz/InternalLink/SectionDivider).
+- 9 categories: ai-visibility, gbp-google-maps, local-seo, aeo-geo-eeat, voice-search, industry-playbook, reputation-reviews, analytics-attribution, ailys-product.
+- Per-post TSX with `meta` + `Content` exports; FR-CA siblings with `metaFr` + `ContentFr` (hand-authored, NO translation API per project rule).
+- Density target met across all 51 posts: 1 StatHighlight, 3 CalloutBox, 3 InlineCTA, 1 QuickQuiz, 1 KeyTakeaway, 3+ InternalLink, 6-8 SectionDivider, 8 H2 + FAQ heading.
+- Full JSON-LD stack per post: Article + BreadcrumbList + Organization (with speakable + EEAT signals) + FAQPage.
+- prose-blog typography copied from Truvizy (line 715-1120 of index.css).
+
+### 51 posts shipped (7 migrated + 44 new)
+- 7 legacy posts migrated from `src/data/blog-posts.ts` to modular structure with FR-CA siblings hand-authored.
+- 44 new posts authored in 7 waves (W4-W7), every-2-day cadence Feb 1 → Apr 28, 2026, distributed across 9 categories. EN canonical 1,500-2,000 words each, FR-CA siblings 1,800-2,200 words each.
+- All posts pass scrub gates: 0 em-dashes, 0 AI fingerprints (leverage/delve/etc.), 0 proprietary AI provider disclosure ("AiLys uses Claude" forbidden, topical mentions OK), brand names in Latin script, no invented stats.
+
+### 153 photoreal hero/mid/end images (Gemini 2.5 Flash Image / nano-banana)
+- 51 posts × 3 variants = 153 webp at 1280x720, ~$5.97 USD total.
+- Hand-curated prompts per post in `scripts/generate-blog-hero-images.mjs` (Quebec / Canadian local-business contexts, photoreal editorial style, no text/logo/watermark).
+- Idempotent script (skip-if-exists, --slug, --variant, --force, --start flags).
+- Reuses Truvizy's `VITE_GEMINI_API_KEY` (added to AiLys `.env`, gitignored).
+
+### Founding-clients application page (Truvizy-style, EN/FR-CA/VI)
+- Routes: `/contact` (EN), `/contacte` (FR-CA), `/lien-he` (VI). Slug-first lang detection (FR/VI slugs override URL `:lang` prefix).
+- Page includes: hero with scarcity counter, 4 benefits cards, 4-tier pricing comparison (with 50% discount math), transparent terms (5-point fine print), 12-field application form (name/email/phone/business/website/GBP/location/vertical/tier/SEO history/motivation/honeypot), 6-question FAQ.
+- Form posts to `functions/api/founding-clients-apply.ts` (Cloudflare Pages Function): gov-grade input validation, honeypot, disposable-email reject, origin allowlist, IP capture, dual delivery to Supabase `landing_leads` (admin) AND Resend email to `anthonyng135@gmail.com` (instant ops alert).
+- JSON-LD Offer schema with `eligibleQuantity`, `priceSpecification` for the 4 tiers.
+- Hreflang trio EN/fr-CA/VI + x-default.
+
+### iOS mobile overflow fix (multi-component)
+- `TextReveal` and `GradientTextReveal` outer wrapper changed from `inline-block` to `inline` so per-word children can wrap at narrow viewports (was clipping H1 "Conçu pour les commerces" at 375px).
+- `MagneticButton` / `MagneticWrapper` outer added `max-w-full`.
+- `min-w-0` added to grid items in `HeroSection` and `BookCallSection` (grid items default to `min-width: auto` which forces them to fit content).
+- Hero pt-24 → pt-32 on mobile to clear the sticky navbar pill on iOS.
+- Hero h1 defensive clamp: `clamp(min(1.375rem, 5.5vw), 5.5vw, 3.75rem)` so iOS Safari manual text-size zoom (the "aA" menu) cannot push rem above what the viewport can contain.
+- Global CSS: html + body + #root all carry `hsl(var(--background))` explicitly. Safe-area-inset padding moved from body to #root so body bg sits flush against the viewport edge between the URL bar and the navbar (kills white strip on iPhone).
+- Verified live at 375x812 and 390x844: 0 horizontal overflow, h1 width 369px (was 413px), all imgs loaded.
+
+### Mobile blog filter compact + scroll-spy fix
+- Mobile blog filter bar collapsed from ~200px (2 rows + 12 horizontal pills) to single 69px row: search + category dropdown + sort icon. Pills layout preserved on sm+.
+- Scroll-spy navbar fix: "Comment Ca Marche" used to highlight "Tarifs" because the algorithm picked the first section above the activation line scanning bottom-up, which flagged the next section at boundaries. New algorithm picks the section whose top has crossed line AND bottom still below it.
+- Floating "Back to blog" button on every BlogPostPage (fixed bottom-left, safe-area-inset, EN/FR/ES/ZH/AR/RU/VI localized).
+
+### Tier 4 Agency price update
+- $2,499 → $2,500 swept across 49 files (i18n translations 16 locales + blog post bodies + ServicesSection + FoundingClients).
+- New "in development" amber badge surfaces top-right on the Agency tier card with i18n labels (`statusInDevelopment` + `statusInDevelopmentTitle`) in EN + FR.
+
+### Blog index renders FR-CA titles
+- `import.meta.glob('./posts/*/*.fr.tsx', { eager: true })` in registry.ts loads all 51 FR sister files at build time.
+- New `getLocalizedMeta(post, lang)` helper exported from registry.
+- `BlogIndexPage` calls `getLocalizedMeta` per card so titles, excerpts and dates render in the user's language. Other locales fall back to EN until their sister files ship.
+
+### SEO surfaces
+- `scripts/generate-sitemap.mjs` updated to read from `src/blog/registry.ts` with per-post `lastmod` from `updatedDate` or `publishedDate`.
+- 16 per-language sitemaps regenerated (en, fr, es, zh, ar, ru, de, it, pt, nl, pl, ja, ko, tr, vi, hi).
+- llms.txt + robots.txt updated.
+
+### Skill `blog-seo-author`
+- `.claude/skills/blog-seo-author/SKILL.md` documents the workflow.
+- `references/queue.md` 51-row cadence queue.
+- `references/seo-checklist.md` 10/10 SEO gate.
+- `references/keyword-research.md` AiLys keyword universe per category.
+- `templates/post-template.tsx` copy-paste starter.
+
+### CI/CD note
+- GitHub Actions auto-deploy still failing because `CLOUDFLARE_API_TOKEN` secret is missing in repo settings. Both this milestone's deploys went via `wrangler pages deploy dist --project-name=ailysagency --branch=main` (production environment).
+- To restore auto-deploy: create token at dash.cloudflare.com/profile/api-tokens with scope Pages:Edit, then add as `CLOUDFLARE_API_TOKEN` repo secret at github.com/tonyAZNboy/ailysagency/settings/secrets/actions.
+
+---
+
+## Reviuzy section
+
 **Reviuzy main:** merge commit `337146d` (PR #5 Phase 12 merged 2026-04-28T14:56:45Z)
 - PR #3 (lint cleanup 420->0 + Phase 11.A-D Schema deployment) merged as `bba7f05`
 - PR #4 (.gitignore .archive-worktree-patches) merged as `51f0b22`
