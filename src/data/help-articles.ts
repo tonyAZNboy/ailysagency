@@ -4254,7 +4254,7 @@ Optional notes block at the bottom (operator-supplied, not yet wired into the UI
 1. Open **Reports, Executive report** in your dashboard.
 2. The page loads the past month's data automatically (LETTER-format preview rendered in the browser).
 3. Verify the numbers look right.
-4. Click **Download PDF**. The browser builds the PDF locally and downloads as `{your-brand}-{YYYY-MM}.pdf`.
+4. Click **Download PDF**. The browser builds the PDF locally and downloads as \`{your-brand}-{YYYY-MM}.pdf\`.
 
 Generation runs entirely in your browser; nothing is uploaded back to our servers during the export step. The data itself is read from your account database in the page load step (not the PDF step).
 
@@ -4327,7 +4327,7 @@ Bloc optionnel de notes au bas (fourni par l'opérateur, pas encore câblé dans
 1. Ouvrez **Rapports, Rapport exécutif** dans votre tableau de bord.
 2. La page charge automatiquement les données du mois écoulé (aperçu format LETTER rendu dans le navigateur).
 3. Vérifiez que les chiffres ont du sens.
-4. Cliquez **Télécharger le PDF**. Le navigateur construit le PDF localement et télécharge sous `{votre-marque}-{YYYY-MM}.pdf`.
+4. Cliquez **Télécharger le PDF**. Le navigateur construit le PDF localement et télécharge sous \`{votre-marque}-{YYYY-MM}.pdf\`.
 
 La génération se fait entièrement dans votre navigateur ; rien n'est téléversé vers nos serveurs durant l'étape d'export. Les données elles-mêmes sont lues depuis votre base de compte à l'étape de chargement de la page (pas l'étape PDF).
 
@@ -4642,6 +4642,114 @@ Pour de l'archivage à long terme, frappez l'API elle-même et stockez les répo
 **Puis-je partager une clé avec un coéquipier ?** Mieux vaut leur donner leur propre login au tableau de bord (Paramètres, Membres, Inviter) et les laisser générer une clé personnelle. Les clés partagées compliquent la révocation.
 
 **Que se passe-t-il si mon compte change de palier ?** Les clés API sont liées au palier. Passer d'Agency à Growth désactive les clés existantes (elles retournent 401 avec "Tier downgraded"). Passer de Growth à Agency ne restaure PAS automatiquement les anciennes clés ; révoquez et créez-en de nouvelles.`,
+      },
+    },
+  },
+  {
+    slug: "crisis-early-warning-alerts",
+    title: "Crisis early warning alerts (what we detect, when we email)",
+    excerpt:
+      "Four detection rules running across your reputation signals. Warning alerts surface in the dashboard. Critical alerts also email you. You decide and dismiss with a reason for audit.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A small set of threshold rules that watch your reputation signals (Reddit, AI Visibility, citations, reviews) and surface anomalies before they become full crises. Two severity levels: warning (dashboard only) and critical (dashboard + email to the operator).
+
+## What we detect
+
+### 1. Negative sentiment spike (Reddit)
+24h count vs 30-day baseline. Warning at 3+ AND 3x baseline; critical at 5x baseline AND 10+ absolute.
+
+### 2. AI Visibility drop (Share of Model)
+This week vs previous week. Warning at 25% relative drop; critical at 50%.
+
+### 3. Citation churn
+Delisted in last 30 days. Warning at 2-4; critical at 5+.
+
+### 4. Review bomb
+Last hour vs 30-day hourly baseline. Warning at 5+ AND 3x; critical at 15+ OR 10x.
+
+## How detection runs
+
+On demand from the **Alerts center** dashboard. Click **Run detection**, the function pulls counts and inserts new alerts. Re-running the same day does not duplicate (fingerprint dedup).
+
+## Critical alerts get an email
+
+Sender: noreply@ailysagency.ca (AiLys-managed) or noreply@reviuzy.com (self-serve). Subject "[CRITICAL] {brand} reputation alert: {kind}". One email per kind per detection run.
+
+## Dismissing
+
+Click Dismiss in the dashboard, optional reason for audit (max 500 chars). Same anomaly persisting into next day fires a NEW alert with new fingerprint, by design.
+
+## What we do NOT do
+
+- No auto-reply to negative reviews
+- No auto-Reddit reply
+- No auto-citation dispute
+- No IP block during review bomb (Domain Shield handles that separately)
+
+Crisis response is judgment. We surface; you respond.
+
+## FAQ
+
+**Threshold tuning?** Not via UI yet. Contact strategist for per-tenant overrides.
+
+**False positives?** Inherent to threshold detection. Dismissal-with-reason is the safety valve; we tune over time.
+
+**Slack alerts?** On the roadmap.`,
+    i18n: {
+      fr: {
+        title: "Alertes d'avertissement précoce de crise",
+        excerpt:
+          "Quatre règles de détection sur vos signaux de réputation. Les alertes d'avertissement apparaissent dans le tableau de bord. Les alertes critiques vous envoient aussi un courriel.",
+        body: `## Ce que c'est
+
+Des règles à seuil qui surveillent vos signaux de réputation (Reddit, visibilité IA, citations, avis) et font remonter les anomalies avant qu'elles deviennent des crises. Deux niveaux : avertissement (tableau de bord seul) et critique (tableau de bord + courriel).
+
+## Ce qu'on détecte
+
+### 1. Pic de sentiment négatif (Reddit)
+24 h vs base 30 jours. Avertissement à 3+ ET 3x base ; critique à 5x base ET 10+ absolu.
+
+### 2. Chute de visibilité IA (Part du modèle)
+Cette semaine vs précédente. Avertissement à 25 % de chute ; critique à 50 %.
+
+### 3. Perte de citations
+Délistées dans les 30 derniers jours. Avertissement 2-4 ; critique 5+.
+
+### 4. Bombardement d'avis
+Dernière heure vs base horaire 30 jours. Avertissement 5+ ET 3x ; critique 15+ OU 10x.
+
+## Comment la détection tourne
+
+Sur demande depuis le **Centre d'alertes**. Cliquez **Lancer la détection**. Re-lancer le même jour ne duplique pas (déduplication par empreinte).
+
+## Les alertes critiques envoient un courriel
+
+Expéditeur : noreply@ailysagency.ca (géré par AiLys) ou noreply@reviuzy.com (libre-service). Sujet "[CRITICAL] {marque} reputation alert: {kind}". Un courriel par kind par exécution.
+
+## Rejeter
+
+Cliquez Rejeter, raison optionnelle pour audit (max 500 caractères). La même anomalie qui persiste au jour suivant déclenche une NOUVELLE alerte avec nouvelle empreinte, par design.
+
+## Ce qu'on ne fait PAS
+
+- Pas de réponse automatique aux avis négatifs
+- Pas de réponse automatique sur Reddit
+- Pas de dispute automatique des citations
+- Pas de blocage IP pendant un bombardement (Domain Shield gère ça séparément)
+
+La réponse de crise est un jugement. On fait remonter ; vous répondez.
+
+## Questions fréquentes
+
+**Ajustement des seuils ?** Pas via UI encore. Contactez le stratège pour des dépassements par tenant.
+
+**Faux positifs ?** Inhérent à la détection à seuil. Le rejet-avec-raison est la soupape ; on ajuste avec le temps.
+
+**Alertes Slack ?** Dans la feuille de route.`,
       },
     },
   },
