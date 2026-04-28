@@ -4363,4 +4363,286 @@ Deux raisons :
       },
     },
   },
+  {
+    slug: "api-access-for-agency-tier",
+    title: "API access for Agency-tier accounts",
+    excerpt:
+      "Programmatic read access to your AI Visibility, AI Traffic, and Citations metrics. Generate keys in the dashboard, hit the public-api endpoint with a Bearer token, 1000 requests per hour per key.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A small REST API that exposes the same numbers you see in your dashboard, in a format your tools can consume. Three endpoints right now (Share of Model, AI Traffic summary, Citations status) per calendar month. JSON output, Bearer token auth, sliding-window rate limit, audit log per call.
+
+## Who gets it
+
+Agency tier ($2,499 CAD/mo) only. Lower tiers see the API keys page with a paywall and an upgrade CTA.
+
+## Generating a key
+
+1. Open **Settings, API keys** in the dashboard.
+2. Type a memorable name (e.g., "Looker dashboard", "internal CRM sync", "Jordan's laptop"). The name is for you; we use it to remind you which system holds which key.
+3. Click **Generate**. A dialog shows the raw key in monospace, plus a Copy to clipboard button.
+4. Copy the key into the system that will use it (env var, secret manager, or one of the integration setups below).
+5. Click Done. The dashboard will only show the masked form (e.g., \`rvz_AbCd••••wXyZ\`) from now on. We never see the raw key again.
+
+If you lose the key, generate a new one and revoke the old. Lost keys cannot be recovered.
+
+## Authentication
+
+Every request needs:
+
+\`\`\`
+Authorization: Bearer rvz_<your-key>
+\`\`\`
+
+Format check happens before the database lookup, so malformed keys (missing prefix, wrong length) fail fast with 401. After format passes, we look up the prefix (first 12 chars) in the active keys table and verify the SHA-256 hash of the full key matches what is stored. Constant-time-equivalent comparison, no leak via early-return.
+
+## Endpoints
+
+All endpoints accept an optional \`?period=YYYY-MM\` query parameter. If absent, the period defaults to the last completed UTC month. Periods earlier than 36 months ago return 200 with empty arrays (no historical re-fetch).
+
+### GET /v1/visibility/share-of-model
+
+Returns the LLM probe summary for the period.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total_probes": 138,
+  "brand_mentioned": 47,
+  "share_of_model": 0.341,
+  "positive": 32,
+  "negative": 6,
+  "engines_probed": 6
+}
+\`\`\`
+
+### GET /v1/traffic/summary
+
+Returns inbound visit counts attributed to AI search engines.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total_visits": 1284,
+  "conversions": 41,
+  "by_engine": [
+    { "engine": "chatgpt", "visits": 612 },
+    { "engine": "perplexity", "visits": 281 },
+    { "engine": "claude", "visits": 205 },
+    { "engine": "google_aio", "visits": 186 }
+  ]
+}
+\`\`\`
+
+### GET /v1/citations/status
+
+Returns the citation tracker rollup.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total": 18,
+  "counts": {
+    "queued": 3,
+    "submitted": 6,
+    "verified": 8,
+    "rejected": 1
+  }
+}
+\`\`\`
+
+## Rate limit
+
+1000 requests per hour per key, sliding window. The server tracks every call in an audit log, and the count is the number of requests by the same key in the last 3600 seconds. Going over returns:
+
+\`\`\`json
+{ "error": "Rate limit 1000/hour exceeded" }
+\`\`\`
+
+with HTTP 429. The response includes:
+
+\`\`\`
+X-RateLimit-Window: 3600
+X-RateLimit-Max: 1000
+\`\`\`
+
+Need more headroom? Email your strategist; we can raise the limit per key with a written record.
+
+## Scopes
+
+Each key has a \`scopes\` array. Default scopes for new keys: \`read:visibility\`, \`read:traffic\`, \`read:citations\`. To restrict a key to a single endpoint (recommended for shared dashboards), email your strategist with the key prefix and the scope subset you want.
+
+If a key calls an endpoint outside its scopes, the response is 403:
+
+\`\`\`json
+{ "error": "Missing scope read:traffic" }
+\`\`\`
+
+## Revoking
+
+In **Settings, API keys**, click the trash icon on any active row, confirm. The key is set to \`revoked_at = now()\` and stops working immediately. Revocation is permanent; create a new key to replace it.
+
+## Auditing
+
+The dashboard shows the last 50 invocations across all keys for your tenant. Each row: timestamp, method, endpoint, HTTP status (color-coded), response time in ms. The same data lives in \`api_request_log\` for the past 90 days, indexed for fast queries. Older rows roll off automatically.
+
+For long-term archival, hit the API itself and store the responses on your end.
+
+## Common questions
+
+**Can I write data via the API?** Not yet. Read-only for the initial release. Write endpoints (e.g., trigger a Reddit poll) are on the roadmap if there is demand.
+
+**Can I get raw data instead of summaries?** Not yet. The summaries cover the use cases we have heard so far. If you need raw rows, email your strategist with the use case.
+
+**Is there a webhook variant?** Not yet. Pull-only for now. Webhooks for "negative Reddit mention detected" are on the roadmap.
+
+**Where is the OpenAPI spec?** Coming. The endpoints are stable but we have not generated the spec file yet. Use this article as the contract until then.
+
+**Can I share a key with a teammate?** Better to give them their own dashboard login (Settings, Members, Invite) and have them generate a personal key. Shared keys complicate revocation.
+
+**What happens if my account moves between tiers?** API keys are tier-gated. Going from Agency back to Growth disables existing keys (they 401 with "Tier downgraded"). Going from Growth back to Agency does NOT auto-restore old keys; revoke and create new ones.`,
+    i18n: {
+      fr: {
+        title: "Accès API pour les comptes au palier Agency",
+        excerpt:
+          "Accès programmatique en lecture à vos métriques de visibilité IA, trafic IA et citations. Générez les clés dans le tableau de bord, frappez le endpoint public-api avec un jeton Bearer, 1000 requêtes par heure par clé.",
+        body: `## Ce que c'est
+
+Une petite API REST qui expose les mêmes chiffres que vous voyez dans votre tableau de bord, dans un format que vos outils peuvent consommer. Trois endpoints pour l'instant (Part du modèle, sommaire de trafic IA, statut des citations) par mois calendaire. Sortie JSON, auth par jeton Bearer, limite de débit en fenêtre glissante, journal d'audit par appel.
+
+## Qui l'obtient
+
+Palier Agency (2 499 $ CAD/mois) seulement. Les paliers inférieurs voient la page des clés API avec un paywall et un CTA de bonification.
+
+## Générer une clé
+
+1. Ouvrez **Paramètres, Clés API** dans le tableau de bord.
+2. Tapez un nom mémorable (ex. "Tableau de bord Looker", "sync CRM interne", "portable de Jordan"). Le nom est pour vous ; on l'utilise pour vous rappeler quel système détient quelle clé.
+3. Cliquez **Générer**. Une fenêtre affiche la clé brute en monospace, plus un bouton Copier dans le presse-papiers.
+4. Copiez la clé dans le système qui l'utilisera (variable d'environnement, gestionnaire de secrets, ou une des configurations d'intégration ci-dessous).
+5. Cliquez Terminé. Le tableau de bord n'affichera que la forme masquée (ex. \`rvz_AbCd••••wXyZ\`) à partir de maintenant. On ne voit plus jamais la clé brute.
+
+Si vous perdez la clé, générez-en une nouvelle et révoquez l'ancienne. Les clés perdues ne peuvent pas être récupérées.
+
+## Authentification
+
+Chaque requête a besoin de :
+
+\`\`\`
+Authorization: Bearer rvz_<votre-clé>
+\`\`\`
+
+La vérification de format se fait avant la recherche en base, donc les clés malformées (préfixe manquant, mauvaise longueur) échouent rapidement avec 401. Après le passage du format, on cherche le préfixe (12 premiers caractères) dans la table des clés actives et on vérifie que le hash SHA-256 de la clé complète correspond à ce qui est stocké. Comparaison équivalent à temps constant, aucune fuite par retour anticipé.
+
+## Endpoints
+
+Tous les endpoints acceptent un paramètre optionnel \`?period=YYYY-MM\`. S'il est absent, la période défaut au dernier mois UTC complet. Les périodes plus de 36 mois en arrière retournent 200 avec des tableaux vides (pas de re-récupération historique).
+
+### GET /v1/visibility/share-of-model
+
+Retourne le sommaire des sondes LLM pour la période.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total_probes": 138,
+  "brand_mentioned": 47,
+  "share_of_model": 0.341,
+  "positive": 32,
+  "negative": 6,
+  "engines_probed": 6
+}
+\`\`\`
+
+### GET /v1/traffic/summary
+
+Retourne les comptes de visites entrantes attribuées aux moteurs de recherche IA.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total_visits": 1284,
+  "conversions": 41,
+  "by_engine": [
+    { "engine": "chatgpt", "visits": 612 },
+    { "engine": "perplexity", "visits": 281 },
+    { "engine": "claude", "visits": 205 },
+    { "engine": "google_aio", "visits": 186 }
+  ]
+}
+\`\`\`
+
+### GET /v1/citations/status
+
+Retourne le sommaire du suivi des citations.
+
+\`\`\`json
+{
+  "period": "2026-04",
+  "total": 18,
+  "counts": {
+    "queued": 3,
+    "submitted": 6,
+    "verified": 8,
+    "rejected": 1
+  }
+}
+\`\`\`
+
+## Limite de débit
+
+1000 requêtes par heure par clé, fenêtre glissante. Le serveur suit chaque appel dans un journal d'audit, et le compte est le nombre de requêtes par la même clé dans les dernières 3600 secondes. Dépasser retourne :
+
+\`\`\`json
+{ "error": "Rate limit 1000/hour exceeded" }
+\`\`\`
+
+avec HTTP 429. La réponse inclut :
+
+\`\`\`
+X-RateLimit-Window: 3600
+X-RateLimit-Max: 1000
+\`\`\`
+
+Besoin de plus de marge ? Envoyez un courriel à votre stratège ; on peut élever la limite par clé avec une trace écrite.
+
+## Portées (scopes)
+
+Chaque clé a un tableau \`scopes\`. Portées par défaut pour les nouvelles clés : \`read:visibility\`, \`read:traffic\`, \`read:citations\`. Pour restreindre une clé à un seul endpoint (recommandé pour les tableaux de bord partagés), envoyez un courriel à votre stratège avec le préfixe de la clé et le sous-ensemble de portées que vous voulez.
+
+Si une clé appelle un endpoint hors de ses portées, la réponse est 403 :
+
+\`\`\`json
+{ "error": "Missing scope read:traffic" }
+\`\`\`
+
+## Révocation
+
+Dans **Paramètres, Clés API**, cliquez sur l'icône poubelle de n'importe quelle ligne active, confirmez. La clé est mise à \`revoked_at = now()\` et cesse de fonctionner immédiatement. La révocation est permanente ; créez une nouvelle clé pour remplacer.
+
+## Audit
+
+Le tableau de bord montre les 50 dernières invocations sur toutes les clés de votre tenant. Chaque ligne : horodatage, méthode, endpoint, statut HTTP (codé par couleur), temps de réponse en ms. Les mêmes données vivent dans \`api_request_log\` pour les 90 derniers jours, indexées pour des requêtes rapides. Les lignes plus anciennes roulent automatiquement.
+
+Pour de l'archivage à long terme, frappez l'API elle-même et stockez les réponses de votre côté.
+
+## Questions fréquentes
+
+**Puis-je écrire des données via l'API ?** Pas encore. Lecture seule pour la sortie initiale. Les endpoints d'écriture (ex. déclencher un sondage Reddit) sont dans la feuille de route s'il y a de la demande.
+
+**Puis-je obtenir des données brutes au lieu de sommaires ?** Pas encore. Les sommaires couvrent les cas d'usage qu'on a entendus jusqu'ici. Si vous avez besoin de lignes brutes, envoyez un courriel à votre stratège avec le cas d'usage.
+
+**Y a-t-il une variante webhook ?** Pas encore. Pull seulement pour l'instant. Les webhooks pour "mention Reddit négative détectée" sont dans la feuille de route.
+
+**Où est la spec OpenAPI ?** À venir. Les endpoints sont stables mais on n'a pas encore généré le fichier de spec. Utilisez cet article comme contrat jusque-là.
+
+**Puis-je partager une clé avec un coéquipier ?** Mieux vaut leur donner leur propre login au tableau de bord (Paramètres, Membres, Inviter) et les laisser générer une clé personnelle. Les clés partagées compliquent la révocation.
+
+**Que se passe-t-il si mon compte change de palier ?** Les clés API sont liées au palier. Passer d'Agency à Growth désactive les clés existantes (elles retournent 401 avec "Tier downgraded"). Passer de Growth à Agency ne restaure PAS automatiquement les anciennes clés ; révoquez et créez-en de nouvelles.`,
+      },
+    },
+  },
 ];
