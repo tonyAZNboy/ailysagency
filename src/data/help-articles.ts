@@ -3871,4 +3871,180 @@ Vous conservez le droit de demander une suppression plus tôt explicitement. On 
       },
     },
   },
+  {
+    slug: "how-photo-uploads-work",
+    title: "How photo uploads work (tier quotas, approval, and what we publish)",
+    excerpt:
+      "Photos are client-sourced (you take them on your phone), the system auto-generates caption + alt-text, and your strategist approves before they post to Google. Tier quota is monthly, with Agency scaling per domain.",
+    category: "account-billing",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 5,
+    body: `## What we publish to Google Business Profile
+
+Photos are one of the strongest E-E-A-T signals for local search. Real photos taken on your phone at your location carry metadata (date, location, camera model) that search engines weigh higher than stock photos or photos sourced from elsewhere. We publish photos to your Google Business Profile on the cadence your tier includes, and we use the metadata of every photo so it counts as an "Experience" signal.
+
+We do not source photos. You take them; we publish them. This is intentional. Photos sourced by an agency from stock libraries or shot by a hired photographer are detectable as non-experience signals and weigh lower in the ranking.
+
+## Monthly tier quotas
+
+| Tier | Photos per month |
+|---|---|
+| AiLys Starter ($300/mo) | 4 |
+| AiLys Core ($600/mo) | 8 |
+| AiLys Growth ($1,200/mo) | 12 |
+| AiLys Agency ($2,499/mo) | 12 per domain |
+
+Agency tier scales the quota with the number of domains under management. Three domains on Agency is 36 photos per month. Seven domains is 84.
+
+The quota is **monthly**, reset on the first of every month at 00:00 UTC. Unused photos do not roll over. If you publish 3 of 8 in March, April starts at 0 of 8, not 5 of 8.
+
+Going over the quota in a single month returns a 403 from the upload pipeline with a "Monthly photo quota reached" message and the current count. You either wait for the next month or upgrade your tier.
+
+## Self-serve Reviuzy direct: no monthly cap
+
+If you are on the **Reviuzy SaaS direct** (not AiLys-managed), there is no monthly quota. You upload at your own pace, only constrained by the hourly rate limit (20 uploads per hour to protect against runaway scripts). The agency cadence is for AiLys-managed clients where we commit to a delivery rhythm; self-serve clients pace themselves.
+
+## How to upload (you, the client)
+
+1. Take the photo on your phone, at the location, during regular business activities. Customers in the frame are fine if you have their consent. Your products, your team, your space. Real moments.
+2. Open the Reviuzy app on **my.ailysagency.ca** (AiLys-managed) or **reviuzy.com** (self-serve).
+3. Go to **GBP, Photos**.
+4. Choose the photo, pick the category (Exterior / Interior / Product / Food and drink / Team / etc.), optionally write a short note.
+5. Submit.
+
+For AiLys-managed accounts, the photo enters the **strategist QA queue**. For self-serve, it publishes directly to Google.
+
+## What happens between submit and publish
+
+The system runs three steps automatically:
+
+1. **EXIF preservation**: We keep the original metadata (date, GPS coords if you allow it, camera model, orientation). This is the "Experience" signal that Google weights for E-E-A-T. Photos with intact EXIF outrank stock or stripped photos.
+2. **Caption + alt-text generation**: Our engine reads the photo and produces a 10-25 word customer-facing caption and an under-100-character alt text for screen readers. You can edit either before approval.
+3. **Strategist review** (AiLys-managed only): Your strategist sees the queue, approves with one click, or rejects with a written reason (which you see in your dashboard). Approval triggers the actual upload to Google.
+
+Self-serve Reviuzy direct skips step 3 entirely; the photo posts to Google immediately after submit.
+
+## How to know what is happening to a photo
+
+**AiLys-managed**: Open **GBP, Photos** in your dashboard. You see three sections:
+- **Pending review**: still in your strategist's queue. Typical turnaround is under 24 hours during business days.
+- **Recently approved and posted**: success, photo is live on Google.
+- **Rejected**: with the strategist's reason. You can re-shoot and re-upload.
+
+**Self-serve Reviuzy**: Same page, except the strategist column is replaced by direct upload status (success / failed with Google API error message).
+
+## Why we approve before posting (AiLys-managed)
+
+A photo on Google Business Profile is permanent until you remove it manually, and Google indexes the alt-text and the photo content for local search. A bad photo (blurry, off-brand, customer who did not consent) damages signals for months. The 24-hour delay from your phone to Google is worth it. The strategist catches:
+
+- Blurry or out-of-focus photos
+- Faces of customers without consent
+- Off-brand content (employee selfies in the parking lot, food that does not represent your menu)
+- Inappropriate alt-text generated by our engine that needs human correction
+
+## What we never do
+
+- Source photos from stock libraries
+- Hire a photographer on your behalf without prior agreement
+- Edit or filter photos beyond rotation (orientation correction)
+- Re-publish the same photo to multiple locations to fake activity
+- Strip EXIF metadata to "clean up" the photo (it kills the E-E-A-T signal)
+
+## Common questions
+
+**My photo was rejected. Can I dispute?** Yes. Reply directly to the rejection notification or contact your strategist. We are wrong sometimes.
+
+**Can I post directly to Google myself, bypassing the queue?** Not from an AiLys-managed account. The whole point of AiLys-managed is the QA layer. If you want direct control, the right product is Reviuzy self-serve at reviuzy.com.
+
+**What if I run out of quota mid-month?** Either wait until the first of the next month, or upgrade your tier. We do not ship photos against next month's quota in advance.
+
+**Does a rejected photo count against my quota?** No. Only photos that successfully publish to Google count. Rejected and pending photos do not.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionnent les téléversements de photos (quotas par palier, approbation, et ce qu'on publie)",
+        excerpt:
+          "Les photos viennent du client (vous les prenez sur votre téléphone), le système génère automatiquement la légende et le texte alternatif, et votre stratège approuve avant publication sur Google. La quota par palier est mensuelle, avec Agency qui s'échelonne par domaine.",
+        body: `## Ce qu'on publie sur Google Business Profile
+
+Les photos sont parmi les signaux E-E-A-T les plus forts pour la recherche locale. Les vraies photos prises sur votre téléphone à votre emplacement portent des métadonnées (date, lieu, modèle d'appareil) que les moteurs de recherche valorisent plus que les photos stock ou les photos provenant d'ailleurs. On publie des photos sur votre fiche Google Business Profile à la cadence incluse dans votre palier, et on utilise les métadonnées de chaque photo pour qu'elle compte comme un signal "Expérience".
+
+On ne source pas les photos. Vous les prenez ; on les publie. C'est intentionnel. Les photos sourcées par une agence depuis des bibliothèques stock ou prises par un photographe engagé sont détectables comme signaux non expérientiels et pèsent moins dans le classement.
+
+## Quotas mensuels par palier
+
+| Palier | Photos par mois |
+|---|---|
+| AiLys Starter (300 $/mois) | 4 |
+| AiLys Core (600 $/mois) | 8 |
+| AiLys Growth (1 200 $/mois) | 12 |
+| AiLys Agency (2 499 $/mois) | 12 par domaine |
+
+Le palier Agency échelonne la quota avec le nombre de domaines sous gestion. Trois domaines sur Agency = 36 photos par mois. Sept domaines = 84.
+
+La quota est **mensuelle**, réinitialisée le premier de chaque mois à 00 h UTC. Les photos non utilisées ne se reportent pas. Si vous publiez 3 sur 8 en mars, avril repart à 0 sur 8, pas 5 sur 8.
+
+Dépasser la quota dans un seul mois retourne une erreur 403 du pipeline de téléversement avec un message "Quota mensuel de photos atteint" et le compte courant. Vous attendez le mois suivant ou bonifiez votre palier.
+
+## Reviuzy libre-service direct : pas de plafond mensuel
+
+Si vous êtes sur **Reviuzy SaaS direct** (pas géré par AiLys), il n'y a pas de quota mensuelle. Vous téléversez à votre rythme, contraint seulement par la limite horaire (20 téléversements par heure pour protéger contre les scripts emballés). La cadence agence est pour les clients gérés par AiLys où on s'engage sur un rythme de livraison ; les clients libre-service se cadencent eux-mêmes.
+
+## Comment téléverser (vous, le client)
+
+1. Prenez la photo sur votre téléphone, à l'emplacement, pendant les activités normales de l'entreprise. Les clients dans le cadre c'est correct si vous avez leur consentement. Vos produits, votre équipe, votre espace. Des moments réels.
+2. Ouvrez l'app Reviuzy sur **my.ailysagency.ca** (géré par AiLys) ou **reviuzy.com** (libre-service).
+3. Allez à **GBP, Photos**.
+4. Choisissez la photo, sélectionnez la catégorie (Extérieur / Intérieur / Produit / Nourriture et boisson / Équipe / etc.), écrivez optionnellement une courte note.
+5. Soumettez.
+
+Pour les comptes gérés par AiLys, la photo entre dans la **file d'attente QA du stratège**. Pour le libre-service, elle se publie directement sur Google.
+
+## Ce qui se passe entre la soumission et la publication
+
+Le système exécute trois étapes automatiquement :
+
+1. **Préservation EXIF** : On garde les métadonnées originales (date, coordonnées GPS si vous le permettez, modèle d'appareil, orientation). C'est le signal "Expérience" que Google pondère pour E-E-A-T. Les photos avec EXIF intactes surclassent les photos stock ou dépouillées.
+2. **Génération de légende et de texte alternatif** : Notre moteur lit la photo et produit une légende face client de 10 à 25 mots et un texte alternatif de moins de 100 caractères pour les lecteurs d'écran. Vous pouvez éditer les deux avant approbation.
+3. **Revue du stratège** (géré par AiLys seulement) : Votre stratège voit la file d'attente, approuve d'un clic, ou rejette avec une raison écrite (que vous voyez dans votre tableau de bord). L'approbation déclenche le téléversement réel sur Google.
+
+Reviuzy libre-service direct saute complètement l'étape 3 ; la photo se publie sur Google immédiatement après la soumission.
+
+## Comment savoir ce qui arrive à une photo
+
+**Géré par AiLys** : Ouvrez **GBP, Photos** dans votre tableau de bord. Vous voyez trois sections :
+- **En attente de revue** : encore dans la file de votre stratège. Le délai typique est sous 24 heures les jours ouvrables.
+- **Récemment approuvées et publiées** : succès, photo en ligne sur Google.
+- **Rejetées** : avec la raison du stratège. Vous pouvez reprendre et re-téléverser.
+
+**Reviuzy libre-service** : Même page, sauf que la colonne stratège est remplacée par le statut de téléversement direct (succès / échec avec message d'erreur de l'API Google).
+
+## Pourquoi on approuve avant de publier (géré par AiLys)
+
+Une photo sur Google Business Profile est permanente jusqu'à ce que vous la retiriez manuellement, et Google indexe le texte alternatif et le contenu de la photo pour la recherche locale. Une mauvaise photo (floue, hors marque, client sans consentement) endommage les signaux pendant des mois. Le délai de 24 heures de votre téléphone à Google en vaut la peine. Le stratège attrape :
+
+- Photos floues ou hors mise au point
+- Visages de clients sans consentement
+- Contenu hors marque (selfies d'employés dans le stationnement, nourriture qui ne représente pas votre menu)
+- Texte alternatif inapproprié généré par notre moteur qui a besoin d'une correction humaine
+
+## Ce qu'on ne fait jamais
+
+- Sourcer des photos depuis des bibliothèques stock
+- Engager un photographe pour vous sans entente préalable
+- Éditer ou filtrer les photos au-delà de la rotation (correction d'orientation)
+- Re-publier la même photo à plusieurs emplacements pour simuler de l'activité
+- Dépouiller les métadonnées EXIF pour "nettoyer" la photo (ça tue le signal E-E-A-T)
+
+## Questions fréquentes
+
+**Ma photo a été rejetée. Puis-je contester ?** Oui. Répondez directement à la notification de rejet ou contactez votre stratège. On se trompe parfois.
+
+**Puis-je publier directement sur Google moi-même, en contournant la file ?** Pas depuis un compte géré par AiLys. Tout le but du géré par AiLys est la couche QA. Si vous voulez le contrôle direct, le bon produit est Reviuzy libre-service à reviuzy.com.
+
+**Et si j'épuise ma quota en milieu de mois ?** Soit vous attendez le premier du mois suivant, soit vous bonifiez votre palier. On n'expédie pas de photos contre la quota du mois prochain à l'avance.
+
+**Une photo rejetée compte-t-elle contre ma quota ?** Non. Seules les photos qui se publient avec succès sur Google comptent. Les photos rejetées et en attente ne comptent pas.`,
+      },
+    },
+  },
 ];
