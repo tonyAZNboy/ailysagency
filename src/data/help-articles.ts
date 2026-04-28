@@ -3731,4 +3731,144 @@ Si vous avez des questions sur une entrée spécifique de votre historique, cont
       },
     },
   },
+  {
+    slug: "multi-domain-management",
+    title: "Managing multiple domains under one account",
+    excerpt:
+      "Agency-tier accounts can manage multiple websites + Google Business Profiles from one dashboard. Lower tiers stick to one domain per account by default. Here is how to add, remove, and switch the primary domain.",
+    category: "account-billing",
+    updatedAt: "2026-04-28",
+    readingTimeMin: 4,
+    body: `## When you need more than one domain
+
+Most clients run one business at one website with one Google Business Profile. One domain per account is the right model. Some clients run multiple distinct businesses (a restaurant group, a regional brand with several locations as separate brands, or an agency reselling to multiple end clients). Multi-domain support lets one account own all of them under one dashboard, one bill, one strategist.
+
+## Tier rules
+
+- **Reviuzy Starter / Pro**: 1 domain included.
+- **Reviuzy Max**: up to 3 domains included.
+- **AiLys Starter, Core, Growth**: 1 domain included (the agency layer focuses on doing the operating well for one business at a time).
+- **AiLys Agency ($2,499 CAD/mo)**: multi-domain by default with no fixed cap. The strategist hours scale with the number of domains under management; we will discuss capacity if a single account starts to exceed what the assigned strategist can deliver.
+
+Going over the included quota on Reviuzy Max prompts an extra-domain charge at the next billing cycle. AiLys Agency does not have a per-domain charge; it is bundled.
+
+## How to add a domain
+
+1. Go to **Settings, Organization** in your dashboard.
+2. Find the **Domains** card (between Language and Google Integration).
+3. Type the domain in the input box at the bottom of the card. Examples: thecafe.com, www.thecafe.com, shop.business.io. We auto-strip https://, lowercase everything, and trim trailing slashes so paste from the address bar works fine.
+4. Click **Add**. The new domain shows up in the table.
+
+The first domain you add becomes the **primary** automatically. The primary is what we use as the source of truth when notification emails go out, when the GBP signup flow prefills, and when single-domain features pick a default.
+
+If you are at the tier quota, the **Add** button is disabled and a small message says "Tier limit reached. Upgrade your plan to add more domains."
+
+## How to switch the primary domain
+
+In the Domains table, every non-primary row has a small star icon. Click it to make that row the new primary. The previous primary becomes a regular secondary. The change is instant and journaled in your account history.
+
+## How to remove a domain
+
+In the Domains table, every non-primary row also has a trash icon. Click it, confirm in the dialog, and the row is deleted. We do not delete reviews, photos, posts, or any user-facing content tied to that domain. Those records keep their reference for history and audit purposes; they just stop appearing in the active dashboard for the deleted domain.
+
+You cannot delete the primary. To delete what is currently primary, first switch the primary to a different domain, then delete the now-secondary one.
+
+## What happens to a domain's data when removed
+
+- **Reviews collected for that domain**: retained, hidden from active dashboards, included in any data export.
+- **Photos uploaded for that domain**: retained, hidden from active dashboards, included in any data export.
+- **GBP connection for that domain**: disconnected. The Google Business Profile itself is untouched on Google's side; you can reconnect it later if you re-add the domain.
+- **Citations submitted for that domain**: retained as historical record, hidden from active dashboards.
+
+If you want a complete clean-slate removal (full delete, not just hide), email **privacy@ailysagency.ca** with your account name and the domain to delete. We comply within 30 days under the right-to-erasure provision of Quebec Law 25 / GDPR.
+
+## Why we keep historical data after removal
+
+Account history (the change journal) and historical content (reviews, photos) get kept by default after a domain is removed because of three reasons:
+
+1. **Mistake recovery**: If you remove a domain by accident, we can re-attach the existing data on re-add. Without retention, you would start from scratch.
+2. **Compliance**: Reviews and the audit trail are subject to 7-year retention rules in Canada and Quebec. We cannot legally hard-delete them on removal alone.
+3. **Tax and dispute resolution**: When a billing dispute happens, we need to show what was delivered for what was paid. The historical content is the proof.
+
+You retain the right to request earlier deletion explicitly. We do not require an explanation; one email triggers the delete process.
+
+## Common questions
+
+**Can I move a domain from one of my AiLys accounts to another?** Yes, contact your strategist. We do this by re-attaching the existing data on the destination account. No data is lost; the source account loses the domain.
+
+**Can two different AiLys accounts share the same domain?** No. Each domain is unique to one tenant in the system. If two accounts claim the same domain, only one wins, and the second add fails with a duplicate error.
+
+**Does adding a domain count against my GBP integration quota?** No. The domain table is independent of GBP. You can add a domain and never connect a Google Business Profile to it (useful if the business is not on Google yet). When you do connect a GBP, the link is recorded on the domain row.
+
+**What about a brand that owns 30 locations under one domain (one website)?** That is one domain, multi-location. Different concept. Multi-location is handled at the GBP layer (one domain, many connected locations), not the domain layer. Multi-domain is for when you have several distinct websites.`,
+    i18n: {
+      fr: {
+        title: "Gérer plusieurs domaines sous un seul compte",
+        excerpt:
+          "Les comptes au palier Agency peuvent gérer plusieurs sites web et fiches Google Business Profile depuis un seul tableau de bord. Les paliers inférieurs restent à un domaine par compte par défaut. Voici comment ajouter, retirer et changer le domaine principal.",
+        body: `## Quand vous avez besoin de plus d'un domaine
+
+La plupart des clients gèrent une entreprise avec un site web et une fiche Google Business Profile. Un domaine par compte est le bon modèle. Certains clients gèrent plusieurs entreprises distinctes (un groupe de restaurants, une marque régionale avec plusieurs emplacements comme marques séparées, ou une agence qui revend à plusieurs clients finaux). Le support multi-domaines permet à un compte de tous les posséder sous un tableau de bord, une facture, un stratège.
+
+## Règles par palier
+
+- **Reviuzy Starter / Pro** : 1 domaine inclus.
+- **Reviuzy Max** : jusqu'à 3 domaines inclus.
+- **AiLys Starter, Core, Growth** : 1 domaine inclus (la couche agence se concentre sur bien opérer pour une entreprise à la fois).
+- **AiLys Agency (2 499 $ CAD/mois)** : multi-domaines par défaut sans plafond fixe. Les heures du stratège évoluent avec le nombre de domaines gérés ; on discutera de la capacité si un seul compte commence à dépasser ce que le stratège attitré peut livrer.
+
+Dépasser la quota incluse sur Reviuzy Max déclenche un frais de domaine supplémentaire au prochain cycle de facturation. AiLys Agency n'a pas de frais par domaine ; c'est inclus.
+
+## Comment ajouter un domaine
+
+1. Allez dans **Paramètres, Organisation** dans votre tableau de bord.
+2. Trouvez la carte **Domaines** (entre Langue et Intégration Google).
+3. Tapez le domaine dans la boîte de saisie au bas de la carte. Exemples : thecafe.com, www.thecafe.com, shop.business.io. On retire automatiquement https://, on met en minuscules, on coupe les barres obliques de fin pour que le copier-coller depuis la barre d'adresse fonctionne bien.
+4. Cliquez sur **Ajouter**. Le nouveau domaine apparaît dans le tableau.
+
+Le premier domaine que vous ajoutez devient automatiquement le **principal**. Le principal est ce qu'on utilise comme source de vérité quand les courriels de notification partent, quand le flux d'inscription GBP est pré-rempli, et quand les fonctionnalités à un seul domaine choisissent un défaut.
+
+Si vous êtes à la quota du palier, le bouton **Ajouter** est désactivé et un petit message dit "Limite du palier atteinte. Bonifiez votre forfait pour ajouter plus de domaines."
+
+## Comment changer le domaine principal
+
+Dans le tableau Domaines, chaque ligne non principale a une petite icône d'étoile. Cliquez dessus pour faire de cette ligne le nouveau principal. L'ancien principal devient un secondaire ordinaire. Le changement est instantané et journalisé dans l'historique de votre compte.
+
+## Comment retirer un domaine
+
+Dans le tableau Domaines, chaque ligne non principale a aussi une icône de poubelle. Cliquez dessus, confirmez dans la fenêtre, et la ligne est supprimée. On ne supprime pas les avis, photos, publications ou tout contenu côté utilisateur lié à ce domaine. Ces enregistrements gardent leur référence pour des fins d'historique et d'audit ; ils cessent simplement d'apparaître dans le tableau de bord actif pour le domaine supprimé.
+
+Vous ne pouvez pas supprimer le principal. Pour supprimer ce qui est actuellement principal, basculez d'abord le principal sur un autre domaine, puis supprimez le maintenant secondaire.
+
+## Ce qui arrive aux données d'un domaine retiré
+
+- **Avis collectés pour ce domaine** : retenus, cachés des tableaux de bord actifs, inclus dans tout export de données.
+- **Photos téléversées pour ce domaine** : retenues, cachées des tableaux de bord actifs, incluses dans tout export.
+- **Connexion GBP pour ce domaine** : déconnectée. La fiche Google Business Profile elle-même n'est pas touchée du côté de Google ; vous pouvez la reconnecter plus tard si vous ré-ajoutez le domaine.
+- **Citations soumises pour ce domaine** : retenues comme registre historique, cachées des tableaux de bord actifs.
+
+Si vous voulez une suppression complète (vrai delete, pas juste cacher), envoyez un courriel à **privacy@ailysagency.ca** avec le nom de votre compte et le domaine à supprimer. On s'y conforme dans les 30 jours en vertu de la disposition droit à l'effacement de la Loi 25 du Québec et du RGPD.
+
+## Pourquoi on garde les données historiques après retrait
+
+L'historique du compte (le journal des changements) et le contenu historique (avis, photos) sont conservés par défaut après le retrait d'un domaine pour trois raisons :
+
+1. **Récupération d'erreur** : Si vous retirez un domaine par accident, on peut rattacher les données existantes au ré-ajout. Sans rétention, vous repartirez de zéro.
+2. **Conformité** : Les avis et la piste d'audit sont assujettis à des règles de rétention de 7 ans au Canada et au Québec. On ne peut pas légalement les supprimer définitivement sur un simple retrait.
+3. **Résolution fiscale et de litige** : Quand un litige de facturation arrive, on doit montrer ce qui a été livré pour ce qui a été payé. Le contenu historique est la preuve.
+
+Vous conservez le droit de demander une suppression plus tôt explicitement. On n'exige pas d'explication ; un courriel déclenche le processus de suppression.
+
+## Questions fréquentes
+
+**Puis-je transférer un domaine d'un de mes comptes AiLys à un autre ?** Oui, contactez votre stratège. On le fait en rattachant les données existantes au compte de destination. Aucune donnée n'est perdue ; le compte source perd le domaine.
+
+**Deux comptes AiLys différents peuvent-ils partager le même domaine ?** Non. Chaque domaine est unique à un tenant dans le système. Si deux comptes revendiquent le même domaine, un seul gagne, et le deuxième ajout échoue avec une erreur de doublon.
+
+**Est-ce que l'ajout d'un domaine compte contre ma quota d'intégration GBP ?** Non. La table des domaines est indépendante de GBP. Vous pouvez ajouter un domaine et ne jamais y connecter de fiche Google Business Profile (utile si l'entreprise n'est pas encore sur Google). Quand vous connectez une GBP, le lien est enregistré sur la ligne du domaine.
+
+**Et une marque qui possède 30 emplacements sous un seul domaine (un seul site web) ?** C'est un seul domaine, multi-emplacement. Concept différent. Le multi-emplacement est géré à la couche GBP (un domaine, plusieurs emplacements connectés), pas à la couche domaine. Le multi-domaines est pour quand vous avez plusieurs sites web distincts.`,
+      },
+    },
+  },
 ];

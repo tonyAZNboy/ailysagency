@@ -38,14 +38,43 @@ All 10 sub-phases delivered on `claude/determined-agnesi-e1a262` (commits 2d0e72
 **Test totals:** 85 unit tests pass, 17 it.todo specs scaffold deeper integration tests
 to be activated as upstream features land. Typecheck clean, build green at every commit.
 
+## ✅ PHASE 4.5 FOLLOW-UP, SHIPPED 2026-04-28 (admin + help docs)
+
+| Commit  | Deliverable                                                                  |
+|---------|------------------------------------------------------------------------------|
+| cf3b423 | TenantHistoryDialog admin surface + Client Type/AiLys Tier badges in SuperAdmin Tenants tab + admin-pricing edge fn extended (get_tenant_history) |
+| 6386ffe | 2 help articles in ailysagency repo: `ailys-managed-accounts` + `account-history-and-your-data` (EN + FR-CA) |
+
+CLAUDE.md hard rules #10 (help docs) and #11 (admin center) satisfied for the
+client_type discriminator and tenant_history audit.
+
+## ✅ PHASE 5 SHIPPED 2026-04-28
+
+Sprint 1 from STATE.md "Recommended sequence after 4.5" partially delivered:
+tier gating UI + multi-domain. Branding switch was already covered by Phase 4.5.4.
+
+| Sub-phase | Commit  | Deliverable                                                          |
+|-----------|---------|----------------------------------------------------------------------|
+| 5.A       | e22fd07 | <FeatureGate feature="x"> component + 8 RTL tests (replaces scattered `if (tier === 'pro')` checks; usePricing-driven, featureCatalog-backed) |
+| 5.B (1/2) | 658172c | tenant_domains DB schema + RLS + DB normalize trigger + frontend lib (normalizeDomain, isValidDomain, canAddDomain, countAdditional) + 18 tests |
+| 5.B (2/2) | 98acbc1 | useTenantDomains hook + TenantDomainsPanel admin UI wired into Settings/Organization (add, remove, set primary, tier-quota gated) |
+
+**Test totals after Phase 5:** 116 unit tests pass.
+
 **Operator action items** (from `docs/phase-4-5-ops.md` in Reviuzy repo):
 1. Apply 3 new migrations (20260427130000, 140000, 150000) via Supabase SQL Editor
+   ✅ DONE 2026-04-27 night
 2. Deploy `provision-ailys-tenant` edge function
+   ✅ DONE 2026-04-27 night
 3. Enable Custom Access Token hook in Supabase Auth -> Hooks (otherwise brand claim is inert)
-4. Wire `my.ailysagency.ca` as Cloudflare Pages custom domain on the Reviuzy project
+   ✅ DONE 2026-04-27 night
+4. Apply migration 20260428000000_create_tenant_domains.sql via SQL Editor (NEW, Phase 5.B)
+5. Redeploy admin-pricing edge function to pick up get_tenant_history action (NEW, follow-up)
+   `npx supabase functions deploy admin-pricing --project-ref qucxhksrpqunlyjjvuae`
+6. Wire `my.ailysagency.ca` as Cloudflare Pages custom domain on the Reviuzy project
    (NOTE: Reviuzy is on Workers static-assets; either migrate to Pages or use a
    Worker route, recommendation in ops doc)
-5. Resend domain auth for both `reviuzy.com` and `ailysagency.ca`
+7. Resend domain auth for both `reviuzy.com` and `ailysagency.ca`
 
 ---
 
