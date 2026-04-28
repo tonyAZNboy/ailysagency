@@ -1,5 +1,5 @@
 {
-  "enKeyCount": 1139,
+  "enKeyCount": 1146,
   "locales": {
     "fr": {
       "missing": [],
@@ -8,6 +8,7 @@
         "hero.trustEngines",
         "who.colReviuzy",
         "who.r1Reviuzy",
+        "footer.industries",
         "audit.fields.industryOptions.restaurant",
         "audit.pulse.verticalRestaurant",
         "services.sectionLabel",
@@ -37,7 +38,7 @@
         "cofounders.tagLabels.vi_vietnam",
         "cofounders.tagLabels.nl_benelux"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1147,
       "pct": "100.0"
     },
     "es": {
@@ -68,7 +69,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1147,
       "pct": "100.0"
     },
     "zh": {
@@ -100,7 +101,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1147,
       "pct": "100.0"
     },
     "ar": {
@@ -132,7 +133,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1147,
       "pct": "100.0"
     },
     "ru": {
@@ -165,7 +166,7 @@
         "about.signatureBrand",
         "footerExt.locationLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1147,
       "pct": "100.0"
     },
     "de": {
@@ -205,7 +206,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "hi": {
@@ -242,7 +243,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "it": {
@@ -258,14 +259,12 @@
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.svc8Desc",
         "pricingBuilder.premiumOpsRowLabel",
         "pricingBuilder.domainShieldLabel",
         "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step2Title",
         "methodology.step3Signal",
-        "methodology.step5Short",
         "methodology.step8Signal",
         "bookCall.placeholderName",
         "bookCall.placeholderBusiness",
@@ -286,7 +285,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "ja": {
@@ -322,7 +321,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "ko": {
@@ -360,7 +359,7 @@
         "footerExt.locationLine",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "nl": {
@@ -373,21 +372,18 @@
         "audit.results.sentiment",
         "audit.pulse.verticalRestaurant",
         "heroAuditCard.badgeLive",
-        "services.tier2Feat3",
         "services.compareAilys",
         "services.compareRow2Right",
         "pricingBuilder.lang2",
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.svc8Desc",
         "pricingBuilder.premiumOpsTitle",
         "pricingBuilder.premiumOpsRowLabel",
         "pricingBuilder.domainShieldLabel",
         "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
-        "methodology.step5Short",
         "methodology.step8Signal",
         "bookCall.placeholderName",
         "bookCall.placeholderBusiness",
@@ -408,7 +404,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "pl": {
@@ -423,13 +419,11 @@
         "pricingBuilder.lang3",
         "pricingBuilder.lang4",
         "pricingBuilder.svc3Desc",
-        "pricingBuilder.svc8Desc",
         "pricingBuilder.premiumOpsRowLabel",
         "pricingBuilder.domainShieldLabel",
         "pricingBuilder.domainSpeedBoostLabel",
         "methodology.layerAeoGeo",
         "methodology.step3Signal",
-        "methodology.step5Short",
         "methodology.step8Signal",
         "bookCall.placeholderName",
         "bookCall.placeholderBusiness",
@@ -442,7 +436,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "pt": {
@@ -479,7 +473,7 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "tr": {
@@ -515,7 +509,7 @@
         "cofounders.tagLabels.vi_vietnam",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     },
     "vi": {
@@ -556,9 +550,9 @@
         "cofounders.tagLabels.nl_benelux",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1139,
+      "totalKeys": 1146,
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-04-27T17:31:04.128Z"
+  "generatedAt": "2026-04-27T23:07:30.348Z"
 }

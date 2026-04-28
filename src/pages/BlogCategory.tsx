@@ -6,10 +6,10 @@ import { LandingChatWidget } from '@/components/landing/LandingChatWidget'
 import { NetworkBackground } from '@/components/backgrounds/NetworkBackground'
 import { useLang } from '@/i18n/LangContext'
 import { SUPPORTED_LANGS, type SupportedLang } from '@/i18n/index'
-import { BlogIndexPage } from '@/blog/components/BlogIndexPage'
+import { BlogCategoryPage } from '@/blog/components/BlogCategoryPage'
 
-export default function Blog() {
-  const { lang: urlLang } = useParams<{ lang?: string }>()
+export default function BlogCategory() {
+  const { lang: urlLang } = useParams<{ lang?: string; category?: string }>()
   const { setLang } = useLang()
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Blog() {
       <NetworkBackground />
       <Navbar />
       <main className="relative z-10">
-        <BlogIndexPage />
+        <BlogCategoryPage />
       </main>
       <Footer />
       <LandingChatWidget />

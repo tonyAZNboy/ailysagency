@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AlertTriangle, Database, Loader2 } from "lucide-react";
-import { blogPosts } from "@/data/blog-posts";
+import { BLOG_POSTS as blogPosts } from "@/blog/registry";
 
 interface PostStat {
   slug: string;
@@ -121,7 +121,7 @@ export default function AdminPosts() {
                           {post.title}
                         </a>
                         <div className="text-xs text-muted-foreground/60 mt-0.5">
-                          {new Date(post.publishedAt).toLocaleDateString()}
+                          {new Date(post.publishedDate).toLocaleDateString()}
                         </div>
                       </td>
                       <td className="px-4 py-3 text-right font-mono tabular-nums">{s.views}</td>

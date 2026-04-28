@@ -21,6 +21,7 @@ import TermsOfService from "./pages/legal/TermsOfService";
 import CookiePolicy from "./pages/legal/CookiePolicy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogCategory from "./pages/BlogCategory";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
@@ -76,8 +77,10 @@ const App = () => {
 
                 {/* Blog */}
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/category/:category" element={<BlogCategory />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/:lang/blog" element={<Blog />} />
+                <Route path="/:lang/blog/category/:category" element={<BlogCategory />} />
                 <Route path="/:lang/blog/:slug" element={<BlogPost />} />
 
                 {/* Audit (lead magnet) */}
