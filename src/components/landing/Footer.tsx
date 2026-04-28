@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { APP_CONFIG } from "@/config/app";
 import { useLang } from "@/i18n/LangContext";
 import { FleurDeLys } from "@/components/brand/FleurDeLys";
-import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -94,33 +93,12 @@ export function Footer() {
             <meta itemProp="email" content={APP_CONFIG.email} />
           </div>
 
-          {/* Sister product cross-link */}
-          <div className="lg:col-span-5 lg:col-start-9">
-            <div className="ailys-section-no mb-4">
-              <span>{t.footerExt.sisterProduct}</span>
-            </div>
-            <a
-              href="https://www.reviuzy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-5 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/30 hover:bg-card/50 transition-all"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="font-display text-2xl mb-1.5">
-                    Reviuzy
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 ml-2 align-middle">
-                      {t.footerExt.reviuzyBadge}
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-snug max-w-xs">
-                    {t.footerExt.reviuzyTagline}
-                  </p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
-              </div>
-            </a>
-          </div>
+          {/* Sister product cross-link removed 2026-04-27: showing Reviuzy SaaS
+              (cheaper self-serve at lower price) on the AiLys marketing site
+              created downsell risk for AiLys clients paying $300-$2,499/mo.
+              Reviuzy stays as an internal operational backbone, not a public
+              cross-product CTA. Decision: keep the brands distinct in client
+              perception. */}
         </div>
 
         {/* Link columns */}

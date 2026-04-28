@@ -1,19 +1,218 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-27 PM (Tier 3 rebrand + neon UI + legal pages + AiLys-native chat advisor shipped; ANTHROPIC_API_KEY needs to be set)
-**Branch:** `main` · **Tag:** `v0.2.0` · **Active commit:** `0b763b3` (chat advisor + pricing rebrand + legal pages + mobile-first hard rule) + `25a2491` (reviuzy)
-**Production:** https://ailysagency.pages.dev (manual `wrangler pages deploy`; auto-deploy webhook broken since 2026-04-26).
-**Custom domain (DNS done, redirect rule pending user manual step):** `ailysagency.ca` apex CNAME + www CNAME → ailysagency.pages.dev (proxied), Pages verification active. `ailysagency.com` AAAA placeholders for redirect rule. Redirect rule (`*ailysagency.com/* → https://ailysagency.ca/$1`, 301, preserve query) needs manual creation at https://dash.cloudflare.com/3b889a272b6925fa7cbc892a83999541/ailysagency.com/rules/redirect-rules.
-**Pricing (rebrand in progress):** $300 (Starter) / $600 (Core) / $1,200 (Growth) / **$2,499 (Agency, was Autopilot at $1,599)** CAD per month, month-to-month, 30-day satisfaction guarantee.
-**Add-ons (in flight, dispo on Starter / Core / Growth, bundled in Agency):**
-  - **Reviuzy reputation system** at +$100/mo (NFC reviews, AI review gen, contest engine with video, AI auto-replies, T&C generator, fake review detection — client self-serve; agency delivers GBP/citations/NAP/AI Visibility/AI Traffic in background)
-  - **Domain Shield** at +$35/mo individual
-  - **Domain Speed Boost** at +$35/mo individual
-  - **Dedicated strategist** at +$35/mo individual
-  - **Premium Ops trio bundle** (Shield + Boost + Strategist) at $79/mo (saves $26 vs $105 individual)
-**Languages (rebrand in progress):** EN + FR-CA included, each additional language (ES, ZH, AR, RU, UK, SR) at +$50/mo.
-**GBP post cadence:** Starter 1/mo · Core 4/mo · Growth 8/mo · Agency 12/mo.
-**Phase 2-4 Reviuzy features:** all shipped end-to-end across 8 admin pages + 7 edge functions + 4 migrations.
+**Last updated:** 2026-04-27 EOD (legal pages bilingual EN/FR-CA + photo cadence 4/8/12/12-per-domain + 2 op playbooks + scope docs + Reviuzy SaaS implementation spec v1.2 + AiLys consulting contracts EN/FR-CA HTML drafted; SaaS implementation NOT YET STARTED — handoff to next session)
+**Branch:** `main` · **Tag pending:** `v0.3.0-arch-decided` · **Active commit:** `65145d9` (em-dash fix in help articles) — to be pushed: Footer Reviuzy "produit jumeau" card removal + STATE.md update
+**Production AiLys site:** https://ailysagency.ca + https://www.ailysagency.ca + https://8ff03c2e.ailysagency.pages.dev (latest deploy)
+**Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
+**.com → .ca redirect:** ✅ live via `functions/_middleware.ts` (Pages middleware, 301 with path/query preserved)
+**`my.ailysagency.ca` (NEW):** ✅ DNS CNAME created → `ailysagency.pages.dev` proxied. To be wired in routing for AiLys-managed clients (Phase 4.5 work).
+**Pricing:** Starter $300 / Core $600 / Growth $1,200 / Agency $2,499 CAD/mo (Reviuzy SaaS public prices in USD, exact values TBD per Q3 2026-04-27).
+**Add-ons:** Reviuzy reputation system $100/mo (bundled in Agency) · Domain Shield $35/mo · Domain Speed Boost $35/mo · Dedicated strategist $35/mo · Premium Ops trio bundle $79/mo · Extra languages +$50/mo each.
+**Languages included:** EN + FR-CA. Extra: ES, ZH, AR, RU, UK, SR.
+**GBP post cadence:** Starter 1 · Core 4 · Growth 8 · Agency 12 per month.
+**GBP photo cadence (updated 2026-04-27):** Starter 4 · Core 8 · Growth 12 · Agency up to 12 per domain (multi-domain dashboard scales the quota).
+**Contest scope:** Reviuzy provides the engine, **client operates the contest**, AiLys provides setup help + legal templates + help docs (no agency execution).
+**Link-building scope:** AiLys does NOT do active link-building, Wikipedia editing, Reddit participation, journalist outreach. Wikidata kept (semi-automatable). Citations + GBP + schema + Wikidata are the deliverables.
+**Photo flow:** Client uploads via Reviuzy app (tier-gated quota). AiLys does NOT source photos.
+**Phase 2-4 Reviuzy features:** ✅ all shipped end-to-end across 8 admin pages + 7 edge functions + 4 migrations.
+
+---
+
+## ⚠️ HANDOFF FOR NEXT SESSION (read first)
+
+**Architecture decided 2026-04-27**: AiLys Agency clients and Reviuzy SaaS self-serve clients are the SAME backend (one Supabase, one codebase) but **isolated by hostname** to prevent AiLys clients from discovering cheaper Reviuzy direct option (which would cause downsell from $300-$2,499 AiLys to $39-$149 Reviuzy).
+
+**The discriminator** is a new `client_type` column on `tenants`:
+- `reviuzy_self_serve` → uses `reviuzy.com`, sees Reviuzy plans, can upgrade to Reviuzy max
+- `ailys_managed` → uses `my.ailysagency.ca`, sees AiLys plans, "contact strategist" CTAs
+- `reseller` (future) → for white-label resellers
+
+**Hostname split** (Phase 4.5 to wire):
+- `reviuzy.com` (apex) → Reviuzy SaaS — already lives here (per user Q1)
+- `my.ailysagency.ca` → DNS created today, needs Pages custom domain + middleware
+- Edge `_middleware.ts` redirects mismatched tenants to correct hostname
+
+**Legal entity**: Reviuzy Inc. (Quebec) operates AiLys Agency as a registered dba. ONE Stripe account (under Reviuzy Inc.) with TWO products: Reviuzy SaaS + AiLys Agency. Stripe descriptor varies: `REVIUZY INC * REVIUZY` vs `REVIUZY INC * AILYS`.
+
+**Decisions confirmed by user 2026-04-27**:
+- Q1: Reviuzy SaaS lives at apex `reviuzy.com` (no `app.reviuzy.com` subdomain)
+- Q2: Tier mapping = `ailys_tier='core'` + `tier=null` for ailys_managed (option A, cleaner)
+- Q3: Reviuzy public pricing in USD (exact values still TBD)
+- Q4: Create `my.ailysagency.ca` DNS ✅ done
+- Q5: Stripe — same account as Truvizy (under Reviuzy Inc.), map Reviuzy prices + AiLys plans to it (PHASE 4.5 wire-up)
+- Q6: Phase 4.5 priority order: em-dash → hostname routing → tests
+- Q7: AiLys CTA on Reviuzy public pricing — to be added during Phase 4.5
+- Q8: Email templates already in Resend
+- Q9: Auto-provisioning via Stripe webhook on subscription created → `provision-ailys-tenant` edge function (most autopilot)
+- Q10: Contract clauses generated, in `C:\Anthony\Projects\AiLys-Contracts\` (EN + FR-CA HTML printable)
+- Q11: Email-driven nudges when system detects struggling client (no in-app announcement)
+- Q12: Reviuzy → AiLys upsell keeps full history (reviews, photos, contests) — not archived
+- Q13: Subdomain `my.ailysagency.ca` covers BOTH clients AND staff (no separate `staff.` subdomain)
+
+**Decisions still TBD (need user input next session)**:
+- Reviuzy public price points (USD exact values)
+- AiLys CTA copy on reviuzy.com/pricing (I'll draft, user approves)
+- 14 contract translations (deferred per Q4 — translations à la fin)
+- Lawyer review of contract template
+
+---
+
+## 🎯 PHASE 4.5 ROADMAP (next session priority)
+
+**Phase 4.5 = Foundation. ~50h estimated. Execute in this order**:
+
+### 4.5.1 Em-dash cleanup (4h, FIRST)
+- Reviuzy repo has **211 em-dashes** in `src/i18n/translations/*.ts` (audit found 2026-04-27)
+- Violates CLAUDE.md hard rule #2 (em-dash strict gate)
+- Build script `scripts/scrub-em-dashes.mjs` for context-aware replacement
+- Manual diff review before commit
+- Verify: `grep -rn "—" src/i18n/translations/` returns 0
+- Repo: `C:\Anthony\Projects\reviuzy\` (NOT this repo)
+
+### 4.5.2 Test framework setup (12h)
+- Install Vitest + @testing-library/react + jsdom in Reviuzy repo
+- Configure `vitest.config.ts`
+- Add scripts: `npm test`, `npm run test:watch`, `npm run test:coverage`
+- GitHub Action workflow `.github/workflows/test.yml`
+- Coverage threshold: start 50%, target 80%
+- Initial 10 critical tests (tier-gate, client-type, RLS isolation, rate-limit, quota, FeatureGate, upgrade-CTA, webhook-signature, OAuth-state, AI-Vis-prompt)
+
+### 4.5.3 `client_type` migration (6h)
+- Migration: `2026XXXX_add_client_type_to_tenants.sql`
+- Columns: `client_type`, `billing_owner`, `dedicated_strategist_id`, `ailys_tier`
+- Default existing tenants to `reviuzy_self_serve`
+- Edge function `provision-ailys-tenant` for AiLys CRM/Stripe webhook
+- RLS update: `is_ailys_strategist(tenant_id)` predicate
+
+### 4.5.4 Hostname-based brand isolation (8h) ⚠️ NEW
+- Detect brand from `window.location.hostname` in React app
+- `<BrandProvider>` context wrapping the app
+- `_middleware.ts` redirects on hostname mismatch
+- Pages custom domain `my.ailysagency.ca` to be added to Reviuzy Pages project
+- DNS already done
+
+### 4.5.5 JWT audience claim hardening (4h) ⚠️ NEW
+- JWT issued for `my.ailysagency.ca` has `aud: 'ailys'`
+- JWT for `reviuzy.com` has `aud: 'reviuzy'`
+- Cross-hostname tokens rejected (defense in depth)
+- Per CLAUDE.md hard rule #9 gov-grade security
+
+### 4.5.6 Stripe descriptor + email From per brand (6h) ⚠️ NEW
+- Stripe API: set `statement_descriptor_suffix` per subscription based on `tenant.client_type`
+- Resend: send from `noreply@reviuzy.com` for self-serve, `noreply@ailysagency.ca` for ailys_managed
+- DNS: SPF/DKIM/DMARC for `ailysagency.ca` (verify already exists; add subdomain if needed for `noreply@`)
+
+### 4.5.7 Tenant migration history table (3h) ⚠️ NEW
+- `tenant_history(tenant_id, old_type, new_type, changed_by, changed_at, reason)`
+- Audit trail for upsell flow
+- GDPR right-to-data ready
+
+### 4.5.8 `tier-features.ts` centralization (3h)
+- `src/lib/tier-features.ts` is single source of truth
+- `TIER_FEATURES` map for both Reviuzy + AiLys ladder
+- Replace scattered `if (tier === 'pro')` checks
+- Cover hardcoded `maxDomains={3}` etc. surfaced by audit
+
+### 4.5.9 DNS + Pages setup (2h)
+- Add `my.ailysagency.ca` as custom domain to **Reviuzy** Pages project (NOT ailysagency project)
+- Wait for cert provisioning
+- Test redirect logic
+
+### 4.5.10 SPF/DKIM/DMARC for both domains (2h)
+- Verify Resend domain auth records exist for both
+- Add subdomain-level if needed
+- Test send-from-each-domain
+
+---
+
+## 📋 PHASES 5+ ROADMAP (after Phase 4.5)
+
+Full spec at: `docs/reviuzy-implementation-spec.md` (1,500+ lines, v1.1)
+
+Updates needed for v1.2 spec (next session):
+- Cancel duplicates: AI Vis (already shipped), AI Traffic (already shipped), Q&A drafts (already shipped), rate limiting (already shipped), 111 migrations (already done)
+- Add tier nomenclature alignment per Q2 decision
+- Add hostname architecture details
+- Add `client_type` integration per phase
+
+**Recommended sequence after 4.5**:
+- Sprint 1 (Phase 5): tier gating UI + multi-domain + branding switch (~30h)
+- Sprint 2 (Phase 6): photo flow complete (~28h, was missing per audit)
+- Sprint 3 (Phase 7): Reddit signal monitoring (~20h)
+- Sprint 4 (Phase 8 + 9): white-label PDF + API access for Agency (~52h)
+- Sprint 5 (Phase 10): crisis early warning (~25h)
+- Sprint 6+ (Phase 11-17): GOD MODE features (~605h total)
+- Sprint final: contract translations 14 languages + Reviuzy translations 13 languages (per Q4 decision: à la fin)
+
+---
+
+## 🚨 USER ACTIONS PENDING
+
+1. **`ANTHROPIC_API_KEY` in Cloudflare Pages env** (ailysagency project)
+   - Without this: chat advisor returns "offline" fallback message
+   - Set via wrangler: `npx wrangler pages secret put ANTHROPIC_API_KEY --project-name=ailysagency`
+   - User has Anthropic account at console.anthropic.com
+
+2. **`CLOUDFLARE_API_TOKEN` GitHub secret** (for auto-deploy)
+   - Needed at https://github.com/tonyAZNboy/ailysagency/settings/secrets/actions
+   - Create token at https://dash.cloudflare.com/profile/api-tokens with scope `Account > Cloudflare Pages > Edit`
+   - Without this: GitHub Actions deploy fails with "secret missing" error (manual `wrangler pages deploy` works as workaround)
+
+3. **Visual check on iPhone Safari**
+   - Verify mobile UI fixes (heading overflow, navbar pill backdrop, logo Quebec colors)
+   - URL: https://ailysagency.ca (private mode, hard refresh)
+
+4. **Reviuzy public price points** (Q3 still pending)
+   - Need exact USD values for starter/pro/max for Reviuzy SaaS marketing pricing page
+
+5. **Lawyer review of contract template**
+   - File: `C:\Anthony\Projects\AiLys-Contracts\contract-en.html` (and FR-CA)
+   - Review by Quebec lawyer before first commercial use
+   - Especially Section 11 (exclusivity clause)
+
+---
+
+## 📦 Today's deliverables (2026-04-27)
+
+### AiLys Agency repo (this repo)
+- Mobile UI fix (TextReveal text-xl removed, headings overflowWrap, navbar pill backdrop)
+- Logo Quebec white+blue redesign with neon halo
+- `.com → .ca` redirect via Pages middleware (DNS + custom domains + middleware)
+- Pricing rebrand $300/$600/$1,200/$2,499 (16 locales)
+- Photo cadence 4/8/12/(12 per domain) (16 locales)
+- Contest scope = client-managed (16 locales + chat advisor + CLAUDE.md)
+- Link-building scope = no active outreach, Wikidata only (16 locales + chat advisor + CLAUDE.md)
+- Photo flow = client uploads via Reviuzy app (CLAUDE.md + chat advisor)
+- 3 hard rules added to CLAUDE.md (mobile-first #13, link-building scope, photo flow)
+- Bilingual EN/FR-CA legal pages (Terms + Privacy + Cookies via `useLang()` switch + `/:lang/{terms,privacy,cookies}` routes)
+- 5 new help articles (add-ons, contest, photo flow, no link-building, Reddit playbook, onboarding audit) — all EN+FR-CA
+- AiLys-native chat advisor `/api/chat-advisor` (Claude Opus 4.7, adaptive thinking, prompt caching, streaming SSE, rate-limited)
+- Footer "Produit Jumeau Reviuzy" card REMOVED (downsell prevention)
+- 30+ commits all live on `ailysagency.ca`
+
+### `C:\Anthony\Projects\AiLys-Contracts\` (NEW folder)
+- `index.html` — printable contracts portal
+- `contract-en.html` — full English consulting agreement (17 sections + 3 schedules)
+- `contract-fr-CA.html` — full French Quebec consulting agreement
+- `AiLys-Agency-Consulting-Agreement-TEMPLATE.md` — markdown source EN
+- `AiLys-Agency-Consulting-Agreement-TEMPLATE-fr-CA.md` — markdown source FR-CA
+
+### `docs/` updates (this repo)
+- `docs/reviuzy-implementation-spec.md` — 1,500+ line implementation spec for Reviuzy SaaS Phase 5-17 (covers all GOD MODE features, tier matrix, upgrade CTA system, deep feature catalogue, long-term solution patterns vs band-aids)
+
+### Reviuzy SaaS repo (`C:\Anthony\Projects\reviuzy\`)
+- **NOT TOUCHED THIS SESSION** — all spec, no code yet
+- Audit findings: 75% of spec aligns with reality, 25% gaps to fix in Phase 4.5
+- Critical gaps: 211 em-dashes, 0 tests, no `tier-features.ts`, no `tenant_domains` table, no photo upload backend, no `client_type` discriminator, 10/16 locales fallback EN
+- See "PHASE 4.5 ROADMAP" above for next session work
+
+### Cloudflare DNS
+- AiLys: `my.ailysagency.ca` CNAME → `ailysagency.pages.dev` proxied (NEW today)
+- AiLys: `ailysagency.ca` apex + `www` CNAME → `ailysagency.pages.dev` proxied (existing)
+- AiLys: `ailysagency.com` + `www.ailysagency.com` CNAME → `ailysagency.pages.dev` proxied (redirect via middleware)
+- Reviuzy: `reviuzy.com` apex (Reviuzy SaaS at apex per user Q1)
+
+---
 
 ---
 
