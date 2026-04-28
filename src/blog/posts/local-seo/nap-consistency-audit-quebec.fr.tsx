@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -59,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Tableau de bord d'audit de cohérence NAP montrant des citations correspondantes et divergentes dans 50 répertoires québécois"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Pour corriger des NAP incohérents dans 50 répertoires, verrouillez une fiche NAP canonique (Nom, Adresse, Téléphone dans leur forme finale), exportez chaque citation existante sous votre marque, regroupez les divergences en quatre catégories, puis corrigez par ordre de priorité en commençant par la fiche d'établissement Google. Le Québec ajoute une couche bilingue : les noms de rue en français et les accents doivent correspondre exactement sur chaque citation, sinon les moteurs IA séparent l'entité en doublons et le signal de confiance s'effondre.
       </p>
@@ -78,6 +72,8 @@ export function ContentFr() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="pourquoi-la-coherence-nap-decide-encore-du-rang-local">Pourquoi la cohérence NAP décide encore du rang local</h2>
       <p>
         La cohérence NAP était le pilier du SEO local il y a dix ans, et elle l'est toujours. La raison tient à la façon dont Google, Apple, Bing et les principaux moteurs IA construisent les fiches d'entité. Chaque citation d'annuaire est un vote qui dit « ce commerce existe à cette adresse avec ce téléphone ». Si 47 votes sur 50 concordent et 3 divergent, le moteur traite le désaccord comme une ambiguïté, pas un bruit. Le signal de confiance pour l'entité baisse, et le rang dans le local pack baisse avec lui.
@@ -86,8 +82,10 @@ export function ContentFr() {
         Les 3 votes divergents n'ont pas besoin d'être complètement faux. Un format de téléphone différent, un accent manquant, une abréviation. Chacun fissure un peu l'appariement. Empilez cinq petites fissures dans 50 répertoires et le moteur commence à traiter votre commerce comme deux ou trois demi-entités, dont aucune ne classe aussi bien que l'original unifié.
       </p>
       <p>
-        Les moteurs IA amplifient le coût. ChatGPT, Perplexity et Google AIO puisent tous dans la couche annuaire pour décider quel commerce local nommer dans une réponse. Un profil NAP fragmenté veut dire que le moteur ne peut pas nommer le commerce avec confiance, alors il nomme un concurrent avec des fiches plus propres. Voyez la <InternalLink to="/glossary/nap" title="Définition NAP" /> pour la définition complète.
+        Les moteurs IA amplifient le coût. ChatGPT, Perplexity et Google AIO puisent tous dans la couche annuaire pour décider quel commerce local nommer dans une réponse. Un profil NAP fragmenté veut dire que le moteur ne peut pas nommer le commerce avec confiance, alors il nomme un concurrent avec des fiches plus propres. Voyez la <InternalLink to="/glossary/nap" title="Définition NAP" description="Définition et impact du NAP sur le classement local" /> pour la définition complète.
       </p>
+
+      <SectionDivider />
 
       <h2 id="verrouiller-la-fiche-canonique-avant-de-toucher-quoi-que-ce-soit">Verrouiller la fiche canonique avant de toucher quoi que ce soit</h2>
       <p>
@@ -104,6 +102,23 @@ export function ContentFr() {
         <p>Décidez du format de téléphone avant de commencer. Nous standardisons à 514-555-0100 avec tirets parce que Google le parse proprement, chaque répertoire l'accepte et les moteurs IA l'extraient sans erreur de normalisation. Mélanger les parenthèses (514) 555-0100 avec le format à tirets 514-555-0100 dans 50 répertoires est la divergence NAP la plus fréquente que nous trouvons sur les audits québécois.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        translatedLabel="Mini-quiz"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Une clinique québécoise est listée dans 47 répertoires comme rue Sainte-Catherine, et dans 3 répertoires comme rue Sainte Catherine (sans tiret, sans accent). Que fait Google?"
+        options={[
+          'Il traite les 50 comme la même entité parce que les adresses se ressemblent',
+          'Il sépare l\'entité en deux moitiés, ce qui affaiblit le signal de confiance des deux',
+          'Il choisit la variante la plus fréquente et ignore les autres',
+          'Il envoie un courriel au propriétaire pour demander de clarifier',
+        ]}
+        correctIndex={1}
+        explanation="Chaque variante est une chaîne différente pour un algorithme d'appariement d'entité. Google traite le désaccord comme une ambiguïté, sépare la confiance en deux entités partielles et le rang dans le local pack baisse parce qu'aucune entité unique n'a le compte de votes complet."
+      />
+
+      <SectionDivider />
+
       <h2 id="exporter-chaque-citation-existante-version-quebec">Exporter chaque citation existante, version Québec</h2>
       <p>
         Utilisez un agrégateur de citations (BrightLocal, Yext ou Whitespark fonctionnent tous, nous utilisons un pipeline hybride à AiLys) pour tirer chaque citation existante sous la marque. L'export devrait vous donner le nom du répertoire, le Nom, l'Adresse, le Téléphone et les Heures listés, et un score de confiance d'appariement. Pour les commerces québécois, tirez aussi de la couche annuaire francophone : Pages Jaunes, 411.ca, Canada411 en mode français, et la fiche de la Chambre de commerce municipale.
@@ -114,6 +129,14 @@ export function ContentFr() {
       <p>
         Comparez chaque citation à la fiche canonique. Étiquetez chaque champ qui diffère, même d'un seul caractère. La question des accents à elle seule représente habituellement 15 à 25 pour cent des divergences sur les audits québécois.
       </p>
+
+      <CalloutBox type="tip" translatedLabel="Astuce de pro">
+        <p>Faites l'export avec la fiche canonique visible dans un deuxième onglet. Le cerveau attrape les divergences plus vite quand la bonne réponse est à un coup d'œil. Les propriétaires qui essaient de mémoriser la fiche canonique en parcourant 50 répertoires ratent environ 30 pour cent plus de divergences que ceux qui travaillent avec les deux à l'écran en même temps.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" text="Voyez les forfaits conçus pour les entreprises locales, à partir de 300 $/mois CAD." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <h2 id="classer-les-divergences-en-quatre-paniers">Classer les divergences en quatre paniers</h2>
       <p>
@@ -126,6 +149,8 @@ export function ContentFr() {
         <li><strong>Divergences d'heures</strong>. Heures d'ouverture différentes, heures fériées non concordantes, heures saisonnières restées sur les valeurs hors-saison. Les divergences d'heures tuent d'abord les requêtes « ouvert maintenant » et sont les plus faciles à maintenir avec la discipline de la fiche canonique.</li>
       </ol>
 
+      <SectionDivider />
+
       <h2 id="ordre-de-correction-fiche-google-d-abord-queue-longue-en-dernier">Ordre de correction : fiche Google d'abord, queue longue en dernier</h2>
       <p>
         Corrigez par ordre de priorité. La fiche d'établissement Google d'abord, toujours. Apple Business Connect, Bing Places et Yelp ensuite. Puis les répertoires propres au Québec : Pages Jaunes, 411.ca, Canada411, la Chambre de commerce municipale. Ensuite les verticales sectorielles (Restaurants Canada, Barreau du Québec, fiches du Collège des médecins du Québec, associations d'entrepreneurs). La queue longue de petits répertoires en dernier.
@@ -134,7 +159,7 @@ export function ContentFr() {
         La raison est la propagation. La fiche d'établissement Google est la source de vérité pour la plupart des autres répertoires. Certains agrégateurs ingèrent les données GBP automatiquement, donc corriger la fiche Google d'abord nettoie 5 à 15 citations secondaires sans coût marginal. Si vous corrigez la queue longue en premier, vous risquez de devoir tout refaire après la propagation de la fiche Google.
       </p>
       <p>
-        Certains répertoires demandent une vérification supplémentaire. Pages Jaunes demande parfois une carte postale, Bing Places déclenche parfois un rappel téléphonique, et Yelp peut prendre une semaine à publier un changement. Planifiez en conséquence. Voyez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" /> pour le flux de vérification spécifique à la fiche.
+        Certains répertoires demandent une vérification supplémentaire. Pages Jaunes demande parfois une carte postale, Bing Places déclenche parfois un rappel téléphonique, et Yelp peut prendre une semaine à publier un changement. Planifiez en conséquence. Voyez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" description="Flux de vérification spécifique à la fiche et liste d'attributs" /> pour le flux de vérification spécifique à la fiche.
       </p>
 
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
@@ -155,6 +180,10 @@ export function ContentFr() {
       </p>
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <InternalLink to="/industries/restaurants" title="SEO local pour les restaurants québécois" description="Playbook NAP et citations adapté aux restaurateurs" />
+
+      <SectionDivider />
 
       <h2 id="maintenir-la-fiche-apres-le-nettoyage">Maintenir la fiche après le nettoyage</h2>
       <p>

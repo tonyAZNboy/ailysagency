@@ -1092,8 +1092,8 @@ export const en = {
 
   chat: {
     // Teaser card (collapsed state shown after 45s)
-    teaserTitle: "Get more reviews",
-    teaserSubtitle: "Ask how AI can grow your business, in any language.",
+    teaserTitle: "Get cited by AI search",
+    teaserSubtitle: "Ask anything about ChatGPT, Perplexity, Google AIO, and AI Visibility, in any language.",
     // Header (expanded state)
     headerTitle: "AiLys AI Search Advisor",
     headerStatus: "Online, instant answers",

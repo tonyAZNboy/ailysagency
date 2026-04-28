@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Calendrier de publications Google Business Profile montrant une cadence hebdomadaire pour un commerce local du Québec"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Une cadence hebdomadaire de publications Google Business Profile est le plancher pour bouger le pack local. La plupart des commerçants locaux publient une fois par trimestre et se demandent pourquoi le classement du pack local ne bouge pas. Google pondère beaucoup la récence du GBP pour les requêtes « ouvert maintenant » et contraintes, et un profil sans publication depuis 90 jours perd l'effet de fraîcheur. La correction passe par une cadence écrite avec le bon dosage de types de publication, la bonne longueur et la bonne discipline CTA.
       </p>
@@ -77,6 +71,8 @@ export function ContentFr() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="pourquoi-la-cadence-bat-le-volume">Pourquoi la cadence bat le volume</h2>
       <p>
         Le volume compte moins que le rythme. Un profil qui publie cinq fois en une semaine puis zéro fois pendant trois semaines performe moins bien qu'un profil qui publie une fois par semaine, chaque semaine, pendant un trimestre. Google pondère la régularité. Le signal de fraîcheur est bâti sur une fenêtre glissante de 30 jours, donc une cadence hebdomadaire stable garde le profil dans l'effet de fraîcheur en continu, alors qu'un schéma rafale-silence sort de l'effet pendant les semaines de silence.
@@ -84,6 +80,10 @@ export function ContentFr() {
       <p>
         Pour la plupart des catégories locales, le rendement marginal d'une quatrième publication par semaine est faible. Trois publications par semaine est le plafond pratique dans nos données de cohorte. Au-delà de trois, le pack local ne bouge plus, et le coût en temps s'accumule. La cadence honnête est de une à trois publications par semaine, selon ce que l'opérateur peut soutenir sans s'épuiser.
       </p>
+
+      <InlineCTA variant="audit" text="Voyez comment votre cadence GBP actuelle se compare au leader du pack local. Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <SectionDivider />
 
       <h2 id="la-cadence-ailys-par-palier">La cadence AiLys par palier</h2>
       <p>
@@ -105,6 +105,23 @@ export function ContentFr() {
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
         <p>La cadence s'applique à chaque emplacement, pas au commerce parent. Un opérateur multi-emplacements au palier Agency reçoit douze publications par emplacement par mois, et non douze publications réparties sur les emplacements. La coordination multi-emplacements au palier Agency garantit que chaque publication d'emplacement reste locale et non gabaritisée.</p>
       </CalloutBox>
+
+      <QuickQuiz
+        translatedLabel="Quiz éclair"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Quel est le plafond pratique de cadence hebdomadaire de publications GBP avant que les rendements ne stagnent?"
+        options={[
+          'Une publication par semaine, au-delà c\'est du spam',
+          'Trois publications par semaine, au-delà le pack local ne bouge plus',
+          'Sept publications par semaine, une par jour',
+          'Il n\'y a pas de plafond, plus c\'est toujours mieux',
+        ]}
+        correctIndex={1}
+        explanation="Dans les données de cohorte, trois publications par semaine est le plafond pratique. Au-delà de trois, le pack local ne bouge plus et le coût en temps s'accumule. Une à trois publications par semaine est la cadence honnête, calibrée sur ce que l'opérateur peut soutenir sans s'épuiser."
+      />
+
+      <SectionDivider />
 
       <h2 id="les-quatre-types-de-publication-et-le-dosage-50-25-15-10">Les quatre types de publication et le dosage 50-25-15-10</h2>
       <p>
@@ -152,6 +169,8 @@ export function ContentFr() {
         <p>Pour les publications en français sur un GBP du Québec, utilisez les graphies du Québec (courriel, magasiner, fin de semaine au besoin). L'algorithme local lit la cohérence des graphies régionales et la pondère. Le français de France sur un profil québécois crée une mollesse petite mais mesurable dans l'effet de fraîcheur.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="quoi-ecrire-chaque-semaine">Quoi écrire chaque semaine</h2>
       <p>
         Un plan de contenu mensuel simple pour la cadence Core de quatre publications :
@@ -165,18 +184,26 @@ export function ContentFr() {
       </ol>
 
       <p>
-        Rédigez les quatre publications à l'avance au début de chaque mois. Planifiez-les par l'API GBP ou un planificateur tiers. Ne générez pas le texte automatiquement. Le classifieur antispam GBP signale les textes auto-générés répétitifs et les suspensions suivent. <InternalLink to="/services/gbp-optimization" title="Service d'optimisation GBP" description="Inclut la cadence hebdomadaire et la coordination multi-emplacements" /> gère la cadence de bout en bout sur chaque palier payant.
+        Rédigez les quatre publications à l'avance au début de chaque mois. Planifiez-les par l'API GBP ou un planificateur tiers. Ne générez pas le texte automatiquement. Le classifieur antispam GBP signale les textes auto-générés répétitifs et les suspensions suivent. <InternalLink to="/services/gbp-optimization" title="Service d'optimisation GBP" description="Inclut la cadence hebdomadaire et la coordination multi-emplacements" /> gère la cadence de bout en bout sur chaque palier payant. Pour le contexte pilier sur la façon dont la cadence alimente le graphe de citations, voyez <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model expliqué" description="La métrique de part de citations pour la recherche IA" />.
       </p>
 
-      <InlineCTA variant="audit" text="Vous voulez voir où en est votre fiche GBP? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+      <InlineCTA variant="pricing" text="Voyez les paliers de cadence AiLys, d'une publication par mois à Starter à douze par mois par emplacement à Agency." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <h2 id="mesurer-l-impact-sur-le-pack-local">Mesurer l'impact sur le pack local</h2>
       <p>
-        La bonne mesure du pack local est la part de voix sur une grille verrouillée de requêtes, pas la position brute. Choisissez cinq requêtes à forte intention, lancez-les chaque semaine avec un outil de grille ancré au lieu, et suivez la fréquence d'apparition de votre profil dans le top trois. Une cadence hebdomadaire propre fait habituellement grimper la part de voix dans le pack local de 8 à 15 points sur le premier trimestre, avec la majorité de la hausse aux semaines 6 à 10.
+        La bonne mesure du pack local est la part de voix sur une grille verrouillée de requêtes, pas la position brute. Choisissez cinq requêtes à forte intention, lancez-les chaque semaine avec un outil de grille ancré au lieu, et suivez la fréquence d'apparition de votre profil dans le top trois. Une cadence hebdomadaire propre fait habituellement grimper la part de voix dans le pack local de 8 à 15 points sur le premier trimestre, avec la majorité de la hausse aux semaines 6 à 10. Combinez avec l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Inclut l'analyse de cadence GBP et de signal de fraîcheur de référence" /> pour figer la ligne de départ avant le changement de cadence.
       </p>
       <p>
         Combinez la mesure du pack local avec l'export GBP Insights. Suivez les vues, l'engagement, les clics de bouton et les demandes d'itinéraire. Le taux d'engagement des publications est l'indicateur avancé : un engagement en hausse à la semaine 4 prédit la hausse du pack local à la semaine 8. Un engagement en baisse à la semaine 4 signifie que le dosage est mauvais (souvent trop de Mises à jour et pas assez d'Offres) et que la cadence doit être rééquilibrée.
       </p>
+
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Évitez de bourrer chaque publication du même mot-clé principal. Le classifieur antispam GBP pondère la densité de mots-clés sur les publications récentes, et un profil qui répète la même phrase d'ancrage chaque semaine est signalé en douceur en un trimestre. Variez la phrase d'attaque entre Mises à jour, Offres, Événements et Produits même quand le service sous-jacent est identique.</p>
+      </CalloutBox>
+
+      <SectionDivider />
 
       <h2 id="erreurs-frequentes-de-cadence">Erreurs fréquentes qui suspendent les fiches</h2>
       <p>
@@ -192,6 +219,8 @@ export function ContentFr() {
       <p>
         La correction passe par un texte rédigé à la main avec un calendrier de contenu et un audit trimestriel des directives d'offre et des dates d'événement. La plupart des opérateurs évitent les trois avec une session mensuelle d'une heure et un planificateur. AiLys mène cette session mensuelle dans le livrable du palier Core et livre les quatre publications selon un horaire hebdomadaire fixe.
       </p>
+
+      <InlineCTA variant="book" text="Vous voulez une revue de 60 minutes de votre cadence GBP et du dosage des publications? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />
 
       <KeyTakeaway
         translatedLabel="À retenir"

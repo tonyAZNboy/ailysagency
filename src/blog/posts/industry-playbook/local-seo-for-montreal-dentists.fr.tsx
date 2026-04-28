@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Carte de Montréal montrant les résultats du local pack pour une requête dentiste près de moi en 2026"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Le meilleur SEO local pour dentistes à Montréal en 2026 est un travail séquencé. Réclamez et ajustez Google Business Profile et Apple Maps Connect avec des catégories principales bilingues, bâtissez des citations NAP cohérentes dans les répertoires québécois, lancez un système d'avis bilingues qui livre 4 à 6 avis frais par mois, publiez du contenu ancré aux quartiers, et auditez les citations AI Overviews et Siri chaque trimestre. Dans cet ordre, une clinique à Montréal gagne typiquement deux positions dans le local pack en un trimestre.
       </p>
@@ -92,6 +86,8 @@ export function ContentFr() {
         <p>L'Ordre des dentistes du Québec maintient un répertoire public des dentistes membres. Son poids de citation dans la récupération est élevé en raison de l'autorité réglementaire. Une clinique qui n'y figure pas proprement est invisible pour une tranche non négligeable des requêtes des moteurs IA sur qui exerce en ville.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="gbp-et-apple-maps-bilingues">GBP et Apple Maps Connect, bilingues dès le premier jour</h2>
       <p>
         Commencez par Google Business Profile. Réglez la catégorie principale à « Dentiste » et ajoutez des catégories secondaires qui reflètent chaque service offert : « Dentiste pédiatrique », « Dentisterie esthétique », « Orthodontiste », « Service dentaire d'urgence ». Chaque catégorie achemine une tranche différente de trafic vocal et IA. Sauter les secondaires coûte environ 15 à 20 % du volume longue traîne dans nos tests internes.
@@ -109,6 +105,8 @@ export function ContentFr() {
         description="Audit gratuit couvrant les champs bilingues, la correspondance de catégories et la cadence d'avis pour les cliniques dentaires à Montréal."
       />
 
+      <SectionDivider />
+
       <h2 id="citations-nap-quebec">Citations NAP dans les répertoires qui bougent le classement québécois</h2>
       <p>
         NAP signifie nom, adresse, téléphone. La cohérence dans les répertoires à forte autorité est ce que la couche de récupération évalue. Pour un dentiste à Montréal, la liste prioritaire est courte : Pages Jaunes Canada, 411.ca, Yelp Québec, le registre public de l'Ordre des dentistes du Québec, vos listes de réseaux d'assurances, et un ou deux répertoires d'industrie comme DentistesQC ou RateMDs. Nettoyer ces six vaut plus que de s'éparpiller sur 60 petits répertoires.
@@ -119,6 +117,10 @@ export function ContentFr() {
       <p>
         La cohérence du téléphone compte au Québec en particulier à cause des messages d'accueil bilingues. Le numéro de téléphone sur le GBP, le pied de page du site, la fiche Yelp et les cartes imprimées doivent correspondre exactement, formatage compris. Affichez « (514) 555 0123 » partout ou « 514-555-0123 » partout. Un formatage incohérent apparaît comme une discordance NAP dans certains moteurs, même si l'humain lit le même numéro.
       </p>
+
+      <CalloutBox type="tip" translatedLabel="Truc d'opérateur">
+        <p>Auditez le numéro de suite en premier. La majorité de la dérive NAP dans les immeubles médicaux à Montréal commence quand une clinique passe de la « suite 200 » à la « suite 210 » dans le même immeuble et oublie de mettre à jour Pages Jaunes. Le moteur de récupération voit alors deux cliniques à la même adresse, ce qui fait baisser le score de confiance des deux fiches jusqu'à la réconciliation.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -140,6 +142,23 @@ export function ContentFr() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        translatedLabel="Vérif rapide"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Deux cliniques dentaires à Montréal obtiennent le même nombre d'avis frais chaque mois. Pourquoi le local pack en classe une plus haut que l'autre?"
+        options={[
+          'La clinique qui paie pour les Local Services Ads gagne toujours',
+          'La clinique avec un mélange bilingue FR et EN d\'avis se classe plus haut',
+          'Les cliniques plus anciennes battent toujours les plus jeunes',
+          'La note moyenne est le seul facteur au stade du bris d\'égalité',
+        ]}
+        correctIndex={1}
+        explanation="Dans un marché bilingue comme Montréal, Google lit un mélange d'avis FR et EN comme la preuve que les deux moitiés du marché local sont servies. Une clinique avec trois avis FR et trois EN par mois dépasse une clinique avec six dans une seule langue à l'étape du bris d'égalité."
+      />
+
+      <SectionDivider />
+
       <h2 id="contenu-ancre-aux-quartiers">Contenu ancré aux quartiers, l'actif qui compose le plus longtemps</h2>
       <p>
         Le contenu ancré aux quartiers est l'actif qui compose le plus longtemps. Publiez une pièce par mois qui nomme un quartier précis de Montréal et un service précis. « Dentiste pédiatrique à Rosemont, à quoi s'attendre lors de la première visite » bat « La dentisterie pédiatrique en bref » à chaque fois, parce que l'entité de quartier dans le contenu renforce le signal du local pack.
@@ -153,6 +172,8 @@ export function ContentFr() {
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA et la voix? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
 
+      <SectionDivider />
+
       <h2 id="ai-overviews-et-recherche-vocale">AI Overviews, Siri et recherche vocale pour les requêtes dentaires à Montréal</h2>
       <p>
         Les AI Overviews et la recherche vocale sont les nouvelles couches que les programmes de SEO local classique manquent. Une clinique avec des signaux GBP forts et une densité de citations perd encore si Google AIO et Perplexity citent un concurrent. Deux contrôles font la différence. D'abord, la couche de contenu bilingue avec photographie originale et signatures d'auteur se lit comme une expérience de première main pour les moteurs IA. Ensuite, la citation d'autorité réglementaire, soit l'inscription à l'Ordre des dentistes du Québec, ancre la confiance.
@@ -163,6 +184,18 @@ export function ContentFr() {
       <p>
         Suivez les citations AI Overviews chaque mois. Le moteur AI Visibility d'AiLys tire les citations sur ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot, puis les associe aux requêtes qui amènent des rendez-vous. Voyez la page <InternalLink to="/services/ai-visibility" title="service AI Visibility" /> pour le diagnostic qui détaille quels moteurs citent la clinique versus le concurrent voisin.
       </p>
+
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Évitez le gabarit d'agence qui réplique une liste « zones desservies » à l'échelle de la ville sur chaque page de quartier. Google lit ça comme un motif de page porte d'entrée et rétrograde tout le site. Trois ou quatre pages de quartier bien construites battent 30 stubs gabarits chaque trimestre où on audite.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Vous voulez un tour guidé de 60 minutes de la séquence SEO local Montréal sur votre clinique? Réservez un appel stratégique, sans pitch, le doc reste à vous." buttonText="Réserver un appel" />
+
+      <InternalLink
+        to="/industries/dentists"
+        title="Playbook industrie dentistes"
+        description="Toute la séquence d'audit GBP, Apple Maps, NAP, avis et AI Overviews pour les cliniques dentaires québécoises."
+      />
 
       <KeyTakeaway
         translatedLabel="À retenir"
@@ -186,6 +219,8 @@ export function ContentFr() {
       <p>
         Pour la version dentiste de l'audit AI Overviews et le flux de nettoyage des citations, voyez le hub <InternalLink to="/industries" title="playbooks d'industrie" />. Les propriétaires qui veulent sauter la phase de construction peuvent lancer l'<InternalLink to="/audit" title="AI Visibility Audit gratuit" /> d'abord, puis réserver un appel stratégique de 60 minutes pour dimensionner le programme contre le profil GBP et avis actuel de la clinique.
       </p>
+
+      <InlineCTA variant="pricing" text="Besoin d'un programme géré de SEO local Montréal couvrant le contenu bilingue, le nettoyage des citations et les audits AI Overviews trimestriels? Voyez les forfaits AiLys pour cliniques." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/share-of-model-metric-explained/hero.svg',
-    mid: '/blog-images/share-of-model-metric-explained/mid.svg',
-    end: '/blog-images/share-of-model-metric-explained/end.svg',
+    hero: '/blog-images/share-of-model-metric-explained/hero.webp',
+    mid: '/blog-images/share-of-model-metric-explained/mid.webp',
+    end: '/blog-images/share-of-model-metric-explained/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="AiLys dashboard showing Share of Model scores across six AI engines for a Quebec local business"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Share of Model is the metric AiLys uses to quantify whether AI engines name your business in their answers. It is the percentage of AI engine probes that cite your business for a defined query set over a defined period. Most local businesses start near zero. The category leader sits at 30 percent or higher. Lifting Share of Model is the central job of the AI Visibility engine, and the metric is what makes that job measurable instead of qualitative.
       </p>
@@ -88,6 +82,8 @@ export function Content() {
           { value: '30%+', label: 'Share of Model held by the category leader' },
         ]}
       />
+
+      <SectionDivider />
 
       <h2 id="what-share-of-model-actually-measures">What Share of Model actually measures</h2>
       <p>
@@ -104,6 +100,20 @@ export function Content() {
         <p>Share of Model is not a ranking position. AI engines do not rank in the classic sense, they retrieve a short list of named entities and present them. A business is either named or not named in any given answer. Share of Model is the rate at which your business is named, which is the right unit of measure for a retrieval-based answer system.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        question="What does Share of Model actually measure?"
+        options={[
+          'Your average ranking position across the major AI engines',
+          'The percentage of AI engine answers that name your business for a defined query set over a defined period',
+          'The total monthly traffic the AiLys AI Visibility engine sends to your site',
+          'The number of times a competitor outranks you in the local pack',
+        ]}
+        correctIndex={1}
+        explanation="Share of Model is a citation share metric. The AiLys AI Visibility engine probes a locked query set across six AI engines, counts probes where your business is named, and divides by total probes for the period. It is not a position, it is the rate at which you are named in retrieval-based answers."
+      />
+
+      <SectionDivider />
+
       <h2 id="how-the-ailys-engine-calculates-it">How the AiLys engine calculates it</h2>
       <p>
         The AiLys AI Visibility engine runs probes on a fixed schedule. For each business in the engine, the operator defines a probe set of 5 to 20 queries. The engine runs each query against six named AI engines: ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot. The probe is designed to mimic the way a real user phrases the question, including the location qualifier when relevant.
@@ -114,6 +124,10 @@ export function Content() {
       <p>
         At the end of the reporting period, the engine divides total citations by total probes for each engine. The per-engine scores are reported individually, and the aggregate Share of Model is a simple average across the six per-engine scores. Per-engine reporting matters because traffic share between engines varies by industry, and an operator may need to weigh the lift on Bing Copilot more than the lift on Claude depending on the industry.
       </p>
+
+      <InlineCTA variant="audit" text="Want a baseline Share of Model number across all six engines? Run the free 24-hour AI Visibility audit." />
+
+      <SectionDivider />
 
       <h2 id="the-formula-step-by-step">The formula, step by step</h2>
       <p>
@@ -158,6 +172,8 @@ export function Content() {
         <p>For a first-time Share of Model report, start with a 5-query probe set that covers the highest-intent searches in your category. Once the baseline Share of Model is established, expand the probe set to 10 to 15 queries for the second reporting period. Expanding too fast in the first period creates a noisy baseline that complicates the trend analysis.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="reading-per-engine-vs-aggregate-scores">Reading per-engine vs aggregate scores</h2>
       <p>
         The aggregate Share of Model is the headline number. The per-engine scores tell the operator where the work needs to focus. A common pattern in early-stage AI Visibility work is a Perplexity score in the high teens with a ChatGPT score in the low single digits. That gap usually points to citation graph weakness, because Perplexity weights direct GBP and review signals while ChatGPT weights Wikidata and high-DA citations. The gap tells the team to ship Wikidata work next, not GBP work.
@@ -166,7 +182,13 @@ export function Content() {
         Reading the per-engine scores requires knowing what each engine weights most. Perplexity leans on GBP and Yelp. ChatGPT leans on Wikidata and high-DA citations. Claude leans on first-hand experience markers and author bylines. Gemini leans on Google ecosystem signals and structured data. Google AIO leans on the same signals as classic Google plus FAQ schema. Bing Copilot leans on LinkedIn, Bing Places, and Microsoft ecosystem signals. The per-engine score names the weakness, the aggregate Share of Model names the headline result.
       </p>
 
-      <InlineCTA variant="audit" />
+      <CalloutBox type="warning">
+        <p>Do not compare Share of Model across two different probe sets. Adding or dropping queries mid-period invalidates the period-over-period comparison and the apparent lift or drop is just a probe-set artifact. Lock the probe set for at least 90 days before adjusting, and document every change in the trend report.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" text="Share of Model reporting ships on every paid AiLys tier. See pricing from 300 dollars CAD a month." />
+
+      <SectionDivider />
 
       <h2 id="share-of-model-vs-share-of-voice-vs-share-of-search">Share of Model vs share of voice vs share of search</h2>
       <p>
@@ -187,8 +209,10 @@ export function Content() {
         Wave two ships in weeks 5 to 12: schema build (FAQPage, Service, Person with credentials), original photography with EXIF, and FAQ page production for the top 30 patient or customer questions. The lift from wave two is roughly 5 to 10 percentage points on aggregate, weighted toward ChatGPT and Claude because those engines weight schema and experience markers heavily. By week 12, most local businesses sit at 8 to 18 percent Share of Model on their core probe set.
       </p>
       <p>
-        AiLys reports Share of Model on every paid plan and on the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="Includes the baseline Share of Model probe across six engines" /> deliverable. The full definition lives on the <InternalLink to="/glossary/share-of-model" title="Share of Model glossary entry" description="Canonical definition, formula, and reporting cadence" /> page, and the methodology page details the probe schedule and reporting cadence.
+        AiLys reports Share of Model on every paid plan and on the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="Includes the baseline Share of Model probe across six engines" /> deliverable. The full definition lives on the <InternalLink to="/glossary/share-of-model" title="Share of Model glossary entry" description="Canonical definition, formula, and reporting cadence" /> page, and the methodology page details the probe schedule and reporting cadence. For an industry application, the <InternalLink to="/blog/medical-clinic-ai-visibility-guide" title="Medical clinic AI Visibility playbook" description="The five-layer plan for clinic citations" /> walks through Share of Model uplift in a clinical context.
       </p>
+
+      <InlineCTA variant="book" text="Want a 60-minute walkthrough of your Share of Model audit, no pitch, strategy doc sent regardless?" />
 
       <KeyTakeaway
         points={[

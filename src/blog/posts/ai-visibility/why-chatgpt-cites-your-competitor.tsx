@@ -21,9 +21,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 5,
   images: {
-    hero: '/blog-images/why-chatgpt-cites-your-competitor/hero.svg',
-    mid: '/blog-images/why-chatgpt-cites-your-competitor/mid.svg',
-    end: '/blog-images/why-chatgpt-cites-your-competitor/end.svg',
+    hero: '/blog-images/why-chatgpt-cites-your-competitor/hero.webp',
+    mid: '/blog-images/why-chatgpt-cites-your-competitor/mid.webp',
+    end: '/blog-images/why-chatgpt-cites-your-competitor/end.webp',
   },
   faqItems: [
     {
@@ -62,13 +62,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="ChatGPT answer panel listing a competing local business citation with high-DA source links"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="you-searched-for-your-service">You searched for your service. Your competitor came up. You didn't. Here's why.</h2>
       <p>
         ChatGPT does not crawl. It retrieves. When someone asks "best dentist in Montreal that takes new patients," ChatGPT pulls from a layered citation system. Three layers decide who gets named.

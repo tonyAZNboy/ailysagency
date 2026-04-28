@@ -118,7 +118,7 @@ export function Navbar() {
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.href.slice(1);
                   return (
-                    <button key={link.label} onClick={() => handleScrollTo(link.href)} className={`relative text-sm font-medium transition-colors duration-200 ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}>
+                    <button key={link.label} onClick={() => handleScrollTo(link.href)} className={`relative text-sm font-semibold transition-colors duration-200 ${isActive ? 'text-primary' : 'text-white/95 hover:text-primary'}`}>
                       {link.label}
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full transition-transform duration-300 origin-left" style={{
                         transform: isActive ? 'scaleX(1)' : 'scaleX(0)'

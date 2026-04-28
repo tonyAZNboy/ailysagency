@@ -1031,8 +1031,8 @@ export const fr = {
     lang8Name: "Serbe",
   },
   chat: {
-    teaserTitle: "Obtenez plus d'avis",
-    teaserSubtitle: "Demandez comment l'IA peut faire grandir votre entreprise, dans n'importe quelle langue.",
+    teaserTitle: "Soyez cité par les IA",
+    teaserSubtitle: "Posez vos questions sur ChatGPT, Perplexity, Google AIO et la visibilité IA, en français ou en anglais.",
     headerTitle: "Conseiller AiLys en recherche IA",
     headerStatus: "En ligne, réponses instantanées",
     welcomeLine1: "Bonjour. Je suis votre conseiller en recherche IA.",

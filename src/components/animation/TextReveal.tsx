@@ -48,7 +48,11 @@ export function TextReveal({
     }
   }, [children, mode]);
   const ElementComponent = Component as any;
-  return <ElementComponent ref={ref} className={cn('inline-block', className)}>
+  // Outer wrapper must stay `inline` (not inline-block) so each per-word
+  // inline-block child can break to the next line on narrow viewports.
+  // inline-block on the outer wrapper sizes the box to fit ALL children on
+  // a single line, which clipped headlines on iOS Safari at 375px.
+  return <ElementComponent ref={ref} className={cn(className)} style={{ display: 'inline', overflowWrap: 'anywhere', maxWidth: '100%' }}>
       {elements.map(({
       text,
       key
@@ -101,18 +105,26 @@ export function GradientTextReveal({
 
   const show = isInView && mounted;
 
-  return <span ref={ref as React.RefObject<HTMLSpanElement>} className={cn('inline-block', className)} style={{ perspective: '800px', overflow: 'visible' }}>
-      <span className={cn('inline-block bg-clip-text text-transparent pb-[0.35em]', gradientClassName)} style={{
-      transform: show 
-        ? 'translateY(0) translateZ(0) rotateX(0deg)' 
-        : 'translateY(60%) translateZ(-80px) rotateX(45deg)',
-      opacity: show ? 1 : 0,
-      transformOrigin: 'center bottom',
-      transition: `transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), opacity ${duration * 0.6}ms ease-out`,
-      willChange: 'transform, opacity'
-    }}>
-        {children}
-      </span>
+  // Split into per-word spans so the line wraps naturally on narrow viewports.
+  // Treating the full string as one inline-block clipped headlines on iOS Safari
+  // at 375px (e.g. "Conçu pour les commerces" cut at "commerc"). Each word now
+  // wraps independently while keeping the gradient + transform animation.
+  const words = children.split(' ');
+  return <span ref={ref as React.RefObject<HTMLSpanElement>} className={cn(className)} style={{ display: 'inline', perspective: '800px', overflow: 'visible', overflowWrap: 'anywhere', maxWidth: '100%' }}>
+      {words.map((word, i) => (
+        <span key={i} className={cn('inline-block bg-clip-text text-transparent pb-[0.35em]', gradientClassName)} style={{
+          marginRight: i < words.length - 1 ? '0.25em' : 0,
+          transform: show
+            ? 'translateY(0) translateZ(0) rotateX(0deg)'
+            : 'translateY(60%) translateZ(-80px) rotateX(45deg)',
+          opacity: show ? 1 : 0,
+          transformOrigin: 'center bottom',
+          transition: `transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${i * 60}ms, opacity ${duration * 0.6}ms ease-out ${i * 60}ms`,
+          willChange: 'transform, opacity',
+        }}>
+          {word}
+        </span>
+      ))}
     </span>;
 }
 

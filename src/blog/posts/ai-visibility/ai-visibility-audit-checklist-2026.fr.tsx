@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -59,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Tableau de bord d'audit AI Visibility montrant le share-of-model dans ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Pour faire un audit AI Visibility complet sur votre entreprise, construisez un ensemble de 12 requêtes d'acheteur, exécutez chacune dans ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot, notez si votre marque apparaît, et comparez le résultat avec vos trois principaux concurrents locaux. L'audit AI Visibility d'AiLys automatise l'exécution et retourne un bilan avec share-of-model, trous de schéma et trois priorités de correction en 24 heures.
       </p>
@@ -77,6 +71,8 @@ export function ContentFr() {
           { value: '300 $/mois', label: 'Forfait Starter avec relance mensuelle' },
         ]}
       />
+
+      <SectionDivider />
 
       <h2 id="pourquoi-les-audits-ai-visibility-ont-remplace-le-suivi-de-rang">Pourquoi les audits AI Visibility ont remplacé le suivi de rang</h2>
       <p>
@@ -105,6 +101,8 @@ export function ContentFr() {
         Sauter un seul des six crée un angle mort. L'échec le plus fréquent que nous voyons est un client qui suit seulement ChatGPT et perd ensuite trois mois d'acheteurs au profit d'un concurrent qui a décroché des citations Perplexity.
       </p>
 
+      <SectionDivider />
+
       <CalloutBox type="tip" translatedLabel="Astuce de pro">
         <p>Le moteur le plus rapide à percer est Perplexity. La plupart des entreprises locales peuvent gagner leur première citation Perplexity en moins de 30 jours avec un schéma propre, un article frais sur l'état actuel et trois références tierces diversifiées. Commencez là si vous n'avez qu'un mois de budget d'audit.</p>
       </CalloutBox>
@@ -119,6 +117,27 @@ export function ContentFr() {
       <p>
         Notez trois choses par requête : la marque est-elle apparue dans le texte, dans la liste de sources, et la réponse a-t-elle nommé un concurrent à la place. Le champ concurrent est celui que la plupart des propriétaires oublient, et c'est lui qui pilote la liste de corrections.
       </p>
+
+      <CalloutBox type="info" translatedLabel="Le saviez-vous?">
+        <p>Une requête IA n'est pas un mot-clé. Une requête est une question conversationnelle avec des contraintes intégrées. « Meilleur dentiste Montréal » est un mot-clé. « Quel est un bon dentiste de famille à NDG qui prend la RAMQ et qui ouvre le samedi » est une requête. L'audit ne fonctionne que si votre ensemble sonne comme la deuxième formulation, pas la première.</p>
+      </CalloutBox>
+
+      <QuickQuiz
+        translatedLabel="Mini-quiz"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Quel moteur est habituellement le plus rapide à percer pour une entreprise locale au Québec?"
+        options={[
+          'ChatGPT, à cause du volume brut',
+          'Perplexity, parce qu\'il pondère la fraîcheur et la diversité des sources',
+          'Bing Copilot, à cause du signal LinkedIn',
+          'Gemini, à cause du contexte du compte Google',
+        ]}
+        correctIndex={1}
+        explanation="Perplexity pondère la fraîcheur et la diversité des sources plus que l'autorité brute du domaine. Un schéma propre et trois citations tierces variées peuvent décrocher une première citation en 30 jours. ChatGPT a plus de volume mais prend plus de temps parce qu'il s'appuie sur l'autorité historique."
+      />
+
+      <SectionDivider />
 
       <h2 id="evaluer-le-share-of-model-contre-trois-concurrents">Évaluer le share-of-model contre trois concurrents</h2>
       <p>
@@ -135,6 +154,8 @@ export function ContentFr() {
         <p>N'évaluez pas sur le compte brut de mentions. Évaluez sur le share-of-model. Un concurrent mentionné dans 8 réponses sur 12 a 67 pour cent de share-of-model. Un concurrent mentionné dans 8 sur 30 est à 27 pour cent. Même nombre absolu, réalité très différente.</p>
       </CalloutBox>
 
+      <InlineCTA variant="pricing" text="Voyez les forfaits conçus pour les entreprises locales, à partir de 300 $/mois CAD." buttonText="Voir les forfaits" />
+
       <SectionDivider />
 
       <h2 id="trouver-les-trous-de-schema-citations-et-gbp">Trouver les trous de schéma, citations et GBP</h2>
@@ -145,8 +166,10 @@ export function ContentFr() {
         Ensuite, les citations. Comptez vos citations NAP et comparez avec les concurrents. Si votre concurrent principal a 80 citations dans des annuaires et vous en avez 22, les moteurs voient un signal plus faible pour votre marque et la pondèrent moins. La correction est la construction mensuelle de citations, livrée à 5 par mois au forfait Core, 10 au Growth, 15 à Agency.
       </p>
       <p>
-        Enfin, la fiche d'établissement Google. La plupart des diagnostics « absent des réponses IA » remontent à un attribut GBP qui n'a jamais été rempli. Catégories, mentions alimentaires, modes de paiement, accessibilité, heures d'ouverture. Google AIO et Gemini puisent tous deux dans cette couche. Voyez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" /> pour la liste complète des attributs.
+        Enfin, la fiche d'établissement Google. La plupart des diagnostics « absent des réponses IA » remontent à un attribut GBP qui n'a jamais été rempli. Catégories, mentions alimentaires, modes de paiement, accessibilité, heures d'ouverture. Google AIO et Gemini puisent tous deux dans cette couche. Voyez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" description="Liste complète des attributs GBP pour les entreprises locales du Québec" /> pour la liste complète des attributs.
       </p>
+
+      <SectionDivider />
 
       <h2 id="corriger-les-trois-fuites-prioritaires">Corriger les trois fuites prioritaires en premier</h2>
       <p>
@@ -157,6 +180,10 @@ export function ContentFr() {
       </p>
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <InternalLink to="/glossary/aeo" title="Définition AEO" description="L'Answer Engine Optimization, la discipline derrière chaque audit AI Visibility" />
+
+      <SectionDivider />
 
       <h2 id="fixer-la-cadence-mensuelle-de-relance-de-l-audit">Fixer la cadence mensuelle de relance de l'audit</h2>
       <p>

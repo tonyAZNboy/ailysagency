@@ -17,9 +17,9 @@ export const metaFr: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 5,
   images: {
-    hero: '/blog-images/google-ai-overviews-citation-gap-2027/hero.svg',
-    mid: '/blog-images/google-ai-overviews-citation-gap-2027/mid.svg',
-    end: '/blog-images/google-ai-overviews-citation-gap-2027/end.svg',
+    hero: '/blog-images/google-ai-overviews-citation-gap-2027/hero.webp',
+    mid: '/blog-images/google-ai-overviews-citation-gap-2027/mid.webp',
+    end: '/blog-images/google-ai-overviews-citation-gap-2027/end.webp',
   },
   faqItems: [
     {
@@ -59,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <>
-      <img
-        src={metaFr.images.hero}
-        alt="Google AI Overviews écart de citation 2027"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="la-requete-zero-clic-est-arrivee-la-plupart-des-entreprises-locales-ne-sont-pas-pretes">
         La requête zéro clic est arrivée. La plupart des entreprises locales ne sont pas prêtes.
       </h2>

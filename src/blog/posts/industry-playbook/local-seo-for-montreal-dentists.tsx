@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 10,
   images: {
-    hero: '/blog-images/local-seo-for-montreal-dentists/hero.svg',
-    mid: '/blog-images/local-seo-for-montreal-dentists/mid.svg',
-    end: '/blog-images/local-seo-for-montreal-dentists/end.svg',
+    hero: '/blog-images/local-seo-for-montreal-dentists/hero.webp',
+    mid: '/blog-images/local-seo-for-montreal-dentists/mid.webp',
+    end: '/blog-images/local-seo-for-montreal-dentists/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Map of Montreal showing local pack results for a Montreal dentist near me query in 2026"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         The best local seo for dentists in Montreal in 2026 is sequenced work. Claim and tune Google Business Profile and Apple Maps Connect with bilingual primary categories, build NAP-consistent citations across Quebec directories, run a bilingual review system that lands 4 to 6 fresh reviews each month, ship neighborhood-anchored content, and audit AI Overview and Siri citations every quarter. Done in that order, a Montreal clinic typically gains two local pack positions inside one quarter.
       </p>
@@ -104,6 +98,8 @@ export function Content() {
         <p>The Ordre des dentistes du Quebec maintains a public directory of licensed dentists. Its citation weight in retrieval is high because of regulatory authority. A clinic that does not appear there cleanly is invisible to a non-trivial slice of AI engine queries about who is licensed in the city.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="gbp-and-apple-maps-bilingual">GBP and Apple Maps Connect, bilingual from day one</h2>
       <p>
         Start with Google Business Profile. Set the primary category to "Dentist" and add secondary categories that reflect every service you offer: "Pediatric dentist," "Cosmetic dentist," "Orthodontist," "Emergency dental service." Each category routes a different slice of voice and AI search traffic. Skipping secondaries costs about 15 to 20 percent of long-tail volume in our internal client tests.
@@ -121,6 +117,8 @@ export function Content() {
         description="Free audit covering bilingual fields, category mapping, and review velocity for Montreal dental clinics."
       />
 
+      <SectionDivider />
+
       <h2 id="nap-citations-quebec">NAP citations across the directories that move Quebec rankings</h2>
       <p>
         NAP stands for name, address, phone. Consistency across high-authority directories is what the retrieval layer scores. For a Montreal dentist, the priority list is short: Pages Jaunes Canada, 411.ca, Yelp Quebec, the Ordre des dentistes du Quebec public registry, your insurance network listings, and one or two industry directories like DentistesQC or RateMDs. Cleaning these six is worth more than spreading thin across 60 small directories.
@@ -131,6 +129,10 @@ export function Content() {
       <p>
         Phone consistency matters in Quebec specifically because of bilingual greetings. The phone number on the GBP, the website footer, the Yelp listing, and the printed cards must match exactly, including formatting. Display "(514) 555 0123" everywhere or "514-555-0123" everywhere. Inconsistent formatting shows up as a NAP mismatch in some retrieval engines, even though a human reads it as the same number.
       </p>
+
+      <CalloutBox type="tip">
+        <p>Audit the suite number first. Most NAP drift inside Montreal medical buildings starts when a clinic moves from "suite 200" to "suite 210" inside the same building and forgets to update Pages Jaunes. The retrieval engine then sees two clinics at the same address, which depresses the trust score for both records until you reconcile.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -152,6 +154,20 @@ export function Content() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        question="Two Montreal dental clinics earn the same number of fresh reviews every month. Why does the local pack rank one higher than the other?"
+        options={[
+          'The clinic that pays for Google Local Services Ads always wins',
+          'The clinic with a bilingual mix of FR and EN reviews ranks higher',
+          'Older clinics with longer GBP history always beat newer ones',
+          'Star average is the only factor at the tiebreaker stage',
+        ]}
+        correctIndex={1}
+        explanation="In a bilingual market like Montreal, Google reads a mix of FR and EN reviews as evidence that both halves of the local market are served. A clinic with three FR and three EN reviews monthly outranks a clinic with six in only one language at the tiebreaker stage."
+      />
+
+      <SectionDivider />
+
       <h2 id="neighborhood-anchored-content">Neighborhood-anchored content, the long compounding asset</h2>
       <p>
         Neighborhood-anchored content is the asset that compounds the longest. Publish one piece per month that names a specific Montreal neighborhood and a specific service. "Pediatric dentist in Rosemont, what to expect at the first visit" beats "Pediatric dentistry, an overview" every time, because the neighborhood entity inside the content reinforces the local pack signal.
@@ -165,6 +181,8 @@ export function Content() {
 
       <InlineCTA variant="audit" />
 
+      <SectionDivider />
+
       <h2 id="ai-overviews-and-voice-search">AI Overviews, Siri, and voice search for Montreal dental queries</h2>
       <p>
         AI Overviews and voice search are the new layers that classic local SEO programs miss. A clinic with strong GBP signals and citation density still loses if Google AIO and Perplexity cite a competitor. Two checks make the difference. First, the bilingual content layer with original photography and author bylines reads as first-hand experience to AI engines. Second, the regulatory-authority citation, namely the Ordre des dentistes du Quebec entry, anchors trust.
@@ -175,6 +193,18 @@ export function Content() {
       <p>
         Track AI Overview citations monthly. The AiLys AI Visibility engine pulls citations across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot, then maps them to the queries that drive booked appointments. See the <InternalLink to="/services/ai-visibility" title="AI Visibility service" /> page for the diagnostic that breaks down which engines cite the clinic versus the competitor next door.
       </p>
+
+      <CalloutBox type="warning">
+        <p>Avoid the agency template that replicates a city-wide "areas served" list across every borough page. Google reads this as a doorway pattern and downranks the entire site. Three or four well-built neighborhood pages beat 30 templated stubs every quarter we audit.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Want a 60 minute walk-through of the Montreal local SEO sequence on your own clinic? Book a strategy call, no pitch, the doc ships either way." />
+
+      <InternalLink
+        to="/industries/dentists"
+        title="Dentist industry playbook"
+        description="The full GBP, Apple Maps, NAP, review, and AI Overview audit sequence for Quebec dental clinics."
+      />
 
       <KeyTakeaway
         points={[
@@ -197,6 +227,8 @@ export function Content() {
       <p>
         For the dentist-specific version of the AI Overview audit and the citation cleanup workflow, see the <InternalLink to="/industries" title="industry playbooks" /> hub. Owners who want to skip the build phase can run the free <InternalLink to="/audit" title="AI Visibility Audit" /> first, then book a 60 minute strategy call to size the program against the clinic's current GBP and review profile.
       </p>
+
+      <InlineCTA variant="pricing" text="Need a managed Montreal local SEO program covering bilingual content, citation cleanup, and quarterly AI Overview audits? See AiLys plans for clinics." />
 
       <SectionDivider />
 

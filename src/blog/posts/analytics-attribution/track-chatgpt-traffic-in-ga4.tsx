@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.product,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/track-chatgpt-traffic-in-ga4/hero.svg',
-    mid: '/blog-images/track-chatgpt-traffic-in-ga4/mid.svg',
-    end: '/blog-images/track-chatgpt-traffic-in-ga4/end.svg',
+    hero: '/blog-images/track-chatgpt-traffic-in-ga4/hero.webp',
+    mid: '/blog-images/track-chatgpt-traffic-in-ga4/mid.webp',
+    end: '/blog-images/track-chatgpt-traffic-in-ga4/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="GA4 traffic acquisition report showing a custom AI Engines channel for ChatGPT and Perplexity referrals"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Google Analytics 4 does not track chatgpt traffic in google analytics out of the box. Most of it lands as Direct because the AI panels strip referrers on common click types. The working fix has three parts: a custom channel group with a referral host list, a UTM convention on the links you control, and a small Looker Studio view that pulls AI Traffic into one panel. Setup takes about 90 minutes and produces a clean signal inside one week. This guide walks through every step with the exact configuration values.
       </p>
@@ -104,6 +98,8 @@ export function Content() {
         <p>The AI engine ecosystem moves fast. ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot are the six worth tracking by name today. Add a placeholder rule for "Other AI" so the next engine that emerges has a bucket waiting. Updating the rule list every quarter is part of the maintenance.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="the-ga4-custom-channel-group">The GA4 custom channel group for AI engines</h2>
       <p>
         Create a custom channel group inside GA4. Admin, Property Settings, Channel Groups, then Create new channel group. Name it AI Engines. Add a channel for each engine using a Source matches regex rule. The regex covers the host variations so a domain change at the source does not silently drop the traffic.
@@ -126,6 +122,8 @@ export function Content() {
         description="Plain-language definitions for AI Traffic, Share of Model, AEO, GEO, and the rest of the AI search vocabulary."
       />
 
+      <SectionDivider />
+
       <h2 id="the-utm-convention-that-survives-ai-routing">The UTM convention that survives AI routing</h2>
       <p>
         The channel group catches traffic when the referrer survives. The UTM convention catches the rest. Tag every link you control inside your own content, your citations, your business directory listings, and your blog posts with a stable UTM set. ChatGPT preserves UTM parameters more often than referrers, especially on cited links inside answer panels.
@@ -136,6 +134,10 @@ export function Content() {
       <p>
         Document the convention in a single page that the team can reference. The exact words matter less than the consistency. The most common mistake is changing the source value mid-quarter, which shatters cohort comparisons and forces ugly regex rewrites. Pick one set, write it down, and stop changing it.
       </p>
+
+      <CalloutBox type="tip">
+        <p>The fastest UTM-convention enforcement is a tiny redirect tag at the edge that lowercases every UTM and rewrites a known-bad alias to the canonical value before GA4 ingests the hit. One redirect rule fixes a year of accidental drift without touching the channel group.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -164,6 +166,20 @@ export function Content() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        question="A local clinic sees Direct traffic climbing fast in GA4 while Organic Search stays flat. What is the most likely culprit before checking anything else?"
+        options={[
+          'Customers are typing the URL by hand more than usual',
+          'AI engine clicks are landing as Direct because the referrer header is stripped',
+          'Google Analytics is undercounting Organic Search this month',
+          'A competitor is buying brand traffic on Bing',
+        ]}
+        correctIndex={1}
+        explanation="ChatGPT and other AI panels often route clicks through redirects that drop the referer header. GA4 has nowhere to attribute the click and falls back to Direct. A custom AI Engines channel group plus UTM tags on cited links fixes the gap inside one week."
+      />
+
+      <SectionDivider />
+
       <h2 id="looker-studio-panel-for-ai-traffic">A Looker Studio panel that surfaces AI Traffic in one view</h2>
       <p>
         GA4 reports answer point questions but they are slow for daily monitoring. Build a Looker Studio panel that pulls AI Traffic into one view, filtered by the custom channel group. The panel needs five widgets: weekly AI Traffic by engine, top landing pages by AI engine, conversion rate by AI engine, average session duration by AI engine, and a referral host trend that exposes new engines as they emerge.
@@ -177,6 +193,8 @@ export function Content() {
 
       <InlineCTA variant="audit" />
 
+      <SectionDivider />
+
       <h2 id="conversion-tracking-for-ai-search">Conversion tracking for AI search, what counts and what does not</h2>
       <p>
         AI search conversions usually land later in the funnel than classic SEO. A user reads an AI answer, clicks through to a service page, leaves, then returns through Direct or branded search the next day to book or call. GA4's default conversion modeling will credit the second visit. The fix is to build assisted conversion paths that include the AI Engines channel anywhere in the user journey.
@@ -187,6 +205,18 @@ export function Content() {
       <p>
         Define the conversion events that matter for a local business: phone call from the GBP, form submit on the contact page, online booking, calendar tap. Each event needs to be a key event in GA4. Tie the events to the AI Engines channel through the path report and you can argue the AI search ROI with a number that survives a CFO review.
       </p>
+
+      <CalloutBox type="warning">
+        <p>The conversion path view is hidden inside Advertising, not Reports. Operators who never open the Advertising surface will miss the AI assist data entirely and conclude that AI search drives nothing. The data is there, the navigation is just buried two clicks deeper than the default Reports view.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Want a 60 minute walk-through of the GA4 channel group, the UTM doc, and the Looker Studio panel on your own property? Book a strategy call, no pitch." />
+
+      <InternalLink
+        to="/glossary/ai-traffic"
+        title="AI Traffic glossary"
+        description="Plain-language definitions for first-touch, assisted conversion, channel group, and the rest of the AI search analytics vocabulary."
+      />
 
       <KeyTakeaway
         points={[
@@ -209,6 +239,8 @@ export function Content() {
       <p>
         For a working template that includes the channel group, the UTM doc, and the Looker Studio panel, see the <InternalLink to="/services/analytics-attribution" title="Analytics and Attribution service" /> page or run the free <InternalLink to="/audit" title="AI Visibility Audit" />, which now ships with a GA4 AI Traffic readiness check. Owners who want a 60 minute walkthrough can <InternalLink to="/book-call" title="book a strategy call" />.
       </p>
+
+      <InlineCTA variant="pricing" text="Need the GA4 channel group, the UTM tag library, the Looker Studio panel, and the conversion path audit shipped for you? See AiLys plans for local businesses." />
 
       <SectionDivider />
 

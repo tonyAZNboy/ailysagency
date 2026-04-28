@@ -21,9 +21,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 5,
   images: {
-    hero: '/blog-images/voice-search-changed-for-dentists/hero.svg',
-    mid: '/blog-images/voice-search-changed-for-dentists/mid.svg',
-    end: '/blog-images/voice-search-changed-for-dentists/end.svg',
+    hero: '/blog-images/voice-search-changed-for-dentists/hero.webp',
+    mid: '/blog-images/voice-search-changed-for-dentists/mid.webp',
+    end: '/blog-images/voice-search-changed-for-dentists/end.webp',
   },
   faqItems: [
     {
@@ -62,13 +62,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="iPhone screen showing a Siri voice query for a nearby dentist with iOS 18.2 local recommendations"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="hey-siri-find-a-dentist-near-me">"Hey Siri, find a dentist near me" returns different answers than it did six months ago.</h2>
       <p>
         Apple changed how iOS 18.2's local recommendations weighting works in late 2025. The change went unannounced. We caught it because we run weekly voice-query tests across 30 verticals.

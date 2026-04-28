@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Fiches GBP et Healthgrades d'une clinique médicale apparaissant dans une réponse ChatGPT"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Le SEO local des cliniques médicales est passé du classement de liens bleus aux citations dans les moteurs IA. Les patients posent maintenant à ChatGPT, Perplexity, Google AIO et Bing Copilot des questions comme « meilleure clinique sans rendez-vous ouverte samedi à Laval » ou « pédiatre qui accepte de nouveaux patients près de chez moi », et les moteurs répondent avec trois cliniques nommées. Si la vôtre n'en fait pas partie, le patient ne visite jamais votre site. Cinq couches déterminent qui se fait nommer, et la plupart des cliniques en livrent une ou deux.
       </p>
@@ -77,6 +71,8 @@ export function ContentFr() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="pourquoi-les-cliniques-perdent-la-course-aux-citations-ia">Pourquoi la plupart des cliniques perdent la course aux citations IA</h2>
       <p>
         Le plan SEO médical classique (longs articles, maillage interne, backlinks larges) a été conçu pour un moteur qui classait des sites Web. Les moteurs IA récupèrent. Ils tirent une courte liste d'entités nommées pour une requête, évaluent chaque entité contre un graphe de citations, et renvoient les trois premières. Une clinique avec un site parfait mais un GBP mal configuré et un Healthgrades abandonné perd contre une clinique au site plus rugueux mais à la pile d'entités propre.
@@ -88,6 +84,10 @@ export function ContentFr() {
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
         <p>Les moteurs IA n'indexent pas votre site comme Googlebot. Ils construisent un index de récupération à partir d'un graphe de citations à plusieurs couches. Si votre clinique apparaît de manière constante dans ce graphe, vous êtes nommée. Si elle apparaît de manière incohérente ou partielle, le moteur choisit l'option plus propre.</p>
       </CalloutBox>
+
+      <InlineCTA variant="audit" text="Vous voulez voir laquelle des cinq couches manque à votre clinique? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <SectionDivider />
 
       <h2 id="couche-1-google-business-profile-et-categories-medicales">Couche 1 : Google Business Profile et catégories médicales</h2>
       <p>
@@ -105,6 +105,8 @@ export function ContentFr() {
         <li>Bouton acceptation de nouveaux patients activé, statut à jour</li>
         <li>URL de prise de rendez-vous direct sur le domaine de la clinique (sans redirection tierce)</li>
       </ol>
+
+      <SectionDivider />
 
       <h2 id="couche-2-citations-d-annuaires-de-sante">Couche 2 : citations d'annuaires de santé et propreté du NAP</h2>
       <p>
@@ -145,7 +147,22 @@ export function ContentFr() {
         <li>sameAs avec l'URL du profil dans le registre public</li>
       </ul>
 
-      <InlineCTA variant="audit" text="Vous voulez voir où en est votre clinique dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+      <QuickQuiz
+        translatedLabel="Quiz éclair"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Quelle cible sameAs compte le plus pour le schéma médecin d'une clinique du Québec?"
+        options={[
+          'Une URL de profil LinkedIn',
+          'Le registre public du Collège des médecins du Québec',
+          'Une fiche Healthgrades',
+          'Une page Instagram de la clinique',
+        ]}
+        correctIndex={1}
+        explanation="ChatGPT et Perplexity recoupent le nom et le numéro de licence du médecin avec le registre public provincial avant de citer du contenu médical. Une page bio sans lien de licence vérifiable est filtrée des réponses médicales, même si le GBP et Healthgrades sont parfaits."
+      />
+
+      <SectionDivider />
 
       <h2 id="couche-4-photographie-de-clinique-et-marqueurs-d-experience">Couche 4 : photos originales de clinique et marqueurs d'expérience</h2>
       <p>
@@ -155,6 +172,12 @@ export function ContentFr() {
         Les pages de témoignages de patients avec prénoms et dates aident aussi, à condition que les témoignages soient réels et que la clinique documente le consentement du patient. Une page avec trois témoignages prénommés, une photo de l'auteur quand le consentement est donné, et une date de visite documentée hausse mesurablement le taux de citation dans notre cohorte de 60 jours. Les carrousels génériques « ce que disent nos patients » sans nom ni date n'apportent rien.
       </p>
 
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Le retrait de l'EXIF au téléversement est un comportement par défaut fréquent sur WordPress et Wix. Auditez la médiathèque après chaque mise à jour de thème, parce que la compression des extensions réécrit l'EXIF en silence et le marqueur d'expérience disparaît. La correction passe par un seul pipeline de téléversement qui préserve la date de capture et le GPS pour les photos de clinique seulement.</p>
+      </CalloutBox>
+
+      <SectionDivider />
+
       <h2 id="couche-5-faq-patients-et-contenu-structure">Couche 5 : pages FAQ patients et contenu structuré</h2>
       <p>
         Les moteurs IA citent le contenu structuré à des taux beaucoup plus élevés que la prose en paragraphes seulement. Construisez une page FAQ patients qui répond aux 30 questions les plus fréquentes pour votre spécialité. Pour une clinique familiale, cela inclut « acceptez-vous de nouveaux patients », « comment prendre rendez-vous le jour même », « offrez-vous la téléconsultation », « quels sont vos frais de non-présentation », « acceptez-vous les sans rendez-vous après 17 h », « la clinique est-elle accessible en fauteuil roulant ». Encadrez chaque question-réponse dans un schéma FAQPage.
@@ -162,6 +185,10 @@ export function ContentFr() {
       <p>
         Combinez la FAQ avec un schéma Service pour chaque service clinique offert (examen annuel, visite de bien-être enfant, dépistage en santé mentale, vaccination, intervention mineure). Le moteur recoupe le schéma Service avec la liste de services du GBP. Quand les deux concordent, la clinique apparaît dans les requêtes spécifiques au service comme « test ITSS sans rendez-vous Montréal » ou « évaluation TDAH pédiatre Québec ».
       </p>
+
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys pensés pour les cliniques, citations et schémas inclus à partir de Core." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <KeyTakeaway
         translatedLabel="À retenir"
@@ -179,8 +206,10 @@ export function ContentFr() {
         Le plan se livre en trois vagues. Jours 1 à 7, on corrige les catégories GBP, les attributs et l'URL de prise de rendez-vous direct. Jours 8 à 30, on audite et on réécrit le NAP sur les quatre annuaires de santé et on déploie le schéma médecin sur chaque page bio. Jours 31 à 90, on produit la photographie originale de clinique, on bâtit la FAQ patients, et on gagne un lien entrant d'une autorité régionale en santé ou d'une mention médiatique. La plupart des cliniques voient le taux de citation grimper en deux vagues : une petite hausse vers la semaine 4 (GBP et NAP) et une plus grande vers la semaine 10 (schéma et FAQ).
       </p>
       <p>
-        AiLys exécute ce plan dans les forfaits Core et Growth. Ou vous pouvez le faire vous-même avec le livrable d'audit fourni par notre <InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="L'audit clinique nomme les écarts dans les cinq couches" /> sondage. L'audit nomme chaque écart dans les cinq couches et liste les cibles d'annuaires exactes pour votre spécialité.
+        AiLys exécute ce plan dans les forfaits Core et Growth. Ou vous pouvez le faire vous-même avec le livrable d'audit fourni par notre <InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="L'audit clinique nomme les écarts dans les cinq couches" /> sondage. L'audit nomme chaque écart dans les cinq couches et liste les cibles d'annuaires exactes pour votre spécialité. Pour le contexte pilier sur la métrique rapportée par l'audit, voyez le guide <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model expliqué" description="La métrique de part de citations pour la recherche IA" />.
       </p>
+
+      <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour cartographier les cinq couches à votre spécialité? Réservez sans pitch, doc stratégique conservée." buttonText="Réserver un appel" />
 
       <SectionDivider />
 

@@ -17,9 +17,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 4,
   images: {
-    hero: '/blog-images/bing-copilot-b2b-search-engine/hero.svg',
-    mid: '/blog-images/bing-copilot-b2b-search-engine/mid.svg',
-    end: '/blog-images/bing-copilot-b2b-search-engine/end.svg',
+    hero: '/blog-images/bing-copilot-b2b-search-engine/hero.webp',
+    mid: '/blog-images/bing-copilot-b2b-search-engine/mid.webp',
+    end: '/blog-images/bing-copilot-b2b-search-engine/end.webp',
   },
   faqItems: [
     {
@@ -59,13 +59,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <>
-      <img
-        src={meta.images.hero}
-        alt="Bing Copilot B2B search engine hero"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="bing-is-small-bing-copilot-is-large-inside-enterprises-it-dominates">
         Bing is small. Bing Copilot is large. Inside enterprises, it dominates.
       </h2>

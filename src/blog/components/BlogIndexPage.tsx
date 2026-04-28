@@ -176,8 +176,8 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
         </div>
       </section>
 
-      {/* Sticky filters */}
-      <div className="sticky top-[53px] z-40 border-b border-white/10 bg-[#0a0e1a]/95 backdrop-blur-md">
+      {/* Sticky filters: translucent so article cards remain visible behind */}
+      <div className="sticky top-[53px] z-40 border-b border-white/10 bg-[#0a0e1a]/40 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0e1a]/30">
         <div className="mx-auto max-w-6xl px-4 py-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             {/* Search */}

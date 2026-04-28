@@ -50,13 +50,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Local pack Google Maps montrant des restaurants québécois classés pour une requête près de moi"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="les-quatre-tendances-de-recherche-qui-dominent-le-trafic-des-restos-quebecois">Les quatre tendances de recherche qui dominent le trafic des restos québécois</h2>
       <p>
         Les propriétaires de restaurants nous posent la même question chaque semaine. « Pourquoi mon concurrent apparaît avant moi sur Maps? » Après avoir audité 1 200 requêtes provenant des fiches Google Business Profile de restos québécois entre la mi-décembre et la mi-janvier, quatre tendances expliquent presque tout.

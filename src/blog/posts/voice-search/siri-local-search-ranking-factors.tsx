@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/siri-local-search-ranking-factors/hero.svg',
-    mid: '/blog-images/siri-local-search-ranking-factors/mid.svg',
-    end: '/blog-images/siri-local-search-ranking-factors/end.svg',
+    hero: '/blog-images/siri-local-search-ranking-factors/hero.webp',
+    mid: '/blog-images/siri-local-search-ranking-factors/mid.webp',
+    end: '/blog-images/siri-local-search-ranking-factors/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="iPhone showing a Siri voice answer for a local dentist near me query in Quebec"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Siri picks the local business it recommends nearby by reading a stripped-down signal stack that almost no Quebec clinic owner audits. The eight factors are predictable, the gaps are common, and the fix list is short. This guide breaks down each siri local business search ranking factor, the order Apple weights them in, and the 90 day plan that closes the gap for a typical dental clinic, family medical practice, or specialty studio.
       </p>
@@ -104,6 +98,8 @@ export function Content() {
         <p>Apple does not publish its voice ranking weights. The factors below come from structured voice query testing, controlled review-velocity changes, and category-mapping experiments across the AiLys client roster. Treat the order as our best read, not a public spec.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="apple-maps-connect-the-foundation">Apple Maps Connect, the foundation most clinics skip</h2>
       <p>
         Apple Maps Connect is the verification surface for businesses that want to feed Apple's local index directly. A claimed and verified record on mapsconnect.apple.com beats a third-party data feed in every voice query we have run since iOS 18.2 shipped its quiet weighting change in late 2025. If you have not claimed your listing, Siri may still mention you when no verified competitor exists nearby, but the moment a verified clinic appears across the street, you drop out.
@@ -121,6 +117,8 @@ export function Content() {
         description="See exactly which voice ranking signals you are missing across Siri, Google Assistant, and Alexa."
       />
 
+      <SectionDivider />
+
       <h2 id="review-velocity-and-recency">Review velocity and recency, the second weighting</h2>
       <p>
         Apple weights the last 30 to 60 days of reviews more heavily than total review count. The shift is deliberate. Apple is fighting review graveyards, the listings with hundreds of legacy ratings and zero current activity. A clinic with 80 reviews and 5 in the last month now beats a clinic with 400 reviews and nothing fresh, because Siri reads recent activity as a proxy for an operating business.
@@ -131,6 +129,10 @@ export function Content() {
       <p>
         Build the velocity through a system, not a campaign. Send a review request inside 24 hours of the appointment, while the patient still remembers the name of the hygienist or doctor. Use a review platform that routes requests across Apple, Google, and Yelp at once. The Reviuzy add-on inside the AiLys stack handles this routing and the recency tracking out of the box.
       </p>
+
+      <CalloutBox type="tip">
+        <p>The fastest review velocity gain we see in audits is moving the request from "next day batched email" to "same-day SMS at the front desk." Same-day SMS lifts response rates roughly 2x because the visit is still fresh, and the spike of fresh reviews per week pushes the recency weighting in your favor inside one cycle.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -152,6 +154,20 @@ export function Content() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        question="Two clinics share the same neighborhood and the same star average. Why does Siri pick one over the other for a kid friendly dentist near me query?"
+        options={[
+          'The clinic with more total lifetime reviews always wins',
+          'Whichever clinic has paid Apple for placement that quarter',
+          'The clinic with recent reviews mentioning the specific service the user asked for',
+          'Whichever clinic owner has an Apple ID linked to App Store purchases',
+        ]}
+        correctIndex={2}
+        explanation="Siri reads service-specific keywords inside recent reviews and matches them to the spoken query intent. A clinic with three pediatric mentions in the last 60 days surfaces for kid friendly queries even if a competitor has more total reviews. Recency plus keyword match beats raw review volume."
+      />
+
+      <SectionDivider />
+
       <h2 id="category-mapping-and-distance">Category mapping and distance, the fourth and fifth signals</h2>
       <p>
         Apple categories do not always match Google Business Profile categories one for one. A clinic that lists itself as "Dental Clinic" on GBP might map to "Dentist" on Apple, which routes different voice queries. Audit both sides of the category map. If you offer pediatric dentistry, set both the GBP secondary category and the Apple category to surface that service. Mismatches cost you about 15 to 20 percent of voice volume in our internal tests.
@@ -164,6 +180,8 @@ export function Content() {
       </p>
 
       <InlineCTA variant="audit" />
+
+      <SectionDivider />
 
       <h2 id="trust-markers-siri-checks">Trust markers Siri checks before reading a name aloud</h2>
       <p>
@@ -179,6 +197,18 @@ export function Content() {
       <p>
         Each missing trust marker drops you a tier in the voice ranking. Two missing markers usually pull you out of voice answers entirely, even if your category and distance match the query. The fix list is short and finite, which is why the audit is worth the 90 minutes.
       </p>
+
+      <CalloutBox type="warning">
+        <p>The silent killer is a phone number mismatch between Apple Maps Connect, Google Business Profile, and the website footer. A single digit typo or a different formatting style reads as two different numbers to Apple's verifier. Audit all three surfaces side by side before you assume your trust markers are clean.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Want a 60 minute walk-through of the Siri trust marker audit on your own listing? Book a strategy call, no pitch, you keep the doc." />
+
+      <InternalLink
+        to="/glossary/voice-search"
+        title="Voice Search glossary"
+        description="Plain-language definitions for Siri, Google Assistant, Apple Maps Connect, and the rest of the voice ranking vocabulary."
+      />
 
       <KeyTakeaway
         points={[
@@ -201,6 +231,8 @@ export function Content() {
       <p>
         Most clinics that follow this 90 day plan move into the top two voice answers for their primary service inside the local radius. The bar is lower than owners expect because the competition simply has not done the work. See the <InternalLink to="/industries" title="industry playbooks for clinics" /> page for the dentist-specific version of this plan, or run the free <InternalLink to="/audit" title="AI Visibility Audit" /> to see which factors are leaking right now.
       </p>
+
+      <InlineCTA variant="pricing" text="Need a managed program that ships the Apple Maps Connect claim, the bilingual review system, and the quarterly voice query audit? See AiLys plans for local businesses." />
 
       <SectionDivider />
 

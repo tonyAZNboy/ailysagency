@@ -17,9 +17,9 @@ export const metaFr: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 4,
   images: {
-    hero: '/blog-images/bing-copilot-b2b-search-engine/hero.svg',
-    mid: '/blog-images/bing-copilot-b2b-search-engine/mid.svg',
-    end: '/blog-images/bing-copilot-b2b-search-engine/end.svg',
+    hero: '/blog-images/bing-copilot-b2b-search-engine/hero.webp',
+    mid: '/blog-images/bing-copilot-b2b-search-engine/mid.webp',
+    end: '/blog-images/bing-copilot-b2b-search-engine/end.webp',
   },
   faqItems: [
     {
@@ -59,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <>
-      <img
-        src={metaFr.images.hero}
-        alt="Bing Copilot moteur de recherche B2B"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="bing-est-petit-bing-copilot-est-grand-a-linterieur-des-entreprises-il-domine">
         Bing est petit. Bing Copilot est grand. À l'intérieur des entreprises, il domine.
       </h2>

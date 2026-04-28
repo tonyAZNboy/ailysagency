@@ -50,13 +50,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Réponse ChatGPT listant une citation d'un concurrent local avec des sources à haute DA"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="vous-avez-cherche-votre-service">Vous avez cherché votre service. Votre concurrent est apparu. Pas vous. Voici pourquoi.</h2>
       <p>
         ChatGPT n'effectue pas d'indexation. Il récupère. Quand quelqu'un demande « meilleur dentiste à Montréal qui accepte de nouveaux patients », ChatGPT puise dans un système de citations à plusieurs couches. Trois couches décident qui est nommé.

@@ -17,9 +17,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 5,
   images: {
-    hero: '/blog-images/google-ai-overviews-citation-gap-2027/hero.svg',
-    mid: '/blog-images/google-ai-overviews-citation-gap-2027/mid.svg',
-    end: '/blog-images/google-ai-overviews-citation-gap-2027/end.svg',
+    hero: '/blog-images/google-ai-overviews-citation-gap-2027/hero.webp',
+    mid: '/blog-images/google-ai-overviews-citation-gap-2027/mid.webp',
+    end: '/blog-images/google-ai-overviews-citation-gap-2027/end.webp',
   },
   faqItems: [
     {
@@ -59,13 +59,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <>
-      <img
-        src={meta.images.hero}
-        alt="Google AI Overviews citation gap 2027 hero"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="the-zero-click-query-is-here-most-local-businesses-are-unprepared">
         The zero-click query is here. Most local businesses are unprepared.
       </h2>

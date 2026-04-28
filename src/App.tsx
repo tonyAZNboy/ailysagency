@@ -26,6 +26,7 @@ import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
 import Cofounders from "./pages/Cofounders";
+import FoundingClients from "./pages/FoundingClients";
 import Help from "./pages/Help";
 import HelpArticle from "./pages/HelpArticle";
 import Industries from "./pages/Industries";
@@ -102,6 +103,14 @@ const App = () => {
                 <Route path="/:lang/cofounders" element={<Cofounders />} />
                 <Route path="/cofondateurs" element={<Cofounders />} />
                 <Route path="/:lang/cofondateurs" element={<Cofounders />} />
+
+                {/* Founding Clients Program (10 spots, 50% off lifetime, EN/FR/VI) */}
+                <Route path="/contact" element={<FoundingClients />} />
+                <Route path="/:lang/contact" element={<FoundingClients />} />
+                <Route path="/contacte" element={<FoundingClients />} />
+                <Route path="/:lang/contacte" element={<FoundingClients />} />
+                <Route path="/lien-he" element={<FoundingClients />} />
+                <Route path="/:lang/lien-he" element={<FoundingClients />} />
 
                 {/* Help center */}
                 <Route path="/help" element={<Help />} />

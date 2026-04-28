@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/medical-clinic-ai-visibility-guide/hero.svg',
-    mid: '/blog-images/medical-clinic-ai-visibility-guide/mid.svg',
-    end: '/blog-images/medical-clinic-ai-visibility-guide/end.svg',
+    hero: '/blog-images/medical-clinic-ai-visibility-guide/hero.webp',
+    mid: '/blog-images/medical-clinic-ai-visibility-guide/mid.webp',
+    end: '/blog-images/medical-clinic-ai-visibility-guide/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Medical clinic Google Business Profile and Healthgrades listings appearing in a ChatGPT answer panel"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Medical clinic local SEO has shifted from blue-link rankings to AI engine citations. Patients now ask ChatGPT, Perplexity, Google AIO, and Bing Copilot questions like "best walk-in clinic open Saturday in Laval" or "pediatrician accepting new patients near me", and the engines answer with three named clinics. If your clinic is not one of those three, the patient never visits your site. Five layers decide who gets named, and most clinics ship one or two of them.
       </p>
@@ -89,6 +83,8 @@ export function Content() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="why-clinics-lose-the-ai-citation-race">Why most clinics lose the AI citation race</h2>
       <p>
         The classic medical SEO playbook (long blog posts, internal linking, broad backlinks) was built for a search engine that ranked websites. AI engines retrieve. They pull a short list of named entities for a query, score each entity against a citation graph, and return the top three. A clinic with a perfect website but a misconfigured GBP and an abandoned Healthgrades profile loses to a clinic with a rougher website but a clean entity stack.
@@ -100,6 +96,10 @@ export function Content() {
       <CalloutBox type="info">
         <p>AI engines do not crawl your site like Googlebot. They build a retrieval index from a layered citation graph. If your clinic shows up consistently across that graph, you get named. If you show up inconsistently or partially, the engine picks the cleaner alternative.</p>
       </CalloutBox>
+
+      <InlineCTA variant="audit" text="Want to see exactly which of the five layers your clinic is missing? Run the free 24-hour AI Visibility audit." />
+
+      <SectionDivider />
 
       <h2 id="layer-1-google-business-profile-medical-categories">Layer 1: Google Business Profile and medical categories</h2>
       <p>
@@ -117,6 +117,8 @@ export function Content() {
         <li>New patient acceptance toggle on, with current status</li>
         <li>Direct booking URL with the clinic domain (not a third party redirect)</li>
       </ol>
+
+      <SectionDivider />
 
       <h2 id="layer-2-healthcare-directory-citations">Layer 2: healthcare directory citations and NAP cleanliness</h2>
       <p>
@@ -157,7 +159,19 @@ export function Content() {
         <li>sameAs with the public register profile URL</li>
       </ul>
 
-      <InlineCTA variant="audit" />
+      <QuickQuiz
+        question="Which sameAs target matters most for a Quebec clinic doctor schema?"
+        options={[
+          'A LinkedIn profile URL',
+          'The Collège des médecins du Québec public register',
+          'A Healthgrades listing',
+          'A clinic Instagram page',
+        ]}
+        correctIndex={1}
+        explanation="ChatGPT and Perplexity cross-check the doctor name and license number against the provincial public register before citing medical content. A bio page without a verifiable license link is filtered out of medical answers, even when the GBP and Healthgrades are perfect."
+      />
+
+      <SectionDivider />
 
       <h2 id="layer-4-clinic-photography-and-experience-markers">Layer 4: original clinic photography and experience markers</h2>
       <p>
@@ -167,6 +181,12 @@ export function Content() {
         Patient testimonial pages with first names and dates also help, provided the testimonials are real and the clinic has documented patient consent. A page with three first-name testimonials, photo of the testimonial author when consent is given, and a documented date-of-visit lifts citation rate measurably in our 60-day cohort. Generic "what our patients say" carousels with no names or dates do nothing.
       </p>
 
+      <CalloutBox type="warning">
+        <p>Stripping EXIF on upload is a common WordPress and Wix default. Audit your media library after every theme update, because plugin compression silently rewrites EXIF and the experience marker disappears. The fix is one upload pipeline that preserves capture date and GPS for clinic photography only.</p>
+      </CalloutBox>
+
+      <SectionDivider />
+
       <h2 id="layer-5-patient-faq-and-structured-content">Layer 5: patient FAQ pages and structured content</h2>
       <p>
         AI engines cite structured content at much higher rates than paragraph-only prose. Build a patient FAQ page that answers the top 30 questions for your specialty. For a family clinic, that includes "are you accepting new patients", "how do I book a same-day appointment", "do you offer telehealth", "what is your no-show fee", "do you accept walk-ins after 5 pm", "is your clinic wheelchair accessible". Wrap each Q-A in FAQPage schema.
@@ -174,6 +194,12 @@ export function Content() {
       <p>
         Pair the FAQ page with a Service schema for each clinical service offered (annual physical, child wellness visit, mental health screen, immunization, minor procedure). The engine cross-references Service schema against the GBP service list. When both line up, the clinic surfaces in service-specific queries like "STI testing walk-in Montreal" or "ADHD assessment pediatrician Quebec City".
       </p>
+
+      <InlineCTA variant="pricing" text="See the four AiLys tiers built for clinics, citation work and schema rollout included from Core upward." />
+
+      <SectionDivider />
+
+      <InlineCTA variant="book" text="Want a 60-minute clinic strategy call to map the five layers to your specialty? Book a no-pitch session and keep the strategy doc." />
 
       <KeyTakeaway
         points={[
@@ -190,7 +216,7 @@ export function Content() {
         The plan ships in three waves. Days 1 to 7 fix GBP categories, attributes, and direct booking URL. Days 8 to 30 audit and rewrite NAP across four healthcare directories and ship doctor schema on every bio page. Days 31 to 90 produce original clinic photography, build the patient FAQ, and earn one inbound link from a regional health authority or news mention. Most clinics see citation rate lift in two waves: a small bump around week 4 (GBP and NAP) and a larger bump around week 10 (schema and FAQ).
       </p>
       <p>
-        AiLys runs this plan as part of the Core and Growth tiers. Or you can DIY using the audit deliverable that comes with our free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="The clinic-specific audit covers GBP categories, healthcare directory NAP, and doctor schema" /> probe. The audit names every gap in the five layers and lists the exact directory targets for your specialty.
+        AiLys runs this plan as part of the Core and Growth tiers. Or you can DIY using the audit deliverable that comes with our free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="The clinic-specific audit covers GBP categories, healthcare directory NAP, and doctor schema" /> probe. The audit names every gap in the five layers and lists the exact directory targets for your specialty. For pillar context on the metric the audit reports, see the <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model explained" description="The citation share metric for AI search visibility" /> guide.
       </p>
 
       <SectionDivider />

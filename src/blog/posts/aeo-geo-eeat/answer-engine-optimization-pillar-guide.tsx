@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -24,9 +25,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 10,
   images: {
-    hero: '/blog-images/answer-engine-optimization-pillar-guide/hero.svg',
-    mid: '/blog-images/answer-engine-optimization-pillar-guide/mid.svg',
-    end: '/blog-images/answer-engine-optimization-pillar-guide/end.svg',
+    hero: '/blog-images/answer-engine-optimization-pillar-guide/hero.webp',
+    mid: '/blog-images/answer-engine-optimization-pillar-guide/mid.webp',
+    end: '/blog-images/answer-engine-optimization-pillar-guide/end.webp',
   },
   faqItems: [
     {
@@ -71,13 +72,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Answer engine optimization diagram showing how AI engines extract a citable answer from structured business content"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Answer Engine Optimization (AEO) is the practice of structuring your website and external footprint so AI engines like ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot can extract a clean answer that names your business. To start, deploy FAQPage and LocalBusiness schema, rewrite your most-asked questions in question and answer format, then earn three citations from diverse sources. Most local businesses land their first AEO citation inside 30 to 60 days.
       </p>
@@ -90,6 +84,8 @@ export function Content() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="what-answer-engine-optimization-actually-means">What answer engine optimization actually means</h2>
       <p>
         AEO is the work of making your business legible to an answer engine. The shift is mechanical. A classic search engine returns ten ranked results and lets the user pick. An answer engine returns one synthesized answer with a small set of named sources. The win condition changes with the surface. To rank in classic SEO, you needed a high-authority page that matched a keyword. To "rank" in AEO, you need to be the source the engine extracts when it composes its answer.
@@ -98,8 +94,10 @@ export function Content() {
         Three things drive that extraction. Structured data tells the engine what entity your page describes. Question-led content lets the engine match a buyer question to a chunk of your text. Citation diversity gives the engine confidence that your business is real, established, and worth naming. None of the three works alone. All three together produces consistent extraction.
       </p>
       <p>
-        For the full glossary entry, see <InternalLink to="/glossary/aeo" title="AEO definition" />. For the related concepts of GEO and E-E-A-T, see <InternalLink to="/glossary/geo" title="GEO definition" /> and <InternalLink to="/glossary/e-e-a-t" title="E-E-A-T definition" />.
+        For the full glossary entry, see <InternalLink to="/glossary/aeo" title="AEO definition" description="Answer Engine Optimization, the discipline behind every modern local SEO program" />. For the related concepts of GEO and E-E-A-T, see <InternalLink to="/glossary/geo" title="GEO definition" description="Generative Engine Optimization, how AI engines compose answers" /> and <InternalLink to="/glossary/e-e-a-t" title="E-E-A-T definition" description="Experience, Expertise, Authoritativeness, Trustworthiness" />.
       </p>
+
+      <SectionDivider />
 
       <h2 id="why-aeo-and-classic-seo-need-each-other">Why AEO and classic SEO need each other</h2>
       <p>
@@ -116,6 +114,20 @@ export function Content() {
         <p>The technical floor is the highest-impact work most local businesses skip. A site that fails Core Web Vitals or lacks valid LocalBusiness schema cannot rank in AEO regardless of content quality. Fix the floor first, then layer AEO on top. Reverse order wastes content effort.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        question="Which of these is the strongest E-E-A-T signal for an answer engine?"
+        options={[
+          'A long blog post with the keyword in every heading',
+          'Multiple independent third-party sources that name the business in context',
+          'A site with 50 internal links per page',
+          'A homepage banner that says "trusted since 2015"',
+        ]}
+        correctIndex={1}
+        explanation="E-E-A-T weights real-world signals over self-claimed ones. Independent third-party citations on Reddit, regional press, and industry directories give the engine a defensible reason to name the business. Internal claims and keyword stuffing carry almost no weight."
+      />
+
+      <SectionDivider />
+
       <h2 id="the-four-schema-types-that-power-aeo">The four schema types that power AEO</h2>
       <p>
         Four schema types do most of the AEO work for local businesses. Ship them cleanly and the rest of the program multiplies. Skip any one and the program stalls.
@@ -129,6 +141,14 @@ export function Content() {
       <p>
         The full deployment takes about three days for a developer who knows the codebase. Validation through Schema.org and Google's Rich Results Test takes another half day. The work is one-time. Maintenance is light, mostly keeping hours, prices, and review aggregates current.
       </p>
+
+      <CalloutBox type="warning">
+        <p>Do not ship Service schema as a single entity covering five service lines. Each service needs its own Service entity. Owners who try to compress all services into one block end up with no engine extraction, because the algorithm cannot match a buyer query like "do they offer X" to a generic combined entity.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" />
+
+      <SectionDivider />
 
       <h2 id="the-content-shape-an-answer-engine-loves">The content shape an answer engine loves</h2>
       <p>
@@ -147,6 +167,8 @@ export function Content() {
       <CalloutBox type="tip">
         <p>The fastest content fix on an existing site is to rewrite the first paragraph of your top five pages to lead with a 40 to 60 word direct answer. This single change typically lifts AEO citations within 30 days, no schema work required, because the engines re-crawl those pages and find a clean extractive snippet.</p>
       </CalloutBox>
+
+      <SectionDivider />
 
       <h2 id="citation-diversity-the-multiplier-most-owners-skip">Citation diversity, the multiplier most owners skip</h2>
       <p>
@@ -175,10 +197,14 @@ export function Content() {
         <strong>Days 61 to 90: refinement and re-audit.</strong> Run a fresh AI Visibility audit against the original baseline. Identify the engines still underperforming and address the gap (often Bing Copilot or Claude). Add the next round of FAQ items based on actual buyer questions surfaced in the AI answers. Expected outcome: share-of-model stabilizes near the program ceiling, typically 30 to 50 percent on a fully optimized local business.
       </p>
       <p>
-        For the audit step, see <InternalLink to="/audit" title="Run a free AI Visibility audit" /> for the full diagnostic flow.
+        For the audit step, see <InternalLink to="/audit" title="Run a free AI Visibility audit" description="Day-zero baseline plus the top three priorities for your business" /> for the full diagnostic flow.
       </p>
 
       <InlineCTA variant="audit" />
+
+      <InternalLink to="/book-call" title="Book a 60-minute strategy call" description="No pitch, strategy doc sent regardless of fit" />
+
+      <SectionDivider />
 
       <h2 id="measuring-aeo-without-rank-tracking">Measuring AEO without rank tracking</h2>
       <p>

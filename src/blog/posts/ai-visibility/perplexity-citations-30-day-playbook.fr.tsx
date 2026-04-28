@@ -17,9 +17,9 @@ export const metaFr: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 7,
   images: {
-    hero: '/blog-images/perplexity-citations-30-day-playbook/hero.svg',
-    mid: '/blog-images/perplexity-citations-30-day-playbook/mid.svg',
-    end: '/blog-images/perplexity-citations-30-day-playbook/end.svg',
+    hero: '/blog-images/perplexity-citations-30-day-playbook/hero.webp',
+    mid: '/blog-images/perplexity-citations-30-day-playbook/mid.webp',
+    end: '/blog-images/perplexity-citations-30-day-playbook/end.webp',
   },
   faqItems: [
     {
@@ -60,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <>
-      <img
-        src={metaFr.images.hero}
-        alt="Plan d'action Perplexity 30 jours"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="lalgorithme-de-citation-de-perplexity-est-different-voici-ce-qui-fonctionne">
         L'algorithme de citation de Perplexity est différent. Voici ce qui fonctionne.
       </h2>

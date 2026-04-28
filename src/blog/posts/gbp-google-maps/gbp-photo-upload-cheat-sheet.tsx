@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -24,9 +25,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 8,
   images: {
-    hero: '/blog-images/gbp-photo-upload-cheat-sheet/hero.svg',
-    mid: '/blog-images/gbp-photo-upload-cheat-sheet/mid.svg',
-    end: '/blog-images/gbp-photo-upload-cheat-sheet/end.svg',
+    hero: '/blog-images/gbp-photo-upload-cheat-sheet/hero.webp',
+    mid: '/blog-images/gbp-photo-upload-cheat-sheet/mid.webp',
+    end: '/blog-images/gbp-photo-upload-cheat-sheet/end.webp',
   },
   faqItems: [
     {
@@ -71,13 +72,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Google Business Profile photo grid showing fresh weekly uploads across exterior, interior, team, and product categories"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Add new photos to your Google Business Profile every week at the absolute minimum. Two to three uploads per week is better. GBP rewards signal freshness, so a profile with steady weekly photo uploads ranks higher in the local pack than the same profile with all photos uploaded in one batch. The five priority categories are exterior, interior, team, product or service, and behind-the-scenes.
       </p>
@@ -90,6 +84,8 @@ export function Content() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="why-gbp-photo-cadence-matters-more-than-volume">Why GBP photo cadence matters more than volume</h2>
       <p>
         Two profiles can have the same total photo count and rank very differently. The reason is recency. Google Business Profile reads photo cadence as a proxy for whether the business is actively managed. A clinic with 60 photos uploaded in one frantic afternoon last August looks abandoned by November. A clinic with 60 photos uploaded at three per week for five months looks alive. Both have 60 photos. Only one ranks.
@@ -98,8 +94,10 @@ export function Content() {
         That is the whole reason we shifted client work toward steady cadence rather than batch dumps. A photo uploaded today is worth more than the same photo uploaded six months ago, because the freshness signal lifts the entire profile in ranking calculations. The photo itself stays in the gallery indefinitely, but its ranking weight decays. Replenishing weekly is how you keep the weight stable.
       </p>
       <p>
-        For the full GBP attribute audit that pairs with photo cadence, see our <InternalLink to="/audit/gbp" title="GBP audit deep dive" />.
+        For the full GBP attribute audit that pairs with photo cadence, see our <InternalLink to="/audit/gbp" title="GBP audit deep dive" description="Full attribute checklist that pairs with the photo cadence" />.
       </p>
+
+      <SectionDivider />
 
       <h2 id="the-five-photo-categories-that-do-real-work">The five photo categories that do real work</h2>
       <p>
@@ -120,6 +118,20 @@ export function Content() {
         <p>The behind-the-scenes category is the most under-shipped. Most owners feel awkward photographing their own kitchen or lab. Push through it. Behind-the-scenes content earns disproportionate trust signal because it reveals expertise that polished marketing shots cannot fake.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        question="Why does a profile with 60 photos uploaded weekly outrank a profile with 60 photos uploaded all at once?"
+        options={[
+          'The newer profile has different photos',
+          'GBP reads cadence as a freshness signal for active management',
+          'Google ignores any upload older than three months',
+          'Bulk uploads are penalized as spam',
+        ]}
+        correctIndex={1}
+        explanation="GBP weights ranking calculations on cadence, not just volume. A weekly drip signals active management and lifts the entire profile, while a one-time batch signals an abandoned profile within a few months even with the same photo count."
+      />
+
+      <SectionDivider />
+
       <h2 id="file-specs-and-naming-the-quick-version">File specs and naming, the quick version</h2>
       <p>
         Three rules cover most of the file-spec question. Dimension, size, and naming. For dimension, aim for at least 1080 pixels on the shorter side. Google rejects anything below 720, and anything above 1920 gets compressed without giving you visual benefit. Square at 1080 by 1080 is the safest default. Cover photos need a 1200 by 900 horizontal version.
@@ -127,6 +139,14 @@ export function Content() {
       <p>
         For file size, keep it under 1 MB. JPG at 80 percent quality usually lands inside this. PNG works but inflates fast. WebP is supported but skip it for cover photos because some Maps surfaces still convert. For naming, use descriptive lowercase filenames with hyphens, like exterior-storefront-evening-montreal.jpg, not IMG_3947.jpg. The filename does not appear publicly, but it informs the alt-text Google generates internally for the photo, which feeds image search.
       </p>
+
+      <CalloutBox type="info">
+        <p>EXIF metadata is the small chunk of data your camera attaches to a photo: date taken, GPS coordinates, camera model, lens, exposure. Google reads this metadata and uses GPS coordinates to confirm a photo was taken at the listed business address. Strip the EXIF (which most desktop export tools do by default) and the geotag signal disappears.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" />
+
+      <SectionDivider />
 
       <h2 id="the-monthly-cadence-we-ship-for-clients">The monthly cadence we ship for clients</h2>
       <p>
@@ -136,8 +156,10 @@ export function Content() {
         The simplest in-house cadence for owners not on a plan is a Sunday photo session. Block 30 minutes, shoot 12 to 16 photos covering the five categories, and queue them through the rest of the week. Most modern photo apps support scheduled posting. Set the schedule once and the cadence runs itself.
       </p>
       <p>
-        See our <InternalLink to="/industries/restaurants" title="Restaurant GBP playbook" /> for the cadence variant tuned for restos, and <InternalLink to="/industries/dentists" title="Dentist GBP playbook" /> for the variant tuned for clinics.
+        See our <InternalLink to="/industries/restaurants" title="Restaurant GBP playbook" description="GBP cadence variant tuned for Quebec restaurants" /> for the cadence variant tuned for restos, and <InternalLink to="/industries/dentists" title="Dentist GBP playbook" description="GBP cadence variant tuned for medical clinics" /> for the variant tuned for clinics.
       </p>
+
+      <SectionDivider />
 
       <CalloutBox type="warning">
         <p>Do not upload all 12 monthly photos on the first of the month. Google Business Profile reads bulk uploads as inactive automation, not as fresh activity. Spread them evenly. Two photos every Tuesday and Friday is a stronger signal than 12 photos every first.</p>
@@ -155,6 +177,10 @@ export function Content() {
 
       <InlineCTA variant="audit" />
 
+      <InternalLink to="/glossary/gbp" title="Google Business Profile glossary entry" description="Definition and ranking factors for GBP in 2026" />
+
+      <SectionDivider />
+
       <h2 id="how-to-respond-to-user-uploaded-photos">How to respond to user-uploaded photos</h2>
       <p>
         Owner responses on user photos add a freshness signal Google reads as active management. Keep responses short, three sentences at most. Thank the customer by first name when visible, mention what the photo shows, and avoid pricing or promotional language. A response of "Thanks for posting, Marc. Glad you enjoyed the lemon tart" outperforms a generic "thanks for the photo" because the specifics signal real engagement to both the customer and the algorithm.
@@ -162,6 +188,8 @@ export function Content() {
       <p>
         For photos that misrepresent your business, the GBP report tool lives one tap away. Report misleading photos within 48 hours. Do not respond publicly to a misrepresenting photo with a complaint, that backfires and lowers trust. Report it, and let the resolution happen privately.
       </p>
+
+      <SectionDivider />
 
       <h2 id="measuring-whether-your-photos-actually-rank">Measuring whether your photos actually rank</h2>
       <p>

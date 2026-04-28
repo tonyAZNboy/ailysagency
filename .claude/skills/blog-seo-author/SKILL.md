@@ -52,8 +52,16 @@ When a topic does not fit, do NOT invent a category. Pick the closest existing o
 - [ ] Word count: 1,400-2,200 for tactical posts, 2,200-3,500 for pillar posts
 - [ ] Internal links: minimum 3 to other AiLys pages (industries, services, glossary, blog, audit)
 - [ ] External links: 1-3 to authoritative sources (Google Search Central, Schema.org, Wikipedia, Wikidata) with `rel="noopener"` for safety
-- [ ] At least one StatHighlight, one CalloutBox, one InlineCTA, one KeyTakeaway block
+- [ ] **Density target (Truvizy parity)** per post:
+  - 1 StatHighlight (numbers from AiLys reality only)
+  - **3 CalloutBox** (mix tip / info / warning / danger)
+  - **3 InlineCTA** (mix audit / pricing / book variants, spread across the article)
+  - 1 KeyTakeaway near the conclusion
+  - **3+ InternalLink** to AiLys pages
+  - **6-8 SectionDivider** between every major section (this is what gives the Truvizy visual rhythm)
+  - 1 QuickQuiz mid-article on a key concept
 - [ ] FAQ section with 5-7 questions answering long-tail queries
+- [ ] FAQ heading entry included in `meta.headings` array (with id `faq`, last entry)
 
 ### Schema / structured data (BlogJsonLd component handles most)
 - [ ] `Article` schema with author, publisher, datePublished, dateModified, image, mainEntityOfPage

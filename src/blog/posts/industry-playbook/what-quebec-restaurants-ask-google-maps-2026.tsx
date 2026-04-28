@@ -21,9 +21,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 6,
   images: {
-    hero: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/hero.svg',
-    mid: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/mid.svg',
-    end: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/end.svg',
+    hero: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/hero.webp',
+    mid: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/mid.webp',
+    end: '/blog-images/what-quebec-restaurants-ask-google-maps-2026/end.webp',
   },
   faqItems: [
     {
@@ -62,13 +62,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Google Maps local pack showing Quebec restaurants ranked for a near me query"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="the-four-search-patterns-that-own-quebec-resto-traffic">The four search patterns that own Quebec resto traffic</h2>
       <p>
         Restaurant owners ask us the same question every week. "Why does my competitor show up before me on Maps?" After auditing 1,200 queries from Quebec resto Google Business Profiles between mid-December and mid-January, four patterns explain almost all of it.

@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Rapport d'acquisition de trafic GA4 montrant un canal personnalisé Moteurs IA pour les références ChatGPT et Perplexity"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Google Analytics 4 ne suit pas le trafic ChatGPT dans Google Analytics par défaut. La majorité atterrit en Direct parce que les panneaux IA enlèvent les référents sur les types de clics courants. La solution qui marche a trois parties : un groupe de canaux personnalisé avec une liste d'hôtes de référence, une convention UTM sur les liens que vous contrôlez, et une petite vue Looker Studio qui rassemble le trafic IA en un panneau. La configuration prend environ 90 minutes et donne un signal propre en une semaine. Ce guide passe chaque étape avec les valeurs exactes.
       </p>
@@ -92,6 +86,8 @@ export function ContentFr() {
         <p>L'écosystème des moteurs IA évolue vite. ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot sont les six à suivre par leur nom aujourd'hui. Ajoutez une règle d'attente « Autre IA » pour que le prochain moteur émergent ait un seau prêt. Mettre à jour la liste des règles chaque trimestre fait partie de la maintenance.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="groupe-canaux-personnalise-ga4">Le groupe de canaux personnalisé GA4 pour les moteurs IA</h2>
       <p>
         Créez un groupe de canaux personnalisé dans GA4. Admin, Paramètres de la propriété, Groupes de canaux, puis Créer un groupe. Nommez-le Moteurs IA. Ajoutez un canal pour chaque moteur en utilisant une règle Source correspond à regex. Le regex couvre les variations d'hôte pour qu'un changement de domaine côté source ne fasse pas tomber silencieusement le trafic.
@@ -114,6 +110,8 @@ export function ContentFr() {
         description="Définitions en langage clair pour AI Traffic, Share of Model, AEO, GEO et le reste du vocabulaire de la recherche IA."
       />
 
+      <SectionDivider />
+
       <h2 id="convention-utm-acheminement-ia">La convention UTM qui survit à l'acheminement IA</h2>
       <p>
         Le groupe de canaux attrape le trafic quand le référent survit. La convention UTM attrape le reste. Étiquetez chaque lien que vous contrôlez dans votre propre contenu, vos citations, vos fiches de répertoires et vos billets de blogue avec un ensemble UTM stable. ChatGPT préserve les paramètres UTM plus souvent que les référents, surtout sur les liens cités dans les panneaux de réponse.
@@ -124,6 +122,10 @@ export function ContentFr() {
       <p>
         Documentez la convention dans une seule page que l'équipe peut consulter. Les mots exacts comptent moins que la cohérence. L'erreur la plus fréquente est de changer la valeur de source en milieu de trimestre, ce qui brise les comparaisons de cohortes et force des réécritures de regex laides. Choisissez un ensemble, écrivez-le et arrêtez de le changer.
       </p>
+
+      <CalloutBox type="tip" translatedLabel="Truc d'opérateur">
+        <p>L'application la plus rapide d'une convention UTM est une petite balise de redirection en bordure qui met chaque UTM en minuscules et réécrit un alias erroné connu vers la valeur canonique avant que GA4 n'ingère le passage. Une seule règle de redirection corrige une année de dérive accidentelle sans toucher au groupe de canaux.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -152,6 +154,23 @@ export function ContentFr() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        translatedLabel="Vérif rapide"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Une clinique locale voit le trafic Direct grimper vite dans GA4 alors que la recherche organique reste stable. Quel est le suspect le plus probable avant tout autre vérification?"
+        options={[
+          'Les clients tapent l\'URL à la main plus que d\'habitude',
+          'Les clics de moteurs IA atterrissent en Direct parce que l\'en-tête de référent est enlevé',
+          'Google Analytics sous-estime la recherche organique ce mois-ci',
+          'Un concurrent achète du trafic de marque sur Bing',
+        ]}
+        correctIndex={1}
+        explanation="ChatGPT et les autres panneaux IA acheminent souvent les clics par des redirections qui éliminent l'en-tête referer. GA4 n'a nulle part où attribuer le clic et retombe sur Direct. Un groupe de canaux Moteurs IA personnalisé jumelé à des UTM sur les liens cités comble l'écart en une semaine."
+      />
+
+      <SectionDivider />
+
       <h2 id="panneau-looker-studio-trafic-ia">Un panneau Looker Studio qui révèle le trafic IA en une vue</h2>
       <p>
         Les rapports GA4 répondent à des questions ponctuelles mais ils sont lents pour la surveillance quotidienne. Bâtissez un panneau Looker Studio qui rassemble le trafic IA en une vue, filtré par le groupe de canaux personnalisé. Le panneau a besoin de cinq widgets : trafic IA hebdomadaire par moteur, principales pages d'arrivée par moteur IA, taux de conversion par moteur IA, durée moyenne de session par moteur IA, et une tendance d'hôtes de référence qui expose les nouveaux moteurs à mesure qu'ils émergent.
@@ -165,6 +184,8 @@ export function ContentFr() {
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA et la voix? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
 
+      <SectionDivider />
+
       <h2 id="suivi-conversion-recherche-ia">Suivi de conversion pour la recherche IA, ce qui compte et ce qui ne compte pas</h2>
       <p>
         Les conversions de recherche IA atterrissent généralement plus tard dans l'entonnoir que le SEO classique. Un utilisateur lit une réponse IA, clique vers une page de service, part, puis revient en Direct ou par recherche de marque le lendemain pour réserver ou appeler. Le modèle de conversion par défaut de GA4 créditera la deuxième visite. La solution est de bâtir des chemins de conversion assistée qui incluent le canal Moteurs IA n'importe où dans le parcours utilisateur.
@@ -175,6 +196,18 @@ export function ContentFr() {
       <p>
         Définissez les événements de conversion qui comptent pour une entreprise locale : appel téléphonique depuis le GBP, soumission de formulaire sur la page contact, réservation en ligne, tape sur le calendrier. Chaque événement doit être un événement clé dans GA4. Reliez les événements au canal Moteurs IA par le rapport de chemin et vous pouvez argumenter le ROI de la recherche IA avec un chiffre qui survit à une revue de directeur financier.
       </p>
+
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>La vue des chemins de conversion est cachée dans Publicité, pas dans Rapports. Les opérateurs qui n'ouvrent jamais la surface Publicité manqueront les données d'assistance IA en entier et concluront que la recherche IA ne génère rien. Les données sont là, la navigation est juste enfouie deux clics plus loin que la vue Rapports par défaut.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Vous voulez un tour guidé de 60 minutes du groupe de canaux GA4, du document UTM et du panneau Looker Studio sur votre propriété? Réservez un appel stratégique, sans pitch." buttonText="Réserver un appel" />
+
+      <InternalLink
+        to="/glossary/ai-traffic"
+        title="Glossaire trafic IA"
+        description="Définitions en langage clair pour premier point de contact, conversion assistée, groupe de canaux et le reste du vocabulaire d'analytique de la recherche IA."
+      />
 
       <KeyTakeaway
         translatedLabel="À retenir"
@@ -198,6 +231,8 @@ export function ContentFr() {
       <p>
         Pour un gabarit fonctionnel qui inclut le groupe de canaux, le document UTM et le panneau Looker Studio, voyez la page <InternalLink to="/services/analytics-attribution" title="service Analytics et Attribution" /> ou lancez l'<InternalLink to="/audit" title="AI Visibility Audit gratuit" />, qui inclut maintenant un test de préparation au trafic IA dans GA4. Les propriétaires qui veulent une visite guidée de 60 minutes peuvent <InternalLink to="/book-call" title="réserver un appel stratégique" />.
       </p>
+
+      <InlineCTA variant="pricing" text="Besoin que le groupe de canaux GA4, la bibliothèque de balises UTM, le panneau Looker Studio et l'audit du chemin de conversion soient livrés pour vous? Voyez les forfaits AiLys pour entreprises locales." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

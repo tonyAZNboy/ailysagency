@@ -85,7 +85,7 @@ export function HeroSection() {
           desktop the audit card spans both rows in the right column. */}
       <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-y-7 gap-x-10 lg:gap-x-14 lg:gap-y-0 items-start lg:items-center">
         {/* COPY BLOCK 1 — eyebrow + headline + subheadline (above audit card on mobile) */}
-        <div className="text-center lg:text-left lg:row-start-1 lg:col-start-1">
+        <div className="min-w-0 text-center lg:text-left lg:row-start-1 lg:col-start-1">
           {/* Eyebrow tag — fluid, wraps naturally on narrow screens */}
           <ScrollReveal variant="fade-up" delay={100} duration={500}>
             <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 px-3 py-1.5 mb-5 rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm max-w-full">
@@ -158,7 +158,7 @@ export function HeroSection() {
         </div>
 
         {/* COPY BLOCK 2 — 3-card flow + CTAs + ticker + trust + industries + compliance */}
-        <div className="text-center lg:text-left lg:row-start-2 lg:col-start-1">
+        <div className="min-w-0 text-center lg:text-left lg:row-start-2 lg:col-start-1">
           {/* 3-card flow — Reviews+GBP → Citations+E-E-A-T → LLM visibility */}
           <ScrollReveal variant="fade-up" delay={500} duration={650}>
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 sm:gap-1.5 mb-7 max-w-2xl mx-auto lg:mx-0">

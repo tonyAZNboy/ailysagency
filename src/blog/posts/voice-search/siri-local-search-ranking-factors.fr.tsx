@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="iPhone affichant une réponse vocale de Siri pour une requête de dentiste près de moi au Québec"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Siri choisit l'entreprise locale qu'il recommande à proximité en lisant une pile de signaux épurée que presque aucun propriétaire de clinique au Québec n'audite. Les huit facteurs sont prévisibles, les écarts sont communs et la liste de correctifs est courte. Ce guide couvre chaque facteur de classement Siri en recherche locale, l'ordre dans lequel Apple les pondère, et le plan de 90 jours qui ferme l'écart pour une clinique dentaire typique, une médecine familiale ou un studio spécialisé.
       </p>
@@ -92,6 +86,8 @@ export function ContentFr() {
         <p>Apple ne publie pas ses pondérations de classement vocal. Les facteurs ci-dessous proviennent de tests vocaux structurés, de modifications contrôlées de fréquence d'avis et d'expériences de correspondance de catégories à travers le portefeuille de clients AiLys. Considérez l'ordre comme notre meilleure lecture, pas une spécification publique.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="apple-maps-connect-la-base">Apple Maps Connect, la base que la plupart des cliniques sautent</h2>
       <p>
         Apple Maps Connect est la surface de vérification pour les entreprises qui veulent alimenter directement l'index local d'Apple. Une fiche réclamée et vérifiée sur mapsconnect.apple.com bat un flux de données tiers dans chaque requête vocale que nous avons exécutée depuis le changement de pondération discret livré avec iOS 18.2 à la fin de 2025. Si vous n'avez pas réclamé votre fiche, Siri peut encore vous nommer quand aucun concurrent vérifié n'existe à proximité, mais dès qu'une clinique vérifiée apparaît en face, vous tombez.
@@ -109,6 +105,8 @@ export function ContentFr() {
         description="Voyez exactement quels signaux de classement vocal vous manquent sur Siri, Google Assistant et Alexa."
       />
 
+      <SectionDivider />
+
       <h2 id="frequence-et-fraicheur-des-avis">Fréquence et fraîcheur des avis, la deuxième pondération</h2>
       <p>
         Apple pondère les 30 à 60 derniers jours d'avis plus fortement que le total. Le changement est volontaire. Apple combat les cimetières d'avis, ces fiches avec des centaines de notes héritées et zéro activité actuelle. Une clinique avec 80 avis et 5 dans le dernier mois dépasse maintenant une clinique avec 400 avis et rien de frais, parce que Siri lit l'activité récente comme une preuve d'entreprise en exploitation.
@@ -119,6 +117,10 @@ export function ContentFr() {
       <p>
         Bâtissez la cadence par un système, pas par une campagne. Envoyez la demande d'avis dans les 24 heures suivant le rendez-vous, pendant que la patiente se souvient encore du nom de l'hygiéniste ou du médecin. Utilisez une plateforme d'avis qui achemine les demandes vers Apple, Google et Yelp en même temps. Le module Reviuzy dans la pile AiLys s'occupe de cet acheminement et du suivi de fraîcheur d'office.
       </p>
+
+      <CalloutBox type="tip" translatedLabel="Truc d'opérateur">
+        <p>Le gain le plus rapide qu'on voit en audit, c'est de passer de l'invitation par courriel envoyée le lendemain à un SMS le jour même à la sortie du rendez-vous. Le SMS le jour même double à peu près le taux de réponse parce que la visite est encore fraîche, et la pointe d'avis frais par semaine pousse la pondération de fraîcheur de votre côté en un cycle.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -140,6 +142,23 @@ export function ContentFr() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        translatedLabel="Vérif rapide"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Deux cliniques partagent le même quartier et la même note moyenne. Pourquoi Siri choisit-il l'une plutôt que l'autre pour une requête « dentiste pour enfants près de moi »?"
+        options={[
+          'La clinique avec le plus grand cumul d\'avis gagne toujours',
+          'Celle qui a payé Apple pour un placement ce trimestre-là',
+          'La clinique avec des avis récents qui mentionnent le service précis demandé',
+          'Celle dont le propriétaire a un identifiant Apple lié à des achats App Store',
+        ]}
+        correctIndex={2}
+        explanation="Siri lit les mots-clés de service précis dans les avis récents et les rapproche de l'intention de la requête parlée. Une clinique avec trois mentions pédiatriques dans les 60 derniers jours ressort pour les requêtes pour enfants même si une concurrente a plus d'avis au total. La fraîcheur jumelée à la correspondance de mots-clés bat le volume brut."
+      />
+
+      <SectionDivider />
+
       <h2 id="correspondance-de-categories-et-distance">Correspondance de catégories et distance, les quatrième et cinquième signaux</h2>
       <p>
         Les catégories Apple ne correspondent pas toujours une à une aux catégories Google Business Profile. Une clinique listée comme « Clinique dentaire » sur GBP peut correspondre à « Dentiste » sur Apple, ce qui achemine des requêtes vocales différentes. Auditez les deux côtés de la correspondance. Si vous offrez la dentisterie pédiatrique, réglez la catégorie secondaire GBP et la catégorie Apple pour faire ressortir ce service. Les décalages coûtent environ 15 à 20 % du volume vocal dans nos tests internes.
@@ -152,6 +171,8 @@ export function ContentFr() {
       </p>
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA et la voix? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <SectionDivider />
 
       <h2 id="marqueurs-de-confiance-de-siri">Marqueurs de confiance que Siri vérifie avant de lire un nom</h2>
       <p>
@@ -167,6 +188,18 @@ export function ContentFr() {
       <p>
         Chaque marqueur de confiance manquant vous fait descendre d'un cran dans le classement vocal. Deux marqueurs manquants vous sortent généralement des réponses vocales, même si votre catégorie et votre distance correspondent à la requête. La liste de correctifs est courte et finie, ce qui rend l'audit payant pour les 90 minutes investies.
       </p>
+
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Le tueur silencieux est un décalage de numéro de téléphone entre Apple Maps Connect, Google Business Profile et le pied de page du site. Une seule faute de frappe ou un format différent se lit comme deux numéros distincts pour le vérificateur Apple. Auditez les trois surfaces côte à côte avant de présumer que vos marqueurs de confiance sont propres.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Vous voulez un tour guidé de 60 minutes de l'audit des marqueurs de confiance Siri sur votre fiche? Réservez un appel stratégique, sans pitch, le doc reste à vous." buttonText="Réserver un appel" />
+
+      <InternalLink
+        to="/glossary/voice-search"
+        title="Glossaire de la recherche vocale"
+        description="Définitions en langage clair pour Siri, Google Assistant, Apple Maps Connect et le reste du vocabulaire du classement vocal."
+      />
 
       <KeyTakeaway
         translatedLabel="À retenir"
@@ -190,6 +223,8 @@ export function ContentFr() {
       <p>
         La plupart des cliniques qui suivent ce plan de 90 jours montent dans les deux premières réponses vocales pour leur service principal dans le rayon local. La barre est plus basse qu'on le croit parce que la concurrence n'a tout simplement pas fait le travail. Voyez la page <InternalLink to="/industries" title="playbooks pour cliniques" /> pour la version dentiste de ce plan, ou lancez l'<InternalLink to="/audit" title="AI Visibility Audit gratuit" /> pour voir quels facteurs fuient en ce moment.
       </p>
+
+      <InlineCTA variant="pricing" text="Besoin d'un programme géré qui livre la réclamation Apple Maps Connect, le système d'avis bilingue et l'audit vocal trimestriel? Voyez les forfaits AiLys pour entreprises locales." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

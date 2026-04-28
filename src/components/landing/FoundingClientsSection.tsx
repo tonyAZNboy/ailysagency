@@ -205,7 +205,11 @@ export function FoundingClientsSection() {
             <MagneticWrapper strength={0.12}>
               <Button
                 size="lg"
-                onClick={() => navigate("/audit")}
+                onClick={() => {
+                  const path =
+                    lang === "fr" ? "/contacte" : lang === "vi" ? "/lien-he" : "/contact";
+                  navigate(path);
+                }}
                 className="rounded-full font-semibold text-base px-7 py-6 group relative overflow-hidden"
                 style={{
                   boxShadow:

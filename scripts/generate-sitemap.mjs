@@ -123,6 +123,27 @@ ${buildHreflangBlock(path)}
 }
 
 function loadBlogSlugs() {
+  // Primary source: the new modular blog registry at src/blog/registry.ts
+  // Each post lives at src/blog/posts/<category>/<slug>.tsx and exposes a meta
+  // export with publishedDate (used as sitemap lastmod for SEO freshness).
+  try {
+    const registrySrc = readFileSync(join(PROJECT_ROOT, "src/blog/registry.ts"), "utf-8");
+    const importPaths = [...registrySrc.matchAll(/import\s+\{\s*meta\s+as\s+\w+\s*\}\s+from\s+'\.\/posts\/([^/]+)\/([^']+)'/g)];
+    const entries = importPaths.map(([, category, slug]) => {
+      const postPath = join(PROJECT_ROOT, "src/blog/posts", category, `${slug}.tsx`);
+      let lastmod = TODAY;
+      try {
+        const postSrc = readFileSync(postPath, "utf-8");
+        const updated = postSrc.match(/updatedDate:\s*['"]([^'"]+)['"]/)?.[1];
+        const published = postSrc.match(/publishedDate:\s*['"]([^'"]+)['"]/)?.[1];
+        lastmod = updated || published || TODAY;
+      } catch { /* keep TODAY */ }
+      return { slug, lastmod };
+    });
+    if (entries.length > 0) return entries;
+  } catch { /* fall through to legacy */ }
+
+  // Legacy fallback: src/data/blog-posts.ts (pre-modular blog system)
   try {
     const src = readFileSync(join(PROJECT_ROOT, "src/data/blog-posts.ts"), "utf-8");
     return [...src.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => ({

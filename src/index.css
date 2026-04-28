@@ -869,11 +869,47 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
+  /* Hard mobile overflow guards (iOS Safari has known quirks where
+     max-width: 100vw + clamp() font-size leak past the viewport on
+     real devices even when Chrome devtools shows the layout is fine).
+     `overflow-x: clip` on html + body, plus a defensive break-word on
+     headings, has been the reliable cure across our QA matrix. */
+  html, body {
+    overflow-x: clip !important;
+    max-width: 100%;
+  }
+
+  #root {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    main, section, article, header, footer {
+      max-width: 100%;
+    }
+    h1, h2, h3 {
+      overflow-wrap: anywhere;
+      word-break: normal;
+      hyphens: auto;
+    }
+    /* Long brand-name runs (ChatGPT, Perplexity, Claude, Gemini) on
+       narrow viewports must wrap mid-string rather than push layout. */
+    .hero-headline, [data-hero-headline] {
+      overflow-wrap: anywhere;
+    }
+  }
+
   /* Fix iOS Safari sticky positioning issues */
   @supports (-webkit-touch-callout: none) {
     header[class*="sticky"] {
       position: -webkit-sticky !important;
       top: 0 !important;
+    }
+    /* iOS Safari ignores overflow-x on html when body has its own scroll
+       context. Force both. */
+    html, body {
+      -webkit-overflow-scrolling: touch;
     }
   }
 
@@ -1319,4 +1355,13 @@ All colors MUST be HSL.
   margin: 2.5rem auto;
   background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
   border-radius: 2px;
+}
+
+/* Hide native scrollbar on horizontal pill bars (Tailwind utility shim) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

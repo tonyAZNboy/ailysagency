@@ -1,4 +1,4 @@
-# AiLys Blog Cadence Queue
+﻿# AiLys Blog Cadence Queue
 
 The standing cadence is one post every two days. The 7 migrated entries are absorbed from `src/data/blog-posts.ts` with their original `publishedAt` dates. The 44 new entries run from 2026-02-01 through 2026-04-28, every other day, status `pending`.
 
@@ -29,8 +29,8 @@ When picking the next post, take the next `pending` row whose `publishedDate` is
 | 14 | 2026-02-27 | generative-engine-optimization-2026 | aeo-geo-eeat | generative engine optimization | How do I optimize content for generative engines in 2026? | pending |
 | 15 | 2026-03-01 | alexa-business-hours-fix | voice-search | alexa business listings | Why does Alexa get my business hours wrong? | pending |
 | 16 | 2026-03-03 | law-firm-seo-quebec-playbook | industry-playbook | law firm seo quebec | How do family law firms in Quebec rank in AI Overviews? | pending |
-| 17 | 2026-03-05 | reviuzy-review-automation-guide | reputation-reviews | reviuzy review platform | How does the AiLys Reviuzy add-on tie into review velocity? | pending |
-| 18 | 2026-03-07 | utm-strategy-multi-location-business | analytics-attribution | utm strategy local business | What UTM convention works best for a multi-location business? | pending |
+| 17 | 2026-03-05 | reviuzy-review-automation-guide | reputation-reviews | reviuzy review platform | How does the AiLys Reviuzy add-on tie into review velocity? | published |
+| 18 | 2026-03-07 | utm-strategy-multi-location-business | analytics-attribution | utm strategy local business | What UTM convention works best for a multi-location business? | published |
 | 19 | 2026-03-09 | ailys-pricing-tiers-explained-cad | ailys-product | ailys agency pricing | What is included in the AiLys $300 starter tier? | pending |
 | 20 | 2026-03-11 | claude-search-citations-explained | ai-visibility | claude search citations | How do I earn citations inside Claude search results? | pending |
 | 21 | 2026-03-13 | gbp-categories-best-primary-pick | gbp-google-maps | google business profile categories | What is the best primary category for a Montreal dentist on GBP? | pending |

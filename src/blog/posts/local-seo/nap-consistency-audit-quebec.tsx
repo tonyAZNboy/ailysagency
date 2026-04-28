@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -24,9 +25,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/nap-consistency-audit-quebec/hero.svg',
-    mid: '/blog-images/nap-consistency-audit-quebec/mid.svg',
-    end: '/blog-images/nap-consistency-audit-quebec/end.svg',
+    hero: '/blog-images/nap-consistency-audit-quebec/hero.webp',
+    mid: '/blog-images/nap-consistency-audit-quebec/mid.webp',
+    end: '/blog-images/nap-consistency-audit-quebec/end.webp',
   },
   faqItems: [
     {
@@ -71,13 +72,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="NAP consistency audit dashboard showing matching and mismatched citations across 50 Quebec directories"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         To fix inconsistent NAP across 50 directories, lock a canonical NAP record (Name, Address, Phone in their final form), export every existing citation under your brand, group the mismatches into four categories, then issue fixes in priority order starting with GBP. Quebec adds a bilingual layer: French street names and accents must match exactly across every citation, or AI engines split the entity into duplicates and the trust signal collapses.
       </p>
@@ -90,6 +84,8 @@ export function Content() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="why-nap-consistency-still-decides-local-rank">Why NAP consistency still decides local rank</h2>
       <p>
         NAP consistency was the foundation of local SEO ten years ago and it still is. The reason is the way Google, Apple, Bing, and the major AI engines build entity records. Every directory citation is a vote that says "this business exists at this address with this phone." If 47 of 50 votes agree and 3 disagree, the engine treats the disagreement as ambiguity, not noise. The trust signal for the entity drops, and the local pack ranking drops with it.
@@ -98,8 +94,10 @@ export function Content() {
         The 3 disagreeing votes do not need to be wildly wrong. A different phone format, a missing accent, an abbreviation. Each one cracks the entity match a little. Stack five small cracks across 50 directories and the engine starts treating your business as two or three half-entities, none of which rank as well as the unified original.
       </p>
       <p>
-        AI engines amplify the cost. ChatGPT, Perplexity, and Google AIO all pull from the directory layer when they decide which local business to name in an answer. A fragmented NAP profile means the engine cannot confidently name the business, so it names a competitor with cleaner records. See the <InternalLink to="/glossary/nap" title="NAP glossary entry" /> for the full definition.
+        AI engines amplify the cost. ChatGPT, Perplexity, and Google AIO all pull from the directory layer when they decide which local business to name in an answer. A fragmented NAP profile means the engine cannot confidently name the business, so it names a competitor with cleaner records. See the <InternalLink to="/glossary/nap" title="NAP glossary entry" description="Definition and ranking impact of NAP consistency" /> for the full definition.
       </p>
+
+      <SectionDivider />
 
       <h2 id="lock-the-canonical-record-before-you-touch-anything">Lock the canonical record before you touch anything</h2>
       <p>
@@ -116,6 +114,20 @@ export function Content() {
         <p>Decide on the phone format before you start. We standardize on 514-555-0100 with hyphens because Google parses it cleanly, every directory accepts it, and AI engines extract it without normalization errors. Mixing parentheses (514) 555-0100 with hyphenated 514-555-0100 across 50 directories is the single most common NAP mismatch we find on Quebec audits.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        question="A Quebec clinic is listed in 47 directories with the address rue Sainte-Catherine, and 3 directories with rue Sainte Catherine (no hyphen, no accent). What does Google do?"
+        options={[
+          'Treats all 50 as the same entity because the addresses are similar',
+          'Splits the entity into two halves, weakening the trust signal for both',
+          'Picks the most common variant and ignores the others',
+          'Sends an email to the owner asking for clarification',
+        ]}
+        correctIndex={1}
+        explanation="Each variant is a different string to an entity-matching algorithm. Google treats the disagreement as ambiguity, splits the trust into two partial entities, and the local pack ranking drops because no single entity has the full vote count."
+      />
+
+      <SectionDivider />
+
       <h2 id="export-every-existing-citation-the-quebec-way">Export every existing citation, the Quebec way</h2>
       <p>
         Use a citation aggregator (BrightLocal, Yext, or Whitespark all work, we use a hybrid pipeline at AiLys) to pull every existing citation under the brand. The export should give you the directory name, the listed Name, Address, Phone, and Hours, and a confidence score on entity match. For Quebec businesses, also pull from the French-language directory layer: Pages Jaunes, 411.ca, Canada411 in French mode, and the municipal Chamber of Commerce listing.
@@ -126,6 +138,14 @@ export function Content() {
       <p>
         Compare each citation to the canonical record. Tag every field that differs, even by one character. The accent issue alone usually accounts for 15 to 25 percent of mismatches on Quebec audits.
       </p>
+
+      <CalloutBox type="tip">
+        <p>Run the export with the canonical record visible in a second tab. The brain catches mismatches faster when the right answer is one glance away. Owners who try to memorize the canonical record while scrolling 50 directories miss roughly 30 percent more mismatches than owners working with both visible at once.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" />
+
+      <SectionDivider />
 
       <h2 id="classify-mismatches-into-four-buckets">Classify mismatches into four buckets</h2>
       <p>
@@ -138,6 +158,8 @@ export function Content() {
         <li><strong>Hours mismatches</strong>. Different open hours, holiday hours not matching, seasonal hours stuck on the off-season values. Hours mismatches kill "open now" queries first and are the easiest to keep updated through the canonical record discipline.</li>
       </ol>
 
+      <SectionDivider />
+
       <h2 id="fix-order-gbp-first-long-tail-last">Fix order: GBP first, long tail last</h2>
       <p>
         Fix in priority order. GBP first, always. Apple Business Connect, Bing Places, and Yelp second. Then the Quebec-specific directories: Pages Jaunes, 411.ca, Canada411, the municipal Chamber of Commerce. Then the industry verticals (Restaurants Canada, Barreau du Quebec, College of Physicians of Quebec listings, contractor associations). The long tail of small directories last.
@@ -146,7 +168,7 @@ export function Content() {
         The reason is propagation. GBP is the source of truth for most other directories. Some aggregators ingest GBP data automatically, so fixing GBP first cleans up 5 to 15 secondary citations at zero marginal cost. If you fix the long tail first, you risk having to redo it after GBP propagates.
       </p>
       <p>
-        Some directories require additional verification. Pages Jaunes occasionally asks for a postcard, Bing Places sometimes triggers a phone callback, and Yelp can take a week to publish a change. Plan around these. See the <InternalLink to="/audit/gbp" title="GBP audit deep dive" /> for the GBP-specific verification flow.
+        Some directories require additional verification. Pages Jaunes occasionally asks for a postcard, Bing Places sometimes triggers a phone callback, and Yelp can take a week to publish a change. Plan around these. See the <InternalLink to="/audit/gbp" title="GBP audit deep dive" description="GBP-specific verification flow and attribute checklist" /> for the GBP-specific verification flow.
       </p>
 
       <CalloutBox type="info">
@@ -167,6 +189,10 @@ export function Content() {
       </p>
 
       <InlineCTA variant="audit" />
+
+      <InternalLink to="/industries/restaurants" title="Local SEO for Quebec restaurants" description="NAP and citation playbook tuned for resto operators" />
+
+      <SectionDivider />
 
       <h2 id="maintain-the-record-after-the-cleanup">Maintain the record after the cleanup</h2>
       <p>

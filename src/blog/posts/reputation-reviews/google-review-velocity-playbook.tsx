@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/google-review-velocity-playbook/hero.svg',
-    mid: '/blog-images/google-review-velocity-playbook/mid.svg',
-    end: '/blog-images/google-review-velocity-playbook/end.svg',
+    hero: '/blog-images/google-review-velocity-playbook/hero.webp',
+    mid: '/blog-images/google-review-velocity-playbook/mid.webp',
+    end: '/blog-images/google-review-velocity-playbook/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Google Business Profile dashboard showing review velocity over a 12 month rolling window"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Most local businesses need 80 to 150 lifetime Google reviews with 4 to 6 fresh ones every month to hold a local pack position in 2026. The exact google review velocity target depends on the competitor floor in your category and city, but the framework is the same. Total count matters less than recency, response rate matters more than most owners realize, and the keyword variety inside review text now feeds AI Overview citations directly. Here is how the math plays out and how to engineer the pace without violating Google policy.
       </p>
@@ -104,6 +98,8 @@ export function Content() {
         <p>The google review velocity floor is set by the competitor cluster, not by an absolute number. In dense urban categories, the floor is higher because the cluster is more competitive. In rural or specialty markets, 30 lifetime reviews and 2 per month can hold the top map pack position. Audit your cluster before you set your monthly target.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="the-numbers-by-category">The numbers by category, what 80, 150, and 300 reviews really buy you</h2>
       <p>
         The honest answer to "how many Google reviews do I need" is "what does your local pack look like." We pulled review counts from the top 30 local pack winners across six AiLys client categories in Quebec to build a working baseline. The pattern is consistent across categories.
@@ -126,6 +122,8 @@ export function Content() {
         description="Includes a review velocity benchmark against your top five local pack competitors."
       />
 
+      <SectionDivider />
+
       <h2 id="the-recency-window-google-watches">The recency window Google watches and why it changed</h2>
       <p>
         Google quietly shifted toward a 60 day recency window during 2024 and held it through 2025. The change was a response to review graveyards, the listings with thousands of legacy ratings and zero current activity. Apple shipped the same shift inside iOS 18.2 with a 30 to 60 day window. The two algorithms converged on the same answer because the same problem applied.
@@ -136,6 +134,10 @@ export function Content() {
       <p>
         The fix is steady velocity, not a campaign. A campaign that doubles your monthly count for a month and then ends will not hold the new ranking. Build a system that pushes a review request after every transaction and you will keep the recency weighting on your side without working harder.
       </p>
+
+      <CalloutBox type="tip">
+        <p>The single biggest edit to a stalled review program is moving the request from "next-day batched email" to "same-day SMS sent at the front desk." Same-day SMS roughly doubles response rates because the visit is still fresh in the customer's mind, which is exactly the moment the review writes itself.</p>
+      </CalloutBox>
 
       <SectionDivider />
 
@@ -157,6 +159,20 @@ export function Content() {
         loading="lazy"
       />
 
+      <QuickQuiz
+        question="Two local businesses share the same star average and the same lifetime review count. Why does Google rank one higher in the local pack?"
+        options={[
+          'Whichever business signed up for Google Ads earlier',
+          'The business that hides negative reviews behind a satisfaction filter',
+          'The business with steady recent review velocity, weighted by the last 60 days',
+          'Whichever business has the older Google Business Profile creation date',
+        ]}
+        correctIndex={2}
+        explanation="Google now weights the last 60 days of reviews more heavily than total count. A business with 5 fresh reviews this month outranks a business that earned all its reviews two years ago, because recency reads as a signal that the operation is currently delivering."
+      />
+
+      <SectionDivider />
+
       <h2 id="response-rate-as-a-ranking-input">Response rate as a ranking input most owners ignore</h2>
       <p>
         Response rate is a direct ranking input that most owners underweight. Businesses that respond to over 80 percent of reviews inside one week outrank businesses with no response habit, even when star averages are equal. Negative reviews carry the highest payoff for replies because the response is visible to every future customer skimming the profile.
@@ -170,6 +186,8 @@ export function Content() {
 
       <InlineCTA variant="audit" />
 
+      <SectionDivider />
+
       <h2 id="review-text-keywords-and-ai-engines">Review text keywords and how AI engines reuse them</h2>
       <p>
         Review text is no longer just a star rating. AI engines mine the words inside reviews to answer service-specific queries. A clinic with multiple reviews mentioning "pediatric" will surface for "kid friendly dentist near me" voice queries and AI Overview answers. A clinic with reviews that all read "great clinic" wins nothing on differentiation.
@@ -180,6 +198,18 @@ export function Content() {
       <p>
         Track the inventory the same way you would track a content calendar. Pull the last 30 days of review text, count mentions of each priority service, and patch the weakest one with the next round of prompts. This work compounds and it raises citation rates on Siri, Google AIO, and Perplexity at the same time.
       </p>
+
+      <CalloutBox type="warning">
+        <p>Avoid services that promise hundreds of reviews from purchased accounts or that funnel reviews through third-party landing pages designed to filter unhappy customers. Google detects both patterns and applies enforcement actions that can suspend the listing entirely. The compliant fix list is short and durable: same-day prompts, equal access to the review link, and zero conditional incentives.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="book" text="Want a 60 minute walk-through of the cluster benchmark and the response template stack on your own listing? Book a strategy call, no pitch." />
+
+      <InternalLink
+        to="/glossary/review-velocity"
+        title="Review velocity glossary"
+        description="Plain-language definitions for recency window, response rate, and the rest of the local pack ranking vocabulary."
+      />
 
       <KeyTakeaway
         points={[
@@ -202,6 +232,8 @@ export function Content() {
       <p>
         Past day 90, the work becomes maintenance. Schedule the cluster benchmark each quarter, the keyword audit each month, and the response habit every business day. For the dentist-specific version of the velocity build, see the <InternalLink to="/industries" title="industry playbooks" /> hub. Owners who want a fast diagnostic can run the free <InternalLink to="/audit" title="AI Visibility Audit" /> first, then book a strategy call to size the program.
       </p>
+
+      <InlineCTA variant="pricing" text="Need a managed review velocity program with the SMS routing, the response stack, and the cluster benchmark on autopilot? See AiLys plans for local businesses." />
 
       <SectionDivider />
 

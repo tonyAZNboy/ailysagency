@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Comparaison côte à côte des forfaits AiLys et d'un retainer d'agence SEO traditionnelle pour un commerce local québécois"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Les commerçants locaux du Québec posent la même question chaque semaine. Devrais-je engager AiLys ou une agence SEO traditionnelle? La réponse honnête dépend du budget, de la portée linguistique, de la vitesse à laquelle vous voulez des résultats, et de savoir si l'AI Visibility ou le marketing de contenu d'entreprise est la priorité. Cette page compare les deux modèles sur les tarifs, la vitesse d'audit, le bilinguisme et le travail de citations, sans dénigrement et sans statistiques inventées.
       </p>
@@ -76,6 +70,8 @@ export function ContentFr() {
           { value: 'EN et FR-CA', label: "Livraison bilingue à l'interne chez AiLys" },
         ]}
       />
+
+      <SectionDivider />
 
       <h2 id="le-cadre-de-comparaison-honnete">Le cadre de comparaison honnête</h2>
       <p>
@@ -92,6 +88,10 @@ export function ContentFr() {
         <p>Les pages de comparaison de référence sur ce site détaillent chaque concurrent direct ligne par ligne sur la portée et les tarifs. Voir <InternalLink to="/vs/sterling-sky" title="AiLys vs Sterling Sky" description="Comparaison de retainer SEO local" />, <InternalLink to="/vs/brightlocal" title="AiLys vs BrightLocal" description="Comparaison des outils de citations et forfaits gérés" /> et <InternalLink to="/vs/localiq" title="AiLys vs LocalIQ" description="Comparaison d'agence multicanale" />.</p>
       </CalloutBox>
 
+      <InlineCTA variant="pricing" text="Voyez les quatre forfaits AiLys côte à côte, de Starter à 300 dollars CAD à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
+
       <h2 id="tarifs-cote-a-cote">Tarifs, côte à côte</h2>
       <p>
         La différence la plus visible, c'est le seuil d'entrée. AiLys Starter démarre à 300 dollars CAD par mois. Core est à 799 dollars, Growth à 1 499 dollars, Agency à 2 499 dollars. Chaque palier est une portée fixe avec une liste de livrables publiée, sans facturation à l'heure. La page de tarifs montre la matrice complète et le chemin de mise à niveau.
@@ -107,6 +107,21 @@ export function ContentFr() {
         <li>Growth (1 499 dollars) : tout ce qu'il y a dans Core plus séances de photographie originale, production de contenu mensuelle, automatisation de réputation Reviuzy, deux audits AI Visibility par trimestre</li>
         <li>Agency (2 499 dollars) : tout ce qu'il y a dans Growth plus livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
       </ul>
+
+      <QuickQuiz
+        translatedLabel="Quiz éclair"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="À partir de quel budget mensuel une agence SEO traditionnelle bat-elle généralement AiLys pour un commerçant local du Québec?"
+        options={[
+          'Au-dessus de 1 000 dollars CAD par mois',
+          'Au-dessus de 3 000 dollars CAD par mois',
+          'Au-dessus de 8 000 dollars CAD par mois avec une portée de contenu national',
+          'Elle ne bat jamais AiLys peu importe le palier',
+        ]}
+        correctIndex={2}
+        explanation="Au-dessus de 8 000 dollars par mois avec production de contenu national, SEO programmatique ou link building à grande échelle hors de la voie AI Visibility locale, une agence traditionnelle ou une équipe interne gagne sur la portée. En dessous, AiLys livre plus vite et bilingue pour moins."
+      />
 
       <h2 id="vitesse-d-audit-et-onboarding">Vitesse d'audit et onboarding</h2>
       <p>
@@ -137,6 +152,8 @@ export function ContentFr() {
         <p>Si vous interviewez des agences, demandez un échantillon de leurs trois derniers articles en français du Québec. Cherchez courriel, magasiner et fin de semaine. Cherchez l'absence de tirets cadratins. Cherchez un rythme de phrase qui ne se lit pas comme une traduction. Cinq minutes de lecture vous disent si le français est rédigé à la main ou passé par une API.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="ai-visibility-vs-portee-seo-classique">AI Visibility vs portée SEO classique</h2>
       <p>
         AiLys se concentre sur l'AI Visibility (citations dans ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) et le pack local Google. Le moteur AI Visibility AiLys interroge les principaux moteurs IA pour des requêtes de marque et de catégorie, évalue la part de citations, et livre le travail qui comble les écarts. La surface produit est volontairement étroite : commerçants locaux, AI Visibility, GBP, citations, schémas, réputation.
@@ -146,6 +163,8 @@ export function ContentFr() {
       </p>
 
       <InlineCTA variant="audit" text="Vous voulez voir où en est votre commerce dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <SectionDivider />
 
       <h2 id="quand-une-agence-traditionnelle-est-le-bon-choix">Quand une agence traditionnelle est le bon choix</h2>
       <p>
@@ -162,6 +181,12 @@ export function ContentFr() {
         AiLys offre du temps de stratège dédié au palier Agency, mais ce n'est pas la même chose qu'un modèle classique de directeur de compte. La lecture honnête, c'est qu'au-dessus de 8 000 dollars par mois avec une portée nationale en contenu, une agence traditionnelle ou une équipe interne a plus de sens que la surface produit AiLys.
       </p>
 
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Évitez le faux dilemme. Le bon choix pour beaucoup d'opérateurs, c'est AiLys pour AI Visibility, GBP et citations, jumelée à un rédacteur pigiste pour la production de blogue long format. Cette pile coûte moins de 3 500 dollars par mois et livre plus vite qu'une agence retainer unique qui regroupe tout sur une seule facture.</p>
+      </CalloutBox>
+
+      <SectionDivider />
+
       <h2 id="comment-choisir">Comment choisir entre les deux</h2>
       <p>
         Trois questions tranchent. Premièrement, le problème principal est-il l'AI Visibility pour un commerce local au Québec ou au Canada? Si oui, AiLys est l'option moins chère et plus rapide. Deuxièmement, le budget est-il sous 3 000 dollars par mois? Si oui, AiLys est la seule option de l'ensemble comparé qui livre à ce palier. Troisièmement, avez-vous besoin du bilinguisme EN et FR-CA à l'interne? Si oui, AiLys le livre par défaut et la plupart des agences traditionnelles sous-traitent.
@@ -169,6 +194,8 @@ export function ContentFr() {
       <p>
         Si la réponse aux trois est oui, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de signer quoi que ce soit" /> et examinez le livrable avant de signer quoi que ce soit. Si la réponse à l'une d'elles est non, les pages comparatives sur ce site détaillent chaque concurrent direct ligne par ligne sur la portée et les tarifs.
       </p>
+
+      <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour comparer AiLys aux agences présélectionnées? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />
 
       <KeyTakeaway
         translatedLabel="À retenir"

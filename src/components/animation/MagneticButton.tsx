@@ -71,7 +71,7 @@ export function MagneticButton({
   return (
     <ElementComponent
       ref={ref}
-      className={cn('inline-block', className)}
+      className={cn('inline-block max-w-full', className)}
       style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -120,12 +120,12 @@ export function MagneticWrapper({
   return (
     <div
       ref={ref}
-      className={cn('inline-block', className)}
+      className={cn('inline-block max-w-full', className)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
-        transition: position.x === 0 && position.y === 0 
+        transition: position.x === 0 && position.y === 0
           ? 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' 
           : 'transform 0.1s ease-out',
       }}

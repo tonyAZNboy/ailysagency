@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -58,13 +59,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Tableau de bord AiLys montrant les scores Share of Model sur six moteurs IA pour un commerce local du Québec"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Le Share of Model est la métrique qu'AiLys utilise pour quantifier si les moteurs IA nomment votre commerce dans leurs réponses. C'est le pourcentage de sondes dans les moteurs IA qui citent votre commerce pour un ensemble défini de requêtes sur une période définie. La plupart des commerces locaux démarrent près de zéro. Le leader de catégorie se situe à 30 pour cent ou plus. Faire grimper le Share of Model est le travail central du moteur AI Visibility, et la métrique est ce qui rend ce travail mesurable plutôt que qualitatif.
       </p>
@@ -76,6 +70,8 @@ export function ContentFr() {
           { value: '30 %+', label: 'Share of Model détenu par le leader de catégorie' },
         ]}
       />
+
+      <SectionDivider />
 
       <h2 id="ce-que-le-share-of-model-mesure-vraiment">Ce que le Share of Model mesure vraiment</h2>
       <p>
@@ -92,6 +88,23 @@ export function ContentFr() {
         <p>Le Share of Model n'est pas une position de classement. Les moteurs IA ne classent pas au sens classique, ils récupèrent une courte liste d'entités nommées et les présentent. Un commerce est nommé ou non dans une réponse donnée. Le Share of Model est le taux auquel votre commerce est nommé, ce qui est l'unité de mesure juste pour un système de réponse fondé sur la récupération.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        translatedLabel="Quiz éclair"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Que mesure réellement le Share of Model?"
+        options={[
+          'Votre position moyenne de classement sur les principaux moteurs IA',
+          'Le pourcentage de réponses des moteurs IA qui nomment votre commerce pour un ensemble défini de requêtes sur une période définie',
+          "Le trafic mensuel total que le moteur AI Visibility AiLys envoie vers votre site",
+          'Le nombre de fois où un concurrent vous dépasse dans le pack local',
+        ]}
+        correctIndex={1}
+        explanation="Le Share of Model est une métrique de part de citations. Le moteur AI Visibility AiLys lance des sondes sur un ensemble verrouillé de requêtes contre six moteurs IA, compte les sondes où votre commerce est nommé, et divise par le total des sondes pour la période. Ce n'est pas une position, c'est le taux auquel vous êtes nommé dans des réponses fondées sur la récupération."
+      />
+
+      <SectionDivider />
+
       <h2 id="comment-le-moteur-ailys-le-calcule">Comment le moteur AiLys le calcule</h2>
       <p>
         Le moteur AI Visibility AiLys lance des sondes selon un horaire fixe. Pour chaque commerce dans le moteur, l'opérateur définit un ensemble de 5 à 20 requêtes. Le moteur lance chaque requête contre six moteurs IA nommés : ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot. La sonde est conçue pour imiter la façon dont un vrai utilisateur formule la question, y compris le qualificatif de lieu lorsque c'est pertinent.
@@ -102,6 +115,10 @@ export function ContentFr() {
       <p>
         À la fin de la période de rapport, le moteur divise le total des citations par le total des sondes pour chaque moteur. Les scores par moteur sont rapportés individuellement, et le Share of Model agrégé est une moyenne simple des six scores par moteur. Le rapport par moteur est important parce que la part de trafic entre moteurs varie selon l'industrie, et un opérateur peut avoir besoin de pondérer plus la hausse sur Bing Copilot que sur Claude selon l'industrie.
       </p>
+
+      <InlineCTA variant="audit" text="Vous voulez un Share of Model de référence sur les six moteurs? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <SectionDivider />
 
       <h2 id="la-formule-etape-par-etape">La formule, étape par étape</h2>
       <p>
@@ -146,6 +163,8 @@ export function ContentFr() {
         <p>Pour un premier rapport de Share of Model, démarrez avec un ensemble de 5 requêtes qui couvre les recherches à plus haute intention de votre catégorie. Une fois le Share of Model de référence établi, étendez à 10 ou 15 requêtes pour la deuxième période. Étendre trop vite à la première période crée un socle bruyant qui complique l'analyse de tendance.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="lire-les-scores-par-moteur-vs-agreges">Lire les scores par moteur vs agrégés</h2>
       <p>
         Le Share of Model agrégé est le chiffre principal. Les scores par moteur disent à l'opérateur où le travail doit se concentrer. Un schéma fréquent en début de travail AI Visibility est un score Perplexity dans la mi-adolescence avec un score ChatGPT en bas chiffres uniques. Cet écart pointe habituellement vers une faiblesse du graphe de citations, parce que Perplexity pondère les signaux GBP et avis directs alors que ChatGPT pondère Wikidata et les citations à haute DA. L'écart dit à l'équipe de livrer du travail Wikidata ensuite, pas du travail GBP.
@@ -154,7 +173,13 @@ export function ContentFr() {
         Lire les scores par moteur exige de savoir ce que chaque moteur pondère le plus. Perplexity s'appuie sur GBP et Yelp. ChatGPT s'appuie sur Wikidata et les citations à haute DA. Claude s'appuie sur les marqueurs d'expérience de première main et les signatures d'auteur. Gemini s'appuie sur les signaux de l'écosystème Google et les données structurées. Google AIO s'appuie sur les mêmes signaux que Google classique plus le schéma FAQ. Bing Copilot s'appuie sur LinkedIn, Bing Places et les signaux de l'écosystème Microsoft. Le score par moteur nomme la faiblesse, le Share of Model agrégé nomme le résultat principal.
       </p>
 
-      <InlineCTA variant="audit" text="Vous voulez voir votre Share of Model? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Ne comparez pas le Share of Model entre deux ensembles de requêtes différents. Ajouter ou retirer des requêtes en cours de période invalide la comparaison entre périodes et la hausse ou baisse apparente n'est qu'un artefact d'ensemble. Verrouillez l'ensemble pendant au moins 90 jours avant de l'ajuster, et documentez chaque changement dans le rapport de tendance.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" text="Le rapport Share of Model est livré sur chaque forfait AiLys payant. Voyez les tarifs à partir de 300 dollars CAD par mois." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <h2 id="share-of-model-vs-share-of-voice-vs-share-of-search">Share of Model vs share of voice vs share of search</h2>
       <p>
@@ -175,8 +200,10 @@ export function ContentFr() {
         La vague deux se livre des semaines 5 à 12 : construction de schémas (FAQPage, Service, Person avec accréditations), photographie originale avec EXIF, et production de pages FAQ pour les 30 questions principales de patients ou clients. La hausse de la vague deux est d'environ 5 à 10 points de pourcentage sur l'agrégat, pondérée vers ChatGPT et Claude parce que ces moteurs valorisent les schémas et les marqueurs d'expérience. À la semaine 12, la plupart des commerces locaux se situent à 8 à 18 pour cent de Share of Model sur leur ensemble de sondes principal.
       </p>
       <p>
-        AiLys rapporte le Share of Model sur chaque forfait payant et sur le livrable de l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Inclut la sonde Share of Model de référence sur six moteurs" /> gratuit. La définition complète vit sur la page <InternalLink to="/glossary/share-of-model" title="Entrée de glossaire Share of Model" description="Définition canonique, formule et cadence de rapport" />, et la page de méthodologie détaille l'horaire de sondes et la cadence de rapport.
+        AiLys rapporte le Share of Model sur chaque forfait payant et sur le livrable de l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Inclut la sonde Share of Model de référence sur six moteurs" /> gratuit. La définition complète vit sur la page <InternalLink to="/glossary/share-of-model" title="Entrée de glossaire Share of Model" description="Définition canonique, formule et cadence de rapport" />, et la page de méthodologie détaille l'horaire de sondes et la cadence de rapport. Pour une application sectorielle, le guide <InternalLink to="/blog/medical-clinic-ai-visibility-guide" title="Plan AI Visibility clinique médicale" description="Le plan en cinq couches pour les citations cliniques" /> illustre la hausse de Share of Model en contexte clinique.
       </p>
+
+      <InlineCTA variant="book" text="Vous voulez une revue de 60 minutes de votre audit Share of Model? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />
 
       <KeyTakeaway
         translatedLabel="À retenir"

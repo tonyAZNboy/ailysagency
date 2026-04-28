@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -59,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Grille de photos d'une fiche d'établissement Google montrant des dépôts hebdomadaires frais en extérieur, intérieur, équipe et produit"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         Ajoutez de nouvelles photos à votre fiche d'établissement Google chaque semaine au minimum absolu. Deux à trois dépôts par semaine valent mieux. La fiche récompense la fraîcheur du signal, donc une fiche avec des dépôts hebdomadaires se classe plus haut dans le local pack que la même fiche avec toutes les photos téléversées d'un coup. Les cinq catégories prioritaires sont l'extérieur, l'intérieur, l'équipe, le produit ou service, et les coulisses.
       </p>
@@ -78,6 +72,8 @@ export function ContentFr() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="pourquoi-la-cadence-photo-importe-plus-que-le-volume">Pourquoi la cadence photo importe plus que le volume</h2>
       <p>
         Deux fiches peuvent avoir le même nombre total de photos et se classer très différemment. La raison est la fraîcheur. La fiche d'établissement Google lit la cadence des photos comme une mesure indirecte de la gestion active du commerce. Une clinique avec 60 photos téléversées en un seul après-midi frénétique en août dernier paraît abandonnée en novembre. Une clinique avec 60 photos téléversées à raison de trois par semaine pendant cinq mois paraît vivante. Les deux ont 60 photos. Une seule classe.
@@ -86,8 +82,10 @@ export function ContentFr() {
         C'est la raison pour laquelle nous avons déplacé le travail client vers une cadence régulière plutôt que des dépôts en lot. Une photo téléversée aujourd'hui vaut plus que la même photo téléversée il y a six mois, parce que le signal de fraîcheur soulève la fiche entière dans les calculs de classement. La photo elle-même reste dans la galerie indéfiniment, mais son poids de classement décroît. Le réapprovisionnement hebdomadaire est ce qui maintient ce poids stable.
       </p>
       <p>
-        Pour l'audit complet des attributs GBP qui s'agence à la cadence photo, consultez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" />.
+        Pour l'audit complet des attributs GBP qui s'agence à la cadence photo, consultez notre <InternalLink to="/audit/gbp" title="Audit GBP approfondi" description="Liste complète des attributs qui s'agence à la cadence photo" />.
       </p>
+
+      <SectionDivider />
 
       <h2 id="les-cinq-categories-de-photos-qui-travaillent">Les cinq catégories de photos qui travaillent</h2>
       <p>
@@ -108,6 +106,23 @@ export function ContentFr() {
         <p>La catégorie coulisses est la plus sous-exploitée. La plupart des propriétaires se sentent mal à l'aise de photographier leur cuisine ou leur labo. Passez par-dessus. Le contenu de coulisses gagne un signal de confiance disproportionné parce qu'il révèle une expertise que les photos marketing polies ne peuvent pas fabriquer.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        translatedLabel="Mini-quiz"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Pourquoi une fiche avec 60 photos déposées chaque semaine surpasse-t-elle une fiche avec 60 photos déposées d'un seul coup?"
+        options={[
+          'Les photos plus récentes sont meilleures',
+          'GBP lit la cadence comme un signal de fraîcheur de gestion active',
+          'Google ignore tout dépôt de plus de trois mois',
+          'Les dépôts en lot sont pénalisés comme du pourriel',
+        ]}
+        correctIndex={1}
+        explanation="GBP pondère ses calculs de classement sur la cadence, pas seulement le volume. Un goutte à goutte hebdomadaire signale une gestion active et soulève toute la fiche, alors qu'un lot unique paraît abandonné en quelques mois même avec le même nombre de photos."
+      />
+
+      <SectionDivider />
+
       <h2 id="specifications-de-fichier-et-nommage-version-rapide">Spécifications de fichier et nommage, version rapide</h2>
       <p>
         Trois règles couvrent la majorité de la question des spécifications. Dimension, taille et nommage. Pour la dimension, visez au moins 1080 pixels sur le côté le plus court. Google rejette tout ce qui est sous 720 et compresse tout ce qui dépasse 1920 sans gain visuel. Le carré 1080 par 1080 est le défaut le plus sûr. Les photos de couverture demandent une version horizontale 1200 par 900.
@@ -115,6 +130,14 @@ export function ContentFr() {
       <p>
         Pour la taille, gardez sous 1 Mo. Le JPG à 80 pour cent de qualité tombe généralement dans cette plage. Le PNG fonctionne mais gonfle vite. Le WebP est supporté mais évitez-le pour les photos de couverture parce que certaines surfaces de Maps convertissent encore. Pour le nommage, utilisez des noms minuscules descriptifs avec tirets, comme exterieur-devanture-soir-montreal.jpg, pas IMG_3947.jpg. Le nom de fichier n'apparaît pas publiquement, mais il informe le texte alternatif que Google génère à l'interne pour la photo, ce qui alimente la recherche d'images.
       </p>
+
+      <CalloutBox type="info" translatedLabel="Le saviez-vous?">
+        <p>Les métadonnées EXIF sont le petit bloc de données que votre appareil joint à la photo : date de prise, coordonnées GPS, modèle d'appareil, exposition. Google lit ces métadonnées et utilise les coordonnées GPS pour confirmer que la photo a bien été prise à l'adresse listée du commerce. Si vous retirez l'EXIF (ce que la plupart des outils d'export sur ordinateur font par défaut), le signal de géolocalisation disparaît.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" text="Voyez les forfaits conçus pour les entreprises locales, à partir de 300 $/mois CAD." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <h2 id="la-cadence-mensuelle-que-nous-livrons-aux-clients">La cadence mensuelle que nous livrons aux clients</h2>
       <p>
@@ -124,8 +147,10 @@ export function ContentFr() {
         La cadence interne la plus simple pour les propriétaires hors forfait est une session photo du dimanche. Bloquez 30 minutes, prenez 12 à 16 photos couvrant les cinq catégories, et planifiez-les pour le reste de la semaine. La plupart des applications photo modernes supportent la publication planifiée. Réglez l'horaire une fois et la cadence se gère seule.
       </p>
       <p>
-        Voyez notre <InternalLink to="/industries/restaurants" title="Playbook GBP restaurants" /> pour la variante adaptée aux restos, et <InternalLink to="/industries/dentists" title="Playbook GBP dentistes" /> pour la variante adaptée aux cliniques.
+        Voyez notre <InternalLink to="/industries/restaurants" title="Playbook GBP restaurants" description="Variante de cadence GBP adaptée aux restaurants québécois" /> pour la variante adaptée aux restos, et <InternalLink to="/industries/dentists" title="Playbook GBP dentistes" description="Variante de cadence GBP adaptée aux cliniques médicales" /> pour la variante adaptée aux cliniques.
       </p>
+
+      <SectionDivider />
 
       <CalloutBox type="warning" translatedLabel="Attention">
         <p>Ne téléversez pas les 12 photos mensuelles le premier du mois. La fiche d'établissement Google lit les dépôts en lot comme de l'automatisation inactive, pas comme de l'activité fraîche. Étalez-les. Deux photos chaque mardi et vendredi sont un signal plus fort que 12 photos chaque premier du mois.</p>
@@ -143,6 +168,10 @@ export function ContentFr() {
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
 
+      <InternalLink to="/glossary/gbp" title="Définition de la fiche d'établissement Google" description="Définition et facteurs de classement GBP en 2026" />
+
+      <SectionDivider />
+
       <h2 id="comment-repondre-aux-photos-publiees-par-les-clients">Comment répondre aux photos publiées par les clients</h2>
       <p>
         Les réponses du propriétaire aux photos clients ajoutent un signal de fraîcheur que Google lit comme une gestion active. Gardez les réponses courtes, trois phrases au maximum. Remerciez le client par son prénom quand il est visible, mentionnez ce que la photo montre, et évitez tout langage de prix ou de promotion. Une réponse comme « Merci pour la publication, Marc. Heureux que la tarte au citron vous ait plu » surpasse un générique « merci pour la photo » parce que la précision signale un engagement réel autant au client qu'à l'algorithme.
@@ -150,6 +179,8 @@ export function ContentFr() {
       <p>
         Pour les photos qui dénaturent votre commerce, l'outil de signalement de la fiche est à un clic. Signalez les photos trompeuses dans les 48 heures. Ne répondez pas publiquement à une photo trompeuse par une plainte, cela retourne contre vous et baisse la confiance. Signalez-la et laissez la résolution se faire en privé.
       </p>
+
+      <SectionDivider />
 
       <h2 id="mesurer-si-vos-photos-classent-vraiment">Mesurer si vos photos classent vraiment</h2>
       <p>

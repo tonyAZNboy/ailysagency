@@ -17,9 +17,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 6,
   images: {
-    hero: '/blog-images/aeo-geo-eeat-explained-for-local-owners/hero.svg',
-    mid: '/blog-images/aeo-geo-eeat-explained-for-local-owners/mid.svg',
-    end: '/blog-images/aeo-geo-eeat-explained-for-local-owners/end.svg',
+    hero: '/blog-images/aeo-geo-eeat-explained-for-local-owners/hero.webp',
+    mid: '/blog-images/aeo-geo-eeat-explained-for-local-owners/mid.webp',
+    end: '/blog-images/aeo-geo-eeat-explained-for-local-owners/end.webp',
   },
   faqItems: [
     {
@@ -60,13 +60,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <>
-      <img
-        src={meta.images.hero}
-        alt="AEO GEO E-E-A-T explained hero"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="three-acronyms-plain-english-what-to-do">
         Three acronyms. Plain English. What to do.
       </h2>

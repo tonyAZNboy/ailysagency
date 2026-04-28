@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -23,9 +24,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.strategy,
   readTimeMinutes: 8,
   images: {
-    hero: '/blog-images/gbp-posts-strategy-weekly-cadence/hero.svg',
-    mid: '/blog-images/gbp-posts-strategy-weekly-cadence/mid.svg',
-    end: '/blog-images/gbp-posts-strategy-weekly-cadence/end.svg',
+    hero: '/blog-images/gbp-posts-strategy-weekly-cadence/hero.webp',
+    mid: '/blog-images/gbp-posts-strategy-weekly-cadence/mid.webp',
+    end: '/blog-images/gbp-posts-strategy-weekly-cadence/end.webp',
   },
   faqItems: [
     {
@@ -70,13 +71,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Google Business Profile post calendar showing a weekly cadence for a Quebec local business"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         A weekly Google Business Profile posting cadence is the floor for local pack movement. Most local owners post once a quarter and wonder why the local pack ranking does not move. Google weights GBP recency heavily for "open now" and constrained queries, and a profile with no posts in 90 days falls out of the freshness boost. The fix is a written cadence with the right post type mix, the right length, and the right CTA discipline.
       </p>
@@ -89,6 +83,8 @@ export function Content() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="why-cadence-beats-volume">Why cadence beats volume</h2>
       <p>
         Volume matters less than rhythm. A profile that posts five times in one week and zero times for the next three weeks performs worse than a profile that posts once a week, every week, for a quarter. Google weights consistency. The freshness signal is built on a rolling 30-day window, so a steady weekly cadence keeps the profile inside the freshness boost continuously, while a burst-and-silence pattern drops out of the boost in the silence weeks.
@@ -96,6 +92,10 @@ export function Content() {
       <p>
         For most local categories, the marginal return on a fourth post per week is small. Three posts per week is the practical ceiling in our cohort data. Above three, the local pack does not move further, and the time cost compounds. The honest cadence map is one to three posts a week, depending on how much the operator can sustain without burning out.
       </p>
+
+      <InlineCTA variant="audit" text="Want to see how your current GBP cadence compares to the local pack leader? Run the free 24-hour AI Visibility audit." />
+
+      <SectionDivider />
 
       <h2 id="the-ailys-cadence-by-tier">The AiLys cadence by tier</h2>
       <p>
@@ -117,6 +117,20 @@ export function Content() {
       <CalloutBox type="info">
         <p>The cadence applies to each location, not to the parent business. A multi-location operator on the Agency tier gets twelve posts per location per month, not twelve posts split across locations. Multi-location coordination at the Agency tier ensures each location's posts feel local and not templated.</p>
       </CalloutBox>
+
+      <QuickQuiz
+        question="What is the practical ceiling on weekly GBP post cadence before returns flatten?"
+        options={[
+          'One post per week, anything more is spam',
+          'Three posts per week, beyond that the local pack does not move further',
+          'Seven posts per week, one per day',
+          'There is no ceiling, more is always better',
+        ]}
+        correctIndex={1}
+        explanation="In cohort data three posts per week is the practical ceiling. Above three, the local pack does not move further and the time cost compounds. One to three posts a week is the honest cadence map, sized to what the operator can sustain without burning out."
+      />
+
+      <SectionDivider />
 
       <h2 id="the-four-post-types-and-the-50-25-15-10-mix">The four post types and the 50-25-15-10 mix</h2>
       <p>
@@ -164,6 +178,8 @@ export function Content() {
         <p>For French posts on a Quebec GBP, use Quebec spellings (courriel, magasiner, fin de semaine where relevant). The local algorithm reads regional spelling consistency and weights it. France French on a Quebec profile creates a small but measurable softness in the freshness boost.</p>
       </CalloutBox>
 
+      <SectionDivider />
+
       <h2 id="what-to-write-each-week">What to write each week</h2>
       <p>
         A simple monthly content map for a Core tier four-post cadence:
@@ -177,18 +193,26 @@ export function Content() {
       </ol>
 
       <p>
-        Write the four posts in advance at the start of each month. Schedule them through the GBP API or a third-party scheduler. Do not auto-generate the copy. The GBP spam classifier flags repetitive auto-generated copy and suspensions follow. <InternalLink to="/services/gbp-optimization" title="GBP optimization service" description="Includes the weekly cadence and the multi-location coordination work" /> handles the cadence end-to-end on every paid tier.
+        Write the four posts in advance at the start of each month. Schedule them through the GBP API or a third-party scheduler. Do not auto-generate the copy. The GBP spam classifier flags repetitive auto-generated copy and suspensions follow. <InternalLink to="/services/gbp-optimization" title="GBP optimization service" description="Includes the weekly cadence and the multi-location coordination work" /> handles the cadence end-to-end on every paid tier. For pillar context on how cadence feeds the citation graph, see <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model explained" description="The citation share metric for AI search visibility" />.
       </p>
 
-      <InlineCTA variant="audit" />
+      <InlineCTA variant="pricing" text="See AiLys cadence tiers, from one post a month at Starter to twelve a month per location at Agency." />
+
+      <SectionDivider />
 
       <h2 id="measuring-the-impact-on-local-pack">Measuring the impact on local pack</h2>
       <p>
-        The right local pack measurement is share of voice on a locked grid of queries, not raw position. Pick five high-intent queries, run them weekly with a location-anchored grid tool, and track how often your profile appears in the top three. A clean weekly cadence typically lifts local pack share of voice by 8 to 15 percentage points over the first quarter, with most of the lift landing in weeks 6 to 10.
+        The right local pack measurement is share of voice on a locked grid of queries, not raw position. Pick five high-intent queries, run them weekly with a location-anchored grid tool, and track how often your profile appears in the top three. A clean weekly cadence typically lifts local pack share of voice by 8 to 15 percentage points over the first quarter, with most of the lift landing in weeks 6 to 10. Pair this with the free <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="Includes baseline GBP cadence and freshness signal analysis" /> to capture the starting line before the cadence shift.
       </p>
       <p>
         Pair the local pack measurement with the GBP Insights export. Track post views, post engagement, button clicks, and direction requests. The post engagement rate is the leading indicator: rising engagement at week 4 predicts the local pack lift at week 8. Falling engagement at week 4 means the post mix is wrong (usually too many Updates and not enough Offers) and the cadence needs a rebalance.
       </p>
+
+      <CalloutBox type="warning">
+        <p>Avoid stuffing every post with the same primary keyword. The GBP spam classifier weights keyword density across recent posts, and a profile that repeats the same anchor phrase weekly gets soft-flagged within a quarter. Vary the lead phrase across Updates, Offers, Events, and Products even when the underlying service is identical.</p>
+      </CalloutBox>
+
+      <SectionDivider />
 
       <h2 id="common-cadence-mistakes">Common cadence mistakes that suspend listings</h2>
       <p>
@@ -204,6 +228,8 @@ export function Content() {
       <p>
         The fix is human-written copy with a content calendar and a quarterly audit of the offer guidelines and event posting dates. Most operators avoid all three with a one-hour monthly content session and a scheduling tool. AiLys runs this monthly session as part of the Core tier deliverable and ships the four posts on a fixed weekly schedule.
       </p>
+
+      <InlineCTA variant="book" text="Want a 60-minute walk-through of your GBP cadence and post mix? Book a no-pitch session, strategy doc sent regardless." />
 
       <KeyTakeaway
         points={[

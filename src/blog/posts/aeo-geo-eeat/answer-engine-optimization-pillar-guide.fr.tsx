@@ -5,6 +5,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -59,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Schéma d'answer engine optimization montrant comment les moteurs IA extraient une réponse citable d'un contenu de commerce structuré"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         L'Answer Engine Optimization (AEO) est la pratique qui structure votre site et votre empreinte externe pour que des moteurs IA comme ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot puissent extraire une réponse propre qui nomme votre commerce. Pour démarrer, déployez les schémas FAQPage et LocalBusiness, réécrivez vos questions les plus fréquentes en format question et réponse, puis décrochez trois citations de sources diversifiées. La plupart des commerces locaux décrochent leur première citation AEO en 30 à 60 jours.
       </p>
@@ -78,6 +72,8 @@ export function ContentFr() {
         ]}
       />
 
+      <SectionDivider />
+
       <h2 id="ce-que-l-answer-engine-optimization-veut-vraiment-dire">Ce que l'answer engine optimization veut vraiment dire</h2>
       <p>
         L'AEO est le travail qui rend votre commerce lisible pour un moteur de réponses. Le changement est mécanique. Un moteur de recherche classique retourne dix résultats classés et laisse l'utilisateur choisir. Un moteur de réponses retourne une réponse synthétisée avec un petit ensemble de sources nommées. La condition de victoire change avec la surface. Pour classer dans le SEO classique, il fallait une page d'autorité élevée qui correspondait à un mot-clé. Pour « classer » dans l'AEO, il faut être la source que le moteur extrait quand il compose sa réponse.
@@ -86,8 +82,10 @@ export function ContentFr() {
         Trois choses pilotent cette extraction. Les données structurées disent au moteur quelle entité votre page décrit. Le contenu en format question permet au moteur d'apparier une question d'acheteur à un bloc de votre texte. La diversité des citations donne au moteur la confiance que votre commerce est réel, établi et digne d'être nommé. Aucune des trois ne fonctionne seule. Les trois ensemble produisent une extraction constante.
       </p>
       <p>
-        Pour la définition complète, voyez <InternalLink to="/glossary/aeo" title="Définition AEO" />. Pour les concepts liés GEO et E-E-A-T, voyez <InternalLink to="/glossary/geo" title="Définition GEO" /> et <InternalLink to="/glossary/e-e-a-t" title="Définition E-E-A-T" />.
+        Pour la définition complète, voyez <InternalLink to="/glossary/aeo" title="Définition AEO" description="L'Answer Engine Optimization, la discipline derrière chaque programme SEO local moderne" />. Pour les concepts liés GEO et E-E-A-T, voyez <InternalLink to="/glossary/geo" title="Définition GEO" description="Generative Engine Optimization, comment les moteurs IA composent leurs réponses" /> et <InternalLink to="/glossary/e-e-a-t" title="Définition E-E-A-T" description="Expérience, Expertise, Autorité, Confiance" />.
       </p>
+
+      <SectionDivider />
 
       <h2 id="pourquoi-l-aeo-et-le-seo-classique-ont-besoin-l-un-de-l-autre">Pourquoi l'AEO et le SEO classique ont besoin l'un de l'autre</h2>
       <p>
@@ -104,6 +102,23 @@ export function ContentFr() {
         <p>Le plancher technique est le travail à plus haut levier que la plupart des commerces locaux sautent. Un site qui échoue aux Core Web Vitals ou qui n'a pas de schéma LocalBusiness valide ne peut pas classer en AEO peu importe la qualité du contenu. Réparez le plancher d'abord, puis empilez l'AEO par-dessus. L'ordre inverse gaspille l'effort de contenu.</p>
       </CalloutBox>
 
+      <QuickQuiz
+        translatedLabel="Mini-quiz"
+        translatedCorrect="Bonne réponse!"
+        translatedNotQuite="Pas tout à fait."
+        question="Lequel de ces signaux est le plus fort pour E-E-A-T aux yeux d'un moteur de réponses?"
+        options={[
+          'Un long article de blogue avec le mot-clé dans chaque titre',
+          'Plusieurs sources tierces indépendantes qui nomment le commerce en contexte',
+          'Un site avec 50 liens internes par page',
+          'Une bannière d\'accueil qui dit « de confiance depuis 2015 »',
+        ]}
+        correctIndex={1}
+        explanation="E-E-A-T pondère les signaux du monde réel plus que les signaux auto-déclarés. Des citations tierces indépendantes sur Reddit, dans la presse régionale et dans les annuaires sectoriels donnent au moteur une raison défendable de nommer le commerce. Les déclarations internes et le bourrage de mots-clés ne pèsent presque rien."
+      />
+
+      <SectionDivider />
+
       <h2 id="les-quatre-types-de-schemas-qui-alimentent-l-aeo">Les quatre types de schémas qui alimentent l'AEO</h2>
       <p>
         Quatre types de schémas font la majorité du travail AEO pour les commerces locaux. Déployez-les proprement et le reste du programme se multiplie. Sautez-en un et le programme cale.
@@ -117,6 +132,14 @@ export function ContentFr() {
       <p>
         Le déploiement complet prend environ trois jours pour un développeur qui connaît la base de code. La validation par Schema.org et le Rich Results Test de Google prend une demi-journée de plus. Le travail est ponctuel. L'entretien est léger, surtout garder à jour les heures, les prix et les agrégats d'avis.
       </p>
+
+      <CalloutBox type="warning" translatedLabel="Attention">
+        <p>Ne déployez pas le schéma Service comme une seule entité qui couvre cinq lignes de service. Chaque service a besoin de sa propre entité Service. Les propriétaires qui essaient de tout compresser dans un seul bloc finissent sans extraction par le moteur, parce que l'algorithme n'arrive pas à apparier une requête comme « offrent-ils X » à une entité combinée générique.</p>
+      </CalloutBox>
+
+      <InlineCTA variant="pricing" text="Voyez les forfaits conçus pour les entreprises locales, à partir de 300 $/mois CAD." buttonText="Voir les forfaits" />
+
+      <SectionDivider />
 
       <h2 id="la-forme-de-contenu-qu-un-moteur-de-reponses-aime">La forme de contenu qu'un moteur de réponses aime</h2>
       <p>
@@ -135,6 +158,8 @@ export function ContentFr() {
       <CalloutBox type="tip" translatedLabel="Astuce de pro">
         <p>La correction de contenu la plus rapide sur un site existant est de réécrire le premier paragraphe de vos cinq pages principales pour mener avec une réponse directe de 40 à 60 mots. Ce seul changement soulève habituellement les citations AEO en 30 jours, sans travail de schéma, parce que les moteurs réindexent ces pages et trouvent un bloc extractif propre.</p>
       </CalloutBox>
+
+      <SectionDivider />
 
       <h2 id="la-diversite-des-citations-le-multiplicateur-que-les-proprietaires-sautent">La diversité des citations, le multiplicateur que les propriétaires sautent</h2>
       <p>
@@ -163,10 +188,14 @@ export function ContentFr() {
         <strong>Jours 61 à 90 : raffinement et relance d'audit.</strong> Lancer un nouvel audit AI Visibility par rapport à la base de départ. Identifier les moteurs encore sous-performants et combler l'écart (souvent Bing Copilot ou Claude). Ajouter la prochaine vague d'éléments FAQ basés sur les vraies questions d'acheteur remontées par les réponses IA. Résultat attendu : le share-of-model se stabilise près du plafond du programme, typiquement 30 à 50 pour cent sur un commerce local pleinement optimisé.
       </p>
       <p>
-        Pour l'étape d'audit, voyez <InternalLink to="/audit" title="Lancer un audit AI Visibility gratuit" /> pour le flux diagnostique complet.
+        Pour l'étape d'audit, voyez <InternalLink to="/audit" title="Lancer un audit AI Visibility gratuit" description="Base de jour zéro et trois priorités principales pour votre commerce" /> pour le flux diagnostique complet.
       </p>
 
       <InlineCTA variant="audit" text="Vous voulez voir où vous en êtes dans la recherche IA? Lancez l'AI Visibility Audit gratuit en 24 heures." buttonText="Lancer l'audit gratuit" />
+
+      <InternalLink to="/book-call" title="Réserver un appel stratégique de 60 minutes" description="Sans pitch, document de stratégie envoyé peu importe l'aboutissement" />
+
+      <SectionDivider />
 
       <h2 id="mesurer-l-aeo-sans-suivi-de-rang">Mesurer l'AEO sans suivi de rang</h2>
       <p>

@@ -17,9 +17,9 @@ export const metaFr: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 6,
   images: {
-    hero: '/blog-images/aeo-geo-eeat-explained-for-local-owners/hero.svg',
-    mid: '/blog-images/aeo-geo-eeat-explained-for-local-owners/mid.svg',
-    end: '/blog-images/aeo-geo-eeat-explained-for-local-owners/end.svg',
+    hero: '/blog-images/aeo-geo-eeat-explained-for-local-owners/hero.webp',
+    mid: '/blog-images/aeo-geo-eeat-explained-for-local-owners/mid.webp',
+    end: '/blog-images/aeo-geo-eeat-explained-for-local-owners/end.webp',
   },
   faqItems: [
     {
@@ -60,13 +60,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <>
-      <img
-        src={metaFr.images.hero}
-        alt="AEO GEO E-E-A-T expliqués"
-        loading="eager"
-        className="w-full rounded-2xl border border-white/10"
-      />
-
       <h2 id="trois-acronymes-francais-clair-quoi-faire">
         Trois acronymes. Français clair. Quoi faire.
       </h2>

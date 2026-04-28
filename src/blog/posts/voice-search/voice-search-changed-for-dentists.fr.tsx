@@ -50,13 +50,6 @@ export const metaFr: BlogPostMeta = {
 export function ContentFr() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="Écran iPhone montrant une requête vocale Siri pour un dentiste à proximité avec les recommandations locales iOS 18.2"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <h2 id="dis-siri-trouve-un-dentiste-pres-de-moi">« Dis Siri, trouve un dentiste près de moi » donne des réponses différentes qu'il y a six mois.</h2>
       <p>
         Apple a modifié la pondération des recommandations locales dans iOS 18.2 à la fin de 2025. Le changement n'a pas été annoncé. Nous l'avons détecté parce que nous menons des tests hebdomadaires de requêtes vocales dans 30 secteurs.

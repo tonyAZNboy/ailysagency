@@ -6,6 +6,7 @@ import {
   InlineCTA,
   StatHighlight,
   KeyTakeaway,
+  QuickQuiz,
   InternalLink,
   SectionDivider,
 } from '../../components/shared'
@@ -24,9 +25,9 @@ export const meta: BlogPostMeta = {
   author: AUTHORS.research,
   readTimeMinutes: 9,
   images: {
-    hero: '/blog-images/ai-visibility-audit-checklist-2026/hero.svg',
-    mid: '/blog-images/ai-visibility-audit-checklist-2026/mid.svg',
-    end: '/blog-images/ai-visibility-audit-checklist-2026/end.svg',
+    hero: '/blog-images/ai-visibility-audit-checklist-2026/hero.webp',
+    mid: '/blog-images/ai-visibility-audit-checklist-2026/mid.webp',
+    end: '/blog-images/ai-visibility-audit-checklist-2026/end.webp',
   },
   faqItems: [
     {
@@ -71,13 +72,6 @@ export const meta: BlogPostMeta = {
 export function Content() {
   return (
     <article>
-      <img
-        src={meta.images.hero}
-        alt="AI Visibility audit dashboard showing share-of-model across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot"
-        className="w-full rounded-xl my-6"
-        loading="eager"
-      />
-
       <p>
         To run a full AI Visibility audit on your business, build a 12-prompt buyer set, run each prompt across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot, log whether your brand appears, and compare the result against your top three local competitors. The AiLys AI Visibility audit automates the run and returns a scorecard with share-of-model, schema gaps, and the top three fixes inside 24 hours.
       </p>
@@ -89,6 +83,8 @@ export function Content() {
           { value: '$300/mo', label: 'Starter tier with monthly re-audit' },
         ]}
       />
+
+      <SectionDivider />
 
       <h2 id="why-ai-visibility-audits-replaced-rank-tracking">Why AI Visibility audits replaced rank tracking</h2>
       <p>
@@ -117,6 +113,8 @@ export function Content() {
         Skipping any one of the six creates a blind spot. The most common failure we see is a client who tracks ChatGPT only, then loses three months of buyers to a competitor who landed Perplexity citations.
       </p>
 
+      <SectionDivider />
+
       <CalloutBox type="tip">
         <p>The fastest engine to crack is Perplexity. Most local businesses can earn their first Perplexity citation inside 30 days with clean schema, a fresh "current state" article, and three diverse third-party references. Start there if you only have one month of audit budget.</p>
       </CalloutBox>
@@ -131,6 +129,24 @@ export function Content() {
       <p>
         Record three things per prompt: did the brand appear in the answer text, did it appear in the source list, and did the answer name a competitor instead. The competitor field is the one most owners forget, and it is the one that drives the fix list.
       </p>
+
+      <CalloutBox type="info">
+        <p>An AI prompt is not a keyword. A prompt is a conversational question with embedded constraints. "Best dentist Montreal" is a keyword. "Who is a good family dentist in NDG that takes RAMQ and is open Saturdays" is a prompt. The audit only works when your set sounds like the second example, not the first.</p>
+      </CalloutBox>
+
+      <QuickQuiz
+        question="Which engine is usually the fastest for a local Quebec business to crack first?"
+        options={[
+          'ChatGPT, because of raw volume',
+          'Perplexity, because it weights recency and source diversity',
+          'Bing Copilot, because of LinkedIn signal',
+          'Gemini, because of Google account context',
+        ]}
+        correctIndex={1}
+        explanation="Perplexity weights recency and source diversity over raw domain authority, so a clean schema deploy plus three diverse third-party citations can land a first citation inside 30 days. ChatGPT has higher volume but takes longer to crack because it leans on historical authority."
+      />
+
+      <SectionDivider />
 
       <h2 id="score-share-of-model-against-three-competitors">Score share-of-model against three competitors</h2>
       <p>
@@ -147,6 +163,8 @@ export function Content() {
         <p>Do not score on raw mention count. Score on share-of-model. A competitor mentioned in 8 of 12 answers has 67 percent share-of-model. A competitor mentioned in 8 of 30 answers has 27 percent. Same absolute count, very different reality.</p>
       </CalloutBox>
 
+      <InlineCTA variant="pricing" />
+
       <SectionDivider />
 
       <h2 id="find-the-schema-citation-and-gbp-gaps">Find the schema, citation, and GBP gaps</h2>
@@ -157,8 +175,10 @@ export function Content() {
         Second, citations. Pull your NAP citation count and compare with the competitors. If your top competitor has 80 directory citations and you have 22, the engines see a quieter signal for your brand and weight it lower. The fix is monthly citation building, which the AiLys Core tier ships at five citations per month, Growth at ten, Agency at fifteen.
       </p>
       <p>
-        Third, GBP. Most "missing from AI answers" diagnoses trace back to a GBP attribute that was never filled. Categories, dietary tags, payment methods, accessibility, hours of operation. Google AIO and Gemini both pull from this layer. See our <InternalLink to="/audit/gbp" title="GBP audit deep dive" /> for the full attribute checklist.
+        Third, GBP. Most "missing from AI answers" diagnoses trace back to a GBP attribute that was never filled. Categories, dietary tags, payment methods, accessibility, hours of operation. Google AIO and Gemini both pull from this layer. See our <InternalLink to="/audit/gbp" title="GBP audit deep dive" description="Full GBP attribute checklist for Quebec local businesses" /> for the full attribute checklist.
       </p>
+
+      <SectionDivider />
 
       <h2 id="fix-the-top-three-leaks-first">Fix the top three leaks first</h2>
       <p>
@@ -169,6 +189,10 @@ export function Content() {
       </p>
 
       <InlineCTA variant="audit" />
+
+      <InternalLink to="/glossary/aeo" title="AEO definition" description="Answer Engine Optimization, the discipline behind every AI Visibility audit" />
+
+      <SectionDivider />
 
       <h2 id="set-the-monthly-re-audit-cadence">Set the monthly re-audit cadence</h2>
       <p>

@@ -163,6 +163,12 @@ Disallow: /
 
 # ─── Sitemaps ─────────────────────────────────────────────────
 Sitemap: https://www.ailysagency.ca/sitemap.xml
+Sitemap: https://www.ailysagency.ca/sitemap-en.xml
+Sitemap: https://www.ailysagency.ca/sitemap-fr.xml
+Sitemap: https://www.ailysagency.ca/sitemap-es.xml
+Sitemap: https://www.ailysagency.ca/sitemap-zh.xml
+Sitemap: https://www.ailysagency.ca/sitemap-ar.xml
+Sitemap: https://www.ailysagency.ca/sitemap-ru.xml
 
 # ─── Host directive ──────────────────────────────────────────
 Host: https://www.ailysagency.ca

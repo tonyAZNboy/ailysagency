@@ -53,7 +53,7 @@ export function BookCallSection() {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
           {/* Left: header + language list */}
-          <div className="lg:col-span-6">
+          <div className="min-w-0 lg:col-span-6">
             <ScrollReveal variant="fade-up" delay={50} duration={650}>
               <div className="ailys-section-no mb-6">
                 <span>{t.bookCall.sectionLabel}</span>
@@ -108,7 +108,7 @@ export function BookCallSection() {
           </div>
 
           {/* Right: booking form */}
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="min-w-0 lg:col-span-6 lg:col-start-7">
             <ScrollReveal variant="fade-up" delay={150} duration={700}>
               <EmailFallbackForm languages={languages} />
             </ScrollReveal>
