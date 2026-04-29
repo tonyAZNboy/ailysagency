@@ -52,6 +52,37 @@ Deferred to next session (clean stopping point):
 - Tag `v0.5.0-pdf-export` after B.4.5 lands
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
 
+## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session)
+
+| Sub-phase | Commit | Live? | Smoke | Live curl |
+|---|---|---|---|---|
+| C.1 | `1c0505e` | yes (fails-closed pending env var) | 17/17 pass | 4 failure modes verified |
+| C.2 | `f55e341` | yes (fails-closed pending env var) | 13/13 pass | 3 failure modes verified |
+
+**Total CI gates after this session: 9** (8 mandatory + 1 warn-only).
+**Total smoke assertions running on every push: 66** across 5 scripts.
+**Total endpoints shipped this session: 2** (audit-pdf-onboarding + cron-day1-retry).
+**Total libraries shipped this session: 3** (serviceAuth + onboardingAuditPayload + cronGuard).
+
+Files shipped:
+- `functions/lib/serviceAuth.ts`: HMAC-SHA256 service-to-service auth
+  with caller allowlist + 5-min replay window + constant-time compare
+- `src/lib/onboardingAuditPayload.ts`: Day-1 baseline AuditPdfRequest
+  synthesizer with vertical-tuned action items
+- `functions/api/audit-pdf-onboarding.ts`: idempotent (7d TTL on
+  stripeCustomerId), DLQ on failure, kill-switch, audit-log
+- `scripts/smoke-audit-pdf-onboarding.mjs`: 17 unit assertions
+
+CI gate 8 (Day-1 onboarding smoke) wired into deploy.yml, mandatory.
+
+User actions to flip from fail-closed to production:
+1. Cloudflare Pages env: `AILYS_SERVICE_SHARED_SECRET` (`openssl rand -hex 32`)
+2. Reviuzy Supabase edge fn env: same secret
+3. Reviuzy follow-up commit: modify `provision-ailys-tenant` to fire-and-
+   forget POST to `https://ailysagency.ca/api/audit-pdf-onboarding` with
+   X-AiLys-Service-Token + X-AiLys-Service-Timestamp + X-AiLys-Service-
+   Caller='reviuzy-provision-tenant' headers
+
 ## Phase C, Automation-First Operations roadmap (added 2026-04-29)
 
 Per user directive "I want mostly automation, for staffs and partner", a deep audit was run during this session and committed as `docs/phase-c-automation-roadmap.md`. Findings:
