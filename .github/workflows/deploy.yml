@@ -79,6 +79,9 @@ jobs:
       - name: Gate 9, cron guard primitives smoke (13 cases)
         run: npx tsx scripts/smoke-cron-guard.mjs
 
+      - name: Gate 10, admin audit-pdf-stats HMAC smoke (12 cases)
+        run: npx tsx scripts/smoke-admin-audit-pdf-stats.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking

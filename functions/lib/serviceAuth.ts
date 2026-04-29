@@ -34,6 +34,7 @@ const ALLOWED_CALLERS = new Set([
   'reviuzy-provision-tenant',
   'reviuzy-monthly-report-batch',
   'reviuzy-anomaly-remediation',
+  'reviuzy-admin-audit-pdf-stats', // B.4.4: Reviuzy admin reads AiLys audit-pdf observability
   'ailys-cron-day1-retry', // self-call from AiLys cron worker
 ]);
 

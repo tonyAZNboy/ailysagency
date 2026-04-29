@@ -50,10 +50,22 @@ User actions to flip B.4.3 from fallback to production:
 
 Deferred to next session (clean stopping point):
 - ~~B.4.3.b Frontend modal UI~~ ✅ SHIPPED 2026-04-29: `AuditPdfDownload.tsx` + 17 i18n keys × 16 locales (EN+FR-CA hand-translated, 14 secondaries TODO i18n), wired into AutoAuditEngine results panel below ExportActionPlan, verified compile + i18n parity + 66/66 smoke + build
-- B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
+- ~~B.4.4 Admin panel~~ AiLys SIDE SHIPPED 2026-04-29 (option A cross-repo via iso-gsd-delivery skill): GSD artefacts in `.planning/phase-b44/`, KV ring-buffer write in audit-pdf.ts (non-blocking, 7-day TTL, no PII), new endpoint `/api/admin/audit-pdf-stats` (GET, HMAC service auth, returns last 50 + daily count + 7d count + cost CAD + kill switch state), 12-case smoke script wired as CI gate 10. Reviuzy SIDE handoff fully specced in `.planning/phase-b44/02-sub-phases.md` (B.4.4.Rvz.1 edge fn proxy + B.4.4.Rvz.2 admin page + B.4.4.Rvz.3 vitest, ~3h total).
 - ~~B.4.5 Help center articles~~ ✅ SHIPPED 2026-04-29 (commit `67fac15`): 2 articles `your-pdf-audit-explained` + `day-1-onboarding-pdf` EN+FR-CA, no proprietary AI provider disclosure, em-dash clean, verified live at 375x812 + 768x1024
-- Tag `v0.5.0-pdf-export` after B.4.4 lands
+- Tag `v0.5.0-pdf-export` after B.4.4.Rvz.1-3 lands on Reviuzy
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
+
+**B.4.4 user actions to flip from staged to live:**
+1. Cloudflare Pages: `AILYS_SERVICE_SHARED_SECRET` already set (reused from C.1)
+2. AiLys auto-deploys on next push to main (CI gate 10 enforces smoke pass)
+3. After AiLys deploy, verify with curl:
+   ```bash
+   # 1. Should return 401 (no auth headers)
+   curl -i https://www.ailysagency.ca/api/admin/audit-pdf-stats
+   # 2. Should return 405 (POST not allowed)
+   curl -i -X POST https://www.ailysagency.ca/api/admin/audit-pdf-stats
+   ```
+4. Reviuzy follow-up session: implement B.4.4.Rvz.1-3 per `.planning/phase-b44/02-sub-phases.md`
 
 ## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session, AiLys repo)
 
