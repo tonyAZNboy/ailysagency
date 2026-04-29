@@ -1,7 +1,7 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-29 (PHASE B.4 AUDIT PDF EXPORT: backend shipped + ISO-grade CI gates. Sub-phases B.4.1 + B.4.2 + B.4.3 backend complete; modal UI + admin panel + help docs deferred to next session. Working PDF endpoint at /api/audit-pdf returns a real branded 10-page PDF, ~15-18KB, ~250ms render. R2 + HMAC + Resend code-complete; activates when bindings are wired. CI deploy.yml now has 7 mandatory gates (tsc, i18n audit, blog audit, em-dash sweep with documented allowlist, 3 smoke test scripts) that block deploy on any failure. Threat model documented in docs/phase-b4-pdf-export-plan.md. Live tested via curl: 200 + valid PDF + 5 failure modes verified.)
-**Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` (already pushed) · **HEAD pending push:** Phase B.4 backend + ISO-grade gates · **Previous HEAD:** `e28bc2d` (B.4.3 backend)
+**Last updated:** 2026-04-29 (PHASE C AUTOMATION FULL SWEEP: C.1 Day-1 onboarding PDF + C.2 cron primitives shipped on AiLys; C.3 GBP auto-publish gate + C.4 anomaly auto-remediation shipped on Reviuzy via PR #6 merged at `21b3d59`. Cross-repo: 14 commits, 104 vitest+smoke assertions, 9 mandatory CI gates on AiLys, full Reviuzy test suite passing 363/363. AiLys help articles for C.3 + C.4 live in production. All infrastructure (HMAC primitives, idempotency, kill switches, audit logs, RLS, single-use tokens, constant-time compare) gov-grade. End-of-session tag pending: `v0.5.0-automation-c1-c4`.)
+**Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
 ## Phase B.4 milestone (2026-04-29, autopilot session)
@@ -62,13 +62,13 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
-## 🟡 PHASE C.3 + C.4 PR OPEN 2026-04-29 (Reviuzy repo)
+## ✅ PHASE C.3 + C.4 SHIPPED 2026-04-29 (Reviuzy PR #6 merged at `21b3d59`)
 
 Cross-repo: code in Reviuzy, help articles in AiLys.
 
-**Reviuzy:** PR #6 open at https://github.com/tonyAZNboy/reviuzy/pull/6
-- branch `claude/phase-c3-c4-automation`
-- 2 commits (Chunk A migrations + token primitive + 15 tests; Chunk B confidence scoring + 4 edge fn changes + 23 tests)
+**Reviuzy:** PR #6 merged to main at commit `21b3d59` (https://github.com/tonyAZNboy/reviuzy/pull/6)
+- branch `claude/phase-c3-c4-automation` retained for history
+- 2 atomic commits (Chunk A migrations + token primitive + 15 tests; Chunk B confidence scoring + 4 edge fn changes + 23 tests)
 - Migrations: `20260429000000_phase_c3_auto_publish.sql` + `20260429010000_phase_c4_remediation.sql`
 - New shared libs: `_shared/remediationToken.ts` (HMAC-SHA256 single-use) + `_shared/confidenceScoring.ts` (structured-output parse + decideAutoPublish pure fn)
 - Modified edge fns: `gbp-draft-reply` (emits confidence + risk_factors) + `detect-anomalies` (issues remediation tokens when auto_remediate_enabled)
