@@ -77,6 +77,40 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚧 PHASE C.8 + C.9 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.8 (Reseller / partner program) + Phase C.9 (Health-score-driven churn prediction) shipped through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c8/` (recommendation: defer Reviuzy build until 5+ partner applications received)
+- 5 GSD artefacts in `.planning/phase-c9/`
+- 2 help articles `partner-program-onboarding` + `health-score-explained` EN + FR-CA
+- STATE.md updated
+
+**Reviuzy side (next sessions, fully specced):**
+- C.8.Rvz.1-6: reseller schema + Stripe Connect + dashboard + markup + RLS + smoke (~26h, 62 vitest cases). DEFER until 5+ qualified partner applications.
+- C.9.Rvz.1-4: health score schema + builder lib + edge fn + admin panel + tuning playbook (~14.5h, 50+ cases). Recommended Q2 2026.
+
+**User actions to flip C.8 / C.9 from staged to live:** see respective `02-sub-phases.md` files. C.8 starts with partner application form (C.8.AiLys.2, ~4h, future commit). C.9 starts directly with C.9.Rvz.1 migration when ready.
+
+## ✅ PHASE C ROADMAP STATUS (post-this-session)
+
+All 9 sub-phases of Phase C have been touched in this branch:
+
+| Sub-phase | AiLys side | Reviuzy side | Status |
+|---|---|---|---|
+| C.1 Day-1 onboarding PDF | ✅ shipped | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.2 Cron primitives | ✅ shipped | n/a | live, fail-closed pending env |
+| C.3 GBP auto-publish | n/a | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.4 Anomaly auto-fix | ✅ help docs | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.5 Monthly Visibility report | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.6 Citation auto-batch | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.7 Renewal + upsell | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.8 Reseller stack | ✅ help docs + GSD | 📋 specced | DEFER until 5+ apps |
+| C.9 Health score | ✅ help docs + GSD | 📋 specced | recommended Q2 2026 |
+
+**Remaining AiLys-side work:** B.4.4.Rvz.1-3 + tag `v0.5.0-pdf-export` once Reviuzy ships. C.5/C.6/C.7 Reviuzy sessions in priority order.
+
 ## 🚧 PHASE C.7 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
 
 Phase C.7 (Renewal nudges + behavioral upsell signals) ran through `iso-gsd-delivery` skill.

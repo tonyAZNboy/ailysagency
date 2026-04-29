@@ -5942,4 +5942,318 @@ Si vous voulez discuter de comment un signal spécifique s'applique à votre com
       },
     },
   },
+  {
+    slug: "partner-program-onboarding",
+    title: "AiLys partner program (white-label your AiLys + Reviuzy)",
+    excerpt:
+      "Specialty agencies, freelancers, and consultants can resell AiLys + Reviuzy under their own brand. Here is who can apply, how the revenue split works, and what we provide.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+The AiLys partner program lets a specialty agency, marketing freelancer, or consultancy resell AiLys + Reviuzy to their own clients under their brand. You set your markup, you keep the client relationship, we run the platform underneath. Your clients see your brand. Your revenue is your call.
+
+This is a partner-only program. We sell direct to local businesses ourselves; partners sell to specialty agencies and verticals where local businesses prefer to buy from a familiar agency face.
+
+## Who can apply
+
+We are selective on partners because the program quality is set by our worst partner.
+
+Requirements:
+- A registered business with a tax ID and verifiable address
+- 3+ existing clients you actively service in marketing, SEO, or local digital
+- Industry focus or vertical expertise (legal, dental, restaurant, real estate, hospitality, etc.)
+- Minimum monthly margin retained per client: $50 CAD (this lets us sustain the platform)
+- Clean Stripe Connect KYC (we use Stripe Connect for payouts)
+- A primary contact for support escalation
+
+We do not accept partners who plan to:
+- Resell at no markup ("AiLys is cheap, sign here")
+- Skip explaining the AiLys engine to their clients
+- Pass platform abuse risk onto us
+
+## How revenue works
+
+You pay us your wholesale price (Reviuzy SaaS + AiLys Agency tier per client). You bill your client whatever you want on top. The markup is yours.
+
+Stripe Connect handles the split:
+- Client pays your invoice in full
+- Stripe takes our wholesale share automatically (application fee)
+- The remainder lands in your Stripe payout
+
+Your wholesale price tracks our public AiLys + Reviuzy pricing with a partner discount you negotiate at onboarding (typically 15 to 25 percent off rack).
+
+## What you get
+
+- White-label dashboard at partner.ailysagency.ca or partner.reviuzy.com (your choice)
+- Per-client brand isolation: your logo on every PDF, your color, your From email
+- Sub-tenant management: create, edit, suspend client workspaces
+- Consolidated invoice per month (one Stripe charge for all your clients, your markup transparent)
+- Reseller-only feature flags: enable or disable specific Reviuzy features per client
+- Dedicated partner-support Slack channel (during business hours)
+- Quarterly partner roadmap call
+
+## What you do NOT get
+
+- Direct access to client data beyond what they have themselves (we do not let partners read raw reviews, photos, or PII; you see aggregate counts and dashboards)
+- Resale rights to a non-AiLys/Reviuzy product
+- Right to misrepresent the underlying engine (you cannot claim you built it; you can claim you operate it)
+- Right to discount AiLys engine itself below wholesale
+- Right to compete with AiLys in our home Quebec market without notice (we reserve the right to decline partners that pose direct competitive overlap)
+
+## How application works
+
+1. Apply via the form at /partner/apply
+2. We review within 5 business days
+3. If approved, you onboard via a 60-min strategy call
+4. You complete Stripe Connect KYC (typically same day)
+5. You sign the partner agreement
+6. We provision your reseller dashboard and hand over credentials
+7. You add your first client
+
+## Strategic note
+
+We do NOT build the partner program speculatively. Once 5+ qualified applications arrive, we ramp engineering on the reseller stack. If you are interested before that gate fires, write us at the partner application URL and we hold your application in queue until the stack ships.
+
+## Privacy and data
+
+- Each partner sees only their own sub-tenants (RLS enforced platform-wide)
+- Sub-tenants see only their workspace, not aware of the reseller layer
+- Strategist team at AiLys can SELECT across partners and tenants for support, but cannot mutate partner data without partner consent
+- All financial data lives in Stripe; we do not duplicate it in our database
+- Partner agreement covers data ownership: client data belongs to the client, partner has access while subscription active, AiLys retains aggregate metrics
+
+## Contact
+
+To apply or ask questions: visit /partner/apply or reach out via the chat widget on the AiLys site.`,
+    i18n: {
+      fr: {
+        title: "Programme partenaire AiLys (revendre AiLys + Reviuzy en marque blanche)",
+        excerpt:
+          "Les agences spécialisées, pigistes et consultants peuvent revendre AiLys + Reviuzy sous leur propre marque. Voici qui peut postuler, comment fonctionne la répartition des revenus, et ce que nous fournissons.",
+        body: `## De quoi s'agit-il
+
+Le programme partenaire AiLys permet à une agence spécialisée, un pigiste en marketing ou un cabinet de conseil de revendre AiLys + Reviuzy à ses propres clients sous votre marque. Vous fixez votre marge, vous gardez la relation client, nous opérons la plateforme dessous. Vos clients voient votre marque. Vos revenus sont à vous.
+
+C'est un programme réservé aux partenaires. Nous vendons en direct aux entreprises locales ; les partenaires vendent à des agences spécialisées et des verticales où les entreprises locales préfèrent acheter d'un visage d'agence familier.
+
+## Qui peut postuler
+
+Nous sommes sélectifs sur les partenaires parce que la qualité du programme est réglée par notre pire partenaire.
+
+Exigences :
+- Une entreprise enregistrée avec un numéro fiscal et une adresse vérifiable
+- 3 clients existants minimum que vous servez activement en marketing, SEO ou numérique local
+- Spécialisation sectorielle ou verticale (juridique, dentaire, restauration, immobilier, hôtellerie, etc.)
+- Marge mensuelle minimum retenue par client : 50 CAD (cela nous permet de soutenir la plateforme)
+- KYC Stripe Connect propre (nous utilisons Stripe Connect pour les versements)
+- Un contact principal pour l'escalade du soutien
+
+Nous n'acceptons pas les partenaires qui prévoient :
+- Revendre sans marge ("AiLys est pas cher, signez ici")
+- Sauter l'explication du moteur AiLys à leurs clients
+- Nous transférer le risque d'abus de plateforme
+
+## Comment fonctionnent les revenus
+
+Vous nous payez votre prix de gros (palier SaaS Reviuzy + Agency AiLys par client). Vous facturez votre client ce que vous voulez par-dessus. La marge vous appartient.
+
+Stripe Connect gère la séparation :
+- Le client paie votre facture en entier
+- Stripe prend automatiquement notre part de gros (frais de plateforme)
+- Le reste atterrit dans votre versement Stripe
+
+Votre prix de gros suit nos prix publics AiLys + Reviuzy avec un rabais partenaire que vous négociez à l'intégration (typiquement 15 à 25 pour cent sous le tarif).
+
+## Ce que vous obtenez
+
+- Tableau de bord en marque blanche à partner.ailysagency.ca ou partner.reviuzy.com (votre choix)
+- Isolation de marque par client : votre logo sur chaque PDF, votre couleur, votre courriel d'expéditeur
+- Gestion de sous-locataires : créer, modifier, suspendre les espaces clients
+- Facture consolidée mensuelle (un seul prélèvement Stripe pour tous vos clients, votre marge transparente)
+- Indicateurs de fonctionnalités réservés au revendeur : activer ou désactiver des fonctionnalités Reviuzy par client
+- Canal Slack dédié au soutien partenaire (heures ouvrables)
+- Appel trimestriel de feuille de route partenaire
+
+## Ce que vous N'OBTENEZ PAS
+
+- Accès direct aux données client au-delà de ce qu'eux-mêmes ont (nous ne laissons pas les partenaires lire les avis bruts, photos ou PII ; vous voyez des comptes agrégés et des tableaux)
+- Droits de revente d'un produit non-AiLys/Reviuzy
+- Droit de fausse représentation du moteur sous-jacent (vous ne pouvez pas prétendre l'avoir bâti ; vous pouvez prétendre l'opérer)
+- Droit d'escompter le moteur AiLys lui-même sous le prix de gros
+- Droit de concurrencer AiLys dans notre marché québécois sans préavis (nous nous réservons le droit de refuser des partenaires qui posent une superposition concurrentielle directe)
+
+## Comment fonctionne la candidature
+
+1. Postulez via le formulaire à /partner/apply
+2. Nous revoyons en 5 jours ouvrables
+3. Si approuvé, vous intégrez via un appel stratégique de 60 minutes
+4. Vous complétez le KYC Stripe Connect (typiquement le jour même)
+5. Vous signez l'entente de partenariat
+6. Nous provisionnons votre tableau de bord revendeur et remettons les identifiants
+7. Vous ajoutez votre premier client
+
+## Note stratégique
+
+Nous ne bâtissons PAS le programme partenaire spéculativement. Une fois 5 candidatures qualifiées reçues, nous lançons l'ingénierie sur la pile revendeur. Si vous êtes intéressé avant que cette barrière se déclenche, écrivez-nous à l'URL de candidature partenaire et nous gardons votre dossier en file jusqu'à ce que la pile soit livrée.
+
+## Confidentialité et données
+
+- Chaque partenaire ne voit que ses propres sous-locataires (RLS appliqué à l'échelle de la plateforme)
+- Les sous-locataires ne voient que leur espace, sans conscience de la couche revendeur
+- L'équipe stratège chez AiLys peut faire SELECT à travers partenaires et locataires pour le soutien, mais ne peut pas modifier les données du partenaire sans son consentement
+- Toutes les données financières vivent dans Stripe ; nous ne les dupliquons pas dans notre base
+- L'entente de partenariat couvre la propriété des données : les données client appartiennent au client, le partenaire y a accès tant que l'abonnement est actif, AiLys retient les métriques agrégées
+
+## Contact
+
+Pour postuler ou poser des questions : visitez /partner/apply ou rejoignez-nous via le widget de clavardage sur le site AiLys.`,
+      },
+    },
+  },
+  {
+    slug: "health-score-explained",
+    title: "Your account health score (how we measure it and what triggers strategist outreach)",
+    excerpt:
+      "We compute a daily health score from your platform usage. When the score drops or trends sharply down, your strategist reaches out before things get worse. Here is what we measure and how to interpret it.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A daily background job computes a health score (0 to 100) for your workspace based on five observable behaviors. The score is a triage signal for your dedicated strategist (Growth and Agency tiers): when it drops below 40, or when it trends sharply down over 7 days, the strategist gets a heads-up and reaches out within 1 to 2 business days.
+
+This is INPUT TO HUMAN JUDGMENT, not autopilot. The system never auto-cancels, auto-discounts, or auto-emails you with the score. It is a tool the strategist uses to prioritize who needs attention this week.
+
+## What we measure (5 components)
+
+Each component contributes 20% to your score (0 to 20 points each, summed to 0 to 100).
+
+1. **Login cadence** : how often you (or anyone in your workspace) logged in over the last 30 days vs the expected cadence for your tier. Below expected = lower component score.
+2. **Feature usage breadth** : how many distinct features you touched in 30 days. Using only one feature = low; using 5+ across reviews, photos, citations, dashboard, alerts = high.
+3. **GBP delivery rate** : posts published vs scheduled in the last 30 days. If 12 of 12 scheduled posts published = full points. If 8 of 12 = partial. Captures upstream API issues + your photo upload cadence.
+4. **Citation success rate** : auto-batch + manual submissions accepted vs attempted in 30 days. High success = full points.
+5. **Negative signal density** : anomaly alerts triggered in 30 days, inverted (more alerts = lower score). Captures crisis-mode periods.
+
+The score is the sum, capped 0 to 100.
+
+## What triggers strategist outreach
+
+Two thresholds:
+
+- **Score below 40** : strategist sees an alert in their daily admin feed, reaches out within 1 to 2 business days
+- **Trend below -10 over 7 days** : sharp decline triggers same alert even if score is still above 40 (catches "previously healthy account in trouble" pattern)
+
+Most accounts sit between 60 and 90 most of the time. A score in the 40s is yellow. Below 40 is red. Above 80 is green.
+
+## Why a score and not just raw alerts
+
+Alerts catch acute problems (review bomb, citation churn). The score catches slow drift: a Growth client who logs in less and less, posts fewer photos each month, replies to fewer reviews. No single anomaly fires, but the trend is clear. Without a score, that drift goes unnoticed until cancellation.
+
+## Privacy
+
+- Score components stored as ratios + counts only
+- No review text, no email content, no IP in the score data
+- Score history retained 365 days then purged
+- You can request that your strategist disable scoring for your workspace; default is ON for Growth and Agency tiers, OFF for Starter and Core (we do not have enough data to score Starter accurately)
+- Scores never sent to your clients or third parties
+
+## What you can do with it
+
+- Ask your strategist for your current score during the monthly call
+- Request the per-component breakdown to understand which area is dragging
+- Use it as a self-diagnostic: low feature usage breadth means you might benefit from training on more features
+
+## What this is NOT
+
+- It is not a decision rule. It is a signal that informs strategist prioritization.
+- It is not a payment gate. We never block features based on score.
+- It is not communicated to your clients or your team without your consent.
+- It is not a churn predictor with high precision; treat it as a weak signal that buys the strategist 30-60 days of warning, not a probability forecast.
+
+## How we tune the formula
+
+The scoring weights start at 20% each. Quarterly we review precision and recall:
+- How many low-score accounts actually churned in the next 90 days?
+- How many high-score accounts churned anyway (false negatives)?
+- Are component weights balanced or should one (e.g., login cadence) carry more weight?
+
+Adjustments bump the formula version. Old scores remain comparable within their version; the admin chart filters by version to avoid mixed-version trend lines.
+
+## Asking questions
+
+The score is meant to be transparent. Ask your strategist on the next monthly call to walk through your current score and components, and flag any data point that surprises you. The score serves you when you understand it.`,
+      i18n: {
+        fr: {
+          title: "Le score de santé de votre compte (comment nous le mesurons et ce qui déclenche le démarchage du stratège)",
+          excerpt:
+            "Nous calculons un score de santé quotidien à partir de votre utilisation de la plateforme. Quand le score chute ou tend fortement à la baisse, votre stratège vous démarche avant que les choses empirent. Voici ce que nous mesurons et comment l'interpréter.",
+          body: `## De quoi s'agit-il
+
+Un travail de fond quotidien calcule un score de santé (0 à 100) pour votre espace de travail à partir de cinq comportements observables. Le score est un signal de triage pour votre stratège dédié (paliers Growth et Agency) : quand il tombe sous 40, ou quand il tend fortement à la baisse sur 7 jours, le stratège reçoit un avertissement et vous démarche en 1 à 2 jours ouvrables.
+
+C'est UNE ENTRÉE POUR LE JUGEMENT HUMAIN, pas du pilote automatique. Le système n'annule jamais, ne rabaisse jamais, n'envoie jamais de courriel automatique avec le score. C'est un outil que le stratège utilise pour prioriser qui a besoin d'attention cette semaine.
+
+## Ce que nous mesurons (5 composantes)
+
+Chaque composante contribue 20% à votre score (0 à 20 points chaque, sommés à 0 à 100).
+
+1. **Cadence de connexion** : à quelle fréquence vous (ou n'importe qui dans votre espace) vous êtes connecté sur les 30 derniers jours vs la cadence attendue pour votre palier. Sous l'attendu = composante plus basse.
+2. **Étendue d'utilisation des fonctionnalités** : combien de fonctionnalités distinctes vous avez touchées en 30 jours. Une seule fonctionnalité utilisée = bas ; 5+ entre avis, photos, citations, tableau, alertes = haut.
+3. **Taux de livraison GBP** : publications publiées vs planifiées sur les 30 derniers jours. Si 12 de 12 publiées = points pleins. Si 8 de 12 = partiel. Capture les soucis API en amont + votre cadence de téléversement de photos.
+4. **Taux de succès des citations** : soumissions auto-batch + manuelles acceptées vs tentées en 30 jours. Haut succès = points pleins.
+5. **Densité de signaux négatifs** : alertes d'anomalie déclenchées en 30 jours, inversées (plus d'alertes = score plus bas). Capture les périodes de crise.
+
+Le score est la somme, plafonnée 0 à 100.
+
+## Ce qui déclenche le démarchage du stratège
+
+Deux seuils :
+
+- **Score sous 40** : le stratège voit une alerte dans son fil admin quotidien, démarche en 1 à 2 jours ouvrables
+- **Tendance sous -10 sur 7 jours** : déclin marqué déclenche la même alerte même si le score est toujours au-dessus de 40 (capture le motif "compte précédemment sain en difficulté")
+
+La plupart des comptes se situent entre 60 et 90 la plupart du temps. Un score dans les 40 est jaune. Sous 40 est rouge. Au-dessus de 80 est vert.
+
+## Pourquoi un score et pas juste des alertes brutes
+
+Les alertes attrapent les problèmes aigus (vague d'avis, perte de citations). Le score attrape la dérive lente : un client Growth qui se connecte de moins en moins, publie moins de photos chaque mois, répond à moins d'avis. Aucune anomalie unique ne se déclenche, mais la tendance est claire. Sans score, cette dérive passe inaperçue jusqu'à l'annulation.
+
+## Confidentialité
+
+- Composantes du score stockées comme ratios + comptes seulement
+- Aucun texte d'avis, aucun contenu de courriel, aucune adresse IP dans les données du score
+- Historique du score retenu 365 jours puis purgé
+- Vous pouvez demander que votre stratège désactive le scoring pour votre espace ; par défaut activé pour Growth et Agency, désactivé pour Starter et Core (nous n'avons pas assez de données pour scorer Starter avec précision)
+- Les scores ne sont jamais envoyés à vos clients ou à des tiers
+
+## Ce que vous pouvez en faire
+
+- Demandez à votre stratège votre score actuel lors de l'appel mensuel
+- Demandez la ventilation par composante pour comprendre quelle zone tire vers le bas
+- Utilisez-le comme auto-diagnostic : étendue d'utilisation faible veut dire que vous pourriez bénéficier de formation sur plus de fonctionnalités
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas une règle de décision. C'est un signal qui informe la priorisation du stratège.
+- Ce n'est pas une barrière de paiement. Nous ne bloquons jamais de fonctionnalités basées sur le score.
+- Ce n'est pas communiqué à vos clients ou à votre équipe sans votre consentement.
+- Ce n'est pas un prédicteur de désabonnement à haute précision ; traitez-le comme un signal faible qui achète au stratège 30 à 60 jours de préavis, pas une prévision de probabilité.
+
+## Comment nous ajustons la formule
+
+Les pondérations du scoring commencent à 20% chacune. Trimestriellement nous revoyons précision et rappel :
+- Combien de comptes à score bas se sont effectivement désabonnés dans les 90 jours suivants ?
+- Combien de comptes à score haut se sont quand même désabonnés (faux négatifs) ?
+- Les pondérations sont-elles équilibrées ou une (ex. cadence de connexion) devrait porter plus de poids ?
+
+Les ajustements montent la version de la formule. Les anciens scores restent comparables au sein de leur version ; le tableau admin filtre par version pour éviter les lignes de tendance à versions mêlées.
+
+## Poser des questions
+
+Le score est conçu pour être transparent. Demandez à votre stratège lors du prochain appel mensuel de parcourir votre score actuel et ses composantes, et signalez tout point de donnée qui vous surprend. Le score vous sert quand vous le comprenez.`,
+        },
+      },
+  },
 ];
