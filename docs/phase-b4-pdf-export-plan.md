@@ -1,5 +1,28 @@
 # Phase B.4, Audit PDF Export
 
+## Threat model (ISO-grade summary)
+
+| Threat | Mitigation | Verified by |
+|---|---|---|
+| Endpoint flood (DoS by repeated POST) | Two-key KV token bucket: 5/IP/hour, 50/email-hash/day. Fail-closed with 429 + Retry-After | smoke-audit-pdf-validation.mjs case "rate limit"; live curl loop |
+| Mass email abuse via spoofed payload | Honeypot field (cheap reject), disposable-email reject list, server-side email validation | smoke-audit-pdf-validation.mjs cases honeypot + disposable + invalid email |
+| Cross-tenant data leak via signed URL replay | HMAC-SHA256 signed URLs over (objectId + exp), 24h expiry, constant-time comparison, R2 lifecycle 24h | smoke-audit-pdf-hmac.mjs 11 cases including tampered sig + wrong objectId + wrong secret + expired |
+| URL parameter PII leak | No PII in URL, only opaque objectId. Email captured in body, hashed before logging | Code review of audit-pdf.ts + audit-pdf-download/[id].ts |
+| XSS through user-supplied business name | pdf-lib drawText renders strings as glyphs, no script execution. clip() truncates oversized strings | smoke-audit-pdf-validation.mjs case "XSS preserved as literal text" |
+| DoS via 10K-page request | Page count locked to 10 in renderAuditPdf. Payload size capped at 256KB. CPU budget <5s | smoke-audit-pdf-render.mjs case "render < 5000ms" |
+| Logged PII (GDPR risk) | Audit log writes only SHA-256(email) + SHA-256(IP). No payload bodies, only payload hashes | Code review of emitAuditLog() in audit-pdf.ts |
+| Compromised Cloudflare API token | Token has scoped Pages:Edit + Account:Read only, verified at deploy time before wrangler invocation | deploy.yml "Verify Cloudflare API token" step |
+| Stale dependency CVE | npm audit produces 21 known issues in transitive deps; reviewed quarterly | docs/dependency-audit.md (TODO, follow-up) |
+| Kill switch evasion | Two-layer: env var PDF_EXPORT_KILL_SWITCH + KV key pdf_export_enabled. Either set to "false" disables endpoint | Code review of isKillSwitchActive() in audit-pdf.ts |
+| Origin spoofing | Origin allowlist enforced at endpoint top: ailysagency.ca, ailysagency.pages.dev, localhost. Other origins return 403 | Live curl with Origin: https://attacker.example, expect 403 |
+| Resend API key leak (logging or response) | RESEND_API_KEY only used in fetch() Authorization header, never echoed to response or audit log | Code review of sendDownloadEmail() |
+
+All threats above are validated by the smoke test suite gated in CI per the test cadence below. Gate failures block deploy.
+
+---
+
+
+
 **Spec author:** Claude (autopilot, GSD methodology)
 **Spec date:** 2026-04-28
 **Effort:** ~10h, sliced into 5 verified sub-phases (B.4.1 → B.4.5), one git commit per sub-phase

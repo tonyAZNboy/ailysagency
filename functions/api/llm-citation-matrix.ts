@@ -219,7 +219,7 @@ Return ONLY valid JSON matching this exact schema. No prose.
   "summary": "one paragraph (under 80 words) describing the overall AI visibility pattern: which engines tend to cite, which don't, and what specific signal gap explains the absences"
 }
 
-Be honest. If the business is unknown to you, that is itself a signal — most engines will not cite it, and the summary should explain what they would need (Wikidata entry, GBP completeness, citation density, etc.). Do not invent fake citations.`;
+Be honest. If the business is unknown to you, that is itself a signal: most engines will not cite it, and the summary should explain what they would need (Wikidata entry, GBP completeness, citation density, etc.). Do not invent fake citations.`;
 
   const userPrompt = `Business: ${businessName}
 City: ${city}${url ? `\nURL: ${url}` : ""}

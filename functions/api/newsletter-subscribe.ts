@@ -63,7 +63,7 @@ export async function onRequestPost(context: {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  // Honeypot field — bots fill this, humans don't
+  // Honeypot field, bots fill this, humans don't
   if (body.honeypot && body.honeypot.length > 0) {
     // Pretend success so bots don't retry
     return Response.json({ success: true });

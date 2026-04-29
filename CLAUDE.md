@@ -64,14 +64,22 @@ Before declaring any task complete:
 1. Run `npx tsc --noEmit` (typecheck)
 2. Run `node scripts/audit-translations-deep.mjs` (must exit 0)
 3. Run `node scripts/audit-blog-translations.mjs` (must exit 0). Checks every EN→FR-CA blog post pair for parity (meta exports, slug match, heading and component counts including FAQ count, em-dashes, AI fingerprints, brand-name preservation in Latin script, proprietary AI provider leak, EN/FR word-count ratio, metaFr inheritance via `...meta` spread).
-4. Em-dash audit: `grep -rn "—" src/i18n/translations/ src/blog/posts/` must return zero matches.
-5. Open the affected page(s) in the browser preview
-6. Click the affected control / submit the affected form / verify the affected output
-7. Switch the language to a non-EN locale and verify translation works
-8. Test on mobile viewport (375x812) for any UI changes
-9. For new server endpoints: confirm rate-limit, input validation, audit-log entry, and admin panel visibility
-10. For new features: confirm help center article exists in EN + FR-CA before the UI surface goes live
-11. Document the result before claiming done
+4. Em-dash audit: `grep -rn "—" src/i18n/translations/ src/blog/posts/ functions/` must return zero matches.
+5. Run feature smoke tests (each script is independent, exit 0 means pass):
+   - `npx tsx scripts/smoke-audit-pdf-validation.mjs` (16 cases, request validator)
+   - `npx tsx scripts/smoke-audit-pdf-render.mjs` (9 cases, full PDF render with pdf-lib round-trip)
+   - `npx tsx scripts/smoke-audit-pdf-hmac.mjs` (11 cases, signed download URL signer)
+   - As new features ship, add their smoke tests here AND wire into `.github/workflows/deploy.yml`.
+6. Open the affected page(s) in the browser preview
+7. Click the affected control / submit the affected form / verify the affected output
+8. Hit the live deployed endpoint with a real curl (server-side features only) and confirm both the success path AND at least 3 failure modes (validation, method, honeypot). Hard rule #1: typecheck is not testing.
+9. Switch the language to a non-EN locale and verify translation works
+10. Test on mobile viewport (375x812) for any UI changes
+11. For new server endpoints: confirm rate-limit, input validation, audit-log entry, and admin panel visibility
+12. For new features: confirm help center article exists in EN + FR-CA before the UI surface goes live
+13. Document the result before claiming done
+
+**ISO-grade enforcement:** All gates 1-5 run automatically in `.github/workflows/deploy.yml` on every push to main. Failed gate blocks deploy. Manual gates 6-13 are operator responsibility per task.
 
 ## Roadmap snapshot (live)
 

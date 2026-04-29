@@ -27,6 +27,45 @@ jobs:
 
       - run: npm ci
 
+      # ── ISO-grade pre-merge gate ─────────────────────────────────────
+      # Every push that reaches main must pass these gates before the
+      # deploy step runs. CLAUDE.md test cadence steps 1-4 plus the new
+      # smoke tests (B.4.x audit PDF pipeline). One failed assertion
+      # blocks the deploy with an actionable error in the run log.
+
+      - name: Gate 1, TypeScript typecheck
+        run: npx tsc --noEmit
+
+      - name: Gate 2, i18n deep audit (UI keys)
+        run: node scripts/audit-translations-deep.mjs
+
+      - name: Gate 3, blog translation audit (51 EN to FR-CA pairs)
+        run: node scripts/audit-blog-translations.mjs
+
+      - name: Gate 4, em-dash sweep (translations + blog + new server libs)
+        # functions/api/chat-advisor.ts is allowlisted because its system
+        # prompt LITERALLY contains the em-dash glyph as the example of
+        # what Claude must not produce. Removing it would break the rule
+        # that file enforces. All other paths must show zero matches.
+        run: |
+          set -e
+          MATCHES=$(grep -rn "—" src/i18n/translations/ src/blog/posts/ functions/ 2>/dev/null | grep -v "functions/api/chat-advisor.ts" || true)
+          if [ -n "$MATCHES" ]; then
+            echo "::error::Em-dash detected outside the documented exception; hard rule #2 violation"
+            echo "$MATCHES"
+            exit 1
+          fi
+          echo "Em-dash check clean (allowlist: functions/api/chat-advisor.ts system prompt)"
+
+      - name: Gate 5, audit-pdf request validation smoke (16 cases)
+        run: npx tsx scripts/smoke-audit-pdf-validation.mjs
+
+      - name: Gate 6, audit-pdf render smoke (10-page PDF)
+        run: npx tsx scripts/smoke-audit-pdf-render.mjs
+
+      - name: Gate 7, audit-pdf HMAC signer smoke (11 cases)
+        run: npx tsx scripts/smoke-audit-pdf-hmac.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking

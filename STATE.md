@@ -1,8 +1,47 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 night (BLOG TRANSLATION AUDIT: 51 EN→FR-CA pairs swept against 10-gate `audit-blog-translations.mjs`, 6 fixes landed (Wikipédia → Wikipedia ×2, missing SectionDivider, reciprocal EN cross-link in FR audit checklist, schema.org → Schema.org, restored SEO terminology in apple-business-connect FR), 2 pre-existing em-dashes scrubbed from ru.ts. 51/51 pairs now pass every gate. CLAUDE.md test cadence updated to require the new audit pre-merge.)
-**Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` (already pushed to origin) · **HEAD:** ailysagency `e79a047` (audit hygiene + CI iterations on top of the milestone)
+**Last updated:** 2026-04-29 (PHASE B.4 AUDIT PDF EXPORT: backend shipped + ISO-grade CI gates. Sub-phases B.4.1 + B.4.2 + B.4.3 backend complete; modal UI + admin panel + help docs deferred to next session. Working PDF endpoint at /api/audit-pdf returns a real branded 10-page PDF, ~15-18KB, ~250ms render. R2 + HMAC + Resend code-complete; activates when bindings are wired. CI deploy.yml now has 7 mandatory gates (tsc, i18n audit, blog audit, em-dash sweep with documented allowlist, 3 smoke test scripts) that block deploy on any failure. Threat model documented in docs/phase-b4-pdf-export-plan.md. Live tested via curl: 200 + valid PDF + 5 failure modes verified.)
+**Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` (already pushed) · **HEAD pending push:** Phase B.4 backend + ISO-grade gates · **Previous HEAD:** `e28bc2d` (B.4.3 backend)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
+
+## Phase B.4 milestone (2026-04-29, autopilot session)
+
+Backend shipped through 4 commits since `v0.4.0-blog-launch`:
+- `a31e87c` plan: Phase B.4 5-sub-phase spec with ISO-grade threat model
+- `e966b8e` B.4.1 endpoint scaffold (validation, rate-limit, audit-log, kill switch)
+- `404088d` B.4.2 10-page PDF render via pdf-lib (zero compat flags)
+- `e28bc2d` B.4.3 R2 storage + HMAC-signed download URLs + localized Resend email
+
+Live deployed surface (HTTP-tested):
+- POST `/api/audit-pdf` returns 15-18 KB valid PDF (10 pages, signed Title + Author metadata)
+- Validation rejects missing/invalid/disposable email with 400
+- Honeypot rejects with 400
+- Wrong method returns 405
+- Falls back to direct stream until R2 + HMAC bindings are wired
+
+ISO-grade gates now mandatory in `.github/workflows/deploy.yml`:
+1. tsc typecheck
+2. i18n deep audit
+3. blog translation audit (51 EN→FR-CA pairs)
+4. em-dash sweep (with documented exception for chat-advisor.ts system prompt)
+5. audit-pdf request validation smoke (16 cases)
+6. audit-pdf render smoke (9 cases including pdf-lib round-trip)
+7. audit-pdf HMAC smoke (11 cases including tamper + expiry + constant-time)
+
+Failed gate blocks deploy. CLAUDE.md test cadence updated to mirror.
+
+User actions to flip B.4.3 from fallback to production:
+1. Cloudflare Pages: bind R2 bucket `AUDIT_PDFS` (recommend 24h object lifecycle policy)
+2. Cloudflare Pages: bind KV namespace `AUDIT_PDF_RATE_LIMIT` (optional but recommended)
+3. Cloudflare Pages: set env var `AUDIT_PDF_HMAC_SECRET` via `openssl rand -hex 32` (64 hex chars)
+4. Confirm `RESEND_API_KEY` is already set (used by newsletter, should be live)
+5. Resend domain auth (SPF/DKIM/DMARC) for `noreply@ailysagency.ca`
+
+Deferred to next session (clean stopping point):
+- B.4.3.b Frontend modal UI (`AuditPdfDownload.tsx`) wired to /audit results page
+- B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
+- B.4.5 Help center articles (EN + FR-CA, no proprietary AI provider disclosure)
+- Tag `v0.5.0-pdf-export` after B.4.5 lands
 ## 🎉 Blog launch milestone (2026-04-28 night, commit `196a6d5`)
 
 Shipped end-to-end through 4 deploys (`1997d6f` → `196a6d5`):
