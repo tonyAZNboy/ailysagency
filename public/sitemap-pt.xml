@@ -4,14 +4,14 @@
 
   <!--
     AiLys Agency · Sitemap (pt)
-    Generated: 2026-04-28
-    URLs: 125
+    Generated: 2026-04-29
+    URLs: 135
     Index priority: 9 of 16
   -->
 
   <url>
     <loc>https://www.ailysagency.ca/pt</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/" />
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/audit</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/audit" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/audit/gbp</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/audit/gbp" />
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/audit/ai-visibility</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/audit/ai-visibility" />
@@ -103,7 +103,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/book-call</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/book-call" />
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/blog</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/blog" />
@@ -149,7 +149,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/help</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help" />
@@ -172,7 +172,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries" />
@@ -195,7 +195,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/dentists</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/dentists" />
@@ -218,7 +218,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/lawyers</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/lawyers" />
@@ -241,7 +241,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/restaurants</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/restaurants" />
@@ -264,7 +264,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/contractors</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/contractors" />
@@ -287,7 +287,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/clinics</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/clinics" />
@@ -310,7 +310,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/real-estate</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/real-estate" />
@@ -333,7 +333,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/industries/hotels</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/hotels" />
@@ -356,7 +356,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/vs/sterling-sky</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/vs/sterling-sky" />
@@ -379,7 +379,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/vs/brightlocal</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/vs/brightlocal" />
@@ -402,7 +402,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/vs/localiq</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/vs/localiq" />
@@ -425,7 +425,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary" />
@@ -448,7 +448,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/aeo</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/aeo" />
@@ -471,7 +471,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/geo</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/geo" />
@@ -494,7 +494,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/e-e-a-t</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/e-e-a-t" />
@@ -517,7 +517,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/schema-markup</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/schema-markup" />
@@ -540,7 +540,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/faq-schema</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/faq-schema" />
@@ -563,7 +563,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/nap</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/nap" />
@@ -586,7 +586,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/gbp</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/gbp" />
@@ -609,7 +609,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/citation-building</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/citation-building" />
@@ -632,7 +632,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/wikidata</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/wikidata" />
@@ -655,7 +655,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/llm-citation-tracking</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/llm-citation-tracking" />
@@ -678,7 +678,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/review-velocity</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/review-velocity" />
@@ -701,7 +701,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/high-da</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/high-da" />
@@ -724,7 +724,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/local-pack</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/local-pack" />
@@ -747,7 +747,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/entity-authority</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/entity-authority" />
@@ -770,7 +770,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/credentialed-authorship</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/credentialed-authorship" />
@@ -793,7 +793,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/local-business-schema</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/local-business-schema" />
@@ -816,7 +816,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/wikipedia</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/wikipedia" />
@@ -839,7 +839,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/reviuzy</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/reviuzy" />
@@ -862,7 +862,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/nfc-tap-to-review</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/nfc-tap-to-review" />
@@ -885,7 +885,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/glossary/local-seo</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/glossary/local-seo" />
@@ -908,7 +908,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/tools/ai-visibility-score</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/tools/ai-visibility-score" />
@@ -931,7 +931,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/privacy</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/privacy" />
@@ -954,7 +954,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/terms</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/terms" />
@@ -977,7 +977,7 @@
   </url>
   <url>
     <loc>https://www.ailysagency.ca/pt/cookies</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/cookies" />
@@ -2883,5 +2883,235 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/crisis-early-warning-alerts" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/crisis-early-warning-alerts" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/crisis-early-warning-alerts" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/how-the-visibility-dashboard-works</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/how-the-visibility-dashboard-works" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/how-the-visibility-dashboard-works" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/gbp-auto-publish-explained</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/gbp-auto-publish-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/gbp-auto-publish-explained" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/anomaly-alerts-and-auto-fix</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/anomaly-alerts-and-auto-fix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/anomaly-alerts-and-auto-fix" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/monthly-visibility-report</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/monthly-visibility-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/monthly-visibility-report" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/your-pdf-audit-explained</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/your-pdf-audit-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/your-pdf-audit-explained" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/day-1-onboarding-pdf</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/day-1-onboarding-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/day-1-onboarding-pdf" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/citation-auto-batch</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/citation-auto-batch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/citation-auto-batch" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/renewal-and-upsell-signals</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/renewal-and-upsell-signals" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/renewal-and-upsell-signals" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/partner-program-onboarding</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/partner-program-onboarding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/partner-program-onboarding" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/pt/help/health-score-explained</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/help/health-score-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/help/health-score-explained" />
   </url>
 </urlset>
