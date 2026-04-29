@@ -5582,4 +5582,220 @@ Si le PDF Jour 1 n'arrive jamais et que 24 heures ont passé, contactez votre st
       },
     },
   },
+  {
+    slug: "citation-auto-batch",
+    title: "How citation auto-batch works (Tier 1 directories)",
+    excerpt:
+      "On Core, Growth, and Agency tiers, your monthly citation submissions to Tier 1 directories run automatically. Here is what auto-batches, what stays manual, and how the strategist QA gate works.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+Citation building means submitting your business NAP (Name, Address, Phone) to directories like Yelp, Foursquare, BBB, Yellow Pages, and similar. Done well, it improves local SEO and Google Business Profile authority. Done manually, it eats hours per client per month.
+
+C.6 automates the structured part: directories that accept clean API or partner-portal submissions. The human-only directories stay in the strategist queue exactly as before. You always have a human in the loop.
+
+## What auto-batches and what does not
+
+We split directories into three categories.
+
+**Tier 1, structured-friendly (auto-batched):**
+- Yelp (partner API)
+- Foursquare (Places API)
+- BBB (partner CSV upload)
+- MapQuest, Yellow Pages, Apple Maps Connect (where partner credentials available)
+
+These directories accept structured input via API or signed CSV. We submit your canonical NAP, log the result, and surface success/failure in the admin panel.
+
+**Tier 2, semi-structured (queued for strategist):**
+- Niche industry directories with form-based submission
+- Local chamber of commerce sites
+- Regional review platforms
+
+These need a human to fill the form. The strategist works through the queue weekly.
+
+**Tier 3, human-only (never auto):**
+- Wikipedia (community editorial gatekeeping)
+- Reddit / Quora (authentic participation only, per AiLys link-building scope)
+- Industry-specific platforms requiring a verified profile
+
+These are out of scope for any automation, by policy. We do not pretend otherwise.
+
+## Per-tier cadence
+
+The number of directories per month depends on your tier:
+
+- **Core:** 5 citations/month (Tier 1 + Tier 2 mix)
+- **Growth:** 10 citations/month
+- **Agency:** 15 citations/month
+
+Auto-batch covers up to 5 of those per month from Tier 1. The rest comes from Tier 2 strategist work.
+
+## Strategist QA gate
+
+Auto-batch does NOT publish without supervision. The flow is:
+
+1. The cron fires daily at 04:00 UTC
+2. The system selects up to 5 Tier 1 directories per eligible tenant
+3. Submissions run with a 0-60 minute jitter (avoid bot-pattern detection)
+4. Each result is logged with status, response code, and timestamp
+5. The strategist reviews the run report on the next business day
+6. Failures are queued for manual retry
+7. Successful submissions are reflected in the citation manager
+
+If anything looks wrong (unexpected status, NAP drift, directory schema change), the strategist pauses auto-batch for that tenant pending investigation.
+
+## Privacy and audit
+
+- Only your canonical NAP is submitted (the same data already public on your Google Business Profile)
+- Each run is logged in the admin panel with timestamp, directory, status, and a content hash
+- No PII beyond the public NAP is ever sent
+- Run history retained for 90 days then purged
+- You can opt out per tenant in the workspace settings
+
+## Opt-out
+
+In Settings > Citation Management, toggle "Auto-batch citations" to OFF. The cron skips your tenant from the next day. Existing submissions on directories stay (we cannot remove them retroactively without contacting each directory's support).
+
+## What happens on failure
+
+If a directory rejects a submission:
+
+- Status logged as failed with the response code
+- The strategist sees it in the next-day review
+- The strategist either retries manually or removes the directory from your rotation
+- Your monthly citation count counts only successes
+
+If the same directory fails for 3 consecutive runs across all tenants, we pull it from the auto list and alert the strategist team. The directory may have changed their API; we wait for the fix before re-enabling.
+
+## Cost transparency
+
+Auto-batch makes the per-citation cost visible:
+
+- Foursquare API: ~$0.0001 USD per submission
+- Yelp partner: included in partnership tier
+- BBB partner: included in BBB partner program
+
+For a Growth tenant doing 5 auto-batched citations monthly, the marginal API cost is under $0.01. We absorb this in the tier price; no surprise charges.
+
+## What this is NOT
+
+- It is not "submit to 100 directories overnight" volume play. We submit to ~5 per month per tenant on Tier 1.
+- It is not a workaround for spam-detection on directories. We use partner-level credentials and respect each directory's submission policy.
+- It is not link-building (AiLys does not do active link-building). Citations are NAP consistency work, not backlink campaigns.
+
+## Strategic context
+
+Per the AiLys link-building policy, we deliver citations + Wikidata + GBP automation + schema layers. Backlinks may emerge naturally as a side effect, but they are not the goal. C.6 makes the citation deliverable scale to 50+ clients without doubling strategist headcount.
+
+If you want to discuss escalating to manual outreach or specialty directories beyond the Tier 1 / Tier 2 catalog, your strategist can scope that as out-of-tier work.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le lot automatique de citations (annuaires de Niveau 1)",
+        excerpt:
+          "Aux paliers Core, Growth et Agency, vos soumissions mensuelles de citations aux annuaires de Niveau 1 tournent automatiquement. Voici ce qui s'automatise, ce qui reste manuel, et comment fonctionne la barrière QA du stratège.",
+        body: `## De quoi s'agit-il
+
+Construire des citations veut dire soumettre votre NAP d'entreprise (nom, adresse, téléphone) à des annuaires comme Yelp, Foursquare, BBB, Pages Jaunes, et similaires. Bien fait, ça améliore le SEO local et l'autorité Google Business Profile. Fait à la main, ça mange des heures par client par mois.
+
+C.6 automatise la partie structurée : les annuaires qui acceptent des soumissions API ou portail-partenaire propres. Les annuaires humains-seulement restent dans la file du stratège exactement comme avant. Vous gardez toujours un humain dans la boucle.
+
+## Ce qui s'automatise et ce qui ne s'automatise pas
+
+Nous séparons les annuaires en trois catégories.
+
+**Niveau 1, structuré (lot automatique):**
+- Yelp (API partenaire)
+- Foursquare (API Places)
+- BBB (téléversement CSV partenaire)
+- MapQuest, Pages Jaunes, Apple Maps Connect (quand les identifiants partenaires sont disponibles)
+
+Ces annuaires acceptent une entrée structurée via API ou CSV signé. Nous soumettons votre NAP canonique, journalisons le résultat, et le succès/échec apparaît dans le panneau admin.
+
+**Niveau 2, semi-structuré (mis en file pour le stratège):**
+- Annuaires sectoriels avec soumission par formulaire
+- Sites de chambre de commerce locale
+- Plateformes d'avis régionales
+
+Ceux-ci ont besoin d'un humain pour remplir le formulaire. Le stratège passe la file chaque semaine.
+
+**Niveau 3, humain-seulement (jamais automatique):**
+- Wikipedia (gardiennage éditorial communautaire)
+- Reddit / Quora (participation authentique seulement, selon la portée AiLys)
+- Plateformes spécifiques à un secteur exigeant un profil vérifié
+
+Ceux-là sont hors-cadre pour toute automatisation, par politique. Nous ne prétendons pas le contraire.
+
+## Cadence par palier
+
+Le nombre d'annuaires par mois dépend de votre palier:
+
+- **Core:** 5 citations/mois (mélange Niveau 1 + Niveau 2)
+- **Growth:** 10 citations/mois
+- **Agency:** 15 citations/mois
+
+Le lot automatique couvre jusqu'à 5 de ceux-ci par mois depuis le Niveau 1. Le reste vient du travail Niveau 2 du stratège.
+
+## Barrière QA du stratège
+
+Le lot automatique ne publie PAS sans supervision. Le flux est:
+
+1. Le cron se déclenche tous les jours à 04:00 UTC
+2. Le système sélectionne jusqu'à 5 annuaires Niveau 1 par locataire éligible
+3. Les soumissions tournent avec un délai aléatoire de 0 à 60 minutes (éviter la détection de motifs robotiques)
+4. Chaque résultat est journalisé avec statut, code de réponse et horodatage
+5. Le stratège revoit le rapport d'exécution le jour ouvrable suivant
+6. Les échecs sont mis en file pour reprise manuelle
+7. Les soumissions réussies se reflètent dans le gestionnaire de citations
+
+Si quelque chose semble louche (statut imprévu, dérive NAP, changement de schéma d'annuaire), le stratège met le lot automatique en pause pour ce locataire en attendant l'enquête.
+
+## Confidentialité et journal
+
+- Seul votre NAP canonique est soumis (les mêmes données déjà publiques sur votre Google Business Profile)
+- Chaque exécution est journalisée dans le panneau admin avec horodatage, annuaire, statut et un haché de contenu
+- Aucune information autre que le NAP public n'est jamais envoyée
+- L'historique d'exécutions retenu 90 jours puis purgé
+- Vous pouvez vous désabonner par locataire dans les paramètres d'espace
+
+## Désabonnement
+
+Dans Paramètres > Gestion de citations, basculez "Lot automatique de citations" à NON. Le cron saute votre locataire dès le lendemain. Les soumissions existantes sur les annuaires restent (nous ne pouvons pas les retirer rétroactivement sans contacter le soutien de chaque annuaire).
+
+## Que se passe-t-il en cas d'échec
+
+Si un annuaire refuse une soumission:
+
+- Statut journalisé comme failed avec le code de réponse
+- Le stratège le voit lors de la revue du lendemain
+- Le stratège reprend manuellement ou retire l'annuaire de votre rotation
+- Votre compte mensuel de citations ne compte que les succès
+
+Si le même annuaire échoue 3 fois de suite sur tous les locataires, nous le retirons de la liste automatique et alertons l'équipe stratège. L'annuaire a peut-être changé son API ; nous attendons le correctif avant de réactiver.
+
+## Transparence des coûts
+
+Le lot automatique rend le coût par citation visible:
+
+- API Foursquare: ~0,0001 USD par soumission
+- Yelp partenaire: inclus dans le palier de partenariat
+- BBB partenaire: inclus dans le programme partenaire BBB
+
+Pour un locataire Growth qui fait 5 citations automatisées par mois, le coût API marginal est sous 0,01 USD. Nous l'absorbons dans le prix du palier ; pas de frais surprise.
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas du "soumettre à 100 annuaires en une nuit" en jeu de volume. Nous soumettons à ~5 par mois par locataire au Niveau 1.
+- Ce n'est pas un contournement de la détection de pourriel sur les annuaires. Nous utilisons des identifiants de niveau partenaire et respectons la politique de soumission de chaque annuaire.
+- Ce n'est pas du link-building (selon la portée AiLys: AiLys ne fait pas de link-building actif). Les citations sont du travail de cohérence NAP, pas des campagnes de liens.
+
+## Contexte stratégique
+
+Selon la politique AiLys de link-building, nous livrons citations + Wikidata + automatisation GBP + couches de schéma. Des liens entrants peuvent émerger naturellement comme effet secondaire, mais ce n'est pas le but. C.6 fait passer le livrable citation à l'échelle de 50+ clients sans doubler les effectifs stratèges.
+
+Si vous voulez discuter d'escalade vers du démarchage manuel ou des annuaires spécialisés au-delà du catalogue Niveau 1 / Niveau 2, votre stratège peut cadrer ça comme du travail hors-palier.`,
+      },
+    },
+  },
 ];

@@ -77,6 +77,30 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚧 PHASE C.6 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.6 (Citation directory auto-batch) ran through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c6/`
+- 1 help article `citation-auto-batch` EN + FR-CA (no proprietary AI provider mention, no internal doc references in customer copy)
+- STATE.md updated with cross-repo handoff
+
+**Reviuzy side (next session, fully specced in `.planning/phase-c6/02-sub-phases.md`):**
+- C.6.Rvz.1: migrations + RLS isolation tests (~3h, 9 cases)
+- C.6.Rvz.2: directory adapter framework + Yelp + Foursquare + BBB-CSV (~6h, 21 cases)
+- C.6.Rvz.3: edge fn `citation-auto-batch` + DRY_RUN (~6h, 15 cases)
+- C.6.Rvz.4: pg_cron + admin panel (~5h, 6 cases)
+- C.6.Rvz.5: per-adapter production smoke + observability (~2h)
+
+**User actions to flip C.6 from staged to live (Reviuzy side):**
+1. Read `.planning/phase-c6/02-sub-phases.md`
+2. Apply 3 migrations (auto_batch_runs + submission_method + cron schedule)
+3. Deploy edge fn + adapter modules
+4. Set 4 env vars: YELP_API_KEY, FOURSQUARE_API_KEY, BBB_PARTNER_KEY, CITATION_AUTO_BATCH_ENABLED
+5. Start in DRY_RUN=true for 1 seed Growth tenant, validate, then flip live
+6. Wait 24h for next cron tick, monitor success rate per adapter
+
 ## 🚧 PHASE C.5 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
 
 Sub-phase C.5 (Monthly Visibility Report scheduled export + email) ran through the new `iso-gsd-delivery` skill. AiLys-side deliverable shipped, Reviuzy-side fully specced for follow-up session.
