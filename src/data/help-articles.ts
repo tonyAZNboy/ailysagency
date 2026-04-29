@@ -5153,4 +5153,138 @@ Votre stratège peut parcourir les 90 derniers jours d'alertes avec vous et déc
       },
     },
   },
+  {
+    slug: "monthly-visibility-report",
+    title: "Your monthly Visibility Report (auto-delivered to your inbox)",
+    excerpt:
+      "On the 1st of each month, Growth and Agency tiers receive a branded Visibility Report PDF in their inbox. Here is what is inside, when it arrives, and how to opt out.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+On the 1st of every month, your workspace receives a branded Visibility Report PDF in the inbox of the contact on file. The report covers the previous 30 days of AI Visibility data, keyword rankings (when Google Search Console is connected), and citation snapshots across the engines we track. The report is generated automatically. No request needed, no waiting on a strategist.
+
+This is included in Growth and Agency tiers by default. Starter and Core tiers do not receive the monthly report; their data is available on demand in the Visibility dashboard.
+
+## When it arrives
+
+- **Schedule**: 1st of each month, 09:00 UTC (typically before 06:00 Eastern Time on the same day)
+- **Recipient**: the workspace owner email on file
+- **Format**: PDF attachment, branded with your workspace logo and colors when those are configured (Agency tier white-label option)
+
+If the 1st falls on a weekend or holiday, the report still goes out on the calendar 1st.
+
+## What is inside
+
+The report has six sections:
+
+1. **Cover page**: workspace name, report month, your branding (logo and color when set)
+2. **Visibility summary**: Share of Model across the AI engines we track, with the prior month for comparison
+3. **Top keywords by impressions**: when Google Search Console is connected, the keywords driving the most search visibility for your domain
+4. **LLM citation breakdown**: per engine, a count of citations where your business appeared in answers
+5. **Sentiment snapshot**: positive, neutral, negative shares across recent mentions
+6. **Action notes**: a short list of 3 to 5 observations from the strategist (where applicable)
+
+The data is read-only at the time of generation. Live numbers stay available in the Visibility dashboard inside the app.
+
+## Opt-out and frequency
+
+You can turn the monthly report off in Settings. Look for "Monthly visibility report" toggle in the workspace settings panel. The toggle takes effect immediately for the next scheduled run. The toggle does not affect on-demand report generation, which strategists can fire any time.
+
+If you ever miss a month (delivery failure, mailbox full, address change), strategists can manually re-run the report from the admin panel and the email will resend.
+
+## Privacy and audit
+
+- The recipient email is pulled from your workspace owner record. We do not store a separate copy.
+- Each generated report is logged with workspace ID, month, status, send timestamp, and a hash of the recipient email (no email in clear).
+- The PDF itself is stored in tenant-isolated storage for 12 months for re-download by the workspace owner.
+- No data leaves the platform except the email itself and the attached PDF.
+
+## Brand presentation
+
+- **Reviuzy self-serve workspaces** receive the report from the Reviuzy noreply address with default branding.
+- **AiLys-managed workspaces** receive the report from the AiLys noreply address with the strategist signature.
+- **Agency tier white-label** workspaces receive the report under your custom brand: your logo on the cover, your color in section headers, your domain in the From field (when DNS is set up). Help in the white-label PDF reports article.
+
+## When NOT to enable this
+
+- If your team prefers to pull data on demand and the monthly digest is noise
+- If the workspace receives reports from another reporting tool and you want a single source of truth elsewhere
+- If you want zero scheduled emails to your domain (for security or policy reasons)
+
+You can flip the toggle off any time. The data stays available in the Visibility dashboard.
+
+## What is happening behind the scenes
+
+The report is built from data your workspace already collects: AI Visibility runs, citation snapshots, keyword ranking imports. No new data collection happens for this feature. The PDF is rendered server-side by the AiLys engine and emailed via our standard email provider. The same delivery pipeline that sends auth emails, alert emails, and one-click auto-fix emails handles the monthly report.
+
+If you have questions about the data, your strategist (Growth and Agency tiers) can walk you through the report on a monthly call.`,
+    i18n: {
+      fr: {
+        title: "Votre rapport de Visibilité mensuel (livré automatiquement à votre boîte)",
+        excerpt:
+          "Le 1er de chaque mois, les paliers Growth et Agency reçoivent un PDF de rapport de Visibilité en marque dans leur boîte courriel. Voici ce qu'il contient, quand il arrive, et comment se désabonner.",
+        body: `## De quoi s'agit-il
+
+Le 1er de chaque mois, votre espace de travail reçoit un PDF de rapport de Visibilité en marque dans la boîte courriel du contact inscrit. Le rapport couvre les 30 derniers jours de données AI Visibility, les classements de mots-clés (quand Google Search Console est connecté) et les instantanés de citations sur les moteurs que nous suivons. Le rapport est généré automatiquement. Aucune demande nécessaire, aucune attente sur un stratège.
+
+C'est inclus dans les paliers Growth et Agency par défaut. Les paliers Starter et Core ne reçoivent pas le rapport mensuel ; leurs données sont disponibles sur demande dans le tableau de bord Visibility.
+
+## Quand il arrive
+
+- **Calendrier** : le 1er de chaque mois, 09:00 UTC (typiquement avant 06:00 heure de l'Est le même jour)
+- **Destinataire** : le courriel du propriétaire de l'espace de travail inscrit
+- **Format** : pièce jointe PDF, en marque avec le logo et les couleurs de votre espace quand ceux-ci sont configurés (option de marque blanche au palier Agency)
+
+Si le 1er tombe une fin de semaine ou un jour férié, le rapport part quand même le 1er du calendrier.
+
+## Ce qu'il contient
+
+Le rapport comporte six sections :
+
+1. **Page couverture** : nom de l'espace, mois du rapport, votre marque (logo et couleur quand définis)
+2. **Sommaire de visibilité** : Share of Model sur les moteurs IA que nous suivons, avec le mois précédent en comparaison
+3. **Mots-clés du top par impressions** : quand Google Search Console est connecté, les mots-clés qui génèrent le plus de visibilité pour votre domaine
+4. **Répartition des citations LLM** : par moteur, le compte de citations où votre entreprise apparaît dans les réponses
+5. **Instantané de sentiment** : parts positive, neutre, négative sur les mentions récentes
+6. **Notes d'action** : une courte liste de 3 à 5 observations du stratège (le cas échéant)
+
+Les données sont en lecture seule au moment de la génération. Les chiffres en direct restent disponibles dans le tableau de bord Visibility dans l'application.
+
+## Désactivation et fréquence
+
+Vous pouvez désactiver le rapport mensuel dans les paramètres. Cherchez la bascule "Rapport mensuel de visibilité" dans le panneau des paramètres d'espace de travail. La bascule prend effet immédiatement pour la prochaine exécution prévue. La bascule n'affecte pas la génération à la demande, que les stratèges peuvent déclencher à tout moment.
+
+Si vous manquez un mois (échec de livraison, boîte pleine, changement d'adresse), les stratèges peuvent relancer manuellement le rapport depuis le panneau admin et le courriel sera renvoyé.
+
+## Confidentialité et journal
+
+- Le courriel destinataire est tiré du dossier propriétaire de votre espace. Nous n'en stockons pas une copie séparée.
+- Chaque rapport généré est journalisé avec l'identifiant d'espace, le mois, le statut, l'horodatage d'envoi et un haché du courriel destinataire (aucun courriel en clair).
+- Le PDF est stocké dans un stockage isolé par locataire pendant 12 mois pour re-téléchargement par le propriétaire de l'espace.
+- Aucune donnée ne quitte la plateforme sauf le courriel et le PDF en pièce jointe.
+
+## Présentation de marque
+
+- **Espaces Reviuzy en libre-service** reçoivent le rapport depuis l'adresse noreply de Reviuzy avec la marque par défaut.
+- **Espaces AiLys gérés** reçoivent le rapport depuis l'adresse noreply d'AiLys avec la signature du stratège.
+- **Marque blanche au palier Agency** reçoivent le rapport sous votre marque personnalisée : votre logo en couverture, votre couleur dans les en-têtes de section, votre domaine dans le champ Expéditeur (quand le DNS est configuré). Aide dans l'article sur les rapports PDF en marque blanche.
+
+## Quand NE PAS activer
+
+- Si votre équipe préfère tirer les données à la demande et que le résumé mensuel est du bruit
+- Si l'espace reçoit déjà des rapports d'un autre outil et que vous voulez une source unique ailleurs
+- Si vous voulez zéro courriel programmé vers votre domaine (raisons de sécurité ou de politique)
+
+Vous pouvez basculer en arrière à tout moment. Les données restent disponibles dans le tableau de bord Visibility.
+
+## Ce qui se passe en coulisse
+
+Le rapport est construit à partir des données que votre espace collecte déjà : exécutions AI Visibility, instantanés de citations, imports de classements de mots-clés. Aucune nouvelle collecte de données pour cette fonctionnalité. Le PDF est rendu côté serveur par le moteur AiLys et envoyé via notre fournisseur de courriel standard. Le même pipeline de livraison qui envoie les courriels d'authentification, les alertes et les correctifs en un clic gère le rapport mensuel.
+
+Si vous avez des questions sur les données, votre stratège (paliers Growth et Agency) peut parcourir le rapport avec vous lors d'un appel mensuel.`,
+      },
+    },
+  },
 ];
