@@ -1,7 +1,7 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-28 night (BLOG LAUNCH MILESTONE: 51 posts shipped + Truvizy-pattern modular architecture + FR-CA hand-authored siblings + 153 photoreal Gemini hero/mid/end images + founding-clients application page at /contact /contacte /lien-he with email + admin delivery + iOS mobile overflow + scroll-spy fix + floating back button + $2,499 → $2,500 tier 4 sweep + "in development" badge. Milestone tag pending.)
-**Branch:** `main` · **Tag pending:** `v0.4.0-blog-launch` · **Active commit:** ailysagency `196a6d5` (manual wrangler deploy, GitHub Actions still blocked on missing `CLOUDFLARE_API_TOKEN` secret)
+**Last updated:** 2026-04-28 night (BLOG TRANSLATION AUDIT: 51 EN→FR-CA pairs swept against 10-gate `audit-blog-translations.mjs`, 6 fixes landed (Wikipédia → Wikipedia ×2, missing SectionDivider, reciprocal EN cross-link in FR audit checklist, schema.org → Schema.org, restored SEO terminology in apple-business-connect FR), 2 pre-existing em-dashes scrubbed from ru.ts. 51/51 pairs now pass every gate. CLAUDE.md test cadence updated to require the new audit pre-merge.)
+**Branch:** `main` · **Tag pending:** `v0.4.0-blog-launch` · **Active commit:** ailysagency `a4a4a14` (manual wrangler deploys for production; auto-deploy CI in flight after `CLOUDFLARE_API_TOKEN` token scope fix)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 ## 🎉 Blog launch milestone (2026-04-28 night, commit `196a6d5`)
 

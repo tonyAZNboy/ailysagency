@@ -1,5 +1,5 @@
 {
-  "enKeyCount": 1146,
+  "enKeyCount": 1148,
   "locales": {
     "fr": {
       "missing": [],
@@ -38,11 +38,14 @@
         "cofounders.tagLabels.vi_vietnam",
         "cofounders.tagLabels.nl_benelux"
       ],
-      "totalKeys": 1147,
+      "totalKeys": 1149,
       "pct": "100.0"
     },
     "es": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -70,10 +73,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1147,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "zh": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -102,10 +108,13 @@
         "footerExt.locationLine"
       ],
       "totalKeys": 1147,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "ar": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -134,10 +143,13 @@
         "footerExt.locationLine"
       ],
       "totalKeys": 1147,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "ru": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -167,10 +179,13 @@
         "footerExt.locationLine"
       ],
       "totalKeys": 1147,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "de": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -207,10 +222,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "hi": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -244,10 +262,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "it": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -286,10 +307,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "ja": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -322,10 +346,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "ko": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -360,10 +387,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "nl": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -405,10 +435,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "pl": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -437,10 +470,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "pt": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -474,10 +510,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "tr": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -510,10 +549,13 @@
         "cofounders.tagLabels.operations_quebec"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     },
     "vi": {
-      "missing": [],
+      "missing": [
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle"
+      ],
       "enValueCopy": [
         "hero.trustEngines",
         "who.colReviuzy",
@@ -551,8 +593,8 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1146,
-      "pct": "100.0"
+      "pct": "99.8"
     }
   },
-  "generatedAt": "2026-04-27T23:07:30.348Z"
+  "generatedAt": "2026-04-29T03:22:25.695Z"
 }

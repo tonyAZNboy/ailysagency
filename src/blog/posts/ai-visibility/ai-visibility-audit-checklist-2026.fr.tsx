@@ -208,7 +208,7 @@ export function ContentFr() {
 
       <h2 id="faq">Foire aux questions</h2>
       <p>
-        Prêt à lancer le vrai audit sur votre entreprise? La version gratuite revient en 24 heures et couvre les six moteurs.
+        Pour la version anglaise canonique de ce guide, consultez la même liste de vérification sur notre page <InternalLink to="/blog/ai-visibility-audit-checklist-2026" title="AI Visibility audit checklist for 2026" />. Prêt à lancer le vrai audit sur votre entreprise? La version gratuite revient en 24 heures et couvre les six moteurs.
       </p>
       <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes, sans pitch, document de stratégie envoyé peu importe?" buttonText="Réserver un appel" />
     </article>

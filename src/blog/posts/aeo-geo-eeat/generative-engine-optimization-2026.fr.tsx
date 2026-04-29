@@ -21,7 +21,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'Comment optimiser mon contenu pour les moteurs génératifs en 2026?',
       answer:
-        "Quatre leviers fonctionnent en 2026 : des mentions de marque denses sur le contenu propre et gagné, un balisage schema.org dense et à jour avec types FAQ et Article, des signaux de fraîcheur sur les citations et les avis (les 90 derniers jours comptent), et des paires question-réponse structurées qui correspondent à de vraies requêtes longue traîne. Le moteur AI Visibility AiLys interroge ces surfaces et évalue la part de citations sur ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot.",
+        "Quatre leviers fonctionnent en 2026 : des mentions de marque denses sur le contenu propre et gagné, un balisage Schema.org dense et à jour avec types FAQ et Article, des signaux de fraîcheur sur les citations et les avis (les 90 derniers jours comptent), et des paires question-réponse structurées qui correspondent à de vraies requêtes longue traîne. Le moteur AI Visibility AiLys interroge ces surfaces et évalue la part de citations sur ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot.",
     },
     {
       question: "En quoi la GEO diffère-t-elle de l'AEO?",
@@ -34,7 +34,7 @@ export const metaFr: BlogPostMeta = {
         "Pour les commerces locaux au Québec et au Canada : ChatGPT et Perplexity sont les leaders en volume, Google AIO est la surface que la plupart des consommateurs voient sans s'en rendre compte, Claude monte vite pour les requêtes de recherche, Gemini compte à cause de la distribution Android, et Bing Copilot compte à cause de la distribution Microsoft en entreprise. AiLys interroge les six dans chaque audit et évalue la part de citations séparément pour chacun.",
     },
     {
-      question: "Le balisage schema.org fait-il vraiment bouger les citations des moteurs génératifs?",
+      question: "Le balisage Schema.org fait-il vraiment bouger les citations des moteurs génératifs?",
       answer:
         "Oui, de façon mesurable. Les pages avec un balisage propre Article, FAQPage, BreadcrumbList et Organization sont citées à des taux plus élevés par Perplexity et Google AIO que les pages sans. L'effet est plus petit pour ChatGPT, qui s'appuie davantage sur les motifs de texte que sur les schémas, mais il est positif sur chaque moteur que nous mesurons. La densité de schémas est l'un des quatre leviers GEO que nous livrons par défaut dans chaque forfait.",
     },
@@ -123,7 +123,7 @@ export function ContentFr() {
 
       <h2 id="levier-deux-densite-de-schemas">Levier 2, densité de schémas</h2>
       <p>
-        Le balisage schema.org est le signal structuré qui aide chaque moteur, classique et génératif, à comprendre de quoi parle une page et à quelles entités elle réfère. Les pages avec un balisage schema dense et à jour sont citées à des taux plus élevés par Perplexity et Google AIO que les pages sans.
+        Le balisage Schema.org est le signal structuré qui aide chaque moteur, classique et génératif, à comprendre de quoi parle une page et à quelles entités elle réfère. Les pages avec un balisage schema dense et à jour sont citées à des taux plus élevés par Perplexity et Google AIO que les pages sans.
       </p>
       <p>
         Schéma minimum pour un commerce local en 2026 :
@@ -148,7 +148,7 @@ export function ContentFr() {
         Les moteurs génératifs pondèrent les signaux récents plus que les vieux. Une entrée de répertoire de citations vérifiée pour la dernière fois en 2022 vaut moins qu'une vérifiée dans les 90 derniers jours. Un article de blogue publié en 2020 sans mise à jour vaut moins que le même article avec un dateModified de 2026. Les avis des 30 derniers jours portent plus de poids que les avis vieux de trois ans.
       </p>
       <p>
-        Le travail : un cycle de fraîcheur qui touche les surfaces à fort levier chaque trimestre. Les citations NAP sur les 20 principaux répertoires, les heures d'affaires et attributs GBP, les champs dateModified des articles clés, la version du balisage schema.org. AiLys livre un cycle de fraîcheur dans le forfait Core à 799 dollars CAD par mois et augmente le volume dans les forfaits Growth et Agency.
+        Le travail : un cycle de fraîcheur qui touche les surfaces à fort levier chaque trimestre. Les citations NAP sur les 20 principaux répertoires, les heures d'affaires et attributs GBP, les champs dateModified des articles clés, la version du balisage Schema.org. AiLys livre un cycle de fraîcheur dans le forfait Core à 799 dollars CAD par mois et augmente le volume dans les forfaits Growth et Agency.
       </p>
 
       <img

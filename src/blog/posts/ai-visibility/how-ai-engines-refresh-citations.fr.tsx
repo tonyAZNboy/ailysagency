@@ -23,7 +23,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'Pourquoi ChatGPT cite-t-il des informations périmées sur mon commerce?',
       answer:
-        "Deux raisons. D'abord, la connaissance figée dans le modèle a une date de coupe qui peut remonter à douze ou vingt-quatre mois, alors les vieux faits (anciens horaires, ancienne adresse, ancien propriétaire) persistent jusqu'au prochain modèle. Ensuite, même en mode navigation, le moteur récupère souvent à partir de citations à forte autorité (Wikipédia, Wikidata, articles de presse, annuaires) plutôt que de votre GBP, et ces sources peuvent aussi être périmées. La correction passe par la mise à jour des sources en amont (Wikidata, principales citations, GBP) afin que le prochain rafraîchissement tire les bons faits.",
+        "Deux raisons. D'abord, la connaissance figée dans le modèle a une date de coupe qui peut remonter à douze ou vingt-quatre mois, alors les vieux faits (anciens horaires, ancienne adresse, ancien propriétaire) persistent jusqu'au prochain modèle. Ensuite, même en mode navigation, le moteur récupère souvent à partir de citations à forte autorité (Wikipedia, Wikidata, articles de presse, annuaires) plutôt que de votre GBP, et ces sources peuvent aussi être périmées. La correction passe par la mise à jour des sources en amont (Wikidata, principales citations, GBP) afin que le prochain rafraîchissement tire les bons faits.",
     },
     {
       question: 'Bing Copilot se met-il vraiment à jour plus vite que Google AI Overviews?',

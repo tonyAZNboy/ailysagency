@@ -197,6 +197,8 @@ export function ContentFr() {
 
       <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour comparer AiLys aux agences présélectionnées? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />
 
+      <SectionDivider />
+
       <KeyTakeaway
         translatedLabel="À retenir"
         points={[

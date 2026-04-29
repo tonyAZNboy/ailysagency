@@ -249,7 +249,7 @@ export function ContentFr() {
       </ol>
 
       <p>
-        La revue mensuelle complète prend environ 15 minutes par emplacement. Les opérateurs sur des plans multi-emplacements regroupent habituellement la revue le premier jour ouvrable de chaque mois, jumelée à la revue mensuelle de Google Business Profile. Pour relier la maintenance Apple à votre carnet de fiches plus large, voyez <InternalLink to="/industries" title="Livres de jeu industriels" description="Plans par industrie pour la maintenance multiplateformes" />.
+        La revue mensuelle complète prend environ 15 minutes par emplacement. Les opérateurs sur des plans multi-emplacements regroupent habituellement la revue le premier jour ouvrable de chaque mois, jumelée à la revue mensuelle de Google Business Profile. Pour relier la maintenance Apple à votre carnet de fiches plus large, voyez <InternalLink to="/industries" title="Livres de jeu industriels" description="Plans local SEO par industrie incluant la maintenance Apple Business Connect" />.
       </p>
 
       <InlineCTA variant="book" text="Vous voulez une revue de 60 minutes de votre configuration Apple Business Connect, du balayage de doublons et du flux bilingue? Sans pitch, doc stratégique livrée." buttonText="Réserver un appel" />

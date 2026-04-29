@@ -63,14 +63,15 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 Before declaring any task complete:
 1. Run `npx tsc --noEmit` (typecheck)
 2. Run `node scripts/audit-translations-deep.mjs` (must exit 0)
-3. Em-dash audit: `grep -rn "—" src/i18n/translations/` must return zero matches in code (only legitimate copy in `as const` strings is allowed if it survives our hard rule)
-4. Open the affected page(s) in the browser preview
-5. Click the affected control / submit the affected form / verify the affected output
-6. Switch the language to a non-EN locale and verify translation works
-7. Test on mobile viewport (375x812) for any UI changes
-8. For new server endpoints: confirm rate-limit, input validation, audit-log entry, and admin panel visibility
-9. For new features: confirm help center article exists in EN + FR-CA before the UI surface goes live
-10. Document the result before claiming done
+3. Run `node scripts/audit-blog-translations.mjs` (must exit 0). Checks every EN→FR-CA blog post pair for parity (meta exports, slug match, heading and component counts including FAQ count, em-dashes, AI fingerprints, brand-name preservation in Latin script, proprietary AI provider leak, EN/FR word-count ratio, metaFr inheritance via `...meta` spread).
+4. Em-dash audit: `grep -rn "—" src/i18n/translations/ src/blog/posts/` must return zero matches.
+5. Open the affected page(s) in the browser preview
+6. Click the affected control / submit the affected form / verify the affected output
+7. Switch the language to a non-EN locale and verify translation works
+8. Test on mobile viewport (375x812) for any UI changes
+9. For new server endpoints: confirm rate-limit, input validation, audit-log entry, and admin panel visibility
+10. For new features: confirm help center article exists in EN + FR-CA before the UI surface goes live
+11. Document the result before claiming done
 
 ## Roadmap snapshot (live)
 
