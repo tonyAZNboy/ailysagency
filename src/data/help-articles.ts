@@ -5287,4 +5287,299 @@ Si vous avez des questions sur les données, votre stratège (paliers Growth et 
       },
     },
   },
+  {
+    slug: "your-pdf-audit-explained",
+    title: "Your PDF audit (what it covers, when you get it, how to read it)",
+    excerpt:
+      "Anyone who runs the free audit can request a 10-page branded PDF by email. Here is what each section covers, where the data comes from, and what the link expiry means.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+When you run the free audit on the AiLys site, you can request a downloadable PDF version. We render a 10-page branded PDF with your scores and observations and email you a one-time download link. The PDF is ready in roughly 30 seconds and the link is good for 24 hours.
+
+This is open to anyone who completes the public audit. No account needed.
+
+## What is in the 10 pages
+
+1. **Cover**: your business name, audit date, headline scores
+2. **Executive summary**: top three findings and what to act on first
+3. **AI Visibility score**: how often the major AI engines mention your business in answers, with a percentile against similar local businesses
+4. **GBP Pulse**: ten weighted Google Business Profile signals scored against vertical benchmarks
+5. **LLM Citation matrix**: per engine, how your business is cited or skipped across three intent queries
+6. **Places snapshot**: your live Google Places profile and the three nearest competitors for context
+7. **Schema preview**: copy-paste-ready LocalBusiness and FAQPage JSON-LD tuned to your vertical
+8. **Action plan**: prioritized checklist with effort estimate per task
+9. **Methodology**: what was scored, how, and what is excluded
+10. **Next steps**: how to put the action plan in motion (self-serve, Reviuzy SaaS, or AiLys-managed paths)
+
+The PDF mirrors the data you saw on the audit page; nothing new is computed at PDF generation time.
+
+## How long the download link lasts
+
+The link in the email is signed and works for **24 hours**. After that the link returns expired and you would request a new audit to regenerate.
+
+The link is single-use scoped to the audit ID. Sharing the link works (the file does not require login) but anyone with the link can download until the 24-hour window closes.
+
+## What the email looks like
+
+Subject and body match your audit language across the supported locales. The From field is the AiLys noreply address with proper SPF, DKIM, and DMARC, so it should land in your primary inbox rather than promotions.
+
+If the email does not arrive in 5 minutes:
+
+- Check your spam folder
+- Confirm the email address you entered (typos are the top cause)
+- Try again with a different inbox; the audit data is cached for 1 hour so you do not need to re-enter all fields
+
+## Privacy
+
+- The email you submit is only used to send the PDF link. We do not add you to any list.
+- The audit input you provided lives in cache for 1 hour to allow regeneration; after that it is purged.
+- The PDF is stored for 24 hours then deleted. We do not keep your audit PDF beyond that window.
+- The download link is HMAC-signed so the link itself cannot be tampered to point to another audit.
+- If you signed up for the AiLys newsletter as part of the audit flow, that is a separate consent and lives independently.
+
+## Why a PDF and not just the web view
+
+- You can share the PDF with stakeholders who do not run the audit themselves
+- It is a portable artifact for board decks, lender packages, or onboarding briefs
+- Some buyers want to print the action plan and walk through it in a strategy session
+- You can compare two audits over time by saving them locally
+
+## Common issues
+
+- **Email rejected**: we filter disposable email domains. Use a real inbox.
+- **Audit not found**: usually means more than 1 hour passed between running the audit and requesting the PDF; the cached input expired. Run the audit again.
+- **Link expired**: more than 24 hours have passed. Request the audit and PDF again.
+- **PDF looks wrong**: the audit relies on Google Places data; if your GBP record was just created and Google has not propagated, some sections show "not yet indexed". Wait a day and re-run.
+
+## What this is NOT
+
+- This is not the white-label monthly Visibility Report. That report goes to active Growth and Agency tier customers on the 1st of each month.
+- This is not the Day-1 onboarding PDF. That one auto-fires when you sign up for an AiLys plan.
+
+## Asking for help
+
+If the email never lands and the link is dead, contact the AiLys team via the chat widget on the bottom right of the site. Include the email address you used and roughly when you ran the audit; we can re-fire the email or extend the link.`,
+    i18n: {
+      fr: {
+        title: "Votre audit PDF (ce qu'il couvre, quand vous le recevez, comment le lire)",
+        excerpt:
+          "N'importe qui lance l'audit gratuit peut demander un PDF de 10 pages en marque par courriel. Voici ce que chaque section couvre, d'où viennent les données, et ce que l'expiration du lien signifie.",
+        body: `## De quoi s'agit-il
+
+Quand vous lancez l'audit gratuit sur le site AiLys, vous pouvez demander une version PDF téléchargeable. Nous générons un PDF de 10 pages en marque avec vos scores et observations et vous envoyons par courriel un lien de téléchargement à usage unique. Le PDF est prêt en environ 30 secondes et le lien est valide 24 heures.
+
+C'est ouvert à tous ceux qui complètent l'audit public. Aucun compte nécessaire.
+
+## Ce qu'il y a dans les 10 pages
+
+1. **Couverture**: nom de votre entreprise, date de l'audit, scores principaux
+2. **Sommaire exécutif**: trois principales observations et par où commencer
+3. **Score AI Visibility**: à quelle fréquence les grands moteurs IA mentionnent votre entreprise, avec un percentile contre des entreprises locales similaires
+4. **GBP Pulse**: dix signaux pondérés Google Business Profile notés contre des points de référence sectoriels
+5. **Matrice de citations LLM**: par moteur, comment votre entreprise est citée ou ignorée sur trois requêtes d'intention
+6. **Instantané Places**: votre fiche Google Places en direct et les trois concurrents les plus proches
+7. **Aperçu de schema**: LocalBusiness et FAQPage JSON-LD prêts à copier-coller, ajustés à votre secteur
+8. **Plan d'action**: liste priorisée avec estimation d'effort par tâche
+9. **Méthodologie**: ce qui a été noté, comment, et ce qui est exclu
+10. **Prochaines étapes**: comment mettre le plan en marche (libre-service, SaaS Reviuzy, ou AiLys géré)
+
+Le PDF reflète les données que vous avez vues sur la page d'audit; rien de nouveau n'est calculé au moment de la génération.
+
+## Combien de temps le lien dure
+
+Le lien dans le courriel est signé et fonctionne pendant **24 heures**. Après ça, le lien retourne expiré et vous referiez un audit pour le regénérer.
+
+Le lien est à usage unique pour un identifiant d'audit. Le partage du lien fonctionne (le fichier ne demande pas de connexion) mais quiconque a le lien peut télécharger jusqu'à la fin de la fenêtre de 24 heures.
+
+## À quoi ressemble le courriel
+
+Le sujet et le corps correspondent à la langue de votre audit dans les langues prises en charge. Le champ Expéditeur est l'adresse noreply AiLys avec SPF, DKIM et DMARC en règle, donc le courriel devrait arriver dans votre boîte principale plutôt que dans les promotions.
+
+Si le courriel n'arrive pas en 5 minutes:
+
+- Vérifiez le dossier indésirable
+- Confirmez l'adresse courriel saisie
+- Réessayez avec une autre boîte; les données d'audit sont en cache 1 heure donc vous n'avez pas à tout ressaisir
+
+## Confidentialité
+
+- Le courriel que vous donnez sert seulement à envoyer le lien PDF. Nous ne vous ajoutons à aucune liste.
+- L'audit que vous avez fourni vit en cache 1 heure pour permettre la regénération; ensuite il est purgé.
+- Le PDF est stocké 24 heures puis supprimé. Nous ne gardons pas votre PDF d'audit au-delà de cette fenêtre.
+- Le lien de téléchargement est signé HMAC donc le lien lui-même ne peut être altéré pour pointer vers un autre audit.
+- Si vous vous êtes inscrit à l'infolettre AiLys pendant le flux d'audit, c'est un consentement séparé.
+
+## Problèmes courants
+
+- **Courriel refusé**: nous filtrons les domaines de courriel jetables. Utilisez une vraie boîte.
+- **Audit introuvable**: ça veut habituellement dire que plus d'1 heure s'est écoulée entre l'audit et la demande de PDF; l'entrée en cache a expiré.
+- **Lien expiré**: plus de 24 heures se sont écoulées. Demandez l'audit et le PDF à nouveau.
+- **Le PDF a l'air faux**: l'audit s'appuie sur les données Google Places; si votre fiche GBP vient d'être créée et que Google n'a pas propagé, certaines sections affichent "pas encore indexé".
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas le rapport mensuel de Visibilité en marque blanche. Ce rapport va aux clients actifs des paliers Growth et Agency le 1er de chaque mois.
+- Ce n'est pas le PDF d'intégration Jour 1. Celui-là se déclenche automatiquement quand vous vous inscrivez à un plan AiLys.
+
+## Demander de l'aide
+
+Si le courriel n'arrive jamais et que le lien est mort, contactez l'équipe AiLys via le widget de clavardage en bas à droite du site. Incluez l'adresse courriel utilisée et environ quand vous avez lancé l'audit; nous pouvons relancer le courriel ou prolonger le lien.`,
+      },
+    },
+  },
+  {
+    slug: "day-1-onboarding-pdf",
+    title: "Your Day-1 onboarding PDF (auto-fires within 2 minutes of signup)",
+    excerpt:
+      "When you sign up for an AiLys plan, a baseline PDF audit fires automatically and arrives in your inbox within 2 minutes. Here is what is in it, why it ships before week 1, and what to do with it.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 3,
+    body: `## What this is
+
+When you complete signup for an AiLys plan, our Day-1 system fires a baseline PDF audit to your inbox within 2 minutes. No need to ask, no need to wait for your strategist's first call. The PDF gives you a starting picture of where your business stands on AI Visibility, GBP, citations, and schema before any AiLys work has been done.
+
+This is automatic for every new AiLys-managed account. Reviuzy self-serve customers run the public free audit instead.
+
+## Why so fast
+
+In the past, the first deliverable on a new AiLys engagement landed in week 1 or week 2. That delay is dead time for the client; you signed up because you want movement now. The Day-1 PDF closes that gap by giving you something tangible the same hour you sign.
+
+It also gives your strategist a shared baseline to reference on the first call. You can both look at the same numbers and discuss the same gaps.
+
+## What is in the PDF
+
+The Day-1 PDF is the same 10-page structure as the public audit PDF, with two additions on the cover page:
+
+- "Your AiLys account starts on" with the date
+- "Your dedicated strategist" with the name and contact (Growth and Agency tiers)
+
+And one important framing change: action items are written for the AiLys workflow rather than self-serve. Instead of "consider adding LocalBusiness schema", the action plan reads "Schema layer scheduled for week 1, your strategist will confirm the variant" with checkboxes that map to the AiLys delivery schedule.
+
+The cover note also says: "First scan completes within 24 hours. This baseline reflects the current state of your business on the public web before any AiLys work has been done."
+
+## When it arrives
+
+- **Trigger**: successful Stripe payment confirmation
+- **Window**: under 2 minutes from payment to inbox
+- **Recipient**: the email address used for the Stripe checkout
+- **From**: the AiLys noreply address
+- **Subject** (English): "Your AiLys baseline audit, Day 1"
+- **Subject** (French Canadian): "Votre audit de référence AiLys, Jour 1"
+
+If the PDF does not arrive in 5 minutes, the system retries from a dead-letter queue. If it still fails, the operator on call gets paged. Manual recovery happens within the business day.
+
+## What to do with it
+
+1. **Read the executive summary on page 2.** Three findings, ordered by priority.
+2. **Compare AI Visibility (page 3) and GBP Pulse (page 4) to your industry benchmarks.** The methodology page (page 9) explains where the benchmarks come from.
+3. **Save the PDF locally.** The download link in the email expires after 24 hours, but a copy in your filesystem does not.
+4. **Bring it to your first strategist call.** The call goes faster when you both have the same artifact open. Strategists usually walk through pages 2, 3, 5, and 8.
+5. **Treat the action plan as a shared backlog.** Items marked AiLys run on our side. Items marked Client need a small action from you (logo upload, photo upload, GBP access grant).
+
+## Privacy and security
+
+- The PDF is rendered server-side and uploaded to tenant-scoped storage.
+- The download link is HMAC-signed and single-use; the link itself cannot be tampered.
+- The recipient email is only the address used at checkout. We do not auto-send to additional addresses.
+- The PDF is retained for 30 days for re-download via your account dashboard, then deleted.
+- Internally, the run is logged with workspace ID, status, and a hash of the recipient email. No email is stored in clear.
+
+## Idempotency
+
+If signup completes twice (rare, but happens with a retry on a Stripe webhook), the system de-duplicates on the Stripe customer ID and only sends one PDF. You will not receive two copies even if Stripe retries.
+
+## What this is NOT
+
+- It is not the monthly Visibility Report. That arrives on the 1st of each month for Growth and Agency tiers.
+- It is not the public free audit. That one is open to anyone, no signup needed.
+
+## When you might NOT get one
+
+- You signed up for a Reviuzy self-serve plan rather than an AiLys-managed plan. Reviuzy customers use the in-app on-demand audit.
+- The Stripe webhook failed to deliver. Operator manual recovery within 1 business day.
+- Your business was not yet indexable on the public web (very new domain, no GBP). The PDF still fires but flags missing data on each page.
+
+## Asking for help
+
+If the Day-1 PDF never arrives and 24 hours have passed, contact your strategist via the AiLys account dashboard chat. We can re-fire the PDF or hand-build the baseline.`,
+    i18n: {
+      fr: {
+        title: "Votre PDF d'intégration Jour 1 (déclenché en moins de 2 minutes après l'inscription)",
+        excerpt:
+          "Quand vous vous inscrivez à un plan AiLys, un audit PDF de référence se déclenche automatiquement et arrive dans votre boîte en moins de 2 minutes. Voici ce qu'il contient, pourquoi il part avant la semaine 1, et quoi en faire.",
+        body: `## De quoi s'agit-il
+
+Quand vous complétez l'inscription à un plan AiLys, notre système Jour 1 envoie un audit PDF de référence dans votre boîte en moins de 2 minutes. Pas besoin de demander, pas besoin d'attendre le premier appel du stratège. Le PDF vous donne une image de départ de votre entreprise sur AI Visibility, GBP, citations et schema avant qu'un travail AiLys ait été fait.
+
+C'est automatique pour chaque nouveau compte AiLys géré. Les clients Reviuzy en libre-service lancent plutôt l'audit gratuit public.
+
+## Pourquoi si vite
+
+Avant, le premier livrable d'une nouvelle entente AiLys arrivait en semaine 1 ou semaine 2. Ce délai est du temps mort pour le client; vous vous êtes inscrit parce que vous voulez du mouvement maintenant. Le PDF Jour 1 ferme ce trou en vous donnant quelque chose de tangible la même heure où vous signez.
+
+Il donne aussi à votre stratège une base partagée à référencer au premier appel. Vous pouvez tous les deux regarder les mêmes chiffres et discuter des mêmes écarts.
+
+## Ce qu'il y a dans le PDF
+
+Le PDF Jour 1 a la même structure de 10 pages que le PDF d'audit public, avec deux ajouts sur la page couverture:
+
+- "Votre compte AiLys débute le" avec la date
+- "Votre stratège dédié" avec le nom et le contact (paliers Growth et Agency)
+
+Et un changement de cadrage important: les actions sont écrites pour le flux AiLys plutôt que pour le libre-service. Au lieu de "envisager l'ajout du schema LocalBusiness", le plan d'action lit "Couche schema prévue pour la semaine 1, votre stratège confirmera la variante" avec des cases à cocher qui correspondent au calendrier de livraison AiLys.
+
+La note de couverture dit aussi: "Le premier scan complet en moins de 24 heures. Cette référence reflète l'état actuel de votre entreprise sur le web public avant qu'aucun travail AiLys n'ait été fait."
+
+## Quand il arrive
+
+- **Déclencheur**: confirmation de paiement Stripe réussie
+- **Fenêtre**: moins de 2 minutes du paiement à la boîte
+- **Destinataire**: l'adresse courriel utilisée pour le paiement Stripe
+- **Expéditeur**: l'adresse noreply AiLys
+- **Sujet** (français canadien): "Votre audit de référence AiLys, Jour 1"
+- **Sujet** (anglais): "Your AiLys baseline audit, Day 1"
+
+Si le PDF n'arrive pas en 5 minutes, le système ré-essaie depuis une file de lettres mortes. S'il échoue encore, l'opérateur de garde est avisé. La récupération manuelle arrive dans la journée ouvrable.
+
+## Quoi en faire
+
+1. **Lisez le sommaire exécutif page 2.** Trois observations, par ordre de priorité.
+2. **Comparez AI Visibility (page 3) et GBP Pulse (page 4) aux points de référence du secteur.** La page méthodologie (page 9) explique d'où viennent les références.
+3. **Sauvegardez le PDF localement.** Le lien de téléchargement dans le courriel expire après 24 heures, mais une copie dans votre système de fichiers, non.
+4. **Apportez-le au premier appel avec le stratège.** L'appel va plus vite quand vous avez le même artefact ouvert. Les stratèges parcourent habituellement les pages 2, 3, 5 et 8.
+5. **Traitez le plan d'action comme un arriéré partagé.** Les items marqués AiLys tournent de notre côté. Les items marqués Client demandent une petite action de vous (téléversement de logo, téléversement de photos, octroi d'accès GBP).
+
+## Confidentialité et sécurité
+
+- Le PDF est rendu côté serveur et téléversé dans un stockage isolé par locataire.
+- Le lien de téléchargement est signé HMAC et à usage unique; le lien lui-même ne peut être altéré.
+- Le destinataire est seulement l'adresse utilisée au paiement. Nous n'envoyons pas automatiquement à des adresses additionnelles.
+- Le PDF est conservé 30 jours pour re-téléchargement via votre tableau de bord de compte, puis supprimé.
+- En interne, l'exécution est journalisée avec l'identifiant d'espace, le statut et un haché du courriel destinataire. Aucun courriel n'est stocké en clair.
+
+## Idempotence
+
+Si l'inscription se complète deux fois (rare, mais ça arrive avec une nouvelle tentative sur un webhook Stripe), le système déduplique sur l'identifiant client Stripe et n'envoie qu'un seul PDF. Vous ne recevrez pas deux copies même si Stripe ré-essaie.
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas le rapport mensuel de Visibilité. Celui-là arrive le 1er de chaque mois pour les paliers Growth et Agency.
+- Ce n'est pas l'audit public gratuit. Celui-là est ouvert à tous, sans inscription.
+
+## Quand vous pourriez NE PAS en recevoir
+
+- Vous vous êtes inscrit à un plan Reviuzy en libre-service plutôt qu'à un plan AiLys géré. Les clients Reviuzy utilisent l'audit à la demande dans l'application.
+- Le webhook Stripe n'a pas livré. Récupération manuelle de l'opérateur en moins d'1 jour ouvrable.
+- Votre entreprise n'était pas encore indexable sur le web public (domaine très neuf, pas de GBP). Le PDF part quand même mais signale les données manquantes sur chaque page.
+
+## Demander de l'aide
+
+Si le PDF Jour 1 n'arrive jamais et que 24 heures ont passé, contactez votre stratège via le clavardage du tableau de bord de compte AiLys. Nous pouvons relancer le PDF ou bâtir la référence à la main.`,
+      },
+    },
+  },
 ];

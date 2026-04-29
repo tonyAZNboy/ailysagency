@@ -51,8 +51,8 @@ User actions to flip B.4.3 from fallback to production:
 Deferred to next session (clean stopping point):
 - B.4.3.b Frontend modal UI (`AuditPdfDownload.tsx`) wired to /audit results page
 - B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
-- B.4.5 Help center articles (EN + FR-CA, no proprietary AI provider disclosure)
-- Tag `v0.5.0-pdf-export` after B.4.5 lands
+- ~~B.4.5 Help center articles~~ ✅ SHIPPED 2026-04-29 (commit `<NEXT>`): 2 articles `your-pdf-audit-explained` + `day-1-onboarding-pdf` EN+FR-CA, no proprietary AI provider disclosure, em-dash clean, verified live at 375x812 + 768x1024
+- Tag `v0.5.0-pdf-export` after B.4.4 lands
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
 
 ## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session, AiLys repo)
