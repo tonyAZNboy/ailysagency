@@ -49,9 +49,9 @@ User actions to flip B.4.3 from fallback to production:
 5. Resend domain auth (SPF/DKIM/DMARC) for `noreply@ailysagency.ca`
 
 Deferred to next session (clean stopping point):
-- B.4.3.b Frontend modal UI (`AuditPdfDownload.tsx`) wired to /audit results page
+- ~~B.4.3.b Frontend modal UI~~ ✅ SHIPPED 2026-04-29: `AuditPdfDownload.tsx` + 17 i18n keys × 16 locales (EN+FR-CA hand-translated, 14 secondaries TODO i18n), wired into AutoAuditEngine results panel below ExportActionPlan, verified compile + i18n parity + 66/66 smoke + build
 - B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
-- ~~B.4.5 Help center articles~~ ✅ SHIPPED 2026-04-29 (commit `<NEXT>`): 2 articles `your-pdf-audit-explained` + `day-1-onboarding-pdf` EN+FR-CA, no proprietary AI provider disclosure, em-dash clean, verified live at 375x812 + 768x1024
+- ~~B.4.5 Help center articles~~ ✅ SHIPPED 2026-04-29 (commit `67fac15`): 2 articles `your-pdf-audit-explained` + `day-1-onboarding-pdf` EN+FR-CA, no proprietary AI provider disclosure, em-dash clean, verified live at 375x812 + 768x1024
 - Tag `v0.5.0-pdf-export` after B.4.4 lands
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
 
