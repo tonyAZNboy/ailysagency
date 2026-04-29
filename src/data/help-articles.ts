@@ -5798,4 +5798,148 @@ Si vous voulez discuter d'escalade vers du démarchage manuel ou des annuaires s
       },
     },
   },
+  {
+    slug: "renewal-and-upsell-signals",
+    title: "Renewal nudges and tier upgrade signals (how the system flags growth opportunities)",
+    excerpt:
+      "Our system reads your usage patterns and sends a strategist alert (and optionally an email to you) when your data shows a renewal coming up or a tier upgrade would help. Here is how it works and how to opt out.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A daily background job reads your usage across the AiLys platform (citations submitted, photos uploaded, dashboard logins, AI Visibility scores) and computes a small set of signals: are you about to renew, are you hitting tier caps, has your visibility plateaued. When a signal is strong enough, your dedicated strategist gets a heads-up. If you opted into client-facing nudge emails, you also receive a concise note with the data behind it.
+
+The intent: never let a real bottleneck go unnoticed, never spam you with upgrade offers based on time alone.
+
+## What triggers a renewal nudge
+
+Three time-based signals fire automatically:
+
+- **30 days before anniversary**: light reminder to your strategist that renewal is coming
+- **14 days before**: stronger nudge, plus a draft "what changed in your account this year" summary the strategist can share
+- **7 days before**: priority queue item; strategist outreach within 1 business day
+
+Renewal nudges fire on every active subscription. Cancelled or paused subscriptions do not trigger nudges.
+
+## What triggers an upsell signal
+
+Four behavioral signals can fire at any time, only when your USAGE PATTERN backs them:
+
+- **Citation cap hit 3 months in a row**: your tier covers N citations/month; if you maxed them out three months running, your demand exceeds the tier
+- **Photo cap at quota for 2 months**: same logic for the GBP photo upload pipeline
+- **Visibility plateau**: your AI Visibility score has not improved in 90 days despite consistent activity; suggests the next tier's capabilities are needed
+- **Dashboard engagement**: high login frequency + many feature touches indicates you are using the product intensely; next tier may unlock more
+
+Each signal has a strength score 0.00 to 1.00. We never send an email below 0.80; we never alert a strategist below 0.60. Most signals sit in the 0.30 to 0.70 range and stay quiet.
+
+## What the strategist sees
+
+Your dedicated strategist (Growth and Agency tiers) has an admin feed:
+
+- "Acme Dental: renewal_14d, strength 1.00, action by 2026-05-15"
+- "Smith Realty: upsell_citation_cap, strength 0.85, last 3 months at 10/10 cap, suggested tier: Agency"
+
+They mark each signal as "actioned" with a reason (kept, upgraded, deferred, declined). The trail is auditable.
+
+## Client-facing emails (opt-in)
+
+By default, you do NOT receive automated upgrade emails. The signal stays internal. You can opt in via Settings > Notifications > "Send me upgrade-suggestion emails when my usage signals it." If on, you receive at most 1 email per signal type per quarter, with the data line that triggered it.
+
+You can opt out any time. Email send respects your existing preferences (mute hours, language, brand).
+
+## Privacy
+
+- Signals computed from data your workspace already collects: citation_submissions, gbp_photo_uploads, dashboard_sessions, ai_visibility_runs
+- Signal data stored as aggregate counts and ratios; NO individual review text, NO email content, NO IP
+- Retention: 365 days then purge
+- The recipient address for opt-in emails is only the workspace owner; no spreading to additional addresses
+
+## Why the strength threshold matters
+
+The 0.60 / 0.80 thresholds prevent the worst failure mode: spamming clients with upgrade offers they don't need. A signal is only emitted if the underlying data backs it. When in doubt, the signal stays under 0.60 and never reaches anyone.
+
+## When this is NOT useful
+
+- Brand-new accounts (less than 30 days): not enough data; signals stay quiet
+- Trialing accounts: only renewal nudges fire (no upsell)
+- Heavy seasonal businesses where 3-month moving averages are misleading: ask your strategist to mute specific signal types
+
+## Why we built it
+
+Renewals slipping past unnoticed is bad for the client (no time to plan budget) and bad for us (revenue churn). Upsell suggestions that ignore actual usage are spammy and erode trust. C.7 fixes both with the same daily aggregation pass.
+
+If you want to discuss how a specific signal applies to your account, your strategist can walk through the data with you on the next monthly call.`,
+    i18n: {
+      fr: {
+        title: "Rappels de renouvellement et signaux de mise à niveau (comment le système repère les occasions de croissance)",
+        excerpt:
+          "Un travail de fond quotidien lit vos motifs d'utilisation et envoie une alerte au stratège (et optionnellement un courriel à vous) quand vos données montrent un renouvellement à venir ou qu'une mise à niveau de palier aiderait. Voici comment ça fonctionne et comment se désabonner.",
+        body: `## De quoi s'agit-il
+
+Un travail de fond quotidien lit votre utilisation sur la plateforme AiLys (citations soumises, photos téléversées, connexions au tableau de bord, scores AI Visibility) et calcule un petit ensemble de signaux : êtes-vous sur le point de renouveler, atteignez-vous les plafonds de palier, votre visibilité plafonne-t-elle. Quand un signal est assez fort, votre stratège dédié reçoit un avertissement. Si vous avez accepté les courriels d'invitation côté client, vous recevez aussi une note concise avec les données derrière.
+
+L'intention : ne jamais laisser un vrai goulot d'étranglement passer inaperçu, ne jamais vous spammer avec des offres de mise à niveau basées seulement sur le temps.
+
+## Ce qui déclenche un rappel de renouvellement
+
+Trois signaux temporels se déclenchent automatiquement :
+
+- **30 jours avant l'anniversaire** : rappel léger à votre stratège que le renouvellement approche
+- **14 jours avant** : rappel plus fort, plus un brouillon "ce qui a changé dans votre compte cette année" que le stratège peut partager
+- **7 jours avant** : item de file prioritaire ; démarchage du stratège en 1 jour ouvrable
+
+Les rappels de renouvellement se déclenchent sur chaque abonnement actif. Les abonnements annulés ou en pause ne déclenchent pas de rappels.
+
+## Ce qui déclenche un signal de mise à niveau
+
+Quatre signaux comportementaux peuvent se déclencher à tout moment, seulement quand votre MOTIF D'UTILISATION les soutient :
+
+- **Plafond de citations atteint 3 mois de suite** : votre palier couvre N citations/mois ; si vous avez atteint le maximum trois mois de suite, votre demande dépasse le palier
+- **Plafond de photos atteint 2 mois** : même logique pour le pipeline de téléversement de photos GBP
+- **Plateau de visibilité** : votre score AI Visibility n'a pas progressé en 90 jours malgré une activité régulière ; suggère que les capacités du palier suivant sont nécessaires
+- **Engagement au tableau de bord** : haute fréquence de connexion + nombreuses interactions de fonctionnalités indique une utilisation intense ; le palier suivant peut débloquer plus
+
+Chaque signal a un score de force 0,00 à 1,00. Nous n'envoyons jamais de courriel sous 0,80 ; nous n'alertons jamais un stratège sous 0,60. La plupart des signaux se situent dans la plage 0,30 à 0,70 et restent silencieux.
+
+## Ce que le stratège voit
+
+Votre stratège dédié (paliers Growth et Agency) a un fil admin :
+
+- "Acme Dental : renewal_14d, force 1,00, action d'ici 2026-05-15"
+- "Smith Realty : upsell_citation_cap, force 0,85, 3 derniers mois au plafond 10/10, palier suggéré : Agency"
+
+Ils marquent chaque signal comme "actionné" avec une raison (gardé, mis à niveau, reporté, décliné). La piste est vérifiable.
+
+## Courriels côté client (sur consentement)
+
+Par défaut, vous ne recevez PAS de courriels automatiques de mise à niveau. Le signal reste interne. Vous pouvez vous y inscrire via Paramètres > Notifications > "Envoyez-moi des courriels de suggestion de mise à niveau quand mon utilisation le signale." Si activé, vous recevez au maximum 1 courriel par type de signal par trimestre, avec la ligne de données qui l'a déclenché.
+
+Vous pouvez vous désabonner à tout moment. L'envoi respecte vos préférences existantes (heures de silence, langue, marque).
+
+## Confidentialité
+
+- Signaux calculés à partir de données que votre espace collecte déjà : citation_submissions, gbp_photo_uploads, dashboard_sessions, ai_visibility_runs
+- Données de signal stockées comme comptes et ratios agrégés ; AUCUN texte d'avis individuel, AUCUN contenu de courriel, AUCUNE adresse IP
+- Rétention : 365 jours puis purge
+- L'adresse destinataire pour les courriels d'inscription est seulement le propriétaire de l'espace ; aucune diffusion à des adresses additionnelles
+
+## Pourquoi le seuil de force compte
+
+Les seuils 0,60 / 0,80 préviennent le pire mode d'échec : spammer les clients avec des offres de mise à niveau dont ils n'ont pas besoin. Un signal n'est émis que si les données sous-jacentes le soutiennent. En cas de doute, le signal reste sous 0,60 et n'atteint personne.
+
+## Quand ce n'est PAS utile
+
+- Comptes nouveaux (moins de 30 jours) : pas assez de données ; les signaux restent silencieux
+- Comptes en essai : seuls les rappels de renouvellement se déclenchent (pas de mise à niveau)
+- Entreprises fortement saisonnières où les moyennes mobiles sur 3 mois sont trompeuses : demandez à votre stratège de mettre certains types de signaux en sourdine
+
+## Pourquoi nous l'avons bâti
+
+Les renouvellements qui passent inaperçus, c'est mauvais pour le client (pas le temps de planifier le budget) et mauvais pour nous (perte de revenus). Les suggestions de mise à niveau qui ignorent l'utilisation réelle sont spammeuses et érodent la confiance. C.7 corrige les deux avec le même passage d'agrégation quotidien.
+
+Si vous voulez discuter de comment un signal spécifique s'applique à votre compte, votre stratège peut parcourir les données avec vous lors du prochain appel mensuel.`,
+      },
+    },
+  },
 ];

@@ -77,6 +77,29 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚧 PHASE C.7 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.7 (Renewal nudges + behavioral upsell signals) ran through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c7/`
+- 1 help article `renewal-and-upsell-signals` EN + FR-CA (no proprietary AI provider mention)
+- STATE.md updated
+
+**Reviuzy side (next session, fully specced in `.planning/phase-c7/02-sub-phases.md`):**
+- C.7.Rvz.1: migration + builder lib (~3h, 35 vitest cases)
+- C.7.Rvz.2: edge fn `compute-renewal-signals` (~3h, 16 cases)
+- C.7.Rvz.3: pg_cron + admin panel (~3h, 7 cases)
+- C.7.Rvz.4: email templates + opt-in toggle (~1.5h)
+
+**User actions to flip C.7 from staged to live (Reviuzy side):**
+1. Read `.planning/phase-c7/02-sub-phases.md`
+2. Apply 3 migrations (renewal_signals + tenants.upsell_emails_enabled + cron schedule)
+3. Deploy edge fn + render lib
+4. Set 2 env vars: RENEWAL_SIGNALS_ENABLED, RENEWAL_SIGNALS_DRY_RUN
+5. DRY_RUN test on 1 seed Growth tenant approaching renewal
+6. Flip live, monitor first week conversion
+
 ## 🚧 PHASE C.6 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
 
 Phase C.6 (Citation directory auto-batch) ran through `iso-gsd-delivery` skill.
