@@ -1,7 +1,7 @@
 # AiLys Agency — Project State
 
 **Last updated:** 2026-04-28 night (BLOG TRANSLATION AUDIT: 51 EN→FR-CA pairs swept against 10-gate `audit-blog-translations.mjs`, 6 fixes landed (Wikipédia → Wikipedia ×2, missing SectionDivider, reciprocal EN cross-link in FR audit checklist, schema.org → Schema.org, restored SEO terminology in apple-business-connect FR), 2 pre-existing em-dashes scrubbed from ru.ts. 51/51 pairs now pass every gate. CLAUDE.md test cadence updated to require the new audit pre-merge.)
-**Branch:** `main` · **Tag pending:** `v0.4.0-blog-launch` · **Active commit:** ailysagency `a4a4a14` (manual wrangler deploys for production; auto-deploy CI in flight after `CLOUDFLARE_API_TOKEN` token scope fix)
+**Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` (already pushed to origin) · **HEAD:** ailysagency `e79a047` (audit hygiene + CI iterations on top of the milestone)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 ## 🎉 Blog launch milestone (2026-04-28 night, commit `196a6d5`)
 
