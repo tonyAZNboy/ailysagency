@@ -1,5 +1,8 @@
 # AiLys Agency — Project State
 
+> **🚨 IF WORKING ON PHASE C/11/12 OR ANY NEW FEATURE TOUCHING AUTH/DATA/CRON/ADMIN/HMAC/RLS:** invoke `/iso-gsd-delivery` BEFORE writing any code. The skill enforces GSD planning artefacts, ISO gates per commit, agent fidelity verification, gov-grade security, cost guardrails, multi-tenant isolation tests, DRY_RUN mode, locale parity, STATE.md same-commit, no-new-deps, time-box, migration reversibility, and a binary Definition of Done. CLAUDE.md hard rule #14 binds this. Skip = NOT MERGEABLE.
+
+
 **Last updated:** 2026-04-29 (PHASE C AUTOMATION FULL SWEEP: C.1 Day-1 onboarding PDF + C.2 cron primitives shipped on AiLys; C.3 GBP auto-publish gate + C.4 anomaly auto-remediation shipped on Reviuzy via PR #6 merged at `21b3d59`. Cross-repo: 14 commits, 104 vitest+smoke assertions, 9 mandatory CI gates on AiLys, full Reviuzy test suite passing 363/363. AiLys help articles for C.3 + C.4 live in production. All infrastructure (HMAC primitives, idempotency, kill switches, audit logs, RLS, single-use tokens, constant-time compare) gov-grade. End-of-session tag pending: `v0.5.0-automation-c1-c4`.)
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
