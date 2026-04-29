@@ -4881,4 +4881,276 @@ Le plafond de 500 mots-clés par organisation garde la synchronisation quotidien
       },
     },
   },
+  {
+    slug: "gbp-auto-publish-explained",
+    title: "How GBP reply auto-publish works (Agency tier)",
+    excerpt:
+      "On the Agency tier, high-confidence Q&A reply drafts can publish automatically without operator approval. Here is the gate that decides, and the safety belt that catches anything risky.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+When a customer asks a question on your Google Business Profile, our AiLys engine drafts a reply (covered in the GBP Q&A monitoring article). On the Agency tier, drafts that score high enough on our internal confidence scale and carry zero risk markers can publish to Google without waiting for an operator to click Approve. Lower-scoring drafts and anything flagged as risky still go through the manual queue.
+
+This is opt-in per workspace. Auto-publish stays OFF until you (or your strategist) flips it on in Settings. You can flip it OFF at any time and the next draft routes back to manual.
+
+## When a draft auto-publishes
+
+A draft auto-publishes only if EVERY one of these is true:
+
+1. Your workspace has auto-publish ON
+2. Your tier is Agency (Starter, Core, Growth always queue manually)
+3. Our engine returned a confidence score of 0.92 or higher (configurable per workspace, between 0.50 and 1.00)
+4. The draft has no risk markers attached
+
+If any one is false, the draft routes to the manual queue and the audit log records exactly which gate blocked it. You will see the reason in the GBP Q&A manager.
+
+## Risk markers
+
+Our engine flags a draft with a risk marker when it sees something that benefits from a human read. The markers we use:
+
+- **contains_legal_term**: any reference to contracts, warranties, refunds, or regulations
+- **references_pricing**: any mention of dollar amounts, percentages, "discount", "free"
+- **mentions_competitor**: names another business by brand
+- **contains_promise**: words like "guarantee", "we will", "always", "never"
+- **ambiguous_question**: the customer's question itself was unclear
+
+Any one of these markers caps the effective confidence at 0.85, which is below the default 0.92 floor. Drafts with markers always queue manually, regardless of how confident the engine is.
+
+## What you see in the dashboard
+
+Every draft in your GBP Q&A manager now shows:
+
+- The confidence score (0.00 to 1.00)
+- Any risk markers (as small chips)
+- The auto-publish decision (auto_published, queued_low_confidence, queued_risk_factors, queued_tier_below_agency, queued_tenant_disabled)
+
+Drafts that auto-published carry a green "Auto" badge and a timestamp.
+
+## Reversal window
+
+If a draft auto-publishes and you want it pulled, you have a 24-hour window to reverse it from the dashboard. Click Reverse, optionally type a reason, and we delete the reply from Google. The audit log keeps both the original publish and the reversal so the trail stays clean.
+
+After 24 hours, the reply stays public and you would manage it through the normal "edit posted reply" flow if you want to change wording.
+
+## Safety properties
+
+- The decision runs server-side. The browser cannot tell the API to "auto-publish anyway" by tampering with a request.
+- The tier check is enforced server-side against your workspace's saved tier, not against any client-supplied value.
+- The kill switch is two-layer: the per-workspace toggle plus a system-wide flag that operators can flip in case of an upstream issue.
+- Every auto-publish event writes to the audit trail with full inputs (confidence, risk markers, threshold, tier).
+
+## When NOT to enable this
+
+- If your team prefers to read every reply before it goes live (some agencies on the Agency tier still want manual approval for brand reasons)
+- During the first 30 days while you calibrate threshold and review marker quality
+- For workspaces in heavily regulated verticals (legal, medical, financial) where every word matters
+
+You can pause auto-publish at any time without losing the queue.
+
+## Asking your strategist
+
+If you are unsure whether to enable auto-publish, your dedicated strategist (Growth and Agency tiers) can review the last 30 drafts with you, look at confidence distribution, and recommend a threshold. The default 0.92 is conservative; some workspaces set 0.95 for extra caution and some set 0.88 once they trust the calibration.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne la publication automatique des réponses GBP (palier Agency)",
+        excerpt:
+          "Au palier Agency, les brouillons de réponses Q&R de haute confiance peuvent être publiés automatiquement sans approbation d'un opérateur. Voici la barrière de décision et la ceinture de sécurité qui attrape tout ce qui est risqué.",
+        body: `## De quoi s'agit-il
+
+Quand un client pose une question sur votre fiche Google Business, notre moteur AiLys rédige un brouillon de réponse (voir l'article sur la surveillance Q&R GBP). Au palier Agency, les brouillons qui obtiennent un score de confiance assez élevé et qui ne portent aucun marqueur de risque peuvent être publiés sur Google sans attendre qu'un opérateur clique Approuver. Les brouillons à score plus bas et tout ce qui est marqué comme risqué passent toujours par la file manuelle.
+
+C'est optionnel par espace de travail. La publication automatique reste désactivée tant que vous (ou votre stratège) ne l'activez pas dans les paramètres. Vous pouvez la désactiver à tout moment et le prochain brouillon repart vers la file manuelle.
+
+## Quand un brouillon est publié automatiquement
+
+Un brouillon n'est publié automatiquement que si TOUTES ces conditions sont vraies :
+
+1. Votre espace de travail a la publication automatique activée
+2. Votre palier est Agency (Starter, Core, Growth font toujours la file manuelle)
+3. Notre moteur a retourné un score de confiance de 0,92 ou plus (configurable par espace, entre 0,50 et 1,00)
+4. Le brouillon n'a aucun marqueur de risque
+
+Si l'une est fausse, le brouillon va à la file manuelle et le journal d'audit enregistre exactement quelle barrière a bloqué. Vous verrez la raison dans le gestionnaire Q&R GBP.
+
+## Marqueurs de risque
+
+Notre moteur marque un brouillon quand il voit quelque chose qui mérite une lecture humaine. Les marqueurs que nous utilisons :
+
+- **contains_legal_term** : toute référence à un contrat, garantie, remboursement, ou réglementation
+- **references_pricing** : toute mention de montant, pourcentage, "rabais", "gratuit"
+- **mentions_competitor** : nomme une autre entreprise par sa marque
+- **contains_promise** : mots comme "garantie", "nous allons", "toujours", "jamais"
+- **ambiguous_question** : la question du client était elle-même peu claire
+
+Tout marqueur plafonne la confiance effective à 0,85, ce qui est sous le plancher par défaut de 0,92. Les brouillons avec marqueurs vont toujours à la file manuelle, peu importe la confiance du moteur.
+
+## Ce que vous voyez dans le tableau de bord
+
+Chaque brouillon dans votre gestionnaire Q&R GBP affiche maintenant :
+
+- Le score de confiance (0,00 à 1,00)
+- Tout marqueur de risque (en petites pastilles)
+- La décision de publication automatique (auto_published, queued_low_confidence, queued_risk_factors, queued_tier_below_agency, queued_tenant_disabled)
+
+Les brouillons publiés automatiquement portent une pastille verte "Auto" et un horodatage.
+
+## Fenêtre de réversion
+
+Si un brouillon est publié automatiquement et que vous voulez le retirer, vous avez 24 heures pour le révoquer depuis le tableau de bord. Cliquez Révoquer, écrivez optionnellement une raison, et nous supprimons la réponse de Google. Le journal d'audit garde la publication initiale et la réversion pour que la piste reste propre.
+
+Après 24 heures, la réponse reste publique et vous la géreriez via le flux normal "modifier réponse publiée" pour changer le texte.
+
+## Propriétés de sécurité
+
+- La décision tourne côté serveur. Le navigateur ne peut pas demander à l'API "publier quand même" en altérant une requête.
+- Le contrôle de palier est appliqué côté serveur contre le palier sauvegardé de votre espace, pas contre une valeur fournie par le client.
+- Le coupe-circuit a deux couches : la bascule par espace plus un drapeau système que les opérateurs peuvent activer en cas de problème en amont.
+- Chaque publication automatique écrit dans la piste d'audit avec toutes les entrées (confiance, marqueurs de risque, seuil, palier).
+
+## Quand NE PAS activer
+
+- Si votre équipe préfère lire chaque réponse avant qu'elle ne soit publiée (certaines agences au palier Agency veulent encore l'approbation manuelle pour des raisons de marque)
+- Pendant les 30 premiers jours, le temps de calibrer le seuil et de vérifier la qualité des marqueurs
+- Pour des espaces dans des secteurs très réglementés (juridique, médical, financier) où chaque mot compte
+
+Vous pouvez mettre la publication automatique en pause à tout moment sans perdre la file.
+
+## Demander à votre stratège
+
+Si vous hésitez, votre stratège dédié (paliers Growth et Agency) peut revoir les 30 derniers brouillons avec vous, examiner la distribution de confiance et recommander un seuil. La valeur par défaut de 0,92 est prudente ; certains espaces fixent 0,95 pour plus de prudence et d'autres descendent à 0,88 une fois qu'ils font confiance à l'étalonnage.`,
+      },
+    },
+  },
+  {
+    slug: "anomaly-alerts-and-auto-fix",
+    title: "How crisis early warning alerts and one-click auto-fix work",
+    excerpt:
+      "When something goes wrong (rating drop, citation churn, fake review wave), we email the alert with a one-click auto-fix button. Here is what each fix does and how the safety controls work.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+Our crisis early warning system (covered in the original anomaly-alerts article) watches for four anomaly classes: negative-sentiment spikes on Reddit, AI Visibility drops, citation delistings, and review-bomb patterns. When one fires for your workspace, we email the contact on file. On the Agency tier with auto-remediation enabled, the email now carries a one-click button that runs the appropriate fix.
+
+This is opt-in. Auto-remediation stays OFF until your workspace owner enables it. The email reverts to a notification-only format with that switch off.
+
+## What each fix does
+
+| Anomaly class | Auto-fix | What runs in the background |
+|---|---|---|
+| Negative sentiment spike on Reddit | Queue a review-velocity boost | We schedule a batch of review-prompt sends to recent positive customers, dilution-style |
+| AI Visibility drop | Resubmit dropped citations | We re-queue your top-tier citations to be re-submitted on the next cycle |
+| Citation churn | Resubmit dropped citations | Same as above but scoped to the specific delisted directories |
+| Review bomb | Compile fake-review evidence | We assemble the evidence packet (review IDs, dates, posting patterns) for your strategist to file with Google |
+
+None of the four fixes touches public-facing content directly. The fix queues work that an operator and our existing daily workflows pick up. This is by design: even with auto-fix enabled, a human is in the loop before anything publishes.
+
+## How the one-click button works (security)
+
+The auto-fix button in the email is a signed link. Specifically:
+
+1. When the alert fires, our backend mints a one-time token (UUID) and signs it with HMAC-SHA256 against a server-only secret
+2. The signed link includes the token id and an expiry timestamp (24 hours from issue)
+3. Clicking the link verifies the signature server-side, in constant time, against the secret
+4. If the signature checks out and the expiry is in the future and the token has not been used: we mark the token "applied" atomically (so a double-click only succeeds once) and run the fix
+5. If anything fails (signature mismatch, expired, already used): the link returns an error page and the fix does not run
+
+## What you see if you click an expired or already-used link
+
+A short page that says either "this link has expired, please open the alert in your dashboard to re-issue" or "this link has already been used, here is the result of that previous click". No fix runs twice.
+
+## Audit trail
+
+Every issued token, click, success, and failure writes a row to your workspace's `anomaly_remediations` table. Owners and admins can see the full log in the admin pipeline view. AiLys strategists assigned to the workspace can also see it.
+
+The log is append-only. We never delete or rewrite a remediation row.
+
+## Kill switches
+
+Two layers, both reversible:
+
+- **Per workspace**: an owner toggles auto_remediate_enabled in Settings. With it OFF, alert emails revert to notification-only.
+- **System-wide**: operators flip the system flag if a downstream issue shows up. With it OFF, no new tokens issue regardless of workspace settings; existing tokens still verify if clicked within their 24h window.
+
+## What we do NOT do
+
+- We do not auto-publish anything to your Google profile via this flow. That path is the GBP auto-publish gate, which is a separate feature.
+- We do not auto-charge or auto-modify your billing. Stripe stays under direct operator and owner control.
+- We do not re-run the auto-fix automatically. One token = one click = one apply. If you need to retry, request a fresh token from the dashboard.
+
+## When to enable
+
+- After 30 days on the platform when you have seen a few alerts and decided you trust the routing
+- When your team is too small to handle every alert manually within a few hours
+- When operating across multiple time zones and you want fixes to start running before the next operator shift
+
+Your strategist can walk through the last 90 days of alerts with you and decide together.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionnent les alertes d'avertissement précoce et la correction automatique en un clic",
+        excerpt:
+          "Quand quelque chose tourne mal (chute de note, churn de citations, vague de faux avis), nous envoyons l'alerte avec un bouton de correction automatique en un clic. Voici ce que chaque correction fait et comment les contrôles de sécurité fonctionnent.",
+        body: `## De quoi s'agit-il
+
+Notre système d'avertissement précoce (couvert dans l'article original sur les alertes d'anomalie) surveille quatre classes d'anomalies : pics de sentiment négatif sur Reddit, chutes de l'AI Visibility, désinscriptions de citations, et patrons de bombes d'avis. Quand l'une se déclenche pour votre espace de travail, nous envoyons un courriel au contact en dossier. Au palier Agency avec auto-remédiation activée, le courriel porte maintenant un bouton de correction en un clic qui exécute la correction appropriée.
+
+C'est optionnel. L'auto-remédiation reste désactivée tant que le propriétaire de l'espace ne l'active pas. Le courriel revient à un format notification seulement avec cet interrupteur désactivé.
+
+## Ce que chaque correction fait
+
+| Classe d'anomalie | Correction automatique | Ce qui tourne en arrière-plan |
+|---|---|---|
+| Pic de sentiment négatif sur Reddit | Mettre en file un coup de pouce de vélocité d'avis | Nous programmons un lot d'invitations d'avis aux clients positifs récents, par dilution |
+| Chute de l'AI Visibility | Resoumettre les citations perdues | Nous remettons en file vos citations principales pour resoumission au prochain cycle |
+| Churn de citations | Resoumettre les citations perdues | Pareil mais ciblé aux annuaires spécifiques désinscrits |
+| Bombe d'avis | Compiler les preuves de faux avis | Nous assemblons le dossier de preuves (IDs des avis, dates, patrons) pour que votre stratège dépose la plainte auprès de Google |
+
+Aucune des quatre corrections ne touche le contenu public directement. La correction met en file du travail qu'un opérateur et nos flux quotidiens existants ramassent. C'est voulu : même avec l'auto-correction activée, un humain est dans la boucle avant toute publication.
+
+## Comment le bouton en un clic fonctionne (sécurité)
+
+Le bouton de correction dans le courriel est un lien signé. Précisément :
+
+1. Quand l'alerte se déclenche, notre backend forge un jeton à usage unique (UUID) et le signe avec HMAC-SHA256 contre un secret côté serveur seulement
+2. Le lien signé inclut l'ID du jeton et un horodatage d'expiration (24 heures depuis l'émission)
+3. Cliquer le lien vérifie la signature côté serveur, en temps constant, contre le secret
+4. Si la signature passe, l'expiration est dans le futur, et le jeton n'a pas été utilisé : nous marquons le jeton "appliqué" de façon atomique (donc un double-clic ne réussit qu'une fois) et lançons la correction
+5. Si quoi que ce soit échoue (mismatch de signature, expiré, déjà utilisé) : le lien retourne une page d'erreur et la correction ne tourne pas
+
+## Ce que vous voyez si vous cliquez un lien expiré ou déjà utilisé
+
+Une courte page qui dit soit "ce lien a expiré, ouvrez l'alerte dans votre tableau de bord pour le réémettre" soit "ce lien a déjà été utilisé, voici le résultat du clic précédent". Aucune correction ne tourne deux fois.
+
+## Piste d'audit
+
+Chaque jeton émis, clic, succès, et échec écrit une ligne dans la table anomaly_remediations de votre espace. Propriétaires et admins voient le journal complet dans la vue pipeline d'administration. Les stratèges AiLys assignés à l'espace voient aussi.
+
+Le journal est en ajout seul. Nous ne supprimons ni ne réécrivons jamais une ligne de remédiation.
+
+## Coupe-circuits
+
+Deux couches, les deux réversibles :
+
+- **Par espace** : un propriétaire bascule auto_remediate_enabled dans les paramètres. Désactivé, les courriels d'alerte reviennent à notification seulement.
+- **Système-wide** : les opérateurs activent le drapeau système si un problème en aval apparaît. Désactivé, aucun nouveau jeton n'émet peu importe les paramètres d'espace ; les jetons existants vérifient encore si cliqués dans leur fenêtre de 24h.
+
+## Ce que nous NE faisons PAS
+
+- Nous n'auto-publions rien sur votre profil Google via ce flux. Ce chemin est la barrière d'auto-publication GBP, qui est une fonction séparée.
+- Nous n'auto-facturons ni n'auto-modifions votre facturation. Stripe reste sous contrôle direct d'opérateur et de propriétaire.
+- Nous ne re-lançons pas l'auto-correction automatiquement. Un jeton = un clic = une application. Si vous devez réessayer, demandez un nouveau jeton depuis le tableau de bord.
+
+## Quand activer
+
+- Après 30 jours sur la plateforme quand vous avez vu quelques alertes et décidé que vous faites confiance au routage
+- Quand votre équipe est trop petite pour traiter chaque alerte manuellement dans quelques heures
+- Quand vous opérez sur plusieurs fuseaux horaires et voulez que les corrections commencent avant le prochain quart d'opérateur
+
+Votre stratège peut parcourir les 90 derniers jours d'alertes avec vous et décider ensemble.`,
+      },
+    },
+  },
 ];

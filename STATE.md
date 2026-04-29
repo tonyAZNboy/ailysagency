@@ -52,17 +52,43 @@ Deferred to next session (clean stopping point):
 - Tag `v0.5.0-pdf-export` after B.4.5 lands
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
 
-## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session)
+## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session, AiLys repo)
 
 | Sub-phase | Commit | Live? | Smoke | Live curl |
 |---|---|---|---|---|
 | C.1 | `1c0505e` | yes (fails-closed pending env var) | 17/17 pass | 4 failure modes verified |
 | C.2 | `f55e341` | yes (fails-closed pending env var) | 13/13 pass | 3 failure modes verified |
 
-**Total CI gates after this session: 9** (8 mandatory + 1 warn-only).
-**Total smoke assertions running on every push: 66** across 5 scripts.
-**Total endpoints shipped this session: 2** (audit-pdf-onboarding + cron-day1-retry).
-**Total libraries shipped this session: 3** (serviceAuth + onboardingAuditPayload + cronGuard).
+**Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
+**Total AiLys smoke assertions running on every push: 66** across 5 scripts.
+
+## 🟡 PHASE C.3 + C.4 PR OPEN 2026-04-29 (Reviuzy repo)
+
+Cross-repo: code in Reviuzy, help articles in AiLys.
+
+**Reviuzy:** PR #6 open at https://github.com/tonyAZNboy/reviuzy/pull/6
+- branch `claude/phase-c3-c4-automation`
+- 2 commits (Chunk A migrations + token primitive + 15 tests; Chunk B confidence scoring + 4 edge fn changes + 23 tests)
+- Migrations: `20260429000000_phase_c3_auto_publish.sql` + `20260429010000_phase_c4_remediation.sql`
+- New shared libs: `_shared/remediationToken.ts` (HMAC-SHA256 single-use) + `_shared/confidenceScoring.ts` (structured-output parse + decideAutoPublish pure fn)
+- Modified edge fns: `gbp-draft-reply` (emits confidence + risk_factors) + `detect-anomalies` (issues remediation tokens when auto_remediate_enabled)
+- New edge fns: `gbp-auto-publish-gate` + `apply-remediation`
+- Reviuzy test suite: 24 files, 363 tests pass (up from 340), 17 todo, 0 fail
+- 38 new vitest cases on the C.3 + C.4 surface
+
+**AiLys:** 2 new help articles in `src/data/help-articles.ts`, EN + FR-CA each:
+- `gbp-auto-publish-explained` (C.3)
+- `anomaly-alerts-and-auto-fix` (C.4)
+- Both follow CLAUDE.md hard rule #10: describe user-visible behavior + safety controls without naming the AI provider, model, scoring formula, or vendor APIs
+
+**User actions to flip C.3 + C.4 from staged to live (Reviuzy side):**
+1. Merge PR #6 to Reviuzy main
+2. Set `REMEDIATION_HMAC_SECRET` in Reviuzy edge fn secrets:
+   `npx supabase secrets set REMEDIATION_HMAC_SECRET=$(openssl rand -hex 32) --project-ref qucxhksrpqunlyjjvuae`
+3. Apply migrations 20260429000000 + 20260429010000 via Supabase SQL Editor
+4. Deploy 4 edge fns:
+   `npx supabase functions deploy gbp-draft-reply gbp-auto-publish-gate detect-anomalies apply-remediation --project-ref qucxhksrpqunlyjjvuae`
+5. Per-tenant flip in SuperAdmin Tenants tab: `auto_publish_enabled=true` (Agency only) and `auto_remediate_enabled=true` as desired
 
 Files shipped:
 - `functions/lib/serviceAuth.ts`: HMAC-SHA256 service-to-service auth
