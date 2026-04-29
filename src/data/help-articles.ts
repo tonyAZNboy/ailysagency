@@ -5064,7 +5064,7 @@ A short page that says either "this link has expired, please open the alert in y
 
 ## Audit trail
 
-Every issued token, click, success, and failure writes a row to your workspace's `anomaly_remediations` table. Owners and admins can see the full log in the admin pipeline view. AiLys strategists assigned to the workspace can also see it.
+Every issued token, click, success, and failure writes a row to your workspace audit log. Owners and admins can see the full log in the admin pipeline view. AiLys strategists assigned to the workspace can also see it.
 
 The log is append-only. We never delete or rewrite a remediation row.
 
