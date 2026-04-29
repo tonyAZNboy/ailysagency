@@ -30,6 +30,7 @@ import { PlacesPreview } from "@/components/audit/PlacesPreview";
 import { SchemaPreview } from "@/components/audit/SchemaPreview";
 import { CompetitorOverlay } from "@/components/audit/CompetitorOverlay";
 import { ExportActionPlan } from "@/components/audit/ExportActionPlan";
+import { AuditPdfDownload } from "@/components/audit/AuditPdfDownload";
 import { useLang } from "@/i18n/LangContext";
 import type { TranslationKeys } from "@/i18n";
 
@@ -757,6 +758,16 @@ function ResultsPanel({
             actionPlan={result.action_plan}
             score={result.reputation_score}
           />
+
+          {/* B.4.3.b: branded 10-page PDF emailed to user (signed 24h link) */}
+          <div className="flex justify-center">
+            <AuditPdfDownload
+              businessName={businessName}
+              city={city}
+              vertical={industry}
+              scoreNumeric={result.reputation_score}
+            />
+          </div>
         </div>
       )}
 

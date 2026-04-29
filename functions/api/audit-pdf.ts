@@ -135,10 +135,25 @@ interface AuditLogEntry {
   latencyMs: number;
 }
 
-function emitAuditLog(entry: AuditLogEntry): void {
+function emitAuditLog(ctx: PagesContext, entry: AuditLogEntry): void {
   // Cloudflare Logpush picks up structured console.log JSON.
   // Per CLAUDE.md hard rule #9, no PII in clear; only SHA-256 hashes.
   console.log(JSON.stringify({ component: 'audit-pdf', ...entry }));
+
+  // B.4.4: ring-buffer write to KV for the admin observability endpoint.
+  // Non-blocking via waitUntil so it never adds latency to the user path.
+  // 7-day TTL auto-evicts; aggregate of last 50 used by /api/admin/audit-pdf-stats.
+  // No PII: entry already contains only SHA-256 hashes per AuditLogEntry contract.
+  const kv = ctx.env.AUDIT_PDF_RATE_LIMIT;
+  if (kv) {
+    const key = `audit_pdf_log:${Date.now()}`;
+    ctx.waitUntil(
+      kv.put(key, JSON.stringify(entry), { expirationTtl: 7 * 24 * 60 * 60 }).catch(() => {
+        // Swallow KV failures: audit log to KV is observability, not durability.
+        // Logpush still has the source-of-truth log line.
+      }),
+    );
+  }
 }
 
 // ── Origin allowlist ────────────────────────────────────────────────────────
@@ -172,7 +187,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   // 1. Payload size cap
   const lenHeader = request.headers.get('content-length');
   if (lenHeader && Number.parseInt(lenHeader, 10) > PDF_REQUEST_MAX_PAYLOAD_BYTES) {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'reject_payload_too_large',
       actorHash: '',
@@ -189,7 +204,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   try {
     const raw = await request.text();
     if (raw.length > PDF_REQUEST_MAX_PAYLOAD_BYTES) {
-      emitAuditLog({
+      emitAuditLog(ctx, {
         ts: new Date().toISOString(),
         action: 'reject_payload_too_large',
         actorHash: '',
@@ -202,7 +217,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     }
     bodyJson = JSON.parse(raw);
   } catch {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'reject_invalid_json',
       actorHash: '',
@@ -216,7 +231,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   // 3. Validate
   const validation = validateAuditPdfRequest(bodyJson);
   if (!validation.ok || !validation.data) {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'reject_validation',
       actorHash: '',
@@ -233,7 +248,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
 
   // 4. Kill switch
   if (await isKillSwitchActive(env)) {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'reject_kill_switch',
       actorHash,
@@ -248,7 +263,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   // 5. Rate limit
   const rl = await rateLimitCheckAndIncrement(env, ipHash, actorHash);
   if (!rl.allowed) {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'reject_rate_limit',
       actorHash,
@@ -270,7 +285,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   try {
     pdfBytes = await renderAuditPdf(data);
   } catch (err) {
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'render_failed',
       actorHash,
@@ -303,7 +318,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
         },
       });
     } catch (err) {
-      emitAuditLog({
+      emitAuditLog(ctx, {
         ts: new Date().toISOString(),
         action: 'r2_put_failed',
         actorHash,
@@ -322,7 +337,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
 
     if (env.RESEND_API_KEY) {
       const emailSent = await sendDownloadEmail(env, data, downloadUrl);
-      emitAuditLog({
+      emitAuditLog(ctx, {
         ts: new Date().toISOString(),
         action: emailSent.ok ? 'email_sent' : 'email_failed',
         actorHash,
@@ -336,7 +351,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
         return jsonResponse({ error: 'email_failed', detail: emailSent.error }, 500);
       }
     } else {
-      emitAuditLog({
+      emitAuditLog(ctx, {
         ts: new Date().toISOString(),
         action: 'email_skipped_no_key',
         actorHash,
@@ -347,7 +362,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
       });
     }
 
-    emitAuditLog({
+    emitAuditLog(ctx, {
       ts: new Date().toISOString(),
       action: 'pdf_queued',
       actorHash,
@@ -374,7 +389,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
 
   // Fallback: stream directly. Useful in local dev and for the first deploy
   // before the user wires R2 + HMAC secret.
-  emitAuditLog({
+  emitAuditLog(ctx, {
     ts: new Date().toISOString(),
     action: 'pdf_streamed',
     actorHash,

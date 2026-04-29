@@ -5153,4 +5153,1107 @@ Votre stratège peut parcourir les 90 derniers jours d'alertes avec vous et déc
       },
     },
   },
+  {
+    slug: "monthly-visibility-report",
+    title: "Your monthly Visibility Report (auto-delivered to your inbox)",
+    excerpt:
+      "On the 1st of each month, Growth and Agency tiers receive a branded Visibility Report PDF in their inbox. Here is what is inside, when it arrives, and how to opt out.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+On the 1st of every month, your workspace receives a branded Visibility Report PDF in the inbox of the contact on file. The report covers the previous 30 days of AI Visibility data, keyword rankings (when Google Search Console is connected), and citation snapshots across the engines we track. The report is generated automatically. No request needed, no waiting on a strategist.
+
+This is included in Growth and Agency tiers by default. Starter and Core tiers do not receive the monthly report; their data is available on demand in the Visibility dashboard.
+
+## When it arrives
+
+- **Schedule**: 1st of each month, 09:00 UTC (typically before 06:00 Eastern Time on the same day)
+- **Recipient**: the workspace owner email on file
+- **Format**: PDF attachment, branded with your workspace logo and colors when those are configured (Agency tier white-label option)
+
+If the 1st falls on a weekend or holiday, the report still goes out on the calendar 1st.
+
+## What is inside
+
+The report has six sections:
+
+1. **Cover page**: workspace name, report month, your branding (logo and color when set)
+2. **Visibility summary**: Share of Model across the AI engines we track, with the prior month for comparison
+3. **Top keywords by impressions**: when Google Search Console is connected, the keywords driving the most search visibility for your domain
+4. **LLM citation breakdown**: per engine, a count of citations where your business appeared in answers
+5. **Sentiment snapshot**: positive, neutral, negative shares across recent mentions
+6. **Action notes**: a short list of 3 to 5 observations from the strategist (where applicable)
+
+The data is read-only at the time of generation. Live numbers stay available in the Visibility dashboard inside the app.
+
+## Opt-out and frequency
+
+You can turn the monthly report off in Settings. Look for "Monthly visibility report" toggle in the workspace settings panel. The toggle takes effect immediately for the next scheduled run. The toggle does not affect on-demand report generation, which strategists can fire any time.
+
+If you ever miss a month (delivery failure, mailbox full, address change), strategists can manually re-run the report from the admin panel and the email will resend.
+
+## Privacy and audit
+
+- The recipient email is pulled from your workspace owner record. We do not store a separate copy.
+- Each generated report is logged with workspace ID, month, status, send timestamp, and a hash of the recipient email (no email in clear).
+- The PDF itself is stored in tenant-isolated storage for 12 months for re-download by the workspace owner.
+- No data leaves the platform except the email itself and the attached PDF.
+
+## Brand presentation
+
+- **Reviuzy self-serve workspaces** receive the report from the Reviuzy noreply address with default branding.
+- **AiLys-managed workspaces** receive the report from the AiLys noreply address with the strategist signature.
+- **Agency tier white-label** workspaces receive the report under your custom brand: your logo on the cover, your color in section headers, your domain in the From field (when DNS is set up). Help in the white-label PDF reports article.
+
+## When NOT to enable this
+
+- If your team prefers to pull data on demand and the monthly digest is noise
+- If the workspace receives reports from another reporting tool and you want a single source of truth elsewhere
+- If you want zero scheduled emails to your domain (for security or policy reasons)
+
+You can flip the toggle off any time. The data stays available in the Visibility dashboard.
+
+## What is happening behind the scenes
+
+The report is built from data your workspace already collects: AI Visibility runs, citation snapshots, keyword ranking imports. No new data collection happens for this feature. The PDF is rendered server-side by the AiLys engine and emailed via our standard email provider. The same delivery pipeline that sends auth emails, alert emails, and one-click auto-fix emails handles the monthly report.
+
+If you have questions about the data, your strategist (Growth and Agency tiers) can walk you through the report on a monthly call.`,
+    i18n: {
+      fr: {
+        title: "Votre rapport de Visibilité mensuel (livré automatiquement à votre boîte)",
+        excerpt:
+          "Le 1er de chaque mois, les paliers Growth et Agency reçoivent un PDF de rapport de Visibilité en marque dans leur boîte courriel. Voici ce qu'il contient, quand il arrive, et comment se désabonner.",
+        body: `## De quoi s'agit-il
+
+Le 1er de chaque mois, votre espace de travail reçoit un PDF de rapport de Visibilité en marque dans la boîte courriel du contact inscrit. Le rapport couvre les 30 derniers jours de données AI Visibility, les classements de mots-clés (quand Google Search Console est connecté) et les instantanés de citations sur les moteurs que nous suivons. Le rapport est généré automatiquement. Aucune demande nécessaire, aucune attente sur un stratège.
+
+C'est inclus dans les paliers Growth et Agency par défaut. Les paliers Starter et Core ne reçoivent pas le rapport mensuel ; leurs données sont disponibles sur demande dans le tableau de bord Visibility.
+
+## Quand il arrive
+
+- **Calendrier** : le 1er de chaque mois, 09:00 UTC (typiquement avant 06:00 heure de l'Est le même jour)
+- **Destinataire** : le courriel du propriétaire de l'espace de travail inscrit
+- **Format** : pièce jointe PDF, en marque avec le logo et les couleurs de votre espace quand ceux-ci sont configurés (option de marque blanche au palier Agency)
+
+Si le 1er tombe une fin de semaine ou un jour férié, le rapport part quand même le 1er du calendrier.
+
+## Ce qu'il contient
+
+Le rapport comporte six sections :
+
+1. **Page couverture** : nom de l'espace, mois du rapport, votre marque (logo et couleur quand définis)
+2. **Sommaire de visibilité** : Share of Model sur les moteurs IA que nous suivons, avec le mois précédent en comparaison
+3. **Mots-clés du top par impressions** : quand Google Search Console est connecté, les mots-clés qui génèrent le plus de visibilité pour votre domaine
+4. **Répartition des citations LLM** : par moteur, le compte de citations où votre entreprise apparaît dans les réponses
+5. **Instantané de sentiment** : parts positive, neutre, négative sur les mentions récentes
+6. **Notes d'action** : une courte liste de 3 à 5 observations du stratège (le cas échéant)
+
+Les données sont en lecture seule au moment de la génération. Les chiffres en direct restent disponibles dans le tableau de bord Visibility dans l'application.
+
+## Désactivation et fréquence
+
+Vous pouvez désactiver le rapport mensuel dans les paramètres. Cherchez la bascule "Rapport mensuel de visibilité" dans le panneau des paramètres d'espace de travail. La bascule prend effet immédiatement pour la prochaine exécution prévue. La bascule n'affecte pas la génération à la demande, que les stratèges peuvent déclencher à tout moment.
+
+Si vous manquez un mois (échec de livraison, boîte pleine, changement d'adresse), les stratèges peuvent relancer manuellement le rapport depuis le panneau admin et le courriel sera renvoyé.
+
+## Confidentialité et journal
+
+- Le courriel destinataire est tiré du dossier propriétaire de votre espace. Nous n'en stockons pas une copie séparée.
+- Chaque rapport généré est journalisé avec l'identifiant d'espace, le mois, le statut, l'horodatage d'envoi et un haché du courriel destinataire (aucun courriel en clair).
+- Le PDF est stocké dans un stockage isolé par locataire pendant 12 mois pour re-téléchargement par le propriétaire de l'espace.
+- Aucune donnée ne quitte la plateforme sauf le courriel et le PDF en pièce jointe.
+
+## Présentation de marque
+
+- **Espaces Reviuzy en libre-service** reçoivent le rapport depuis l'adresse noreply de Reviuzy avec la marque par défaut.
+- **Espaces AiLys gérés** reçoivent le rapport depuis l'adresse noreply d'AiLys avec la signature du stratège.
+- **Marque blanche au palier Agency** reçoivent le rapport sous votre marque personnalisée : votre logo en couverture, votre couleur dans les en-têtes de section, votre domaine dans le champ Expéditeur (quand le DNS est configuré). Aide dans l'article sur les rapports PDF en marque blanche.
+
+## Quand NE PAS activer
+
+- Si votre équipe préfère tirer les données à la demande et que le résumé mensuel est du bruit
+- Si l'espace reçoit déjà des rapports d'un autre outil et que vous voulez une source unique ailleurs
+- Si vous voulez zéro courriel programmé vers votre domaine (raisons de sécurité ou de politique)
+
+Vous pouvez basculer en arrière à tout moment. Les données restent disponibles dans le tableau de bord Visibility.
+
+## Ce qui se passe en coulisse
+
+Le rapport est construit à partir des données que votre espace collecte déjà : exécutions AI Visibility, instantanés de citations, imports de classements de mots-clés. Aucune nouvelle collecte de données pour cette fonctionnalité. Le PDF est rendu côté serveur par le moteur AiLys et envoyé via notre fournisseur de courriel standard. Le même pipeline de livraison qui envoie les courriels d'authentification, les alertes et les correctifs en un clic gère le rapport mensuel.
+
+Si vous avez des questions sur les données, votre stratège (paliers Growth et Agency) peut parcourir le rapport avec vous lors d'un appel mensuel.`,
+      },
+    },
+  },
+  {
+    slug: "your-pdf-audit-explained",
+    title: "Your PDF audit (what it covers, when you get it, how to read it)",
+    excerpt:
+      "Anyone who runs the free audit can request a 10-page branded PDF by email. Here is what each section covers, where the data comes from, and what the link expiry means.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+When you run the free audit on the AiLys site, you can request a downloadable PDF version. We render a 10-page branded PDF with your scores and observations and email you a one-time download link. The PDF is ready in roughly 30 seconds and the link is good for 24 hours.
+
+This is open to anyone who completes the public audit. No account needed.
+
+## What is in the 10 pages
+
+1. **Cover**: your business name, audit date, headline scores
+2. **Executive summary**: top three findings and what to act on first
+3. **AI Visibility score**: how often the major AI engines mention your business in answers, with a percentile against similar local businesses
+4. **GBP Pulse**: ten weighted Google Business Profile signals scored against vertical benchmarks
+5. **LLM Citation matrix**: per engine, how your business is cited or skipped across three intent queries
+6. **Places snapshot**: your live Google Places profile and the three nearest competitors for context
+7. **Schema preview**: copy-paste-ready LocalBusiness and FAQPage JSON-LD tuned to your vertical
+8. **Action plan**: prioritized checklist with effort estimate per task
+9. **Methodology**: what was scored, how, and what is excluded
+10. **Next steps**: how to put the action plan in motion (self-serve, Reviuzy SaaS, or AiLys-managed paths)
+
+The PDF mirrors the data you saw on the audit page; nothing new is computed at PDF generation time.
+
+## How long the download link lasts
+
+The link in the email is signed and works for **24 hours**. After that the link returns expired and you would request a new audit to regenerate.
+
+The link is single-use scoped to the audit ID. Sharing the link works (the file does not require login) but anyone with the link can download until the 24-hour window closes.
+
+## What the email looks like
+
+Subject and body match your audit language across the supported locales. The From field is the AiLys noreply address with proper SPF, DKIM, and DMARC, so it should land in your primary inbox rather than promotions.
+
+If the email does not arrive in 5 minutes:
+
+- Check your spam folder
+- Confirm the email address you entered (typos are the top cause)
+- Try again with a different inbox; the audit data is cached for 1 hour so you do not need to re-enter all fields
+
+## Privacy
+
+- The email you submit is only used to send the PDF link. We do not add you to any list.
+- The audit input you provided lives in cache for 1 hour to allow regeneration; after that it is purged.
+- The PDF is stored for 24 hours then deleted. We do not keep your audit PDF beyond that window.
+- The download link is HMAC-signed so the link itself cannot be tampered to point to another audit.
+- If you signed up for the AiLys newsletter as part of the audit flow, that is a separate consent and lives independently.
+
+## Why a PDF and not just the web view
+
+- You can share the PDF with stakeholders who do not run the audit themselves
+- It is a portable artifact for board decks, lender packages, or onboarding briefs
+- Some buyers want to print the action plan and walk through it in a strategy session
+- You can compare two audits over time by saving them locally
+
+## Common issues
+
+- **Email rejected**: we filter disposable email domains. Use a real inbox.
+- **Audit not found**: usually means more than 1 hour passed between running the audit and requesting the PDF; the cached input expired. Run the audit again.
+- **Link expired**: more than 24 hours have passed. Request the audit and PDF again.
+- **PDF looks wrong**: the audit relies on Google Places data; if your GBP record was just created and Google has not propagated, some sections show "not yet indexed". Wait a day and re-run.
+
+## What this is NOT
+
+- This is not the white-label monthly Visibility Report. That report goes to active Growth and Agency tier customers on the 1st of each month.
+- This is not the Day-1 onboarding PDF. That one auto-fires when you sign up for an AiLys plan.
+
+## Asking for help
+
+If the email never lands and the link is dead, contact the AiLys team via the chat widget on the bottom right of the site. Include the email address you used and roughly when you ran the audit; we can re-fire the email or extend the link.`,
+    i18n: {
+      fr: {
+        title: "Votre audit PDF (ce qu'il couvre, quand vous le recevez, comment le lire)",
+        excerpt:
+          "N'importe qui lance l'audit gratuit peut demander un PDF de 10 pages en marque par courriel. Voici ce que chaque section couvre, d'où viennent les données, et ce que l'expiration du lien signifie.",
+        body: `## De quoi s'agit-il
+
+Quand vous lancez l'audit gratuit sur le site AiLys, vous pouvez demander une version PDF téléchargeable. Nous générons un PDF de 10 pages en marque avec vos scores et observations et vous envoyons par courriel un lien de téléchargement à usage unique. Le PDF est prêt en environ 30 secondes et le lien est valide 24 heures.
+
+C'est ouvert à tous ceux qui complètent l'audit public. Aucun compte nécessaire.
+
+## Ce qu'il y a dans les 10 pages
+
+1. **Couverture**: nom de votre entreprise, date de l'audit, scores principaux
+2. **Sommaire exécutif**: trois principales observations et par où commencer
+3. **Score AI Visibility**: à quelle fréquence les grands moteurs IA mentionnent votre entreprise, avec un percentile contre des entreprises locales similaires
+4. **GBP Pulse**: dix signaux pondérés Google Business Profile notés contre des points de référence sectoriels
+5. **Matrice de citations LLM**: par moteur, comment votre entreprise est citée ou ignorée sur trois requêtes d'intention
+6. **Instantané Places**: votre fiche Google Places en direct et les trois concurrents les plus proches
+7. **Aperçu de schema**: LocalBusiness et FAQPage JSON-LD prêts à copier-coller, ajustés à votre secteur
+8. **Plan d'action**: liste priorisée avec estimation d'effort par tâche
+9. **Méthodologie**: ce qui a été noté, comment, et ce qui est exclu
+10. **Prochaines étapes**: comment mettre le plan en marche (libre-service, SaaS Reviuzy, ou AiLys géré)
+
+Le PDF reflète les données que vous avez vues sur la page d'audit; rien de nouveau n'est calculé au moment de la génération.
+
+## Combien de temps le lien dure
+
+Le lien dans le courriel est signé et fonctionne pendant **24 heures**. Après ça, le lien retourne expiré et vous referiez un audit pour le regénérer.
+
+Le lien est à usage unique pour un identifiant d'audit. Le partage du lien fonctionne (le fichier ne demande pas de connexion) mais quiconque a le lien peut télécharger jusqu'à la fin de la fenêtre de 24 heures.
+
+## À quoi ressemble le courriel
+
+Le sujet et le corps correspondent à la langue de votre audit dans les langues prises en charge. Le champ Expéditeur est l'adresse noreply AiLys avec SPF, DKIM et DMARC en règle, donc le courriel devrait arriver dans votre boîte principale plutôt que dans les promotions.
+
+Si le courriel n'arrive pas en 5 minutes:
+
+- Vérifiez le dossier indésirable
+- Confirmez l'adresse courriel saisie
+- Réessayez avec une autre boîte; les données d'audit sont en cache 1 heure donc vous n'avez pas à tout ressaisir
+
+## Confidentialité
+
+- Le courriel que vous donnez sert seulement à envoyer le lien PDF. Nous ne vous ajoutons à aucune liste.
+- L'audit que vous avez fourni vit en cache 1 heure pour permettre la regénération; ensuite il est purgé.
+- Le PDF est stocké 24 heures puis supprimé. Nous ne gardons pas votre PDF d'audit au-delà de cette fenêtre.
+- Le lien de téléchargement est signé HMAC donc le lien lui-même ne peut être altéré pour pointer vers un autre audit.
+- Si vous vous êtes inscrit à l'infolettre AiLys pendant le flux d'audit, c'est un consentement séparé.
+
+## Problèmes courants
+
+- **Courriel refusé**: nous filtrons les domaines de courriel jetables. Utilisez une vraie boîte.
+- **Audit introuvable**: ça veut habituellement dire que plus d'1 heure s'est écoulée entre l'audit et la demande de PDF; l'entrée en cache a expiré.
+- **Lien expiré**: plus de 24 heures se sont écoulées. Demandez l'audit et le PDF à nouveau.
+- **Le PDF a l'air faux**: l'audit s'appuie sur les données Google Places; si votre fiche GBP vient d'être créée et que Google n'a pas propagé, certaines sections affichent "pas encore indexé".
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas le rapport mensuel de Visibilité en marque blanche. Ce rapport va aux clients actifs des paliers Growth et Agency le 1er de chaque mois.
+- Ce n'est pas le PDF d'intégration Jour 1. Celui-là se déclenche automatiquement quand vous vous inscrivez à un plan AiLys.
+
+## Demander de l'aide
+
+Si le courriel n'arrive jamais et que le lien est mort, contactez l'équipe AiLys via le widget de clavardage en bas à droite du site. Incluez l'adresse courriel utilisée et environ quand vous avez lancé l'audit; nous pouvons relancer le courriel ou prolonger le lien.`,
+      },
+    },
+  },
+  {
+    slug: "day-1-onboarding-pdf",
+    title: "Your Day-1 onboarding PDF (auto-fires within 2 minutes of signup)",
+    excerpt:
+      "When you sign up for an AiLys plan, a baseline PDF audit fires automatically and arrives in your inbox within 2 minutes. Here is what is in it, why it ships before week 1, and what to do with it.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 3,
+    body: `## What this is
+
+When you complete signup for an AiLys plan, our Day-1 system fires a baseline PDF audit to your inbox within 2 minutes. No need to ask, no need to wait for your strategist's first call. The PDF gives you a starting picture of where your business stands on AI Visibility, GBP, citations, and schema before any AiLys work has been done.
+
+This is automatic for every new AiLys-managed account. Reviuzy self-serve customers run the public free audit instead.
+
+## Why so fast
+
+In the past, the first deliverable on a new AiLys engagement landed in week 1 or week 2. That delay is dead time for the client; you signed up because you want movement now. The Day-1 PDF closes that gap by giving you something tangible the same hour you sign.
+
+It also gives your strategist a shared baseline to reference on the first call. You can both look at the same numbers and discuss the same gaps.
+
+## What is in the PDF
+
+The Day-1 PDF is the same 10-page structure as the public audit PDF, with two additions on the cover page:
+
+- "Your AiLys account starts on" with the date
+- "Your dedicated strategist" with the name and contact (Growth and Agency tiers)
+
+And one important framing change: action items are written for the AiLys workflow rather than self-serve. Instead of "consider adding LocalBusiness schema", the action plan reads "Schema layer scheduled for week 1, your strategist will confirm the variant" with checkboxes that map to the AiLys delivery schedule.
+
+The cover note also says: "First scan completes within 24 hours. This baseline reflects the current state of your business on the public web before any AiLys work has been done."
+
+## When it arrives
+
+- **Trigger**: successful Stripe payment confirmation
+- **Window**: under 2 minutes from payment to inbox
+- **Recipient**: the email address used for the Stripe checkout
+- **From**: the AiLys noreply address
+- **Subject** (English): "Your AiLys baseline audit, Day 1"
+- **Subject** (French Canadian): "Votre audit de référence AiLys, Jour 1"
+
+If the PDF does not arrive in 5 minutes, the system retries from a dead-letter queue. If it still fails, the operator on call gets paged. Manual recovery happens within the business day.
+
+## What to do with it
+
+1. **Read the executive summary on page 2.** Three findings, ordered by priority.
+2. **Compare AI Visibility (page 3) and GBP Pulse (page 4) to your industry benchmarks.** The methodology page (page 9) explains where the benchmarks come from.
+3. **Save the PDF locally.** The download link in the email expires after 24 hours, but a copy in your filesystem does not.
+4. **Bring it to your first strategist call.** The call goes faster when you both have the same artifact open. Strategists usually walk through pages 2, 3, 5, and 8.
+5. **Treat the action plan as a shared backlog.** Items marked AiLys run on our side. Items marked Client need a small action from you (logo upload, photo upload, GBP access grant).
+
+## Privacy and security
+
+- The PDF is rendered server-side and uploaded to tenant-scoped storage.
+- The download link is HMAC-signed and single-use; the link itself cannot be tampered.
+- The recipient email is only the address used at checkout. We do not auto-send to additional addresses.
+- The PDF is retained for 30 days for re-download via your account dashboard, then deleted.
+- Internally, the run is logged with workspace ID, status, and a hash of the recipient email. No email is stored in clear.
+
+## Idempotency
+
+If signup completes twice (rare, but happens with a retry on a Stripe webhook), the system de-duplicates on the Stripe customer ID and only sends one PDF. You will not receive two copies even if Stripe retries.
+
+## What this is NOT
+
+- It is not the monthly Visibility Report. That arrives on the 1st of each month for Growth and Agency tiers.
+- It is not the public free audit. That one is open to anyone, no signup needed.
+
+## When you might NOT get one
+
+- You signed up for a Reviuzy self-serve plan rather than an AiLys-managed plan. Reviuzy customers use the in-app on-demand audit.
+- The Stripe webhook failed to deliver. Operator manual recovery within 1 business day.
+- Your business was not yet indexable on the public web (very new domain, no GBP). The PDF still fires but flags missing data on each page.
+
+## Asking for help
+
+If the Day-1 PDF never arrives and 24 hours have passed, contact your strategist via the AiLys account dashboard chat. We can re-fire the PDF or hand-build the baseline.`,
+    i18n: {
+      fr: {
+        title: "Votre PDF d'intégration Jour 1 (déclenché en moins de 2 minutes après l'inscription)",
+        excerpt:
+          "Quand vous vous inscrivez à un plan AiLys, un audit PDF de référence se déclenche automatiquement et arrive dans votre boîte en moins de 2 minutes. Voici ce qu'il contient, pourquoi il part avant la semaine 1, et quoi en faire.",
+        body: `## De quoi s'agit-il
+
+Quand vous complétez l'inscription à un plan AiLys, notre système Jour 1 envoie un audit PDF de référence dans votre boîte en moins de 2 minutes. Pas besoin de demander, pas besoin d'attendre le premier appel du stratège. Le PDF vous donne une image de départ de votre entreprise sur AI Visibility, GBP, citations et schema avant qu'un travail AiLys ait été fait.
+
+C'est automatique pour chaque nouveau compte AiLys géré. Les clients Reviuzy en libre-service lancent plutôt l'audit gratuit public.
+
+## Pourquoi si vite
+
+Avant, le premier livrable d'une nouvelle entente AiLys arrivait en semaine 1 ou semaine 2. Ce délai est du temps mort pour le client; vous vous êtes inscrit parce que vous voulez du mouvement maintenant. Le PDF Jour 1 ferme ce trou en vous donnant quelque chose de tangible la même heure où vous signez.
+
+Il donne aussi à votre stratège une base partagée à référencer au premier appel. Vous pouvez tous les deux regarder les mêmes chiffres et discuter des mêmes écarts.
+
+## Ce qu'il y a dans le PDF
+
+Le PDF Jour 1 a la même structure de 10 pages que le PDF d'audit public, avec deux ajouts sur la page couverture:
+
+- "Votre compte AiLys débute le" avec la date
+- "Votre stratège dédié" avec le nom et le contact (paliers Growth et Agency)
+
+Et un changement de cadrage important: les actions sont écrites pour le flux AiLys plutôt que pour le libre-service. Au lieu de "envisager l'ajout du schema LocalBusiness", le plan d'action lit "Couche schema prévue pour la semaine 1, votre stratège confirmera la variante" avec des cases à cocher qui correspondent au calendrier de livraison AiLys.
+
+La note de couverture dit aussi: "Le premier scan complet en moins de 24 heures. Cette référence reflète l'état actuel de votre entreprise sur le web public avant qu'aucun travail AiLys n'ait été fait."
+
+## Quand il arrive
+
+- **Déclencheur**: confirmation de paiement Stripe réussie
+- **Fenêtre**: moins de 2 minutes du paiement à la boîte
+- **Destinataire**: l'adresse courriel utilisée pour le paiement Stripe
+- **Expéditeur**: l'adresse noreply AiLys
+- **Sujet** (français canadien): "Votre audit de référence AiLys, Jour 1"
+- **Sujet** (anglais): "Your AiLys baseline audit, Day 1"
+
+Si le PDF n'arrive pas en 5 minutes, le système ré-essaie depuis une file de lettres mortes. S'il échoue encore, l'opérateur de garde est avisé. La récupération manuelle arrive dans la journée ouvrable.
+
+## Quoi en faire
+
+1. **Lisez le sommaire exécutif page 2.** Trois observations, par ordre de priorité.
+2. **Comparez AI Visibility (page 3) et GBP Pulse (page 4) aux points de référence du secteur.** La page méthodologie (page 9) explique d'où viennent les références.
+3. **Sauvegardez le PDF localement.** Le lien de téléchargement dans le courriel expire après 24 heures, mais une copie dans votre système de fichiers, non.
+4. **Apportez-le au premier appel avec le stratège.** L'appel va plus vite quand vous avez le même artefact ouvert. Les stratèges parcourent habituellement les pages 2, 3, 5 et 8.
+5. **Traitez le plan d'action comme un arriéré partagé.** Les items marqués AiLys tournent de notre côté. Les items marqués Client demandent une petite action de vous (téléversement de logo, téléversement de photos, octroi d'accès GBP).
+
+## Confidentialité et sécurité
+
+- Le PDF est rendu côté serveur et téléversé dans un stockage isolé par locataire.
+- Le lien de téléchargement est signé HMAC et à usage unique; le lien lui-même ne peut être altéré.
+- Le destinataire est seulement l'adresse utilisée au paiement. Nous n'envoyons pas automatiquement à des adresses additionnelles.
+- Le PDF est conservé 30 jours pour re-téléchargement via votre tableau de bord de compte, puis supprimé.
+- En interne, l'exécution est journalisée avec l'identifiant d'espace, le statut et un haché du courriel destinataire. Aucun courriel n'est stocké en clair.
+
+## Idempotence
+
+Si l'inscription se complète deux fois (rare, mais ça arrive avec une nouvelle tentative sur un webhook Stripe), le système déduplique sur l'identifiant client Stripe et n'envoie qu'un seul PDF. Vous ne recevrez pas deux copies même si Stripe ré-essaie.
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas le rapport mensuel de Visibilité. Celui-là arrive le 1er de chaque mois pour les paliers Growth et Agency.
+- Ce n'est pas l'audit public gratuit. Celui-là est ouvert à tous, sans inscription.
+
+## Quand vous pourriez NE PAS en recevoir
+
+- Vous vous êtes inscrit à un plan Reviuzy en libre-service plutôt qu'à un plan AiLys géré. Les clients Reviuzy utilisent l'audit à la demande dans l'application.
+- Le webhook Stripe n'a pas livré. Récupération manuelle de l'opérateur en moins d'1 jour ouvrable.
+- Votre entreprise n'était pas encore indexable sur le web public (domaine très neuf, pas de GBP). Le PDF part quand même mais signale les données manquantes sur chaque page.
+
+## Demander de l'aide
+
+Si le PDF Jour 1 n'arrive jamais et que 24 heures ont passé, contactez votre stratège via le clavardage du tableau de bord de compte AiLys. Nous pouvons relancer le PDF ou bâtir la référence à la main.`,
+      },
+    },
+  },
+  {
+    slug: "citation-auto-batch",
+    title: "How citation auto-batch works (Tier 1 directories)",
+    excerpt:
+      "On Core, Growth, and Agency tiers, your monthly citation submissions to Tier 1 directories run automatically. Here is what auto-batches, what stays manual, and how the strategist QA gate works.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+Citation building means submitting your business NAP (Name, Address, Phone) to directories like Yelp, Foursquare, BBB, Yellow Pages, and similar. Done well, it improves local SEO and Google Business Profile authority. Done manually, it eats hours per client per month.
+
+C.6 automates the structured part: directories that accept clean API or partner-portal submissions. The human-only directories stay in the strategist queue exactly as before. You always have a human in the loop.
+
+## What auto-batches and what does not
+
+We split directories into three categories.
+
+**Tier 1, structured-friendly (auto-batched):**
+- Yelp (partner API)
+- Foursquare (Places API)
+- BBB (partner CSV upload)
+- MapQuest, Yellow Pages, Apple Maps Connect (where partner credentials available)
+
+These directories accept structured input via API or signed CSV. We submit your canonical NAP, log the result, and surface success/failure in the admin panel.
+
+**Tier 2, semi-structured (queued for strategist):**
+- Niche industry directories with form-based submission
+- Local chamber of commerce sites
+- Regional review platforms
+
+These need a human to fill the form. The strategist works through the queue weekly.
+
+**Tier 3, human-only (never auto):**
+- Wikipedia (community editorial gatekeeping)
+- Reddit / Quora (authentic participation only, per AiLys link-building scope)
+- Industry-specific platforms requiring a verified profile
+
+These are out of scope for any automation, by policy. We do not pretend otherwise.
+
+## Per-tier cadence
+
+The number of directories per month depends on your tier:
+
+- **Core:** 5 citations/month (Tier 1 + Tier 2 mix)
+- **Growth:** 10 citations/month
+- **Agency:** 15 citations/month
+
+Auto-batch covers up to 5 of those per month from Tier 1. The rest comes from Tier 2 strategist work.
+
+## Strategist QA gate
+
+Auto-batch does NOT publish without supervision. The flow is:
+
+1. The cron fires daily at 04:00 UTC
+2. The system selects up to 5 Tier 1 directories per eligible tenant
+3. Submissions run with a 0-60 minute jitter (avoid bot-pattern detection)
+4. Each result is logged with status, response code, and timestamp
+5. The strategist reviews the run report on the next business day
+6. Failures are queued for manual retry
+7. Successful submissions are reflected in the citation manager
+
+If anything looks wrong (unexpected status, NAP drift, directory schema change), the strategist pauses auto-batch for that tenant pending investigation.
+
+## Privacy and audit
+
+- Only your canonical NAP is submitted (the same data already public on your Google Business Profile)
+- Each run is logged in the admin panel with timestamp, directory, status, and a content hash
+- No PII beyond the public NAP is ever sent
+- Run history retained for 90 days then purged
+- You can opt out per tenant in the workspace settings
+
+## Opt-out
+
+In Settings > Citation Management, toggle "Auto-batch citations" to OFF. The cron skips your tenant from the next day. Existing submissions on directories stay (we cannot remove them retroactively without contacting each directory's support).
+
+## What happens on failure
+
+If a directory rejects a submission:
+
+- Status logged as failed with the response code
+- The strategist sees it in the next-day review
+- The strategist either retries manually or removes the directory from your rotation
+- Your monthly citation count counts only successes
+
+If the same directory fails for 3 consecutive runs across all tenants, we pull it from the auto list and alert the strategist team. The directory may have changed their API; we wait for the fix before re-enabling.
+
+## Cost transparency
+
+Auto-batch makes the per-citation cost visible:
+
+- Foursquare API: ~$0.0001 USD per submission
+- Yelp partner: included in partnership tier
+- BBB partner: included in BBB partner program
+
+For a Growth tenant doing 5 auto-batched citations monthly, the marginal API cost is under $0.01. We absorb this in the tier price; no surprise charges.
+
+## What this is NOT
+
+- It is not "submit to 100 directories overnight" volume play. We submit to ~5 per month per tenant on Tier 1.
+- It is not a workaround for spam-detection on directories. We use partner-level credentials and respect each directory's submission policy.
+- It is not link-building (AiLys does not do active link-building). Citations are NAP consistency work, not backlink campaigns.
+
+## Strategic context
+
+Per the AiLys link-building policy, we deliver citations + Wikidata + GBP automation + schema layers. Backlinks may emerge naturally as a side effect, but they are not the goal. C.6 makes the citation deliverable scale to 50+ clients without doubling strategist headcount.
+
+If you want to discuss escalating to manual outreach or specialty directories beyond the Tier 1 / Tier 2 catalog, your strategist can scope that as out-of-tier work.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne le lot automatique de citations (annuaires de Niveau 1)",
+        excerpt:
+          "Aux paliers Core, Growth et Agency, vos soumissions mensuelles de citations aux annuaires de Niveau 1 tournent automatiquement. Voici ce qui s'automatise, ce qui reste manuel, et comment fonctionne la barrière QA du stratège.",
+        body: `## De quoi s'agit-il
+
+Construire des citations veut dire soumettre votre NAP d'entreprise (nom, adresse, téléphone) à des annuaires comme Yelp, Foursquare, BBB, Pages Jaunes, et similaires. Bien fait, ça améliore le SEO local et l'autorité Google Business Profile. Fait à la main, ça mange des heures par client par mois.
+
+C.6 automatise la partie structurée : les annuaires qui acceptent des soumissions API ou portail-partenaire propres. Les annuaires humains-seulement restent dans la file du stratège exactement comme avant. Vous gardez toujours un humain dans la boucle.
+
+## Ce qui s'automatise et ce qui ne s'automatise pas
+
+Nous séparons les annuaires en trois catégories.
+
+**Niveau 1, structuré (lot automatique):**
+- Yelp (API partenaire)
+- Foursquare (API Places)
+- BBB (téléversement CSV partenaire)
+- MapQuest, Pages Jaunes, Apple Maps Connect (quand les identifiants partenaires sont disponibles)
+
+Ces annuaires acceptent une entrée structurée via API ou CSV signé. Nous soumettons votre NAP canonique, journalisons le résultat, et le succès/échec apparaît dans le panneau admin.
+
+**Niveau 2, semi-structuré (mis en file pour le stratège):**
+- Annuaires sectoriels avec soumission par formulaire
+- Sites de chambre de commerce locale
+- Plateformes d'avis régionales
+
+Ceux-ci ont besoin d'un humain pour remplir le formulaire. Le stratège passe la file chaque semaine.
+
+**Niveau 3, humain-seulement (jamais automatique):**
+- Wikipedia (gardiennage éditorial communautaire)
+- Reddit / Quora (participation authentique seulement, selon la portée AiLys)
+- Plateformes spécifiques à un secteur exigeant un profil vérifié
+
+Ceux-là sont hors-cadre pour toute automatisation, par politique. Nous ne prétendons pas le contraire.
+
+## Cadence par palier
+
+Le nombre d'annuaires par mois dépend de votre palier:
+
+- **Core:** 5 citations/mois (mélange Niveau 1 + Niveau 2)
+- **Growth:** 10 citations/mois
+- **Agency:** 15 citations/mois
+
+Le lot automatique couvre jusqu'à 5 de ceux-ci par mois depuis le Niveau 1. Le reste vient du travail Niveau 2 du stratège.
+
+## Barrière QA du stratège
+
+Le lot automatique ne publie PAS sans supervision. Le flux est:
+
+1. Le cron se déclenche tous les jours à 04:00 UTC
+2. Le système sélectionne jusqu'à 5 annuaires Niveau 1 par locataire éligible
+3. Les soumissions tournent avec un délai aléatoire de 0 à 60 minutes (éviter la détection de motifs robotiques)
+4. Chaque résultat est journalisé avec statut, code de réponse et horodatage
+5. Le stratège revoit le rapport d'exécution le jour ouvrable suivant
+6. Les échecs sont mis en file pour reprise manuelle
+7. Les soumissions réussies se reflètent dans le gestionnaire de citations
+
+Si quelque chose semble louche (statut imprévu, dérive NAP, changement de schéma d'annuaire), le stratège met le lot automatique en pause pour ce locataire en attendant l'enquête.
+
+## Confidentialité et journal
+
+- Seul votre NAP canonique est soumis (les mêmes données déjà publiques sur votre Google Business Profile)
+- Chaque exécution est journalisée dans le panneau admin avec horodatage, annuaire, statut et un haché de contenu
+- Aucune information autre que le NAP public n'est jamais envoyée
+- L'historique d'exécutions retenu 90 jours puis purgé
+- Vous pouvez vous désabonner par locataire dans les paramètres d'espace
+
+## Désabonnement
+
+Dans Paramètres > Gestion de citations, basculez "Lot automatique de citations" à NON. Le cron saute votre locataire dès le lendemain. Les soumissions existantes sur les annuaires restent (nous ne pouvons pas les retirer rétroactivement sans contacter le soutien de chaque annuaire).
+
+## Que se passe-t-il en cas d'échec
+
+Si un annuaire refuse une soumission:
+
+- Statut journalisé comme failed avec le code de réponse
+- Le stratège le voit lors de la revue du lendemain
+- Le stratège reprend manuellement ou retire l'annuaire de votre rotation
+- Votre compte mensuel de citations ne compte que les succès
+
+Si le même annuaire échoue 3 fois de suite sur tous les locataires, nous le retirons de la liste automatique et alertons l'équipe stratège. L'annuaire a peut-être changé son API ; nous attendons le correctif avant de réactiver.
+
+## Transparence des coûts
+
+Le lot automatique rend le coût par citation visible:
+
+- API Foursquare: ~0,0001 USD par soumission
+- Yelp partenaire: inclus dans le palier de partenariat
+- BBB partenaire: inclus dans le programme partenaire BBB
+
+Pour un locataire Growth qui fait 5 citations automatisées par mois, le coût API marginal est sous 0,01 USD. Nous l'absorbons dans le prix du palier ; pas de frais surprise.
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas du "soumettre à 100 annuaires en une nuit" en jeu de volume. Nous soumettons à ~5 par mois par locataire au Niveau 1.
+- Ce n'est pas un contournement de la détection de pourriel sur les annuaires. Nous utilisons des identifiants de niveau partenaire et respectons la politique de soumission de chaque annuaire.
+- Ce n'est pas du link-building (selon la portée AiLys: AiLys ne fait pas de link-building actif). Les citations sont du travail de cohérence NAP, pas des campagnes de liens.
+
+## Contexte stratégique
+
+Selon la politique AiLys de link-building, nous livrons citations + Wikidata + automatisation GBP + couches de schéma. Des liens entrants peuvent émerger naturellement comme effet secondaire, mais ce n'est pas le but. C.6 fait passer le livrable citation à l'échelle de 50+ clients sans doubler les effectifs stratèges.
+
+Si vous voulez discuter d'escalade vers du démarchage manuel ou des annuaires spécialisés au-delà du catalogue Niveau 1 / Niveau 2, votre stratège peut cadrer ça comme du travail hors-palier.`,
+      },
+    },
+  },
+  {
+    slug: "renewal-and-upsell-signals",
+    title: "Renewal nudges and tier upgrade signals (how the system flags growth opportunities)",
+    excerpt:
+      "Our system reads your usage patterns and sends a strategist alert (and optionally an email to you) when your data shows a renewal coming up or a tier upgrade would help. Here is how it works and how to opt out.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A daily background job reads your usage across the AiLys platform (citations submitted, photos uploaded, dashboard logins, AI Visibility scores) and computes a small set of signals: are you about to renew, are you hitting tier caps, has your visibility plateaued. When a signal is strong enough, your dedicated strategist gets a heads-up. If you opted into client-facing nudge emails, you also receive a concise note with the data behind it.
+
+The intent: never let a real bottleneck go unnoticed, never spam you with upgrade offers based on time alone.
+
+## What triggers a renewal nudge
+
+Three time-based signals fire automatically:
+
+- **30 days before anniversary**: light reminder to your strategist that renewal is coming
+- **14 days before**: stronger nudge, plus a draft "what changed in your account this year" summary the strategist can share
+- **7 days before**: priority queue item; strategist outreach within 1 business day
+
+Renewal nudges fire on every active subscription. Cancelled or paused subscriptions do not trigger nudges.
+
+## What triggers an upsell signal
+
+Four behavioral signals can fire at any time, only when your USAGE PATTERN backs them:
+
+- **Citation cap hit 3 months in a row**: your tier covers N citations/month; if you maxed them out three months running, your demand exceeds the tier
+- **Photo cap at quota for 2 months**: same logic for the GBP photo upload pipeline
+- **Visibility plateau**: your AI Visibility score has not improved in 90 days despite consistent activity; suggests the next tier's capabilities are needed
+- **Dashboard engagement**: high login frequency + many feature touches indicates you are using the product intensely; next tier may unlock more
+
+Each signal has a strength score 0.00 to 1.00. We never send an email below 0.80; we never alert a strategist below 0.60. Most signals sit in the 0.30 to 0.70 range and stay quiet.
+
+## What the strategist sees
+
+Your dedicated strategist (Growth and Agency tiers) has an admin feed:
+
+- "Acme Dental: renewal_14d, strength 1.00, action by 2026-05-15"
+- "Smith Realty: upsell_citation_cap, strength 0.85, last 3 months at 10/10 cap, suggested tier: Agency"
+
+They mark each signal as "actioned" with a reason (kept, upgraded, deferred, declined). The trail is auditable.
+
+## Client-facing emails (opt-in)
+
+By default, you do NOT receive automated upgrade emails. The signal stays internal. You can opt in via Settings > Notifications > "Send me upgrade-suggestion emails when my usage signals it." If on, you receive at most 1 email per signal type per quarter, with the data line that triggered it.
+
+You can opt out any time. Email send respects your existing preferences (mute hours, language, brand).
+
+## Privacy
+
+- Signals computed from data your workspace already collects: citation_submissions, gbp_photo_uploads, dashboard_sessions, ai_visibility_runs
+- Signal data stored as aggregate counts and ratios; NO individual review text, NO email content, NO IP
+- Retention: 365 days then purge
+- The recipient address for opt-in emails is only the workspace owner; no spreading to additional addresses
+
+## Why the strength threshold matters
+
+The 0.60 / 0.80 thresholds prevent the worst failure mode: spamming clients with upgrade offers they don't need. A signal is only emitted if the underlying data backs it. When in doubt, the signal stays under 0.60 and never reaches anyone.
+
+## When this is NOT useful
+
+- Brand-new accounts (less than 30 days): not enough data; signals stay quiet
+- Trialing accounts: only renewal nudges fire (no upsell)
+- Heavy seasonal businesses where 3-month moving averages are misleading: ask your strategist to mute specific signal types
+
+## Why we built it
+
+Renewals slipping past unnoticed is bad for the client (no time to plan budget) and bad for us (revenue churn). Upsell suggestions that ignore actual usage are spammy and erode trust. C.7 fixes both with the same daily aggregation pass.
+
+If you want to discuss how a specific signal applies to your account, your strategist can walk through the data with you on the next monthly call.`,
+    i18n: {
+      fr: {
+        title: "Rappels de renouvellement et signaux de mise à niveau (comment le système repère les occasions de croissance)",
+        excerpt:
+          "Un travail de fond quotidien lit vos motifs d'utilisation et envoie une alerte au stratège (et optionnellement un courriel à vous) quand vos données montrent un renouvellement à venir ou qu'une mise à niveau de palier aiderait. Voici comment ça fonctionne et comment se désabonner.",
+        body: `## De quoi s'agit-il
+
+Un travail de fond quotidien lit votre utilisation sur la plateforme AiLys (citations soumises, photos téléversées, connexions au tableau de bord, scores AI Visibility) et calcule un petit ensemble de signaux : êtes-vous sur le point de renouveler, atteignez-vous les plafonds de palier, votre visibilité plafonne-t-elle. Quand un signal est assez fort, votre stratège dédié reçoit un avertissement. Si vous avez accepté les courriels d'invitation côté client, vous recevez aussi une note concise avec les données derrière.
+
+L'intention : ne jamais laisser un vrai goulot d'étranglement passer inaperçu, ne jamais vous spammer avec des offres de mise à niveau basées seulement sur le temps.
+
+## Ce qui déclenche un rappel de renouvellement
+
+Trois signaux temporels se déclenchent automatiquement :
+
+- **30 jours avant l'anniversaire** : rappel léger à votre stratège que le renouvellement approche
+- **14 jours avant** : rappel plus fort, plus un brouillon "ce qui a changé dans votre compte cette année" que le stratège peut partager
+- **7 jours avant** : item de file prioritaire ; démarchage du stratège en 1 jour ouvrable
+
+Les rappels de renouvellement se déclenchent sur chaque abonnement actif. Les abonnements annulés ou en pause ne déclenchent pas de rappels.
+
+## Ce qui déclenche un signal de mise à niveau
+
+Quatre signaux comportementaux peuvent se déclencher à tout moment, seulement quand votre MOTIF D'UTILISATION les soutient :
+
+- **Plafond de citations atteint 3 mois de suite** : votre palier couvre N citations/mois ; si vous avez atteint le maximum trois mois de suite, votre demande dépasse le palier
+- **Plafond de photos atteint 2 mois** : même logique pour le pipeline de téléversement de photos GBP
+- **Plateau de visibilité** : votre score AI Visibility n'a pas progressé en 90 jours malgré une activité régulière ; suggère que les capacités du palier suivant sont nécessaires
+- **Engagement au tableau de bord** : haute fréquence de connexion + nombreuses interactions de fonctionnalités indique une utilisation intense ; le palier suivant peut débloquer plus
+
+Chaque signal a un score de force 0,00 à 1,00. Nous n'envoyons jamais de courriel sous 0,80 ; nous n'alertons jamais un stratège sous 0,60. La plupart des signaux se situent dans la plage 0,30 à 0,70 et restent silencieux.
+
+## Ce que le stratège voit
+
+Votre stratège dédié (paliers Growth et Agency) a un fil admin :
+
+- "Acme Dental : renewal_14d, force 1,00, action d'ici 2026-05-15"
+- "Smith Realty : upsell_citation_cap, force 0,85, 3 derniers mois au plafond 10/10, palier suggéré : Agency"
+
+Ils marquent chaque signal comme "actionné" avec une raison (gardé, mis à niveau, reporté, décliné). La piste est vérifiable.
+
+## Courriels côté client (sur consentement)
+
+Par défaut, vous ne recevez PAS de courriels automatiques de mise à niveau. Le signal reste interne. Vous pouvez vous y inscrire via Paramètres > Notifications > "Envoyez-moi des courriels de suggestion de mise à niveau quand mon utilisation le signale." Si activé, vous recevez au maximum 1 courriel par type de signal par trimestre, avec la ligne de données qui l'a déclenché.
+
+Vous pouvez vous désabonner à tout moment. L'envoi respecte vos préférences existantes (heures de silence, langue, marque).
+
+## Confidentialité
+
+- Signaux calculés à partir de données que votre espace collecte déjà : citation_submissions, gbp_photo_uploads, dashboard_sessions, ai_visibility_runs
+- Données de signal stockées comme comptes et ratios agrégés ; AUCUN texte d'avis individuel, AUCUN contenu de courriel, AUCUNE adresse IP
+- Rétention : 365 jours puis purge
+- L'adresse destinataire pour les courriels d'inscription est seulement le propriétaire de l'espace ; aucune diffusion à des adresses additionnelles
+
+## Pourquoi le seuil de force compte
+
+Les seuils 0,60 / 0,80 préviennent le pire mode d'échec : spammer les clients avec des offres de mise à niveau dont ils n'ont pas besoin. Un signal n'est émis que si les données sous-jacentes le soutiennent. En cas de doute, le signal reste sous 0,60 et n'atteint personne.
+
+## Quand ce n'est PAS utile
+
+- Comptes nouveaux (moins de 30 jours) : pas assez de données ; les signaux restent silencieux
+- Comptes en essai : seuls les rappels de renouvellement se déclenchent (pas de mise à niveau)
+- Entreprises fortement saisonnières où les moyennes mobiles sur 3 mois sont trompeuses : demandez à votre stratège de mettre certains types de signaux en sourdine
+
+## Pourquoi nous l'avons bâti
+
+Les renouvellements qui passent inaperçus, c'est mauvais pour le client (pas le temps de planifier le budget) et mauvais pour nous (perte de revenus). Les suggestions de mise à niveau qui ignorent l'utilisation réelle sont spammeuses et érodent la confiance. C.7 corrige les deux avec le même passage d'agrégation quotidien.
+
+Si vous voulez discuter de comment un signal spécifique s'applique à votre compte, votre stratège peut parcourir les données avec vous lors du prochain appel mensuel.`,
+      },
+    },
+  },
+  {
+    slug: "partner-program-onboarding",
+    title: "AiLys partner program (white-label your AiLys + Reviuzy)",
+    excerpt:
+      "Specialty agencies, freelancers, and consultants can resell AiLys + Reviuzy under their own brand. Here is who can apply, how the revenue split works, and what we provide.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+The AiLys partner program lets a specialty agency, marketing freelancer, or consultancy resell AiLys + Reviuzy to their own clients under their brand. You set your markup, you keep the client relationship, we run the platform underneath. Your clients see your brand. Your revenue is your call.
+
+This is a partner-only program. We sell direct to local businesses ourselves; partners sell to specialty agencies and verticals where local businesses prefer to buy from a familiar agency face.
+
+## Who can apply
+
+We are selective on partners because the program quality is set by our worst partner.
+
+Requirements:
+- A registered business with a tax ID and verifiable address
+- 3+ existing clients you actively service in marketing, SEO, or local digital
+- Industry focus or vertical expertise (legal, dental, restaurant, real estate, hospitality, etc.)
+- Minimum monthly margin retained per client: $50 CAD (this lets us sustain the platform)
+- Clean Stripe Connect KYC (we use Stripe Connect for payouts)
+- A primary contact for support escalation
+
+We do not accept partners who plan to:
+- Resell at no markup ("AiLys is cheap, sign here")
+- Skip explaining the AiLys engine to their clients
+- Pass platform abuse risk onto us
+
+## How revenue works
+
+You pay us your wholesale price (Reviuzy SaaS + AiLys Agency tier per client). You bill your client whatever you want on top. The markup is yours.
+
+Stripe Connect handles the split:
+- Client pays your invoice in full
+- Stripe takes our wholesale share automatically (application fee)
+- The remainder lands in your Stripe payout
+
+Your wholesale price tracks our public AiLys + Reviuzy pricing with a partner discount you negotiate at onboarding (typically 15 to 25 percent off rack).
+
+## What you get
+
+- White-label dashboard at partner.ailysagency.ca or partner.reviuzy.com (your choice)
+- Per-client brand isolation: your logo on every PDF, your color, your From email
+- Sub-tenant management: create, edit, suspend client workspaces
+- Consolidated invoice per month (one Stripe charge for all your clients, your markup transparent)
+- Reseller-only feature flags: enable or disable specific Reviuzy features per client
+- Dedicated partner-support Slack channel (during business hours)
+- Quarterly partner roadmap call
+
+## What you do NOT get
+
+- Direct access to client data beyond what they have themselves (we do not let partners read raw reviews, photos, or PII; you see aggregate counts and dashboards)
+- Resale rights to a non-AiLys/Reviuzy product
+- Right to misrepresent the underlying engine (you cannot claim you built it; you can claim you operate it)
+- Right to discount AiLys engine itself below wholesale
+- Right to compete with AiLys in our home Quebec market without notice (we reserve the right to decline partners that pose direct competitive overlap)
+
+## How application works
+
+1. Apply via the form at /partner/apply
+2. We review within 5 business days
+3. If approved, you onboard via a 60-min strategy call
+4. You complete Stripe Connect KYC (typically same day)
+5. You sign the partner agreement
+6. We provision your reseller dashboard and hand over credentials
+7. You add your first client
+
+## Strategic note
+
+We do NOT build the partner program speculatively. Once 5+ qualified applications arrive, we ramp engineering on the reseller stack. If you are interested before that gate fires, write us at the partner application URL and we hold your application in queue until the stack ships.
+
+## Privacy and data
+
+- Each partner sees only their own sub-tenants (RLS enforced platform-wide)
+- Sub-tenants see only their workspace, not aware of the reseller layer
+- Strategist team at AiLys can SELECT across partners and tenants for support, but cannot mutate partner data without partner consent
+- All financial data lives in Stripe; we do not duplicate it in our database
+- Partner agreement covers data ownership: client data belongs to the client, partner has access while subscription active, AiLys retains aggregate metrics
+
+## Contact
+
+To apply or ask questions: visit /partner/apply or reach out via the chat widget on the AiLys site.`,
+    i18n: {
+      fr: {
+        title: "Programme partenaire AiLys (revendre AiLys + Reviuzy en marque blanche)",
+        excerpt:
+          "Les agences spécialisées, pigistes et consultants peuvent revendre AiLys + Reviuzy sous leur propre marque. Voici qui peut postuler, comment fonctionne la répartition des revenus, et ce que nous fournissons.",
+        body: `## De quoi s'agit-il
+
+Le programme partenaire AiLys permet à une agence spécialisée, un pigiste en marketing ou un cabinet de conseil de revendre AiLys + Reviuzy à ses propres clients sous votre marque. Vous fixez votre marge, vous gardez la relation client, nous opérons la plateforme dessous. Vos clients voient votre marque. Vos revenus sont à vous.
+
+C'est un programme réservé aux partenaires. Nous vendons en direct aux entreprises locales ; les partenaires vendent à des agences spécialisées et des verticales où les entreprises locales préfèrent acheter d'un visage d'agence familier.
+
+## Qui peut postuler
+
+Nous sommes sélectifs sur les partenaires parce que la qualité du programme est réglée par notre pire partenaire.
+
+Exigences :
+- Une entreprise enregistrée avec un numéro fiscal et une adresse vérifiable
+- 3 clients existants minimum que vous servez activement en marketing, SEO ou numérique local
+- Spécialisation sectorielle ou verticale (juridique, dentaire, restauration, immobilier, hôtellerie, etc.)
+- Marge mensuelle minimum retenue par client : 50 CAD (cela nous permet de soutenir la plateforme)
+- KYC Stripe Connect propre (nous utilisons Stripe Connect pour les versements)
+- Un contact principal pour l'escalade du soutien
+
+Nous n'acceptons pas les partenaires qui prévoient :
+- Revendre sans marge ("AiLys est pas cher, signez ici")
+- Sauter l'explication du moteur AiLys à leurs clients
+- Nous transférer le risque d'abus de plateforme
+
+## Comment fonctionnent les revenus
+
+Vous nous payez votre prix de gros (palier SaaS Reviuzy + Agency AiLys par client). Vous facturez votre client ce que vous voulez par-dessus. La marge vous appartient.
+
+Stripe Connect gère la séparation :
+- Le client paie votre facture en entier
+- Stripe prend automatiquement notre part de gros (frais de plateforme)
+- Le reste atterrit dans votre versement Stripe
+
+Votre prix de gros suit nos prix publics AiLys + Reviuzy avec un rabais partenaire que vous négociez à l'intégration (typiquement 15 à 25 pour cent sous le tarif).
+
+## Ce que vous obtenez
+
+- Tableau de bord en marque blanche à partner.ailysagency.ca ou partner.reviuzy.com (votre choix)
+- Isolation de marque par client : votre logo sur chaque PDF, votre couleur, votre courriel d'expéditeur
+- Gestion de sous-locataires : créer, modifier, suspendre les espaces clients
+- Facture consolidée mensuelle (un seul prélèvement Stripe pour tous vos clients, votre marge transparente)
+- Indicateurs de fonctionnalités réservés au revendeur : activer ou désactiver des fonctionnalités Reviuzy par client
+- Canal Slack dédié au soutien partenaire (heures ouvrables)
+- Appel trimestriel de feuille de route partenaire
+
+## Ce que vous N'OBTENEZ PAS
+
+- Accès direct aux données client au-delà de ce qu'eux-mêmes ont (nous ne laissons pas les partenaires lire les avis bruts, photos ou PII ; vous voyez des comptes agrégés et des tableaux)
+- Droits de revente d'un produit non-AiLys/Reviuzy
+- Droit de fausse représentation du moteur sous-jacent (vous ne pouvez pas prétendre l'avoir bâti ; vous pouvez prétendre l'opérer)
+- Droit d'escompter le moteur AiLys lui-même sous le prix de gros
+- Droit de concurrencer AiLys dans notre marché québécois sans préavis (nous nous réservons le droit de refuser des partenaires qui posent une superposition concurrentielle directe)
+
+## Comment fonctionne la candidature
+
+1. Postulez via le formulaire à /partner/apply
+2. Nous revoyons en 5 jours ouvrables
+3. Si approuvé, vous intégrez via un appel stratégique de 60 minutes
+4. Vous complétez le KYC Stripe Connect (typiquement le jour même)
+5. Vous signez l'entente de partenariat
+6. Nous provisionnons votre tableau de bord revendeur et remettons les identifiants
+7. Vous ajoutez votre premier client
+
+## Note stratégique
+
+Nous ne bâtissons PAS le programme partenaire spéculativement. Une fois 5 candidatures qualifiées reçues, nous lançons l'ingénierie sur la pile revendeur. Si vous êtes intéressé avant que cette barrière se déclenche, écrivez-nous à l'URL de candidature partenaire et nous gardons votre dossier en file jusqu'à ce que la pile soit livrée.
+
+## Confidentialité et données
+
+- Chaque partenaire ne voit que ses propres sous-locataires (RLS appliqué à l'échelle de la plateforme)
+- Les sous-locataires ne voient que leur espace, sans conscience de la couche revendeur
+- L'équipe stratège chez AiLys peut faire SELECT à travers partenaires et locataires pour le soutien, mais ne peut pas modifier les données du partenaire sans son consentement
+- Toutes les données financières vivent dans Stripe ; nous ne les dupliquons pas dans notre base
+- L'entente de partenariat couvre la propriété des données : les données client appartiennent au client, le partenaire y a accès tant que l'abonnement est actif, AiLys retient les métriques agrégées
+
+## Contact
+
+Pour postuler ou poser des questions : visitez /partner/apply ou rejoignez-nous via le widget de clavardage sur le site AiLys.`,
+      },
+    },
+  },
+  {
+    slug: "health-score-explained",
+    title: "Your account health score (how we measure it and what triggers strategist outreach)",
+    excerpt:
+      "We compute a daily health score from your platform usage. When the score drops or trends sharply down, your strategist reaches out before things get worse. Here is what we measure and how to interpret it.",
+    category: "getting-started",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## What this is
+
+A daily background job computes a health score (0 to 100) for your workspace based on five observable behaviors. The score is a triage signal for your dedicated strategist (Growth and Agency tiers): when it drops below 40, or when it trends sharply down over 7 days, the strategist gets a heads-up and reaches out within 1 to 2 business days.
+
+This is INPUT TO HUMAN JUDGMENT, not autopilot. The system never auto-cancels, auto-discounts, or auto-emails you with the score. It is a tool the strategist uses to prioritize who needs attention this week.
+
+## What we measure (5 components)
+
+Each component contributes 20% to your score (0 to 20 points each, summed to 0 to 100).
+
+1. **Login cadence** : how often you (or anyone in your workspace) logged in over the last 30 days vs the expected cadence for your tier. Below expected = lower component score.
+2. **Feature usage breadth** : how many distinct features you touched in 30 days. Using only one feature = low; using 5+ across reviews, photos, citations, dashboard, alerts = high.
+3. **GBP delivery rate** : posts published vs scheduled in the last 30 days. If 12 of 12 scheduled posts published = full points. If 8 of 12 = partial. Captures upstream API issues + your photo upload cadence.
+4. **Citation success rate** : auto-batch + manual submissions accepted vs attempted in 30 days. High success = full points.
+5. **Negative signal density** : anomaly alerts triggered in 30 days, inverted (more alerts = lower score). Captures crisis-mode periods.
+
+The score is the sum, capped 0 to 100.
+
+## What triggers strategist outreach
+
+Two thresholds:
+
+- **Score below 40** : strategist sees an alert in their daily admin feed, reaches out within 1 to 2 business days
+- **Trend below -10 over 7 days** : sharp decline triggers same alert even if score is still above 40 (catches "previously healthy account in trouble" pattern)
+
+Most accounts sit between 60 and 90 most of the time. A score in the 40s is yellow. Below 40 is red. Above 80 is green.
+
+## Why a score and not just raw alerts
+
+Alerts catch acute problems (review bomb, citation churn). The score catches slow drift: a Growth client who logs in less and less, posts fewer photos each month, replies to fewer reviews. No single anomaly fires, but the trend is clear. Without a score, that drift goes unnoticed until cancellation.
+
+## Privacy
+
+- Score components stored as ratios + counts only
+- No review text, no email content, no IP in the score data
+- Score history retained 365 days then purged
+- You can request that your strategist disable scoring for your workspace; default is ON for Growth and Agency tiers, OFF for Starter and Core (we do not have enough data to score Starter accurately)
+- Scores never sent to your clients or third parties
+
+## What you can do with it
+
+- Ask your strategist for your current score during the monthly call
+- Request the per-component breakdown to understand which area is dragging
+- Use it as a self-diagnostic: low feature usage breadth means you might benefit from training on more features
+
+## What this is NOT
+
+- It is not a decision rule. It is a signal that informs strategist prioritization.
+- It is not a payment gate. We never block features based on score.
+- It is not communicated to your clients or your team without your consent.
+- It is not a churn predictor with high precision; treat it as a weak signal that buys the strategist 30-60 days of warning, not a probability forecast.
+
+## How we tune the formula
+
+The scoring weights start at 20% each. Quarterly we review precision and recall:
+- How many low-score accounts actually churned in the next 90 days?
+- How many high-score accounts churned anyway (false negatives)?
+- Are component weights balanced or should one (e.g., login cadence) carry more weight?
+
+Adjustments bump the formula version. Old scores remain comparable within their version; the admin chart filters by version to avoid mixed-version trend lines.
+
+## Asking questions
+
+The score is meant to be transparent. Ask your strategist on the next monthly call to walk through your current score and components, and flag any data point that surprises you. The score serves you when you understand it.`,
+      i18n: {
+        fr: {
+          title: "Le score de santé de votre compte (comment nous le mesurons et ce qui déclenche le démarchage du stratège)",
+          excerpt:
+            "Nous calculons un score de santé quotidien à partir de votre utilisation de la plateforme. Quand le score chute ou tend fortement à la baisse, votre stratège vous démarche avant que les choses empirent. Voici ce que nous mesurons et comment l'interpréter.",
+          body: `## De quoi s'agit-il
+
+Un travail de fond quotidien calcule un score de santé (0 à 100) pour votre espace de travail à partir de cinq comportements observables. Le score est un signal de triage pour votre stratège dédié (paliers Growth et Agency) : quand il tombe sous 40, ou quand il tend fortement à la baisse sur 7 jours, le stratège reçoit un avertissement et vous démarche en 1 à 2 jours ouvrables.
+
+C'est UNE ENTRÉE POUR LE JUGEMENT HUMAIN, pas du pilote automatique. Le système n'annule jamais, ne rabaisse jamais, n'envoie jamais de courriel automatique avec le score. C'est un outil que le stratège utilise pour prioriser qui a besoin d'attention cette semaine.
+
+## Ce que nous mesurons (5 composantes)
+
+Chaque composante contribue 20% à votre score (0 à 20 points chaque, sommés à 0 à 100).
+
+1. **Cadence de connexion** : à quelle fréquence vous (ou n'importe qui dans votre espace) vous êtes connecté sur les 30 derniers jours vs la cadence attendue pour votre palier. Sous l'attendu = composante plus basse.
+2. **Étendue d'utilisation des fonctionnalités** : combien de fonctionnalités distinctes vous avez touchées en 30 jours. Une seule fonctionnalité utilisée = bas ; 5+ entre avis, photos, citations, tableau, alertes = haut.
+3. **Taux de livraison GBP** : publications publiées vs planifiées sur les 30 derniers jours. Si 12 de 12 publiées = points pleins. Si 8 de 12 = partiel. Capture les soucis API en amont + votre cadence de téléversement de photos.
+4. **Taux de succès des citations** : soumissions auto-batch + manuelles acceptées vs tentées en 30 jours. Haut succès = points pleins.
+5. **Densité de signaux négatifs** : alertes d'anomalie déclenchées en 30 jours, inversées (plus d'alertes = score plus bas). Capture les périodes de crise.
+
+Le score est la somme, plafonnée 0 à 100.
+
+## Ce qui déclenche le démarchage du stratège
+
+Deux seuils :
+
+- **Score sous 40** : le stratège voit une alerte dans son fil admin quotidien, démarche en 1 à 2 jours ouvrables
+- **Tendance sous -10 sur 7 jours** : déclin marqué déclenche la même alerte même si le score est toujours au-dessus de 40 (capture le motif "compte précédemment sain en difficulté")
+
+La plupart des comptes se situent entre 60 et 90 la plupart du temps. Un score dans les 40 est jaune. Sous 40 est rouge. Au-dessus de 80 est vert.
+
+## Pourquoi un score et pas juste des alertes brutes
+
+Les alertes attrapent les problèmes aigus (vague d'avis, perte de citations). Le score attrape la dérive lente : un client Growth qui se connecte de moins en moins, publie moins de photos chaque mois, répond à moins d'avis. Aucune anomalie unique ne se déclenche, mais la tendance est claire. Sans score, cette dérive passe inaperçue jusqu'à l'annulation.
+
+## Confidentialité
+
+- Composantes du score stockées comme ratios + comptes seulement
+- Aucun texte d'avis, aucun contenu de courriel, aucune adresse IP dans les données du score
+- Historique du score retenu 365 jours puis purgé
+- Vous pouvez demander que votre stratège désactive le scoring pour votre espace ; par défaut activé pour Growth et Agency, désactivé pour Starter et Core (nous n'avons pas assez de données pour scorer Starter avec précision)
+- Les scores ne sont jamais envoyés à vos clients ou à des tiers
+
+## Ce que vous pouvez en faire
+
+- Demandez à votre stratège votre score actuel lors de l'appel mensuel
+- Demandez la ventilation par composante pour comprendre quelle zone tire vers le bas
+- Utilisez-le comme auto-diagnostic : étendue d'utilisation faible veut dire que vous pourriez bénéficier de formation sur plus de fonctionnalités
+
+## Ce que ce N'EST PAS
+
+- Ce n'est pas une règle de décision. C'est un signal qui informe la priorisation du stratège.
+- Ce n'est pas une barrière de paiement. Nous ne bloquons jamais de fonctionnalités basées sur le score.
+- Ce n'est pas communiqué à vos clients ou à votre équipe sans votre consentement.
+- Ce n'est pas un prédicteur de désabonnement à haute précision ; traitez-le comme un signal faible qui achète au stratège 30 à 60 jours de préavis, pas une prévision de probabilité.
+
+## Comment nous ajustons la formule
+
+Les pondérations du scoring commencent à 20% chacune. Trimestriellement nous revoyons précision et rappel :
+- Combien de comptes à score bas se sont effectivement désabonnés dans les 90 jours suivants ?
+- Combien de comptes à score haut se sont quand même désabonnés (faux négatifs) ?
+- Les pondérations sont-elles équilibrées ou une (ex. cadence de connexion) devrait porter plus de poids ?
+
+Les ajustements montent la version de la formule. Les anciens scores restent comparables au sein de leur version ; le tableau admin filtre par version pour éviter les lignes de tendance à versions mêlées.
+
+## Poser des questions
+
+Le score est conçu pour être transparent. Demandez à votre stratège lors du prochain appel mensuel de parcourir votre score actuel et ses composantes, et signalez tout point de donnée qui vous surprend. Le score vous sert quand vous le comprenez.`,
+        },
+      },
+  },
 ];

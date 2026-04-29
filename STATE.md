@@ -1,6 +1,9 @@
 # AiLys Agency — Project State
 
-**Last updated:** 2026-04-29 (PHASE C AUTOMATION FULL SWEEP: C.1 Day-1 onboarding PDF + C.2 cron primitives shipped on AiLys; C.3 GBP auto-publish gate + C.4 anomaly auto-remediation shipped on Reviuzy via PR #6 merged at `21b3d59`. Cross-repo: 14 commits, 104 vitest+smoke assertions, 9 mandatory CI gates on AiLys, full Reviuzy test suite passing 363/363. AiLys help articles for C.3 + C.4 live in production. All infrastructure (HMAC primitives, idempotency, kill switches, audit logs, RLS, single-use tokens, constant-time compare) gov-grade. End-of-session tag pending: `v0.5.0-automation-c1-c4`.)
+> **🚨 IF WORKING ON PHASE C/11/12 OR ANY NEW FEATURE TOUCHING AUTH/DATA/CRON/ADMIN/HMAC/RLS:** invoke `/iso-gsd-delivery` BEFORE writing any code. The skill enforces GSD planning artefacts, ISO gates per commit, agent fidelity verification, gov-grade security, cost guardrails, multi-tenant isolation tests, DRY_RUN mode, locale parity, STATE.md same-commit, no-new-deps, time-box, migration reversibility, and a binary Definition of Done. CLAUDE.md hard rule #14 binds this. Skip = NOT MERGEABLE.
+
+
+**Last updated:** 2026-04-29 (PHASE C AUTOMATION FULL SWEEP: C.1 Day-1 onboarding PDF + C.2 cron primitives shipped on AiLys; C.3 GBP auto-publish gate + C.4 anomaly auto-remediation shipped on Reviuzy via PR #6 merged at `21b3d59`; C.5 Monthly Visibility Report AiLys-side help articles + GSD spec shipped, Reviuzy-side fully specced. Cross-repo: 14 commits, 104 vitest+smoke assertions, 9 mandatory CI gates on AiLys, full Reviuzy test suite passing 363/363. AiLys help articles for C.3 + C.4 + C.5 live in production. New `iso-gsd-delivery` skill enforces 13 ISO-grade sections per sub-phase. All infrastructure (HMAC primitives, idempotency, kill switches, audit logs, RLS, single-use tokens, constant-time compare) gov-grade. End-of-session tag pending: `v0.5.0-automation-c1-c4`.)
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
@@ -46,11 +49,23 @@ User actions to flip B.4.3 from fallback to production:
 5. Resend domain auth (SPF/DKIM/DMARC) for `noreply@ailysagency.ca`
 
 Deferred to next session (clean stopping point):
-- B.4.3.b Frontend modal UI (`AuditPdfDownload.tsx`) wired to /audit results page
-- B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
-- B.4.5 Help center articles (EN + FR-CA, no proprietary AI provider disclosure)
-- Tag `v0.5.0-pdf-export` after B.4.5 lands
+- ~~B.4.3.b Frontend modal UI~~ ✅ SHIPPED 2026-04-29: `AuditPdfDownload.tsx` + 17 i18n keys × 16 locales (EN+FR-CA hand-translated, 14 secondaries TODO i18n), wired into AutoAuditEngine results panel below ExportActionPlan, verified compile + i18n parity + 66/66 smoke + build
+- ~~B.4.4 Admin panel~~ AiLys SIDE SHIPPED 2026-04-29 (option A cross-repo via iso-gsd-delivery skill): GSD artefacts in `.planning/phase-b44/`, KV ring-buffer write in audit-pdf.ts (non-blocking, 7-day TTL, no PII), new endpoint `/api/admin/audit-pdf-stats` (GET, HMAC service auth, returns last 50 + daily count + 7d count + cost CAD + kill switch state), 12-case smoke script wired as CI gate 10. Reviuzy SIDE handoff fully specced in `.planning/phase-b44/02-sub-phases.md` (B.4.4.Rvz.1 edge fn proxy + B.4.4.Rvz.2 admin page + B.4.4.Rvz.3 vitest, ~3h total).
+- ~~B.4.5 Help center articles~~ ✅ SHIPPED 2026-04-29 (commit `67fac15`): 2 articles `your-pdf-audit-explained` + `day-1-onboarding-pdf` EN+FR-CA, no proprietary AI provider disclosure, em-dash clean, verified live at 375x812 + 768x1024
+- Tag `v0.5.0-pdf-export` after B.4.4.Rvz.1-3 lands on Reviuzy
 - B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
+
+**B.4.4 user actions to flip from staged to live:**
+1. Cloudflare Pages: `AILYS_SERVICE_SHARED_SECRET` already set (reused from C.1)
+2. AiLys auto-deploys on next push to main (CI gate 10 enforces smoke pass)
+3. After AiLys deploy, verify with curl:
+   ```bash
+   # 1. Should return 401 (no auth headers)
+   curl -i https://www.ailysagency.ca/api/admin/audit-pdf-stats
+   # 2. Should return 405 (POST not allowed)
+   curl -i -X POST https://www.ailysagency.ca/api/admin/audit-pdf-stats
+   ```
+4. Reviuzy follow-up session: implement B.4.4.Rvz.1-3 per `.planning/phase-b44/02-sub-phases.md`
 
 ## ✅ PHASE C.1 + C.2 SHIPPED 2026-04-29 (autopilot session, AiLys repo)
 
@@ -61,6 +76,115 @@ Deferred to next session (clean stopping point):
 
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
+
+## 🚧 PHASE C.8 + C.9 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.8 (Reseller / partner program) + Phase C.9 (Health-score-driven churn prediction) shipped through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c8/` (recommendation: defer Reviuzy build until 5+ partner applications received)
+- 5 GSD artefacts in `.planning/phase-c9/`
+- 2 help articles `partner-program-onboarding` + `health-score-explained` EN + FR-CA
+- STATE.md updated
+
+**Reviuzy side (next sessions, fully specced):**
+- C.8.Rvz.1-6: reseller schema + Stripe Connect + dashboard + markup + RLS + smoke (~26h, 62 vitest cases). DEFER until 5+ qualified partner applications.
+- C.9.Rvz.1-4: health score schema + builder lib + edge fn + admin panel + tuning playbook (~14.5h, 50+ cases). Recommended Q2 2026.
+
+**User actions to flip C.8 / C.9 from staged to live:** see respective `02-sub-phases.md` files. C.8 starts with partner application form (C.8.AiLys.2, ~4h, future commit). C.9 starts directly with C.9.Rvz.1 migration when ready.
+
+## ✅ PHASE C ROADMAP STATUS (post-this-session)
+
+All 9 sub-phases of Phase C have been touched in this branch:
+
+| Sub-phase | AiLys side | Reviuzy side | Status |
+|---|---|---|---|
+| C.1 Day-1 onboarding PDF | ✅ shipped | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.2 Cron primitives | ✅ shipped | n/a | live, fail-closed pending env |
+| C.3 GBP auto-publish | n/a | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.4 Anomaly auto-fix | ✅ help docs | ✅ shipped (PR #6) | live, fail-closed pending env |
+| C.5 Monthly Visibility report | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.6 Citation auto-batch | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.7 Renewal + upsell | ✅ help docs + GSD | 📋 specced | awaiting Reviuzy session |
+| C.8 Reseller stack | ✅ help docs + GSD | 📋 specced | DEFER until 5+ apps |
+| C.9 Health score | ✅ help docs + GSD | 📋 specced | recommended Q2 2026 |
+
+**Remaining AiLys-side work:** B.4.4.Rvz.1-3 + tag `v0.5.0-pdf-export` once Reviuzy ships. C.5/C.6/C.7 Reviuzy sessions in priority order.
+
+## 🚧 PHASE C.7 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.7 (Renewal nudges + behavioral upsell signals) ran through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c7/`
+- 1 help article `renewal-and-upsell-signals` EN + FR-CA (no proprietary AI provider mention)
+- STATE.md updated
+
+**Reviuzy side (next session, fully specced in `.planning/phase-c7/02-sub-phases.md`):**
+- C.7.Rvz.1: migration + builder lib (~3h, 35 vitest cases)
+- C.7.Rvz.2: edge fn `compute-renewal-signals` (~3h, 16 cases)
+- C.7.Rvz.3: pg_cron + admin panel (~3h, 7 cases)
+- C.7.Rvz.4: email templates + opt-in toggle (~1.5h)
+
+**User actions to flip C.7 from staged to live (Reviuzy side):**
+1. Read `.planning/phase-c7/02-sub-phases.md`
+2. Apply 3 migrations (renewal_signals + tenants.upsell_emails_enabled + cron schedule)
+3. Deploy edge fn + render lib
+4. Set 2 env vars: RENEWAL_SIGNALS_ENABLED, RENEWAL_SIGNALS_DRY_RUN
+5. DRY_RUN test on 1 seed Growth tenant approaching renewal
+6. Flip live, monitor first week conversion
+
+## 🚧 PHASE C.6 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Phase C.6 (Citation directory auto-batch) ran through `iso-gsd-delivery` skill.
+
+**AiLys side (this commit):**
+- 5 GSD artefacts in `.planning/phase-c6/`
+- 1 help article `citation-auto-batch` EN + FR-CA (no proprietary AI provider mention, no internal doc references in customer copy)
+- STATE.md updated with cross-repo handoff
+
+**Reviuzy side (next session, fully specced in `.planning/phase-c6/02-sub-phases.md`):**
+- C.6.Rvz.1: migrations + RLS isolation tests (~3h, 9 cases)
+- C.6.Rvz.2: directory adapter framework + Yelp + Foursquare + BBB-CSV (~6h, 21 cases)
+- C.6.Rvz.3: edge fn `citation-auto-batch` + DRY_RUN (~6h, 15 cases)
+- C.6.Rvz.4: pg_cron + admin panel (~5h, 6 cases)
+- C.6.Rvz.5: per-adapter production smoke + observability (~2h)
+
+**User actions to flip C.6 from staged to live (Reviuzy side):**
+1. Read `.planning/phase-c6/02-sub-phases.md`
+2. Apply 3 migrations (auto_batch_runs + submission_method + cron schedule)
+3. Deploy edge fn + adapter modules
+4. Set 4 env vars: YELP_API_KEY, FOURSQUARE_API_KEY, BBB_PARTNER_KEY, CITATION_AUTO_BATCH_ENABLED
+5. Start in DRY_RUN=true for 1 seed Growth tenant, validate, then flip live
+6. Wait 24h for next cron tick, monitor success rate per adapter
+
+## 🚧 PHASE C.5 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
+
+Sub-phase C.5 (Monthly Visibility Report scheduled export + email) ran through the new `iso-gsd-delivery` skill. AiLys-side deliverable shipped, Reviuzy-side fully specced for follow-up session.
+
+**AiLys side (this commit on `claude/gracious-napier-9890e8`):**
+- Commit `6637039`: GSD artefacts in `.planning/phase-c5/` (5 files), `iso-gsd-delivery` skill (13 sections), CLAUDE.md hard rule 14, STATE.md banner
+- Commit `<NEXT>`: 1 help article `monthly-visibility-report` in EN + FR-CA at `src/data/help-articles.ts`
+- Verified live at 375x812 + 768x1024, EN at `/help/monthly-visibility-report` + FR-CA at `/fr/help/monthly-visibility-report`
+- No proprietary AI provider name (hard rule #10): grep clean for Anthropic/Claude/Gemini/OpenAI/GPT
+- Em-dash sweep clean
+- All CI gates green: tsc, i18n audit, blog audit, em-dash, 5 smoke scripts (66 cases), build
+
+**Reviuzy side (next session, fully specced in `.planning/phase-c5/02-sub-phases.md`):**
+- C.5.Rvz.1: migration `20260430000000_create_monthly_visibility_reports.sql` + RLS isolation tests (8 cases)
+- C.5.Rvz.2: edge fn `monthly-visibility-export` with DRY_RUN + 12 vitest cases
+- C.5.Rvz.3: pg_cron monthly schedule `0 9 1 * *` + kill switch
+- C.5.Rvz.4: admin panel + cost telemetry + per-tenant opt-out toggle
+
+**User actions to flip C.5 from staged to live (Reviuzy side):**
+1. Read `.planning/phase-c5/02-sub-phases.md` for the full Reviuzy spec
+2. Apply migration `20260430000000_create_monthly_visibility_reports.sql` via Supabase SQL Editor
+3. Deploy edge fn: `npx supabase functions deploy monthly-visibility-export --project-ref qucxhksrpqunlyjjvuae`
+4. Apply pg_cron migration `20260430010000_schedule_monthly_visibility.sql`
+5. Set Reviuzy edge fn env: `MONTHLY_VISIBILITY_REPORT_ENABLED=true`, `MONTHLY_VISIBILITY_REPORT_DRY_RUN=true` (start dry-run)
+6. Manually fire for 1 seed Agency tenant, verify dry_run row + payload log
+7. Flip `DRY_RUN=false`, fire again, verify Resend + storage + status='sent'
+8. Wait for 1st-of-month cron, monitor delivery rate
 
 ## ✅ PHASE C.3 + C.4 SHIPPED 2026-04-29 (Reviuzy PR #6 merged at `21b3d59`)
 
