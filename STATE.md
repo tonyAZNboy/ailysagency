@@ -77,6 +77,51 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚀 REVIUZY EXECUTION STARTED 2026-04-29 (D.3 + B.4.4.Rvz + C.5.Rvz partial shipped)
+
+Cross-repo execution kicked off after Phase D plans landed on AiLys. 3 PRs merged on Reviuzy main.
+
+**Reviuzy PR #7 (D.3 security hotfix)** merged:
+- `b94a234` D.3.Rvz.1: env-driven Supabase URL + anon key (was hardcoded in `src/integrations/supabase/client.ts:6` and `src/hooks/useAIEngine.ts:44`). Hygiene + per-env swap.
+- `5fdc4ea` D.3.Rvz.2: new `_shared/tenantVerify.ts` helper + 10 vitest. `migrate-images` locked down (was: no auth gate; now: strategist-only).
+- `2e2302f` D.3.Rvz.3: `generate-single-post` locked with member-tenant verify.
+- Honest scope correction (skill section 3 agent fidelity): initial deep-audit claim of "60+ unsafe fns" verified independently to be 4 actually unsafe; 2 fixed in this PR; 2 (generate-weekly-posts, shield-analyze) flagged as follow-up (intentionally public surfaces needing input-integrity checks rather than user gates).
+- Reviuzy test count: 363 → 363 (no regression on D.3.Rvz.1) → 373 with D.3.Rvz.2.
+
+**Reviuzy PR #8 (B.4.4.Rvz.1 audit-pdf-stats proxy)** merged:
+- `_shared/ailysServiceSign.ts` HMAC signer (mirrors AiLys `functions/lib/serviceAuth.ts`) + 9 vitest cases.
+- `audit-pdf-stats-proxy` edge fn: super_admin OR strategist gate → signs outbound to AiLys `/api/admin/audit-pdf-stats` → 30s edge cache → 502/401/403/503 fail-closed.
+- Closes the cross-repo dependency for AiLys tag `v0.5.0-pdf-export` (admin UI page is the remaining follow-up).
+
+**Reviuzy PR #9 (C.5.Rvz.1 + .2 skeleton)** merged:
+- Migration `20260430000000_create_monthly_visibility_reports.sql`: ledger table + RLS (members SELECT own, strategists SELECT all, owner/admin/strategist UPDATE-status) + `tenants.auto_monthly_report` per-tenant kill switch.
+- Edge fn `monthly-visibility-export`: orchestrator skeleton with eligibility (ailys_managed+growth/agency OR reviuzy+pro), idempotent insert (UNIQUE on tenant_id+month), DRY_RUN mode, fail-closed defaults. Real-run path documented as `render_not_yet_wired` (C.5.Rvz.2.b follow-up).
+- Pure helpers in `_shared/monthlyVisibilityEligibility.ts` + 12 vitest cases.
+- Reviuzy test count: 363 → 394 (+31 across D.3, B.4.4.Rvz, C.5.Rvz).
+
+**User actions to complete the live activation:**
+1. AiLys side: set `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` are unrelated; D.3 is Reviuzy-side. (No AiLys env change needed for D.3.)
+2. Reviuzy side: set `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` in Cloudflare Workers prod env (first-time post-D.3.Rvz.1)
+3. Reviuzy side: set `AILYS_SERVICE_SHARED_SECRET` in edge fn env (same value as AiLys Pages env per C.1)
+4. Reviuzy side: set `MONTHLY_VISIBILITY_REPORT_ENABLED=true` and `MONTHLY_VISIBILITY_REPORT_DRY_RUN=true` (start dry-run)
+5. Reviuzy side: deploy edge fns: `npx supabase functions deploy audit-pdf-stats-proxy monthly-visibility-export --project-ref qucxhksrpqunlyjjvuae`
+6. Reviuzy side: apply migration `20260430000000_create_monthly_visibility_reports.sql` via Supabase SQL Editor
+7. (Optional hygiene) rotate Supabase anon key in dashboard, document timestamp here
+
+**Remaining Reviuzy work (post-this-session):**
+- B.4.4.Rvz.2: admin UI `/admin/audit-pdf-stats` page consuming the proxy
+- C.5.Rvz.2.b: render path (React-PDF→Deno OR fetch-to-AiLys-audit-pdf service-to-service)
+- C.5.Rvz.3: pg_cron schedule `0 9 1 * *`
+- C.5.Rvz.4: admin panel for monthly reports
+- D.3 follow-up: generate-weekly-posts + shield-analyze + nfc-checkin input-integrity checks
+- C.6.Rvz.1-5: citation auto-batch (~24h fully specced)
+- C.7.Rvz.1-4: renewal + upsell intelligence (~12h fully specced)
+- D.1.Rvz.1-5: SOC2 audit log infra (~12h fully specced)
+- D.2.Rvz.1-5: cross-tenant benchmarking (~18h fully specced; D.1 prerequisite)
+- D.4.Rvz.1-5: Sentry + observability (~6h fully specced; D.1 prerequisite)
+
+After Reviuzy lands B.4.4.Rvz.2 + C.5.Rvz.2.b/.3/.4: tag AiLys `v0.5.0-pdf-export` (B.4 closed) and Reviuzy own milestone tag.
+
 ## 🚧 PHASE D PLANS SHIPPED 2026-04-29 (4 sub-phases specced via iso-gsd-delivery + GSD-Skill)
 
 Phase D adds enterprise-grade observability + the AiLys moat (cross-tenant benchmarking) on top of Phase C automation. Built through both iso-gsd-delivery skill (5 artefacts per phase) AND standalone GSD-Skill (XML <task> blocks inside 02-sub-phases.md for atomic executability).
