@@ -15,6 +15,7 @@
 import { validateAuditPdfRequest, AuditPdfRequest } from '../../src/lib/pdfRequestSchema';
 import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
 import { renderAuditPdf } from '../lib/pdf/AuditReport';
+import { newObjectId, signDownload } from '../lib/pdfHmac';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -30,10 +31,13 @@ interface KVNamespace {
   put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
 }
 interface R2Bucket {
-  put(key: string, value: ArrayBuffer | ReadableStream, options?: Record<string, unknown>): Promise<unknown>;
+  put(key: string, value: ArrayBuffer | Uint8Array | ReadableStream, options?: Record<string, unknown>): Promise<unknown>;
   get(key: string): Promise<{ body: ReadableStream } | null>;
   delete(key: string): Promise<void>;
 }
+
+const DOWNLOAD_TTL_SECONDS = 24 * 60 * 60; // 24h
+const NOTIFY_FROM = 'AiLys Agency <noreply@ailysagency.ca>';
 
 interface PagesContext {
   request: Request;
@@ -261,9 +265,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     );
   }
 
-  // 6. Render PDF (B.4.2). Email gate + R2 upload + signed download link
-  //    land in B.4.3; for now we stream the PDF directly back so the
-  //    pipeline is testable end-to-end.
+  // 6. Render the PDF.
   let pdfBytes: Uint8Array;
   try {
     pdfBytes = await renderAuditPdf(data);
@@ -281,17 +283,107 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     return jsonResponse({ error: 'render_failed' }, 500);
   }
 
+  // 7. Decide the delivery mode.
+  //    - Production (R2 + HMAC + Resend bound): store in R2, sign URL, email
+  //      the link, return { status: 'emailed' } with no PDF body.
+  //    - Fallback (any binding missing): stream PDF directly to the caller.
+  //      This keeps the endpoint testable from local dev and handles the
+  //      pre-binding-setup deploy gracefully.
+  const canQueue = !!(env.AUDIT_PDFS && env.AUDIT_PDF_HMAC_SECRET);
+  if (canQueue) {
+    const objectId = newObjectId();
+    const expiresAt = Math.floor(Date.now() / 1000) + DOWNLOAD_TTL_SECONDS;
+    try {
+      await env.AUDIT_PDFS!.put(objectId, pdfBytes, {
+        httpMetadata: { contentType: 'application/pdf' },
+        customMetadata: {
+          actor_hash: actorHash,
+          payload_hash: payloadHash,
+          generated_at: new Date().toISOString(),
+        },
+      });
+    } catch (err) {
+      emitAuditLog({
+        ts: new Date().toISOString(),
+        action: 'r2_put_failed',
+        actorHash,
+        ipHash,
+        status: 500,
+        payloadHash,
+        reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
+        latencyMs: Date.now() - start,
+      });
+      return jsonResponse({ error: 'storage_failed' }, 500);
+    }
+
+    const sig = await signDownload(env.AUDIT_PDF_HMAC_SECRET!, objectId, expiresAt);
+    const origin = new URL(request.url).origin;
+    const downloadUrl = `${origin}/api/audit-pdf-download/${objectId}?exp=${expiresAt}&sig=${sig}`;
+
+    if (env.RESEND_API_KEY) {
+      const emailSent = await sendDownloadEmail(env, data, downloadUrl);
+      emitAuditLog({
+        ts: new Date().toISOString(),
+        action: emailSent.ok ? 'email_sent' : 'email_failed',
+        actorHash,
+        ipHash,
+        status: emailSent.ok ? 200 : 500,
+        payloadHash,
+        reason: emailSent.error,
+        latencyMs: Date.now() - start,
+      });
+      if (!emailSent.ok) {
+        return jsonResponse({ error: 'email_failed', detail: emailSent.error }, 500);
+      }
+    } else {
+      emitAuditLog({
+        ts: new Date().toISOString(),
+        action: 'email_skipped_no_key',
+        actorHash,
+        ipHash,
+        status: 200,
+        payloadHash,
+        latencyMs: Date.now() - start,
+      });
+    }
+
+    emitAuditLog({
+      ts: new Date().toISOString(),
+      action: 'pdf_queued',
+      actorHash,
+      ipHash,
+      status: 202,
+      payloadHash,
+      reason: `bytes=${pdfBytes.byteLength}`,
+      latencyMs: Date.now() - start,
+    });
+    return jsonResponse(
+      {
+        status: env.RESEND_API_KEY ? 'emailed' : 'stored_no_email',
+        message: env.RESEND_API_KEY
+          ? 'Your audit PDF is on its way. Check your inbox.'
+          : 'Your audit PDF is ready. The download link was logged but email is not configured.',
+        // Echo the link only when Resend is missing, so the operator
+        // can deliver it manually during initial setup.
+        ...(env.RESEND_API_KEY ? {} : { downloadUrl }),
+        expiresAt,
+      },
+      202,
+    );
+  }
+
+  // Fallback: stream directly. Useful in local dev and for the first deploy
+  // before the user wires R2 + HMAC secret.
   emitAuditLog({
     ts: new Date().toISOString(),
-    action: 'pdf_rendered',
+    action: 'pdf_streamed',
     actorHash,
     ipHash,
     status: 200,
     payloadHash,
-    reason: `bytes=${pdfBytes.byteLength}`,
+    reason: `bytes=${pdfBytes.byteLength},mode=fallback_no_r2_or_hmac`,
     latencyMs: Date.now() - start,
   });
-
   return new Response(pdfBytes, {
     status: 200,
     headers: {
@@ -302,6 +394,109 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     },
   });
 };
+
+interface SendResult { ok: boolean; error?: string }
+
+async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: string): Promise<SendResult> {
+  if (!env.RESEND_API_KEY) return { ok: false, error: 'no_resend_key' };
+
+  // Localized subject + body. Keep brand names in English per project rule.
+  const lang = data.lang;
+  const subject = pickLocale(lang, {
+    en: `Your AiLys audit report is ready, ${data.businessName}`,
+    fr: `Votre rapport AiLys est prêt, ${data.businessName}`,
+    es: `Tu informe AiLys está listo, ${data.businessName}`,
+    zh: `${data.businessName}, 您的AiLys审计报告已就绪`,
+    ar: `تقرير AiLys الخاص بك جاهز, ${data.businessName}`,
+    ru: `Ваш отчёт AiLys готов, ${data.businessName}`,
+  });
+
+  const greeting = pickLocale(lang, {
+    en: 'Your AI Visibility audit is ready.',
+    fr: 'Votre audit AI Visibility est prêt.',
+    es: 'Tu auditoría de AI Visibility está lista.',
+    zh: '您的AI可见性审计已就绪。',
+    ar: 'تدقيق AI Visibility الخاص بك جاهز.',
+    ru: 'Ваш аудит AI Visibility готов.',
+  });
+
+  const cta = pickLocale(lang, {
+    en: 'Open the report',
+    fr: 'Ouvrir le rapport',
+    es: 'Abrir el informe',
+    zh: '打开报告',
+    ar: 'افتح التقرير',
+    ru: 'Открыть отчёт',
+  });
+
+  const expiryLine = pickLocale(lang, {
+    en: 'The link expires in 24 hours.',
+    fr: 'Le lien expire dans 24 heures.',
+    es: 'El enlace caduca en 24 horas.',
+    zh: '链接将在24小时后过期。',
+    ar: 'الرابط ينتهي خلال 24 ساعة.',
+    ru: 'Ссылка истекает через 24 часа.',
+  });
+
+  const html = `<!doctype html>
+<html lang="${lang}">
+<body style="font-family:Inter,Helvetica,Arial,sans-serif;color:#0A0F1F;background:#FFFFFF;padding:24px;">
+  <p style="font-size:14px;color:#3F4761;">AiLys Agency</p>
+  <h1 style="font-size:20px;color:#0E2A4A;margin:8px 0 16px;">${escapeHtml(greeting)}</h1>
+  <p style="font-size:14px;line-height:1.5;color:#0A0F1F;">
+    ${escapeHtml(pickLocale(lang, {
+      en: `We have prepared the branded audit report for ${data.businessName}. Click the button below to download the PDF.`,
+      fr: `Nous avons préparé le rapport personnalisé pour ${data.businessName}. Cliquez sur le bouton ci-dessous pour télécharger le PDF.`,
+      es: `Hemos preparado el informe personalizado para ${data.businessName}. Haz clic en el botón para descargar el PDF.`,
+      zh: `我们已为${data.businessName}准备好专属审计报告。点击下方按钮下载PDF。`,
+      ar: `لقد أعددنا تقرير التدقيق المخصص لـ ${data.businessName}. انقر على الزر أدناه لتنزيل PDF.`,
+      ru: `Мы подготовили персональный отчёт для ${data.businessName}. Нажмите кнопку ниже, чтобы скачать PDF.`,
+    }))}
+  </p>
+  <p style="margin:24px 0;">
+    <a href="${downloadUrl}" style="background:#0E2A4A;color:#FFFFFF;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;font-size:14px;">${escapeHtml(cta)}</a>
+  </p>
+  <p style="font-size:12px;color:#6B7280;">${escapeHtml(expiryLine)}</p>
+  <p style="font-size:12px;color:#6B7280;">ailysagency.ca</p>
+</body>
+</html>`;
+
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: NOTIFY_FROM,
+        to: data.email,
+        subject,
+        html,
+      }),
+    });
+    if (!resp.ok) {
+      const text = await resp.text();
+      return { ok: false, error: `resend_${resp.status}_${text.slice(0, 120)}` };
+    }
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: `resend_threw_${(err as Error).message.slice(0, 120)}` };
+  }
+}
+
+function pickLocale(lang: string, map: Record<string, string>): string {
+  return map[lang] ?? map.en;
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(payload), {
