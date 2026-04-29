@@ -70,6 +70,7 @@ Before declaring any task complete:
    - `npx tsx scripts/smoke-audit-pdf-render.mjs` (9 cases, full PDF render with pdf-lib round-trip)
    - `npx tsx scripts/smoke-audit-pdf-hmac.mjs` (11 cases, signed download URL signer)
    - `npx tsx scripts/smoke-audit-pdf-onboarding.mjs` (17 cases, service-to-service HMAC + Day-1 payload synthesis + 10-page render)
+   - `npx tsx scripts/smoke-cron-guard.mjs` (13 cases, kill switch + concurrency lock + audit log emission)
    - As new features ship, add their smoke tests here AND wire into `.github/workflows/deploy.yml`.
 6. Open the affected page(s) in the browser preview
 7. Click the affected control / submit the affected form / verify the affected output

@@ -76,6 +76,9 @@ jobs:
       - name: Gate 8, Day-1 onboarding PDF smoke (17 cases)
         run: npx tsx scripts/smoke-audit-pdf-onboarding.mjs
 
+      - name: Gate 9, cron guard primitives smoke (13 cases)
+        run: npx tsx scripts/smoke-cron-guard.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
