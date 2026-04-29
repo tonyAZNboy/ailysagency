@@ -14,6 +14,7 @@
 
 import { validateAuditPdfRequest, AuditPdfRequest } from '../../src/lib/pdfRequestSchema';
 import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
+import { renderAuditPdf } from '../lib/pdf/AuditReport';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -260,26 +261,46 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     );
   }
 
-  // 6. (B.4.2 / B.4.3) Render PDF, upload to R2, email signed link.
-  //    Until those phases land, return 501 so the pipeline is end-to-end
-  //    testable with a clear "not yet implemented" signal.
+  // 6. Render PDF (B.4.2). Email gate + R2 upload + signed download link
+  //    land in B.4.3; for now we stream the PDF directly back so the
+  //    pipeline is testable end-to-end.
+  let pdfBytes: Uint8Array;
+  try {
+    pdfBytes = await renderAuditPdf(data);
+  } catch (err) {
+    emitAuditLog({
+      ts: new Date().toISOString(),
+      action: 'render_failed',
+      actorHash,
+      ipHash,
+      status: 500,
+      payloadHash,
+      reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
+      latencyMs: Date.now() - start,
+    });
+    return jsonResponse({ error: 'render_failed' }, 500);
+  }
+
   emitAuditLog({
     ts: new Date().toISOString(),
-    action: 'accept_validation_only',
+    action: 'pdf_rendered',
     actorHash,
     ipHash,
-    status: 501,
+    status: 200,
     payloadHash,
-    reason: 'B.4.1 scaffold; PDF render lands in B.4.2',
+    reason: `bytes=${pdfBytes.byteLength}`,
     latencyMs: Date.now() - start,
   });
-  return jsonResponse(
-    {
-      status: 'queued_pending_implementation',
-      detail: 'Audit PDF pipeline scaffold reached. PDF render not yet wired (Phase B.4.2).',
+
+  return new Response(pdfBytes, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="audit-${data.businessName.replace(/[^a-z0-9]/gi, '-').toLowerCase().slice(0, 40)}.pdf"`,
+      'X-Content-Type-Options': 'nosniff',
+      'Cache-Control': 'no-store',
     },
-    501,
-  );
+  });
 };
 
 function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {
