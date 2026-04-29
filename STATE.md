@@ -77,6 +77,30 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚧 PHASE D PLANS SHIPPED 2026-04-29 (4 sub-phases specced via iso-gsd-delivery + GSD-Skill)
+
+Phase D adds enterprise-grade observability + the AiLys moat (cross-tenant benchmarking) on top of Phase C automation. Built through both iso-gsd-delivery skill (5 artefacts per phase) AND standalone GSD-Skill (XML <task> blocks inside 02-sub-phases.md for atomic executability).
+
+**4 phases planned:**
+- **D.1 SOC2 audit logs** (~16h, mostly Reviuzy): append-only audit_log table + signed CSV/JSON export. Unlocks enterprise tier conversation. Required prerequisite for D.2.
+- **D.2 Cross-tenant benchmarking** (~24h, mostly Reviuzy): materialized view + percentile compute lib + dashboard surface. THE AiLys moat (industry/cohort percentile vs peers). Strict prerequisite: D.1 live.
+- **D.3 Security hotfix** (~6h, Reviuzy-only, SHIP FIRST): hardcoded Supabase key removal + tenant verify helper + zod sweep on 60+ edge fns. Closes 3 production risks discovered by deep audit.
+- **D.4 Sentry + structured observability** (~8h, mostly Reviuzy): Sentry SDK + standardized error envelope + operator error dashboard + per-tenant Slack routing (Agency tier). Parallel-safe with D.2 after D.1.
+
+**Recommended execution sequence:**
+1. **Reviuzy security hotfix** (D.3) FIRST (production risks)
+2. **Reviuzy B.4.4.Rvz.1-3** (unblocks v0.5.0-pdf-export tag)
+3. **Reviuzy C.5.Rvz.1-4** (monthly visibility report)
+4. **Reviuzy C.6.Rvz.1-5** (citation auto-batch)
+5. **Reviuzy C.7.Rvz.1-4** (renewal + upsell)
+6. **D.1 SOC2 audit log** (gate for D.2)
+7. **D.2 + D.4 parallel** (D.2 = moat, D.4 = ops)
+8. C.8 + C.9 deferred per existing recommendation
+
+**Total Reviuzy work specced:** ~93h (Phase C + D.3) + 40h (D.1 + D.2 + D.4) = ~133h. ~17 days dev FT, realistic 6-8 weeks with reviews.
+
+**Branch:** `claude/phase-d-plans` for the planning commit.
+
 ## 🚧 PHASE C.8 + C.9 STARTED 2026-04-29 (cross-repo, AiLys side shipped)
 
 Phase C.8 (Reseller / partner program) + Phase C.9 (Health-score-driven churn prediction) shipped through `iso-gsd-delivery` skill.
