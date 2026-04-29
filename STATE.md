@@ -50,6 +50,30 @@ Deferred to next session (clean stopping point):
 - B.4.4 Admin panel (enable/disable, last 50 invocations, cost telemetry, per-tier gating)
 - B.4.5 Help center articles (EN + FR-CA, no proprietary AI provider disclosure)
 - Tag `v0.5.0-pdf-export` after B.4.5 lands
+- B.5 Day-1 onboarding PDF (specced in `docs/phase-b4-pdf-export-plan.md`, append section)
+
+## Phase C, Automation-First Operations roadmap (added 2026-04-29)
+
+Per user directive "I want mostly automation, for staffs and partner", a deep audit was run during this session and committed as `docs/phase-c-automation-roadmap.md`. Findings:
+
+- AiLys today: public-facing automation live, backend strategist workflows 80% manual
+- Per-client per-month strategist time at Growth tier: 15-20h
+- Zero production cron jobs fire today; every promised "weekly/daily/monthly" probe in marketing copy is on-demand only
+
+Phase C breakdown (9 sub-phases, ~120-160h total, ~450h/month fleet capacity unlock at 50 clients):
+- C.1 Day-1 onboarding PDF (~6h, partially specced in B.5)
+- C.2 Production cron + scheduled jobs (~24h, biggest dependency unlock)
+- C.3 GBP reply auto-publish for high-confidence Agency drafts (~12h, ~50h/mo saved)
+- C.4 Auto-remediation suggestions on anomaly alerts (~16h, ~150h/mo saved)
+- C.5 Monthly Visibility report scheduled export + email (~10h, ~50h/mo saved)
+- C.6 Citation directory auto-batch for Tier 1 safe directories (~24h, ~100h/mo saved)
+- C.7 Renewal + behavioral upsell intelligence (~12h, soft revenue)
+- C.8 Reseller / partner onboarding stack (~32h, opens new revenue channel)
+- C.9 Health-score-driven churn prediction (~16h, retention ROI)
+
+Sequencing recommendation in the roadmap doc: Q1 = C.1, C.2, C.5, C.7. Q2 = C.3, C.4, C.6. Q3 = C.8, C.9 (when MRR or partner demand justifies).
+
+Open product decisions (7 items in the roadmap) need user input before next session starts implementation.
 ## 🎉 Blog launch milestone (2026-04-28 night, commit `196a6d5`)
 
 Shipped end-to-end through 4 deploys (`1997d6f` → `196a6d5`):

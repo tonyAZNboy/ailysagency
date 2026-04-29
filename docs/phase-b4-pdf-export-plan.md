@@ -280,3 +280,80 @@ Per CLAUDE.md prohibited-actions list, I CANNOT:
 4. **Logo asset:** PDF cover page needs the AiLys logo. Confirm `public/logo-ailys-stacked.svg` (or whichever) is the canonical mark.
 
 If no answer arrives, I will use the proposed defaults and flag in the commit message.
+
+---
+
+## Phase B.5, Day-1 Onboarding PDF (added 2026-04-29 mid-session)
+
+This phase enhances the Phase 4.5 client onboarding flow. When a Stripe
+subscription is created and `provision-ailys-tenant` (Reviuzy edge fn)
+succeeds, the new client should receive a branded baseline audit PDF in
+their inbox within ~2 minutes, not week 2-3.
+
+The AiLys-side endpoint is built first so the Reviuzy-side hookup has
+something to call. Reviuzy-side changes are a follow-up commit in the
+Reviuzy repo.
+
+### Goal
+A POST endpoint at `/api/audit-pdf-onboarding` that:
+- Authenticates via HMAC service-to-service token (X-AiLys-Service-Token
+  header verifies HMAC-SHA256 of body + timestamp against
+  `AILYS_SERVICE_SHARED_SECRET`, 5-minute clock skew tolerance)
+- Idempotent on `stripeCustomerId`: same customer within 7 days returns
+  the existing PDF link, no double-charge to Resend / R2
+- Synthesizes a Day-1 baseline payload from the onboarding inputs (real
+  business name, location, vertical, plus placeholder citation matrix
+  marked "First scan completes within 24 hours")
+- Renders PDF via existing `renderAuditPdf` (zero new render code)
+- Stores in R2, signs URL, emails via Resend (reuses B.4.3 pipeline)
+- Dead-letters failures to KV for operator retry instead of losing the
+  Day-1 promise on a transient hiccup
+
+### Threat additions to the model
+| Threat | Mitigation | Verified by |
+|---|---|---|
+| Reviuzy-side compromised, abuses onboarding endpoint to spam | HMAC token + 5-min timestamp window + idempotency cap (1 PDF per stripeCustomerId per 7 days) | smoke test cases tampered token, replayed timestamp, duplicate stripeCustomerId |
+| Lost Day-1 PDF due to Resend transient | Dead-letter KV entry includes full payload + retry hint; operator can manually replay | smoke test case Resend mock failure leaves DLQ entry |
+| Cross-tenant data leak via cached payload | Idempotency cache key includes stripeCustomerId, never tenantId or email | code review |
+
+### Files
+- `src/lib/onboardingAuditPayload.ts`: synthesizes a Day-1 AuditPdfPayload
+  from onboarding inputs. Uses placeholder citation matrix labelled
+  "first scan pending". Real audit replaces this on the next scheduled
+  probe (typically Tuesday for Core/Growth, weekly).
+- `functions/lib/serviceAuth.ts`: verifyServiceToken() reads X-AiLys-
+  Service-Token + X-AiLys-Service-Timestamp headers, recomputes HMAC,
+  rejects on mismatch, expired timestamp, or missing secret.
+- `functions/api/audit-pdf-onboarding.ts`: the endpoint. Validation,
+  service-auth, idempotency check (KV `onb:cust:<sha256-stripe-id>` =
+  `{objectId, sig, expiresAt}`), render, R2 upload, sign, Resend send,
+  audit-log every step, DLQ on failure.
+- `scripts/smoke-audit-pdf-onboarding.mjs`: smoke test asserts:
+  * Request without service token rejects 401
+  * Request with bad HMAC rejects 401
+  * Request with stale timestamp (>5min old) rejects 401
+  * Valid request returns 202 with download URL
+  * Duplicate request within 7d returns the same download URL (idempotent)
+  * Resend mock failure writes DLQ entry, returns 503
+
+### CI Gate 8
+- `npx tsx scripts/smoke-audit-pdf-onboarding.mjs` in deploy.yml as Gate 8
+  (mandatory)
+
+### User actions (additional to B.4.x)
+- Cloudflare Pages: set env var `AILYS_SERVICE_SHARED_SECRET` (different
+  from AUDIT_PDF_HMAC_SECRET; this one is for service-to-service auth
+  with Reviuzy, not for download URLs). Generate via `openssl rand -hex 32`.
+- Reviuzy Supabase: same secret stored as edge function env var.
+
+### Reviuzy follow-up (separate commit in the Reviuzy repo)
+1. Add `AILYS_SERVICE_SHARED_SECRET` to Reviuzy edge fn env
+2. Modify `provision-ailys-tenant`:
+   - On successful tenant create, fire-and-forget POST to
+     `https://ailysagency.ca/api/audit-pdf-onboarding` with HMAC headers
+   - Failure of the AiLys call does NOT roll back the tenant; it logs
+     to Reviuzy's own audit_log + emits a Slack alert. The tenant is
+     still good; only the Day-1 PDF is delayed until manual retry.
+3. Add Reviuzy-side idempotency: same `stripeCustomerId` arriving in
+   `provision-ailys-tenant` returns the existing tenant, doesn't create
+   a duplicate. (This addresses Number 2 in the enhancement spec.)
