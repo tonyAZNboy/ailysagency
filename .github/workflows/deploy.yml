@@ -46,15 +46,17 @@ jobs:
           RESP=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/user/tokens/verify")
           echo "Verify response: $RESP"
-          if ! echo "$RESP" | grep -q '"status":"active"'; then
+          if ! echo "$RESP" | grep -qE '"status":[[:space:]]*"active"'; then
             echo "::error::Token verify failed; check token scopes and validity"
             exit 1
           fi
           # Sanity: can we list pages projects in this account?
+          # Cloudflare returns pretty-printed JSON ("success": true with a space
+          # after the colon), so the regex must tolerate optional whitespace.
           ACCT="3b889a272b6925fa7cbc892a83999541"
           PROJ_RESP=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$ACCT/pages/projects?per_page=1")
-          if ! echo "$PROJ_RESP" | grep -q '"success":true'; then
+          if ! echo "$PROJ_RESP" | grep -qE '"success":[[:space:]]*true'; then
             echo "::error::Token cannot list Pages projects in account $ACCT"
             echo "Response: $PROJ_RESP"
             exit 1
