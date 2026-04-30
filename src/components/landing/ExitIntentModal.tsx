@@ -8,24 +8,50 @@ import { NewsletterSignup } from "./NewsletterSignup";
 /**
  * Exit-intent modal.
  *
- * Triggers:
- *  - Desktop: pointer leaves the viewport at the top (typical "going to close tab" gesture)
- *  - Mobile: scroll-up after 50% scroll depth (proxy for back-button intent)
+ * Phase E.21 sensitivity tuning (operator complaint: "trop sensible, agacant"):
+ *  - Desktop trigger now requires fast upward velocity (>= 200 px/s) AND
+ *    user has scrolled past 25% of page (engagement signal). Position-only
+ *    `clientY <= 0` was firing on routine cursor moves to URL bar / browser
+ *    tabs / dev tools, which happens dozens of times per session.
+ *  - Mobile scroll-up trigger REMOVED. Reading back up the page is not
+ *    exit intent. Mobile users close tab via the gesture, which never
+ *    fires `pointerleave` anyway, so the scroll heuristic produced
+ *    almost only false positives.
+ *  - MIN_DELAY_MS bumped 8s -> 60s. Pages take longer than 8s to read.
+ *  - SUPPRESS_HOURS bumped 24h -> 7 days. Once dismissed, leave them alone.
+ *  - SUPPRESSED_ROUTES expanded to include every conversion / pricing
+ *    page where the visitor is already engaged.
  *
- * Suppression rules:
+ * Suppression rules (post-tuning):
  *  - Never show twice in same session (sessionStorage)
- *  - Never show within 24h of last dismissal (localStorage timestamp)
- *  - Never show on /audit, /book-call, /admin, or /auth routes (already in funnel)
- *  - Never show in first 8 seconds (give the page a chance)
+ *  - Never show within 7 days of last dismissal (localStorage timestamp)
+ *  - Never show on funnel / pricing / contact / admin / auth routes
+ *  - Never show in first 60 seconds (give the page real reading time)
  *
  * Long-term: A/B test variants (newsletter vs full audit CTA vs founding-clients).
  */
 
 const SUPPRESS_KEY = "ailys_exit_intent_dismissed_at";
 const SESSION_SHOWN_KEY = "ailys_exit_intent_session_shown";
-const SUPPRESS_HOURS = 24;
-const MIN_DELAY_MS = 8000;
-const SUPPRESSED_ROUTES = ["/audit", "/book-call", "/admin", "/auth"];
+const SUPPRESS_HOURS = 24 * 7; // 7 days
+const MIN_DELAY_MS = 60_000; // 60 seconds
+const MIN_SCROLL_DEPTH = 0.25; // user must have engaged 25% of the page
+const MIN_EXIT_VELOCITY_PX_PER_SEC = 200; // require fast upward gesture
+const SUPPRESSED_ROUTES = [
+  "/audit",
+  "/book-call",
+  "/admin",
+  "/auth",
+  // Phase E.21: visitors already in pricing / contact / founding-clients
+  // funnel are engaged; exit intent here would be pure noise.
+  "/contact",
+  "/contacte",
+  "/lien-he",
+  "/pricing-details",
+  "/forfaits-complets",
+  "/founding-clients",
+  "/quote",
+];
 
 function isSuppressedRoute(): boolean {
   const path = window.location.pathname;
@@ -56,42 +82,59 @@ export function ExitIntentModal() {
       armed = true;
     }, MIN_DELAY_MS);
 
-    // Desktop trigger: pointer leaves the top of the viewport
+    // Track upward velocity so we only fire on a fast, decisive gesture
+    // toward the browser chrome (URL bar / close button), not on routine
+    // cursor moves to the top of the viewport.
+    let lastY = -1;
+    let lastT = 0;
+
+    function getScrollDepth(): number {
+      const denom = document.body.scrollHeight - window.innerHeight;
+      if (denom <= 0) return 0;
+      return window.scrollY / denom;
+    }
+
+    const handlePointerMove = (e: PointerEvent) => {
+      lastY = e.clientY;
+      lastT = performance.now();
+    };
+
     const handlePointerLeave = (e: PointerEvent) => {
       if (!armed) return;
-      if (e.clientY <= 0) {
-        setOpen(true);
-        sessionStorage.setItem(SESSION_SHOWN_KEY, "1");
-      }
-    };
-
-    // Mobile trigger: scroll up past a threshold (back-button proxy)
-    let lastScroll = window.scrollY;
-    let scrollUpAccumulator = 0;
-    const handleScroll = () => {
-      if (!armed) return;
-      if (window.scrollY > lastScroll) {
-        scrollUpAccumulator = 0;
+      // Must leave through the top edge.
+      if (e.clientY > 0) return;
+      // Engagement gate: user must have scrolled at least 25% of the page.
+      // A user who hasn't scrolled is bouncing, and an exit-intent modal
+      // shown to a bouncer is interpreted as a popup ad, not a save attempt.
+      if (getScrollDepth() < MIN_SCROLL_DEPTH) return;
+      // Velocity gate: must be a fast upward gesture (>= 200 px/s).
+      if (lastY > 0 && lastT > 0) {
+        const dy = lastY - e.clientY; // positive = moving up
+        const dt = (performance.now() - lastT) / 1000;
+        const velocity = dt > 0 ? dy / dt : 0;
+        if (velocity < MIN_EXIT_VELOCITY_PX_PER_SEC) return;
       } else {
-        scrollUpAccumulator += lastScroll - window.scrollY;
+        // No prior pointermove sample (e.g. cursor never on page) -> do
+        // not fire. Better to miss a real exit than false-positive.
+        return;
       }
-      lastScroll = window.scrollY;
-      // If they scroll up 600px after being deep in the page, fire
-      const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      if (scrollUpAccumulator > 600 && scrollDepth < 0.4 && scrollDepth > 0.05) {
-        setOpen(true);
-        sessionStorage.setItem(SESSION_SHOWN_KEY, "1");
-        window.removeEventListener("scroll", handleScroll);
-      }
+      setOpen(true);
+      sessionStorage.setItem(SESSION_SHOWN_KEY, "1");
     };
 
+    document.addEventListener("pointermove", handlePointerMove, { passive: true });
     document.addEventListener("pointerleave", handlePointerLeave);
-    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Mobile scroll-up trigger removed in Phase E.21. Reading back up the
+    // page is not exit intent; closing a tab on mobile does not fire
+    // `pointerleave`. The previous heuristic produced almost only false
+    // positives. If we reintroduce a mobile trigger, it should be tied
+    // to the visibility-change API on tab hide, not scroll direction.
 
     return () => {
       clearTimeout(armTimer);
+      document.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("pointerleave", handlePointerLeave);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

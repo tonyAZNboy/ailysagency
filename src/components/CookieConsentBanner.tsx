@@ -29,8 +29,12 @@ export function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Phase E.21: bump 1200ms -> 2500ms so the banner does not slide in
+    // mid-first-paint. Loi 25 / GDPR are still respected because no
+    // analytics cookies fire until the user clicks Accept; this delay
+    // is purely UX. Banner persists until user decides.
     if (!consentDecisionMade()) {
-      const timer = setTimeout(() => setVisible(true), 1200);
+      const timer = setTimeout(() => setVisible(true), 2500);
       return () => clearTimeout(timer);
     }
   }, []);

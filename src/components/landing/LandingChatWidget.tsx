@@ -36,9 +36,19 @@ export function LandingChatWidget() {
   // Show the free trial button after any AI response
   const shouldShowLeadForm = (_result: any) => true;
 
-  // Show widget after 45 seconds
+  // Phase E.21 sensitivity tuning: bump 45s -> 120s and respect a
+  // 7-day dismissal cooldown. Operator complaint: chat widget popping
+  // mid-read was treated as a popup ad. The 120s + cooldown is enough
+  // for a deliberate "I want help" moment without ambushing readers.
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 45000);
+    const SUPPRESS_KEY = "ailys_chat_widget_dismissed_at";
+    const COOLDOWN_HOURS = 24 * 7;
+    const last = localStorage.getItem(SUPPRESS_KEY);
+    if (last) {
+      const hoursSince = (Date.now() - parseInt(last, 10)) / (1000 * 60 * 60);
+      if (hoursSince < COOLDOWN_HOURS) return;
+    }
+    const timer = setTimeout(() => setIsVisible(true), 120_000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -148,7 +158,13 @@ export function LandingChatWidget() {
           </div>
         </div>
         <button
-          onClick={(e) => { e.stopPropagation(); setWasClosedByUser(true); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setWasClosedByUser(true);
+            // Phase E.21: persist dismissal so the 120s timer does not
+            // re-show the widget on every page load this week.
+            localStorage.setItem("ailys_chat_widget_dismissed_at", String(Date.now()));
+          }}
           className="absolute -top-2 -right-2 w-6 h-6 bg-muted rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors shadow-sm"
           aria-label={t.chat.ariaMinimize}>
           <X className="w-3 h-3" />

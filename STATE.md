@@ -226,6 +226,51 @@ LangContext route-aware re-detection. Closes the upstream root cause flagged at 
 
 ---
 
+## ✅ PHASE E.21 SHIPPED 2026-04-30 (autopilot)
+
+Popup sensitivity tuning. Operator complaint: ExitIntentModal "trop sensible, agacant" with screenshot. Audit surfaced 2 other auto-popups (chat widget + cookie banner) with similar issue.
+
+### ExitIntentModal — biggest behavior change
+- **Desktop trigger**: was `clientY <= 0` only. Now requires (a) user scrolled past 25% (`MIN_SCROLL_DEPTH = 0.25`), (b) fast upward gesture (`MIN_EXIT_VELOCITY_PX_PER_SEC = 200`), (c) prior pointermove sample (cursor was on page). Cursor moves to URL bar / browser tabs / dev tools no longer trigger.
+- **Mobile trigger REMOVED.** Reading back up the page is not exit intent; closing a tab on mobile does not fire `pointerleave`. Old heuristic produced ~all false positives.
+- **Min delay**: 8s → 60s
+- **Cooldown**: 24h → 7 days after dismissal
+- **Suppressed routes**: expanded 4 → 11. Added `/contact`, `/contacte`, `/lien-he`, `/pricing-details`, `/forfaits-complets`, `/founding-clients`, `/quote`.
+
+### LandingChatWidget
+- Auto-show delay: 45s → 120s
+- 7-day localStorage dismissal cooldown when user clicks the X. Previously could re-show on every page load (session-level only).
+
+### CookieConsentBanner
+- Slide-in delay: 1200ms → 2500ms. Less jumpy on first paint. Loi 25 / GDPR still respected (analytics cookies don't fire until user clicks Accept).
+
+### Smoke (Gate 18, 9 cases)
+Locks all post-tuning constants:
+- ExitIntent `MIN_DELAY_MS = 60_000`
+- ExitIntent `SUPPRESS_HOURS = 24*7`
+- ExitIntent `MIN_SCROLL_DEPTH = 0.25`
+- ExitIntent `MIN_EXIT_VELOCITY_PX_PER_SEC = 200`
+- ExitIntent mobile scroll-up trigger ABSENT
+- ExitIntent `SUPPRESSED_ROUTES` covers 7 funnel paths
+- ChatWidget delay = 120_000
+- ChatWidget persists `ailys_chat_widget_dismissed_at`
+- Cookie banner delay = 2500ms
+
+### Manual gates
+- Preview `/`: at 3.5s after fresh load, no exit modal, cookie banner not yet visible (correct: 2500ms timer + React mount latency)
+- Simulated fast pointer exit BEFORE 60s arm timer → modal stays closed (arm gate works)
+
+### Files
+- `src/components/landing/ExitIntentModal.tsx` (rewrite trigger logic)
+- `src/components/landing/LandingChatWidget.tsx` (delay + cooldown)
+- `src/components/CookieConsentBanner.tsx` (delay)
+- `scripts/smoke-popup-sensitivity.mjs` (NEW)
+- `.github/workflows/deploy.yml` (Gate 18 entry)
+
+**Tag pending:** `v0.10.3-popup-sensitivity` after merge.
+
+---
+
 ## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
 
 Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).

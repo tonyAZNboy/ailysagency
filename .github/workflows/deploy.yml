@@ -103,6 +103,9 @@ jobs:
       - name: Gate 17, LangContext route-aware re-detection smoke (5 cases)
         run: node scripts/smoke-lang-route-sync.mjs
 
+      - name: Gate 18, popup sensitivity tuning smoke (9 cases)
+        run: node scripts/smoke-popup-sensitivity.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
