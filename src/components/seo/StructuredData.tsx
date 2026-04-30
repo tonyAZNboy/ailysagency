@@ -1,6 +1,6 @@
 // JSON-LD structured data generators for AiLys Agency.
 // AiLys is a Quebec-based LLM visibility / AI search reputation agency.
-// Reviuzy is a separate software product that AiLys references and resells.
+// AiLys Automation is the proprietary platform powering review growth, GBP, and AI Visibility.
 import { APP_CONFIG } from '@/config/app';
 
 export interface LocalBusinessData {
@@ -320,30 +320,30 @@ export const generateServiceSchema = () => ({
           '@type': 'Service',
           name: 'AiLys Agency',
           description:
-            'Done-for-you AI search visibility for multi-location brands. Includes Reviuzy review growth platform.',
+            'Done-for-you AI search visibility for multi-location brands. Includes the AiLys Automation review growth platform.',
         },
       },
     ],
   },
 });
 
-// Reviuzy is referenced as a SoftwareApplication that AiLys recommends and resells.
-export const generateReviuzyReferenceSchema = () => ({
+// AiLys Automation is the proprietary platform powering review growth, GBP automation, and AI Visibility delivery.
+export const generateAiLysAutomationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  '@id': 'https://www.reviuzy.com/#software',
-  name: 'Reviuzy',
+  '@id': `${APP_CONFIG.url}/#automation-platform`,
+  name: 'AiLys Automation',
   description:
-    'Review growth platform recommended by AiLys Agency. NFC tap-to-review campaigns, AI review responses and Google Business Profile auto-posting for local businesses.',
-  url: 'https://www.reviuzy.com',
+    'Proprietary review growth and Google Business Profile automation platform from AiLys Agency. NFC tap-to-review campaigns, AI review responses, GBP auto-posting, citation tracking, and AI Visibility monitoring for local businesses.',
+  url: APP_CONFIG.url,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web Browser',
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: '39',
-    highPrice: '139',
-    priceCurrency: 'USD',
-    offerCount: 3,
+    lowPrice: '100',
+    highPrice: '2499',
+    priceCurrency: 'CAD',
+    offerCount: 4,
     availability: 'https://schema.org/InStock',
   },
   isRelatedTo: {
@@ -402,7 +402,7 @@ export const generateSpeakableSchema = () => ({
 });
 
 // Kept for backwards compat. Both delegate to the AiLys service catalog now.
-export const generateWebApplicationSchema = generateReviuzyReferenceSchema;
+export const generateWebApplicationSchema = generateAiLysAutomationSchema;
 export const generateProductSchema = generateServiceSchema;
 export const generateHowToSchema = () => ({
   '@context': 'https://schema.org',
@@ -447,7 +447,7 @@ export const generateLandingPageSchemaGraph = (faqData: FAQData) => ({
     generateOrganizationSchema(),
     generateProfessionalServiceSchema(),
     generateServiceSchema(),
-    generateReviuzyReferenceSchema(),
+    generateAiLysAutomationSchema(),
     generateSpeakableSchema(),
     generateHowToSchema(),
     generateFAQSchema(faqData),
