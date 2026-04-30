@@ -82,6 +82,9 @@ jobs:
       - name: Gate 10, admin audit-pdf-stats HMAC smoke (12 cases)
         run: npx tsx scripts/smoke-admin-audit-pdf-stats.mjs
 
+      - name: Gate 11, visibility-report-pdf cross-repo contract smoke (12 cases)
+        run: npx tsx scripts/smoke-visibility-report-pdf.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
