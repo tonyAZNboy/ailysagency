@@ -363,7 +363,8 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  {/* Per-card link to full tier detail in PricingDetails table */}
+                  {/* Per-card link to full tier detail in PricingDetails table.
+                      min-h-[44px] satisfies CLAUDE.md hard rule #13 mobile tap target. */}
                   <button
                     type="button"
                     onClick={() => {
@@ -374,10 +375,10 @@ export function ServicesSection() {
                         : `/${lang}/pricing-details`;
                       navigate(path);
                     }}
-                    className="mb-6 inline-flex items-center gap-1 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/70 hover:text-foreground/90 transition-colors"
+                    className="mb-4 inline-flex items-center gap-1.5 px-1 py-2.5 min-h-[44px] text-xs sm:text-[13px] font-mono uppercase tracking-[0.18em] text-muted-foreground/70 hover:text-foreground/90 transition-colors"
                   >
                     {lang === "fr" ? "Voir les détails complets" : "See full plan details"}
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </button>
 
                   {/* Reviuzy add-on indicator: bundled in Agency, optional add-on elsewhere */}
