@@ -7,6 +7,61 @@
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
+## 🏁 ADMIN UI BATCH SHIPPED 2026-04-30 (autopilot session, Reviuzy PR #23)
+
+Closes the five operator-UX gaps tracked in the prior session backlog. Single
+Reviuzy PR consolidates the surfaces because they share gating, layout, and a
+common admin landing route.
+
+**Reviuzy [PR #23](https://github.com/tonyAZNboy/reviuzy/pull/23) (`claude/admin-ui-batch`, branched off `a211d2c`):**
+
+| Sub-phase | Surface | Notes |
+|---|---|---|
+| B.4.4.Rvz.2 | Audit PDF Stats tab | Consumes existing `audit-pdf-stats-proxy` edge fn |
+| C.5.Rvz.4 | Monthly Reports tab | Read + retry mutation (status -> pending) |
+| C.6.Rvz.4 | Citation Auto-Batch tab | Read-only ledger viewer |
+| C.7.Rvz.3 | Renewal Signals tab | Read + mark-actioned mutation with reason |
+| C.7.Rvz.4 | Resend templates | EN + FR-CA, wired into `compute-renewal-signals` at strength >= 0.8 |
+
+New page route: `/admin/ops`, `super_admin` / strategist gated, mobile-first
+(375px baseline) using existing shadcn/ui primitives. Tables not yet in
+generated Supabase types (`monthly_visibility_reports`, `auto_batch_runs`,
+`renewal_signals`) accessed via a single typed cast at the module boundary.
+
+**Email templates compliance:** zero em-dashes, zero AI fingerprints, zero
+proprietary AI provider disclosure (Anthropic / Claude / OpenAI / Gemini),
+HTML-escaped tenant name (XSS), single CTA + manage-preferences link per
+template. Asserted via `renewalEmails.test.ts` (21 cases).
+
+**Test posture:**
+- Reviuzy vitest: 730 passed (697 baseline + 33 new), 17 todo, 1 skipped
+- New tests: 12 in `useOpsAdmin.test.ts`, 21 in `renewalEmails.test.ts`
+- tsc clean on new files; baseline of 108 unrelated table-type errors unchanged
+- Live verification deferred: requires authenticated super_admin + cross-repo
+  HMAC backend; reproduced by CI on push, not by local preview
+
+**User actions to flip live:**
+1. On `compute-renewal-signals` Reviuzy edge fn env vars, set:
+   - `RESEND_API_KEY` (already set for newsletter; verify)
+   - `RENEWAL_EMAIL_FROM` (default `Reviuzy <noreply@reviuzy.com>`)
+   - `REVIUZY_BASE_URL` (default `https://www.reviuzy.com`)
+2. Confirm `tenants.primary_locale` populated for FR-CA tenants (drives EN/FR
+   selection: anything starting with `fr` -> FR-CA, else EN)
+3. After PR #23 merge, redeploy `compute-renewal-signals` edge fn:
+   ```
+   npx supabase functions deploy compute-renewal-signals --project-ref qucxhksrpqunlyjjvuae
+   ```
+4. Monitor first 24h via the new `/admin/ops` Renewal tab; watch
+   `email_sent_at` populate on signals with strength >= 0.8
+
+**Remaining session backlog (next sessions):**
+- D.4 Sentry integration (~6h Reviuzy)
+- E.3 cross-repo proxies on Reviuzy side (2 edge fns; AiLys allowlist already done)
+- D.1.Rvz.3 second batch: refactor 7 remaining edge fns to `emitAuditLog`
+- C.8 Reseller (deferred: gates on 5+ partner applications)
+- C.9 Health score (deferred: Q2 2026)
+- TOS amendment email for D.2 cohort benchmarking 60-day grandfather
+
 ## Phase B.4 milestone (2026-04-29, autopilot session)
 
 Backend shipped through 4 commits since `v0.4.0-blog-launch`:
