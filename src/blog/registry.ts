@@ -1,16 +1,21 @@
+import type React from 'react'
 import type { BlogPostEntry, BlogPostMeta } from './types'
 
 // ── Eagerly load every FR sister file so the index can render localized
 //    titles, excerpts and FAQ items without triggering 51 dynamic imports.
 //    Each .fr.tsx file exports `metaFr` (BlogPostMeta) + `ContentFr` (component).
 //    Vite resolves this glob at build time. Adding a new FR sister auto-wires.
-type FrModule = { metaFr?: BlogPostMeta }
+type FrModule = { metaFr?: BlogPostMeta; ContentFr?: React.ComponentType }
 const frSiblings = import.meta.glob<FrModule>('./posts/*/*.fr.tsx', { eager: true })
 const FR_META_BY_SLUG: Record<string, BlogPostMeta> = {}
+const FR_CONTENT_BY_SLUG: Record<string, React.ComponentType> = {}
 for (const [path, mod] of Object.entries(frSiblings)) {
+  const slug = path.replace(/^.+\//, '').replace(/\.fr\.tsx$/, '')
   if (mod && mod.metaFr) {
-    const slug = path.replace(/^.+\//, '').replace(/\.fr\.tsx$/, '')
     FR_META_BY_SLUG[slug] = mod.metaFr
+  }
+  if (mod && mod.ContentFr) {
+    FR_CONTENT_BY_SLUG[slug] = mod.ContentFr
   }
 }
 
@@ -27,6 +32,19 @@ export function getLocalizedMeta(post: BlogPostEntry | BlogPostMeta, lang: strin
     if (fr) return fr
   }
   return post as BlogPostMeta
+}
+
+/**
+ * Return the FR ContentFr component for a slug if a sister file ships one,
+ * otherwise null. Lets BlogPostPage render the localized body without
+ * issuing a separate dynamic import (the FR siblings are already eager-
+ * resolved by the glob above).
+ */
+export function getLocalizedContent(slug: string, lang: string): React.ComponentType | null {
+  if (lang === 'fr') {
+    return FR_CONTENT_BY_SLUG[slug] ?? null
+  }
+  return null
 }
 
 // ── Industry Playbooks ──────────────────────────────────────────────────────
