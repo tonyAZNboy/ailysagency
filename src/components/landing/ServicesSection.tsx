@@ -344,9 +344,12 @@ export function ServicesSection() {
                     className={`relative h-px mb-7 bg-gradient-to-r from-transparent ${p.separator} to-transparent`}
                   />
 
-                  {/* Features as numbered editorial list */}
-                  <ul className="space-y-3 mb-8">
-                    {tier.features.map((feature, idx) => (
+                  {/* Features compact: top 3 differentiating items.
+                      Full feature list lives on /pricing-details to keep
+                      cards scannable per agreed UX (no scroll trap on
+                      mobile, no card height divergence between tiers). */}
+                  <ul className="space-y-3 mb-5">
+                    {tier.features.slice(0, 3).map((feature, idx) => (
                       <li key={feature} className="flex items-start gap-3">
                         <span
                           className={`font-mono text-[10px] tabular-nums pt-[2px] flex-shrink-0 font-semibold ${p.numberMarker}`}
@@ -359,6 +362,23 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Per-card link to full tier detail in PricingDetails table */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const path = lang === "fr"
+                        ? `/${lang}/forfaits-complets`
+                        : lang === "en"
+                        ? "/pricing-details"
+                        : `/${lang}/pricing-details`;
+                      navigate(path);
+                    }}
+                    className="mb-6 inline-flex items-center gap-1 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground/70 hover:text-foreground/90 transition-colors"
+                  >
+                    {lang === "fr" ? "Voir les détails complets" : "See full plan details"}
+                    <ArrowUpRight className="w-3 h-3" />
+                  </button>
 
                   {/* Reviuzy add-on indicator: bundled in Agency, optional add-on elsewhere */}
                   <div className="mb-4 flex items-center gap-2">
