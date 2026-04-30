@@ -4,6 +4,34 @@
 
 ---
 
+## ✨ D.4 FOLLOW-UP — tenant tier helper + health-check fn (Reviuzy PR #38)
+
+Two cleanup items shipped + deployed.
+
+**Reviuzy [PR #38](https://github.com/tonyAZNboy/reviuzy/pull/38) (`claude/refactor-tenant-tier`):**
+
+### Refactor: `_shared/tenantTier.ts`
+- Single source of truth for `normalizeTier`. Replaces duplicated logic in `compute-renewal-signals` and `_shared/citationAutoBatchEligibility`.
+- 28 new vitest cases covering ailys_managed path, self-serve legacy mapping, null inputs, and 2 tier-eligibility predicates.
+
+### `supabase/functions/health-check`
+- Lightweight GET endpoint for external monitoring (UptimeRobot, BetterStack, Pingdom).
+- Probes 8 cron + proxy fns via `OPTIONS` preflight (cheap, side-effect free).
+- Returns aggregated JSON with per-fn status + latency. 200 if all OK, 503 if any fail.
+- `verify_jwt=false` so external agents poll without a Supabase JWT.
+- 60s in-memory cache to absorb tight polling.
+
+**Live test result (all 8 probes green, avg ~390ms):**
+
+```
+$ curl https://qucxhksrpqunlyjjvuae.supabase.co/functions/v1/health-check
+{ "ok": true, "probes": [ {"fn":"audit-log-export","ok":true,"status":200,"latency_ms":388}, ... 8 total ] }
+```
+
+**Test posture:** vitest 771 → 799 (+28), no regressions.
+
+**Operator follow-up:** wire your monitoring service to GET `https://qucxhksrpqunlyjjvuae.supabase.co/functions/v1/health-check`. Alert when HTTP != 200 OR `probes[*].ok` contains false.
+
 ## 🏆 D.4 ESSENTIALLY COMPLETE — final catches + manual end-to-end validation 2026-04-30
 
 Closes the D.4 main loop. Final catch-block instrumentation wave + manual end-to-end test sweep across all cron orchestrators + cross-repo proxies.
