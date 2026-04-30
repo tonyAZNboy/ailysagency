@@ -18,7 +18,7 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
-import { SEOHead } from "@/components/seo";
+import { SEOHead, generateFAQSchema, generateServiceSchema } from "@/components/seo";
 import { InstantAiVisibilityAudit } from "@/components/pricing/InstantAiVisibilityAudit";
 import { QuoteBuilder } from "@/components/pricing/QuoteBuilder";
 import { RoiCalculator } from "@/components/pricing/RoiCalculator";
@@ -310,7 +310,82 @@ export default function PricingDetails() {
       <SEOHead
         title={copy.pageTitle}
         description={copy.pageDescription}
-        path={lang === "fr" ? "/forfaits-complets" : "/pricing-details"}
+        canonicalUrl={`https://www.ailysagency.ca${lang === "fr" ? "/forfaits-complets" : "/pricing-details"}`}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@graph": [
+            generateServiceSchema(),
+            generateFAQSchema({
+              questions: lang === "fr" ? [
+                {
+                  question: "Combien coute AiLys par mois?",
+                  answer: "4 forfaits CAD/mois: Starter 300$, Core 600$, Growth 1200$, Agency 2499$. Engagement annuel reduit de 15%, biennal reduit de 20% (Growth + Agency seulement). Tous les forfaits sont mois-a-mois avec garantie de satisfaction 30 jours.",
+                },
+                {
+                  question: "Comment fonctionne la garantie de hausse mesurable a 90 jours?",
+                  answer: "Sur Core, Growth et Agency: si votre score Share of Model n'augmente pas d'au moins 15 points dans les 90 jours apres l'integration, nous remboursons 100% des 3 derniers mois factures. Mesure par sondes hebdomadaires sur 6 moteurs IA (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).",
+                },
+                {
+                  question: "Quels forfaits incluent la construction de site web?",
+                  answer: "Site Vitrine (1-5 pages, 800$): Starter+. Site PME (6-15 pages, 1500$): Core+. Site Commerce (16-25 pages, 3000$+): Growth uniquement. Le forfait Agency exclut le service de site web. Cout amorti sur 6 mois en plus du forfait mensuel.",
+                },
+                {
+                  question: "Quels frais s'appliquent si je resilie mon site web tot?",
+                  answer: "Formule lineaire: frais = cout_construction x (6 - mois_payes) / 6. Apres 6 mois, aucun frais. Le site reste votre propriete des le premier paiement.",
+                },
+                {
+                  question: "Est-ce que l'audit AI Visibility instantane est gratuit?",
+                  answer: "Oui. Inscrivez le nom de votre entreprise et URL sur /forfaits-complets, obtenez un score Share of Model (0-100) plus 3 puces de points manquants en 8-12 secondes. Aucun courriel requis. Audit complet gratuit aussi sur /audit avec 50-80 vraies requetes sur 6 moteurs.",
+                },
+                {
+                  question: "Quelles plateformes IA sont suivies?",
+                  answer: "Six moteurs IA principaux: ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot. Sondes hebdomadaires sur Core+, quotidiennes sur Agency.",
+                },
+                {
+                  question: "AiLys travaille-t-il en francais et en anglais?",
+                  answer: "Oui, EN+FR-CA en interne au Quebec. 14 langues secondaires (ES, ZH, AR, RU, DE, HI, IT, JA, KO, NL, PL, PT, TR, VI) supportees pour l'interface client.",
+                },
+                {
+                  question: "Y a-t-il un engagement minimum?",
+                  answer: "Non, tous les forfaits sont mois-a-mois sans engagement. Garantie de satisfaction 30 jours. Engagements annuels et biennaux disponibles avec remises (15% / 20%) si vous voulez verrouiller le prix et payer a l'avance.",
+                },
+              ] : [
+                {
+                  question: "How much does AiLys cost per month?",
+                  answer: "4 plans CAD/month: Starter $300, Core $600, Growth $1200, Agency $2499. Annual prepay saves 15%, biennial prepay saves 20% (Growth + Agency only). All plans month-to-month with 30-day satisfaction guarantee.",
+                },
+                {
+                  question: "How does the 90-day measurable uplift guarantee work?",
+                  answer: "On Core, Growth, and Agency: if your Share of Model score does not rise by at least 15 points within 90 days from onboarding, we refund 100% of the last 3 months billed. Measured by weekly probes across 6 AI engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).",
+                },
+                {
+                  question: "Which plans include website construction?",
+                  answer: "Vitrine site (1-5 pages, $800): Starter+. PME site (6-15 pages, $1500): Core+. Commerce site (16-25 pages, $3000+): Growth only. The Agency tier excludes website service. Build cost is amortized over 6 months on top of the monthly plan.",
+                },
+                {
+                  question: "What fees apply if I cancel my website service early?",
+                  answer: "Linear formula: fee = build_cost x (6 - months_paid) / 6. After month 6, zero fee. The site is yours from day one of payment.",
+                },
+                {
+                  question: "Is the instant AI Visibility audit free?",
+                  answer: "Yes. Type your business name and URL on /forfaits-complets, get a Share of Model score (0-100) plus 3 missing-points bullets in 8-12 seconds. No email required. A full free audit is also available at /audit with 50-80 real queries across 6 engines.",
+                },
+                {
+                  question: "Which AI platforms are tracked?",
+                  answer: "Six major AI engines: ChatGPT, Perplexity, Claude, Gemini, Google AI Overview, Bing Copilot. Weekly probes on Core+, daily on Agency.",
+                },
+                {
+                  question: "Does AiLys work in French and English?",
+                  answer: "Yes, EN+FR-CA in-house from Quebec. 14 secondary languages supported (ES, ZH, AR, RU, DE, HI, IT, JA, KO, NL, PL, PT, TR, VI) for client interface.",
+                },
+                {
+                  question: "Is there a minimum commitment?",
+                  answer: "No, all plans are month-to-month with no contract. 30-day satisfaction guarantee. Annual and biennial engagements available with discounts (15% / 20%) if you want to lock in the price and prepay.",
+                },
+              ],
+            }),
+          ],
+        }}
       />
       <NetworkBackground />
       <Navbar />
