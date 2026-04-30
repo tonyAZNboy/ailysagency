@@ -114,7 +114,7 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
 export function ServicesSection() {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<string | null>(null);
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const tiers: Tier[] = [
     {
@@ -388,6 +388,28 @@ export function ServicesSection() {
             );
           })}
         </div>
+
+        {/* Phase E.1.3: prominent CTA to detailed comparison page */}
+        <ScrollReveal variant="fade-up" delay={700} duration={600}>
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => {
+                const path = lang === "fr"
+                  ? `/${lang}/forfaits-complets`
+                  : lang === "en"
+                  ? "/pricing-details"
+                  : `/${lang}/pricing-details`;
+                navigate(path);
+              }}
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-amber-400/40 bg-amber-400/[0.04] text-amber-200 hover:bg-amber-400/[0.08] hover:border-amber-400/60 transition text-sm sm:text-base font-medium"
+            >
+              {lang === "fr"
+                ? "Voir la comparaison complete (30+ fonctionnalites, 9 categories)"
+                : "View full comparison (30+ features, 9 categories)"}
+              <ArrowUpRight className="w-4 h-4" aria-hidden />
+            </button>
+          </div>
+        </ScrollReveal>
 
         {/* "Why $300" pre-emption caption */}
         <ScrollReveal variant="fade-up" delay={750} duration={600}>
