@@ -12,6 +12,14 @@ interface OptimizedImageProps {
   fallbackIcon?: React.ReactNode;
   onError?: () => void;
   showErrorState?: boolean;
+  /** Phase E.16: explicit width hint for browser layout reservation. Reduces CLS. */
+  width?: number;
+  /** Phase E.16: explicit height hint for browser layout reservation. Reduces CLS. */
+  height?: number;
+  /** Phase E.16: priority hint for above-the-fold images. Skips IntersectionObserver. */
+  priority?: boolean;
+  /** Phase E.16: native fetchpriority hint (high|low|auto). Browser-side resource prioritization. */
+  fetchPriority?: "high" | "low" | "auto";
 }
 
 export function OptimizedImage({
@@ -23,14 +31,20 @@ export function OptimizedImage({
   fallbackIcon,
   onError,
   showErrorState = true,
+  width,
+  height,
+  priority = false,
+  fetchPriority = "auto",
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  // Priority images bypass the IntersectionObserver (load immediately)
+  const [isInView, setIsInView] = useState(priority);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // IntersectionObserver for true lazy loading
   useEffect(() => {
+    if (priority) return; // Skip observer for above-the-fold images
     const container = containerRef.current;
     if (!container) return;
 
@@ -50,7 +64,7 @@ export function OptimizedImage({
     observer.observe(container);
 
     return () => observer.disconnect();
-  }, []);
+  }, [priority]);
 
   // Reset states when src changes
   useEffect(() => {
@@ -93,13 +107,16 @@ export function OptimizedImage({
         </div>
       )}
 
-      {/* Actual image - only render when in view */}
+      {/* Actual image - only render when in view (or always for priority) */}
       {isInView && !hasError && (
         <img
           src={src}
           alt={alt}
-          loading="lazy"
-          decoding="async"
+          loading={priority ? "eager" : "lazy"}
+          decoding={priority ? "sync" : "async"}
+          fetchPriority={fetchPriority}
+          width={width}
+          height={height}
           onLoad={handleLoad}
           onError={handleError}
           className={cn(
