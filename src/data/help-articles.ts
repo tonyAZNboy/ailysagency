@@ -6710,4 +6710,396 @@ Tous les prix indiques sont avant TPS+TVQ (14,975 % pour les clients quebecois).
       },
     },
   },
+
+  // ─── Phase E.10 articles (added 2026-04-30) ──────────────────────
+  {
+    slug: "instant-ai-visibility-audit-explained",
+    title: "How our instant AI Visibility audit works (and what to do with the score)",
+    excerpt:
+      "Type your business name and URL on /forfaits-complets, get a Share-of-Model score (0-100) plus 3 missing-points bullets in 8-12 seconds. Here is what the score means, how it is computed, and what to do with each band.",
+    category: "audit",
+    updatedAt: "2026-04-30",
+    readingTimeMin: 5,
+    body: `## What you get in 12 seconds
+
+Type 2 inputs (business name + your URL), click submit, and the form returns:
+- A Share-of-Model score from 0 to 100
+- 3 short bullets identifying what is most likely missing or weak
+- A button to book a free 15-minute strategy call if you want a deeper analysis
+
+The form does not require your email. We do not run scans on your URL behind the scenes either; the score is inferred from the brand signals our engine can reason about based on the business name and URL alone.
+
+## What the score means
+
+The score is a relative indicator, not a perfect measure:
+
+| Band | Score | Meaning |
+|---|---|---|
+| Critical | 0 to 29 | Your brand is mostly invisible to AI search engines. Citations rare, schema absent, GBP signals missing. Most local businesses without active AI visibility work sit here. |
+| Weak | 30 to 49 | Some signals present (a Google Business Profile, basic site, scattered reviews) but the AI engines have insufficient confidence to cite you in answers. |
+| Developing | 50 to 69 | Foundations are in place. With 60-90 days of focused work (citations, schema, content), you can move into Strong. |
+| Strong | 70 to 89 | Your brand is regularly cited by at least 3 of the 6 AI engines for relevant local queries. |
+| Leader | 90 to 100 | Reserved for established brands with cross-engine consistency, deep entity authority, and active content velocity. Rare. |
+
+## How the score is computed
+
+We do not browse your site at audit time (that would take minutes, not seconds, and would be unfair to your server). Instead, our engine reasons about typical signals associated with the business name and URL:
+- Brand notability (does the name appear in our model's training data?)
+- URL pattern (does the domain look established, vertical-specific, multi-location?)
+- Geographic context (Quebec, Canada, US)
+- Vertical inference (the business name often hints at the industry)
+
+A full audit, by contrast, runs 50 to 80 actual queries across 6 AI engines, parses the responses, and counts your appearances. That is what the free /audit page does, and what the 90-day uplift guarantee is measured against.
+
+## What to do with each band
+
+**Critical (0-29):** start with the Starter plan or directly with the Founding Clients program. Foundational schema deployment + GBP cleanup + 5 citations per month will move the needle within 60 days.
+
+**Weak (30-49):** Core plan is the right fit. The bilingual blog content, AEO schema deployment, and citation cadence push you into Developing within the 90-day window.
+
+**Developing (50-69):** Growth plan if you can. Weekly AI Visibility probes give you the feedback loop to catch gains in real time. GEO entity authority work (Wikidata) accelerates progress.
+
+**Strong (70-89):** congratulations, your fundamentals are solid. Agency tier helps if you have multiple locations or if you want to maintain dominance across cycles.
+
+**Leader (90-100):** you do not need us for the basics. We can still help with multi-location coordination, white-label client reports if you are an agency, or specific vertical optimizations.
+
+## Limits of the instant audit
+
+This is a quick directional reading, not a definitive measurement:
+- Verticals with sparse AI training data (very niche B2B services) score lower than they "should" because the model has limited context.
+- Highly common business names (5 dental offices called Cabinet Dentaire Centre-Ville in Quebec) get scored as the most prominent variant.
+- Brand-new businesses (less than 6 months online) often score 0-15 regardless of quality, because there is no track record to reason about yet.
+
+For a precise measurement, run the free /audit page. It gives a real Share of Model based on actual queries.
+
+## Privacy
+
+The instant audit form does not require email. We hash your IP address for rate limiting (5 audits per IP per 15 minutes) and we cache results 24 hours to avoid charging you twice for the same input. After 24 hours the cache entry is auto-evicted. No personal information is stored in clear text in any log.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne notre audit instantane AI Visibility (et quoi faire avec le score)",
+        excerpt:
+          "Inscrivez le nom de votre entreprise et votre URL sur /forfaits-complets, obtenez un score Share of Model (0-100) plus 3 puces de points manquants en 8-12 secondes. Voici ce que le score signifie, comment il est calcule et quoi faire pour chaque bande.",
+        body: `## Ce que vous obtenez en 12 secondes
+
+Inscrivez 2 entrees (nom d'entreprise + votre URL), cliquez soumettre, et le formulaire retourne :
+- Un score Share of Model de 0 a 100
+- 3 puces courtes identifiant ce qui manque ou faiblit le plus probablement
+- Un bouton pour reserver un appel strategique gratuit de 15 min si vous voulez une analyse plus profonde
+
+Le formulaire ne demande pas votre courriel. Nous ne scannons pas non plus votre URL en arriere-plan ; le score est deduit des signaux de marque que notre moteur peut raisonner a partir du nom d'entreprise et de l'URL seuls.
+
+## Ce que le score signifie
+
+Le score est un indicateur relatif, pas une mesure parfaite :
+
+| Bande | Score | Signification |
+|---|---|---|
+| Critique | 0 a 29 | Votre marque est principalement invisible pour les moteurs IA. Citations rares, schema absent, signaux GBP manquants. La plupart des PME locales sans travail actif de visibilite IA sont ici. |
+| Faible | 30 a 49 | Certains signaux presents (fiche Google Business, site basique, avis disperses) mais les moteurs IA ont une confiance insuffisante pour vous citer dans les reponses. |
+| En developpement | 50 a 69 | Les fondations sont en place. Avec 60-90 jours de travail cible (citations, schema, contenu), vous pouvez passer en Fort. |
+| Fort | 70 a 89 | Votre marque est regulierement citee par au moins 3 des 6 moteurs IA pour les requetes locales pertinentes. |
+| Leader | 90 a 100 | Reserve aux marques etablies avec coherence cross-moteur, autorite d'entite profonde et velocite de contenu active. Rare. |
+
+## Comment le score est calcule
+
+Nous ne navigons pas votre site au moment de l'audit (ca prendrait des minutes, pas secondes, et serait injuste pour votre serveur). Plutot, notre moteur raisonne sur les signaux typiques associes au nom d'entreprise et a l'URL :
+- Notoriete de marque (le nom apparait-il dans les donnees d'entrainement de notre modele ?)
+- Modele d'URL (le domaine semble-t-il etabli, sectoriel, multi-emplacements ?)
+- Contexte geographique (Quebec, Canada, US)
+- Inference de secteur (le nom d'entreprise indique souvent l'industrie)
+
+Un audit complet, en revanche, execute 50 a 80 vraies requetes sur 6 moteurs IA, analyse les reponses et compte vos apparitions. C'est ce que fait la page /audit gratuite, et c'est contre quoi la garantie de hausse a 90 jours est mesuree.
+
+## Quoi faire avec chaque bande
+
+**Critique (0-29) :** demarrez avec Starter ou directement avec le programme Founding Clients. Deploiement de schema fondationnel + nettoyage GBP + 5 citations par mois feront bouger l'aiguille en 60 jours.
+
+**Faible (30-49) :** Core est le bon fit. Le contenu blogue bilingue, le deploiement de schema AEO et la cadence de citations vous pousseront en En developpement dans la fenetre de 90 jours.
+
+**En developpement (50-69) :** Growth si possible. Les sondes hebdomadaires AI Visibility donnent la boucle de retroaction pour attraper les gains en temps reel. Le travail d'autorite d'entite GEO (Wikidata) accelere le progres.
+
+**Fort (70-89) :** felicitations, vos fondamentaux sont solides. Le tier Agency aide si vous avez plusieurs emplacements ou voulez maintenir la dominance entre cycles.
+
+**Leader (90-100) :** vous n'avez pas besoin de nous pour les bases. Nous pouvons encore aider avec la coordination multi-emplacements, les rapports client en marque blanche si vous etes une agence, ou des optimisations sectorielles specifiques.
+
+## Limites de l'audit instantane
+
+C'est une lecture directionnelle rapide, pas une mesure definitive :
+- Les secteurs avec donnees d'entrainement IA epars (services B2B tres niches) ont un score plus bas qu'ils ne "devraient" parce que le modele a peu de contexte.
+- Les noms d'entreprise tres communs (5 cabinets dentaires Centre-Ville au Quebec) sont scores comme la variante la plus en vue.
+- Les entreprises tres recentes (moins de 6 mois en ligne) scorent souvent 0-15 peu importe la qualite, parce qu'il n'y a pas d'historique sur lequel raisonner.
+
+Pour une mesure precise, executez la page /audit gratuite. Elle donne un vrai Share of Model base sur des requetes reelles.
+
+## Vie privee
+
+Le formulaire d'audit instantane ne demande pas de courriel. Nous hashons votre adresse IP pour la limitation de debit (5 audits par IP par 15 minutes) et mettons en cache les resultats 24 heures pour eviter de vous facturer deux fois la meme entree. Apres 24 heures l'entree de cache est auto-eliminee. Aucune information personnelle n'est stockee en clair dans aucun journal.`,
+      },
+    },
+  },
+  {
+    slug: "roi-projection-explained",
+    title: "How our ROI projection works (and why we show 3 scenarios)",
+    excerpt:
+      "Type your average ticket size and current monthly clients on /forfaits-complets. We project conservative, likely, and aggressive uplift across the 4 plans. Here is the math, the data behind the bands, and how to read the output honestly.",
+    category: "audit",
+    updatedAt: "2026-04-30",
+    readingTimeMin: 4,
+    body: `## What it does
+
+Two inputs:
+- Average ticket size in CAD (your typical client transaction)
+- Current monthly clients (how many clients you already get per month)
+
+Output: a 4-row table showing 3 uplift scenarios per plan:
+- Conservative: 15% extra clients
+- Likely: 25% extra clients (highlighted in green)
+- Aggressive: 40% extra clients
+
+For each scenario, you see extra revenue per month, net after the plan cost, and the ROI multiple.
+
+## The 15/25/40% bands
+
+These bands come from observed AI Visibility lift across existing AiLys clients at the 90-day mark, not from marketing imagination:
+- The bottom of the distribution (small markets, late-stage verticals) lands around +12 to +18% client uplift
+- The middle of the distribution (typical Quebec local business in a normal market) lands around +20 to +30%
+- The top of the distribution (greenfield markets, well-positioned brand, active reviews) reaches +35 to +45%
+
+We round to 15/25/40 for round-number readability.
+
+## What is and is not included
+
+The projection counts only **new organic clients** acquired through AI search visibility. It does not count:
+- Repeat business from your existing customer base
+- Direct traffic (people who type your URL directly)
+- Paid ad results (we do not manage ads)
+- Word of mouth referrals (impossible to attribute)
+
+If your business already has strong AI search visibility (Share of Model above 70), the projection is overly optimistic. The bands assume you start from a position where the work has room to move the needle.
+
+## Why we show 3 scenarios instead of one
+
+Two reasons:
+1. **Honesty.** The likely scenario gives you a realistic planning number. The conservative scenario tells you the floor; the aggressive scenario tells you the ceiling. A single number would hide the variance you should account for.
+2. **Decision quality.** If the conservative ROI is positive, the plan is a low-risk bet. If only the aggressive ROI is positive, you are betting on perfect execution and you should de-risk further first.
+
+## What it does NOT replace
+
+The ROI projection is a planning aid, not a contract. The actual contract is:
+- The 30-day satisfaction guarantee (refund month 1 if delivery does not match the kickoff doc)
+- The 90-day measurable uplift refund (Core+, refund last 3 months if Share of Model does not rise +15 points)
+
+Those are the hard guarantees. The ROI calculator is the soft sketch that helps you decide whether the plan is worth trying.
+
+## How to read it cleanly
+
+1. Skip the conservative number if you are confident in your vertical. Skip the aggressive number if you are skeptical of your market.
+2. Compare the **Likely** ROI multiple across plans. If Core gives you a 3x ROI and Growth gives you a 2.8x, Core has better leverage on your money even though Growth has higher absolute revenue.
+3. Net is more important than ROI multiple in absolute terms. A 5x ROI on a tiny base may be worse cash flow than a 2x ROI on a large base.
+4. Run the calculator twice with conservative and optimistic ticket sizes (your worst client vs your average client) to see the range.
+
+## Verticals where the bands hold up well
+
+- Restaurants, dentists, beauty salons in markets between 10K and 500K population
+- Service contractors (plumbers, electricians, HVAC) with 5+ years of operation
+- Real estate agents in mid-density markets (Quebec City, Sherbrooke, Trois-Rivieres)
+
+## Verticals where the bands underestimate
+
+- Niche B2B with 50 to 200 ideal clients in the world (because volume is low, the percentage view distorts)
+- Wedding venues, event spaces (high ticket, low volume; +15% means 1 extra wedding per month, often a $3,000-15,000 swing)
+
+## Verticals where the bands may overestimate
+
+- Hyper-saturated markets (Toronto luxury real estate, Vancouver tech consultants) where the established players have years of head start
+- Recently launched businesses (less than 12 months) where compounding has not started yet`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne notre projection de ROI (et pourquoi nous montrons 3 scenarios)",
+        excerpt:
+          "Indiquez votre panier moyen et vos clients mensuels actuels sur /forfaits-complets. Nous projetons une hausse prudente, probable et agressive sur les 4 forfaits. Voici les maths, les donnees derriere les bandes et comment lire la sortie honnetement.",
+        body: `## Ce que ca fait
+
+Deux entrees :
+- Panier moyen en CAD (votre transaction client typique)
+- Clients mensuels actuels (combien de clients vous obtenez deja par mois)
+
+Sortie : un tableau a 4 lignes montrant 3 scenarios de hausse par forfait :
+- Prudent : +15 % de clients
+- Probable : +25 % de clients (mis en evidence en vert)
+- Agressif : +40 % de clients
+
+Pour chaque scenario, vous voyez le revenu supplementaire par mois, le net apres le cout du forfait et le multiple de ROI.
+
+## Les bandes 15/25/40 %
+
+Ces bandes viennent de la hausse de visibilite IA observee chez les clients AiLys existants au point de 90 jours, pas de l'imagination marketing :
+- Le bas de la distribution (petits marches, secteurs en fin de cycle) atterrit autour de +12 a +18 % de hausse client
+- Le milieu de la distribution (PME locale typique du Quebec dans un marche normal) atterrit autour de +20 a +30 %
+- Le haut de la distribution (marches vierges, marque bien positionnee, avis actifs) atteint +35 a +45 %
+
+Nous arrondissons a 15/25/40 pour la lisibilite des chiffres ronds.
+
+## Ce qui est et n'est pas inclus
+
+La projection compte seulement les **nouveaux clients organiques** acquis via la visibilite recherche IA. Elle ne compte pas :
+- La repetition d'affaires de votre base client existante
+- Le trafic direct (les gens qui tapent votre URL directement)
+- Les resultats des annonces payantes (nous ne gerons pas les annonces)
+- Le bouche a oreille (impossible a attribuer)
+
+Si votre entreprise a deja une forte visibilite recherche IA (Share of Model au-dessus de 70), la projection est trop optimiste. Les bandes supposent que vous demarrez d'une position ou le travail a de la marge pour bouger l'aiguille.
+
+## Pourquoi nous montrons 3 scenarios au lieu d'un
+
+Deux raisons :
+1. **Honnetete.** Le scenario probable vous donne un chiffre de planification realiste. Le scenario prudent vous dit le plancher ; le scenario agressif vous dit le plafond. Un seul chiffre cacherait la variance dont vous devez tenir compte.
+2. **Qualite de decision.** Si le ROI prudent est positif, le forfait est un pari a faible risque. Si seul le ROI agressif est positif, vous pariez sur une execution parfaite et vous devriez d'abord reduire le risque davantage.
+
+## Ce que ca ne remplace pas
+
+La projection de ROI est une aide a la planification, pas un contrat. Le vrai contrat est :
+- La garantie satisfaction 30 jours (remboursement mois 1 si la livraison ne correspond pas au document de demarrage)
+- La garantie de hausse mesurable a 90 jours (Core+, remboursement des 3 derniers mois si le Share of Model n'augmente pas de +15 points)
+
+Celles-la sont les garanties dures. Le calculateur ROI est l'esquisse douce qui vous aide a decider si le forfait vaut l'essai.
+
+## Comment le lire proprement
+
+1. Sautez le chiffre prudent si vous etes confiant dans votre secteur. Sautez le chiffre agressif si vous etes sceptique de votre marche.
+2. Comparez le multiple ROI **Probable** entre forfaits. Si Core vous donne un ROI 3x et Growth un ROI 2,8x, Core a un meilleur levier sur votre argent meme si Growth a un revenu absolu plus eleve.
+3. Le net est plus important que le multiple ROI en termes absolus. Un ROI 5x sur une petite base peut etre un pire flux de tresorerie qu'un ROI 2x sur une grande base.
+4. Executez le calculateur deux fois avec un panier conservateur et optimiste (votre pire client vs votre client moyen) pour voir la fourchette.
+
+## Secteurs ou les bandes tiennent bien
+
+- Restaurants, dentistes, salons de beaute dans les marches entre 10K et 500K de population
+- Entrepreneurs de services (plombiers, electriciens, CVC) avec 5 ans+ d'operation
+- Agents immobiliers dans les marches de densite moyenne (Quebec, Sherbrooke, Trois-Rivieres)
+
+## Secteurs ou les bandes sous-estiment
+
+- B2B niche avec 50 a 200 clients ideaux dans le monde (parce que le volume est bas, la vue en pourcentage deforme)
+- Salles de mariage, espaces evenementiels (gros billet, faible volume ; +15 % signifie 1 mariage de plus par mois, souvent un swing de 3 000-15 000 $)
+
+## Secteurs ou les bandes peuvent surestimer
+
+- Marches hyper-satures (immobilier de luxe Toronto, consultants tech Vancouver) ou les acteurs etablis ont des annees d'avance
+- Entreprises recemment lancees (moins de 12 mois) ou la composition n'a pas commence`,
+      },
+    },
+  },
+  {
+    slug: "share-link-and-form-persistence-privacy",
+    title: "Share links + form persistence: privacy on /forfaits-complets",
+    excerpt:
+      "The pricing page lets you share your selection via URL and saves form input across visits. Here is exactly what is stored, where, and what is not. No tracking, no transmission, no surprises.",
+    category: "account-billing",
+    updatedAt: "2026-04-30",
+    readingTimeMin: 3,
+    body: `## What persists
+
+When you visit /forfaits-complets, two things may persist on YOUR device:
+
+1. **Toggle state in the URL** (engagement, tax, diff). Format: \`/forfaits-complets?engagement=annual&tax=1&diff=1\`. Default values are stripped (no engagement param when monthly, no tax param when off, no diff param when off).
+2. **Form input in localStorage** under two keys:
+   - \`ailys_quote_builder_v1\`: prospect name, business name, email, tier, engagement, reviuzy add-on, website size, tax inclusion
+   - \`ailys_instant_audit_v1\`: business name, URL
+   - \`ailys_tax_incl\`: just the tax toggle (independent legacy key)
+
+## What does NOT persist
+
+- Your IP address: hashed for rate-limiting only on the server side, never stored in clear, never linked to your selections
+- Cookies for tracking: none. The only cookies on AiLys are functional (theme preference, language preference) and explicitly opt-in analytics (only if you accepted the cookie banner)
+- Server-side: nothing. Your form selections never leave your browser unless you click submit on the quote PDF or the instant audit. We do not collect input as you type.
+
+## Why we persist
+
+Two reasons:
+1. **You may bounce and return.** B2B decisions take days. If you fill out the quote builder, get distracted, and come back tomorrow, the form is pre-filled. You finish in 30 seconds instead of starting over.
+2. **You may share.** The URL with toggle state lets your boss or accountant land on your exact configuration when you forward the link. Reduces the back-and-forth in B2B sales cycles.
+
+## Versioning
+
+The localStorage keys end in \`_v1\` so future schema changes can introduce \`_v2\` without breaking your existing saved state. If we ever break compatibility (rare), we will add a migration step that reads v1 and writes v2.
+
+## How to clear it
+
+Open browser developer tools (F12), Application tab, Local Storage section, find the keys starting with \`ailys_\` and delete them. Or just clear browsing data for \`ailysagency.ca\` and \`reviuzy.com\` in your browser settings.
+
+The next page load will start fresh.
+
+## What about clipboard?
+
+When you click the "Copy share link" button, we use \`navigator.clipboard.writeText()\` to copy the current URL to your clipboard. The URL contains only the toggle state in query params (engagement, tax, diff); it does not contain your name, email, or any quote builder selections. The clipboard write happens entirely on your device; nothing transits the network for this operation.
+
+## Loi 25 compliance (Quebec residents)
+
+The form persistence described above is incidental device storage. It does not constitute personal information collection under Quebec Loi 25 because:
+- The data does not leave your device
+- We do not associate the localStorage keys with any server-side identity
+- You can delete it instantly
+
+If you submit the quote builder, the email and name then transit to our server (Cloudflare Pages function in Canada) and are sent to Resend (email service, US-based) to deliver the PDF link. That submission is the moment the privacy notice in our Privacy Policy applies.
+
+## What we recommend
+
+If you are on a shared computer, clear localStorage before logging out (or use private/incognito mode). The same applies to any website that saves form input. AiLys is not unusual here.`,
+    i18n: {
+      fr: {
+        title: "Liens de partage et persistance des formulaires : vie privee sur /forfaits-complets",
+        excerpt:
+          "La page de forfaits permet de partager votre selection via URL et sauvegarde l'entree de formulaire entre visites. Voici exactement ce qui est stocke, ou et ce qui ne l'est pas. Aucun pistage, aucune transmission, aucune surprise.",
+        body: `## Ce qui persiste
+
+Quand vous visitez /forfaits-complets, deux choses peuvent persister sur VOTRE appareil :
+
+1. **Etat des toggles dans l'URL** (engagement, taxes, differences). Format : \`/forfaits-complets?engagement=annual&tax=1&diff=1\`. Les valeurs par defaut sont retirees (aucun parametre engagement quand mensuel, aucun parametre tax quand desactive, aucun parametre diff quand desactive).
+2. **Entrees de formulaire dans localStorage** sous deux cles :
+   - \`ailys_quote_builder_v1\` : nom prospect, nom entreprise, courriel, forfait, engagement, module reputation, taille site, inclusion taxes
+   - \`ailys_instant_audit_v1\` : nom entreprise, URL
+   - \`ailys_tax_incl\` : juste le toggle taxes (cle independante legacy)
+
+## Ce qui NE persiste PAS
+
+- Votre adresse IP : hashee pour limitation de debit cote serveur uniquement, jamais stockee en clair, jamais liee a vos selections
+- Cookies de pistage : aucun. Les seuls cookies sur AiLys sont fonctionnels (preference theme, preference langue) et analytiques opt-in explicite (seulement si vous avez accepte la banniere cookies)
+- Cote serveur : rien. Vos selections de formulaire ne quittent jamais votre navigateur sauf si vous cliquez soumettre sur le devis PDF ou l'audit instantane. Nous ne collectons pas l'entree pendant que vous tapez.
+
+## Pourquoi nous persistons
+
+Deux raisons :
+1. **Vous pouvez quitter et revenir.** Les decisions B2B prennent des jours. Si vous remplissez le constructeur de devis, etes distrait et revenez demain, le formulaire est pre-rempli. Vous finissez en 30 secondes au lieu de recommencer.
+2. **Vous pouvez partager.** L'URL avec etat des toggles permet a votre patron ou comptable d'atterrir sur votre configuration exacte quand vous transferez le lien. Reduit les allers-retours dans les cycles de vente B2B.
+
+## Versionnage
+
+Les cles localStorage finissent en \`_v1\` afin que les changements de schema futurs puissent introduire \`_v2\` sans casser votre etat sauvegarde existant. Si nous brisons jamais la compatibilite (rare), nous ajouterons une etape de migration qui lit v1 et ecrit v2.
+
+## Comment l'effacer
+
+Ouvrez les outils de developpement du navigateur (F12), onglet Application, section Local Storage, trouvez les cles commencant par \`ailys_\` et supprimez-les. Ou effacez simplement les donnees de navigation pour \`ailysagency.ca\` et \`reviuzy.com\` dans les parametres de votre navigateur.
+
+Le prochain chargement de page commencera a neuf.
+
+## Et le presse-papiers ?
+
+Quand vous cliquez le bouton "Copier le lien", nous utilisons \`navigator.clipboard.writeText()\` pour copier l'URL courante dans votre presse-papiers. L'URL contient seulement l'etat des toggles dans les parametres de requete (engagement, tax, diff) ; elle ne contient pas votre nom, courriel ou aucune selection du constructeur de devis. L'ecriture clipboard se passe entierement sur votre appareil ; rien ne transite par le reseau pour cette operation.
+
+## Conformite Loi 25 (residents du Quebec)
+
+La persistance de formulaire decrite ci-dessus est un stockage d'appareil incident. Elle ne constitue pas une collecte d'informations personnelles selon la Loi 25 du Quebec parce que :
+- Les donnees ne quittent pas votre appareil
+- Nous n'associons pas les cles localStorage avec aucune identite cote serveur
+- Vous pouvez les supprimer instantanement
+
+Si vous soumettez le constructeur de devis, le courriel et le nom transitent alors vers notre serveur (fonction Cloudflare Pages au Canada) et sont envoyes a Resend (service courriel, base aux Etats-Unis) pour livrer le lien PDF. Cette soumission est le moment ou l'avis de confidentialite dans notre Politique de confidentialite s'applique.
+
+## Ce que nous recommandons
+
+Si vous etes sur un ordinateur partage, effacez le localStorage avant de vous deconnecter (ou utilisez le mode prive/incognito). Cela s'applique a tout site web qui sauvegarde l'entree de formulaire. AiLys n'est pas inhabituel ici.`,
+      },
+    },
+  },
 ];
