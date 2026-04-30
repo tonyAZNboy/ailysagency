@@ -9,6 +9,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LangProvider } from "@/i18n/LangContext";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
+import { RouteChunkErrorBoundary } from "@/components/RouteChunkErrorBoundary";
 import { setupAnalyticsLoader } from "@/lib/analytics";
 
 // Phase E.5: hot-path pages (high traffic, low latency budget) stay eager.
@@ -93,6 +94,7 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <ScrollToTop />
+              <RouteChunkErrorBoundary>
               <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -202,6 +204,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
               </Suspense>
+              </RouteChunkErrorBoundary>
               <CookieConsentBanner />
             </BrowserRouter>
           </LangProvider>
