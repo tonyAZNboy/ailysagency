@@ -4,7 +4,7 @@
 // with business name + URL + locale. Renders score (0-100) + 3 missing-points
 // bullets. Includes honeypot, fallback handling, mobile-first layout.
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Loader2, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LangContext";
@@ -61,15 +61,37 @@ function scoreBand(score: number): { label: string; tone: string } {
   return { label: "Critical", tone: "text-rose-300" };
 }
 
+// E.6: persistence so prospects who type business name + URL but bounce
+// before submit can return to their input.
+const STORAGE_KEY = "ailys_instant_audit_v1";
+function loadPersisted(): { businessName?: string; url?: string } {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return typeof parsed === "object" && parsed ? parsed : {};
+  } catch { return {}; }
+}
+function savePersisted(state: { businessName: string; url: string }) {
+  if (typeof window === "undefined") return;
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
 export function InstantAiVisibilityAudit() {
   const { lang: ctxLang } = useLang();
   const lang: "en" | "fr" = ctxLang === "fr" ? "fr" : "en";
   const copy = COPY[lang];
 
-  const [businessName, setBusinessName] = useState("");
-  const [url, setUrl] = useState("");
+  const persisted = useMemo(() => loadPersisted(), []);
+  const [businessName, setBusinessName] = useState(persisted.businessName ?? "");
+  const [url, setUrl] = useState(persisted.url ?? "");
   const [honeypot, setHoneypot] = useState("");
   const [state, setState] = useState<AuditState>({ kind: "idle" });
+
+  useEffect(() => {
+    savePersisted({ businessName, url });
+  }, [businessName, url]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();

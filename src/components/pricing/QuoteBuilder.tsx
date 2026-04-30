@@ -5,7 +5,7 @@
 // to /api/quote-pdf which returns a 5-min signed download URL plus emails
 // the PDF to the prospect.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, FileText, Loader2 } from "lucide-react";
 import { useLang } from "@/i18n/LangContext";
 import {
@@ -99,19 +99,69 @@ const COPY = {
 
 const REVIUZY_ADDON_CAD = 100;
 
+// E.6: persistence so prospects who fill the form but bounce can return
+// to their selection. localStorage is fine; no PII concern (email could
+// be sensitive but the prospect typed it themselves, on their own device).
+const STORAGE_KEY = "ailys_quote_builder_v1";
+interface PersistedState {
+  prospectName?: string;
+  businessName?: string;
+  email?: string;
+  tier?: string;
+  engagement?: string;
+  reviuzyAddon?: boolean;
+  websiteSize?: string;
+  taxIncluded?: boolean;
+}
+
+function loadPersisted(): PersistedState {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return typeof parsed === "object" && parsed ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function savePersisted(state: PersistedState) {
+  if (typeof window === "undefined") return;
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
 export function QuoteBuilder() {
   const { lang: ctxLang } = useLang();
   const lang: "en" | "fr" = ctxLang === "fr" ? "fr" : "en";
   const copy = COPY[lang];
 
-  const [prospectName, setProspectName] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [email, setEmail] = useState("");
-  const [tier, setTier] = useState<TierMeta["id"]>("core");
-  const [engagement, setEngagement] = useState<EngagementMode>("monthly");
-  const [reviuzyAddon, setReviuzyAddon] = useState(false);
-  const [websiteSize, setWebsiteSize] = useState<WebsiteSize>("none");
-  const [taxIncluded, setTaxIncluded] = useState(false);
+  const persisted = useMemo(() => loadPersisted(), []);
+
+  const [prospectName, setProspectName] = useState(persisted.prospectName ?? "");
+  const [businessName, setBusinessName] = useState(persisted.businessName ?? "");
+  const [email, setEmail] = useState(persisted.email ?? "");
+  const [tier, setTier] = useState<TierMeta["id"]>(
+    (["starter", "core", "growth", "agency"] as const).includes(persisted.tier as TierMeta["id"])
+      ? (persisted.tier as TierMeta["id"])
+      : "core",
+  );
+  const [engagement, setEngagement] = useState<EngagementMode>(
+    (["monthly", "annual", "biennial"] as const).includes(persisted.engagement as EngagementMode)
+      ? (persisted.engagement as EngagementMode)
+      : "monthly",
+  );
+  const [reviuzyAddon, setReviuzyAddon] = useState(persisted.reviuzyAddon ?? false);
+  const [websiteSize, setWebsiteSize] = useState<WebsiteSize>(
+    (["none", "vitrine", "pme", "commerce"] as const).includes(persisted.websiteSize as WebsiteSize)
+      ? (persisted.websiteSize as WebsiteSize)
+      : "none",
+  );
+  const [taxIncluded, setTaxIncluded] = useState(persisted.taxIncluded ?? false);
+
+  useEffect(() => {
+    savePersisted({ prospectName, businessName, email, tier, engagement, reviuzyAddon, websiteSize, taxIncluded });
+  }, [prospectName, businessName, email, tier, engagement, reviuzyAddon, websiteSize, taxIncluded]);
   const [honeypot, setHoneypot] = useState("");
   const [state, setState] = useState<QuoteState>({ kind: "idle" });
 
