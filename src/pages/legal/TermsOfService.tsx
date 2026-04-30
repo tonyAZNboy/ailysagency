@@ -14,8 +14,9 @@ import { TermsContentFr } from "./content/TermsContentFr";
  *
  * AiLys Agency is a consulting agency, not a SaaS platform. The terms
  * cover: a consulting engagement (the agency does work on the client's
- * behalf), the optional Reviuzy reputation system add-on (delivered
- * through the sister product Reviuzy), and the public website itself.
+ * behalf), the optional AiLys Automation reputation add-on, and the
+ * public website itself. Legal entity is Reviuzy Inc operating as
+ * AiLys Agency.
  *
  * Jurisdiction: Quebec, Canada. Loi 25 + PIPEDA + (where applicable)
  * GDPR + CCPA. Disputes settled by Quebec courts.
@@ -88,20 +89,23 @@ export default function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">2. About AiLys Agency</h2>
+              <h2 className="text-2xl font-semibold mb-4">2. About AiLys Agency (legal entity)</h2>
               <p className="text-muted-foreground leading-relaxed mb-3">
-                AiLys Agency is a Quebec-based AI search reputation agency. We provide consulting services that help local businesses and brands get cited inside answers from ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews, and Bing Copilot. Our work covers:
+                <strong>AiLys Agency</strong> is the trade name under which <strong>Reviuzy Inc</strong>, a Quebec corporation, operates. References in these Terms to "AiLys", "we", "us", or "our" refer to Reviuzy Inc operating as AiLys Agency. Any contract, invoice, or legal correspondence is binding on Reviuzy Inc as the contracting party. The brand "AiLys Automation" refers to our internal automation platform powering service delivery.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                Reviuzy Inc operates as a Quebec-based AI search reputation agency under the AiLys Agency name. We provide consulting services that help local businesses and brands get cited inside answers from ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews, and Bing Copilot. Our work covers:
               </p>
               <ul className="list-disc list-inside text-muted-foreground leading-relaxed space-y-1">
                 <li>Technical SEO and on-page work</li>
                 <li>Google Business Profile management, citation building, and NAP consistency</li>
                 <li>AEO (Answer Engine Optimization) schema deployment</li>
-                <li>GEO (Generative Engine Optimization) entity authority work on Wikipedia, Wikidata, Reddit, and digital PR</li>
+                <li>GEO (Generative Engine Optimization) entity authority work on Wikipedia, Wikidata, and digital PR</li>
                 <li>E-E-A-T (Experience, Expertise, Authoritativeness, Trust) content production</li>
                 <li>AI Visibility and AI Traffic measurement and reporting</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed mt-3">
-                Optional add-ons include the Reviuzy reputation system (delivered through our sister product Reviuzy SaaS), Domain Shield, Domain Speed Boost, and a dedicated strategist. Each add-on is governed by these Terms plus any specific add-on terms communicated at signup.
+                Optional add-ons include the AiLys Automation reputation module (NFC review collection, AI replies, contest engine), Domain Shield, Domain Speed Boost, and a dedicated strategist. All add-ons are operated by the same legal entity (Reviuzy Inc) under these Terms plus any specific add-on terms communicated at signup.
               </p>
             </section>
 
