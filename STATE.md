@@ -4,6 +4,25 @@
 
 ---
 
+## 📝 SESSION 2026-04-30 (cont.) — Blog: 8 competitor comparison posts (EN+FR)
+
+Added 8 honest competitor comparison posts in `ailys-product` category, each with full SEO (meta, FAQ x6, headings, related, StatHighlight, QuickQuiz, KeyTakeaway, CalloutBox, InternalLink) and hand-authored EN+FR-CA pairs:
+
+1. AiLys vs Digitad (Quebec SEO generalist)
+2. AiLys vs Bloom (Montreal performance marketing)
+3. AiLys vs Major Tom (pan-Canadian full-service)
+4. AiLys vs ProStar SEO (multi-city Canadian local SEO, real published $2k-$3.5k USD pricing)
+5. AiLys vs Bofu Agence Marketing (HubSpot, bottom-of-funnel conversion)
+6. AiLys vs Adviso (enterprise digital consultancy)
+7. AiLys vs Rablab (Montreal creative-led agency)
+8. AiLys vs WSI (Toronto-founded global franchise network, since 1995)
+
+**Blog count:** 51 → 59 posts. All gates green (tsc, em-dash audit, 59/59 blog translations audit, build OK).
+
+**TODO future:** ES/ZH/AR/RU translations for the 8 new comparison posts (currently fall back to EN). Hero/mid/end images per slug to be generated.
+
+---
+
 ## 🏁 SESSION CLOSE 2026-04-30 — `v0.11.0-d4-complete`
 
 D.4 observability + C.7.Rvz.4 renewal emails + 4 cron orchestrators end-to-end + Slack routing + health-check fn all shipped, tested, deployed.
