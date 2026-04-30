@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,44 +10,64 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LangProvider } from "@/i18n/LangContext";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { setupAnalyticsLoader } from "@/lib/analytics";
+
+// Phase E.5: hot-path pages (high traffic, low latency budget) stay eager.
+// Conversion funnels + landing must render in first paint without
+// JS chunk fetch latency.
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/auth/Login";
-import Signup from "./pages/auth/Signup";
-import ForgotPassword from "./pages/auth/ForgotPassword";
-import ResetPassword from "./pages/auth/ResetPassword";
-import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
-import TermsOfService from "./pages/legal/TermsOfService";
-import CookiePolicy from "./pages/legal/CookiePolicy";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import BlogCategory from "./pages/BlogCategory";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
 import BookCall from "./pages/BookCall";
-import Cofounders from "./pages/Cofounders";
-import FoundingClients from "./pages/FoundingClients";
-import Help from "./pages/Help";
-import HelpArticle from "./pages/HelpArticle";
-import Industries from "./pages/Industries";
-import Industry from "./pages/Industry";
-import Comparison from "./pages/Comparison";
-import Glossary from "./pages/Glossary";
-import GlossaryTerm from "./pages/GlossaryTerm";
-import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
 import PricingDetails from "./pages/PricingDetails";
-import AdminLayout from "./pages/admin/AdminLayout";
-import AdminOverview from "./pages/admin/AdminOverview";
-import AdminLeads from "./pages/admin/AdminLeads";
-import AdminBookings from "./pages/admin/AdminBookings";
-import AdminChats from "./pages/admin/AdminChats";
-import AdminVisitors from "./pages/admin/AdminVisitors";
-import AdminPosts from "./pages/admin/AdminPosts";
-import AdminUsers from "./pages/admin/AdminUsers";
-import AdminClients from "./pages/admin/AdminClients";
-import AdminLifecycle from "./pages/admin/AdminLifecycle";
-import AdminChurn from "./pages/admin/AdminChurn";
-import AdminSettings from "./pages/admin/AdminSettings";
+import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import BlogCategory from "./pages/BlogCategory";
+
+// Phase E.5: cold-path pages (low traffic, OK to fetch chunk on-demand).
+// Reduces initial JS bundle. Each page chunk loads in parallel with the
+// route resolution.
+const Login = lazy(() => import("./pages/auth/Login"));
+const Signup = lazy(() => import("./pages/auth/Signup"));
+const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/auth/ResetPassword"));
+const PrivacyPolicy = lazy(() => import("./pages/legal/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/legal/TermsOfService"));
+const CookiePolicy = lazy(() => import("./pages/legal/CookiePolicy"));
+const Cofounders = lazy(() => import("./pages/Cofounders"));
+const FoundingClients = lazy(() => import("./pages/FoundingClients"));
+const Help = lazy(() => import("./pages/Help"));
+const HelpArticle = lazy(() => import("./pages/HelpArticle"));
+const Industries = lazy(() => import("./pages/Industries"));
+const Industry = lazy(() => import("./pages/Industry"));
+const Comparison = lazy(() => import("./pages/Comparison"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
+const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
+const AdminBookings = lazy(() => import("./pages/admin/AdminBookings"));
+const AdminChats = lazy(() => import("./pages/admin/AdminChats"));
+const AdminVisitors = lazy(() => import("./pages/admin/AdminVisitors"));
+const AdminPosts = lazy(() => import("./pages/admin/AdminPosts"));
+const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
+const AdminClients = lazy(() => import("./pages/admin/AdminClients"));
+const AdminLifecycle = lazy(() => import("./pages/admin/AdminLifecycle"));
+const AdminChurn = lazy(() => import("./pages/admin/AdminChurn"));
+const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
+
+// Suspense fallback for lazy chunks. Minimal to avoid cumulative layout
+// shift; matches dark theme.
+const RouteFallback = () => (
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    className="min-h-screen bg-background flex items-center justify-center"
+  >
+    <div className="w-8 h-8 border-2 border-zinc-700 border-t-zinc-300 rounded-full animate-spin" />
+  </div>
+);
 
 const queryClient = new QueryClient();
 
@@ -73,6 +93,7 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <ScrollToTop />
+              <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/:lang" element={<Index />} />
@@ -180,6 +201,7 @@ const App = () => {
 
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              </Suspense>
               <CookieConsentBanner />
             </BrowserRouter>
           </LangProvider>
