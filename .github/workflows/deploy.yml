@@ -91,6 +91,9 @@ jobs:
       - name: Gate 13, personalized quote PDF smoke (10 cases)
         run: npx tsx scripts/smoke-quote-pdf.mjs
 
+      - name: Gate 14, admin endpoint observability stats smoke (10 cases)
+        run: npx tsx scripts/smoke-admin-endpoint-stats.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking

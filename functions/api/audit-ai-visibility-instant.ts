@@ -32,6 +32,33 @@ interface KVNamespace {
 interface PagesContext {
   request: Request;
   env: Env;
+  waitUntil?: (promise: Promise<unknown>) => void;
+}
+
+interface AuditLogEntry {
+  ts: string;
+  action: string;
+  ipHash: string;
+  status: number;
+  cacheKey?: string;
+  score?: number;
+  lang?: string;
+  reason?: string;
+  cached?: boolean;
+}
+
+const RING_BUFFER_PREFIX = 'instant_ai_vis_log:';
+const RING_BUFFER_TTL_SECONDS = 7 * 24 * 60 * 60;
+
+function writeRingBuffer(ctx: PagesContext, entry: AuditLogEntry): void {
+  const kv = ctx.env.AUDIT_PDF_RATE_LIMIT;
+  if (!kv || !ctx.waitUntil) return;
+  const key = `${RING_BUFFER_PREFIX}${Date.now()}`;
+  ctx.waitUntil(
+    kv.put(key, JSON.stringify(entry), { expirationTtl: RING_BUFFER_TTL_SECONDS }).catch(() => {
+      // observability is best-effort; emit() to console.log remains source of truth
+    }),
+  );
 }
 
 const CACHE_TTL_SECONDS = 24 * 60 * 60; // 24h
@@ -245,6 +272,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
 
   if (await isKilled(ctx.env)) {
     emit({ ts, action: 'kill_switch_on' });
+    writeRingBuffer(ctx, { ts, action: 'kill_switch_on', ipHash: '', status: 503 });
     return new Response(JSON.stringify({ error: 'service_temporarily_unavailable' }), {
       status: 503, headers: { 'content-type': 'application/json' },
     });
@@ -286,6 +314,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
   const cached = await readCache(ctx.env, cacheKey);
   if (cached) {
     emit({ ts, action: 'cache_hit', cacheKey: cacheKey.slice(0, 8), ipHash: ipHash.slice(0, 8) });
+    writeRingBuffer(ctx, { ts, action: 'cache_hit', ipHash: ipHash.slice(0, 8), status: 200, cacheKey: cacheKey.slice(0, 8), score: cached.score, lang: body.lang, cached: true });
     return new Response(JSON.stringify(cached), { status: 200, headers: { 'content-type': 'application/json' } });
   }
 
@@ -307,6 +336,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
     score: result.score,
     lang: body.lang,
   });
+  writeRingBuffer(ctx, { ts, action: 'rendered', ipHash: ipHash.slice(0, 8), status: 200, cacheKey: cacheKey.slice(0, 8), score: result.score, lang: body.lang, cached: false });
 
   return new Response(JSON.stringify({ ...result, cached: false }), {
     status: 200, headers: { 'content-type': 'application/json' },
