@@ -4,6 +4,75 @@
 
 ---
 
+## 🟢 D.4 + C.7.Rvz.4 END-TO-END VALIDATED 2026-04-30 (autopilot, 6 Reviuzy PRs)
+
+Continuation of D.4 observability scaffold (`PR #26` shipped earlier) + manual validation of all 4 cron orchestrators in production. 6 additional PRs merged in sequence; surfaced + fixed 4 distinct schema-drift bugs that were blocking the entire renewal-signals pipeline.
+
+**Reviuzy PRs merged this run:**
+
+| PR | Type | Scope |
+|---|---|---|
+| [#27](https://github.com/tonyAZNboy/reviuzy/pull/27) | hotfix | `directories/index.ts` `.ts` extension on imports (Supabase Deno bundler strict) |
+| [#28](https://github.com/tonyAZNboy/reviuzy/pull/28) | hotfix | `directories/{yelp,foursquare,bbb-csv}.ts` `.ts` extension (followup to #27) |
+| [#29](https://github.com/tonyAZNboy/reviuzy/pull/29) | hotfix | `compute-renewal-signals` defensive SELECT when `tenants.tier` missing |
+| [#30](https://github.com/tonyAZNboy/reviuzy/pull/30) | refactor | `compute-renewal-signals` reads sub state from `subscriptions` table (was reading non-existent `tenants.tier/status/next_renewal_date`) |
+| [#31](https://github.com/tonyAZNboy/reviuzy/pull/31) | feat | `compute-renewal-signals` wires `owner_email` lookup via `user_memberships` + `auth.admin.getUserById` (completes C.7.Rvz.4 dispatch path) |
+| [#32](https://github.com/tonyAZNboy/reviuzy/pull/32) | feat | D.4.Rvz.2: frontend `@sentry/react@10.51` init + `RootErrorBoundary` capture |
+
+**End-to-end test results (DRY_RUN, 5 prod tenants):**
+
+| Surface | Test | Result |
+|---|---|---|
+| `audit-log-export` | OPTIONS / no-auth / GET-on-POST / anon | ✅ 200 / 401 / 405 / 401 |
+| `citation-auto-batch` | OPTIONS / no-auth / feature-disabled | ✅ 200 / 401 / `feature_disabled` |
+| `compute-renewal-signals` | OPTIONS / no-auth / feature-disabled | ✅ 200 / 401 / `feature_disabled` |
+| `compute-renewal-signals` | end-to-end DRY_RUN | ✅ `processed: 5`, all `skipped_no_tier` (correct: no tenant has `ailys_tier` set yet) |
+| `monthly-visibility-export` | OPTIONS / no-auth / feature-disabled | ✅ 200 / 401 / `feature_disabled` |
+| Sentry integration (live) | secrets set + edge fns redeployed | ✅ wired, dashboard active |
+
+**Schema drift findings (production tenants table):**
+
+Confirmed missing columns the code was assuming:
+- `tier` (legacy column, never migrated to prod)
+- `subscription_status`, `next_renewal_date` (live in `subscriptions` table instead)
+- `owner_email` (lives in `auth.users` via `user_memberships`)
+
+`compute-renewal-signals` is now schema-aligned with prod (PR #30 + #31). `citation-auto-batch` and `monthly-visibility-export` have the same drift pattern (both query `tenants` for `tier` / `owner_email` / `primary_location_id` / etc.) and are **deferred to next session for the same refactor**.
+
+**Sentry status:**
+
+- Edge fn DSN set + 4 cron orchestrators redeployed (D.4.Rvz.1)
+- Frontend Sentry init shipped via PR #32 but **not activated yet** — operator needs to set `VITE_SENTRY_DSN` in Cloudflare Pages build env vars and trigger a new deploy
+- Free tier (5K errors/month) sufficient for current volume
+
+**Vitest count:** 730 → 747 (+17 across observability.test.ts and sentry.test.ts).
+
+**Operator follow-up to make signals fire (not deferred, just user action):**
+
+```sql
+-- Set tier on ailys_managed tenants so signals can be emitted
+UPDATE tenants SET ailys_tier = 'growth'
+WHERE client_type = 'ailys_managed' AND ailys_tier IS NULL;
+```
+
+Then reactivate the cron with `RENEWAL_SIGNALS_ENABLED=true RENEWAL_SIGNALS_DRY_RUN=true` for 24-48h validation, then flip DRY_RUN to false and opt-in tenants individually for upsell emails.
+
+**Frontend Sentry activation:**
+
+1. Cloudflare Pages dashboard → Settings → Environment variables → Production:
+   - `VITE_SENTRY_DSN=<dsn>`
+   - `VITE_SENTRY_ENVIRONMENT=production`
+2. "Retry deployment" to bake the DSN into the new bundle
+
+**Backlog deferred to next session:**
+
+- D.4 part 3: refactor `citation-auto-batch` + `monthly-visibility-export` for schema drift (same pattern as PR #30)
+- D.4 part 3: `/admin/errors` operator dashboard
+- D.4 part 3: per-tenant Slack webhook routing (Agency tier)
+- D.4 part 3: refactor remaining ~25 ad-hoc `catch` blocks across edge fns to use `observability.captureException`
+- pg_cron extension activation + cron schedule migrations
+- D.1.Rvz.3 batch 3 (more edge fns to instrument with `emitAuditLog`)
+
 ## ✅ PHASE E.18 FULL COMPLETION 2026-04-30 (autopilot, 6 PRs)
 
 Operator-validated content audit on the 4 Reviuzy add-on blog posts (EN+FR pairs) plus FR routing fix plus NFC procurement clarity propagation across the entire surface (blog, marketing, help center, pricing builder). All 10 validation questions resolved per `BLOG_AUDIT_ANSWERS.md` (committed in PR #28). Six PRs landed sequentially this autopilot session:
