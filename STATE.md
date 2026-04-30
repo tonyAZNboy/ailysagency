@@ -112,6 +112,35 @@ gh pr create --title "Phase E.18: blog content audit + operator-validated fixes"
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
+## 🟢 D.4.Rvz.1 SHIPPED 2026-04-30 (Reviuzy PR #26, observability scaffold)
+
+Phase D.4 part 1: foundation for SOC2-grade incident response on Reviuzy edge fns.
+
+**Reviuzy [PR #26](https://github.com/tonyAZNboy/reviuzy/pull/26) (`claude/d4-sentry`):**
+
+- New `_shared/observability.ts`: `Result<T>` + `ok` / `err` / `tryCatch`, `captureException(e, ctx)`, `wrapHandler(name, handler)`. Lazy-loads `npm:@sentry/deno` only when `SENTRY_DSN` is set; zero cost otherwise.
+- Wired through `wrapHandler`: `audit-log-export`, `citation-auto-batch`, `compute-renewal-signals`, `monthly-visibility-export` (4 cron orchestrators).
+- Each wrapped fn logs structured access lines (`{fn, status, method, duration_ms}`), captures unhandled throws, returns generic `500 {"error":"internal_error"}` instead of leaking stacks.
+
+**Module specifier trick:** the `npm:@sentry/deno` import is built at runtime as `'npm' + ':' + '@sentry/deno'` so Vite/Vitest static analysis (jsdom-based) doesn't fail to resolve when running unit tests. Deno resolves it at runtime in Supabase edge runtime.
+
+**Test posture:** 741 passed (730 + 11 new), 17 todo, 1 skipped. tsc clean. em-dash audit clean.
+
+**Operator follow-up to flip Sentry on:**
+1. Create a Sentry project (Deno runtime)
+2. Edge fn secrets: `SENTRY_DSN`, `SENTRY_ENVIRONMENT=production`, optional `SENTRY_RELEASE` / `SENTRY_SAMPLE_RATE`
+3. Redeploy 4 wrapped fns:
+   ```
+   npx supabase functions deploy audit-log-export citation-auto-batch compute-renewal-signals monthly-visibility-export --project-ref qucxhksrpqunlyjjvuae
+   ```
+4. Trigger a malformed-body call to confirm capture in Sentry dashboard
+
+**Deferred to D.4 part 2:**
+- Frontend `@sentry/react` init in `main.tsx` + `RootErrorBoundary` wire (needs `npm install @sentry/react`)
+- `/admin/errors` operator dashboard
+- Per-tenant Slack webhook routing for Agency tier
+- Refactor remaining ~25 ad-hoc `catch` blocks across edge fns to use `captureException`
+
 ## 🏁 BACKLOG BATCH SHIPPED 2026-04-30 (Reviuzy PR #25, E.3 + D.1.Rvz.3 batch 2)
 
 Two complementary workstreams bundled in one Reviuzy PR.
