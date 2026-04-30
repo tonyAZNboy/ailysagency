@@ -100,6 +100,51 @@ const SECONDARIES = ["de", "hi", "it", "ja", "ko", "nl", "pl", "pt", "tr", "vi"]
 let totalMissing = 0;
 const report = {};
 
+// Phase E.17: keys whose EN value is intentionally preserved verbatim across
+// all locales per CLAUDE.md hard rule #4 (brand names stay in original Latin
+// script: AiLys, ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing
+// Copilot, Reviuzy, GBP, AEO, GEO, E-E-A-T, NAP, etc.) plus locale-code
+// labels (FR Canada, UK Ukraine) and product/schema names (Domain Shield,
+// Premium Ops, FAQPage). Adding a key here suppresses the placeholder warning.
+//
+// DO NOT add a key here unless the EN value is a brand/code/schema string
+// that is grammatically identical in target locales. Real content gaps
+// must be hand-translated.
+const INTENTIONAL_EN_PRESERVED = new Set([
+  "hero.flowCard2Label", // "Citations + E-E-A-T" - brand acronym set
+  "hero.trustEngines", // 6 AI engine brand names
+  "who.colReviuzy", // schema column key (legacy, not user-visible)
+  "who.r1Reviuzy", // schema row key (legacy, not user-visible)
+  "audit.fields.industryOptions.restaurant", // "Restaurant" identical in FR
+  "audit.pulse.verticalRestaurant", // same
+  "services.sectionLabel", // "01 / Services" identical
+  "services.compareAilys", // "AiLys Agency" brand
+  "services.compareRow2Right", // "EN, FR, ES, ZH, AR, RU, UK, SR" locale codes
+  "pricingBuilder.lang2", // "EN + FR-CA" locale codes
+  "pricingBuilder.lang3", // "EN + FR + ES" locale codes
+  "pricingBuilder.lang4", // "EN + FR + ES + ZH" locale codes
+  "pricingBuilder.svc3Desc", // "FAQ + Review + LocalBusiness + HowTo." schema names
+  "pricingBuilder.premiumOpsRowLabel", // "Premium Ops" product name
+  "pricingBuilder.domainShieldLabel", // "Domain Shield" product
+  "pricingBuilder.domainSpeedBoostLabel", // "Domain Speed Boost" product
+  "methodology.layerAeoGeo", // "AEO + GEO" acronyms
+  "methodology.step3Signal", // "Yelp · BBB · ..." brand list
+  "methodology.step8Signal", // 6 AI engine brand list
+  "bookCall.placeholderName", // "Maxime Tremblay" Quebec name
+  "bookCall.placeholderBusiness", // "Clinique Dentaire Plateau" already FR
+  "whyAilys.row1Examples", // brand list
+  "whyAilys.row2Examples", // brand list
+  "whyAilys.row3Examples", // brand list
+  "about.signatureBrand", // "AiLys Agency" brand
+  "faqLanding.sectionLabel", // "06 / Questions" identical
+  "footerExt.locationLine", // "Montréal · Québec" already FR
+  "cofounders.tagLabels.fr_canada", // locale code label
+  "cofounders.tagLabels.uk_ukraine", // locale code label
+  "cofounders.tagLabels.sr_balkans", // locale code label
+  "cofounders.tagLabels.vi_vietnam", // locale code label
+  "cofounders.tagLabels.nl_benelux", // locale code label
+]);
+
 for (const code of [...MAJORS, ...SECONDARIES]) {
   const loc = locales[code];
   if (!loc) {
@@ -115,7 +160,8 @@ for (const code of [...MAJORS, ...SECONDARIES]) {
       typeof enVal === "string" &&
       typeof loc.get(key) === "string" &&
       loc.get(key) === enVal &&
-      enVal.length > 8 // skip short shared strings like brand acronyms
+      enVal.length > 8 && // skip short shared strings like brand acronyms
+      !INTENTIONAL_EN_PRESERVED.has(key) // skip allowlisted intentional preservations
     ) {
       enValueCopy.push(key);
     }

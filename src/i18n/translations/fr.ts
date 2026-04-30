@@ -349,7 +349,7 @@ export const fr = {
     pricing: "Tarifs",
     howItWorks: "Comment Ça Marche",
     faq: "FAQ",
-    industries: "Industries",
+    industries: "Secteurs",
   },
   seo: {
     landingTitle: "Plateforme IA pour Avis et Campagnes NFC",
