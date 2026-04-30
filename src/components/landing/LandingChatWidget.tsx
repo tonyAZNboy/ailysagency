@@ -42,6 +42,19 @@ export function LandingChatWidget() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Phase E.8: external trigger via custom event so other components
+  // (e.g. /forfaits-complets 'Ask our AI advisor' CTA) can open the chat
+  // without needing a prop drill or context.
+  useEffect(() => {
+    function onOpenChat() {
+      setIsVisible(true);
+      setIsExpanded(true);
+      setWasClosedByUser(false);
+    }
+    window.addEventListener("ailys:open-chat", onOpenChat);
+    return () => window.removeEventListener("ailys:open-chat", onOpenChat);
+  }, []);
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
