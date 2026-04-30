@@ -633,7 +633,7 @@ export const en = {
         reviewCountMediumInsight: "Decent base. Push to 100+ to enter strong-trust territory.",
         reviewCountWeakInsight: "Under 30 reviews looks new even if you've been operating for years.",
         reviewCountStrongAction: "Maintain steady inflow. Don't let velocity drop.",
-        reviewCountWeakAction: "Aim for 4-6 new reviews per month. Use Reviuzy or AiLys's review engine.",
+        reviewCountWeakAction: "Aim for 4-6 new reviews per month. Use AiLys Automation or AiLys's review engine.",
         velocityLabel: "Review velocity",
         velocityStrongInsight: "{count} reviews in 90 days is excellent. Google interprets as 'currently busy'.",
         velocityMediumInsight: "Velocity is OK. AI engines weight fresh reviews 1.9× more than older ones.",
@@ -659,7 +659,7 @@ export const en = {
         respStrongInsight: "Active responses signal engagement. Google rewards it in local pack ranking.",
         respWeakInsight: "Unresponded reviews hurt trust. Especially negative ones with no reply.",
         respStrongAction: "Maintain. Always respond to negative reviews within 24 hours.",
-        respWeakAction: "Respond to all reviews from the last 90 days this week. Use Reviuzy's AI replies if volume is heavy.",
+        respWeakAction: "Respond to all reviews from the last 90 days this week. Use AiLys Automation's AI replies if volume is heavy.",
         qaLabel: "Q&A active",
         qaStrongInsight: "Q&A entries get crawled and feed AI answers.",
         qaWeakInsight: "Empty Q&A is a wasted SEO surface. Competitors might post questions you should answer first.",
@@ -822,9 +822,9 @@ export const en = {
     tier2Feat8: "In-person quarterly review",
 
     tier3Name: "Agency",
-    tier3Tagline: "For brands and agencies who want everything: Reviuzy automation bundled, multi-location dashboard, white-label reports, API access, dedicated senior strategist.",
+    tier3Tagline: "For brands and agencies who want everything: AiLys Automation automation bundled, multi-location dashboard, white-label reports, API access, dedicated senior strategist.",
     tier3Cta: "Go Agency",
-    tier3Feat1: "Everything in Growth, plus Reviuzy automation bundled",
+    tier3Feat1: "Everything in Growth, plus AiLys Automation automation bundled",
     tier3Feat2: "GBP posts: 12 per month (3 per week), up to 12 photos per month per domain, daily AI Visibility probes",
     tier3Feat3: "Multi-location dashboard, single admin manages every location",
     tier3Feat4: "White-label PDF reports, your logo, sent monthly to your team",
@@ -835,7 +835,7 @@ export const en = {
     tier3Feat9: "Domain Speed Boost, Domain Shield, NFC contest engine, all included",
 
     why300Eyebrow: "Why $300, not $2,000",
-    why300Body: "Reviuzy handles the operational layer (review collection, GBP, content drafting, citation tracking). Our humans focus on strategy, schema, and the citations that actually move LLM rankings. The math works.",
+    why300Body: "AiLys Automation handles the operational layer (review collection, GBP, content drafting, citation tracking). Our humans focus on strategy, schema, and the citations that actually move LLM rankings. The math works.",
 
     compareLabel: "Compare",
     compareMidMarket: "Mid-market agencies",
@@ -854,7 +854,7 @@ export const en = {
     compareRow4Right: "Technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T",
     compareRow5Label: "Operational backbone",
     compareRow5Left: "Hand-built",
-    compareRow5Right: "Reviuzy SaaS automated",
+    compareRow5Right: "AiLys Automation SaaS automated",
     compareRow6Label: "Money-back guarantee",
     compareRow6Left: "Yes",
     compareRow6Right: "Yes, 30 days",
@@ -870,11 +870,11 @@ export const en = {
 
     addOnEyebrow: "Optional add-ons",
     addOnTitle: "Reputation system + Premium Ops, à la carte",
-    addOnBody: "Layer the Reviuzy reputation system on any tier ($100/mo) for the client-facing review collection, AI review generation, and contest engine. Layer the Premium Ops trio (Domain Shield, Domain Speed Boost, dedicated strategist) à la carte at $35 each, or as a bundle at $79/mo. Every add-on is bundled by default in the Agency tier.",
+    addOnBody: "Layer the AiLys Automation reputation system on any tier ($100/mo) for the client-facing review collection, AI review generation, and contest engine. Layer the Premium Ops trio (Domain Shield, Domain Speed Boost, dedicated strategist) à la carte at $35 each, or as a bundle at $79/mo. Every add-on is bundled by default in the Agency tier.",
     addOnBadgeAvailable: "+$100/mo reputation add-on",
     addOnBadgeIncluded: "Reputation bundled",
 
-    srSeo: "AiLys Agency offers four monthly plans for local businesses that need to be cited inside AI search answers. Starter is $300 CAD per month and covers technical SEO, Google Business Profile management, NAP consistency across 20+ directories, and weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Core is $600 CAD and adds AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month, bilingual content, and backlinks from real publications. Growth is $1,200 CAD and adds GEO entity authority work on Wikipedia and Wikidata, Reddit and forum participation, weekly bilingual content, and competitive monitoring. Agency is $2,500 CAD for brands and resellers, with Reviuzy automation bundled in, multi-location dashboard, white-label PDF reports, Slack SLA under 4 hours, API access, custom integrations including HubSpot and Salesforce, and a quarterly executive deck. Reviuzy automation is also available as a $100 per month add-on on Starter, Core, and Growth: NFC review collection, AI review generation, contest engine with video winner announcement, GBP post automation, citation tracker, NAP consistency, AI Visibility dashboard, and AI Traffic conversion tracker. Every plan is month to month with two weeks notice to cancel and a 30-day satisfaction guarantee. Bilingual EN and FR-CA in-house. Quebec-anchored.",
+    srSeo: "AiLys Agency offers four monthly plans for local businesses that need to be cited inside AI search answers. Starter is $300 CAD per month and covers technical SEO, Google Business Profile management, NAP consistency across 20+ directories, and weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Core is $600 CAD and adds AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month, bilingual content, and backlinks from real publications. Growth is $1,200 CAD and adds GEO entity authority work on Wikipedia and Wikidata, Reddit and forum participation, weekly bilingual content, and competitive monitoring. Agency is $2,500 CAD for brands and resellers, with AiLys Automation automation bundled in, multi-location dashboard, white-label PDF reports, Slack SLA under 4 hours, API access, custom integrations including HubSpot and Salesforce, and a quarterly executive deck. AiLys Automation automation is also available as a $100 per month add-on on Starter, Core, and Growth: NFC review collection, AI review generation, contest engine with video winner announcement, GBP post automation, citation tracker, NAP consistency, AI Visibility dashboard, and AI Traffic conversion tracker. Every plan is month to month with two weeks notice to cancel and a 30-day satisfaction guarantee. Bilingual EN and FR-CA in-house. Quebec-anchored.",
   },
 
   pricingDrivers: {
@@ -950,7 +950,7 @@ export const en = {
     svc9Label: "Competitive monitoring",
     svc9Desc: "Weekly tracker + monthly insights doc.",
     svc10Label: "Monthly review contest engine",
-    svc10Desc: "Reviuzy SaaS contest tool. Client runs the contest, we provide setup help, legal templates, and help center docs.",
+    svc10Desc: "AiLys Automation SaaS contest tool. Client runs the contest, we provide setup help, legal templates, and help center docs.",
 
     tierStarter: "Starter",
     tierCore: "Core",
@@ -958,11 +958,11 @@ export const en = {
     tierAutopilot: "Agency",
 
     addOnSectionLabel: "Optional add-ons",
-    addOnLabel: "Reviuzy reputation system",
+    addOnLabel: "AiLys Automation reputation system",
     addOnDesc: "Client-facing access: NFC review collection, customer review submission form, AI review generation, AI auto-replies, contest engine with video winner announcement, legal T&C generator, fake review detection. The agency delivers GBP automation, citations, NAP, AI Visibility, and AI Traffic in the background. Bundled by default in the Agency tier.",
     addOnPrice: "+$100/mo",
     addOnIncludedNote: "Included in Agency",
-    addOnRowLabel: "Reviuzy reputation",
+    addOnRowLabel: "AiLys Automation reputation",
     addOnRowOn: "Added",
     addOnRowOff: "Not selected",
 
@@ -979,7 +979,7 @@ export const en = {
     dedicatedStrategistLabel: "Dedicated strategist",
     dedicatedStrategistDesc: "Same senior strategist on your account every month, not pooled. Direct line, retains context, faster decisions.",
 
-    srSeo: "Build your AiLys plan by adjusting three inputs and the price snaps to one of four tiers between $300 and $2,500 CAD per month. The inputs are pages on your site, languages served (EN only, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, or all 8 languages), and the services you include. Available services are Google Business Profile management, LLM citation tracking across 6 AI engines with weekly polls, AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month or 10 plus per month, bilingual EN and FR content at one piece per month, weekly content production at 4 pieces per month, GEO entity authority work on Wikipedia and Wikidata, competitive monitoring with weekly tracker, and the Reviuzy monthly review contest engine. Free audit first. No credit card. Plans are month to month with two weeks notice to cancel.",
+    srSeo: "Build your AiLys plan by adjusting three inputs and the price snaps to one of four tiers between $300 and $2,500 CAD per month. The inputs are pages on your site, languages served (EN only, EN plus FR-CA, EN plus FR plus ES, EN plus FR plus ES plus ZH, or all 8 languages), and the services you include. Available services are Google Business Profile management, LLM citation tracking across 6 AI engines with weekly polls, AEO schema deployment (FAQ, Review, LocalBusiness, HowTo), citation building at 5 per month or 10 plus per month, bilingual EN and FR content at one piece per month, weekly content production at 4 pieces per month, GEO entity authority work on Wikipedia and Wikidata, competitive monitoring with weekly tracker, and the AiLys Automation monthly review contest engine. Free audit first. No credit card. Plans are month to month with two weeks notice to cancel.",
   },
 
   methodology: {
@@ -1029,7 +1029,7 @@ export const en = {
 
     step7Title: "Review velocity engine",
     step7Short: "Fresh reviews monthly, AI-replied, multilingual",
-    step7Detail: "Reviews are the strongest fresh-signal AI engines use. We run review collection through Reviuzy (NFC tap, QR codes, contest engine) so you maintain 4 to 50 fresh reviews per month per location, replied within 24 hours, in the language the customer wrote.",
+    step7Detail: "Reviews are the strongest fresh-signal AI engines use. We run review collection through AiLys Automation (NFC tap, QR codes, contest engine) so you maintain 4 to 50 fresh reviews per month per location, replied within 24 hours, in the language the customer wrote.",
     step7Signal: "4 to 50 reviews/mo per location · 24h response · 16 languages",
 
     step8Title: "LLM citation tracking",
@@ -1037,7 +1037,7 @@ export const en = {
     step8Detail: "We poll ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot weekly with high-intent prompts in your service plus city. We track when your name appears, what is cited, and where competitors still beat you. Real numbers, not vanity metrics.",
     step8Signal: "ChatGPT · Perplexity · Claude · Gemini · Google AIO · Bing Copilot",
 
-    srSeo: "The AiLys methodology runs an 8-step pipeline that takes a local business from invisible to cited inside AI search answers. Step 1 is technical foundation: site speed, crawlability, internal linking, meta hygiene. Step 2 is Google Business Profile, with categories, attributes, photos, posts, and Q&A all kept current. Step 3 is citations and NAP consistency across 20+ high-DA directories like Yelp, BBB, and Crunchbase. Step 4 is AEO schema deployment with FAQ, Review, LocalBusiness, and Service entities validated against Google Rich Results. Step 5 is GEO entity authority via Wikidata structured data with proper external IDs. Step 6 is E-E-A-T signal building with real bylines, original photos, and credentials. Step 7 is the review velocity engine running through Reviuzy. Step 8 is weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Each step feeds the next.",
+    srSeo: "The AiLys methodology runs an 8-step pipeline that takes a local business from invisible to cited inside AI search answers. Step 1 is technical foundation: site speed, crawlability, internal linking, meta hygiene. Step 2 is Google Business Profile, with categories, attributes, photos, posts, and Q&A all kept current. Step 3 is citations and NAP consistency across 20+ high-DA directories like Yelp, BBB, and Crunchbase. Step 4 is AEO schema deployment with FAQ, Review, LocalBusiness, and Service entities validated against Google Rich Results. Step 5 is GEO entity authority via Wikidata structured data with proper external IDs. Step 6 is E-E-A-T signal building with real bylines, original photos, and credentials. Step 7 is the review velocity engine running through AiLys Automation. Step 8 is weekly LLM citation tracking across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot. Each step feeds the next.",
   },
 
   process: {
@@ -1179,7 +1179,7 @@ export const en = {
     row4Weakness: "Strong on classic local SEO. Light on AEO/GEO/E-E-A-T integration.",
     row4Ailys: "Same classical SEO foundation (technical, on-page, citations, GBP), with the AEO + GEO + E-E-A-T layer built in from day one. The two halves feed each other.",
 
-    srSeo: "AiLys Agency sits between four competitive segments. Tier-1 global agencies like Jellyfish, Seer, Siege Media, and NP Digital charge $5,000 to $25,000 plus per month and are enterprise-only with proprietary AI tracking that local businesses cannot access. Mass volume SMB shops like LocaliQ, Boostability, and Marketing 360 charge $10 to $2,300 per month but quality drops with scale and the work feels industrialized. Tools-only platforms like BrightLocal and Whitespark charge $799 to $2,500 per month for dashboards you still have to operate yourself. Local specialists like Sterling Sky and Rablab are strong on classical local SEO but light on AEO, GEO, and E-E-A-T integration. AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO, E-E-A-T) at SMB pricing of $300 to $2,500 per month because our delivery layer is automated through Reviuzy. Bilingual EN and FR-CA in-house. We answer the phone.",
+    srSeo: "AiLys Agency sits between four competitive segments. Tier-1 global agencies like Jellyfish, Seer, Siege Media, and NP Digital charge $5,000 to $25,000 plus per month and are enterprise-only with proprietary AI tracking that local businesses cannot access. Mass volume SMB shops like LocaliQ, Boostability, and Marketing 360 charge $10 to $2,300 per month but quality drops with scale and the work feels industrialized. Tools-only platforms like BrightLocal and Whitespark charge $799 to $2,500 per month for dashboards you still have to operate yourself. Local specialists like Sterling Sky and Rablab are strong on classical local SEO but light on AEO, GEO, and E-E-A-T integration. AiLys delivers the same disciplines as tier-1 agencies (AEO, GEO, E-E-A-T) at SMB pricing of $300 to $2,500 per month because our delivery layer is automated through AiLys Automation. Bilingual EN and FR-CA in-house. We answer the phone.",
   },
 
   auditCta: {
@@ -1265,7 +1265,7 @@ export const en = {
     bilingualLine: "Bilingual EN/FR-CA",
     versionLine: "v0.1 · Made in Québec ⚜",
 
-    srSeo: "AiLys Agency is based in Montréal, Québec, with bilingual EN and FR-CA delivery in-house. Our sister product Reviuzy is a self-serve SaaS for review collection and Google Business Profile automation, and the product engine that powers part of our agency delivery. Quick links cover services (technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T), company pages (blog, help center, book a call, AI Visibility Audit, GBP Pulse, contact), legal pages (privacy policy, terms of service, cookie policy), and the 6 AI engines we track (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot). Site available in 16 languages including English, French, Spanish, Chinese, Arabic, Russian, German, Hindi, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Turkish, and Vietnamese.",
+    srSeo: "AiLys Agency is based in Montréal, Québec, with bilingual EN and FR-CA delivery in-house. Our sister product AiLys Automation is a self-serve SaaS for review collection and Google Business Profile automation, and the product engine that powers part of our agency delivery. Quick links cover services (technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T), company pages (blog, help center, book a call, AI Visibility Audit, GBP Pulse, contact), legal pages (privacy policy, terms of service, cookie policy), and the 6 AI engines we track (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot). Site available in 16 languages including English, French, Spanish, Chinese, Arabic, Russian, German, Hindi, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Turkish, and Vietnamese.",
   },
 
   navExt: {
@@ -1287,7 +1287,7 @@ export const en = {
     value1Title: "Stake in the brand",
     value1Body: "Cofounder partnerships earn equity, revenue share, or named-partner status depending on the scope. Community partners earn revenue share on every client we close in their community.",
     value2Title: "Skip the cold start",
-    value2Body: "We bring the AI visibility playbook, the Reviuzy SaaS engine, and the operator tooling. You bring trust inside the community. The first ten clients pay for the next hundred.",
+    value2Body: "We bring the AI visibility playbook, the AiLys Automation SaaS engine, and the operator tooling. You bring trust inside the community. The first ten clients pay for the next hundred.",
     value3Title: "Real autonomy",
     value3Body: "You set the cadence and pricing inside your community within our guardrails. We do not micromanage. We compare notes monthly.",
 

@@ -1,14 +1,16 @@
-// Rebrand legacy Reviuzy strings to AiLys Agency across all translation files.
-// Preserves structural identifier keys (colReviuzy, r1Reviuzy..r6Reviuzy) which
-// are part of the TypeScript schema and renaming would be a large refactor.
+// Rebrand Reviuzy public-facing brand mentions to AiLys Automation across all
+// translation files (Phase E.1.1, option b: cacher Reviuzy backend, public surface
+// presents single AiLys brand). Preserves structural TS identifier keys
+// (colReviuzy, r1Reviuzy..r6Reviuzy) which are part of the schema and renaming
+// would cascade to every consumer component.
 //
-// Strategy: only modify text that lives between double quotes (string values).
+// Strategy: only modify text inside string literal VALUES (between " or `).
 // Inside those values:
-//   "Reviuzy"           → "AiLys Agency"
-//   "Reviuzy Roulette™" → "AiLys Roulette™"
-//   anywhere mid-string → "AiLys Agency"
+//   "Reviuzy Roulette" : "AiLys Roulette"      (legacy product name preserved as AiLys-branded)
+//   "Reviuzy's"        : "AiLys Automation's"  (possessive)
+//   "Reviuzy"          : "AiLys Automation"    (default replacement)
 //
-// Skip keys (left side of colon).
+// Skip TS keys (identifiers on left side of colon).
 
 import { readFile, writeFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
@@ -50,8 +52,8 @@ for (const file of files) {
       const before = replaced;
       replaced = replaced
         .replace(/Reviuzy Roulette/g, "AiLys Roulette")
-        .replace(/Reviuzy['']s/g, "AiLys Agency's") // possessive
-        .replace(/Reviuzy/g, "AiLys Agency");
+        .replace(/Reviuzy['']s/g, "AiLys Automation's") // possessive
+        .replace(/Reviuzy/g, "AiLys Automation");
       if (replaced !== before) {
         const matches = before.match(/Reviuzy/g);
         fileReplacements += matches ? matches.length : 0;
