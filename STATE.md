@@ -79,6 +79,49 @@ gh pr create --title "Phase E.18: blog content audit + operator-validated fixes"
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
+## 🟢 C.7.Rvz.4 RENEWAL EMAILS LIVE IN PROD 2026-04-30 (post-PR #23/#24, migrations applied)
+
+End-to-end activation of the renewal/upsell email pipeline:
+
+**Reviuzy PRs merged in this session:**
+- [#23](https://github.com/tonyAZNboy/reviuzy/pull/23) — Ops Center page + 5 sub-phases (B.4.4.Rvz.2, C.5.Rvz.4, C.6.Rvz.4, C.7.Rvz.3, C.7.Rvz.4 templates)
+- [#24](https://github.com/tonyAZNboy/reviuzy/pull/24) — locale fix: `tenants.default_language` instead of non-existent `primary_locale`
+
+**Production database migrations applied via SQL Editor** (the migration history was divergent so we applied 3 idempotent migrations directly + a small `ailys_strategists` shim):
+- `monthly_visibility_reports` (table + RLS + `tenants.auto_monthly_report` column)
+- `auto_batch_runs` (table + RLS + `tenants.auto_citation_batch_enabled` column)
+- `renewal_signals` (table + RLS + `tenants.upsell_emails_enabled` column)
+- `ailys_strategists` (minimal shim, only created if missing)
+
+**`compute-renewal-signals` edge fn redeployed** at commit `469520b` with the locale fix. 4 assets uploaded: `index.ts`, `_shared/renewalEmails.ts`, `_shared/auditLog.ts`, `_shared/renewalSignals.ts`.
+
+**Tenant locale distribution** (verified live): 3 EN + 2 FR. Mapping: `default_language` starts with `fr` -> FR-CA template, otherwise EN. Each tenant receives exactly one language per email.
+
+**Operator setup remaining (Supabase Dashboard, manual):**
+
+Edge Functions -> `compute-renewal-signals` -> Secrets:
+
+| Var | Value | Notes |
+|---|---|---|
+| `RENEWAL_SIGNALS_ENABLED` | `true` | Without this the fn returns 503 |
+| `RENEWAL_SIGNALS_DRY_RUN` | `true` | First 24-48h: compute + insert signals, NO email send |
+| `RESEND_API_KEY` | `re_...` | Already set (newsletter shares it); verify scope |
+| `RENEWAL_EMAIL_FROM` | `Reviuzy <noreply@reviuzy.com>` | Domain must be DKIM-verified in Resend |
+| `REVIUZY_BASE_URL` | `https://www.reviuzy.com` | Base for CTA links |
+
+`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are auto-injected.
+
+**Activation sequence (recommended):**
+1. Set `RENEWAL_SIGNALS_DRY_RUN=true` and watch `/admin/ops` -> Renewal tab for 24-48h
+2. Verify `renewal_signals` rows look sensible (signal_type distribution, strength values)
+3. Flip `RENEWAL_SIGNALS_DRY_RUN=false`
+4. Per-tenant opt-in (default OFF, never bulk-enabled):
+   ```sql
+   UPDATE tenants SET upsell_emails_enabled = true WHERE id = '<uuid>';
+   ```
+
+**Cron schedule still pending:** the `_schedule_*.sql` migrations (3 of them) require `pg_cron` extension verification before activation. The fn can be invoked manually in the meantime.
+
 ## 🏁 ADMIN UI BATCH SHIPPED 2026-04-30 (autopilot session, Reviuzy PR #23)
 
 Closes the five operator-UX gaps tracked in the prior session backlog. Single
