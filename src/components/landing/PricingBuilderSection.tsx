@@ -20,6 +20,7 @@ interface ExtraLanguageOption {
 
 const EXTRA_LANGUAGE_PRICE = 50;
 const REVIUZY_ADDON_PRICE = 100;
+const NFC_CARD_SERVICE_ONETIME = 100;
 const PREMIUM_OPS_INDIVIDUAL = 35;
 const PREMIUM_OPS_BUNDLE = 79;
 
@@ -37,7 +38,6 @@ export function PricingBuilderSection() {
     { id: "content_weekly", label: t.pricingBuilder.svc7Label, description: t.pricingBuilder.svc7Desc, monthlyAdd: 400, minTier: 2 },
     { id: "geo", label: t.pricingBuilder.svc8Label, description: t.pricingBuilder.svc8Desc, monthlyAdd: 300, minTier: 2 },
     { id: "competitor", label: t.pricingBuilder.svc9Label, description: t.pricingBuilder.svc9Desc, monthlyAdd: 100, minTier: 2 },
-    { id: "contest", label: t.pricingBuilder.svc10Label, description: t.pricingBuilder.svc10Desc, monthlyAdd: 250, minTier: 3 },
   ];
 
   // Extra-cost languages beyond the always-included EN + FR-CA base.
@@ -62,6 +62,7 @@ export function PricingBuilderSection() {
   const [selectedServices, setSelectedServices] = useState<string[]>(["gbp", "tracking"]);
   const [extraLanguages, setExtraLanguages] = useState<Set<string>>(new Set());
   const [reviuzyAddon, setReviuzyAddon] = useState<boolean>(false);
+  const [nfcCardService, setNfcCardService] = useState<boolean>(false);
   const [domainShield, setDomainShield] = useState<boolean>(false);
   const [domainSpeedBoost, setDomainSpeedBoost] = useState<boolean>(false);
   const [dedicatedStrategist, setDedicatedStrategist] = useState<boolean>(false);
@@ -322,6 +323,18 @@ export function PricingBuilderSection() {
                     : `+$${REVIUZY_ADDON_PRICE}/${t.pricingBuilder.perMoSuffix}`
                 }
                 priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* AiLys NFC card service (one-time, 3 pre-programmed cards) */}
+              <AddonRow
+                checked={nfcCardService}
+                disabled={false}
+                onToggle={() => setNfcCardService((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.nfcServiceLabel}
+                description={t.pricingBuilder.nfcServiceDesc}
+                priceLabel={`+$${NFC_CARD_SERVICE_ONETIME} ${t.pricingBuilder.oneTimeSuffix}`}
+                priceTone="default"
               />
 
               {/* Premium Ops trio */}

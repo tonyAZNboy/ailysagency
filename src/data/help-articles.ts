@@ -83,7 +83,7 @@ Most clients sit on Starter, Core, or Growth (between $300/mo and $1,200/mo). Th
 
 What the client gets, self-serve through the AiLys Automation app:
 
-- NFC review collection cards shipped to the location
+- NFC tap-to-review landing page and collection flow (cards procured separately by the client, or via the AiLys card service at 100 dollars CAD one-time per 3-card set with programming and delivery)
 - Customer review submission form (15 second guided flow)
 - AI-generated review drafts (the customer validates and submits)
 - AI auto-replies on every review received
@@ -2047,7 +2047,7 @@ Google 在 2024 年围绕 E-E-A-T 重写了质量评估员指南。任何使用 
 - Everything Growth covers, plus you want zero ops
 - You want AiLys Automation SaaS bundled in
 - You want a monthly review contest run for you
-- You want NFC tap cards shipped to your locations
+- You want NFC tap-to-review collection wired in (cards procured separately by the client, or via the AiLys card service at 100 dollars CAD one-time per 3-card set)
 
 ## The "I am unsure" rule
 
@@ -2799,7 +2799,7 @@ Tres opciones:
     slug: "contest-scope-client-runs-it",
     title: "Who runs the monthly review contest? You do, with our tools",
     excerpt:
-      "AiLys gives you the AiLys Automation contest engine, the legal templates, the NFC cards, and the help docs. The contest itself is yours to run because every business has its own audience, prize, and timing.",
+      "AiLys gives you the AiLys Automation contest engine, the legal templates, the NFC tap-to-review landing page, and the help docs. NFC cards are procured separately by you (or via the AiLys card service for 100 dollars CAD one-time per 3-card set). The contest itself is yours to run because every business has its own audience, prize, and timing.",
     category: "getting-started",
     updatedAt: "2026-04-27",
     readingTimeMin: 4,
@@ -2809,7 +2809,7 @@ When you activate the AiLys Automation reputation system (included in Agency, $1
 
 - **The contest engine itself**. NFC tap-to-enter, AI-generated review submission, automatic participant tracking, video winner announcement.
 - **Legal templates**. Auto-generated Terms and Conditions tuned to your jurisdiction. Quebec rules, Canada-wide rules, US state-specific rules, EU/UK rules. Skill-testing question for Canadian and Mexican contests as required.
-- **NFC cards**. Branded with your logo. Shipped to your location ready to deploy at the counter.
+- **NFC cards (procured by you, or via the AiLys card service)**. Two paths: order blank NFC cards from any supplier (Amazon, NFC.direct, etc.) and program the AiLys Automation landing URL with a free phone NFC writer, OR buy the AiLys card service for 100 dollars CAD one-time which delivers 3 pre-programmed cards keyed to your landing URL with delivery included.
 - **Setup support**. Your strategist walks you through the first contest in week one of onboarding.
 - **This help center**. Step-by-step playbooks for every stage.
 

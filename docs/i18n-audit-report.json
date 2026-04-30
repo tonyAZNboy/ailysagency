@@ -1,10 +1,10 @@
 {
-  "enKeyCount": 1165,
+  "enKeyCount": 1168,
   "locales": {
     "fr": {
       "missing": [],
       "enValueCopy": [],
-      "totalKeys": 1166,
+      "totalKeys": 1169,
       "pct": "100.0"
     },
     "es": {
@@ -28,10 +28,12 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1164,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "zh": {
@@ -58,11 +60,13 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1164,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "ar": {
@@ -89,10 +93,12 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1164,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "ru": {
@@ -118,10 +124,12 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1164,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "de": {
@@ -145,6 +153,8 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "footerExt.gbpPulse",
         "footerExt.versionLine",
@@ -152,7 +162,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "hi": {
@@ -179,6 +189,8 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "methodology.step4Signal",
         "bookCall.placeholderEmail",
@@ -186,7 +198,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "it": {
@@ -211,6 +223,8 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "chat.poweredBy",
         "about.sectionLabel",
@@ -221,7 +235,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "ja": {
@@ -251,12 +265,14 @@
         "audit.results.pdfDownload.privacyNote",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "bookCall.placeholderEmail",
         "chat.poweredBy",
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "ko": {
@@ -286,12 +302,14 @@
         "audit.results.pdfDownload.privacyNote",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "bookCall.placeholderEmail",
         "chat.poweredBy",
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "nl": {
@@ -318,6 +336,8 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.badgeLive",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "pricingBuilder.premiumOpsTitle",
         "footerExt.gbpPulse",
         "footerExt.versionLine",
@@ -328,7 +348,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "pl": {
@@ -352,11 +372,13 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "footerExt.gbpPulse",
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "pt": {
@@ -380,6 +402,8 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "whyAilys.row1Segment",
         "about.sectionLabel",
@@ -388,7 +412,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "tr": {
@@ -412,6 +436,8 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "whyAilys.row1Segment",
         "about.sectionLabel",
@@ -419,7 +445,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "vi": {
@@ -446,6 +472,8 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "audit.pulse.verticalSalon",
+        "pricingBuilder.nfcServiceLabel",
+        "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "chat.headerTitle",
         "footerExt.gbpPulse",
@@ -453,9 +481,9 @@
         "cofounders.tagLabels.pt_brazil",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1163,
+      "totalKeys": 1166,
       "pct": "99.8"
     }
   },
-  "generatedAt": "2026-04-30T06:12:20.598Z"
+  "generatedAt": "2026-04-30T14:44:12.932Z"
 }

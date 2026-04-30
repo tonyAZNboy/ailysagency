@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys Automation add-on deep dive, what 100 dollars a month gets you',
   metaDescription:
     'A complete tour of the AiLys Automation add-on at 100 dollars CAD a month. NFC review collection, AI replies, the contest engine, legal generator, fake review detection, GBP automation.',
-  tldr: 'The AiLys Automation add-on bolts onto any AiLys monthly tier for 100 dollars CAD a month, and it ships bundled inside the Agency tier. The scope covers NFC review collection cards, AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite (photo upload, Q and A monitor, attribute manager). Clients run their own contests using the AiLys client app, and AiLys ships only the setup, the legal documents, and the help docs.',
+  tldr: 'The AiLys Automation add-on bolts onto any AiLys monthly tier for 100 dollars CAD a month, and it ships bundled inside the Agency tier. The scope covers NFC tap-to-review collection (cards procured separately by the client, or via the AiLys card service at 100 dollars one-time for 3 pre-programmed cards with delivery), AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite (photo upload, Q and A monitor, attribute manager). Clients run their own contests using the AiLys client app, and AiLys ships only the setup, the legal documents, and the help docs.',
   category: 'ailys-product',
   tags: ['reviuzy', 'reputation', 'pricing', 'add-on', 'gbp automation', 'ailys-product'],
   publishedDate: '2026-03-25',
@@ -32,7 +32,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'What does the AiLys Automation add-on cost and include?',
       answer:
-        'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month. The scope covers NFC review collection cards, AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
+        'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month. The scope covers NFC tap-to-review collection (the physical NFC cards are NOT included in the monthly price, the client procures and programs them from any NFC supplier, or buys the AiLys card service at 100 dollars CAD one-time for 3 cards with programming and delivery), AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
     },
     {
       question: 'Does AiLys run the AiLys Automation contest for the client?',
@@ -73,7 +73,7 @@ export function Content() {
   return (
     <article>
       <p>
-        The AiLys Automation reputation add-on is the reputation and review automation layer that bolts onto any AiLys tier for 100 dollars CAD a month, and it is bundled inside the Agency tier. The scope is wider than a review collection tool. It covers NFC cards on the counter, AI review and reply generation, a contest engine with a video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that ships photo uploads, Q and A monitoring, and attribute management. This page walks through every module, what it does, and where the line sits between the agency layer and the client workflow.
+        The AiLys Automation reputation add-on is the reputation and review automation layer that bolts onto any AiLys tier for 100 dollars CAD a month, and it is bundled inside the Agency tier. The scope is wider than a review collection tool. It covers the NFC tap-to-review landing page (the physical NFC cards are NOT included in the add-on price, the client procures and programs them from any NFC supplier, or buys the AiLys card service at 100 dollars CAD as a one-time charge for 3 cards with programming and delivery included), AI review and reply generation, a contest engine with a video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that ships photo uploads, Q and A monitoring, and attribute management. This page walks through every module, what it does, and where the line sits between the agency layer and the client workflow.
       </p>
 
       <StatHighlight
