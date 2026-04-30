@@ -153,6 +153,36 @@ Fix `LangContext.tsx` to react to route changes, e.g. add a `useLocation()` watc
 
 ---
 
+## ✅ PHASE E.20 SHIPPED 2026-04-30 (autopilot, ISO-GSD discipline)
+
+LangContext route-aware re-detection. Closes the upstream root cause flagged at the end of Phase E.19: client-side navigation between locale prefixes (e.g. `/blog/<slug>` → `/fr/help/<slug>`) now switches the chrome (navbar / footer / forms / chat widget) without requiring full page reload.
+
+**Implementation:** new `<LangRouteSync />` component mounted as the first child inside `<BrowserRouter>` in `src/App.tsx`. Watches `useLocation().pathname`, derives the lang prefix, calls `setLang(prefix)` when the prefix differs from `LangContext.lang`. Idempotency guard (`segment === lang` early-return) prevents an infinite loop with the lang switcher (which calls `setLang` AND `navigate` simultaneously). Prefix-less URLs (e.g. `/`, `/help/<slug>`, `/blog`) preserve user-stored pref via localStorage — the route sync intentionally does NOT mutate `lang` when the path lacks a recognized prefix.
+
+**Smoke posture:** Gate 17 wired into `deploy.yml`. 5/5 cases green:
+1. `LangRouteSync.tsx` exists
+2. Uses `useLocation` from react-router-dom
+3. Uses `useLang` + `SUPPORTED_LANGS` allow-list
+4. Has `segment === lang` idempotency equality guard
+5. Mounted as first child of `<BrowserRouter>` in `App.tsx`
+
+**Manual gates (375x812 mobile preview):**
+- Step A baseline: clean `/` (no localStorage) → htmlLang=en, navbar EN
+- Step B (THE bug E.20 fixes): client-side nav `/` → `/fr/blog` → htmlLang=fr, navbar FR ("Fonctionnalités", "Tarifs"). No page reload.
+- Step C: `/fr/blog` → `/help/<slug>` (no prefix) → chrome STAYS FR (preserved user choice via localStorage), article body EN (E.19 slug-first article design holds — URL prefix wins for SEO-critical content)
+- Step D: `/help/<slug>` → `/blog` (no prefix) → chrome STAYS FR (consistent design)
+
+**Files changed (5 total):**
+- `src/i18n/LangRouteSync.tsx` (NEW, 50 lines)
+- `src/App.tsx` (2 lines: import + mount inside `<BrowserRouter>`)
+- `scripts/smoke-lang-route-sync.mjs` (NEW)
+- `.github/workflows/deploy.yml` (Gate 17 entry)
+- `.planning/phase-e20-langcontext-route-aware/` (5 GSD artefacts)
+
+**Tag pending:** `v0.10.2-langcontext-route-sync` after merge.
+
+---
+
 ## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
 
 Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).

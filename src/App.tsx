@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LangProvider } from "@/i18n/LangContext";
+import { LangRouteSync } from "@/i18n/LangRouteSync";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { RouteChunkErrorBoundary } from "@/components/RouteChunkErrorBoundary";
 import { setupAnalyticsLoader } from "@/lib/analytics";
@@ -93,6 +94,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <LangRouteSync />
               <ScrollToTop />
               <RouteChunkErrorBoundary>
               <Suspense fallback={<RouteFallback />}>

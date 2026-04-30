@@ -100,6 +100,9 @@ jobs:
       - name: Gate 16, help-article FR-CA routing smoke (6 cases)
         run: node scripts/smoke-help-article-fr-routing.mjs
 
+      - name: Gate 17, LangContext route-aware re-detection smoke (5 cases)
+        run: node scripts/smoke-lang-route-sync.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
