@@ -6,13 +6,16 @@ import { FleurDeLys } from "@/components/brand/FleurDeLys";
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const isLandingPage =
     location.pathname === "/" || /^\/[a-z]{2}$/.test(location.pathname);
 
   const services = [
     { label: t.nav.features, href: "#services" },
     { label: t.nav.howItWorks, href: "#process" },
+    { label: t.nav.pricing ?? "Pricing", href: "#pricing" },
+    // Phase E.9: link to detailed comparison page (E.1.4 ship)
+    { label: lang === "fr" ? "Comparaison detaillee" : "Detailed comparison", href: "/forfaits-complets" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.footer?.about ?? "About", href: "#about" },
     { label: t.footer?.industries ?? "Industries", href: "/industries" },
