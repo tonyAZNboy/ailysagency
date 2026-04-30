@@ -548,6 +548,26 @@ export default function PricingDetails() {
 
         {/* Final CTA */}
         <section className="px-4 sm:px-6 lg:px-8 pb-24 max-w-6xl mx-auto">
+          {/* E.8: 'Ask AI advisor' chip just above the final CTAs, low-friction
+              alternative for prospects not ready to book a call yet. */}
+          <div className="mb-5 flex justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new CustomEvent("ailys:open-chat"));
+                  // Smooth scroll to bottom-right where the widget mounts
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/30 bg-cyan-400/[0.04] text-cyan-200 hover:bg-cyan-400/[0.08] hover:border-cyan-400/60 transition text-xs sm:text-sm"
+            >
+              {lang === "fr"
+                ? "Des questions ? Discutez avec notre conseiller IA"
+                : "Have questions? Chat with our AI advisor"}
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+            </button>
+          </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
             <Link
               to={`${langPrefix}/`}
