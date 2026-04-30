@@ -1,0 +1,45 @@
+{
+  "title": "Centre de connaissances AI Visibility et SEO local",
+  "subtitle": "Guides experts sur l'AI Visibility, le profil Google Business et comment se faire citer dans ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot, par l'equipe de recherche AiLys.",
+  "searchPlaceholder": "Rechercher des articles...",
+  "sortLatest": "Plus recents en premier",
+  "sortOldest": "Plus anciens en premier",
+  "allCategories": "Toutes",
+  "noResults": "Aucun article trouve.",
+  "noResultsHint": "Essayez une recherche ou une categorie differente.",
+  "prev": "Precedent",
+  "next": "Suivant",
+  "backToBlog": "Retour au blogue",
+  "home": "Accueil",
+  "blog": "Blogue",
+  "tryFree": "Essai gratuit",
+  "min": "min",
+  "categories": {
+    "ai-visibility": "AI Visibility",
+    "gbp-google-maps": "Profil Google Business",
+    "local-seo": "SEO local",
+    "aeo-geo-eeat": "AEO, GEO, E-E-A-T",
+    "voice-search": "Recherche vocale",
+    "industry-playbook": "Guides sectoriels",
+    "reputation-reviews": "Reputation et avis",
+    "analytics-attribution": "Analytique et attribution",
+    "ailys-product": "AiLys"
+  },
+  "categoryDescriptions": {
+    "ai-visibility": "Comment les commerces locaux se font citer dans les reponses de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot.",
+    "gbp-google-maps": "Optimisation GBP, publications, photos, Q et R, et attributs qui font bouger le pack local.",
+    "local-seo": "Coherence NAP, citations, Wikidata, schemas et la couche technique que les moteurs IA lisent reellement.",
+    "aeo-geo-eeat": "Answer Engine Optimization, Generative Engine Optimization et signaux d'Experience, Expertise, Autorite, Fiabilite.",
+    "voice-search": "Comment Siri, Alexa et Google Assistant choisissent un commerce local quand un client demande a voix haute.",
+    "industry-playbook": "Tactiques sectorielles pour dentistes, avocats, restaurants, entrepreneurs, cliniques, immobilier, hotels.",
+    "reputation-reviews": "Velocite des avis, surveillance du sentiment et le module d'automatisation Reviuzy.",
+    "analytics-attribution": "Suivi du trafic IA, strategie UTM et lien entre citations LLM et reservations reelles.",
+    "ailys-product": "Comment AiLys fonctionne, ventilation de la methodologie et comparaisons honnetes."
+  },
+  "cta": {
+    "heading": "Pret a apparaitre dans la recherche IA?",
+    "subtitle": "Lancez l'audit AI Visibility gratuit en 24 heures.",
+    "button": "Lancer l'audit gratuit",
+    "altButton": "Voir les forfaits"
+  }
+}

@@ -103,6 +103,14 @@ import { meta as ailysPricingTiersExplainedCadMeta } from './posts/ailys-product
 import { meta as ailysReviuzyAddonDeepDiveMeta } from './posts/ailys-product/ailys-reviuzy-addon-deep-dive'
 import { meta as ailysBilingualContentWorkflowMeta } from './posts/ailys-product/ailys-bilingual-content-workflow'
 import { meta as ailysOnboardingWalkthroughCadMeta } from './posts/ailys-product/ailys-onboarding-walkthrough-cad'
+import { meta as ailysVsDigitadSeoQuebecMeta } from './posts/ailys-product/ailys-vs-digitad-seo-quebec'
+import { meta as ailysVsBloomAgenceMontrealMeta } from './posts/ailys-product/ailys-vs-bloom-agence-montreal'
+import { meta as ailysVsMajorTomAgenceCanadaMeta } from './posts/ailys-product/ailys-vs-major-tom-agence-canada'
+import { meta as ailysVsProstarSeoCanadaMeta } from './posts/ailys-product/ailys-vs-prostar-seo-canada'
+import { meta as ailysVsBofuMarketingQuebecMeta } from './posts/ailys-product/ailys-vs-bofu-marketing-quebec'
+import { meta as ailysVsAdvisoConseilNumeriqueMeta } from './posts/ailys-product/ailys-vs-adviso-conseil-numerique'
+import { meta as ailysVsRablabCreativeMontrealMeta } from './posts/ailys-product/ailys-vs-rablab-creative-montreal'
+import { meta as ailysVsWsiCanadaFranchiseMeta } from './posts/ailys-product/ailys-vs-wsi-canada-franchise'
 
 // ── GBP / Google Maps ───────────────────────────────────────────────────────
 import { meta as gbpPostsWeeklyCadenceMeta } from './posts/gbp-google-maps/gbp-posts-strategy-weekly-cadence'
@@ -353,6 +361,40 @@ export const BLOG_POSTS: BlogPostEntry[] = [
   {
     ...ailysOnboardingWalkthroughCadMeta,
     load: () => import('./posts/ailys-product/ailys-onboarding-walkthrough-cad'),
+  },
+
+  // Competitor Comparisons (Quebec / Canada)
+  {
+    ...ailysVsDigitadSeoQuebecMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-digitad-seo-quebec'),
+  },
+  {
+    ...ailysVsBloomAgenceMontrealMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-bloom-agence-montreal'),
+  },
+  {
+    ...ailysVsMajorTomAgenceCanadaMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-major-tom-agence-canada'),
+  },
+  {
+    ...ailysVsProstarSeoCanadaMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-prostar-seo-canada'),
+  },
+  {
+    ...ailysVsBofuMarketingQuebecMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-bofu-marketing-quebec'),
+  },
+  {
+    ...ailysVsAdvisoConseilNumeriqueMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-adviso-conseil-numerique'),
+  },
+  {
+    ...ailysVsRablabCreativeMontrealMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-rablab-creative-montreal'),
+  },
+  {
+    ...ailysVsWsiCanadaFranchiseMeta,
+    load: () => import('./posts/ailys-product/ailys-vs-wsi-canada-franchise'),
   },
 ]
 
