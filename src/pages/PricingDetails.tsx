@@ -19,6 +19,8 @@ import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { SEOHead } from "@/components/seo";
+import { InstantAiVisibilityAudit } from "@/components/pricing/InstantAiVisibilityAudit";
+import { QuoteBuilder } from "@/components/pricing/QuoteBuilder";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import {
@@ -313,6 +315,11 @@ export default function PricingDetails() {
           </div>
         </section>
 
+        {/* Phase E.2.1: instant AI Visibility audit (pre-sales conversion tool) */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-12 max-w-6xl mx-auto">
+          <InstantAiVisibilityAudit />
+        </section>
+
         {/* Tier price cards */}
         <section className="px-4 sm:px-6 lg:px-8 pb-12 max-w-6xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -460,6 +467,11 @@ export default function PricingDetails() {
             </ul>
             <p className="mt-4 text-xs text-zinc-500 italic">{copy.notIncludedNote}</p>
           </div>
+        </section>
+
+        {/* Phase E.2.2: personalized quote PDF builder */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-16 max-w-6xl mx-auto">
+          <QuoteBuilder />
         </section>
 
         {/* Final CTA */}
