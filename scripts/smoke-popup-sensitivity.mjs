@@ -40,11 +40,38 @@ if (allRoutesPresent) PASS(`ExitIntent SUPPRESSED_ROUTES covers all ${expectedRo
 else FAIL(`ExitIntent SUPPRESSED_ROUTES missing one of: ${expectedRoutes.join(", ")}`);
 
 // ── LandingChatWidget ──────────────────────────────────────────────
-if (/setTimeout\(\s*\(\)\s*=>\s*setIsVisible\(true\)\s*,\s*120_000\s*\)/.test(chat)) PASS("ChatWidget delay = 120s (was 45s)");
+// Accept either the literal 120_000 or the named constant
+// CHAT_AUTO_SHOW_MS = 120_000 introduced by the simplify follow-up.
+if (
+  /setTimeout\(\s*\(\)\s*=>\s*setIsVisible\(true\)\s*,\s*120_000\s*\)/.test(chat) ||
+  (/CHAT_AUTO_SHOW_MS\s*=\s*120_000/.test(chat) && /setTimeout\(.*CHAT_AUTO_SHOW_MS\s*\)/.test(chat))
+) PASS("ChatWidget delay = 120s (was 45s)");
 else FAIL("ChatWidget delay regressed below 120s");
 
 if (/ailys_chat_widget_dismissed_at/.test(chat)) PASS("ChatWidget persists dismissedAt to localStorage");
 else FAIL("ChatWidget missing localStorage dismissedAt cooldown");
+
+// Simplify follow-up: cooldown extracted to src/lib/cooldown.ts. Both
+// ExitIntent and ChatWidget should import from it now.
+const cooldownLib = readFileSync("src/lib/cooldown.ts", "utf8");
+if (/export function isOnCooldown/.test(cooldownLib) && /export function recordDismissal/.test(cooldownLib)) {
+  PASS("src/lib/cooldown.ts exposes isOnCooldown + recordDismissal");
+} else {
+  FAIL("src/lib/cooldown.ts missing helpers");
+}
+if (chat.includes('from "@/lib/cooldown"') && exit.includes('from "@/lib/cooldown"')) {
+  PASS("ChatWidget + ExitIntentModal both import from @/lib/cooldown");
+} else {
+  FAIL("Cooldown helper not adopted by both popup components");
+}
+
+// dt clamp guard added in simplify follow-up to prevent sub-10ms
+// jitter false-triggering the velocity gate.
+if (/Math\.max\(\(performance\.now\(\) - lastT\) \/ 1000,\s*0\.01\)/.test(exit)) {
+  PASS("ExitIntent dt clamped at 10ms floor (jitter protection)");
+} else {
+  FAIL("ExitIntent missing dt floor clamp; sub-10ms jitter can false-trigger velocity gate");
+}
 
 // ── CookieConsentBanner ────────────────────────────────────────────
 if (/setTimeout\(\s*\(\)\s*=>\s*setVisible\(true\)\s*,\s*2500\s*\)/.test(cookie)) PASS("Cookie banner delay = 2500ms (was 1200ms)");
