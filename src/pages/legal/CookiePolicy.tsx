@@ -189,7 +189,8 @@ export default function CookiePolicy() {
               </p>
               <div className="mt-3 p-4 rounded-lg border border-border/40 bg-card/30">
                 <p className="text-foreground font-medium">AiLys Agency</p>
-                <p className="text-muted-foreground text-sm">Montreal, Quebec, Canada</p>
+                <p className="text-muted-foreground text-xs italic">a trade name of Reviuzy Inc, Quebec</p>
+                <p className="text-muted-foreground text-sm mt-1">Montreal, Quebec, Canada</p>
                 <p className="text-muted-foreground text-sm">
                   Email: <a href={`mailto:${APP_CONFIG.email}`} className="text-primary underline">{APP_CONFIG.email}</a>
                 </p>
@@ -197,7 +198,7 @@ export default function CookiePolicy() {
             </section>
 
             <p className="text-xs text-muted-foreground/60 pt-8 border-t border-border/30">
-              © {currentYear} AiLys Agency. All rights reserved.
+              © {currentYear} Reviuzy Inc, doing business as AiLys Agency. All rights reserved.
             </p>
           </div>
           )}

@@ -17,9 +17,9 @@ import { PrivacyContentFr } from "./content/PrivacyContentFr";
  * federal), and where applicable GDPR (EU/UK) and CCPA (California).
  *
  * This policy covers: the marketing website (ailysagency.ca), the free
- * AI Visibility Audit, consulting engagements, and the optional Reviuzy
- * reputation system add-on (delivered through the sister product
- * Reviuzy SaaS, which has its own separate privacy policy).
+ * AI Visibility Audit, consulting engagements, and the optional AiLys
+ * Automation reputation add-on. Legal entity is Reviuzy Inc operating
+ * as AiLys Agency. Data controller for all surfaces is Reviuzy Inc.
  */
 
 export default function PrivacyPolicy() {
@@ -83,8 +83,11 @@ export default function PrivacyPolicy() {
           <div className="prose prose-invert max-w-none space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Who We Are</h2>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                <strong>AiLys Agency</strong> is the trade name under which <strong>Reviuzy Inc</strong>, a Quebec corporation, operates its AI search reputation services. References in this document to "AiLys", "we", "us", or "our" refer to Reviuzy Inc operating as AiLys Agency. The brand "AiLys Automation" refers to our internal automation platform powering the agency's service delivery.
+              </p>
               <p className="text-muted-foreground leading-relaxed">
-                AiLys Agency ("AiLys", "we", "us", "our") is a Quebec-based consulting agency that helps local businesses and brands get cited inside answers from ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews, and Bing Copilot. This Privacy Policy explains how we collect, use, share, and protect personal information across the marketing website at <strong>ailysagency.ca</strong>, the free AI Visibility Audit, our consulting engagements, and the optional Reviuzy reputation system add-on. The Reviuzy SaaS platform itself is a separate product with its own privacy policy at reviuzy.com.
+                This Privacy Policy explains how we collect, use, share, and protect personal information across the marketing website at <strong>ailysagency.ca</strong>, the free AI Visibility Audit, our consulting engagements, and the optional reputation system add-on (delivered through the AiLys Automation platform). All data processing described below is performed by Reviuzy Inc as the controller, with cloud sub-processors disclosed in section 6.
               </p>
             </section>
 
@@ -108,9 +111,9 @@ export default function PrivacyPolicy() {
                 <li>Communications with our team (email threads, kickoff documents, Slack or chat history if you opt into a shared channel)</li>
               </ul>
 
-              <h3 className="text-xl font-medium mb-3 mt-6">From the Reviuzy add-on (optional)</h3>
+              <h3 className="text-xl font-medium mb-3 mt-6">From the AiLys Automation reputation add-on (optional)</h3>
               <p className="text-muted-foreground leading-relaxed">
-                If you activate the Reviuzy reputation system, the data flow is described in the Reviuzy SaaS privacy policy. Typical data includes: review platform tokens, review content, customer-facing reply drafts, and review-trend metrics. AiLys Agency receives only aggregated reporting; raw review data is held by Reviuzy SaaS under its own retention rules.
+                If you activate the AiLys Automation reputation add-on, additional data flows through the platform: review platform tokens, review content, customer-facing reply drafts, and review-trend metrics. The same legal entity (Reviuzy Inc) processes this data under the same controls described in this Policy. The retention rules in section 5 apply uniformly to agency consulting data and add-on data.
               </p>
             </section>
 

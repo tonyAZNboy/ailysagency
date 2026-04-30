@@ -11,8 +11,11 @@ export function PrivacyContentFr({ currentYear }: { currentYear: number }) {
     <div className="prose prose-invert max-w-none space-y-8">
       <section>
         <h2 className="text-2xl font-semibold mb-4">1. Qui nous sommes</h2>
+        <p className="text-muted-foreground leading-relaxed mb-3">
+          <strong>AiLys Agency</strong> est le nom commercial sous lequel <strong>Reviuzy Inc</strong>, une société par actions québécoise, exploite ses services de réputation en recherche IA. Les références à « AiLys », « nous », « notre » dans le présent document désignent Reviuzy Inc faisant affaire sous le nom AiLys Agency. La marque « AiLys Automation » désigne notre plateforme d'automatisation interne qui alimente la prestation de services de l'agence.
+        </p>
         <p className="text-muted-foreground leading-relaxed">
-          AiLys Agency (« AiLys », « nous », « notre ») est une agence de consultation québécoise qui aide les commerces locaux et les marques à se faire citer dans les réponses de ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews et Bing Copilot. La présente Politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons les renseignements personnels à travers le site web marketing à <strong>ailysagency.ca</strong>, l'audit gratuit de visibilité IA, nos mandats de consultation et l'ajout optionnel du système de réputation Reviuzy. La plateforme Reviuzy SaaS elle-même est un produit séparé avec sa propre politique de confidentialité à reviuzy.com.
+          La présente Politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons les renseignements personnels à travers le site web marketing à <strong>ailysagency.ca</strong>, l'audit gratuit de visibilité IA, nos mandats de consultation et le module optionnel de réputation (livré via la plateforme AiLys Automation). Tous les traitements de données décrits ci-dessous sont effectués par Reviuzy Inc à titre de responsable, avec les sous-traitants infonuagiques divulgués à la section 6.
         </p>
       </section>
 
@@ -36,9 +39,9 @@ export function PrivacyContentFr({ currentYear }: { currentYear: number }) {
           <li>Communications avec notre équipe (fils de courriels, documents de démarrage, historique Slack ou clavardage si vous optez pour un canal partagé)</li>
         </ul>
 
-        <h3 className="text-xl font-medium mb-3 mt-6">De l'ajout Reviuzy (optionnel)</h3>
+        <h3 className="text-xl font-medium mb-3 mt-6">Du module de réputation AiLys Automation (optionnel)</h3>
         <p className="text-muted-foreground leading-relaxed">
-          Si vous activez le système de réputation Reviuzy, le flux de données est décrit dans la politique de confidentialité Reviuzy SaaS. Les données typiques incluent : jetons de plateformes d'avis, contenu d'avis, brouillons de réponses orientées client et métriques de tendances d'avis. AiLys Agency ne reçoit que des rapports agrégés ; les données d'avis brutes sont conservées par Reviuzy SaaS sous ses propres règles de rétention.
+          Si vous activez le module de réputation AiLys Automation, des données supplémentaires transitent par la plateforme : jetons de plateformes d'avis, contenu d'avis, brouillons de réponses orientées client et métriques de tendances d'avis. La même entité légale (Reviuzy Inc) traite ces données sous les mêmes contrôles décrits dans la présente Politique. Les règles de rétention de la section 5 s'appliquent uniformément aux données de mandat-conseil et aux données du module.
         </p>
       </section>
 

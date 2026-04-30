@@ -17,9 +17,12 @@ export function TermsContentFr({ currentYear }: { currentYear: number }) {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">2. À propos d'AiLys Agency</h2>
+        <h2 className="text-2xl font-semibold mb-4">2. À propos d'AiLys Agency (entité légale)</h2>
         <p className="text-muted-foreground leading-relaxed mb-3">
-          AiLys Agency est une agence québécoise de réputation en recherche IA. Nous offrons des services de consultation qui aident les commerces locaux et les marques à se faire citer dans les réponses de ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews et Bing Copilot. Notre travail couvre :
+          <strong>AiLys Agency</strong> est le nom commercial sous lequel <strong>Reviuzy Inc</strong>, une société par actions québécoise, exerce ses activités. Les références à « AiLys », « nous », « notre » dans les présentes Conditions désignent Reviuzy Inc faisant affaire sous le nom AiLys Agency. Tout contrat, facture ou correspondance légale lie Reviuzy Inc à titre de partie contractante. La marque « AiLys Automation » désigne notre plateforme d'automatisation interne qui alimente la prestation de services.
+        </p>
+        <p className="text-muted-foreground leading-relaxed mb-3">
+          Reviuzy Inc exploite, sous le nom AiLys Agency, une agence québécoise de réputation en recherche IA. Nous offrons des services de consultation qui aident les commerces locaux et les marques à se faire citer dans les réponses de ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews et Bing Copilot. Notre travail couvre :
         </p>
         <ul className="list-disc list-inside text-muted-foreground leading-relaxed space-y-1">
           <li>SEO technique et travail on-page</li>
@@ -30,7 +33,7 @@ export function TermsContentFr({ currentYear }: { currentYear: number }) {
           <li>Mesure et rapports de visibilité IA et trafic IA</li>
         </ul>
         <p className="text-muted-foreground leading-relaxed mt-3">
-          Les ajouts optionnels comprennent le système de réputation Reviuzy (livré via notre produit jumeau Reviuzy SaaS), Domain Shield, Domain Speed Boost et un stratège dédié. Chaque ajout est régi par ces Conditions ainsi que les conditions spécifiques communiquées à l'inscription.
+          Les modules optionnels comprennent le module de réputation AiLys Automation (collecte d'avis NFC, réponses IA, moteur de concours), Domain Shield, Domain Speed Boost et un stratège dédié. Tous les modules sont exploités par la même entité légale (Reviuzy Inc) sous les présentes Conditions ainsi que les conditions spécifiques communiquées à l'inscription.
         </p>
       </section>
 
