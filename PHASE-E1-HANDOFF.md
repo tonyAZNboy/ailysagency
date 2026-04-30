@@ -57,6 +57,8 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 | E.1.4 + E.1.5 + E.1.6 + E.1.7 detailed pricing page | `9252117` | /forfaits-complets + /pricing-details routes; sticky comparison grid 9 categories; engagement toggle 15%/20%; QC tax toggle; diff toggle; website grid + cancellation calculator; 90d guarantee section; honest 'not included' disclosure; tsc + build green; 530 insertions | shipped |
 | E.1.3 partial: landing CTA to /forfaits-complets | `037377d` | Bilingual inline CTA between tier cards and 'why $300' caption, ArrowUpRight icon, no new i18n keys, mobile-first | shipped |
 | E.1.10 help articles (3 EN+FR-CA pairs) | `9d54c11` | 90-day-uplift-guarantee + website-construction-fees-and-cancellation + engagement-discounts-annual-biennial; pricing-plans category; no proprietary AI provider disclosure; tsc clean | shipped |
+| E.1.8 instant AI Visibility audit endpoint | `c0c3771` | POST /api/audit-ai-visibility-instant; HMAC + zod-style validation + KV cache 24h + KV rate limit 5/IP/15min + daily cap 500/day + SSRF defense (URL block list) + prompt injection defense (regex + tag wrapping + JSON schema constraint) + kill switch INSTANT_AI_VIS_ENABLED + audit log no-PII; smoke 12/12 pass; CI gate 12 wired | shipped |
+| E.1.9 personalized quote PDF endpoint | `623624b` | POST /api/quote-pdf + Quote.ts render lib (3-4 pages); rate limit 3/IP/15min + honeypot + 30-day idempotency on sha256(email\|selections); 5-min signed URL; kill switch QUOTE_PDF_ENABLED; tier-locked server-side (biennial Growth+Agency, Vitrine Starter+, PME Core+, Commerce Growth-only, Agency excludes website); reviuzy bundled on Agency; smoke 10/10 pass; CI gate 13 wired | shipped |
 | E.1.3 Landing condensed + engagement toggle | tbd | not started | deferred |
 | E.1.4 /forfaits-complets sticky grid | tbd | not started | deferred |
 | E.1.5 Website grid + cancellation calc | tbd | not started | deferred |
@@ -69,8 +71,10 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 
 ## Session 1 outcome (2026-04-29)
 
-**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2 + E.1.X (cross-repo visibility-report-pdf) + Archive F+G + E.1.4 + E.1.5 + E.1.6 + E.1.7 + E.1.3 (partial: CTA only) + E.1.10 help articles.
-**Total commits:** 13 on branch `claude/gracious-raman-a6383a`.
+**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2 + E.1.X (cross-repo visibility-report-pdf) + Archive F+G + E.1.4 + E.1.5 + E.1.6 + E.1.7 + E.1.3 (partial: CTA only) + E.1.10 help articles + E.1.8 instant AI Visibility audit + E.1.9 personalized quote PDF.
+**Total commits:** 16 on branch `claude/gracious-raman-a6383a`.
+**CI gates wired:** 11 (visibility-report-pdf), 12 (instant-ai-vis), 13 (quote-pdf).
+**Smoke pass:** 12/12 + 12/12 + 10/10 across 3 new gates.
 
 ### E.1.X cross-repo bonus (2026-04-29 same session)
 
