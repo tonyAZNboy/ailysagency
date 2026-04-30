@@ -38,6 +38,31 @@ interface R2Bucket {
 interface PagesContext {
   request: Request;
   env: Env;
+  waitUntil?: (promise: Promise<unknown>) => void;
+}
+
+interface AuditLogEntry {
+  ts: string;
+  action: string;
+  emailHash: string;
+  status: number;
+  tier?: string;
+  engagement?: string;
+  bytes?: number;
+  emailed?: boolean;
+  reason?: string;
+}
+
+const RING_BUFFER_PREFIX = 'quote_pdf_log:';
+const RING_BUFFER_TTL_SECONDS = 7 * 24 * 60 * 60;
+
+function writeRingBuffer(ctx: PagesContext, entry: AuditLogEntry): void {
+  const kv = ctx.env.AUDIT_PDF_RATE_LIMIT;
+  if (!kv || !ctx.waitUntil) return;
+  const key = `${RING_BUFFER_PREFIX}${Date.now()}`;
+  ctx.waitUntil(
+    kv.put(key, JSON.stringify(entry), { expirationTtl: RING_BUFFER_TTL_SECONDS }).catch(() => {}),
+  );
 }
 
 const DOWNLOAD_TTL_SECONDS = 5 * 60; // 5 min, prospect downloads immediately
@@ -199,6 +224,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
 
   if (await isKilled(ctx.env)) {
     emit({ ts, action: 'kill_switch_on' });
+    writeRingBuffer(ctx, { ts, action: 'kill_switch_on', emailHash: '', status: 503 });
     return new Response(JSON.stringify({ error: 'service_temporarily_unavailable' }), { status: 503, headers: { 'content-type': 'application/json' } });
   }
 
@@ -275,6 +301,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
     bytes: pdfBytes.byteLength,
     emailed: emailResult.ok,
   });
+  writeRingBuffer(ctx, { ts, action: 'rendered', emailHash: idemKey.slice(0, 8), status: 200, tier: body.tier, engagement: body.engagement, bytes: pdfBytes.byteLength, emailed: emailResult.ok });
 
   return new Response(JSON.stringify({ id: objectId, signedUrl: downloadUrl, expiresAt }), {
     status: 200, headers: { 'content-type': 'application/json' },
