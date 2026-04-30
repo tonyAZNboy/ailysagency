@@ -19,7 +19,12 @@ Added 8 honest competitor comparison posts in `ailys-product` category, each wit
 
 **Blog count:** 51 → 59 posts. All gates green (tsc, em-dash audit, 59/59 blog translations audit, build OK).
 
-**TODO future:** ES/ZH/AR/RU translations for the 8 new comparison posts (currently fall back to EN). Hero/mid/end images per slug to be generated.
+**Shipped:** PR [#54](https://github.com/tonyAZNboy/ailysagency/pull/54) (commit `2e9d940`, 18 files, +4031 lines). Awaiting merge → Cloudflare auto-deploy.
+
+**TODO future:**
+- ES/ZH/AR/RU translations for the 8 new comparison posts (currently fall back to EN)
+- Hero/mid/end images per slug to be generated and uploaded to `/blog-images/<slug>/`
+- Consider additional Quebec/Canadian competitors in next batch: Substance, Cossette, Sandbox, Reptile, Castor, Edkent Media
 
 ---
 
