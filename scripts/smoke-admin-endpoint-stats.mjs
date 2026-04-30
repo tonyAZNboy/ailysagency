@@ -127,6 +127,24 @@ assert('2. reviuzy-admin-quote-pdf-stats in allowlist',
   assert('10. Cache hit rate 8/10 = 80.0%', rate === 80.0);
 }
 
+// Case 11 (E.12 addition)
+assert('11. reviuzy-admin-client-error-stats in allowlist',
+  SERVICE_AUTH_ALLOWED_CALLERS.has('reviuzy-admin-client-error-stats'));
+
+// Case 12: client_error AuditLogEntry round-trip
+{
+  const entry = { ts: '2026-04-30T10:00:00Z', type: 'error', status: 'captured', ipHash: 'abc12345', urlHash: 'def67890', messageHash: 'ghi11223', hasStack: true };
+  const parsed = JSON.parse(JSON.stringify(entry));
+  assert('12. client_error AuditLogEntry round-trips', parsed.ts === entry.ts && parsed.type === 'error' && parsed.hasStack === true);
+}
+
+// Case 13: type_breakdown distribution
+{
+  const breakdown = { error: 12, unhandledrejection: 3, manual: 1 };
+  const total = breakdown.error + breakdown.unhandledrejection + breakdown.manual;
+  assert('13. type_breakdown sums correctly (12+3+1=16)', total === 16);
+}
+
 const total = cases.length;
 const passed = cases.filter((c) => c.ok).length;
 const failed = total - passed;

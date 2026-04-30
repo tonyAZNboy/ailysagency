@@ -37,6 +37,7 @@ const ALLOWED_CALLERS = new Set([
   'reviuzy-admin-audit-pdf-stats', // B.4.4: Reviuzy admin reads AiLys audit-pdf observability
   'reviuzy-admin-instant-ai-vis-stats', // E.3: Reviuzy admin reads AiLys instant AI vis observability
   'reviuzy-admin-quote-pdf-stats', // E.3: Reviuzy admin reads AiLys quote-pdf observability
+  'reviuzy-admin-client-error-stats', // E.12: Reviuzy admin reads AiLys client-error observability
   'ailys-cron-day1-retry', // self-call from AiLys cron worker
 ]);
 
