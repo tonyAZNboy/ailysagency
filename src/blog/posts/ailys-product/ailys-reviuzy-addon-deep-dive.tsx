@@ -47,7 +47,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does the fake review detection work?',
       answer:
-        'AiLys Automation scans incoming reviews against signals that map to the Google fake review playbook. The signals include reviewer history depth, posting cadence, geographic coherence with the business location, language patterns that match generated text, and timing clusters. Flagged reviews go into a queue inside the dashboard, and the client can dispute them through the Google Business Profile flag flow with the evidence pre-packaged.',
+        'AiLys Automation scores every incoming review and contact-form submission against four shipped signals: AI-generated text patterns (phrases that map to known LLM authorship), bot user agent fingerprints (automation tools, headless browsers, scrapers), disposable email domains (throwaway providers like tempmail and mailinator), and rapid-submission timing (forms filled in under three seconds). Each signal contributes a weighted risk score, and reviews above the threshold are surfaced in the dashboard for owner review and dispute prep through the Google Business Profile flag flow.',
     },
     {
       question: 'Is the legal terms generator a real lawyer?',
@@ -191,10 +191,10 @@ export function Content() {
 
       <h2 id="fake-review-detection">Fake review detection and dispute prep</h2>
       <p>
-        Fake reviews are the quiet tax on local reputation. A competitor or a frustrated former employee can post a one-star with no recourse, and the review sits on the profile for years if no one disputes it. The AiLys Automation fake detection module scans incoming reviews against signals that map to the Google fake review playbook. The signals include reviewer history depth (a brand-new account that posts one negative and disappears), posting cadence (clusters of reviews from accounts with no other activity), geographic coherence with the business location, language patterns that match generated text, and timing clusters that suggest coordination.
+        Fake reviews are the quiet tax on local reputation. A competitor or a frustrated former employee can post a one-star with no recourse, and the review sits on the profile for years if no one disputes it. The AiLys Automation fake detection module scores every incoming review and contact-form submission against four shipped signals. AI-generated text detection matches the content against a library of phrases known to recur in LLM output (the patterns most often emitted by ChatGPT, Claude, Gemini, and Perplexity when asked to write a review). Bot fingerprinting flags requests coming from automation tools, headless browsers, and scrapers via the user agent. Disposable email screening matches the address against a list of throwaway providers like tempmail and mailinator. Rapid-submission timing flags forms completed in under three seconds, the strong signal of a bot.
       </p>
       <p>
-        Flagged reviews go into a queue inside the dashboard. The owner reviews each flag, confirms or dismisses it, and the system pre-packages the dispute submission for the GBP flag flow. The dispute includes the evidence (account history screenshot, location data, language analysis), which improves the success rate of the Google review removal compared to a bare flag with no context. We do not promise removal, because the final decision is Google's, but the prep work moves the odds.
+        Each signal contributes a weighted risk score. Submissions above the higher threshold are blocked outright at the form layer; submissions in the middle band are flagged and queued in the dashboard with the score and the reasons attached. The owner reviews each flag, confirms or dismisses it, and the system pre-packages the dispute submission for the GBP flag flow. The dispute payload includes the matched signals (which AI patterns, which bot user agent, which timing), which improves the success rate of Google review removal compared to a bare flag with no context. We do not promise removal, because the final decision is Google's, but the prep work moves the odds.
       </p>
 
       <SectionDivider />
