@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowUpRight, Clock, Calendar } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -15,11 +15,30 @@ import {
   HELP_CATEGORY_META,
   type HelpArticle as HelpArticleT,
 } from "@/data/help-articles";
-import { useLang } from "@/i18n/LangContext";
 
-function localizeArticle(a: HelpArticleT, lang: string): HelpArticleT {
-  if (lang === "en" || !a.i18n?.[lang]) return a;
-  const t = a.i18n[lang];
+/* Slug-first lang detection. LangContext re-detects lang only on initial
+   mount, so client-side nav from `/blog/...` to `/fr/help/...` would keep
+   lang='en' and the FR i18n strings on the article would never render.
+   Phase E.19 narrow fix: read lang directly from pathname, same pattern
+   as BlogPostPage.tsx (Phase E.18 PR #35). LangContext root-cause fix
+   tracked as a separate ticket. */
+function detectLangFromPath(pathname: string): string {
+  if (pathname.startsWith("/fr")) return "fr";
+  if (pathname.startsWith("/vi")) return "vi";
+  if (pathname.startsWith("/es")) return "es";
+  if (pathname.startsWith("/zh")) return "zh";
+  if (pathname.startsWith("/ar")) return "ar";
+  if (pathname.startsWith("/ru")) return "ru";
+  return "en";
+}
+
+export function localizeArticle(a: HelpArticleT, lang: string): HelpArticleT {
+  if (lang === "en") return a;
+  /* Mixed-convention lookup: existing data ships some articles with key
+     `fr` and some with `fr-ca` (5 of 47 currently). Try the bare lang
+     first, then the regional variant so both conventions resolve. */
+  const t = a.i18n?.[lang] ?? a.i18n?.[`${lang}-ca`];
+  if (!t) return a;
   return {
     ...a,
     title: t.title ?? a.title,
@@ -30,7 +49,8 @@ function localizeArticle(a: HelpArticleT, lang: string): HelpArticleT {
 
 export default function HelpArticle() {
   const { slug } = useParams<{ slug: string }>();
-  const { lang } = useLang();
+  const { pathname } = useLocation();
+  const lang = detectLangFromPath(pathname);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,13 +74,18 @@ export default function HelpArticle() {
   }, [article, lang]);
 
   if (!article) {
+    const helpRoot = lang === "en" ? "/help" : `/${lang}/help`;
     return (
       <>
         <Navbar />
         <main className="min-h-screen flex items-center justify-center px-4">
           <div className="text-center">
-            <h1 className="font-display text-5xl mb-3">Article not found</h1>
-            <Button onClick={() => navigate("/help")}>Back to Help center</Button>
+            <h1 className="font-display text-5xl mb-3">
+              {lang === "fr" ? "Article introuvable" : "Article not found"}
+            </h1>
+            <Button onClick={() => navigate(helpRoot)}>
+              {lang === "fr" ? "Retour au centre d'aide" : "Back to Help center"}
+            </Button>
           </div>
         </main>
         <Footer />
@@ -69,13 +94,38 @@ export default function HelpArticle() {
   }
 
   const meta = HELP_CATEGORY_META[article.category];
+  const helpRoot = lang === "en" ? "/help" : `/${lang}/help`;
+  const articleHrefBase = lang === "en" ? "/help" : `/${lang}/help`;
+  const inLanguage = lang === "fr" ? "fr-CA" : "en-CA";
+  const ogLocale = lang === "fr" ? "fr_CA" : "en_US";
+  const homeUrl = lang === "en"
+    ? "https://www.ailysagency.ca/"
+    : `https://www.ailysagency.ca/${lang}/`;
+  const helpUrl = lang === "en"
+    ? "https://www.ailysagency.ca/help"
+    : `https://www.ailysagency.ca/${lang}/help`;
+  const articleUrl = lang === "en"
+    ? `https://www.ailysagency.ca/help/${article.slug}`
+    : `https://www.ailysagency.ca/${lang}/help/${article.slug}`;
+  const homeLabel = lang === "fr" ? "Accueil" : "Home";
+  const helpLabel = lang === "fr" ? "Aide" : "Help";
+  const updatedLabel = lang === "fr" ? "Mis à jour" : "Updated";
+  const readLabel = lang === "fr" ? "min de lecture" : "min read";
+  const backLabel = lang === "fr" ? "Retour au centre d'aide" : "Back to Help center";
+  const moreInLabel = lang === "fr" ? "Plus dans" : "More in";
+  const stillQuestionsLabel = lang === "fr" ? "D'autres questions?" : "Still have questions?";
+  const talkInMinutesLabel = lang === "fr" ? "Parlez-nous en 60 minutes." : "Talk to us in 60 minutes.";
+  const bookCallLabel = lang === "fr" ? "Réserver un appel stratégique" : "Book a strategy call";
+  const helpTitleSuffix = lang === "fr" ? "Aide AiLys Agency" : "AiLys Agency Help";
 
   return (
     <>
       <Helmet>
-        <title>{article.title} · AiLys Agency Help</title>
+        <html lang={lang} />
+        <title>{article.title} · {helpTitleSuffix}</title>
         <meta name="description" content={article.excerpt} />
-        <link rel="canonical" href={`https://www.ailysagency.ca/help/${article.slug}`} />
+        <meta property="og:locale" content={ogLocale} />
+        <link rel="canonical" href={articleUrl} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -83,26 +133,26 @@ export default function HelpArticle() {
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ailysagency.ca/" },
-                  { "@type": "ListItem", position: 2, name: "Help", item: "https://www.ailysagency.ca/help" },
-                  { "@type": "ListItem", position: 3, name: meta.label, item: `https://www.ailysagency.ca/help#${article.category}` },
-                  { "@type": "ListItem", position: 4, name: article.title, item: `https://www.ailysagency.ca/help/${article.slug}` },
+                  { "@type": "ListItem", position: 1, name: homeLabel, item: homeUrl },
+                  { "@type": "ListItem", position: 2, name: helpLabel, item: helpUrl },
+                  { "@type": "ListItem", position: 3, name: meta.label, item: `${helpUrl}#${article.category}` },
+                  { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
                 ],
               },
               {
                 "@type": "TechArticle",
-                "@id": `https://www.ailysagency.ca/help/${article.slug}#article`,
+                "@id": `${articleUrl}#article`,
                 headline: article.title,
                 description: article.excerpt,
                 datePublished: article.updatedAt,
                 dateModified: article.updatedAt,
                 wordCount: article.body.split(/\s+/).length,
-                inLanguage: "en-CA",
+                inLanguage,
                 articleSection: meta.label,
                 proficiencyLevel: "Beginner",
                 author: { "@id": "https://www.ailysagency.ca/#organization" },
                 publisher: { "@id": "https://www.ailysagency.ca/#organization" },
-                mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.ailysagency.ca/help/${article.slug}` },
+                mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
                 speakable: {
                   "@type": "SpeakableSpecification",
                   cssSelector: ["h1", ".prose p:first-of-type"],
@@ -142,11 +192,11 @@ export default function HelpArticle() {
           />
           <div className="relative max-w-4xl mx-auto">
             <Link
-              to="/help"
-              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/85 hover:text-white transition-colors mb-6"
+              to={helpRoot}
+              className="inline-flex items-center gap-2 px-1 py-2 min-h-[44px] text-xs font-mono uppercase tracking-[0.18em] text-white/85 hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Back to Help center
+              {backLabel}
             </Link>
             <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-black/20 backdrop-blur-sm border border-white/20 mb-5">
               {meta.label}
@@ -159,10 +209,10 @@ export default function HelpArticle() {
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-mono uppercase tracking-[0.18em] text-white/80">
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5" /> Updated {article.updatedAt}
+                <Calendar className="w-3.5 h-3.5" /> {updatedLabel} {article.updatedAt}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5" /> {article.readingTimeMin} min read
+                <Clock className="w-3.5 h-3.5" /> {article.readingTimeMin} {readLabel}
               </span>
             </div>
           </div>
@@ -177,20 +227,20 @@ export default function HelpArticle() {
               <div className="not-prose mt-12 pt-8 border-t border-border/40">
                 <ShareButtons
                   title={article.title}
-                  url={`https://www.ailysagency.ca/help/${article.slug}`}
+                  url={articleUrl}
                 />
               </div>
 
               {related.length > 0 && (
                 <div className="not-prose mt-12 pt-8 border-t border-border/40">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/60 mb-4">
-                    More in {meta.label}
+                    {moreInLabel} {meta.label}
                   </p>
                   <ul className="space-y-2">
                     {related.map((a) => (
                       <li key={a.slug}>
                         <Link
-                          to={`/help/${a.slug}`}
+                          to={`${articleHrefBase}/${a.slug}`}
                           className="group flex items-start justify-between gap-4 p-4 rounded-lg border border-border/40 bg-card/30 hover:border-primary/30 transition-colors"
                         >
                           <div className="flex-1">
@@ -211,20 +261,20 @@ export default function HelpArticle() {
 
               <div className="not-prose mt-12 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-secondary/[0.05] to-accent/[0.08] backdrop-blur-md p-6 sm:p-8 text-center">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-2">
-                  Still have questions?
+                  {stillQuestionsLabel}
                 </p>
                 <h3 className="font-display text-2xl mb-3">
-                  Talk to us in 60 minutes.
+                  {talkInMinutesLabel}
                 </h3>
                 <Button
-                  onClick={() => navigate("/book-call")}
-                  className="rounded-full font-semibold"
+                  onClick={() => navigate(lang === "en" ? "/book-call" : `/${lang}/book-call`)}
+                  className="rounded-full font-semibold min-h-[44px]"
                   style={{
                     background:
                       "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))",
                   }}
                 >
-                  Book a strategy call
+                  {bookCallLabel}
                 </Button>
               </div>
             </article>

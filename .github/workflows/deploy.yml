@@ -97,6 +97,9 @@ jobs:
       - name: Gate 15, client error capture smoke (13 cases)
         run: npx tsx scripts/smoke-client-error.mjs
 
+      - name: Gate 16, help-article FR-CA routing smoke (6 cases)
+        run: node scripts/smoke-help-article-fr-routing.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
