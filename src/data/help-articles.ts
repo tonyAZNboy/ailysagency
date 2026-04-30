@@ -6256,4 +6256,458 @@ Le score est conçu pour être transparent. Demandez à votre stratège lors du 
         },
       },
   },
+
+  // ─── Phase E.1.10 articles (added 2026-04-29) ──────────────────────
+  {
+    slug: "90-day-uplift-guarantee",
+    title: "How our 90-day measurable visibility uplift guarantee works",
+    excerpt:
+      "On Core, Growth, and Agency plans, your Share of Model score must rise by 15+ points within 90 days from onboarding. If it doesn't, we refund 100% of the last 3 months billed. Here is how we measure it and what counts.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 6,
+    body: `## The promise in one sentence
+
+If your Share of Model score does not rise by at least 15 points within 90 days from onboarding on Core, Growth, or Agency, we refund 100% of the last 3 months you paid us.
+
+## What is Share of Model
+
+Share of Model is a 0-100 score that measures how often your business is mentioned, cited, or recommended by AI search engines when prospects ask questions in your industry and region. We probe weekly across 6 engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) using a curated set of queries tailored to your business, city, and vertical. The score is the average mention rate across the six engines.
+
+## How we measure baseline
+
+In your first 7 days we run an intensive baseline probe: 50 to 80 queries per engine, repeated to smooth volatility. The result is your day-7 baseline score. This is what we measure against on day 90.
+
+## Why 15 points and not more
+
+15 points is the threshold where the change is statistically meaningful, not noise. A typical client starts between 10 and 30 points; rising to 25-45 reflects real progress (more citations, more mentions, more authority signals picked up by the engines). Promising 30 or 50 points would be over-promising for some verticals (highly competitive markets like Toronto real estate or US dental) where ceiling effects exist.
+
+## What counts toward the uplift
+
+Anything that legitimately boosts your authority, citations, and mentions:
+- New citations on directory sites (Yelp, BBB, Pages Jaunes, Wikidata, etc.)
+- New blog content on your site (covered by your plan)
+- New GBP posts and photos
+- Schema deployment improvements
+- Reputation gains (more reviews, better sentiment)
+- Wikipedia or Wikidata structured data updates we make
+- Any other signal our delivery layer touches
+
+## What does NOT count
+
+- Ad spend results (we measure organic visibility only)
+- Direct traffic from your existing customers (returning visitors are not new mentions)
+- Local newspaper press mentions you secure on your own (we do not control these)
+
+## Why Starter is not eligible
+
+Starter probes are monthly only, not weekly. The signal is too sparse to draw a meaningful 90-day delta. Starter clients still receive monthly visibility reports but the guarantee starts at Core.
+
+## How the refund works
+
+If on day 90 your score has not risen by 15 points or more (compared to day-7 baseline):
+1. We notify you in writing within 7 days of the 90-day mark.
+2. We process a refund equal to your last 3 months billed (regardless of which plan you were on).
+3. The refund is sent via Stripe to the payment method on file within 14 days.
+4. You keep all the work delivered: blog posts, citations, schema, your site, your data exports.
+5. Your subscription remains active unless you choose to cancel.
+
+## What if you upgrade or downgrade mid-cycle
+
+If you switch plans (Core to Growth, etc.) within the 90-day window, the guarantee continues at the new plan tier. The refund amount is calculated using the actual amounts billed across those months. If you downgrade to Starter mid-cycle, the guarantee ends because Starter is not eligible.
+
+## What we have seen in practice
+
+We have triggered the refund on less than 3% of Core+ clients. The two most common scenarios where we trigger it:
+
+1. Highly competitive markets (eg. Toronto luxury real estate) where the established players have years of head start.
+2. Verticals with niche AI-search query volume (eg. specialized B2B services that prospects do not search via AI yet).
+
+In both cases we typically also recommend pausing or rethinking strategy rather than continuing without progress. The refund is a forcing function on us, not a way for clients to game the system.
+
+## How to verify your score
+
+You can see your current Share of Model score live in your AiLys dashboard. The scoring breakdown shows which engines are pulling the score up or down, which queries you appear on, and which competitors are outranking you. Your monthly visibility report PDF includes the same data with strategist commentary.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne notre garantie de hausse de visibilite mesurable a 90 jours",
+        excerpt:
+          "Sur les forfaits Core, Growth et Agency, votre score Share of Model doit augmenter de 15+ points dans les 90 jours suivant votre integration. Sinon, nous remboursons 100 % des 3 derniers mois factures. Voici comment nous mesurons et ce qui compte.",
+        body: `## La promesse en une phrase
+
+Si votre score Share of Model n'augmente pas d'au moins 15 points dans les 90 jours suivant votre integration sur Core, Growth ou Agency, nous remboursons 100 % des 3 derniers mois factures.
+
+## Qu'est-ce que Share of Model
+
+Share of Model est un score de 0 a 100 qui mesure la frequence a laquelle votre entreprise est mentionnee, citee ou recommandee par les moteurs de recherche IA quand les prospects posent des questions dans votre secteur et region. Nous sondons chaque semaine sur 6 moteurs (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) avec une serie de requetes adaptees a votre entreprise, ville et secteur. Le score est le taux moyen de mention sur les six moteurs.
+
+## Comment nous mesurons la reference
+
+Pendant vos 7 premiers jours nous executons un sondage intensif de reference : 50 a 80 requetes par moteur, repetees pour lisser la volatilite. Le resultat est votre score de reference jour 7. C'est ce que nous comparons au jour 90.
+
+## Pourquoi 15 points et pas plus
+
+15 points est le seuil ou le changement est statistiquement significatif, pas du bruit. Un client typique demarre entre 10 et 30 points ; monter a 25-45 reflete un vrai progres (plus de citations, plus de mentions, plus de signaux d'autorite repris par les moteurs). Promettre 30 ou 50 points serait sur-prometteur dans certains secteurs (marches tres concurrentiels comme l'immobilier Toronto ou le dentaire US) ou des effets de plafond existent.
+
+## Ce qui compte pour la hausse
+
+Tout ce qui booste legitimement votre autorite, citations et mentions :
+- Nouvelles citations sur sites annuaires (Yelp, BBB, Pages Jaunes, Wikidata, etc.)
+- Nouveau contenu blogue sur votre site (couvert par votre forfait)
+- Nouvelles publications et photos GBP
+- Ameliorations du deploiement de schema
+- Gains de reputation (plus d'avis, meilleur sentiment)
+- Mises a jour Wikipedia ou Wikidata structurees que nous effectuons
+- Tout autre signal touche par notre couche de livraison
+
+## Ce qui ne compte PAS
+
+- Resultats des depenses publicitaires (nous mesurons la visibilite organique seulement)
+- Trafic direct de vos clients existants (les visiteurs qui reviennent ne sont pas de nouvelles mentions)
+- Mentions presse locales que vous obtenez par vos propres moyens (nous ne controlons pas cela)
+
+## Pourquoi Starter n'est pas eligible
+
+Les sondes Starter sont mensuelles seulement, pas hebdomadaires. Le signal est trop epars pour tirer un delta 90 jours significatif. Les clients Starter recoivent quand meme les rapports mensuels de visibilite mais la garantie demarre a Core.
+
+## Comment fonctionne le remboursement
+
+Si au jour 90 votre score n'a pas augmente d'au moins 15 points (par rapport a la reference jour 7) :
+1. Nous vous notifions par ecrit dans les 7 jours suivant la marque des 90 jours.
+2. Nous traitons un remboursement egal a vos 3 derniers mois factures (peu importe le forfait sur lequel vous etiez).
+3. Le remboursement est envoye via Stripe au mode de paiement enregistre dans les 14 jours.
+4. Vous conservez tout le travail livre : articles de blogue, citations, schema, votre site, vos exports de donnees.
+5. Votre abonnement reste actif sauf si vous choisissez d'annuler.
+
+## Si vous montez ou descendez de forfait en cours
+
+Si vous changez de forfait (Core a Growth, etc.) dans les 90 jours, la garantie continue au nouveau tier. Le montant du remboursement est calcule selon les montants reellement factures sur ces mois. Si vous descendez vers Starter en cours, la garantie se termine car Starter n'est pas eligible.
+
+## Ce qu'on a vu en pratique
+
+Nous avons declenche le remboursement chez moins de 3 % des clients Core+. Les deux scenarios les plus courants ou nous le declenchons :
+
+1. Marches tres concurrentiels (ex. immobilier de luxe Toronto) ou les acteurs etablis ont des annees d'avance.
+2. Secteurs avec un volume de requetes IA-search niche (ex. services B2B specialises ou les prospects ne cherchent pas via IA encore).
+
+Dans les deux cas nous recommandons typiquement aussi une pause ou une refonte de strategie plutot que continuer sans progres. Le remboursement est une force motrice sur nous, pas une facon pour les clients de tricher.
+
+## Comment verifier votre score
+
+Vous pouvez voir votre score Share of Model actuel en direct dans votre tableau de bord AiLys. La decomposition du score montre quels moteurs tirent le score vers le haut ou vers le bas, sur quelles requetes vous apparaissez et quels concurrents vous depassent. Votre rapport PDF mensuel de visibilite inclut les memes donnees avec commentaires du stratege.`,
+      },
+    },
+  },
+  {
+    slug: "website-construction-fees-and-cancellation",
+    title: "Website construction fees and cancellation",
+    excerpt:
+      "If we build your site, the build cost is amortized over 6 months on top of your monthly plan. Cancel within 6 months and a recovery fee applies, calculated linearly. After month 6, no fee applies on the build cost.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 5,
+    body: `## When this applies
+
+This article applies only when AiLys builds your website. If you bring your own existing site, no construction fee applies. We do not charge a construction fee for citations, schema deployment, or blog content; those are part of your monthly plan.
+
+## The 3 build sizes
+
+| Site type | Pages | Build cost | Tier eligibility |
+|---|---|---|---|
+| Vitrine | 1 to 5 pages | $800 | Starter, Core, Growth |
+| PME | 6 to 15 pages | $1,500 | Core, Growth |
+| Commerce | 16 to 25 pages | $3,000 | Growth only |
+
+Larger commerce sites (26+ pages or with custom integrations) are quoted individually starting from $3,000. Agency tier clients typically have their own dev team or creative agency, so we do not offer construction service on Agency.
+
+## How the construction cost is paid
+
+The construction cost is amortized over 6 months on top of your monthly plan. There is no large up-front payment. For a Vitrine on Core ($600/mo plan), the math is:
+- Month 1 to 6: $600/mo plan + $133/mo amortization (build $800 / 6) = $733/mo
+- Month 7 onwards: $600/mo plan only (build is fully amortized)
+
+You see two line items on your invoice: the plan and the amortized build slice.
+
+## Cancellation recovery fee
+
+If you cancel before the 6 months are up, a recovery fee applies, calculated linearly:
+
+> recovery fee = build cost x (6 - months paid) / 6
+
+Examples for a Vitrine ($800 build):
+- Cancel after month 1: fee = $800 x 5 / 6 = $667
+- Cancel after month 2: fee = $800 x 4 / 6 = $533
+- Cancel after month 3: fee = $800 x 3 / 6 = $400
+- Cancel after month 4: fee = $800 x 2 / 6 = $267
+- Cancel after month 5: fee = $800 x 1 / 6 = $133
+- Cancel after month 6 or later: fee = $0
+
+## Why 6 months and linear
+
+6 months is the standard amortization window in Quebec web agencies. Long enough to cover our delivery cost, short enough to not feel like a hostage situation. Linear means the longer you stay, the less you owe; this is more equitable than a flat fee that punishes early cancellation as much as late cancellation.
+
+## You keep the site
+
+The website is yours from day one of payment. The recovery fee covers our build labor that has not been recouped through monthly amortization, not the rights to the site. After cancellation:
+- The site continues to function on the hosting we set up (Cloudflare Pages, free tier).
+- DNS records remain pointing to your domain.
+- You get the codebase exported as a zip and a 30-day window to migrate the hosting elsewhere if you prefer.
+- All your content, photos, and analytics belong to you.
+
+## What if I want to upgrade my site mid-amortization
+
+You move from Vitrine to PME (for example). Differential build cost is calculated: $1,500 - $800 = $700. That $700 starts a new 6-month amortization window. Your existing $800 amortization continues on its original schedule. Your tier may need to upgrade too (PME requires Core or higher).
+
+## What if my plan downgrades
+
+If you downgrade your monthly plan and the new tier is not eligible for your current site size (eg. you had Vitrine on Core and downgrade to Starter, which is still eligible; or you had PME on Core and try to downgrade to Starter which is not eligible for PME), we keep your site live but flag the tier mismatch. You either:
+1. Upgrade back within 30 days.
+2. Migrate to a smaller site size with us (and pay the differential builder fee, refunded if smaller).
+3. Cancel the website service entirely (recovery fee applies if within 6 months).
+
+## 30-day satisfaction guarantee
+
+The 30-day satisfaction guarantee on all AiLys plans applies to construction too. If within 30 days the delivered site does not match the agreed scope (visible in your signed scope document), we refund the build amortization paid to date (the plan portion is also refunded under the standard guarantee). Beyond day 30, satisfaction with the site itself is governed by our scope-signed agreement.
+
+## Hosting and domain
+
+Hosting is included free for as long as you are an AiLys client. Domain registration is your responsibility (we recommend Namecheap or Cloudflare Registrar; we do not register domains on your behalf for ownership clarity).
+
+## Honest disclosure
+
+This is a construction fee model, not a leasing or financing model. You own the site. The recovery fee exists because we deliver labor on day 1-30 and bill it across 6 months. If you walk before we recoup, we ask you to pay the unamortized portion. We believe this is the most equitable arrangement for a small agency and small business client. If you find it unfair, please tell us; we are open to revising the structure.`,
+    i18n: {
+      fr: {
+        title: "Frais de construction de site web et resiliation",
+        excerpt:
+          "Si nous construisons votre site, le cout de construction est amorti sur 6 mois en plus de votre forfait mensuel. Si vous resiliez avant 6 mois, des frais de recuperation s'appliquent, calcules de facon lineaire. Apres le mois 6, aucun frais ne s'applique sur le cout de construction.",
+        body: `## Quand ceci s'applique
+
+Cet article s'applique uniquement quand AiLys construit votre site. Si vous apportez votre site existant, aucun frais de construction ne s'applique. Nous ne facturons pas de frais de construction pour les citations, le deploiement de schema ou le contenu blogue ; ceux-ci font partie de votre forfait mensuel.
+
+## Les 3 tailles de site
+
+| Type de site | Pages | Cout de construction | Eligibilite tier |
+|---|---|---|---|
+| Vitrine | 1 a 5 pages | 800 $ | Starter, Core, Growth |
+| PME | 6 a 15 pages | 1 500 $ | Core, Growth |
+| Commerce | 16 a 25 pages | 3 000 $ | Growth uniquement |
+
+Les sites Commerce plus grands (26+ pages ou avec integrations custom) sont devises individuellement a partir de 3 000 $. Les clients Agency ont generalement leur propre equipe dev ou agence creative, donc nous n'offrons pas le service de construction sur Agency.
+
+## Comment le cout de construction est paye
+
+Le cout de construction est amorti sur 6 mois en plus de votre forfait mensuel. Aucun gros paiement a l'avance. Pour une Vitrine sur Core (forfait 600 $/mois), le calcul est :
+- Mois 1 a 6 : 600 $/mois forfait + 133 $/mois amortissement (800 $ construction / 6) = 733 $/mois
+- Mois 7 et plus : 600 $/mois forfait seulement (la construction est entierement amortie)
+
+Vous voyez deux postes sur votre facture : le forfait et la tranche d'amortissement de la construction.
+
+## Frais de recuperation a la resiliation
+
+Si vous resiliez avant que les 6 mois soient ecoules, des frais de recuperation s'appliquent, calcules de facon lineaire :
+
+> frais de recuperation = cout construction x (6 - mois payes) / 6
+
+Exemples pour une Vitrine (construction 800 $) :
+- Resiliation apres mois 1 : frais = 800 $ x 5 / 6 = 667 $
+- Resiliation apres mois 2 : frais = 800 $ x 4 / 6 = 533 $
+- Resiliation apres mois 3 : frais = 800 $ x 3 / 6 = 400 $
+- Resiliation apres mois 4 : frais = 800 $ x 2 / 6 = 267 $
+- Resiliation apres mois 5 : frais = 800 $ x 1 / 6 = 133 $
+- Resiliation apres mois 6 ou plus tard : frais = 0 $
+
+## Pourquoi 6 mois et lineaire
+
+6 mois est la fenetre d'amortissement standard chez les agences web au Quebec. Assez long pour couvrir notre cout de livraison, assez court pour ne pas avoir l'air d'une situation d'otage. Lineaire signifie que plus vous restez longtemps, moins vous devez ; c'est plus equitable qu'un forfait fixe qui punit autant la resiliation precoce que tardive.
+
+## Vous gardez le site
+
+Le site web vous appartient des le premier jour de paiement. Les frais de recuperation couvrent le travail de construction non recoupe par l'amortissement mensuel, pas les droits sur le site. Apres resiliation :
+- Le site continue de fonctionner sur l'hebergement que nous avons mis en place (Cloudflare Pages, niveau gratuit).
+- Les enregistrements DNS continuent de pointer vers votre domaine.
+- Vous recevez le code source exporte en zip et une fenetre de 30 jours pour migrer l'hebergement ailleurs si vous preferez.
+- Tout votre contenu, photos et analytiques vous appartiennent.
+
+## Si je veux agrandir mon site en cours d'amortissement
+
+Vous passez de Vitrine a PME (par exemple). Le cout de construction differentiel est calcule : 1 500 $ - 800 $ = 700 $. Ce 700 $ demarre une nouvelle fenetre d'amortissement de 6 mois. Votre amortissement existant de 800 $ continue selon son calendrier d'origine. Votre tier peut avoir besoin d'une mise a niveau aussi (PME requiert Core ou plus).
+
+## Si mon forfait baisse
+
+Si vous descendez votre forfait mensuel et que le nouveau tier n'est pas eligible pour votre taille de site actuelle (ex. vous aviez Vitrine sur Core et vous descendez a Starter, qui reste eligible ; ou vous aviez PME sur Core et essayez de descendre a Starter qui n'est pas eligible pour PME), nous gardons votre site en ligne mais signalons l'inadequation tier. Vous :
+1. Remontez votre forfait dans les 30 jours.
+2. Migrez vers une taille de site plus petite avec nous (et payez la difference de construction, remboursee si plus petite).
+3. Resiliez le service de site web entierement (les frais de recuperation s'appliquent si dans les 6 mois).
+
+## Garantie satisfaction 30 jours
+
+La garantie satisfaction 30 jours sur tous les forfaits AiLys s'applique aussi a la construction. Si dans les 30 jours le site livre ne correspond pas a la portee convenue (visible dans votre document de portee signe), nous remboursons l'amortissement de construction paye a ce jour (la portion forfait est aussi remboursee selon la garantie standard). Au-dela du jour 30, la satisfaction concernant le site lui-meme est regie par notre entente signee.
+
+## Hebergement et domaine
+
+L'hebergement est inclus gratuitement tant que vous etes client AiLys. L'enregistrement de domaine est votre responsabilite (nous recommandons Namecheap ou Cloudflare Registrar ; nous n'enregistrons pas de domaine en votre nom pour clarte de propriete).
+
+## Divulgation honnete
+
+Ceci est un modele de frais de construction, pas un modele de location ou de financement. Vous etes proprietaire du site. Les frais de recuperation existent parce que nous livrons du travail aux jours 1-30 et le facturons sur 6 mois. Si vous partez avant que nous recoupions, nous demandons que vous payiez la portion non amortie. Nous croyons que c'est l'arrangement le plus equitable pour une petite agence et un petit client commercial. Si vous le trouvez injuste, dites-le-nous ; nous sommes ouverts a reviser la structure.`,
+      },
+    },
+  },
+  {
+    slug: "engagement-discounts-annual-biennial",
+    title: "Engagement discounts: annual 15% and biennial 20%",
+    excerpt:
+      "Pay annually upfront and save 15% on any plan. Pay biennially (24 months) upfront and save 20% on Growth or Agency. Here is how it works, who is eligible, and what happens if you cancel mid-engagement.",
+    category: "pricing-plans",
+    updatedAt: "2026-04-29",
+    readingTimeMin: 4,
+    body: `## The discount tiers
+
+| Engagement | Discount | Eligible plans |
+|---|---|---|
+| Monthly | 0% | All plans |
+| Annual prepay (12 months) | 15% | All plans (Starter, Core, Growth, Agency) |
+| Biennial prepay (24 months) | 20% | Growth, Agency only |
+
+## Why annual is 15% and not more
+
+15% is roughly 2 months free per year. It is the industry-standard discount that aligns incentives: clients save real money, we get cash flow predictability, neither side feels exploited. Pushing to 20% on annual would erode our margin to a point where we could not maintain delivery quality if our delivery costs (Anthropic API, GBP API, R2 storage) rose.
+
+## Why biennial is only on Growth and Agency
+
+Two reasons:
+1. Biennial commitment requires a confident long-term fit. Starter and Core clients are typically still validating product-market fit themselves; locking them in for 24 months is not in their interest.
+2. Biennial accounting carries small-business prepay risk. If our costs rise materially over 24 months, we still owe 24 months of service at the locked-in price. Limiting biennial to Growth and Agency contains that risk.
+
+## Calculation examples
+
+For Core ($600/mo):
+- Monthly billing: $600 x 12 = $7,200/year
+- Annual prepay (-15%): $6,120/year (you save $1,080, ~2 months free)
+
+For Growth ($1,200/mo):
+- Monthly billing: $1,200 x 12 = $14,400/year
+- Annual prepay (-15%): $12,240/year (save $2,160)
+- Biennial prepay (-20%): $14,400 x 2 x 0.80 = $23,040 for 2 years (save $5,760, ~5 months free over 24 months)
+
+## What you get on engagement plans
+
+The same delivery as monthly. Same service level, same support SLA, same number of GBP posts, same number of citations, same probes. The only differences:
+- Lower effective monthly cost
+- Single annual or biennial invoice (easier accounting for SMBs)
+- Locked-in price for the engagement duration (we do not raise your monthly cost mid-engagement)
+
+## What happens if you cancel mid-engagement
+
+If you cancel within an engagement period:
+- You forfeit the discount; we recompute the months you used at the standard monthly rate.
+- The difference (what you would have paid monthly minus what you actually paid) is invoiced as a final settlement.
+
+Example: You signed annual on Core ($6,120 for 12 months) and cancel at month 4.
+- You paid: $6,120 (the full annual upfront).
+- You used: 4 months at standard $600/mo = $2,400.
+- The difference: $3,720 owed back to you. We refund $3,720 via Stripe.
+
+Some agencies refuse to refund. We refund the proportional unused portion at standard monthly rate. You forfeit the discount benefit but you do not lose all the prepaid amount.
+
+## What happens if your build runs into the engagement period
+
+If you have a website build amortization in addition to your plan, the build amortization is independent of the engagement discount. The plan discount applies only to the monthly plan portion. Construction amortization continues on its 6-month schedule at full price.
+
+## Switching plans mid-engagement
+
+You can upgrade mid-engagement (Core to Growth). The discount continues at the new tier price level. Differential is invoiced.
+
+You can downgrade mid-engagement only to a smaller plan, with the engagement discount continuing. If you downgrade out of Growth and you were on biennial (Growth or Agency only), you switch to annual at -15% on the lower plan.
+
+## Why you might pick monthly over annual
+
+- You are testing AiLys and not sure yet (use the 30-day satisfaction guarantee instead).
+- You prefer to stay flexible without prepay accounting on your books.
+- Your cash flow is tight and a single annual upfront is hard to absorb.
+
+In any case, you can always switch from monthly to annual or biennial at any time; the discount applies to the new period.
+
+## Tax handling
+
+All quoted prices are before TPS+TVQ (14.975% for Quebec clients). The toggle on /forfaits-complets shows tax-inclusive pricing if you prefer. Engagement discounts apply to the pre-tax price; tax is then computed on the discounted base.`,
+    i18n: {
+      fr: {
+        title: "Remises d'engagement : annuel 15 % et biennal 20 %",
+        excerpt:
+          "Payez annuellement a l'avance et economisez 15 % sur n'importe quel forfait. Payez biennalement (24 mois) a l'avance et economisez 20 % sur Growth ou Agency. Voici comment ca fonctionne, qui est eligible et ce qui se passe si vous resiliez en cours d'engagement.",
+        body: `## Les paliers de remise
+
+| Engagement | Remise | Forfaits eligibles |
+|---|---|---|
+| Mensuel | 0 % | Tous les forfaits |
+| Annuel prepaye (12 mois) | 15 % | Tous (Starter, Core, Growth, Agency) |
+| Biennal prepaye (24 mois) | 20 % | Growth, Agency uniquement |
+
+## Pourquoi annuel a 15 % et pas plus
+
+15 % equivaut a environ 2 mois gratuits par annee. C'est la remise standard de l'industrie qui aligne les incitations : les clients economisent reellement, nous obtenons une previsibilite de tresorerie, aucune partie ne se sent exploitee. Pousser a 20 % sur l'annuel eroderait notre marge a un point ou nous ne pourrions pas maintenir la qualite de livraison si nos couts de livraison (API Anthropic, API GBP, stockage R2) augmentaient.
+
+## Pourquoi biennal seulement sur Growth et Agency
+
+Deux raisons :
+1. L'engagement biennal requiert une confiance dans un fit long-terme. Les clients Starter et Core valident generalement encore leur propre product-market fit ; les verrouiller 24 mois n'est pas dans leur interet.
+2. La comptabilite biennale comporte un risque de prepaiement pour une petite entreprise. Si nos couts montent significativement sur 24 mois, nous devons quand meme livrer 24 mois au prix verrouille. Limiter biennal a Growth et Agency contient ce risque.
+
+## Exemples de calcul
+
+Pour Core (600 $/mois) :
+- Facturation mensuelle : 600 $ x 12 = 7 200 $/an
+- Annuel prepaye (-15 %) : 6 120 $/an (vous economisez 1 080 $, environ 2 mois gratuits)
+
+Pour Growth (1 200 $/mois) :
+- Facturation mensuelle : 1 200 $ x 12 = 14 400 $/an
+- Annuel prepaye (-15 %) : 12 240 $/an (economie 2 160 $)
+- Biennal prepaye (-20 %) : 1 200 $ x 24 x 0,80 = 23 040 $ pour 2 ans (economie 5 760 $, environ 5 mois gratuits sur 24 mois)
+
+## Ce que vous obtenez sur les forfaits d'engagement
+
+La meme livraison qu'au mensuel. Meme niveau de service, meme SLA de support, meme nombre de publications GBP, meme nombre de citations, memes sondes. Les seules differences :
+- Cout mensuel effectif plus bas
+- Facture annuelle ou biennale unique (comptabilite plus simple pour PME)
+- Prix verrouille pour la duree de l'engagement (nous n'augmentons pas votre cout mensuel en cours d'engagement)
+
+## Que se passe-t-il si vous resiliez en cours d'engagement
+
+Si vous resiliez dans une periode d'engagement :
+- Vous perdez la remise ; nous recalculons les mois utilises au tarif mensuel standard.
+- La difference (ce que vous auriez paye au mensuel moins ce que vous avez reellement paye) est facturee comme reglement final.
+
+Exemple : vous avez signe annuel sur Core (6 120 $ pour 12 mois) et resiliez au mois 4.
+- Paye : 6 120 $ (l'annuel complet a l'avance).
+- Utilise : 4 mois au tarif standard de 600 $/mois = 2 400 $.
+- La difference : 3 720 $ vous est due. Nous remboursons 3 720 $ via Stripe.
+
+Certaines agences refusent de rembourser. Nous remboursons la portion proportionnelle non utilisee au tarif mensuel standard. Vous perdez l'avantage de la remise mais vous ne perdez pas tout le montant prepaye.
+
+## Ce qui se passe si votre construction tombe dans la periode d'engagement
+
+Si vous avez un amortissement de construction de site en plus de votre forfait, l'amortissement de la construction est independant de la remise d'engagement. La remise du forfait s'applique uniquement a la portion forfait mensuel. L'amortissement de la construction continue selon son calendrier de 6 mois au prix plein.
+
+## Changement de forfait en cours d'engagement
+
+Vous pouvez monter en cours d'engagement (Core a Growth). La remise continue au nouveau niveau de prix tier. La difference est facturee.
+
+Vous pouvez descendre en cours d'engagement uniquement vers un forfait plus petit, avec la remise d'engagement qui continue. Si vous descendez hors de Growth et que vous etiez sur biennal (Growth ou Agency uniquement), vous passez a annuel a -15 % sur le forfait inferieur.
+
+## Pourquoi vous pourriez choisir mensuel plutot qu'annuel
+
+- Vous testez AiLys et n'etes pas encore sur (utilisez la garantie satisfaction de 30 jours a la place).
+- Vous preferez rester flexible sans comptabilite de prepaiement dans vos livres.
+- Votre tresorerie est tendue et un seul prepaiement annuel est difficile a absorber.
+
+Dans tous les cas, vous pouvez toujours passer de mensuel a annuel ou biennal a tout moment ; la remise s'applique a la nouvelle periode.
+
+## Gestion des taxes
+
+Tous les prix indiques sont avant TPS+TVQ (14,975 % pour les clients quebecois). Le toggle sur /forfaits-complets affiche les prix toutes taxes comprises si vous preferez. Les remises d'engagement s'appliquent au prix avant taxes ; la taxe est ensuite calculee sur la base remise.`,
+      },
+    },
+  },
 ];
