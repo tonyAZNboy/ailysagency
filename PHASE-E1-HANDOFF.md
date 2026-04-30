@@ -52,6 +52,7 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 | E.1.1d Reviuzy scrub legal + auth pages | tbd | not started (sensitive legal copy, deferred) | deferred |
 | E.1.1e Reviuzy scrub blog posts | tbd | 2 blog posts to rename + rewrite | deferred |
 | E.1.2 Neon -50% pricing cards | `a63db9e` | 67 rgba alpha halvings (ServicesSection 61 + PricingDriversSection 6), tsc clean, no layout change | shipped |
+| E.1.X cross-repo visibility-report-pdf | `cfd1752` | 12/12 smoke pass, CI gate 11 wired, 4 files / 980 insertions, tsc clean | shipped |
 | E.1.3 Landing condensed + engagement toggle | tbd | not started | deferred |
 | E.1.4 /forfaits-complets sticky grid | tbd | not started | deferred |
 | E.1.5 Website grid + cancellation calc | tbd | not started | deferred |
@@ -64,8 +65,30 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 
 ## Session 1 outcome (2026-04-29)
 
-**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2.
-**Total commits:** 5 on branch `claude/gracious-raman-a6383a`.
+**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2 + E.1.X (cross-repo visibility-report-pdf).
+**Total commits:** 7 on branch `claude/gracious-raman-a6383a`.
+
+### E.1.X cross-repo bonus (2026-04-29 same session)
+
+Per coordination with parallel Phase C/D session, shipped the AiLys-side API
+contract for Reviuzy C.5.Rvz.2.b monthly visibility report render:
+
+- **Commit `cfd1752`** — `feat(e1.x)`
+- **New endpoint:** `POST /api/visibility-report-pdf` with HMAC service auth,
+  idempotency on `(tenantId, reportMonth)` (35-day TTL), R2 fail-soft, brand-aware
+  Resend email (6 locales), kill switch via `VISIBILITY_REPORT_KILL_SWITCH`.
+- **New render lib:** `functions/lib/pdf/VisibilityReport.ts` (6-section PDF:
+  cover + summary + share-of-model + keywords + sentiment + strategist notes).
+- **New smoke:** `scripts/smoke-visibility-report-pdf.mjs` 12 cases, 12/12 pass.
+- **CI gate 11** wired in `.github/workflows/deploy.yml` (mandatory).
+- Reviuzy side: parallel session implements `monthly-visibility-export` render
+  path in a future Reviuzy session, using existing `_shared/ailysServiceSign.ts`
+  helper to sign POST.
+
+User actions to activate:
+- All required secrets already set (AILYS_SERVICE_SHARED_SECRET from C.1,
+  AUDIT_PDF_HMAC_SECRET from B.4.3, RESEND_API_KEY existing).
+- Fail-closed default: `VISIBILITY_REPORT_KILL_SWITCH` absent or `false` to enable.
 **Reviuzy public-facing scrub coverage:** ~85% (16 locales + Schema.org + index.html + 4 data files done; 2 blog posts + 5 legal/auth pages remain).
 **Visual:** neon backgrounds halved on tier and pricing-driver cards.
 **Build:** tsc clean across all 5 commits.
