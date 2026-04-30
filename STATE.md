@@ -4,6 +4,61 @@
 
 ---
 
+## 🟢 D.4 PART 3 — ALL 4 CRON ORCHESTRATORS BOOT END-TO-END (Reviuzy PR #33)
+
+Schema drift refactor extended from `compute-renewal-signals` ([#30](https://github.com/tonyAZNboy/reviuzy/pull/30) / [#31](https://github.com/tonyAZNboy/reviuzy/pull/31)) to the remaining 2 cron orchestrators that were stuck on the same column-missing crashes.
+
+**Reviuzy [PR #33](https://github.com/tonyAZNboy/reviuzy/pull/33) (`claude/d4-part3-refactor`):**
+
+| Fn | Refactor |
+|---|---|
+| `citation-auto-batch` | Drop `tenants.tier` from SELECT, fetch `trial_tier` from `subscriptions` (active+trialing), merge by tenant_id |
+| `monthly-visibility-export` | Same trial_tier merge + owner_email via `user_memberships` (role=owner) + `auth.admin.getUserById`; replaced `tenants.preferred_locale` with `tenants.default_language` (real column) |
+
+**End-to-end DRY_RUN test (5 prod tenants):**
+
+| Fn | Result |
+|---|---|
+| `citation-auto-batch` | ✅ `processed: 5`, all `skipped_ineligible: opted_out` (correct: `auto_citation_batch_enabled` false on all) |
+| `monthly-visibility-export` | ✅ `processed: 5`, all `skipped_ineligible` (correct: no tenant has `ailys_tier='growth'` or `'agency'`) |
+| `compute-renewal-signals` | ✅ (already validated in earlier session) `processed: 5`, all `skipped_no_tier` |
+| `audit-log-export` | ✅ (already validated) auth + method gates |
+
+**All 4 orchestrators now boot cleanly in production with correct skip semantics.** They're ready for actual data activation once tenants opt in.
+
+**Test posture:** vitest 747/747 pass (no regressions vs baseline).
+
+**Operator follow-up to make signals fire:**
+
+```sql
+-- Inspect current tenant tiers
+SELECT id, name, client_type, ailys_tier FROM tenants ORDER BY name;
+
+-- Set ailys_tier for ailys_managed tenants
+UPDATE tenants
+SET ailys_tier = 'growth'
+WHERE client_type = 'ailys_managed' AND ailys_tier IS NULL;
+
+-- Optionally opt tenants into citation auto-batch (per-tenant, default OFF)
+UPDATE tenants
+SET auto_citation_batch_enabled = true
+WHERE id = '<tenant-uuid>';
+```
+
+Then re-enable feature flags + DRY_RUN for 24-48h validation:
+```powershell
+npx supabase secrets set RENEWAL_SIGNALS_ENABLED=true RENEWAL_SIGNALS_DRY_RUN=true CITATION_AUTO_BATCH_ENABLED=true CITATION_AUTO_BATCH_DRY_RUN=true MONTHLY_VISIBILITY_REPORT_ENABLED=true MONTHLY_VISIBILITY_REPORT_DRY_RUN=true --project-ref qucxhksrpqunlyjjvuae
+```
+
+**Backlog deferred:**
+
+- D.4 part 4: refactor remaining ~25 ad-hoc `catch` blocks across edge fns to use `observability.captureException`
+- D.4 part 4: `/admin/errors` operator dashboard (consume Sentry API)
+- D.4 part 4: per-tenant Slack webhook routing (Agency tier)
+- Frontend Sentry activation (Cloudflare Pages env vars + redeploy)
+- pg_cron extension activation + cron schedule migrations
+- D.1.Rvz.3 batch 3 (more edge fns to instrument with `emitAuditLog`)
+
 ## 🟢 D.4 + C.7.Rvz.4 END-TO-END VALIDATED 2026-04-30 (autopilot, 6 Reviuzy PRs)
 
 Continuation of D.4 observability scaffold (`PR #26` shipped earlier) + manual validation of all 4 cron orchestrators in production. 6 additional PRs merged in sequence; surfaced + fixed 4 distinct schema-drift bugs that were blocking the entire renewal-signals pipeline.
