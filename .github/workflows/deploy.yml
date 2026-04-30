@@ -94,6 +94,9 @@ jobs:
       - name: Gate 14, admin endpoint observability stats smoke (10 cases)
         run: npx tsx scripts/smoke-admin-endpoint-stats.mjs
 
+      - name: Gate 15, client error capture smoke (13 cases)
+        run: npx tsx scripts/smoke-client-error.mjs
+
       - run: npm run build
 
       # Sanity check: token presence + scope verification BEFORE invoking
