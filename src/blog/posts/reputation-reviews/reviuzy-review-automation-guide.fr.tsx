@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte AiLys Automation et comment l'ajouter à mon forfait AiLys?",
       answer:
-        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 499 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut les autocollants NFC, le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques.",
+        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 499 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques couvrant 20 pays. Les cartes NFC sont approvisionnées séparément par le client (auto-programmation à partir de tout fournisseur, ou achat du service de cartes AiLys à 100 dollars CAD à charge unique pour un ensemble de 3 cartes avec programmation incluse).",
     },
     {
       question: "AiLys Automation opère-t-il mon concours ou est-ce moi qui l'opère?",
@@ -91,7 +91,7 @@ export function ContentFr() {
       </p>
 
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
-        <p>Le prix mensuel de 100 dollars couvre la trousse complète : accès au tableau de bord, autocollants NFC, suggestions de brouillon IA, flux de réponse automatique, moteur de concours, bibliothèque de gabarits juridiques et détection d'avis bidons. Il n'y a pas de surcharge par avis ni par emplacement pour les commerces à un seul emplacement. Les tarifs multi-emplacements sont calculés sur la page de tarifs AiLys selon le nombre d'emplacements.</p>
+        <p>Le prix mensuel de 100 dollars couvre la trousse logicielle complète : accès au tableau de bord, suggestions de brouillon IA, flux de réponse automatique, moteur de concours, bibliothèque de gabarits juridiques couvrant 20 pays et détection d'avis bidons. Les cartes NFC sont approvisionnées séparément (auto-programmation à partir de tout fournisseur, ou achat du service de cartes AiLys à 100 dollars CAD à charge unique pour un ensemble de 3 cartes avec programmation incluse). Il n'y a pas de surcharge par avis ni par emplacement pour les commerces à un seul emplacement. Les tarifs multi-emplacements sont calculés sur la page de tarifs AiLys selon le nombre d'emplacements.</p>
       </CalloutBox>
 
       <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où AiLys Automation est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
@@ -100,21 +100,21 @@ export function ContentFr() {
 
       <h2 id="tap-nfc-la-boucle-du-comptoir">Tap NFC, la boucle du comptoir</h2>
       <p>
-        L'autocollant NFC pour avis se pose sur le comptoir ou le porte-reçu. Le client tape un téléphone, l'appareil ouvre une page AiLys Automation, la page fait surgir le lien direct vers l'avis Google avec un flux en une touche vers le formulaire d'avis du GBP. L'expérience entière prend moins de cinq secondes du tap à la composition de l'avis. Les autocollants sont expédiés dans la trousse d'embarquement AiLys Automation sans frais supplémentaires.
+        La carte NFC pour avis se pose sur le comptoir ou le porte-reçu. Le client tape un téléphone, l'appareil ouvre une page AiLys Automation, la page fait surgir le lien direct vers l'avis Google avec un flux en une touche vers le formulaire d'avis du GBP. L'expérience entière prend moins de cinq secondes du tap à la composition de l'avis. Les cartes sont approvisionnées par le client par l'un de deux chemins : auto-approvisionnement chez n'importe quel fournisseur NFC avec l'URL programmée à l'aide d'une app gratuite d'écriture NFC sur téléphone, ou le service de cartes AiLys Automation à 100 dollars CAD à charge unique qui livre trois cartes pré-programmées.
       </p>
       <p>
-        Si la boucle NFC fonctionne, c'est qu'elle élimine les deux frictions qui tuent la vélocité d'avis. D'abord, le client n'a pas à trouver la fiche GBP sur Google, parce que la page AiLys Automation saute directement au formulaire d'avis. Ensuite, le client n'a pas à se rappeler de laisser l'avis plus tard, parce que l'invitation arrive au moment de la satisfaction. La plupart des commerçants voient la vélocité doubler dans les 60 premiers jours après le déploiement NFC.
+        Si la boucle NFC fonctionne, c'est qu'elle élimine les deux frictions qui tuent la vélocité d'avis. D'abord, le client n'a pas à trouver la fiche GBP sur Google, parce que la page AiLys Automation saute directement au formulaire d'avis. Ensuite, le client n'a pas à se rappeler de laisser l'avis plus tard, parce que l'invitation arrive au moment de la satisfaction. Les commerçants rapportent typiquement des hausses de vélocité d'avis dans la fourchette industrie-typique de 40 à 70 pour cent sur les 60 à 90 premiers jours après le déploiement NFC, l'écart étant dicté par le placement au comptoir, l'invitation par le personnel et l'achalandage ambiant.
       </p>
       <p>
         La page AiLys Automation intègre aussi une question rapide qui adapte l'expérience sans briser la politique Google. La version honnête achemine chaque client vers le lien d'avis Google et utilise la question seulement pour décider quel gabarit suggérer, jamais pour filtrer les clients insatisfaits. Filtrer par satisfaction brise la politique Google et peut provoquer une suppression douce de la fiche.
       </p>
 
-      <h3>Ce qui est inclus dans la trousse NFC</h3>
+      <h3>Ce qu'inclut le chemin des cartes NFC</h3>
       <ul>
-        <li>Cinq autocollants NFC par emplacement, à la marque du commerce</li>
-        <li>Un présentoir NFC pour le comptoir d'accueil ou la caisse</li>
+        <li>Auto-approvisionnement : cartes NFC vierges chez tout fournisseur (Amazon, NFC.direct, etc.) plus une app gratuite d'écriture NFC sur téléphone pour programmer l'URL de la page AiLys Automation</li>
+        <li>Service de cartes AiLys : 100 dollars CAD à charge unique, livre trois cartes pré-programmées liées à l'URL client</li>
         <li>La page AiLys Automation configurée avec le lien d'avis du GBP</li>
-        <li>La vue tableau de bord qui suit le nombre de taps, la conversion en avis et la source par autocollant</li>
+        <li>La vue tableau de bord qui suit le nombre de taps, la conversion en avis et la source par carte</li>
       </ul>
 
       <SectionDivider />
@@ -166,7 +166,7 @@ export function ContentFr() {
 
       <h2 id="le-moteur-de-concours-et-les-gabarits-juridiques">Le moteur de concours et les gabarits juridiques</h2>
       <p>
-        Le moteur de concours AiLys Automation est le levier pour les sommets de vélocité d'avis. Un concours mensuel invite les clients à laisser un avis, avec un prix tiré parmi les inscriptions. Le tableau de bord remonte le nombre d'inscriptions, les règles d'admissibilité, la description du prix et la mécanique de tirage. La configuration prend moins de 30 minutes au premier concours et moins de 5 minutes pour les concours suivants.
+        Le moteur de concours AiLys Automation est le levier pour les sommets de vélocité d'avis. Un concours invite les clients à laisser un avis, avec un prix tiré parmi les inscriptions. Le tableau de bord remonte le nombre d'inscriptions, les règles d'admissibilité, la description du prix et la mécanique de tirage. La configuration prend moins de 30 minutes au premier concours et moins de 5 minutes pour les concours suivants. La cadence des concours est fixée par palier AiLys : les clients Starter opèrent 2 concours par mois, les clients Core opèrent 4 concours par mois, et les clients Growth et Agency opèrent les concours sur une base par domaine (multi-emplacements).
       </p>
       <p>
         La ligne dure, c'est que le client opère le concours. AiLys fournit la configuration, le générateur de termes et conditions juridiques, et les guides d'aide. Le client est propriétaire du prix, de la relation client, du tirage, de la notification au gagnant et de toute divulgation fiscale ou réglementaire qui s'applique. L'agence ne tire pas le gagnant et ne communique pas avec les concurrents. Cette séparation garde tout le monde du bon côté des règles de concours au Québec et au Canada.
@@ -209,7 +209,7 @@ export function ContentFr() {
         AiLys Automation se connecte au Google Business Profile via l'API officielle Google avec des portées de lecture et d'écriture pour les avis, les réponses, et (avec consentement du propriétaire) les téléversements de photos. La connexion est en OAuth, le jeton est stocké chiffré, et l'opérateur peut révoquer l'accès à tout moment depuis le tableau de bord. Aucun identifiant ne vit hors du coffre AiLys Automation.
       </p>
       <p>
-        Côté AiLys, chaque avis et chaque réponse alimentent le moteur AI Visibility qui note la fiche chaque semaine. Le moteur lit la variété des mots-clés dans le texte d'avis, la fenêtre de récence, le taux de réponse et l'équilibre linguistique des commentateurs. Le score se met à jour dans le tableau de bord AiLys la même semaine, et le stratège utilise la tendance pour recommander le prochain levier opérationnel (placement des autocollants NFC, cadence de concours, ajustements de ton de réponse).
+        Côté AiLys, chaque avis et chaque réponse alimentent le moteur AI Visibility qui note la fiche chaque semaine. Le moteur lit la variété des mots-clés dans le texte d'avis, la fenêtre de récence, le taux de réponse et l'équilibre linguistique des commentateurs. Le score se met à jour dans le tableau de bord AiLys la même semaine. La cadence d'intervention du stratège varie par palier : les clients Starter et Core reçoivent un soutien asynchrone seulement (sans appels planifiés), tandis que les clients Growth et Agency obtiennent un appel mensuel avec le stratège pour parcourir la tendance et recommander le prochain levier opérationnel (placement des cartes NFC, cadence de concours, ajustements de ton de réponse). Les rapports écrits suivent la même cadence mensuelle sur Growth et Agency.
       </p>
       <p>
         Pour les commerçants qui veulent l'image de données complète, l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez où atterrissent les signaux d'avis dans le score AI Visibility" /> livre une base qui inclut la tranche vélocité d'avis. Jumelez ça avec le <InternalLink to="/blog/google-review-velocity-playbook" title="Plan de vélocité d'avis Google" description="Les chiffres qui bougent le classement du pack local" /> pour la plongée opérateur sur les cibles mensuelles, et avec <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs agence SEO traditionnelle" description="Où le module AiLys Automation se place dans le plan global" /> pour le cadre de comparaison.

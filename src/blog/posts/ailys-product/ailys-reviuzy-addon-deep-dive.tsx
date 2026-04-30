@@ -95,7 +95,7 @@ export function Content() {
       </p>
 
       <CalloutBox type="info">
-        <p>The AiLys Automation reputation add-on is not the same product as the standalone AiLys client app on the App Store and Google Play. The standalone app is a free version with manual review collection only. The AiLys Automation reputation add-on at 100 dollars a month unlocks the full automation pipeline and the GBP integration. See <InternalLink to="/blog/reviuzy-review-automation-guide" title="AiLys Automation review automation guide" description="The longer playbook on the standalone app and the add-on" /> for the line-by-line difference.</p>
+        <p>The AiLys Automation reputation add-on extends the AiLys base tiers with the full reputation pipeline. The base tiers (Starter, Core, Growth) cover GBP optimization, citation work, NAP consistency, and the AI Visibility score. The add-on layers in NFC review collection, AI reply automation, the contest engine, the jurisdiction-aware legal generator, the fake review queue, and the GBP automation suite. See <InternalLink to="/blog/reviuzy-review-automation-guide" title="AiLys Automation review automation guide" description="The longer playbook on the add-on workflow" /> for the line-by-line walkthrough.</p>
       </CalloutBox>
 
       <InlineCTA variant="pricing" text="See where the AiLys Automation add-on slots into the four AiLys tiers, from Starter at 300 dollars to Agency at 2,499 dollars." />
@@ -107,15 +107,15 @@ export function Content() {
         The AiLys Automation reputation add-on is 100 dollars CAD a month flat. It bolts onto Starter (300 dollars), Core (600 dollars), or Growth (1,200 dollars), bringing those tiers to 400, 700, or 1,300 dollars a month respectively. At the Agency tier (2,499 dollars), AiLys Automation is bundled, so the operator does not pay extra. The bundling decision reflects how the Agency tier is positioned: it is the multi-location, white label tier where reputation work is the default expectation, not an upsell.
       </p>
       <p>
-        Annual billing applies a small discount, and adding AiLys Automation at sign-up is the cleanest path because the NFC cards ship inside the welcome kit. Adding it later means a separate fulfillment trip for the cards, which delays the first counter taps by a week. The dashboard side activates the same day the add-on is enabled, so the AI reply queue and the GBP automation start running immediately even if the cards are still in transit.
+        Annual billing applies a small discount. The dashboard side of AiLys Automation activates the same day the add-on is enabled, so the AI reply queue, the contest engine, and the GBP automation start running immediately. The NFC cards are procured separately by the client (see the NFC section below for the two paths) so the front-counter loop ramps in parallel with the dashboard work, not as a blocker on it.
       </p>
 
       <h3>What each tier looks like with AiLys Automation</h3>
       <ul>
-        <li>Starter plus AiLys Automation at 400 dollars: GBP optimization, monthly AI Visibility report, NAP audit on the top five citations, plus the full AiLys Automation suite</li>
-        <li>Core plus AiLys Automation at 899 dollars: weekly GBP posts, citation cleanup on twenty targets, FAQ schema, plus AiLys Automation</li>
-        <li>Growth plus AiLys Automation at 1,599 dollars: original photography, monthly content production, two AI Visibility audits a quarter, plus AiLys Automation</li>
-        <li>Agency at 2,499 dollars: AiLys Automation is bundled, multi-location and white label included, dedicated strategist, weekly reporting</li>
+        <li>Starter plus AiLys Automation at 400 dollars: GBP optimization, monthly AI Visibility report, NAP audit on the top five citations, plus the full AiLys Automation suite. Strategist support is async-only at this tier, no calls.</li>
+        <li>Core plus AiLys Automation at 700 dollars: weekly GBP posts, citation cleanup on twenty targets, FAQ schema, plus AiLys Automation. Strategist support is async-only at this tier, no calls.</li>
+        <li>Growth plus AiLys Automation at 1,300 dollars: original photography, monthly content production, two AI Visibility audits a quarter, plus AiLys Automation. Includes one monthly strategist call.</li>
+        <li>Agency at 2,499 dollars: AiLys Automation is bundled, multi-location dashboard and white label included, dedicated strategist, one monthly strategist call, monthly written report.</li>
       </ul>
 
       <SectionDivider />
@@ -125,7 +125,7 @@ export function Content() {
         The NFC cards are the physical surface of the add-on. They sit on the counter, the pin pad, the reception desk, or the take-out bag. A customer taps the card with their phone, the phone opens a AiLys Automation landing page, and the page routes the customer to the Google Business Profile review form for the right location. No app install. No QR scan. Just a tap.
       </p>
       <p>
-        The NFC tap rate beats QR codes by a wide margin in retail and clinical settings, because the gesture is closer to a contactless payment, which most customers already do without thinking. The cards are pre-printed with the client logo, branded for the location, and shipped with the welcome kit. Multi-location accounts at the Agency tier get one card stack per location, with location-specific routing baked into the NFC tag itself.
+        The NFC tap rate beats QR codes in retail and clinical settings because the gesture is closer to a contactless payment, which most customers already do without thinking. Two procurement paths exist for the cards. Path one, the client orders blank NFC cards from any supplier and programs each card with the AiLys Automation landing URL using a free phone NFC writer, which is the lowest-cost option. Path two, the client buys the AiLys Automation card service for 100 dollars CAD as a one-time charge, which delivers three pre-programmed cards with the client landing URL already baked in. Multi-location accounts repeat the chosen path per location, with the routing URL keyed to the right Google Business Profile.
       </p>
 
       <CalloutBox type="tip">
@@ -161,6 +161,9 @@ export function Content() {
         The contest engine is the strongest module for review velocity. The owner sets up a draw inside the dashboard, defines the prize, the duration, and the entry rules, and the engine wires up the entry capture. Customers enter the contest by tapping the NFC card, optionally leaving a Google review, and confirming the entry on the AiLys client app. The entry list is held inside the client account, not the agency account.
       </p>
       <p>
+        Contest cadence is set per AiLys tier. Starter clients run 2 contests per month. Core clients run 4 contests per month. Growth and Agency clients run contests on a per-domain basis (multi-location aware), so a multi-location operator can stagger draws across locations and stack the velocity. The cadence reflects the strategist hours bundled into each tier, not a SaaS limit, and the dashboard does not block over-cadence runs at higher tiers.
+      </p>
+      <p>
         The winner picker runs as a video. The owner triggers the draw in front of staff or on a Facebook Live stream, and the dashboard shows a randomized animation that lands on the winner. The video file is downloadable, watermark-free, and shareable, which is the artifact the owner posts to social and to the GBP timeline. This is the moment that converts the contest into ongoing review velocity, because the next batch of customers see the draw happen and trust the next contest.
       </p>
 
@@ -179,7 +182,7 @@ export function Content() {
 
       <h2 id="legal-terms-generator">Jurisdiction-aware legal terms generator</h2>
       <p>
-        Every contest needs terms and conditions. In Quebec, the Loi sur les loteries publicitaires applies, and the Régie des alcools, des courses et des jeux requires registration above a prize threshold. In the rest of Canada, the Competition Act applies, with the no-purchase-necessary requirement and the skill-testing question. In the United States, state-level rules apply, with California, New York, and Florida being the most regulated. The legal generator produces a draft set of terms and conditions tailored to the client jurisdiction, with the right registration steps and the right disclosure language.
+        Every contest needs terms and conditions. The AiLys Automation legal generator covers 20 countries today, including Canada (with a dedicated Quebec branch), the United States, and the major EU and Commonwealth markets. In Quebec, the Loi sur les loteries publicitaires applies, and the Régie des alcools, des courses et des jeux requires registration above a prize threshold. In the rest of Canada, the Competition Act applies, with the no-purchase-necessary requirement and the skill-testing question. In the United States, state-level rules apply, with California, New York, and Florida being the most regulated. The generator produces a draft set of terms and conditions tailored to the client jurisdiction, with the right registration steps and the right disclosure language.
       </p>
       <p>
         The generator is a starting draft, not legal advice. For high-value contests above 2,000 dollars in prize value, we recommend a final review by the client lawyer. For low-value contests (gift card draws under 500 dollars), the generated draft is typically the only document the operator needs. The generator outputs a PDF, a plain text version for the website, and a short summary for the contest landing page.
