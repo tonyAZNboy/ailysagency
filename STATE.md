@@ -4,6 +4,50 @@
 
 ---
 
+## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
+
+Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).
+
+**Reviuzy [PR #34](https://github.com/tonyAZNboy/reviuzy/pull/34) (`claude/d4-part4-capture`):**
+
+| Fn | Catch sites instrumented |
+|---|---|
+| `auto-reply-reviews` | 3 (top_level, per_tenant, scheduled) |
+| `campaign-overage-billing` | 2 (per-invoice, top_level) |
+| `facebook-oauth-callback` | 1 (top_level) |
+| `create-payment` | 1 (top_level) |
+| `customer-portal` | 1 (top_level) |
+
+8 catch sites total. Each tagged with `fn` + `phase`; `tenant_id` passed when in scope. `captureException` internally logs to console.error AND forwards to Sentry — log preservation automatic.
+
+**Test posture:** vitest 747/747 pass. All 5 fns redeployed in production.
+
+**D.4 status overall:**
+
+| Surface | Status |
+|---|---|
+| Edge fn `_shared/observability.ts` | ✅ shipped (PR #26) |
+| 4 cron orchestrators wrapped | ✅ live |
+| Frontend `@sentry/react` init | ✅ shipped (PR #32), inactive until Cloudflare Pages env vars set |
+| Schema drift refactors (compute-renewal-signals + citation-auto-batch + monthly-visibility-export) | ✅ shipped (PR #30/#31/#33) |
+| `captureException` wired in critical catch blocks | ✅ shipped (PR #34) |
+| `/admin/errors` dashboard | ⏳ deferred |
+| Per-tenant Slack webhook routing | ⏳ deferred |
+| Refactor remaining ~15 catch blocks (lower-priority fns) | ⏳ deferred (incremental) |
+
+**Backlog deferred to next session:**
+
+- D.4 part 5: `/admin/errors` dashboard (consume Sentry API + filter by tenant)
+- D.4 part 5: per-tenant Slack webhook routing (Agency tier)
+- D.4 part 5: refactor remaining ~15 catch blocks across non-critical edge fns
+- Frontend Sentry activation (Cloudflare Pages: `VITE_SENTRY_DSN` + redeploy)
+- pg_cron extension activation + cron schedule migrations
+- D.1.Rvz.3 batch 3 (more emitAuditLog wirings)
+
+**Operator follow-up to actually exercise the new captures:**
+
+Trigger any of the 5 fns with a deliberately malformed input (e.g. `create-payment` with no body) and watch the Sentry dashboard for the event with the matching `fn` tag.
+
 ## 🟢 D.4 PART 3 — ALL 4 CRON ORCHESTRATORS BOOT END-TO-END (Reviuzy PR #33)
 
 Schema drift refactor extended from `compute-renewal-signals` ([#30](https://github.com/tonyAZNboy/reviuzy/pull/30) / [#31](https://github.com/tonyAZNboy/reviuzy/pull/31)) to the remaining 2 cron orchestrators that were stuck on the same column-missing crashes.
