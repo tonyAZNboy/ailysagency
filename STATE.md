@@ -77,6 +77,86 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚀 REVIUZY EXECUTION SWEEP 2026-04-29 (8 PRs merged, +218 vitest)
+
+Pipeline executed end-to-end through Reviuzy main. Snapshot at this commit.
+
+| PR | Sub-phase | Tests delta | Status |
+|---|---|---|---|
+| #7 | D.3.Rvz.1+2+3 security hotfix (env keys + tenant verify + 2 fns locked) | 363 → 373 | merged |
+| #8 | B.4.4.Rvz.1 audit-pdf-stats proxy + HMAC signer | 373 → 382 | merged |
+| #9 | C.5.Rvz.1+2-skel monthly visibility ledger + orchestrator skeleton | 382 → 394 | merged |
+| #10 | C.6.Rvz.1+2+3 citation auto-batch (migration + 3 adapters + orchestrator) | 394 → 491 | merged |
+| #11 | C.7.Rvz.1+2 renewal_signals + compute orchestrator | 491 → 532 | merged |
+| #12 | C.5+C.6+C.7 pg_cron schedules (3 migrations) | 532 → 548 | merged |
+| #13 | D.3 follow-up: lock 3 remaining unsafe fns (generate-weekly-posts, shield-analyze, nfc-checkin) | 548 → 548 (no new tests) | merged |
+| #14 | D.1.Rvz.1+2 SOC2 audit_log table + emitAuditLog helper | 548 → 581 | merged |
+
+**Cumulative Reviuzy test count this session:** 363 → 581 (+218 vitest)
+
+### Pipeline status post-sweep
+
+| Pipeline step | Status |
+|---|---|
+| 1. Security hotfix (D.3) | ✅ COMPLETE (PR #7 + #13; 5/5 unsafe fns locked) |
+| 2. B.4.4.Rvz proxy | ✅ shipped (PR #8); admin UI = follow-up |
+| 3. C.5.Rvz monthly visibility | ⚠️ skeleton only (PR #9); render path needs cross-repo coord (see below) |
+| 4. C.6.Rvz citation auto-batch | ✅ shipped (PR #10); admin UI = follow-up |
+| 5. C.7.Rvz renewal+upsell | ✅ shipped (PR #11); email templates + admin UI = follow-up |
+| 6. Cron schedules (C.5+C.6+C.7) | ✅ shipped (PR #12); fail-closed gated |
+| 7. Phase D.1 SOC2 audit log | ⚠️ PARTIAL (PR #14: migration + helper); 10-fn refactor + export endpoint = follow-up |
+| 8. Phase D.2 benchmarking | ⏳ NEXT (gate: D.1 fully live in prod) |
+| 9. Phase D.4 Sentry | ⏳ parallel-safe with D.2 once D.1 live |
+
+### C.5.Rvz.2.b cross-repo decision
+
+The render path for monthly-visibility-export needs cote-AiLys extension:
+
+**Decision:** service-to-service fetch from Reviuzy edge fn → AiLys `/api/visibility-report-pdf` (NEW endpoint, ~3h on AiLys-side). Reuses B.4 infra (HMAC + R2 + Resend). Avoids 6-10h Deno port of @react-pdf/renderer.
+
+**API contract for AiLys-side new endpoint:**
+
+```
+POST /api/visibility-report-pdf
+Auth: HMAC service auth (caller 'reviuzy-monthly-report-batch' on allowlist)
+Body: VisibilityReportPdfRequest {
+  email, lang, businessName, reportMonth (YYYY-MM),
+  brand: 'reviuzy'|'ailys_managed'|'reseller',
+  brandLogoUrl?, brandColorHex?, honeypot?,
+  payload: {
+    visibility_score: { current, previous_month },
+    share_of_model: [{ engine, score, trend_pct }],
+    top_keywords: [{ keyword, impressions, avg_position }],
+    sentiment: { positive_pct, neutral_pct, negative_pct } | null,
+    action_notes: string[]
+  }
+}
+Response: { id, signedUrl, expiresAt }
+```
+
+Implementation file: `functions/lib/pdf/VisibilityReport.ts` (new, parallel to existing AuditReport.ts).
+
+When AiLys side ships, Reviuzy's `monthly-visibility-export/index.ts` swaps the `render_not_yet_wired` block for the service-to-service fetch.
+
+### Reviuzy follow-up backlog (post-this-session)
+
+- B.4.4.Rvz.2: admin UI page `/admin/audit-pdf-stats` consuming the proxy (PR #8 already exposes the endpoint)
+- C.5.Rvz.2.b: render path (cross-repo coord with AiLys; see contract above)
+- C.5.Rvz.4: admin UI for monthly reports
+- C.6.Rvz.4: admin UI for citation auto-batch
+- C.7.Rvz.3: admin UI for renewal signals
+- C.7.Rvz.4: Resend email templates (renewal nudge + upsell suggestion)
+- D.1.Rvz.3: refactor 10 highest-traffic edge fns to use emitAuditLog
+- D.1.Rvz.4: signed CSV/JSON audit-log-export endpoint
+- D.1.Rvz.5: admin + tenant Settings UI for audit log
+- D.2: cross-tenant benchmarking (gates on D.1 fully shipped)
+- D.4: Sentry integration (parallel-safe with D.2 once D.1 live)
+- C.8 + C.9: deferred per existing recommendation
+
+### Coordination note
+
+This update was written during a session that ran in safe-parallele mode with another session (Phase E.1 pricing UI on AiLys) on branch `claude/gracious-raman-a6383a`. That other session's work is orthogonal to this Reviuzy sweep. STATE.md edits from this commit do NOT touch any of E.1's territory (`src/pages/*`, `src/components/*`, `src/i18n/translations/*`, `src/data/help-articles.ts`, `.github/workflows/deploy.yml`, .planning/phase-e1/).
+
 ## 🚀 REVIUZY EXECUTION STARTED 2026-04-29 (D.3 + B.4.4.Rvz + C.5.Rvz partial shipped)
 
 Cross-repo execution kicked off after Phase D plans landed on AiLys. 3 PRs merged on Reviuzy main.
