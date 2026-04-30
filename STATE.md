@@ -4,6 +4,56 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-04-30 — `v0.11.0-d4-complete`
+
+D.4 observability + C.7.Rvz.4 renewal emails + 4 cron orchestrators end-to-end + Slack routing + health-check fn all shipped, tested, deployed.
+
+**Cumulative session totals:**
+
+| Repo | PRs merged |
+|---|---|
+| Reviuzy | 12 (#27 #28 #29 #30 #31 #32 #33 #34 #35 #36 #37 #38) |
+| AiLys | 7 STATE syncs (#38 #40 #41 #43 #45 #47 #49) + parallel-session E.x batches |
+
+**Vitest:** 730 → 799 (+69), 17 todo, 1 skipped, **zero regression cumulée**.
+
+**D.4 final state — production-ready:**
+- Edge fn observability scaffold (Result, wrapHandler, captureException) — live
+- 4 cron orchestrators wrapped + e2e validated DRY_RUN — live
+- Frontend `@sentry/react` + RootErrorBoundary — shipped (operator: VITE_SENTRY_DSN)
+- Schema drift refactors (3 cron fns: subscriptions table + auth.admin owner_email) — live
+- `captureException` × 14 catch sites across 13 fns — live
+- `/admin/errors` operator dashboard — live
+- Per-tenant Slack webhook routing (Agency tier) — shipped + deployed
+- 8 cross-repo proxies deployed
+- `_shared/tenantTier.ts` — single source of truth for tier mapping
+- `health-check` fn — 8 probes verified live (avg 390ms latency)
+
+**Sentry edge fn capture:** ACTIVE in prod (DSN set, edge fns redeployed)
+**`/admin/errors` dashboard:** ACTIVE (token + slugs configured for `reviuzy-edge-fns` project)
+**Health-check live:** all 8 probes green at `https://qucxhksrpqunlyjjvuae.supabase.co/functions/v1/health-check`
+
+**Operator backlog (manual, ~15 min total):**
+
+| Action | Effort |
+|---|---|
+| Set `VITE_SENTRY_DSN` in Cloudflare Pages env vars + redeploy | 5 min |
+| Create 2nd Sentry project `reviuzy-frontend` | 2 min |
+| Apply migration `20260506000000_add_slack_webhook_url.sql` (SQL Editor) | 1 min |
+| Set `slack_webhook_url` per Agency tenant (when needed) | 30 sec each |
+| Set `AILYS_SERVICE_SHARED_SECRET` (activates 3 cross-repo proxies) | 2 min |
+| pg_cron extension activation + cron schedule migrations | 5 min |
+| Set `ailys_tier` on tenants to make signals fire | 1 min |
+| Bascule `RENEWAL_SIGNALS_DRY_RUN=false` after 24-48h validation | 30 sec |
+| Wire monitoring service to `/functions/v1/health-check` | 5 min |
+
+**Pending tag:** `v0.11.0-d4-complete` at HEAD.
+
+**Next-session backlog:**
+- ~10 long-tail catch blocks (incremental, low ROI)
+- C.8 Reseller stack (gates on 5+ partner applications)
+- C.9 Health score (Q2 2026 retro window)
+
 ## ✨ D.4 FOLLOW-UP — tenant tier helper + health-check fn (Reviuzy PR #38)
 
 Two cleanup items shipped + deployed.
