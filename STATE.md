@@ -79,6 +79,45 @@ gh pr create --title "Phase E.18: blog content audit + operator-validated fixes"
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
 **Previous milestone:** `v0.3.0-arch-decided` · prior commit `2032f70`
 
+## 🏁 BACKLOG BATCH SHIPPED 2026-04-30 (Reviuzy PR #25, E.3 + D.1.Rvz.3 batch 2)
+
+Two complementary workstreams bundled in one Reviuzy PR.
+
+**Reviuzy [PR #25](https://github.com/tonyAZNboy/reviuzy/pull/25) (`claude/backlog-batch`):**
+
+### E.3 cross-repo proxies (Reviuzy <- AiLys observability)
+- New `_shared/adminStatsProxy.ts` helper factors the 130-line proxy boilerplate. Each proxy now ~8 lines.
+- `instant-ai-vis-stats-proxy` (calls AiLys `/api/admin/instant-ai-vis-stats`)
+- `quote-pdf-stats-proxy` (calls AiLys `/api/admin/quote-pdf-stats`)
+- Callers already on AiLys `ALLOWED_CALLERS` allowlist (Phase E.3 PR #8).
+
+### D.1.Rvz.3 batch 2 — SOC2 audit-log emit on 7 mutating fns
+
+| Fn | Action emitted |
+|---|---|
+| `apply-remediation` | `remediation.apply.success` / `.failed` |
+| `gbp-auto-publish-gate` | `gbp.auto_publish_gate.decided` |
+| `auto-reply-reviews` | `review.auto_reply.complete` |
+| `campaign-overage-billing` | `billing.overage.invoiced` / `.failed` |
+| `create-payment` | `billing.checkout.created` |
+| `customer-portal` | `billing.portal.opened` |
+| `facebook-oauth-callback` | `oauth.facebook.callback_*` |
+
+Reuses existing `emitAuditLog` helper (D.1.Rvz.2). PII-stripping inherited; tenant + actor passed when known.
+
+**Verification:**
+- `npx tsc --noEmit` clean (0 errors)
+- `npx vitest run`: 730 passed, 17 todo, 1 skipped (zero regressions vs baseline)
+- em-dash sweep clean
+
+**Operator follow-up:** edge fns are lazy-reloaded by Supabase post-merge. Optional explicit redeploy of the 9 touched fns documented in PR description.
+
+**Deferred to next session:**
+- D.4 Sentry intégration (~6h, needs SDK install + 30 catch-block refactors + `/admin/errors` dashboard)
+- pg_cron extension activation + cron schedule migrations
+- Bascule `RENEWAL_SIGNALS_DRY_RUN=false` après validation 24-48h
+- D.1.Rvz.3 remaining batches (more fns to instrument as catalog grows)
+
 ## 🟢 C.7.Rvz.4 RENEWAL EMAILS LIVE IN PROD 2026-04-30 (post-PR #23/#24, migrations applied)
 
 End-to-end activation of the renewal/upsell email pipeline:
