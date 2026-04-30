@@ -16,6 +16,15 @@ import ReactMarkdown from "react-markdown";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useLang } from "@/i18n/LangContext";
+import { isOnCooldown, recordDismissal } from "@/lib/cooldown";
+
+// Phase E.21 sensitivity constants. Module-level so the dismissal
+// localStorage key matches across the auto-show effect (line ~46) and
+// the X-click handler (line ~165). Keeping it inline in both places
+// previously was an inconsistency caught by the simplify review.
+const CHAT_DISMISS_KEY = "ailys_chat_widget_dismissed_at";
+const CHAT_COOLDOWN_HOURS = 24 * 7;
+const CHAT_AUTO_SHOW_MS = 120_000;
 
 export function LandingChatWidget() {
   const { t } = useLang();
@@ -38,17 +47,10 @@ export function LandingChatWidget() {
 
   // Phase E.21 sensitivity tuning: bump 45s -> 120s and respect a
   // 7-day dismissal cooldown. Operator complaint: chat widget popping
-  // mid-read was treated as a popup ad. The 120s + cooldown is enough
-  // for a deliberate "I want help" moment without ambushing readers.
+  // mid-read was treated as a popup ad.
   useEffect(() => {
-    const SUPPRESS_KEY = "ailys_chat_widget_dismissed_at";
-    const COOLDOWN_HOURS = 24 * 7;
-    const last = localStorage.getItem(SUPPRESS_KEY);
-    if (last) {
-      const hoursSince = (Date.now() - parseInt(last, 10)) / (1000 * 60 * 60);
-      if (hoursSince < COOLDOWN_HOURS) return;
-    }
-    const timer = setTimeout(() => setIsVisible(true), 120_000);
+    if (isOnCooldown(CHAT_DISMISS_KEY, CHAT_COOLDOWN_HOURS)) return;
+    const timer = setTimeout(() => setIsVisible(true), CHAT_AUTO_SHOW_MS);
     return () => clearTimeout(timer);
   }, []);
 
@@ -161,9 +163,7 @@ export function LandingChatWidget() {
           onClick={(e) => {
             e.stopPropagation();
             setWasClosedByUser(true);
-            // Phase E.21: persist dismissal so the 120s timer does not
-            // re-show the widget on every page load this week.
-            localStorage.setItem("ailys_chat_widget_dismissed_at", String(Date.now()));
+            recordDismissal(CHAT_DISMISS_KEY);
           }}
           className="absolute -top-2 -right-2 w-6 h-6 bg-muted rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors shadow-sm"
           aria-label={t.chat.ariaMinimize}>

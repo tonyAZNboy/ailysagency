@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { X, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/i18n/LangContext";
+import { isOnCooldown, recordDismissal } from "@/lib/cooldown";
 import { NewsletterSignup } from "./NewsletterSignup";
 
 /**
@@ -60,10 +61,7 @@ function isSuppressedRoute(): boolean {
 
 function isCurrentlySuppressed(): boolean {
   if (sessionStorage.getItem(SESSION_SHOWN_KEY)) return true;
-  const last = localStorage.getItem(SUPPRESS_KEY);
-  if (!last) return false;
-  const hoursSince = (Date.now() - parseInt(last, 10)) / (1000 * 60 * 60);
-  return hoursSince < SUPPRESS_HOURS;
+  return isOnCooldown(SUPPRESS_KEY, SUPPRESS_HOURS);
 }
 
 export function ExitIntentModal() {
@@ -110,8 +108,11 @@ export function ExitIntentModal() {
       // Velocity gate: must be a fast upward gesture (>= 200 px/s).
       if (lastY > 0 && lastT > 0) {
         const dy = lastY - e.clientY; // positive = moving up
-        const dt = (performance.now() - lastT) / 1000;
-        const velocity = dt > 0 ? dy / dt : 0;
+        // Clamp dt to a 10ms floor: sub-10ms samples produce wildly
+        // inflated velocity (1px / 0.5ms = 2000 px/s) and false-trigger
+        // on routine pointermove jitter. 10ms = ~1 frame at 100Hz.
+        const dt = Math.max((performance.now() - lastT) / 1000, 0.01);
+        const velocity = dy / dt;
         if (velocity < MIN_EXIT_VELOCITY_PX_PER_SEC) return;
       } else {
         // No prior pointermove sample (e.g. cursor never on page) -> do
@@ -140,7 +141,7 @@ export function ExitIntentModal() {
 
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem(SUPPRESS_KEY, String(Date.now()));
+    recordDismissal(SUPPRESS_KEY);
   };
 
   // Close on Escape
