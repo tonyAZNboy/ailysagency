@@ -53,6 +53,8 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 | E.1.1e Reviuzy scrub blog posts | tbd | 2 blog posts to rename + rewrite | deferred |
 | E.1.2 Neon -50% pricing cards | `a63db9e` | 67 rgba alpha halvings (ServicesSection 61 + PricingDriversSection 6), tsc clean, no layout change | shipped |
 | E.1.X cross-repo visibility-report-pdf | `cfd1752` | 12/12 smoke pass, CI gate 11 wired, 4 files / 980 insertions, tsc clean | shipped |
+| Archive Phase F + G brainstorm | `7d08a29` | tier-comparison.ts data layer + phase-f-g-archive.md (Social Search Velocity + Studio Pipeline parked) | shipped |
+| E.1.4 + E.1.5 + E.1.6 + E.1.7 detailed pricing page | `9252117` | /forfaits-complets + /pricing-details routes; sticky comparison grid 9 categories; engagement toggle 15%/20%; QC tax toggle; diff toggle; website grid + cancellation calculator; 90d guarantee section; honest 'not included' disclosure; tsc + build green; 530 insertions | shipped |
 | E.1.3 Landing condensed + engagement toggle | tbd | not started | deferred |
 | E.1.4 /forfaits-complets sticky grid | tbd | not started | deferred |
 | E.1.5 Website grid + cancellation calc | tbd | not started | deferred |
@@ -65,8 +67,8 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 
 ## Session 1 outcome (2026-04-29)
 
-**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2 + E.1.X (cross-repo visibility-report-pdf).
-**Total commits:** 7 on branch `claude/gracious-raman-a6383a`.
+**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2 + E.1.X (cross-repo visibility-report-pdf) + Archive F+G + E.1.4 + E.1.5 + E.1.6 + E.1.7 detailed pricing page.
+**Total commits:** 10 on branch `claude/gracious-raman-a6383a`.
 
 ### E.1.X cross-repo bonus (2026-04-29 same session)
 
