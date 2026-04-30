@@ -30,14 +30,14 @@ export const meta: BlogPostMeta = {
   },
   faqItems: [
     {
-      question: 'How does the AiLys AiLys Automation add-on tie into review velocity?',
+      question: 'How does the AiLys Automation add-on tie into review velocity?',
       answer:
         'AiLys Automation raises Google review velocity by automating the parts that owners forget on a busy week. NFC tap collection at the front desk, AI assisted draft suggestions inside the customer flow, auto-replies on every new review, and a monthly contest engine that the client runs to push spikes when needed. The AiLys engine then reads the new reviews into the GBP optimization layer so the keyword variety and recency signals lift the local pack score in the same week.',
     },
     {
       question: 'How much does AiLys Automation cost and how do I add it to my AiLys plan?',
       answer:
-        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,500 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the NFC stickers, the dashboard, the auto-reply workflow, the contest engine, and the legal template library.',
+        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,499 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the NFC stickers, the dashboard, the auto-reply workflow, the contest engine, and the legal template library.',
     },
     {
       question: 'Does AiLys Automation run my contest for me or do I run it?',
@@ -93,7 +93,7 @@ export function Content() {
 
       <h2 id="what-reviuzy-is-and-what-it-is-not">What AiLys Automation is and what it is not</h2>
       <p>
-        AiLys Automation is a reputation automation product. It collects reviews, drafts replies, monitors fakes, and pushes the data into the AiLys engine that reads recency and keyword variety as ranking inputs. It runs as a sister product to the AiLys local SEO platform, with a separate dashboard for the operator and a unified billing inside the AiLys account.
+        AiLys Automation is a reputation automation product. It collects reviews, drafts replies, monitors fakes, and pushes the data into the AiLys engine that reads recency and keyword variety as ranking inputs. It runs as the internal automation layer of the AiLys agency platform, with a unified dashboard and unified billing inside the AiLys account.
       </p>
       <p>
         AiLys Automation is not a content production service. It does not write blog posts. It does not run the operator's social media. It does not source photography for the Google Business Profile, because the photos are uploaded by the client through the AiLys client app to keep the provenance clean. AiLys Automation is also not a contest operator. The client runs the contest, and AiLys Automation provides the setup, the legal templates, and the help docs.
@@ -106,7 +106,7 @@ export function Content() {
         <p>The 100 dollar monthly price covers the full toolkit: dashboard access, NFC stickers, AI draft suggestions, auto-reply workflow, contest engine, legal template library, and fake review detection. There is no per-review surcharge and no per-location surcharge for single-location businesses. Multi-location pricing is calculated on the AiLys pricing page based on the location count.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the AiLys plans and where AiLys Automation is bundled or added on top, from Starter at 300 dollars to Agency at 2,500 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the AiLys plans and where AiLys Automation is bundled or added on top, from Starter at 300 dollars to Agency at 2,499 dollars CAD." />
 
       <SectionDivider />
 

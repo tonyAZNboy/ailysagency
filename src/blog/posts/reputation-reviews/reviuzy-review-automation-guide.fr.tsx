@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte AiLys Automation et comment l'ajouter à mon forfait AiLys?",
       answer:
-        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 500 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut les autocollants NFC, le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques.",
+        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 499 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut les autocollants NFC, le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques.",
     },
     {
       question: "AiLys Automation opère-t-il mon concours ou est-ce moi qui l'opère?",
@@ -81,7 +81,7 @@ export function ContentFr() {
 
       <h2 id="ce-qu-est-reviuzy-et-ce-qu-il-n-est-pas">Ce qu'est AiLys Automation et ce qu'il n'est pas</h2>
       <p>
-        AiLys Automation est un produit d'automatisation de la réputation. Il collecte les avis, rédige les brouillons de réponse, surveille les avis bidons, et pousse les données dans le moteur AiLys qui lit la récence et la variété des mots-clés comme intrants de classement. Il fonctionne comme produit jumeau de la plateforme SEO local AiLys, avec un tableau de bord séparé pour l'opérateur et une facturation unifiée à l'intérieur du compte AiLys.
+        AiLys Automation est un produit d'automatisation de la réputation. Il collecte les avis, rédige les brouillons de réponse, surveille les avis bidons, et pousse les données dans le moteur AiLys qui lit la récence et la variété des mots-clés comme intrants de classement. Il fonctionne comme la couche d'automatisation interne de la plateforme agence AiLys, avec un tableau de bord unifié et une facturation unifiée à l'intérieur du compte AiLys.
       </p>
       <p>
         AiLys Automation n'est pas un service de production de contenu. Il ne rédige pas d'articles de blogue. Il n'opère pas les réseaux sociaux du commerçant. Il ne fournit pas la photographie pour la fiche Google Business Profile, parce que les photos sont téléversées par le client via l'application AiLys Automation pour garder la provenance propre. AiLys Automation n'est pas non plus un opérateur de concours. Le client opère le concours, et AiLys Automation fournit la configuration, les gabarits juridiques et les guides d'aide.
@@ -94,7 +94,7 @@ export function ContentFr() {
         <p>Le prix mensuel de 100 dollars couvre la trousse complète : accès au tableau de bord, autocollants NFC, suggestions de brouillon IA, flux de réponse automatique, moteur de concours, bibliothèque de gabarits juridiques et détection d'avis bidons. Il n'y a pas de surcharge par avis ni par emplacement pour les commerces à un seul emplacement. Les tarifs multi-emplacements sont calculés sur la page de tarifs AiLys selon le nombre d'emplacements.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où AiLys Automation est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où AiLys Automation est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

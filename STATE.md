@@ -2,6 +2,78 @@
 
 > **🚨 IF WORKING ON PHASE C/11/12 OR ANY NEW FEATURE TOUCHING AUTH/DATA/CRON/ADMIN/HMAC/RLS:** invoke `/iso-gsd-delivery` BEFORE writing any code. The skill enforces GSD planning artefacts, ISO gates per commit, agent fidelity verification, gov-grade security, cost guardrails, multi-tenant isolation tests, DRY_RUN mode, locale parity, STATE.md same-commit, no-new-deps, time-box, migration reversibility, and a binary Definition of Done. CLAUDE.md hard rule #14 binds this. Skip = NOT MERGEABLE.
 
+---
+
+## 🟡 NEXT SESSION PICKUP — blog content audit (Phase E.18)
+
+**Status:** end of autopilot session 2026-04-30. v0.8.3-legal-entity-disclosure tagged. 2 blog posts (`ailys-reviuzy-addon-deep-dive` EN+FR + `reviuzy-review-automation-guide` EN+FR) had Reviuzy → AiLys Automation bulk replace + price corrections (Core 799→600, Growth 1499→1200, Agency 2500→2499, add-on math 899→700, 1599→1300).
+
+**Operator must validate these 10 architectural claims before next merge to main.** They were inherited from pre-rebrand Reviuzy product copy and may be stale or inaccurate post-pivot to AiLys-only public brand.
+
+### Validation questions (operator answers Yes/No/clarification per number)
+
+1. **Standalone consumer app** on App Store/Google Play with free tier — still real, or leftover marketing pre-AiLys?
+2. **"$20/mo standalone subscription"** — still offered? If no, blog must remove the mention (current $100/mo add-on is the only path).
+3. **Video winner picker** — does the contest engine actually generate a winner-announcement video? Or is this a roadmap claim?
+4. **20+ country legal terms generator** — exact country count supported today (the blog says 20+, may be stale).
+5. **NFC stickers ship in welcome kit** — true for all tiers, or only Agency? Blog implies all tiers.
+6. **60-70% NFC tap → posted review conversion rate** — verified data or estimate? If estimate, soften to "industry-typical 40-70%" to avoid exact-figure overpromise without solid data.
+7. **Agency tier features:** multi-location dashboard + white-label + dedicated strategist + weekly reporting — all still bundled?
+8. **Agency contests cadence**: 1/2/4 per month per business — exact, or different now?
+9. **Fake review detection** — feature live in current AiLys Automation platform, or roadmap?
+10. **GBP attribute manager** — feature live, or roadmap?
+
+### How to act on the answers
+
+Once operator responds with Yes/No/clarification per question, the next session runs:
+
+```bash
+# In the worktree (or fresh clone)
+git checkout main
+git pull origin main
+git checkout -b claude/blog-content-audit-fix
+
+# Apply the answers as targeted edits to the 4 blog post files:
+# - src/blog/posts/ailys-product/ailys-reviuzy-addon-deep-dive.{tsx,fr.tsx}
+# - src/blog/posts/reputation-reviews/reviuzy-review-automation-guide.{tsx,fr.tsx}
+
+# Verify
+npx tsc --noEmit
+npm run build
+grep -c "Reviuzy" src/blog/posts/ailys-product/ailys-reviuzy-addon-deep-dive.tsx  # should be 0 or only intentional Reviuzy Inc mentions
+
+# Commit + PR
+git add src/blog/posts/
+git commit -m "feat(e18): blog content audit fixes per operator validation"
+gh pr create --title "Phase E.18: blog content audit + operator-validated fixes"
+```
+
+### Files modified in PR #26 (E.1.1d/e legal scrub) on 2026-04-30
+
+| File | Type of change |
+|---|---|
+| `src/pages/legal/PrivacyPolicy.tsx` | "operated by Reviuzy Inc" disclosure added section 1 |
+| `src/pages/legal/TermsOfService.tsx` | Same disclosure section 2 |
+| `src/pages/legal/CookiePolicy.tsx` | Footer copyright + contact card updated |
+| `src/pages/legal/content/PrivacyContentFr.tsx` | FR-CA disclosure |
+| `src/pages/legal/content/TermsContentFr.tsx` | FR-CA disclosure |
+| `src/pages/legal/content/CookieContentFr.tsx` | FR-CA footer |
+| `functions/api/chat-advisor.ts` | SYSTEM_PROMPT removed "Sister product: Reviuzy SaaS", hard rule #5 updated |
+| `src/blog/posts/ailys-product/ailys-reviuzy-addon-deep-dive.{tsx,fr.tsx}` | 102 Reviuzy → AiLys Automation, prices corrected |
+| `src/blog/posts/reputation-reviews/reviuzy-review-automation-guide.{tsx,fr.tsx}` | Same |
+| `src/data/glossary.ts` | "sister product" → "internal automation platform" |
+| `src/i18n/translations/{en,fr}.ts` | srSeo "sister product" wording removed |
+| `src/integrations/audit-source/client.ts` | Comment updated |
+
+### Reviuzy Inc legal entity disclosure (now live in main)
+
+- **AiLys Agency** is the trade name (registered at REQ Quebec as "nom commercial") under which **Reviuzy Inc** operates.
+- Privacy / Terms / Cookies all clarify the entity relationship.
+- Chat-advisor SYSTEM_PROMPT instructs to refer to "AiLys Automation" (internal platform) and avoid "Reviuzy" by name; Reviuzy Inc legal entity disclosed only when client asks about contracts/invoices.
+- Blog post URL slugs preserved (`/blog/ailys-reviuzy-addon-deep-dive` etc.) to avoid 301 redirect chain + SEO history loss.
+
+---
+
 
 **Last updated:** 2026-04-29 (PHASE C AUTOMATION FULL SWEEP: C.1 Day-1 onboarding PDF + C.2 cron primitives shipped on AiLys; C.3 GBP auto-publish gate + C.4 anomaly auto-remediation shipped on Reviuzy via PR #6 merged at `21b3d59`; C.5 Monthly Visibility Report AiLys-side help articles + GSD spec shipped, Reviuzy-side fully specced. Cross-repo: 14 commits, 104 vitest+smoke assertions, 9 mandatory CI gates on AiLys, full Reviuzy test suite passing 363/363. AiLys help articles for C.3 + C.4 + C.5 live in production. New `iso-gsd-delivery` skill enforces 13 ISO-grade sections per sub-phase. All infrastructure (HMAC primitives, idempotency, kill switches, audit logs, RLS, single-use tokens, constant-time compare) gov-grade. End-of-session tag pending: `v0.5.0-automation-c1-c4`.)
 **Branch:** `main` · **Active milestone tag:** `v0.4.0-blog-launch` at commit `9b0f61f` · **Pending tag:** `v0.5.0-automation-c1-c4` at HEAD · **Reviuzy main HEAD:** `21b3d59` (PR #6 merge)
