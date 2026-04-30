@@ -194,7 +194,7 @@ const dentists: Industry = {
         step: "07",
         title: "Review velocity through verified channels",
         description:
-          "Google reviews via NFC tap-to-review (powered by our Reviuzy engine), responded to within 24 hours. Volume + freshness + response rate are the three signals AI engines weight for healthcare.",
+          "Google reviews via NFC tap-to-review (powered by our AiLys Automation engine), responded to within 24 hours. Volume + freshness + response rate are the three signals AI engines weight for healthcare.",
       },
       {
         step: "08",
@@ -347,7 +347,7 @@ const dentists: Industry = {
         step: "07",
         title: "Vélocité d'avis via canaux vérifiés",
         description:
-          "Avis Google via NFC tap-to-review (alimenté par notre moteur Reviuzy), réponses en moins de 24 h. Volume, fraîcheur, taux de réponse : les trois signaux que les moteurs IA pondèrent pour la santé.",
+          "Avis Google via NFC tap-to-review (alimenté par notre moteur AiLys Automation), réponses en moins de 24 h. Volume, fraîcheur, taux de réponse : les trois signaux que les moteurs IA pondèrent pour la santé.",
       },
       {
         step: "08",
@@ -830,7 +830,7 @@ const restaurants: Industry = {
         step: "07",
         title: "Review velocity engine",
         description:
-          "Google reviews via NFC tap-to-review at the table or with the bill (powered by Reviuzy). 20-50 fresh reviews per month, responded within 48 hours, with neighborhood mentions in response text.",
+          "Google reviews via NFC tap-to-review at the table or with the bill (powered by AiLys Automation). 20-50 fresh reviews per month, responded within 48 hours, with neighborhood mentions in response text.",
       },
       {
         step: "08",
@@ -864,11 +864,11 @@ const restaurants: Industry = {
     ],
     recommendedTier: "core",
     recommendationReason:
-      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through Reviuzy NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Agency ($2,500/mo) which includes the full Reviuzy contest engine.",
+      "Restaurants benefit most from Core ($600/mo) because the schema deployment, weekly review velocity through AiLys Automation NFC, and 5 monthly citations to food-specific directories generate measurable AI citation lift in 14 to 30 days. High-volume or multi-location restaurants benefit from Agency ($2,500/mo) which includes the full AiLys Automation contest engine.",
     faq: [
       {
         q: "How long until my restaurant gets cited by ChatGPT?",
-        a: "Typically 14 to 30 days for neighborhood-specific queries. Restaurant verticals are the fastest because review velocity is the dominant signal and we generate 20-50 fresh reviews per month through Reviuzy NFC.",
+        a: "Typically 14 to 30 days for neighborhood-specific queries. Restaurant verticals are the fastest because review velocity is the dominant signal and we generate 20-50 fresh reviews per month through AiLys Automation NFC.",
       },
       {
         q: "Do you handle the OpenTable and Resy connection?",
@@ -983,7 +983,7 @@ const restaurants: Industry = {
         step: "07",
         title: "Moteur de vélocité d'avis",
         description:
-          "Avis Google via NFC tap-to-review à table ou avec l'addition (alimenté par Reviuzy). 20 à 50 avis frais par mois, réponses en 48 h, avec mentions de quartier dans les réponses.",
+          "Avis Google via NFC tap-to-review à table ou avec l'addition (alimenté par AiLys Automation). 20 à 50 avis frais par mois, réponses en 48 h, avec mentions de quartier dans les réponses.",
       },
       {
         step: "08",
@@ -1017,11 +1017,11 @@ const restaurants: Industry = {
     ],
     recommendedTier: "core",
     recommendationReason:
-      "Les restaurants bénéficient le plus du forfait Core (600 $/mois) parce que le déploiement schema, la vélocité d'avis hebdomadaire via Reviuzy NFC et les 5 citations mensuelles aux annuaires alimentaires génèrent une augmentation mesurable des citations IA en 14 à 30 jours. Les restaurants à fort volume ou multi-emplacements bénéficient d'Agency (1 299 $/mois) qui inclut le moteur complet de concours Reviuzy.",
+      "Les restaurants bénéficient le plus du forfait Core (600 $/mois) parce que le déploiement schema, la vélocité d'avis hebdomadaire via AiLys Automation NFC et les 5 citations mensuelles aux annuaires alimentaires génèrent une augmentation mesurable des citations IA en 14 à 30 jours. Les restaurants à fort volume ou multi-emplacements bénéficient d'Agency (1 299 $/mois) qui inclut le moteur complet de concours AiLys Automation.",
     faq: [
       {
         q: "Combien de temps avant que mon restaurant soit cité par ChatGPT?",
-        a: "Habituellement 14 à 30 jours pour les requêtes spécifiques au quartier. Les secteurs restos sont les plus rapides parce que la vélocité d'avis est le signal dominant et nous générons 20 à 50 avis frais par mois via Reviuzy NFC.",
+        a: "Habituellement 14 à 30 jours pour les requêtes spécifiques au quartier. Les secteurs restos sont les plus rapides parce que la vélocité d'avis est le signal dominant et nous générons 20 à 50 avis frais par mois via AiLys Automation NFC.",
       },
       {
         q: "Gérez-vous la connexion OpenTable et Resy?",
@@ -1241,8 +1241,8 @@ function buildPlaceholderContent(
         step: "07",
         title: T(`Review velocity engine`, `Moteur de vélocité d'avis`),
         description: T(
-          `Google reviews via Reviuzy NFC, 10-30 fresh per month, 24-48 hour response time.`,
-          `Avis Google via NFC Reviuzy, 10 à 30 frais par mois, temps de réponse 24 à 48 h.`,
+          `Google reviews via AiLys Automation NFC, 10-30 fresh per month, 24-48 hour response time.`,
+          `Avis Google via NFC AiLys Automation, 10 à 30 frais par mois, temps de réponse 24 à 48 h.`,
         ),
       },
       {
