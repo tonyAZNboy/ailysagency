@@ -4,6 +4,63 @@
 
 ---
 
+## 🟢 D.1.Rvz.3 BATCH 3 + D.4 PART 6 — Slack routing for Agency tier (Reviuzy PR #36)
+
+Two complementary workstreams shipped + deployed in one PR.
+
+**Reviuzy [PR #36](https://github.com/tonyAZNboy/reviuzy/pull/36) (`claude/d1-rvz3-batch3`):**
+
+### D.1.Rvz.3 batch 3: audit log on 4 mutating fns
+
+| Fn | Action emitted |
+|---|---|
+| `send-launch-email` | `launch_email.test.sent` / `launch_email.broadcast.sent` (sent/total/error_count) |
+| `send-marketing-email` | `marketing_email.broadcast.sent` (batch outcome) |
+| `campaign-entry` | `campaign.entry.created` (campaign_id) |
+| `detect-anomalies` | `anomaly.detect.complete` (per-tenant detected/inserted/emailed) + wrapHandler |
+
+Each fn also wires `captureException` in its top-level catch block.
+
+### D.4 part 6: per-tenant Slack routing (Agency tier only)
+
+- New `_shared/slackNotify.ts`: `notifySlack(supabase, tenantId, payload)` reads `tenants.slack_webhook_url` + `ailys_tier`. Only fires when tier='agency' AND webhook starts with `https://hooks.slack.com/`. Fail-soft on every error path.
+- New `_shared/slackNotify.test.ts`: 10 vitest cases covering URL validation, tier gate, webhook gate, 200/5xx/network paths.
+- New migration `20260506000000_add_slack_webhook_url.sql`: idempotent `ADD COLUMN IF NOT EXISTS` on tenants. No DB-level CHECK; app-layer validation via `isValidSlackWebhook()` enforces the Slack domain.
+- Wired into `compute-renewal-signals` at strength >= 0.6 (strategist alert threshold). Severity: `warning` if >= 0.8 else `info`. Fire-and-forget alongside the existing alerts insert.
+
+**Test posture:** vitest 761 → 771 (+10), 17 todo, 1 skipped. tsc clean. em-dash audit clean.
+
+**Operator follow-up to flip Slack on for an Agency tenant:**
+
+1. Slack: Apps → Incoming Webhooks → Add to channel → copy URL
+2. Apply migration via Supabase SQL Editor:
+   ```sql
+   ALTER TABLE public.tenants ADD COLUMN IF NOT EXISTS slack_webhook_url TEXT;
+   ```
+3. Set the webhook on the tenant:
+   ```sql
+   UPDATE tenants
+   SET slack_webhook_url = 'https://hooks.slack.com/services/...'
+   WHERE id = '<agency-tenant-uuid>';
+   ```
+4. Verify `ailys_tier = 'agency'` on that tenant. Other tiers no-op silently.
+5. Trigger `compute-renewal-signals` (manual invoke) and watch the Slack channel for the next strength >= 0.6 signal.
+
+## D.4 STATUS — ~95% IMPLEMENTED
+
+| Item | Status |
+|---|---|
+| Edge fn observability scaffold (Result, wrapHandler, captureException) | ✅ live |
+| 4 cron orchestrators wrapped + redeployed | ✅ live |
+| Frontend `@sentry/react` init + RootErrorBoundary capture | ✅ shipped, inactive until Cloudflare Pages env vars set |
+| Schema drift refactors (3 cron fns) | ✅ live |
+| `captureException` in critical fn catch blocks (10 sites across 8 fns) | ✅ live |
+| `/admin/errors` operator dashboard + sentry-issues-proxy | ✅ live (Sentry secrets set) |
+| Per-tenant Slack webhook routing (Agency tier) | ✅ live (operator action: set webhook URL per tenant) |
+| Refactor remaining ~10 catch blocks across non-critical fns | ⏳ deferred (incremental, low ROI) |
+
+**Remaining D.4 work is purely incremental** (touching the long tail of non-critical fns one at a time). The capture path + dashboard + per-tenant routing are all production-ready.
+
 ## 🟢 D.4 PART 5 — `/admin/errors` operator dashboard live (Reviuzy PR #35)
 
 Makes Sentry actionable from inside Reviuzy. Operators triage live issues without pivoting to sentry.io for every alert.
