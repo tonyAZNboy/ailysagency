@@ -3,7 +3,7 @@ import { Link, useParams, Navigate, useLocation } from 'react-router-dom'
 import { ChevronRight, Clock, Calendar, ArrowLeft } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { getCategoryInfo } from '../categories'
-import { BLOG_POSTS } from '../registry'
+import { BLOG_POSTS, getLocalizedMeta, getLocalizedContent } from '../registry'
 import type { BlogPostEntry } from '../types'
 import { ReadingProgress } from './ReadingProgress'
 import { BlogJsonLd } from './BlogJsonLd'
@@ -17,28 +17,48 @@ import { HreflangTags } from './HreflangTags'
 
 const SITE_URL = 'https://www.ailysagency.ca'
 
+/* Slug-first lang detection: the lang prefix in the path is the source of
+   truth for which sister Content/ContentFr to render and which getLocalizedMeta
+   variant to read, independent of any LangContext resolution timing. */
+function detectLangFromPath(pathname: string): string {
+  if (pathname.startsWith('/fr')) return 'fr'
+  if (pathname.startsWith('/vi')) return 'vi'
+  if (pathname.startsWith('/es')) return 'es'
+  if (pathname.startsWith('/zh')) return 'zh'
+  if (pathname.startsWith('/ar')) return 'ar'
+  if (pathname.startsWith('/ru')) return 'ru'
+  return 'en'
+}
+
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>()
+  const { pathname } = useLocation()
   const post = BLOG_POSTS.find((p) => p.slug === slug)
 
   if (!post) {
     return <Navigate to="/blog" replace />
   }
 
-  return <BlogPostContent post={post} />
+  const lang = detectLangFromPath(pathname)
+  return <BlogPostContent post={post} lang={lang} />
 }
 
-function BlogPostContent({ post }: { post: BlogPostEntry }) {
+function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) {
   const [Content, setContent] = useState<React.ComponentType | null>(null)
   const category = getCategoryInfo(post.category)
 
+  /* Localized meta (title, metaDescription, tldr, headings, faqItems) sourced
+     from the FR sister file when lang='fr', falling back to EN canonical for
+     all other locales until their sister files ship. */
+  const localizedMeta = getLocalizedMeta(post, lang)
+
   const formattedDate = new Date(post.publishedDate).toLocaleDateString(
-    'en-US',
+    lang === 'fr' ? 'fr-CA' : 'en-US',
     { month: 'long', day: 'numeric', year: 'numeric' },
   )
 
   const ogImageUrl = `${SITE_URL}/blog-images/og/${post.slug}.png`
-  const postUrl = `${SITE_URL}/blog/${post.slug}`
+  const postUrl = lang === 'en' ? `${SITE_URL}/blog/${post.slug}` : `${SITE_URL}/${lang}/blog/${post.slug}`
 
   // Article-specific OG meta tags (set imperatively because Helmet only handles
   // a single set, and we layer additional E-E-A-T tags here).
@@ -68,33 +88,43 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
     }
   }, [post.publishedDate, post.updatedDate, category?.label])
 
-  // Lazy-load content
+  // Render the localized body when lang='fr' and a FR sister ships ContentFr
+  // (eager-resolved at build time via the registry glob). Otherwise lazy-load
+  // the EN Content from the canonical post.load() chunk. Other locales fall
+  // back to EN until their sister files ship.
   useEffect(() => {
     let cancelled = false
-    post.load().then((mod) => {
-      if (!cancelled) setContent(() => mod.Content)
+    const FrContent = getLocalizedContent(post.slug, lang)
+    if (FrContent) {
+      setContent(() => FrContent)
+      return
+    }
+    post.load().then((mod: { Content?: React.ComponentType }) => {
+      if (cancelled) return
+      setContent(() => mod.Content ?? null)
     })
     return () => {
       cancelled = true
     }
-  }, [post])
+  }, [post, lang])
 
   return (
     <div className="min-h-screen bg-[#0a0e1a]">
       <Helmet>
-        <title>{post.title}</title>
-        <meta name="description" content={post.metaDescription} />
+        <html lang={lang} />
+        <title>{localizedMeta.title}</title>
+        <meta name="description" content={localizedMeta.metaDescription} />
         <link rel="canonical" href={postUrl} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:title" content={localizedMeta.title} />
+        <meta property="og:description" content={localizedMeta.metaDescription} />
         <meta property="og:url" content={postUrl} />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_US'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.metaDescription} />
+        <meta name="twitter:title" content={localizedMeta.title} />
+        <meta name="twitter:description" content={localizedMeta.metaDescription} />
         <meta name="twitter:image" content={ogImageUrl} />
       </Helmet>
 
@@ -105,18 +135,18 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
       <div className="mx-auto max-w-6xl px-4 py-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8 flex-wrap">
-          <Link to="/" className="hover:text-white/70 transition-colors">
-            Home
+          <Link to={lang === 'en' ? '/' : `/${lang}`} className="hover:text-white/70 transition-colors">
+            {lang === 'fr' ? 'Accueil' : 'Home'}
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
-          <Link to="/blog" className="hover:text-white/70 transition-colors">
-            Blog
+          <Link to={lang === 'en' ? '/blog' : `/${lang}/blog`} className="hover:text-white/70 transition-colors">
+            {lang === 'fr' ? 'Journal' : 'Blog'}
           </Link>
           {category && (
             <>
               <ChevronRight className="h-3.5 w-3.5" />
               <Link
-                to={`/blog/category/${post.category}`}
+                to={lang === 'en' ? `/blog/category/${post.category}` : `/${lang}/blog/category/${post.category}`}
                 className="hover:text-white/70 transition-colors"
               >
                 {category.label}
@@ -124,13 +154,13 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
             </>
           )}
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="text-white/60 line-clamp-1">{post.title}</span>
+          <span className="text-white/60 line-clamp-1">{localizedMeta.title}</span>
         </nav>
 
         {/* Header */}
         <header className="max-w-3xl">
           <h1 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl leading-tight">
-            {post.title}
+            {localizedMeta.title}
           </h1>
 
           <div className="mt-6 flex items-center gap-4 flex-wrap">
@@ -158,12 +188,12 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
             {/* Read time */}
             <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-400">
               <Clock className="h-3 w-3" />
-              {post.readTimeMinutes} min read
+              {post.readTimeMinutes} {lang === 'fr' ? 'min de lecture' : 'min read'}
             </span>
 
             {/* Share */}
             <div className="ml-auto">
-              <ShareButtons url={postUrl} title={post.title} />
+              <ShareButtons url={postUrl} title={localizedMeta.title} />
             </div>
           </div>
         </header>
@@ -171,14 +201,14 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
         {/* TL;DR */}
         <div className="mt-8 max-w-3xl rounded-2xl border border-white/10 border-l-4 border-l-cyan-500 bg-white/[0.02] backdrop-blur-sm p-5">
           <p className="text-sm font-semibold text-cyan-400 mb-1">TL;DR</p>
-          <p className="text-white/70 italic leading-relaxed">{post.tldr}</p>
+          <p className="text-white/70 italic leading-relaxed">{localizedMeta.tldr}</p>
         </div>
 
         {/* Hero image */}
         <div className="mt-8 max-w-3xl overflow-hidden rounded-2xl">
           <img
             src={post.images.hero}
-            alt={post.title}
+            alt={localizedMeta.title}
             className="w-full object-cover"
             loading="eager"
             decoding="async"
@@ -215,17 +245,17 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
           </article>
 
           {/* ToC sidebar */}
-          {post.headings.length > 0 && (
+          {localizedMeta.headings.length > 0 && (
             <aside className="hidden lg:block w-64 shrink-0">
-              <TableOfContents headings={post.headings} />
+              <TableOfContents headings={localizedMeta.headings} />
             </aside>
           )}
         </div>
 
         {/* Mobile ToC (floating) */}
-        {post.headings.length > 0 && (
+        {localizedMeta.headings.length > 0 && (
           <div className="lg:hidden">
-            <TableOfContents headings={post.headings} />
+            <TableOfContents headings={localizedMeta.headings} />
           </div>
         )}
 
@@ -235,9 +265,9 @@ function BlogPostContent({ post }: { post: BlogPostEntry }) {
         </div>
 
         {/* FAQ */}
-        {post.faqItems.length > 0 && (
+        {localizedMeta.faqItems.length > 0 && (
           <div className="max-w-3xl">
-            <BlogFAQ items={post.faqItems} />
+            <BlogFAQ items={localizedMeta.faqItems} />
           </div>
         )}
 

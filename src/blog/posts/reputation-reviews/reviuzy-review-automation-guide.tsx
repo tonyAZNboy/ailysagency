@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys Automation review automation, the AiLys add-on guide for local owners',
   metaDescription:
     'How the AiLys Automation add-on automates Google review velocity for AiLys clients. NFC taps, AI drafts, auto-replies, contests, fake review flags, GBP wiring.',
-  tldr: 'AiLys Automation is the AiLys reputation add-on at 100 dollars CAD per month, bundled into the Agency tier. It handles NFC tap-to-review collection, AI assisted draft suggestions, auto-replies on every Google review, a contest engine with legal templates the client runs in-house, fake review detection, and direct GBP wiring. The point is to lift review velocity to the 4 to 6 fresh reviews per month range without breaking Google policy.',
+  tldr: 'AiLys Automation is the AiLys reputation add-on available on every AiLys tier as a 100 dollars CAD per month add-on, and bundled at no extra cost in the Agency tier. It handles NFC tap-to-review collection, AI-assisted bullet-pick drafting, auto-replies on every Google review, a contest engine with automated draws and legal templates the client runs in-house, fake review detection, and direct GBP wiring. The frictionless flow (NFC tap, customer picks the bullets that match their experience, AI generates three review drafts the customer chooses from, one-click paste into the GBP review form) lifts review velocity well beyond the 1-2 per month baseline, with high-traffic locations realistically reaching 4-6 fresh reviews per week.',
   category: 'reputation-reviews',
   tags: ['reviuzy', 'review automation', 'ailys', 'gbp', 'reputation', 'review velocity'],
   publishedDate: '2026-03-05',
@@ -78,14 +78,14 @@ export function Content() {
   return (
     <article>
       <p>
-        AiLys Automation is the AiLys reputation add-on at 100 dollars CAD per month, bundled at no extra cost in the Agency tier. It is the piece that ties Google review velocity into a daily habit instead of a quarterly project. The product covers NFC tap-to-review collection at the counter, AI assisted draft suggestions inside the customer flow, auto-replies on every new Google review, a monthly contest engine the client runs in-house, fake review detection with a flag workflow, and direct wiring into GBP and the AiLys AI Visibility engine. Here is how each piece fits and where the agency draws the line on what is shipped versus what the operator owns.
+        AiLys Automation is the AiLys reputation add-on available on every AiLys tier as a 100 dollars CAD per month add-on, and bundled at no extra cost in the Agency tier. It is the piece that ties Google review velocity into a daily habit instead of a quarterly project. The product covers NFC tap-to-review collection at the counter, AI-assisted bullet-pick drafting inside the customer flow, auto-replies on every new Google review, a contest engine with automated draws the client runs in-house, fake review detection with a flag workflow, and direct wiring into GBP and the AiLys AI Visibility engine. Here is how each piece fits and where the agency draws the line on what is shipped versus what the operator owns.
       </p>
 
       <StatHighlight
         stats={[
-          { value: '$100 CAD', label: 'AiLys Automation add-on monthly price' },
-          { value: 'Agency tier', label: 'Bundled at no extra cost' },
-          { value: '4 to 6', label: 'Fresh reviews per month target' },
+          { value: '$100 CAD', label: 'Add-on for every AiLys tier (bundled in Agency)' },
+          { value: '4-6 / week', label: 'Realistic ceiling at high-traffic locations' },
+          { value: '1-click', label: 'Customer paste into GBP review form' },
         ]}
       />
 
@@ -133,7 +133,10 @@ export function Content() {
 
       <h2 id="ai-assisted-drafting-inside-the-customer-flow">AI assisted drafting inside the customer flow</h2>
       <p>
-        Customers often want to leave a review but freeze on the empty text box. The AiLys Automation AI draft suggestion shows a starter sentence based on the service the customer received, the staff name they interacted with, and the visit context. The customer sees three suggested sentences and can pick one as a starting point or write the review from scratch. The AI never writes the full review and never submits without the customer typing.
+        Customers often want to leave a review but freeze on the empty text box. The AiLys Automation flow removes that friction in three steps. Step one, after the NFC tap the landing page surfaces a short bullet list of "what did you like?" prompts (food quality, speed of service, staff name, ambiance, value, specific dish, etc.) keyed to the business category. The customer taps one or several bullets that match their experience. Step two, the AI generates three full review drafts based on the picked bullets, each with a different voice and length. Step three, the customer picks the one that sounds most like them, taps "Use this", and the page hands off to the Google Business Profile review form with the text already pasted, ready to submit in one click.
+      </p>
+      <p>
+        The AI never writes the full review without the bullet picks, and the customer can always edit the chosen draft before submitting. The whole flow runs in under thirty seconds from tap to submit, which is why high-traffic locations realistically reach 4-6 fresh reviews per week (the ceiling depends on counter foot traffic, NFC card placement, and staff prompting). The 1-2 per month baseline is what most operators see without any review automation at all.
       </p>
       <p>
         The reason this matters for AI Visibility is that review text is now a citation surface for AI engines. ChatGPT, Perplexity, Gemini, and Google AIO all parse review text when summarizing a local business. Reviews that mention specific services and staff names feed those summaries with concrete language. Reviews that say only "great service" feed nothing.
@@ -240,7 +243,7 @@ export function Content() {
         The 100 dollar monthly price pays for itself when the velocity lift drives one extra customer per month. For a dental clinic with a 1,200 dollar lifetime value per patient, that is a 12 to 1 return inside the first quarter. For a restaurant with a 60 dollar average ticket and a 30 percent return rate, the math is closer to 2 to 1, which is still a defensible spend.
       </p>
       <p>
-        The owners who get the most lift are the ones who treat AiLys Automation as a daily habit. The dashboard becomes the morning email check and the post-lunch reply pass. The strategist on the AiLys side tracks the velocity in the weekly report and adjusts the GBP optimization layer when the review keyword mix shifts. The combined effect is a local pack score that climbs steadily across one quarter.
+        The owners who get the most lift are the ones who treat AiLys Automation as a daily habit. The dashboard becomes the morning email check and the post-lunch reply pass. The strategist on the AiLys side tracks the velocity in the monthly report (Growth and Agency tiers) and adjusts the GBP optimization layer when the review keyword mix shifts. The combined effect is a local pack score that climbs steadily across one quarter.
       </p>
       <p>
         The owners who get the least lift are the ones who buy AiLys Automation and forget about it. The dashboard goes unread, the auto-replies stack up unsent, and the contest engine never launches. In that case the spend is wasted, and the honest recommendation is to cancel the add-on and revisit it after the operator has the bandwidth to give it five minutes a day.

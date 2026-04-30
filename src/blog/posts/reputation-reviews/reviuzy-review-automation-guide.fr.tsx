@@ -16,7 +16,7 @@ export const metaFr: BlogPostMeta = {
   title: "AiLys Automation, le guide du module d'automatisation des avis pour AiLys",
   metaDescription:
     "Comment le module AiLys Automation automatise la vélocité des avis Google pour les clients AiLys. Collecte NFC, brouillons assistés par IA, réponses automatisées, moteur de concours, détection d'avis bidons, branchement GBP.",
-  tldr: "AiLys Automation est le module de réputation AiLys à 100 dollars CAD par mois, inclus dans le palier Agency. Il couvre la collecte d'avis par tap NFC, les brouillons assistés par IA dans le flux client, les réponses automatisées sur chaque avis Google, un moteur de concours avec gabarits juridiques que le client opère à l'interne, la détection d'avis bidons, et le branchement direct au GBP. L'objectif est de hausser la vélocité à 4 à 6 avis frais par mois sans briser la politique Google.",
+  tldr: "AiLys Automation est le module de réputation AiLys disponible sur tous les forfaits AiLys en module à 100 dollars CAD par mois, et inclus sans frais dans le palier Agency. Il couvre la collecte d'avis par tap NFC, la rédaction IA par sélection de bullets, les réponses automatisées sur chaque avis Google, un moteur de concours avec tirages automatisés et gabarits juridiques que le client opère à l'interne, la détection d'avis bidons, et le branchement direct au GBP. Le flux sans friction (tap NFC, le client coche les bullets qui correspondent à son expérience, l'IA génère trois brouillons d'avis parmi lesquels il choisit, collage en un clic dans le formulaire d'avis GBP) hausse la vélocité bien au-delà de la base de 1 à 2 par mois, et les emplacements à fort achalandage atteignent réalistement 4 à 6 avis frais par semaine.",
   faqItems: [
     {
       question: "Comment le module AiLys Automation d'AiLys s'intègre-t-il à la vélocité d'avis?",
@@ -66,14 +66,14 @@ export function ContentFr() {
   return (
     <article>
       <p>
-        AiLys Automation est le module de réputation AiLys à 100 dollars CAD par mois, inclus sans frais supplémentaires dans le palier Agency. C'est la pièce qui transforme la vélocité d'avis Google en habitude quotidienne au lieu d'un projet trimestriel. Le produit couvre la collecte par tap NFC au comptoir, les suggestions de brouillon assistées par IA dans le flux client, les réponses automatisées sur chaque nouvel avis Google, un moteur de concours mensuel opéré par le client à l'interne, la détection d'avis bidons avec un flux de signalement, et le branchement direct au GBP et au moteur AiLys d'AI Visibility. Voici comment chaque pièce s'imbrique et où l'agence trace la ligne entre ce qui est livré et ce que l'opérateur garde sous sa responsabilité.
+        AiLys Automation est le module de réputation AiLys disponible sur tous les forfaits AiLys en module à 100 dollars CAD par mois, et inclus sans frais supplémentaires dans le palier Agency. C'est la pièce qui transforme la vélocité d'avis Google en habitude quotidienne au lieu d'un projet trimestriel. Le produit couvre la collecte par tap NFC au comptoir, la rédaction IA par sélection de bullets dans le flux client, les réponses automatisées sur chaque nouvel avis Google, un moteur de concours avec tirages automatisés opéré par le client à l'interne, la détection d'avis bidons avec un flux de signalement, et le branchement direct au GBP et au moteur AiLys d'AI Visibility. Voici comment chaque pièce s'imbrique et où l'agence trace la ligne entre ce qui est livré et ce que l'opérateur garde sous sa responsabilité.
       </p>
 
       <StatHighlight
         stats={[
-          { value: '100 $ CAD', label: 'Prix mensuel du module AiLys Automation' },
-          { value: 'Palier Agency', label: 'Inclus sans frais supplémentaires' },
-          { value: '4 à 6', label: "Avis frais par mois visés" },
+          { value: '100 $ CAD', label: "Module pour tout forfait AiLys (inclus dans Agency)" },
+          { value: '4-6 / semaine', label: "Plafond réaliste aux emplacements à fort achalandage" },
+          { value: '1 clic', label: 'Collage du client dans le formulaire GBP' },
         ]}
       />
 
@@ -121,7 +121,10 @@ export function ContentFr() {
 
       <h2 id="brouillons-assistes-par-ia-dans-le-flux-client">Brouillons assistés par IA dans le flux client</h2>
       <p>
-        Les clients veulent souvent laisser un avis mais figent devant la zone de texte vide. La suggestion de brouillon IA AiLys Automation montre une phrase d'amorce basée sur le service reçu, le prénom du membre du personnel rencontré et le contexte de la visite. Le client voit trois phrases suggérées et peut en choisir une comme point de départ ou rédiger l'avis à partir de zéro. L'IA n'écrit jamais l'avis complet et ne soumet jamais sans que le client tape.
+        Les clients veulent souvent laisser un avis mais figent devant la zone de texte vide. Le flux AiLys Automation enlève cette friction en trois étapes. Étape un, après le tap NFC la page d'atterrissage fait surgir une courte liste de bullets « qu'avez-vous aimé? » (qualité de la nourriture, rapidité du service, prénom du personnel, ambiance, rapport qualité-prix, plat précis, etc.) calibrés à la catégorie du commerce. Le client coche un ou plusieurs bullets qui correspondent à son expérience. Étape deux, l'IA génère trois brouillons d'avis complets basés sur les bullets cochés, chacun avec une voix et une longueur différentes. Étape trois, le client choisit celui qui sonne le plus comme lui, tape « Utiliser celui-ci », et la page transfère au formulaire d'avis Google Business Profile avec le texte déjà collé, prêt à soumettre en un clic.
+      </p>
+      <p>
+        L'IA n'écrit jamais l'avis complet sans la sélection de bullets, et le client peut toujours éditer le brouillon choisi avant de soumettre. Tout le flux roule en moins de trente secondes du tap à la soumission, ce qui explique pourquoi les emplacements à fort achalandage atteignent réalistement 4 à 6 avis frais par semaine (le plafond dépend de l'achalandage du comptoir, du placement de la carte NFC et de l'invitation du personnel). La base de 1 à 2 par mois est ce que la plupart des opérateurs voient sans aucune automatisation d'avis.
       </p>
       <p>
         Pourquoi ça compte pour l'AI Visibility : le texte d'avis est maintenant une surface de citation pour les moteurs IA. ChatGPT, Perplexity, Gemini et Google AIO analysent tous le texte d'avis quand ils résument un commerce local. Les avis qui mentionnent des services précis et des prénoms de personnel nourrissent ces résumés avec un langage concret. Les avis qui disent seulement « excellent service » ne nourrissent rien.
@@ -231,7 +234,7 @@ export function ContentFr() {
         Le prix mensuel de 100 dollars se rentabilise quand la hausse de vélocité génère un client de plus par mois. Pour une clinique dentaire avec une valeur à vie de 1 200 dollars par patient, c'est un retour de 12 pour 1 dans le premier trimestre. Pour un restaurant avec un ticket moyen de 60 dollars et un taux de retour de 30 pour cent, le calcul est plus près de 2 pour 1, ce qui demeure une dépense défendable.
       </p>
       <p>
-        Les commerçants qui obtiennent la plus grande hausse sont ceux qui traitent AiLys Automation comme une habitude quotidienne. Le tableau de bord devient le contrôle courriel du matin et la passe de réponses d'après-midi. Le stratège côté AiLys suit la vélocité dans le rapport hebdomadaire et ajuste la couche d'optimisation GBP quand la combinaison de mots-clés d'avis change. L'effet combiné, c'est un score de pack local qui monte régulièrement sur un trimestre.
+        Les commerçants qui obtiennent la plus grande hausse sont ceux qui traitent AiLys Automation comme une habitude quotidienne. Le tableau de bord devient le contrôle courriel du matin et la passe de réponses d'après-midi. Le stratège côté AiLys suit la vélocité dans le rapport mensuel (paliers Growth et Agency) et ajuste la couche d'optimisation GBP quand la combinaison de mots-clés d'avis change. L'effet combiné, c'est un score de pack local qui monte régulièrement sur un trimestre.
       </p>
       <p>
         Les commerçants qui obtiennent le moins de hausse sont ceux qui achètent AiLys Automation et l'oublient. Le tableau de bord reste non lu, les réponses automatisées s'empilent non envoyées, et le moteur de concours ne démarre jamais. Dans ce cas la dépense est gaspillée, et la recommandation honnête est d'annuler le module et d'y revenir quand l'opérateur a la bande passante de lui consacrer cinq minutes par jour.
