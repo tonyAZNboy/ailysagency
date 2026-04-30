@@ -83,7 +83,7 @@ export function ContentFr() {
       </p>
 
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
-        <p>Le module AiLys Automation n'est pas le même produit que l'app AiLys Automation autonome sur l'App Store et Google Play. L'app autonome est une version gratuite avec collecte d'avis manuelle seulement. Le module AiLys Automation à 100 dollars par mois débloque le pipeline d'automatisation complet et l'intégration GBP. Voir <InternalLink to="/blog/reviuzy-review-automation-guide" title="Guide d'automatisation des avis AiLys Automation" description="Le guide long sur l'app autonome et le module" /> pour la différence ligne par ligne.</p>
+        <p>Le module AiLys Automation prolonge les forfaits AiLys de base avec le pipeline complet de réputation. Les forfaits de base (Starter, Core, Growth) couvrent l'optimisation GBP, le travail de citations, la cohérence NAP et le score AI Visibility. Le module ajoute la collecte NFC, l'automatisation des réponses IA, le moteur de concours, le générateur légal selon la juridiction, la file de faux avis et la suite d'automatisation GBP. Voir <InternalLink to="/blog/reviuzy-review-automation-guide" title="Guide d'automatisation des avis AiLys Automation" description="Le guide long sur le flux du module" /> pour la visite ligne par ligne.</p>
       </CalloutBox>
 
       <InlineCTA variant="pricing" text="Voyez où s'insère le module AiLys Automation dans les quatre forfaits AiLys, de Starter à 300 dollars à Agency à 2 499 dollars." buttonText="Voir les forfaits" />
@@ -95,15 +95,15 @@ export function ContentFr() {
         Le module AiLys Automation coûte 100 dollars CAD par mois forfaitaires. Il se greffe sur Starter (300 dollars), Core (600 dollars) ou Growth (1 200 dollars), portant ces forfaits à 400, 700 ou 1 300 dollars par mois respectivement. Au forfait Agency (2 499 dollars), AiLys Automation est inclus, donc l'opérateur ne paie rien de plus. Cette décision reflète le positionnement du forfait Agency : c'est le palier multi-emplacements et marque blanche où le travail de réputation est l'attente par défaut, pas un ajout.
       </p>
       <p>
-        La facturation annuelle applique un léger rabais, et ajouter AiLys Automation à l'inscription est le chemin le plus propre parce que les cartes NFC partent dans la trousse de bienvenue. L'ajouter plus tard veut dire un envoi de cartes séparé, ce qui retarde les premiers taps au comptoir d'une semaine. Le côté tableau de bord s'active la même journée que le module est activé, donc la file de réponses IA et l'automatisation GBP démarrent immédiatement même si les cartes sont encore en route.
+        La facturation annuelle applique un léger rabais. Le côté tableau de bord d'AiLys Automation s'active la même journée que le module est activé, donc la file de réponses IA, le moteur de concours et l'automatisation GBP démarrent immédiatement. Les cartes NFC sont approvisionnées séparément par le client (voir la section NFC ci-dessous pour les deux chemins) donc la boucle au comptoir monte en parallèle du travail dans le tableau de bord, et n'agit pas comme un blocage.
       </p>
 
       <h3>À quoi ressemble chaque palier avec AiLys Automation</h3>
       <ul>
-        <li>Starter avec AiLys Automation à 400 dollars : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales, plus la suite AiLys Automation complète</li>
-        <li>Core avec AiLys Automation à 899 dollars : publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, plus AiLys Automation</li>
-        <li>Growth avec AiLys Automation à 1 599 dollars : photographie originale, production de contenu mensuelle, deux audits AI Visibility par trimestre, plus AiLys Automation</li>
-        <li>Agency à 2 499 dollars : AiLys Automation est inclus, multi-emplacements et marque blanche compris, stratège dédié, rapports hebdomadaires</li>
+        <li>Starter avec AiLys Automation à 400 dollars : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales, plus la suite AiLys Automation complète. Le soutien stratège est asynchrone seulement à ce palier, sans appels.</li>
+        <li>Core avec AiLys Automation à 700 dollars : publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, plus AiLys Automation. Le soutien stratège est asynchrone seulement à ce palier, sans appels.</li>
+        <li>Growth avec AiLys Automation à 1 300 dollars : photographie originale, production de contenu mensuelle, deux audits AI Visibility par trimestre, plus AiLys Automation. Inclut un appel mensuel avec le stratège.</li>
+        <li>Agency à 2 499 dollars : AiLys Automation est inclus, tableau de bord multi-emplacements et marque blanche compris, stratège dédié, un appel mensuel avec le stratège, rapport mensuel écrit.</li>
       </ul>
 
       <SectionDivider />
@@ -113,7 +113,7 @@ export function ContentFr() {
         Les cartes NFC sont la surface physique du module. Elles sont sur le comptoir, le terminal de paiement, l'accueil ou le sac de commande à emporter. Un client tape la carte avec son téléphone, le téléphone ouvre une page AiLys Automation, et la page redirige le client vers le formulaire d'avis Google Business Profile pour le bon emplacement. Pas d'installation d'app. Pas de scan de code QR. Juste un tap.
       </p>
       <p>
-        Le taux de tap NFC bat les codes QR avec une marge confortable en commerce de détail et en clinique, parce que le geste se rapproche du paiement sans contact, que la plupart des clients font déjà sans réfléchir. Les cartes sont préimprimées avec le logo du client, brandées pour l'emplacement, et expédiées dans la trousse de bienvenue. Les comptes multi-emplacements au palier Agency reçoivent une pile de cartes par emplacement, avec le routage spécifique cuit dans la puce NFC.
+        Le taux de tap NFC bat les codes QR en commerce de détail et en clinique parce que le geste se rapproche du paiement sans contact, que la plupart des clients font déjà sans réfléchir. Deux chemins existent pour se procurer les cartes. Chemin un, le client commande des cartes NFC vierges chez n'importe quel fournisseur et programme chaque carte avec l'URL de la page AiLys Automation à l'aide d'une app gratuite d'écriture NFC sur téléphone, ce qui est l'option la moins coûteuse. Chemin deux, le client achète le service de cartes AiLys Automation pour 100 dollars CAD à charge unique, ce qui livre trois cartes pré-programmées avec l'URL client déjà inscrite. Les comptes multi-emplacements répètent le chemin choisi par emplacement, avec l'URL de routage liée au bon Google Business Profile.
       </p>
 
       <CalloutBox type="tip" translatedLabel="Conseil">
@@ -152,6 +152,9 @@ export function ContentFr() {
         Le moteur de concours est le module à plus fort levier pour la vélocité d'avis. Le commerçant configure un tirage dans le tableau de bord, définit le prix, la durée et les règles d'inscription, et le moteur câble la capture des participants. Les clients s'inscrivent en tapant la carte NFC, en laissant facultativement un avis Google, et en confirmant l'inscription dans l'app AiLys Automation. La liste des participants est tenue dans le compte du client, pas dans le compte de l'agence.
       </p>
       <p>
+        La cadence des concours est fixée par palier AiLys. Les clients Starter opèrent 2 concours par mois. Les clients Core opèrent 4 concours par mois. Les clients Growth et Agency opèrent les concours sur une base par domaine (multi-emplacements), donc un opérateur multi-emplacements peut étaler les tirages entre les emplacements et empiler la vélocité. La cadence reflète les heures de stratège incluses dans chaque palier, pas une limite SaaS, et le tableau de bord ne bloque pas les exécutions au-dessus de la cadence aux paliers supérieurs.
+      </p>
+      <p>
         Le tirage roule en vidéo. Le commerçant déclenche le tirage devant le personnel ou en direct sur Facebook Live, et le tableau de bord affiche une animation aléatoire qui se pose sur le gagnant. Le fichier vidéo est téléchargeable, sans filigrane, et partageable. C'est l'artefact que le commerçant publie sur les réseaux sociaux et sur la chronologie GBP. C'est le moment qui convertit le concours en vélocité d'avis continue, parce que le prochain lot de clients voit le tirage se faire et fait confiance au prochain concours.
       </p>
 
@@ -170,7 +173,7 @@ export function ContentFr() {
 
       <h2 id="generateur-de-termes-legaux">Générateur de termes légaux selon la juridiction</h2>
       <p>
-        Chaque concours a besoin de termes et conditions. Au Québec, la Loi sur les loteries publicitaires s'applique, et la Régie des alcools, des courses et des jeux exige une inscription au-delà d'un seuil de prix. Dans le reste du Canada, la Loi sur la concurrence s'applique, avec l'exigence sans achat requis et la question d'habileté. Aux États-Unis, des règles d'État s'appliquent, la Californie, New York et la Floride étant les plus encadrés. Le générateur légal produit un brouillon de termes adapté à la juridiction du client, avec les bonnes étapes d'inscription et le bon langage de divulgation.
+        Chaque concours a besoin de termes et conditions. Le générateur légal d'AiLys Automation couvre 20 pays aujourd'hui, dont le Canada (avec une branche Québec dédiée), les États-Unis et les principaux marchés de l'Union européenne et du Commonwealth. Au Québec, la Loi sur les loteries publicitaires s'applique, et la Régie des alcools, des courses et des jeux exige une inscription au-delà d'un seuil de prix. Dans le reste du Canada, la Loi sur la concurrence s'applique, avec l'exigence sans achat requis et la question d'habileté. Aux États-Unis, des règles d'État s'appliquent, la Californie, New York et la Floride étant les plus encadrés. Le générateur produit un brouillon de termes adapté à la juridiction du client, avec les bonnes étapes d'inscription et le bon langage de divulgation.
       </p>
       <p>
         Le générateur est un brouillon de départ, pas un avis juridique. Pour les concours à fort enjeu au-dessus de 2 000 dollars en valeur de prix, nous recommandons une révision finale par l'avocat du client. Pour les concours de faible valeur (tirages de cartes-cadeaux sous 500 dollars), le brouillon généré est typiquement le seul document dont l'opérateur a besoin. Le générateur sort un PDF, une version texte pour le site web, et un résumé court pour la page de destination du concours.

@@ -37,7 +37,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How much does AiLys Automation cost and how do I add it to my AiLys plan?',
       answer:
-        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,499 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the NFC stickers, the dashboard, the auto-reply workflow, the contest engine, and the legal template library.',
+        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,499 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the dashboard, the auto-reply workflow, the contest engine, and the legal template library covering 20 countries. NFC cards are procured separately by the client (self-program from any supplier, or buy the AiLys card service for 100 dollars CAD one-time per 3-card set with programming included).',
     },
     {
       question: 'Does AiLys Automation run my contest for me or do I run it?',
@@ -103,7 +103,7 @@ export function Content() {
       </p>
 
       <CalloutBox type="info">
-        <p>The 100 dollar monthly price covers the full toolkit: dashboard access, NFC stickers, AI draft suggestions, auto-reply workflow, contest engine, legal template library, and fake review detection. There is no per-review surcharge and no per-location surcharge for single-location businesses. Multi-location pricing is calculated on the AiLys pricing page based on the location count.</p>
+        <p>The 100 dollar monthly price covers the full software toolkit: dashboard access, AI draft suggestions, auto-reply workflow, contest engine, legal template library covering 20 countries, and fake review detection. NFC cards are procured separately (self-program from any supplier or buy the AiLys card service for 100 dollars CAD one-time per 3-card set with programming included). There is no per-review surcharge and no per-location surcharge for single-location businesses. Multi-location pricing is calculated on the AiLys pricing page based on the location count.</p>
       </CalloutBox>
 
       <InlineCTA variant="pricing" text="See the AiLys plans and where AiLys Automation is bundled or added on top, from Starter at 300 dollars to Agency at 2,499 dollars CAD." />
@@ -112,21 +112,21 @@ export function Content() {
 
       <h2 id="nfc-tap-to-review-the-front-desk-loop">NFC tap-to-review, the front desk loop</h2>
       <p>
-        The NFC tap-to-review sticker sits on the counter or the receipt holder. The customer taps a phone, the device opens a AiLys Automation landing page, the page surfaces the direct Google review link with a one-tap flow into the GBP review form. The whole experience runs under five seconds from tap to review composition. Stickers ship as part of the AiLys Automation onboarding kit at no extra cost.
+        The NFC tap-to-review card sits on the counter or the receipt holder. The customer taps a phone, the device opens a AiLys Automation landing page, the page surfaces the direct Google review link with a one-tap flow into the GBP review form. The whole experience runs under five seconds from tap to review composition. The cards are procured by the client through one of two paths: self-procurement from any NFC supplier with the URL programmed via a free phone NFC writer, or the AiLys Automation card service at 100 dollars CAD one-time which ships three pre-programmed cards.
       </p>
       <p>
-        The reason the NFC loop works is that it removes the two friction points that kill review velocity. First, the customer does not have to find the GBP listing on Google, because the AiLys Automation landing page jumps straight to the review form. Second, the customer does not have to remember to leave the review later, because the prompt happens at the moment of satisfaction. Most operators see review velocity double inside the first 60 days of NFC deployment.
+        The reason the NFC loop works is that it removes the two friction points that kill review velocity. First, the customer does not have to find the GBP listing on Google, because the AiLys Automation landing page jumps straight to the review form. Second, the customer does not have to remember to leave the review later, because the prompt happens at the moment of satisfaction. Operators commonly report review-velocity lifts in the industry-typical 40 to 70 percent range over the first 60 to 90 days of NFC deployment, with the spread driven by counter placement, staff prompting, and ambient foot traffic.
       </p>
       <p>
-        The AiLys Automation landing page also gates a quick service question that filters the experience without violating Google review policy. The honest version routes every customer to the Google review link, and uses the gate only to decide which review template to suggest, not to filter out unhappy customers. Filtering by satisfaction breaks Google policy and can soft-suppress the listing.
+        The AiLys Automation landing page also gates a quick service question that adapts the experience without violating Google review policy. The honest version routes every customer to the Google review link, and uses the gate only to decide which review template to suggest, not to filter out unhappy customers. Filtering by satisfaction breaks Google policy and can soft-suppress the listing.
       </p>
 
-      <h3>What ships in the NFC kit</h3>
+      <h3>What the NFC card path includes</h3>
       <ul>
-        <li>Five NFC stickers per location, branded for the business</li>
-        <li>One NFC review stand for the front counter or checkout</li>
+        <li>Self-procurement: blank NFC cards from any supplier (Amazon, NFC.direct, etc.) plus a free phone NFC writer to program the AiLys Automation landing URL</li>
+        <li>AiLys card service: 100 dollars CAD one-time, delivers three pre-programmed cards keyed to the client landing URL</li>
         <li>The AiLys Automation landing page configured with the GBP review link</li>
-        <li>The dashboard view that tracks tap count, conversion to review, and source per sticker</li>
+        <li>The dashboard view that tracks tap count, conversion to review, and source per card</li>
       </ul>
 
       <SectionDivider />
@@ -175,7 +175,7 @@ export function Content() {
 
       <h2 id="the-contest-engine-and-the-legal-templates">The contest engine and the legal templates</h2>
       <p>
-        The AiLys Automation contest engine is the lever for review velocity spikes. A monthly contest invites customers to leave a review, with a prize drawn from the entries. The dashboard surfaces the entry count, the eligibility rules, the prize description, and the draw mechanic. The setup takes under 30 minutes during the first contest and under 5 minutes for repeat contests.
+        The AiLys Automation contest engine is the lever for review velocity spikes. A contest invites customers to leave a review, with a prize drawn from the entries. The dashboard surfaces the entry count, the eligibility rules, the prize description, and the draw mechanic. The setup takes under 30 minutes during the first contest and under 5 minutes for repeat contests. Contest cadence is set per AiLys tier: Starter clients run 2 contests per month, Core clients run 4 contests per month, and Growth and Agency clients run contests on a per-domain basis (multi-location aware).
       </p>
       <p>
         The hard line is that the client runs the contest. AiLys provides the setup, the legal terms and conditions generator, and the help docs. The client owns the prize, the customer relationship, the draw, the winner notification, and any tax or regulatory disclosure that applies. The agency does not draw the winner and does not communicate with contestants. This separation keeps everyone on the right side of contest rules in Quebec and Canada.
@@ -218,7 +218,7 @@ export function Content() {
         AiLys Automation connects to Google Business Profile through the official Google API with read and write scopes for reviews, replies, and (with owner consent) photo uploads. The connection is OAuth-based, the token is stored encrypted, and the operator can revoke access at any time from the dashboard. No credentials live outside the AiLys Automation vault.
       </p>
       <p>
-        On the AiLys side, every review and reply feeds the AI Visibility engine that scores the listing each week. The engine reads the keyword variety inside review text, the recency window, the response rate, and the reviewer language balance. The score updates in the AiLys dashboard the same week, and the strategist uses the trend to recommend the next operational lever (NFC sticker placement, contest cadence, reply tone tweaks).
+        On the AiLys side, every review and reply feeds the AI Visibility engine that scores the listing each week. The engine reads the keyword variety inside review text, the recency window, the response rate, and the reviewer language balance. The score updates in the AiLys dashboard the same week. Strategist input cadence varies by tier: Starter and Core clients receive async-only support (no scheduled calls), while Growth and Agency clients get one monthly strategist call to walk the trend and recommend the next operational lever (NFC card placement, contest cadence, reply tone tweaks). Written reports follow the same monthly cadence on Growth and Agency.
       </p>
       <p>
         For owners who want the full data picture, the <InternalLink to="/audit" title="Free 24-hour AI Visibility audit" description="See where review signals land in the AI Visibility score" /> ships a baseline that includes the review velocity slice. Pair that with the <InternalLink to="/blog/google-review-velocity-playbook" title="Google review velocity playbook" description="The numbers that move the local pack ranking" /> for the operator-level deep dive on monthly targets, and the <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs traditional SEO agency" description="Where the AiLys Automation add-on fits in the broader plan" /> for the comparison frame.
