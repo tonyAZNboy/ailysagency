@@ -94,7 +94,7 @@ const sterlingSky: Comparison = {
       "You operate in Quebec or serve a bilingual Canadian market and want native FR-CA delivery.",
       "You want explicit weekly LLM citation tracking across 6 AI engines, not just Google ranking reports.",
       "You want month-to-month flexibility with two weeks notice to cancel, not annual retainers.",
-      "You want the Reviuzy review velocity engine bundled with your visibility work (Agency tier).",
+      "You want the AiLys Automation review velocity engine bundled with your visibility work (Agency tier).",
     ],
     whenCompetitorWins: [
       "Your monthly budget is $5,000+ and you need a Google Maps litigation specialist for spam or suspension cases.",
@@ -120,7 +120,7 @@ const sterlingSky: Comparison = {
       { feature: "Multilingual delivery (8 languages)", competitor: "EN only", ailys: "EN, FR, ES, ZH, AR, RU + UK, SR via partners", outcome: "win" },
       { feature: "Google Maps suspension support", competitor: "Specialty service", ailys: "Available, not specialty", outcome: "loss" },
       { feature: "Multi-location enterprise support", competitor: "Yes (50+ locations)", ailys: "Yes (up to 25, scales further by quote)", outcome: "tie" },
-      { feature: "Review velocity engine", competitor: "Not offered", ailys: "Yes (Reviuzy NFC at Agency tier)", outcome: "win" },
+      { feature: "Review velocity engine", competitor: "Not offered", ailys: "Yes (AiLys Automation NFC at Agency tier)", outcome: "win" },
       { feature: "Public citation tracker", competitor: "Not offered", ailys: "Yes (live /citations page)", outcome: "win" },
       { feature: "Money-back guarantee", competitor: "Not stated publicly", ailys: "30-day satisfaction guarantee", outcome: "win" },
     ],
@@ -135,7 +135,7 @@ const sterlingSky: Comparison = {
       },
       {
         q: "Why is AiLys priced lower than Sterling Sky?",
-        a: "Two reasons. First, our delivery layer is automated through Reviuzy (review velocity, GBP automation, NFC tap-to-review), so we do not bill consulting hours for work that is productized. Second, Quebec operating costs and SMB-focused positioning are different from Toronto enterprise consulting. Same disciplines, different cost structure.",
+        a: "Two reasons. First, our delivery layer is automated through AiLys Automation (review velocity, GBP automation, NFC tap-to-review), so we do not bill consulting hours for work that is productized. Second, Quebec operating costs and SMB-focused positioning are different from Toronto enterprise consulting. Same disciplines, different cost structure.",
       },
       {
         q: "Does AiLys have the same classical local SEO depth as Sterling Sky?",
@@ -175,7 +175,7 @@ const sterlingSky: Comparison = {
       "Vous opérez au Québec ou dans un marché canadien bilingue et vous voulez une livraison FR-CA native.",
       "Vous voulez un suivi explicite des citations LLM hebdomadaires sur 6 moteurs IA, pas juste des rapports de classement Google.",
       "Vous voulez une flexibilité mois par mois avec préavis de 2 semaines, pas un mandat annuel.",
-      "Vous voulez le moteur de vélocité d'avis Reviuzy intégré (forfait Agency).",
+      "Vous voulez le moteur de vélocité d'avis AiLys Automation intégré (forfait Agency).",
     ],
     whenCompetitorWins: [
       "Votre budget mensuel est de 5 000 $+ et vous avez besoin d'un spécialiste de litiges Google Maps pour cas de spam ou suspensions.",
@@ -201,7 +201,7 @@ const sterlingSky: Comparison = {
       { feature: "Livraison multilingue (8 langues)", competitor: "EN seulement", ailys: "EN, FR, ES, ZH, AR, RU + UK, SR via partenaires", outcome: "win" },
       { feature: "Soutien suspension Google Maps", competitor: "Service de spécialité", ailys: "Disponible, pas une spécialité", outcome: "loss" },
       { feature: "Soutien entreprise multi-emplacements", competitor: "Oui (50+ emplacements)", ailys: "Oui (jusqu'à 25, plus sur devis)", outcome: "tie" },
-      { feature: "Moteur de vélocité d'avis", competitor: "Non offert", ailys: "Oui (NFC Reviuzy à Agency)", outcome: "win" },
+      { feature: "Moteur de vélocité d'avis", competitor: "Non offert", ailys: "Oui (NFC AiLys Automation à Agency)", outcome: "win" },
       { feature: "Suivi de citations public", competitor: "Non offert", ailys: "Oui (page /citations live)", outcome: "win" },
       { feature: "Garantie de remboursement", competitor: "Non déclarée publiquement", ailys: "Garantie satisfaction 30 jours", outcome: "win" },
     ],
@@ -216,7 +216,7 @@ const sterlingSky: Comparison = {
       },
       {
         q: "Pourquoi AiLys est-il moins cher que Sterling Sky?",
-        a: "Deux raisons. Notre couche de livraison est automatisée via Reviuzy (vélocité d'avis, automatisation GBP, NFC tap-to-review), donc on ne facture pas d'heures de consultation pour du travail qui est productisé. Et les coûts opérationnels du Québec et le positionnement PME sont différents de la consultation entreprise de Toronto.",
+        a: "Deux raisons. Notre couche de livraison est automatisée via AiLys Automation (vélocité d'avis, automatisation GBP, NFC tap-to-review), donc on ne facture pas d'heures de consultation pour du travail qui est productisé. Et les coûts opérationnels du Québec et le positionnement PME sont différents de la consultation entreprise de Toronto.",
       },
       {
         q: "AiLys a-t-il la même profondeur en SEO local classique que Sterling Sky?",
@@ -308,7 +308,7 @@ const brightlocal: Comparison = {
       },
       {
         q: "Does AiLys use BrightLocal internally?",
-        a: "We use a stack of tools internally including BrightLocal-style citation databases, but our methodology is not dependent on any single platform. We blend BrightLocal-class tools with our proprietary Reviuzy review engine and direct Anthropic API integration for citation tracking.",
+        a: "We use a stack of tools internally including BrightLocal-style citation databases, but our methodology is not dependent on any single platform. We blend BrightLocal-class tools with our proprietary AiLys Automation review engine and direct Anthropic API integration for citation tracking.",
       },
       {
         q: "What if I am an agency, not an end client?",
@@ -388,7 +388,7 @@ const brightlocal: Comparison = {
       },
       {
         q: "AiLys utilise-t-il BrightLocal à l'interne?",
-        a: "On utilise un ensemble d'outils incluant des bases de données de citations de classe BrightLocal, mais notre méthodologie ne dépend d'aucune plateforme unique. On combine les outils de classe BrightLocal avec notre moteur Reviuzy et une intégration API directe avec Anthropic.",
+        a: "On utilise un ensemble d'outils incluant des bases de données de citations de classe BrightLocal, mais notre méthodologie ne dépend d'aucune plateforme unique. On combine les outils de classe BrightLocal avec notre moteur AiLys Automation et une intégration API directe avec Anthropic.",
       },
       {
         q: "Et si je suis une agence, pas un client final?",
@@ -604,3 +604,4 @@ export function getComparisonContent(comparison: Comparison, lang: string): Comp
   }
   return comparison.en;
 }
+""

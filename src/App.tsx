@@ -35,6 +35,7 @@ import Comparison from "./pages/Comparison";
 import Glossary from "./pages/Glossary";
 import GlossaryTerm from "./pages/GlossaryTerm";
 import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
+import PricingDetails from "./pages/PricingDetails";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminOverview from "./pages/admin/AdminOverview";
 import AdminLeads from "./pages/admin/AdminLeads";
@@ -97,6 +98,12 @@ const App = () => {
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
                 <Route path="/:lang/book-call" element={<BookCall />} />
+
+                {/* Detailed pricing comparison page (Phase E.1.4-E.1.7) */}
+                <Route path="/pricing-details" element={<PricingDetails />} />
+                <Route path="/:lang/pricing-details" element={<PricingDetails />} />
+                <Route path="/forfaits-complets" element={<PricingDetails />} />
+                <Route path="/:lang/forfaits-complets" element={<PricingDetails />} />
 
                 {/* Cofounder and partner application */}
                 <Route path="/cofounders" element={<Cofounders />} />
