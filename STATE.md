@@ -329,6 +329,20 @@ Skipped findings (false positives or scope creep):
 
 ---
 
+## ✅ E.21 STICKY THEAD CLEARANCE FIX 2026-04-30 (operator prod smoke catch)
+
+Live prod smoke test surfaced a 9px overlap between the navbar (89px tall on md+) and the sticky thead on `/pricing-details` (was `sm:top-20` = 80px). The thead engaged correctly but the top 9px sat behind the navbar, hiding the column-header row.
+
+**Fix:** changed `top-16 sm:top-20` → `top-16 md:top-[89px]` on the `<thead>` in `src/pages/PricingDetails.tsx`.
+
+Why: the navbar is `hidden md:block`. Below md (mobile, <768px), only the floating logo is visible — `top-16` (64px) is plenty of clearance. At md+ (≥768px) the full navbar is 89px tall — `md:top-[89px]` matches exactly. Dropped the unnecessary `sm:top-20` middle rule because between sm and md the navbar is still hidden.
+
+**Live verification:** Chrome MCP smoke against `/forfaits-complets` post-deploy — sticky engages cleanly, no overlap.
+
+**Tag:** `v0.10.5-sticky-thead-clearance`.
+
+---
+
 ## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
 
 Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).
