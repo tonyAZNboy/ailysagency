@@ -21,6 +21,7 @@ import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { SEOHead } from "@/components/seo";
 import { InstantAiVisibilityAudit } from "@/components/pricing/InstantAiVisibilityAudit";
 import { QuoteBuilder } from "@/components/pricing/QuoteBuilder";
+import { RoiCalculator } from "@/components/pricing/RoiCalculator";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import {
@@ -225,17 +226,66 @@ export default function PricingDetails() {
   const lang: "en" | "fr" = ctxLang === "fr" ? "fr" : "en";
   const copy = COPY[lang];
 
-  const [engagement, setEngagement] = useState<EngagementMode>("monthly");
-  const [taxIncluded, setTaxIncluded] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem("ailys_tax_incl") === "true";
-  });
-  const [diffOnly, setDiffOnly] = useState<boolean>(false);
+  // E.4.1: URL params hydration. Read on mount, update on change.
+  // Supports: ?engagement=annual&tax=1&diff=1 so prospects can share configs.
+  const initialEngagement = useMemo<EngagementMode>(() => {
+    if (typeof window === "undefined") return "monthly";
+    const param = new URLSearchParams(window.location.search).get("engagement");
+    return param === "annual" || param === "biennial" || param === "monthly" ? param : "monthly";
+  }, []);
 
+  const initialTax = useMemo<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("tax")) return params.get("tax") === "1";
+    return localStorage.getItem("ailys_tax_incl") === "true";
+  }, []);
+
+  const initialDiff = useMemo<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return new URLSearchParams(window.location.search).get("diff") === "1";
+  }, []);
+
+  const [engagement, setEngagement] = useState<EngagementMode>(initialEngagement);
+  const [taxIncluded, setTaxIncluded] = useState<boolean>(initialTax);
+  const [diffOnly, setDiffOnly] = useState<boolean>(initialDiff);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied">("idle");
+
+  // Persist tax toggle in localStorage (existing behavior preserved)
   useEffect(() => {
     if (typeof window === "undefined") return;
     localStorage.setItem("ailys_tax_incl", String(taxIncluded));
   }, [taxIncluded]);
+
+  // E.4.1: keep URL in sync with toggle state without polluting browser history
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (engagement === "monthly") params.delete("engagement");
+    else params.set("engagement", engagement);
+    if (taxIncluded) params.set("tax", "1"); else params.delete("tax");
+    if (diffOnly) params.set("diff", "1"); else params.delete("diff");
+    const qs = params.toString();
+    const newUrl = window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
+    window.history.replaceState(null, "", newUrl);
+  }, [engagement, taxIncluded, diffOnly]);
+
+  const copyShareLink = async () => {
+    if (typeof window === "undefined") return;
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopyStatus("copied");
+      setTimeout(() => setCopyStatus("idle"), 2000);
+    } catch {
+      // Clipboard access denied; fall back to selection
+      const ta = document.createElement("textarea");
+      ta.value = window.location.href;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); setCopyStatus("copied"); setTimeout(() => setCopyStatus("idle"), 2000); } catch {}
+      document.body.removeChild(ta);
+    }
+  };
 
   const computedPrices = useMemo(() => {
     return TIERS.map((t) => {
@@ -312,12 +362,34 @@ export default function PricingDetails() {
                 {taxIncluded ? copy.taxToggleOn : copy.taxToggleOff}
               </button>
             </div>
+
+            {/* E.4.1: share link */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs uppercase tracking-wider text-zinc-400">{lang === "fr" ? "Partager" : "Share"}</span>
+              <button
+                onClick={copyShareLink}
+                className={`px-4 py-1.5 text-xs sm:text-sm rounded-full border transition ${
+                  copyStatus === "copied"
+                    ? "bg-emerald-400/10 border-emerald-400/40 text-emerald-200"
+                    : "border-white/10 text-zinc-400 hover:text-white"
+                }`}
+              >
+                {copyStatus === "copied"
+                  ? (lang === "fr" ? "Lien copie" : "Link copied")
+                  : (lang === "fr" ? "Copier le lien" : "Copy share link")}
+              </button>
+            </div>
           </div>
         </section>
 
         {/* Phase E.2.1: instant AI Visibility audit (pre-sales conversion tool) */}
         <section className="px-4 sm:px-6 lg:px-8 pb-12 max-w-6xl mx-auto">
           <InstantAiVisibilityAudit />
+        </section>
+
+        {/* Phase E.4.2: ROI calculator (planning aid) */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-12 max-w-6xl mx-auto">
+          <RoiCalculator />
         </section>
 
         {/* Tier price cards */}
