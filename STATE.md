@@ -4,7 +4,32 @@
 
 ---
 
-## ✅ PHASE E.18 SHIPPED 2026-04-30 (autopilot, 2 PRs)
+## ✅ PHASE E.18 FULL COMPLETION 2026-04-30 (autopilot, 6 PRs)
+
+Operator-validated content audit on the 4 Reviuzy add-on blog posts (EN+FR pairs) plus FR routing fix plus NFC procurement clarity propagation across the entire surface (blog, marketing, help center, pricing builder). All 10 validation questions resolved per `BLOG_AUDIT_ANSWERS.md` (committed in PR #28). Six PRs landed sequentially this autopilot session:
+
+| PR | Title | Scope |
+|---|---|---|
+| #30 | E.18 PR 1: Q1+Q2+Q4+Q5+Q6+Q7+Q8 operator-confirmed | App Store removed, 20 countries, NFC procurement, velocity hedged 40-70%, async-only Starter/Core, monthly call Growth/Agency, contest cadence per tier |
+| #31 | E.18 PR 2: Q9 fake review signals tightened | 4 shipped signals (AI text, bot UA, disposable email, rapid timing); Q10 audited LIVE no change |
+| #32 | E.18 PR 3: STATE.md milestone | Documentation |
+| #35 | E.18 PR 4: FR routing fix + tier framing + 4-6/week velocity | BlogPostPage.tsx + registry getLocalizedContent helper; "every AiLys tier" framing; bullet-pick flow with 4-6/week ceiling |
+| #36 | E.18 PR 5: NFC procurement clarity full propagation | Pricing builder svc10 +$250/mo duplicate REMOVED; new $100 one-time NFC card service AddonRow; marketing copy (f1Long, f1b3, addonNote, help articles, blog) all reframed |
+| #37 | E.18 PR 6: FR help-article mirrors caught | 4 missed FR overclaim mirrors (lines 144, 2084, 2848, 2855) aligned with the new procurement model |
+
+**Active milestone tag:** `v0.10.0-blog-content-audit-complete` at HEAD after #37 merge.
+**Previous tag:** `v0.9.0-blog-content-audited` at PR #32 merge.
+
+Operator backlog remaining (not E.18 scope):
+- D.4 Sentry integration (~6h Reviuzy)
+- TOS amendment email for D.2 cohort benchmarking 60-day grandfather
+- C.8 Reseller (deferred: gates on 5+ partner applications)
+- C.9 Health score (deferred: Q2 2026)
+- 2 residual missing i18n keys per non-FR locale (pre-existing, tracked in `docs/i18n-translation-queue.md`)
+
+---
+
+## ✅ PHASE E.18 SHIPPED 2026-04-30 (autopilot, 2 PRs) [archived, see full completion above]
 
 Operator-validated content audit on the 4 Reviuzy add-on blog posts (EN+FR pairs). All 10 validation questions resolved per `BLOG_AUDIT_ANSWERS.md` (committed in PR #28). Two PRs landed:
 

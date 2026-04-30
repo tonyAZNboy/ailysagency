@@ -141,7 +141,7 @@ La plupart des clients sont sur Starter, Core ou Growth (entre 300 $/mois et 1 2
 
 Ce que le client obtient en libre-service via l'app AiLys Automation :
 
-- Cartes NFC de collecte d'avis expédiées à l'emplacement
+- Page d'atterrissage NFC tap-to-review et flux de collecte (cartes approvisionnées séparément par le client, ou via le service de cartes AiLys à 100 dollars CAD à charge unique par ensemble de 3 cartes avec programmation et livraison)
 - Formulaire client de soumission d'avis (flux guidé de 15 secondes)
 - Brouillons d'avis générés par IA (le client valide et soumet)
 - Réponses automatiques par IA sur chaque avis reçu
@@ -2081,7 +2081,7 @@ Pick Core. It is the most-chosen tier for a reason: it covers 80% of what most l
 - Tout ce que couvre Growth, plus vous voulez zéro opération
 - Vous voulez AiLys Automation SaaS inclus dans le lot
 - Vous voulez un concours d'avis mensuel mené pour vous
-- Vous voulez des cartes NFC à toucher livrées à vos emplacements
+- Vous voulez la collecte NFC tap-to-review câblée (cartes approvisionnées séparément par le client, ou via le service de cartes AiLys à 100 dollars CAD à charge unique par ensemble de 3 cartes)
 
 ## La règle « je ne sais pas »
 
@@ -2845,14 +2845,14 @@ The AiLys Automation T&C generator covers Canada (federal + Quebec specific), US
       "fr-ca": {
         title: "Qui opère le concours d'avis mensuel ? Vous, avec nos outils",
         excerpt:
-          "AiLys vous fournit le moteur de concours AiLys Automation, les modèles légaux, les cartes NFC et la documentation. Le concours lui-même, vous l'opérez, parce que chaque commerce a son propre public, son propre prix et son propre calendrier.",
+          "AiLys vous fournit le moteur de concours AiLys Automation, les modèles légaux, la page d'atterrissage NFC tap-to-review et la documentation. Les cartes NFC sont approvisionnées séparément par vous (ou via le service de cartes AiLys à 100 dollars CAD à charge unique par ensemble de 3 cartes). Le concours lui-même, vous l'opérez, parce que chaque commerce a son propre public, son propre prix et son propre calendrier.",
         body: `## Ce que nous livrons
 
 Quand vous activez le système AiLys Automation (inclus dans Agency, ajoutable à 100 $ sur les autres plans) :
 
 - **Le moteur de concours**. Tap NFC pour participer, génération d'avis par IA, suivi automatique des participants, vidéo d'annonce du gagnant.
 - **Modèles légaux**. T&C générés automatiquement selon votre juridiction. Règles Quebec, règles canadiennes, règles américaines état par état, règles UE/UK. Question d'habileté mathématique requise au Canada et au Mexique.
-- **Cartes NFC**. Brandées avec votre logo. Livrées chez vous prêtes à déployer au comptoir.
+- **Cartes NFC (approvisionnées par vous, ou via le service de cartes AiLys)**. Deux chemins : commandez des cartes NFC vierges chez tout fournisseur (Amazon, NFC.direct, etc.) et programmez l'URL d'atterrissage AiLys Automation avec une app gratuite d'écriture NFC sur téléphone, OU achetez le service de cartes AiLys à 100 dollars CAD à charge unique qui livre 3 cartes pré-programmées vers votre URL avec livraison incluse.
 - **Support de mise en place**. Votre stratège vous guide dans le premier concours pendant la semaine 1 d'onboarding.
 - **Ce centre d'aide**. Guides étape par étape pour chaque phase.
 
