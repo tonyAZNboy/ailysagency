@@ -529,7 +529,7 @@ export default function PricingDetails() {
 
           <div className="overflow-x-auto rounded-xl border border-white/10">
             <table className="w-full min-w-[640px] text-sm">
-              <thead className="sticky top-0 z-30 bg-zinc-950/95 backdrop-blur-sm">
+              <thead className="sticky top-16 sm:top-20 z-30 bg-zinc-950/95 backdrop-blur-sm">
                 <tr className="border-b border-white/10">
                   <th className="text-left px-3 py-3 font-semibold text-xs uppercase tracking-wider text-zinc-400 w-[34%]">
                     Feature
