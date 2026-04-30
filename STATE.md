@@ -41,6 +41,61 @@ Makes Sentry actionable from inside Reviuzy. Operators triage live issues withou
 
 **~85% of D.4 implemented.** Remaining 15% is incremental (per-fn catch-block refactors) + an Agency-tier-only feature (per-tenant Slack) that has a perfectly good fallback (Sentry's native Slack integration in the web UI).
 
+---
+
+## ✅ PHASE E.19 SHIPPED 2026-04-30 (autopilot, ISO-GSD discipline applied)
+
+Help-article FR-CA routing fix. Mirror of the blog FR routing fix shipped in PR #35. Surfaces the FR translations written in PRs #36 and #37 (Phase E.18) which were sitting dead in source because the `HelpArticle.tsx` component never received `lang='fr'` from `LangContext`.
+
+**Root cause:** `LangContext.detectLang()` runs once on `LangProvider` mount and never re-fires on client-side route change. `localStorage` then persists whatever lang was first detected, so `/help/<slug>` and `/fr/help/<slug>` both render with the stale lang.
+
+**Narrow fix per Section 11 time-box:** `HelpArticle.tsx` reads lang directly from `useLocation().pathname` (slug-first, mirrors `BlogPostPage.tsx`). Body, title, excerpt, breadcrumbs, hero labels, CTA, related-link hrefs, html `lang` attribute, og:locale all switch on the URL prefix. The chrome (Navbar/Footer that uses `useLang()`) stays governed by LangContext and is the documented out-of-scope upstream root cause.
+
+**Bonus fix in same PR:** `localizeArticle` helper now resolves both `i18n.fr` and `i18n['fr-ca']` key conventions (data ships 42 of one and 5 of the other; previous helper only matched the bare key).
+
+**ISO-GSD compliance:**
+
+| Section | Outcome |
+|---|---|
+| 1. GSD planning artefacts | 5 in `.planning/phase-e19-help-fr-routing/` |
+| 2. CI gates 1-7 | All green |
+| 2. Gate 16 wired in `deploy.yml` | `node scripts/smoke-help-article-fr-routing.mjs` (7 cases) |
+| 3. Agent fidelity | Pure operator-driven, no agent dispatch this PR |
+| 4-7, 11, 12 | N/A (no endpoint, no DB, no migration, no cron, no paid API, no admin surface) |
+| 8. Locale parity | No new i18n keys; existing FR strings now render |
+| 9. STATE.md same-commit | This block |
+| 10. No new dep | Confirmed (uses already-imported `useLocation`) |
+| 11. Time-box 1.5h | Respected |
+| 13. Definition of Done | All boxes checked below |
+
+**Manual gates passed:**
+
+- Gate 8 (375x812 mobile) — `/fr/help/contest-scope-client-runs-it`: H1 FR + 7/7 FR labels (RETOUR AU CENTRE D'AIDE, MIS À JOUR, MIN DE LECTURE, D'AUTRES QUESTIONS, PARLEZ-NOUS, RÉSERVER UN APPEL, PLUS DANS), zero horizontal overflow, htmlLang=fr, FR Card-procurement clause from PR #36 visible.
+- Gate 9 (768x1024 tablet) — same article, all FR rendered, no overflow.
+- Gate 10 (EN regression) — `/help/contest-scope-client-runs-it`: H1 EN, all EN labels present, FR strings absent from article body.
+- Gate 11 (bare `fr:` key article) — `/fr/help/ai-visibility-engine`: H1 FR ("Comment fonctionne le moteur de visibilité IA"), body FR — confirms dual-key lookup works.
+
+**Smoke posture:** 7/7 cases green. Wired into `.github/workflows/deploy.yml` as Gate 16, blocking deploy on failure.
+
+**Files changed (8 total):**
+
+- `src/pages/HelpArticle.tsx` (slug-first lang, localized strings, dual fr/fr-ca lookup)
+- `scripts/smoke-help-article-fr-routing.mjs` (NEW)
+- `.github/workflows/deploy.yml` (Gate 16 entry)
+- `.planning/phase-e19-help-fr-routing/00-objectives.md` (NEW)
+- `.planning/phase-e19-help-fr-routing/01-threat-model.md` (NEW)
+- `.planning/phase-e19-help-fr-routing/02-sub-phases.md` (NEW)
+- `.planning/phase-e19-help-fr-routing/03-test-matrix.md` (NEW)
+- `.planning/phase-e19-help-fr-routing/04-rollback-plan.md` (NEW)
+
+**Operator follow-up to fully close the FR chrome gap (separate ticket, NOT in this PR):**
+
+Fix `LangContext.tsx` to react to route changes, e.g. add a `useLocation()` watcher that re-fires `detectLang()` on pathname change. Will switch the navbar / footer / forms to FR on `/fr/...` URLs without requiring full reload. Estimated 30 min, single-file change. Track as **Phase E.20: LangContext route-aware re-detection**.
+
+**Tag pending:** `v0.10.1-help-fr-routing` after merge.
+
+---
+
 ## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
 
 Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).
