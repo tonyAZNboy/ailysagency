@@ -299,6 +299,36 @@ Locks all post-tuning constants:
 
 ---
 
+## ✅ E.21 SIMPLIFY FOLLOW-UP SHIPPED 2026-04-30 (PR #50, tag v0.10.4)
+
+`/simplify` skill ran 3 review agents in parallel on the E.21 diff. Three actionable findings, all fixed in PR [#50](https://github.com/tonyAZNboy/ailysagency/pull/50):
+
+1. **Cooldown helper extraction (DRY)** — ExitIntentModal + LandingChatWidget both implemented the identical "store dismissedAt timestamp + check hours-since" pattern inline. Extracted to `src/lib/cooldown.ts` with `recordDismissal(key)` + `isOnCooldown(key, hours)`. Both helpers SSR-safe + private-mode-safe (fall back gracefully when localStorage throws).
+2. **dt jitter clamp on velocity gate** — `Math.max((performance.now() - lastT) / 1000, 0.01)` floor prevents sub-10ms pointermove samples (1px / 0.5ms = 2000 px/s) from false-triggering the 200 px/s velocity gate.
+3. **ChatWidget constants hoisted** — `CHAT_DISMISS_KEY`, `CHAT_COOLDOWN_HOURS`, `CHAT_AUTO_SHOW_MS` now module-level instead of inline inside the useEffect, matching ExitIntentModal. Eliminates magic-string duplication between auto-show effect and X-click handler.
+
+Skipped findings (false positives or scope creep):
+- Redundant `<boolean>` type annotations (existing convention)
+- pointermove throttle (velocity + scroll gates already filter noise)
+- Layout thrash on getScrollDepth (fires only on pointerleave)
+- Long block comment (justified: operator-validated decisions)
+
+### Smoke (Gate 18 expanded 9 → 12 cases)
++3 new assertions:
+- `src/lib/cooldown.ts` exports both helpers
+- ChatWidget + ExitIntentModal both import from `@/lib/cooldown`
+- ExitIntent dt clamped at 10ms floor
+
+### Files
+- `src/lib/cooldown.ts` (NEW)
+- `src/components/landing/ExitIntentModal.tsx`
+- `src/components/landing/LandingChatWidget.tsx`
+- `scripts/smoke-popup-sensitivity.mjs` (+3 cases)
+
+**Tag:** `v0.10.4-popup-simplify` pushed at `0feca3e`.
+
+---
+
 ## 🟢 D.4 PART 4 — captureException wired into 5 critical edge fns (Reviuzy PR #34)
 
 Final wave of D.4 instrumentation. wrapHandler covers unhandled throws on the 4 cron orchestrators; PR #34 extends Sentry visibility to **handled** errors across the 5 high-value mutating fns (Stripe, OAuth, review automation).
