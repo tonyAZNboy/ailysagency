@@ -130,10 +130,16 @@ export function InstantAiVisibilityAudit() {
       <p className="text-sm text-zinc-400 mb-5 max-w-xl">{copy.description}</p>
 
       {state.kind !== "success" && (
-        <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3 sm:items-end">
+        <form
+          onSubmit={submit}
+          className="flex flex-col sm:flex-row gap-3 sm:items-end"
+          aria-busy={state.kind === "loading"}
+          aria-describedby="instant-audit-status"
+        >
           <div className="flex-1">
-            <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.businessLabel}</label>
+            <label htmlFor="instant-audit-business" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.businessLabel}</label>
             <input
+              id="instant-audit-business"
               type="text"
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
@@ -146,9 +152,10 @@ export function InstantAiVisibilityAudit() {
             />
           </div>
           <div className="flex-1">
-            <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.urlLabel}</label>
+            <label htmlFor="instant-audit-url" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.urlLabel}</label>
             <input
-              type="text"
+              id="instant-audit-url"
+              type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder={copy.urlPlaceholder}
@@ -185,8 +192,12 @@ export function InstantAiVisibilityAudit() {
         </form>
       )}
 
+      <div id="instant-audit-status" aria-live="polite" className="sr-only">
+        {state.kind === "loading" ? copy.submitting : state.kind === "success" ? copy.yourScore : ""}
+      </div>
+
       {state.kind === "error" && (
-        <div className="mt-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-sm text-rose-200">
+        <div role="alert" aria-live="assertive" className="mt-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-sm text-rose-200">
           {state.message}
         </div>
       )}
