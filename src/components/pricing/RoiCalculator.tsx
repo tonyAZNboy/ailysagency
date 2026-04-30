@@ -110,8 +110,9 @@ export function RoiCalculator() {
 
       <div className="grid sm:grid-cols-2 gap-3 mb-5">
         <div>
-          <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.ticketLabel}</label>
+          <label htmlFor="roi-ticket" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.ticketLabel}</label>
           <input
+            id="roi-ticket"
             type="number"
             inputMode="decimal"
             min={0}
@@ -119,12 +120,14 @@ export function RoiCalculator() {
             value={ticket}
             onChange={(e) => setTicket(e.target.value)}
             placeholder={copy.ticketPlaceholder}
+            aria-describedby="roi-ticket-hint"
             className="w-full px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-violet-400/50 text-sm"
           />
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.clientsLabel}</label>
+          <label htmlFor="roi-clients" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.clientsLabel}</label>
           <input
+            id="roi-clients"
             type="number"
             inputMode="numeric"
             min={0}
@@ -132,6 +135,7 @@ export function RoiCalculator() {
             value={clients}
             onChange={(e) => setClients(e.target.value)}
             placeholder={copy.clientsPlaceholder}
+            aria-describedby="roi-clients-hint"
             className="w-full px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-violet-400/50 text-sm"
           />
         </div>

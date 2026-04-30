@@ -234,44 +234,50 @@ export function QuoteBuilder() {
       <p className="text-sm text-zinc-400 mb-5 max-w-xl">{copy.description}</p>
 
       {state.kind !== "success" && (
-        <form onSubmit={submit} className="space-y-4">
+        <form onSubmit={submit} className="space-y-4" aria-busy={state.kind === "loading"} aria-describedby="quote-builder-status">
           <div className="grid sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.name}</label>
+              <label htmlFor="quote-prospect-name" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.name}</label>
               <input
+                id="quote-prospect-name"
                 type="text"
                 value={prospectName}
                 onChange={(e) => setProspectName(e.target.value)}
                 placeholder={copy.namePlaceholder}
                 required
                 maxLength={100}
+                autoComplete="name"
                 disabled={state.kind === "loading"}
                 className="w-full px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-400/50 text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.business}</label>
+              <label htmlFor="quote-business-name" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.business}</label>
               <input
+                id="quote-business-name"
                 type="text"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
                 placeholder={copy.businessPlaceholder}
                 required
                 maxLength={200}
+                autoComplete="organization"
                 disabled={state.kind === "loading"}
                 className="w-full px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-400/50 text-sm"
               />
             </div>
           </div>
           <div>
-            <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.email}</label>
+            <label htmlFor="quote-email" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.email}</label>
             <input
+              id="quote-email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={copy.emailPlaceholder}
               required
               maxLength={254}
+              autoComplete="email"
               disabled={state.kind === "loading"}
               className="w-full px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-400/50 text-sm"
             />
@@ -279,8 +285,9 @@ export function QuoteBuilder() {
 
           <div className="grid sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.plan}</label>
+              <label htmlFor="quote-tier" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.plan}</label>
               <select
+                id="quote-tier"
                 value={tier}
                 onChange={(e) => setTier(e.target.value as TierMeta["id"])}
                 disabled={state.kind === "loading"}
@@ -294,8 +301,9 @@ export function QuoteBuilder() {
               </select>
             </div>
             <div>
-              <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.engagement}</label>
+              <label htmlFor="quote-engagement" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.engagement}</label>
               <select
+                id="quote-engagement"
                 value={engagement}
                 onChange={(e) => setEngagement(e.target.value as EngagementMode)}
                 disabled={state.kind === "loading"}
@@ -309,8 +317,9 @@ export function QuoteBuilder() {
           </div>
 
           <div>
-            <label className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.websiteService}</label>
+            <label htmlFor="quote-website-size" className="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">{copy.websiteService}</label>
             <select
+              id="quote-website-size"
               value={effectiveWebsiteSize}
               onChange={(e) => setWebsiteSize(e.target.value as WebsiteSize)}
               disabled={state.kind === "loading" || tier === "agency"}
@@ -387,14 +396,18 @@ export function QuoteBuilder() {
         </form>
       )}
 
+      <div id="quote-builder-status" aria-live="polite" className="sr-only">
+        {state.kind === "loading" ? copy.submitting : state.kind === "success" ? copy.successTitle : ""}
+      </div>
+
       {state.kind === "error" && (
-        <div className="mt-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-sm text-rose-200">
+        <div role="alert" aria-live="assertive" className="mt-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-sm text-rose-200">
           {state.message}
         </div>
       )}
 
       {state.kind === "success" && (
-        <div className="mt-4 rounded-xl border border-emerald-400/30 bg-emerald-500/[0.04] p-5">
+        <div role="status" aria-live="polite" className="mt-4 rounded-xl border border-emerald-400/30 bg-emerald-500/[0.04] p-5">
           <h3 className="text-lg font-semibold text-emerald-200 mb-2">{copy.successTitle}</h3>
           <p className="text-sm text-zinc-300 mb-4">{copy.successBody}</p>
           <a
