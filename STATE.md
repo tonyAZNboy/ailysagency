@@ -4,7 +4,40 @@
 
 ---
 
-## 🟡 NEXT SESSION PICKUP — blog content audit (Phase E.18)
+## ✅ PHASE E.18 SHIPPED 2026-04-30 (autopilot, 2 PRs)
+
+Operator-validated content audit on the 4 Reviuzy add-on blog posts (EN+FR pairs). All 10 validation questions resolved per `BLOG_AUDIT_ANSWERS.md` (committed in PR #28). Two PRs landed:
+
+**PR #30 — operator-confirmed Q1+Q2+Q4+Q5+Q6+Q7+Q8** (`claude/phase-e18-blog-content-pr1`)
+- Q1+Q2: removed App Store / Google Play "free standalone app" claim and "$20/mo" subscription mention. Replaced with base-vs-addon comparison.
+- Q3: video winner picker confirmed live, no change.
+- Q4: legal generator scope set to exact 20 countries.
+- Q5: NFC cards procured separately by client. Two paths: self-program from any supplier OR $100 CAD one-time service (3 pre-programmed cards). Removed every "ship in welcome kit" / "Five NFC stickers" / "NFC review stand" claim.
+- Q6: "review velocity double in 60 days" softened to industry-typical 40-70% over 60-90 days, with placement / staff prompting / foot traffic flagged as drivers.
+- Q7: "weekly reporting" corrected to monthly written report + one monthly strategist call (Growth and Agency only). Starter and Core get async-only support, no calls.
+- Q8: per-tier contest cadence: Starter 2/mo, Core 4/mo, Growth and Agency per-domain (multi-location aware).
+- Collateral fix: stale 899 / 1,599 ladder prices corrected to 700 / 1,300.
+
+**PR #31 — Q9 fake review signals tightened to shipped reality** (`claude/phase-e18-blog-content-pr2`)
+- Cross-repo deep audit against Reviuzy SaaS at `C:/Anthony/Projects/reviuzy/`.
+- Q10 GBP attribute manager: LIVE in Reviuzy (`/dashboard/gbp/attributes` + `google-attributes` edge fn). Blog claims accurate, no change.
+- Q9 fake review detection: LIVE in Reviuzy (`/dashboard/domain-shield` + `shield-analyze` edge fn) but blog overclaimed signals. The shipped scorer reads four signals only: AI text patterns (15 phrase regexes, 2+ matches flag), bot user agent fingerprints (18 known UAs), disposable email domain check (12-domain throwaway list), rapid submission timing (<3s). Risk score weighted; >=70 blocked, 40-69 flagged. Removed: "reviewer history depth", "posting cadence", "geographic coherence", "IP cluster proximity", "timing clusters that suggest coordination", "language model authorship probability". Replaced with the real four-signal scorer description in EN+FR across both posts.
+
+**Verification (both PRs):**
+- `npx tsc --noEmit` clean
+- `node scripts/audit-blog-translations.mjs` 51/51 pass
+- em-dash sweep on edited files: 0 hits
+- AI fingerprint sweep: 0 hits
+- `npm run build` succeeds
+- preview server: rendered EN posts, confirmed all expected strings PRESENT and all removed/overclaimed strings ABSENT
+
+**PR ordering:** PR #30 and #31 branch independently from `origin/main`. Either merge order works. If both merge, the section-level edits don't overlap; resolve any conflict by keeping pricing/welcome-kit/cadence edits from #30 and fake-review signal rewrites from #31.
+
+**Tag pending after both merge:** `v0.9.0-blog-content-audited`.
+
+---
+
+## 🟢 RESOLVED 2026-04-30 — blog content audit (Phase E.18)
 
 **Status:** end of autopilot session 2026-04-30. v0.8.3-legal-entity-disclosure tagged. 2 blog posts (`ailys-reviuzy-addon-deep-dive` EN+FR + `reviuzy-review-automation-guide` EN+FR) had Reviuzy → AiLys Automation bulk replace + price corrections (Core 799→600, Growth 1499→1200, Agency 2500→2499, add-on math 899→700, 1599→1300).
 
