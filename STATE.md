@@ -77,6 +77,115 @@ Deferred to next session (clean stopping point):
 **Total AiLys CI gates after C.1 + C.2: 9** (8 mandatory + 1 warn-only).
 **Total AiLys smoke assertions running on every push: 66** across 5 scripts.
 
+## 🚀 PIPELINE FULL SWEEP 2026-04-30 (15 Reviuzy PRs + 5 AiLys PRs total, Phase D.1+D.2 mostly shipped)
+
+### AiLys main (post Phase E.1-E.5 from parallel session)
+
+| PR | Sub-phase | Branch |
+|---|---|---|
+| #6 | Phase E.1: pricing detail + god mode v1 + Reviuzy scrub | claude/gracious-raman-a6383a |
+| #7 | Phase E.2.1+E.2.2: prospect UI for instant AI Visibility + quote PDF | claude/gracious-raman-a6383a-e2 |
+| #8 | Phase E.3: admin observability for instant AI vis + quote PDF | claude/gracious-raman-a6383a-e3 |
+| #9 | Phase E.4: god mode v2 (URL share params + ROI calculator) | claude/gracious-raman-a6383a-e4 |
+| #10 | Phase E.5: lazy-load 28 cold-path routes (-16% bundle) | claude/gracious-raman-a6383a-e5 |
+
+`functions/lib/serviceAuth.ts` ALLOWED_CALLERS now includes 6 callers (the original 4 plus E.3's `reviuzy-admin-instant-ai-vis-stats` and `reviuzy-admin-quote-pdf-stats`).
+
+`.github/workflows/deploy.yml` now enforces 14 CI gates (the original 13 + E.3's gate 14 admin endpoint observability stats smoke).
+
+### Reviuzy main (this session, 15 PRs merged, +334 vitest, 363 → 697)
+
+| PR | Sub-phase | Tests delta |
+|---|---|---|
+| #7 | D.3.Rvz.1+2+3 security hotfix | 363 → 373 |
+| #8 | B.4.4.Rvz.1 audit-pdf-stats proxy + HMAC signer | 373 → 382 |
+| #9 | C.5.Rvz.1+2-skel monthly visibility ledger + orchestrator skeleton | 382 → 394 |
+| #10 | C.6.Rvz.1+2+3 citation auto-batch | 394 → 491 |
+| #11 | C.7.Rvz.1+2 renewal_signals | 491 → 532 |
+| #12 | C.5+C.6+C.7 pg_cron schedules | 532 → 548 |
+| #13 | D.3 follow-up: 3 remaining unsafe fns locked | 548 → 548 |
+| #14 | D.1.Rvz.1+2 SOC2 audit_log + emitAuditLog helper | 548 → 581 |
+| #15 | D.1.Rvz.3 wire emitAuditLog into 3 cron orchestrators | 581 → 581 |
+| #16 | D.1.Rvz.4 audit-log-export endpoint + HMAC integrity sidecar | 581 → 612 |
+| #17 | C.5.Rvz.2.b render path (closes Phase C.5 end-to-end) | 612 → 636 |
+| #18 | D.1.Rvz.5 audit-log admin UI (closes Phase D.1 surface) | 636 → 642 |
+| #19 | D.2.Rvz.1+2 cohort_benchmarks materialized view + percentile lib | 642 → 697 |
+| #20 | D.2.Rvz.3 dashboard-cohort-stats edge fn | 697 → 697 |
+| #21 | D.2.Rvz.4 CohortBenchmarkCard wired into VisibilityDashboard | 697 → 697 |
+
+**Reviuzy total session test count:** 363 → 697 (+334 vitest).
+
+### Pipeline status (post-sweep)
+
+| Pipeline step | Status |
+|---|---|
+| 1. Security hotfix (D.3) | ✅ COMPLETE (5/5 unsafe fns locked) |
+| 2. B.4.4.Rvz proxy | ✅ live (admin UI follow-up still pending) |
+| 3. C.5.Rvz monthly visibility | ✅ **FULLY LIVE** (orchestrator + render path + cron) |
+| 4. C.6.Rvz citation auto-batch | ✅ live (admin UI follow-up still pending) |
+| 5. C.7.Rvz renewal+upsell | ✅ live (admin UI + email templates follow-up) |
+| 6. Cron schedules (C.5+C.6+C.7) | ✅ live (PR #12) |
+| 7. Phase D.1 SOC2 audit log | ✅ **FULLY LIVE** (table + helper + emit + export endpoint + admin UI) |
+| 8. Phase D.2 benchmarking | ⚠️ ALMOST LIVE (view + lib + endpoint + UI shipped; D.2.Rvz.5 opt-in toggle UI = last piece) |
+| 9. Phase D.4 Sentry | ⏳ next major chunk |
+
+### THE AiLys moat shipped
+
+D.2 cross-tenant anonymized cohort benchmarking is now functionally live:
+- Materialized view `cohort_benchmarks` refreshed daily (k-anonymity HAVING >=5)
+- 10-percentile band reporting via `formatCohortReport`
+- `dashboard-cohort-stats` edge fn with timing side-channel guard (200ms floor)
+- `CohortBenchmarkCard` rendered at the bottom of `/dashboard/visibility`
+
+User can flip per-tenant `cohort_benchmarking_enabled = true` to start surfacing, pending D.2.Rvz.5 opt-in toggle UI + 60-day Loi 25 grandfather email.
+
+### Reviuzy follow-up backlog (post-this-session)
+
+- B.4.4.Rvz.2: admin UI page `/admin/audit-pdf-stats` consuming the proxy from PR #8
+- C.5.Rvz.4: admin UI for monthly reports (last-50 + manual re-run)
+- C.6.Rvz.4: admin UI for citation auto-batch (last-50 + cost telemetry)
+- C.7.Rvz.3: admin UI for renewal signals (action queue)
+- C.7.Rvz.4: Resend email templates for renewal + upsell + Settings opt-in toggle
+- D.1.Rvz.3 second batch: refactor 7 remaining edge fns to emitAuditLog
+- D.2.Rvz.5: opt-in toggle in Settings + TOS notice email (60-day grandfather)
+- D.4 Sentry integration (parallel-safe with D.2 final once it lives)
+- E.3 cross-repo: 2 Reviuzy proxy edge fns calling AiLys instant-ai-vis-stats and quote-pdf-stats (callers `reviuzy-admin-instant-ai-vis-stats` + `reviuzy-admin-quote-pdf-stats` already on AiLys allowlist per PR #8)
+
+### User actions to flip features live (cumulative)
+
+**Reviuzy edge fn env (set in Supabase):**
+1. `AILYS_SERVICE_SHARED_SECRET` (HMAC for service-to-service; same value as AiLys Pages env)
+2. `AILYS_VISIBILITY_REPORT_PDF_URL` (optional override; defaults to prod ailysagency.ca)
+3. `MONTHLY_VISIBILITY_REPORT_ENABLED=true` + `MONTHLY_VISIBILITY_REPORT_DRY_RUN=true` (start dry-run, flip to false when confident)
+4. `CITATION_AUTO_BATCH_ENABLED=true` + `CITATION_AUTO_BATCH_DRY_RUN=true`
+5. `RENEWAL_SIGNALS_ENABLED=true` + `RENEWAL_SIGNALS_DRY_RUN=true`
+6. `AUDIT_EXPORT_HMAC_SECRET` (NEW; openssl rand -hex 32)
+7. `FOURSQUARE_API_KEY` (free tier registration when partner signed)
+
+**Reviuzy migrations to apply via Supabase SQL Editor:**
+- 20260430000000_create_monthly_visibility_reports.sql
+- 20260501000000_create_auto_batch_runs.sql
+- 20260502000000_create_renewal_signals.sql
+- 20260503000000_schedule_monthly_visibility_export.sql
+- 20260503010000_schedule_citation_auto_batch.sql
+- 20260503020000_schedule_compute_renewal_signals.sql
+- 20260504000000_create_audit_log.sql
+- 20260505000000_create_cohort_benchmarks.sql
+- 20260505010000_schedule_cohort_benchmarks_refresh.sql
+
+**Reviuzy edge fn deploys:**
+```
+npx supabase functions deploy audit-pdf-stats-proxy monthly-visibility-export citation-auto-batch compute-renewal-signals audit-log-export dashboard-cohort-stats --project-ref qucxhksrpqunlyjjvuae
+```
+
+**Per-tenant opt-ins (after migrations apply):**
+```sql
+-- Citation auto-batch (Core/Growth/Agency tier; Starter excluded)
+UPDATE tenants SET auto_citation_batch_enabled=true WHERE ailys_tier IN ('core','growth','agency');
+-- Cohort benchmarking (any tier; opt-in for D.2 D.2.Rvz.5 follow-up)
+UPDATE tenants SET cohort_benchmarking_enabled=true WHERE id IN (...);
+```
+
 ## 🚀 REVIUZY EXECUTION SWEEP 2026-04-29 (8 PRs merged, +218 vitest)
 
 Pipeline executed end-to-end through Reviuzy main. Snapshot at this commit.
