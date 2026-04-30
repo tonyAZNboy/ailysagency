@@ -41,22 +41,53 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 - `03-test-matrix.md` : per-sub-phase tests + manual gates + viewport matrix + i18n parity
 - `04-rollback-plan.md` : env var kill switches + revert procedures + zero migrations
 
-## Sub-phases shipped this branch (will be filled as commits land)
+## Sub-phases shipped this branch
 
-| Sub-phase | Commit hash | Smoke pass | CI gate | Live curl proof | Status |
-|---|---|---|---|---|---|
-| E.1.0 GSD planning | (pending) | n/a | n/a | n/a | pending commit |
-| E.1.1 Reviuzy scrub | tbd | tbd | tbd | tbd | not started |
-| E.1.2 Neon -50% | tbd | tbd | tbd | tbd | not started |
-| E.1.3 Landing condensed | tbd | tbd | tbd | tbd | not started |
-| E.1.4 /forfaits-complets | tbd | tbd | tbd | tbd | not started |
-| E.1.5 Website grid | tbd | tbd | tbd | tbd | not started |
-| E.1.6 Tax + guarantee | tbd | tbd | tbd | tbd | not started |
-| E.1.7 Diff toggle | tbd | tbd | tbd | tbd | not started |
-| E.1.8 Instant AI audit | tbd | tbd | tbd | tbd | not started |
-| E.1.9 Quote PDF | tbd | tbd | tbd | tbd | not started |
-| E.1.10 Help articles | tbd | tbd | tbd | tbd | not started |
-| E.1.11 Final tag | tbd | tbd | tbd | tbd | not started |
+| Sub-phase | Commit hash | Smoke / proof | Status |
+|---|---|---|---|
+| E.1.0 GSD planning | `8093ec5` | tsc clean, 6 files / 621 insertions | shipped |
+| E.1.1a Reviuzy scrub i18n (16 locales) | `3f47b1f` | 288 string replacements, tsc clean, i18n parity unchanged (28 pre-existing missing keys, gate warn-only) | shipped |
+| E.1.1b Reviuzy scrub SEO + index.html | `e784d85` | renamed Schema.org SoftwareApplication brand, updated index.html meta keywords + JSON-LD product description | shipped |
+| E.1.1c Reviuzy scrub data files | `868dc18` | 178 replacements (help-articles 142, glossary 16, comparisons 5, industries 12) | shipped |
+| E.1.1d Reviuzy scrub legal + auth pages | tbd | not started (sensitive legal copy, deferred) | deferred |
+| E.1.1e Reviuzy scrub blog posts | tbd | 2 blog posts to rename + rewrite | deferred |
+| E.1.2 Neon -50% pricing cards | `a63db9e` | 67 rgba alpha halvings (ServicesSection 61 + PricingDriversSection 6), tsc clean, no layout change | shipped |
+| E.1.3 Landing condensed + engagement toggle | tbd | not started | deferred |
+| E.1.4 /forfaits-complets sticky grid | tbd | not started | deferred |
+| E.1.5 Website grid + cancellation calc | tbd | not started | deferred |
+| E.1.6 Tax + 90d guarantee | tbd | not started | deferred |
+| E.1.7 Show differences toggle | tbd | not started | deferred |
+| E.1.8 Instant AI Visibility audit | tbd | not started | deferred |
+| E.1.9 Personalized quote PDF | tbd | not started | deferred |
+| E.1.10 Help articles | tbd | not started | deferred |
+| E.1.11 Final tag | tbd | not started | deferred |
+
+## Session 1 outcome (2026-04-29)
+
+**Shipped:** E.1.0 + E.1.1a + E.1.1b + E.1.1c + E.1.2.
+**Total commits:** 5 on branch `claude/gracious-raman-a6383a`.
+**Reviuzy public-facing scrub coverage:** ~85% (16 locales + Schema.org + index.html + 4 data files done; 2 blog posts + 5 legal/auth pages remain).
+**Visual:** neon backgrounds halved on tier and pricing-driver cards.
+**Build:** tsc clean across all 5 commits.
+**Em-dash sweep:** 0 net new (1 pre-existing allowlisted in chat-advisor.ts:239).
+**i18n parity:** 28 pre-existing missing keys (gate 2 warn-only per CLAUDE.md), no new debt introduced.
+**STATE.md:** untouched per coordination plan with parallel session.
+**Tags:** none pushed.
+**Branch state:** `claude/gracious-raman-a6383a` is 5 commits ahead of `origin/main`, ready for PR when parallel session completes.
+
+## Next session priorities (Session 2)
+
+In order of conversion impact:
+1. **E.1.3** — pricing landing condensed + engagement toggle (mensuel/annuel/biennal). Highest direct conversion impact.
+2. **E.1.4** — `/forfaits-complets` page with sticky comparison grid. Largest single sub-phase, ~4-5h.
+3. **E.1.5** — Website construction grid + cancellation fee calculator. Tier-locked badges.
+4. **E.1.6** — Quebec tax-incl toggle + 90-day uplift guarantee clause. Critical for Quebec market.
+5. **E.1.7** — "Show differences only" toggle. Low effort, high UX.
+6. **E.1.1d/e** — finish Reviuzy scrub on legal pages + 2 blog posts (lower priority, can batch).
+7. **E.1.10** — help articles (3 articles EN+FR-CA) before any UI surface goes live for E.1.8/9.
+8. **E.1.8** — Live AI Visibility instant audit endpoint (depends on help article live first).
+9. **E.1.9** — Personalized quote PDF (reuses B.4 infra).
+10. **E.1.11** — final tag once parallel session and operator approve merge sequence.
 
 ## User actions when this branch merges
 
