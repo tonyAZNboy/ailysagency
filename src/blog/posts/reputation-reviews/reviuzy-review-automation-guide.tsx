@@ -52,7 +52,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does AiLys Automation detect fake reviews and what does it do about them?',
       answer:
-        'The AiLys Automation fake review detector scores every new review on a few signals: account age, review history pattern, language model authorship probability, and IP cluster proximity. Reviews flagged above a threshold are surfaced in the dashboard with a one-click flag-to-Google action. The system does not auto-flag without owner approval, because Google penalizes false positives. The owner decides which flags to push to Google.',
+        'The AiLys Automation fake review detector scores every new review and contact-form submission on four shipped signals: AI-generated text patterns (LLM authorship fingerprints), bot user agent fingerprints (automation tools, headless browsers, scrapers), disposable email domains (throwaway providers like tempmail and mailinator), and rapid-submission timing (under three seconds). Reviews above the threshold are surfaced in the dashboard with a one-click flag-to-Google action. The system does not auto-flag without owner approval, because Google penalizes false positives. The owner decides which flags to push to Google.',
     },
     {
       question: 'Are auto-replies safe or will Google penalize templated responses?',
@@ -202,13 +202,13 @@ export function Content() {
 
       <h2 id="fake-review-detection-and-the-flag-workflow">Fake review detection and the flag workflow</h2>
       <p>
-        Every new review runs through the AiLys Automation fake detection scorer on arrival. The scorer reads a few signals: account age, review history pattern, language model authorship probability, IP cluster proximity, and timing patterns relative to the business operating hours. Reviews above the flag threshold are surfaced in the dashboard with a one-click flag-to-Google action.
+        Every new review and every contact-form submission runs through the AiLys Automation fake detection scorer on arrival. The scorer reads four shipped signals. AI-generated text detection matches the body against a phrase library of known LLM authorship patterns (filler phrases that recur across ChatGPT, Claude, Gemini, and Perplexity output when asked to draft a review). Bot user agent fingerprinting flags requests from automation tools, headless browsers, scrapers, and known crawler names. Disposable email screening matches the address against a list of throwaway providers. Rapid-submission timing flags forms completed in under three seconds, the strong indicator of an automated post.
       </p>
       <p>
-        The system does not auto-flag without owner approval, because false positives carry a penalty. Google has tightened the review reporting rules and now soft-suppresses listings that flag legitimate reviews repeatedly. The AiLys Automation convention is one human decision per flag, with the AI providing the score and the suggested rationale text.
+        Each signal contributes a weighted risk score. Submissions above the higher threshold are blocked at the form layer; submissions in the middle band are flagged and queued in the dashboard with the score and the matched signals attached. The system does not auto-flag legitimate reviews without owner approval, because false positives carry a penalty. Google has tightened the review reporting rules and now soft-suppresses listings that flag legitimate reviews repeatedly. The AiLys Automation convention is one human decision per flag, with the scorer providing the rationale text.
       </p>
       <p>
-        The dashboard tracks flag outcomes over time so the owner can see which signals lead to successful Google removals and which do not. Most legitimate flags come from clusters of new accounts posting in the same hour, language patterns that match a known generation model, and reviews that reference services the business does not offer. Most rejected flags come from regular customers who happen to use very brief language.
+        The dashboard tracks flag outcomes over time so the owner can see which signals lead to successful Google removals and which do not. Most legitimate flags come from clusters of bot-pattern submissions, content that matches the AI authorship library, and reviews that reference services the business does not offer. Most rejected flags come from regular customers who happen to use very brief language.
       </p>
 
       <SectionDivider />
