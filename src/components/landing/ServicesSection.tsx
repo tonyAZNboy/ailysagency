@@ -48,14 +48,14 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
       "bg-gradient-to-br from-cyan-500/[0.14] via-sky-500/[0.06] to-transparent",
     border: "border-cyan-400/80 hover:border-cyan-300/100",
     glow:
-      "shadow-[0_0_0_2px_rgba(34,211,238,0.45),0_0_50px_0_rgba(34,211,238,0.55),0_0_120px_-4px_rgba(34,211,238,0.85),0_0_220px_-30px_rgba(34,211,238,0.6),inset_0_1px_0_rgba(255,255,255,0.10)] hover:shadow-[0_0_0_2px_rgba(34,211,238,0.7),0_0_70px_4px_rgba(34,211,238,0.75),0_0_160px_-2px_rgba(34,211,238,1),0_0_280px_-24px_rgba(34,211,238,0.8),inset_0_1px_0_rgba(255,255,255,0.16)]",
+      "shadow-[0_0_0_2px_rgba(34,211,238,0.225),0_0_50px_0_rgba(34,211,238,0.275),0_0_120px_-4px_rgba(34,211,238,0.425),0_0_220px_-30px_rgba(34,211,238,0.3),inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[0_0_0_2px_rgba(34,211,238,0.35),0_0_70px_4px_rgba(34,211,238,0.375),0_0_160px_-2px_rgba(34,211,238,0.5),0_0_280px_-24px_rgba(34,211,238,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]",
     priceGrad:
-      "bg-gradient-to-br from-cyan-200 via-cyan-300 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.6)]",
+      "bg-gradient-to-br from-cyan-200 via-cyan-300 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]",
     numberMarker: "text-cyan-300",
     arrow: "text-cyan-300 group-hover:text-cyan-200",
-    accentDot: "bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.9)]",
+    accentDot: "bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.45)]",
     buttonClass:
-      "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-100 border border-cyan-400/60 hover:bg-cyan-500/30 hover:border-cyan-300 shadow-[0_0_20px_-4px_rgba(34,211,238,0.5)]",
+      "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-100 border border-cyan-400/60 hover:bg-cyan-500/30 hover:border-cyan-300 shadow-[0_0_20px_-4px_rgba(34,211,238,0.25)]",
     ribbonGrad: "from-cyan-300 to-sky-400",
     separator: "via-cyan-400/50",
   },
@@ -64,15 +64,15 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
       "bg-gradient-to-br from-fuchsia-600/25 via-violet-600/15 to-cyan-500/15",
     border: "border-fuchsia-400/85 hover:border-fuchsia-300/100",
     glow:
-      "shadow-[0_0_0_2px_rgba(217,70,239,0.55),0_0_60px_4px_rgba(217,70,239,0.75),0_0_140px_-2px_rgba(217,70,239,1),0_0_240px_-20px_rgba(167,139,250,0.7),0_0_360px_-40px_rgba(34,211,238,0.4),inset_0_1px_0_rgba(255,255,255,0.16)] hover:shadow-[0_0_0_2px_rgba(217,70,239,0.8),0_0_80px_8px_rgba(217,70,239,0.95),0_0_180px_2px_rgba(217,70,239,1),0_0_300px_-14px_rgba(167,139,250,0.85),0_0_440px_-30px_rgba(34,211,238,0.6),inset_0_1px_0_rgba(255,255,255,0.22)]",
+      "shadow-[0_0_0_2px_rgba(217,70,239,0.275),0_0_60px_4px_rgba(217,70,239,0.375),0_0_140px_-2px_rgba(217,70,239,0.5),0_0_240px_-20px_rgba(167,139,250,0.35),0_0_360px_-40px_rgba(34,211,238,0.2),inset_0_1px_0_rgba(255,255,255,0.08)] hover:shadow-[0_0_0_2px_rgba(217,70,239,0.4),0_0_80px_8px_rgba(217,70,239,0.475),0_0_180px_2px_rgba(217,70,239,0.5),0_0_300px_-14px_rgba(167,139,250,0.425),0_0_440px_-30px_rgba(34,211,238,0.3),inset_0_1px_0_rgba(255,255,255,0.11)]",
     priceGrad:
-      "bg-gradient-to-br from-cyan-200 via-fuchsia-300 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(217,70,239,0.7)]",
+      "bg-gradient-to-br from-cyan-200 via-fuchsia-300 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(217,70,239,0.35)]",
     numberMarker: "text-fuchsia-300",
     arrow: "text-fuchsia-300 group-hover:text-fuchsia-200",
     accentDot:
-      "bg-gradient-to-r from-fuchsia-400 to-violet-400 shadow-[0_0_14px_rgba(217,70,239,1)]",
+      "bg-gradient-to-r from-fuchsia-400 to-violet-400 shadow-[0_0_14px_rgba(217,70,239,0.5)]",
     buttonClass:
-      "bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-violet-500 text-white hover:opacity-95 shadow-[0_0_40px_-6px_rgba(217,70,239,0.85)] hover:shadow-[0_0_55px_-4px_rgba(217,70,239,1)]",
+      "bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-violet-500 text-white hover:opacity-95 shadow-[0_0_40px_-6px_rgba(217,70,239,0.425)] hover:shadow-[0_0_55px_-4px_rgba(217,70,239,0.5)]",
     ribbonGrad: "from-cyan-300 via-fuchsia-400 to-violet-400",
     separator: "via-fuchsia-400/60",
   },
@@ -81,14 +81,14 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
       "bg-gradient-to-br from-orange-500/[0.18] via-rose-500/[0.10] to-amber-500/[0.06]",
     border: "border-orange-400/85 hover:border-orange-300/100",
     glow:
-      "shadow-[0_0_0_2px_rgba(251,146,60,0.5),0_0_55px_2px_rgba(251,146,60,0.65),0_0_130px_-4px_rgba(251,146,60,0.9),0_0_240px_-24px_rgba(244,63,94,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] hover:shadow-[0_0_0_2px_rgba(251,146,60,0.75),0_0_75px_6px_rgba(251,146,60,0.85),0_0_170px_-2px_rgba(251,146,60,1),0_0_300px_-18px_rgba(244,63,94,0.7),inset_0_1px_0_rgba(255,255,255,0.18)]",
+      "shadow-[0_0_0_2px_rgba(251,146,60,0.25),0_0_55px_2px_rgba(251,146,60,0.325),0_0_130px_-4px_rgba(251,146,60,0.45),0_0_240px_-24px_rgba(244,63,94,0.275),inset_0_1px_0_rgba(255,255,255,0.06)] hover:shadow-[0_0_0_2px_rgba(251,146,60,0.375),0_0_75px_6px_rgba(251,146,60,0.425),0_0_170px_-2px_rgba(251,146,60,0.5),0_0_300px_-18px_rgba(244,63,94,0.35),inset_0_1px_0_rgba(255,255,255,0.09)]",
     priceGrad:
-      "bg-gradient-to-br from-amber-200 via-orange-300 to-rose-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,146,60,0.65)]",
+      "bg-gradient-to-br from-amber-200 via-orange-300 to-rose-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,146,60,0.325)]",
     numberMarker: "text-orange-300",
     arrow: "text-orange-300 group-hover:text-orange-200",
-    accentDot: "bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.95)]",
+    accentDot: "bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.475)]",
     buttonClass:
-      "bg-gradient-to-r from-orange-500/20 to-rose-500/20 text-orange-100 border border-orange-400/65 hover:bg-orange-500/30 hover:border-orange-300 shadow-[0_0_20px_-4px_rgba(251,146,60,0.55)]",
+      "bg-gradient-to-r from-orange-500/20 to-rose-500/20 text-orange-100 border border-orange-400/65 hover:bg-orange-500/30 hover:border-orange-300 shadow-[0_0_20px_-4px_rgba(251,146,60,0.275)]",
     ribbonGrad: "from-orange-300 to-rose-400",
     separator: "via-orange-400/55",
   },
@@ -97,15 +97,15 @@ const paletteMap: Record<TierPalette, PaletteTokens> = {
       "bg-gradient-to-br from-emerald-500/22 via-cyan-500/12 to-teal-500/15",
     border: "border-emerald-400/85 hover:border-emerald-300/100",
     glow:
-      "shadow-[0_0_0_2px_rgba(52,211,153,0.55),0_0_60px_4px_rgba(52,211,153,0.75),0_0_140px_-2px_rgba(52,211,153,1),0_0_240px_-20px_rgba(34,211,238,0.65),0_0_360px_-40px_rgba(20,184,166,0.45),inset_0_1px_0_rgba(255,255,255,0.16)] hover:shadow-[0_0_0_2px_rgba(52,211,153,0.8),0_0_80px_8px_rgba(52,211,153,0.95),0_0_180px_2px_rgba(52,211,153,1),0_0_300px_-14px_rgba(34,211,238,0.8),0_0_440px_-30px_rgba(20,184,166,0.6),inset_0_1px_0_rgba(255,255,255,0.22)]",
+      "shadow-[0_0_0_2px_rgba(52,211,153,0.275),0_0_60px_4px_rgba(52,211,153,0.375),0_0_140px_-2px_rgba(52,211,153,0.5),0_0_240px_-20px_rgba(34,211,238,0.325),0_0_360px_-40px_rgba(20,184,166,0.225),inset_0_1px_0_rgba(255,255,255,0.08)] hover:shadow-[0_0_0_2px_rgba(52,211,153,0.4),0_0_80px_8px_rgba(52,211,153,0.475),0_0_180px_2px_rgba(52,211,153,0.5),0_0_300px_-14px_rgba(34,211,238,0.4),0_0_440px_-30px_rgba(20,184,166,0.3),inset_0_1px_0_rgba(255,255,255,0.11)]",
     priceGrad:
-      "bg-gradient-to-br from-emerald-200 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(52,211,153,0.7)]",
+      "bg-gradient-to-br from-emerald-200 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(52,211,153,0.35)]",
     numberMarker: "text-emerald-300",
     arrow: "text-emerald-300 group-hover:text-cyan-200",
     accentDot:
-      "bg-gradient-to-r from-emerald-400 to-cyan-400 shadow-[0_0_14px_rgba(52,211,153,1)]",
+      "bg-gradient-to-r from-emerald-400 to-cyan-400 shadow-[0_0_14px_rgba(52,211,153,0.5)]",
     buttonClass:
-      "bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 text-background hover:opacity-95 shadow-[0_0_40px_-6px_rgba(52,211,153,0.85)] hover:shadow-[0_0_55px_-4px_rgba(52,211,153,1)]",
+      "bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 text-background hover:opacity-95 shadow-[0_0_40px_-6px_rgba(52,211,153,0.425)] hover:shadow-[0_0_55px_-4px_rgba(52,211,153,0.5)]",
     ribbonGrad: "from-emerald-300 via-cyan-400 to-teal-400",
     separator: "via-emerald-400/55",
   },
@@ -277,21 +277,21 @@ export function ServicesSection() {
 
                   {tier.featured && (
                     <div
-                      className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-white font-semibold shadow-[0_4px_20px_-4px_rgba(167,139,250,0.5)]`}
+                      className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-white font-semibold shadow-[0_4px_20px_-4px_rgba(167,139,250,0.25)]`}
                     >
                       {t.services.badgeMostChosen}
                     </div>
                   )}
                   {isAutopilot && (
                     <div
-                      className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.55)]`}
+                      className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.275)]`}
                     >
                       {t.services.badgeAutopilot}
                     </div>
                   )}
                   {tier.status === "in-development" && (
                     <div
-                      className="absolute -top-3 right-7 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(251,191,36,0.55)]"
+                      className="absolute -top-3 right-7 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(251,191,36,0.275)]"
                       title={t.services.statusInDevelopmentTitle || "In development"}
                     >
                       {t.services.statusInDevelopment || "In development"}

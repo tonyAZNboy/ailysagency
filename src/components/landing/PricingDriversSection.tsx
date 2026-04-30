@@ -104,31 +104,31 @@ function DriverCard({ driver }: { driver: Driver }) {
       iconBg: "bg-gradient-to-br from-cyan-400 to-teal-500",
       title: "bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent",
       border: "border-cyan-400/25 hover:border-cyan-400/50",
-      glow: "shadow-[0_0_40px_-15px_rgba(34,211,238,0.35)]",
+      glow: "shadow-[0_0_40px_-15px_rgba(34,211,238,0.175)]",
     },
     violet: {
       iconBg: "bg-gradient-to-br from-violet-500 to-fuchsia-500",
       title: "bg-gradient-to-r from-violet-300 to-fuchsia-300 bg-clip-text text-transparent",
       border: "border-violet-400/30 hover:border-violet-400/55",
-      glow: "shadow-[0_0_40px_-15px_rgba(167,139,250,0.4)]",
+      glow: "shadow-[0_0_40px_-15px_rgba(167,139,250,0.2)]",
     },
     amber: {
       iconBg: "bg-gradient-to-br from-amber-400 to-orange-500",
       title: "bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent",
       border: "border-amber-400/25 hover:border-amber-400/50",
-      glow: "shadow-[0_0_40px_-15px_rgba(245,158,11,0.35)]",
+      glow: "shadow-[0_0_40px_-15px_rgba(245,158,11,0.175)]",
     },
     emerald: {
       iconBg: "bg-gradient-to-br from-emerald-400 to-cyan-500",
       title: "bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent",
       border: "border-emerald-400/25 hover:border-emerald-400/50",
-      glow: "shadow-[0_0_40px_-15px_rgba(52,211,153,0.35)]",
+      glow: "shadow-[0_0_40px_-15px_rgba(52,211,153,0.175)]",
     },
     rose: {
       iconBg: "bg-gradient-to-br from-rose-400 to-pink-500",
       title: "bg-gradient-to-r from-rose-300 to-pink-300 bg-clip-text text-transparent",
       border: "border-rose-400/25 hover:border-rose-400/50",
-      glow: "shadow-[0_0_40px_-15px_rgba(244,114,182,0.35)]",
+      glow: "shadow-[0_0_40px_-15px_rgba(244,114,182,0.175)]",
     },
   }[driver.tone];
 
@@ -137,7 +137,7 @@ function DriverCard({ driver }: { driver: Driver }) {
       className={`group relative h-full rounded-2xl p-5 sm:p-6 border bg-card/30 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${toneMap.border} ${toneMap.glow}`}
     >
       <div
-        className={`inline-flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${toneMap.iconBg} shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]`}
+        className={`inline-flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${toneMap.iconBg} shadow-[inset_0_1px_0_rgba(255,255,255,0.125)]`}
       >
         <Icon className="w-5 h-5 text-white" />
       </div>
