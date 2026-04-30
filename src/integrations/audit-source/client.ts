@@ -1,9 +1,10 @@
 // AiLys Agency · Audit data source
 //
-// We reuse Reviuzy's `reputation-audit` edge function (which is already
-// production-tested and pulls real GBP data via Google APIs). Reviuzy is a
-// sister product run by the same team, and this audit endpoint is a public
-// lead-gen surface, so calling it from AiLys is fine.
+// We reuse the `reputation-audit` edge function deployed under the
+// Reviuzy Inc Supabase project (production-tested, pulls real GBP data
+// via Google APIs). Reviuzy Inc is the legal entity operating AiLys
+// Agency; the audit endpoint is the same legal-entity infra. Calling
+// it from the AiLys frontend is fine; it's a public lead-gen surface.
 //
 // Once AiLys has its own Supabase project + edge function deployed, swap
 // this client to use the env-driven supabase client (../supabase/client.ts).

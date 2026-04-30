@@ -1265,7 +1265,7 @@ export const en = {
     bilingualLine: "Bilingual EN/FR-CA",
     versionLine: "v0.1 · Made in Québec ⚜",
 
-    srSeo: "AiLys Agency is based in Montréal, Québec, with bilingual EN and FR-CA delivery in-house. Our sister product AiLys Automation is a self-serve SaaS for review collection and Google Business Profile automation, and the product engine that powers part of our agency delivery. Quick links cover services (technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T), company pages (blog, help center, book a call, AI Visibility Audit, GBP Pulse, contact), legal pages (privacy policy, terms of service, cookie policy), and the 6 AI engines we track (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot). Site available in 16 languages including English, French, Spanish, Chinese, Arabic, Russian, German, Hindi, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Turkish, and Vietnamese.",
+    srSeo: "AiLys Agency is based in Montréal, Québec, with bilingual EN and FR-CA delivery in-house. AiLys Automation is our internal automation platform powering review collection, Google Business Profile automation, and citation tracking inside our agency delivery. Quick links cover services (technical SEO, GBP, citations, schema, AEO, GEO, E-E-A-T), company pages (blog, help center, book a call, AI Visibility Audit, GBP Pulse, contact), legal pages (privacy policy, terms of service, cookie policy), and the 6 AI engines we track (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot). Site available in 16 languages including English, French, Spanish, Chinese, Arabic, Russian, German, Hindi, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Turkish, and Vietnamese.",
   },
 
   navExt: {
