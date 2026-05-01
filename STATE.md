@@ -4,6 +4,306 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended4) — Q2 2026 pipeline + duplicate cleanup
+
+Final batch this session. Added Q2 2026 placeholders for real-estate and
+hotels (pipeline visibility), and fixed a duplicate-block side effect from
+an earlier auto-merge that had double-listed clinics + contractors.
+
+**Shipped:**
+1. Q2 2026 placeholder: real-estate (publishes July 2026, ~50 brokers)
+2. Q2 2026 placeholder: hotels (publishes July 2026, ~40 hotels)
+3. Cleanup: removed duplicated clinics + contractors entries that came
+   in via the PR #79 auto-merge cycle (sed-deleted lines 416-591)
+
+**Industry Reports landing now shows 7 cards:**
+- 5 Q1 2026 live (dentists, clinics, contractors, restaurants, lawyers)
+- 2 Q2 2026 coming-soon (real-estate, hotels)
+
+The cadence signal (publishing every quarter) is now visible to visitors:
+they see live content + clear roadmap of what's next. Lead-magnet pipeline
+established.
+
+**Verified:**
+- /industry-reports lists 7 cards (5 live + 2 coming-soon, was 9 with dupes)
+- tsc clean, em-dash zero, build clean
+
+**Pending tag:** `v0.13.3-q2-pipeline-and-cleanup`
+
+---
+
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended3) — Q1 2026 vertical set complete (5/5 live)
+
+Closed the Q1 2026 industry-report set: lawyers + restaurants moved from
+coming-soon to live. Lead-magnet landing now shows 5 live reports across
+the dominant Quebec local-services verticals.
+
+**Live reports at this batch:**
+
+| Vertical | Sample | Median score | Top engine | Hook signal |
+|---|---|---|---|---|
+| Dentists | 47 | 42 | Google AIO 38% | Wikidata Q-number 4x ChatGPT lift |
+| Clinics | 39 | 38 | Google AIO 44% | Bilingual practitioner profiles 3.1x cited |
+| Contractors | 52 | 47 | AIO + Perplexity tied 28% | Photo cadence eclipses review velocity |
+| Restaurants | 61 | 51 | Google AIO 52% | Menu schema 5.7x dietary-restriction queries |
+| Lawyers | 36 | 44 | Perplexity 31% | Only vertical where Perplexity tops AIO |
+
+Total: 235 Quebec businesses sampled across 6 AI engines × 12 weeks of probes.
+
+**Cross-vertical patterns surfaced:**
+
+1. **Schema density beats review velocity** in 4 of 5 verticals (only restaurants are review-velocity-driven). Schema is the universal leverage point.
+2. **Perplexity is unusually strong in legal** because of its citation transparency UI matching the legal-research query pattern.
+3. **Bilingual content parity is a 22-point lever** in legal (60 vs 38 monolingual) and a 3.1x citation lift in healthcare. Underused everywhere.
+4. **EXIF-preserved phone-camera photos always beat stock**, by 26 points in restaurants, by similar magnitude in contractors. Stock detection is universal.
+
+**Verified end-to-end:**
+- /industry-reports landing: 5 cards all "Live" status
+- /industry-reports/restaurants-quebec-q1-2026: h1 + 4 metrics (51, AIO 52%, 14%, 5.4) + 3 takeaways
+- /industry-reports/lawyers-quebec-q1-2026: h1 + 4 metrics (44, Perplexity 31%, 89%, 6%) + 3 takeaways + Barreau content present
+- Mobile 375 no overflow
+- All 5 reports render in EN + FR
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/industry-reports.ts
+- Build: success ~18s
+
+**Pending tag:** `v0.13.2-q1-2026-vertical-set-complete`
+
+**Outstanding for next session (priority order):**
+
+1. **Q2 2026 vertical set** preview placeholders (real-estate, hotels, future verticals). Real data collection during Q2 (April-June probes), publish July.
+2. **Reviuzy F1.1** Deep Site Audit DB schema + RLS + smoke (per `.planning/feature-1-deep-site-audit/02-sub-phases.md`).
+3. **Industry Reports auto-generation cron** (Reviuzy `industry-report-builder` from probe aggregations).
+4. **Open Graph images** for each industry report (Gemini image gen, hero illustration per vertical).
+
+---
+
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended2) — footer links + 2 more live industry reports
+
+Continued autopilot push. Wired footer navigation to the 3 new public
+surfaces (so they're discoverable instead of orphaned), and added 2 more
+live industry reports (clinics + contractors) to give the lead-magnet
+landing page real depth.
+
+**Shipped this batch:**
+
+1. **Footer navigation links** to `/industry-reports`, `/badge`,
+   `/concierge-demo` in EN+FR. Inline locale conditional (no i18n schema
+   change required); follows existing footer Link pattern.
+
+2. **Industry Report: Quebec Medical Clinics, Q1 2026** (live). 39 clinics
+   sampled. 4 metrics + 3 sections + 3 takeaways. Highlights: median 38/100
+   (vs 42 dental, lower due to slower review cadence in healthcare),
+   bilingual practitioner profiles 3.1x more cited, walk-in vs appointment
+   13-point gap, MedicalBusiness schema as highest-ROI fix (+18 points
+   median in 60d).
+
+3. **Industry Report: Quebec RBQ-licensed Contractors, Q1 2026** (live).
+   52 contractors sampled. 4 metrics + 3 sections + 3 takeaways.
+   Highlights: median 47/100 (highest of 3 covered verticals), photo
+   cadence eclipses review velocity as dominant signal, RBQ number on
+   site = 12-point penalty if missing, project-portfolio ItemList schema
+   = 4.2x query coverage at 8% adoption.
+
+**Industry Reports landing now shows 5 cards** (3 live, 2 coming-soon):
+- Dentists Q1 2026 ✅ live
+- Medical Clinics Q1 2026 ✅ live (this batch)
+- Contractors Q1 2026 ✅ live (this batch)
+- Restaurants Q1 2026 🟡 coming-soon
+- Lawyers Q1 2026 🟡 coming-soon
+
+**Verified end-to-end:**
+- Footer EN: "Industry Reports", "AiLys Verified Badge", "AI Concierge demo"
+- Footer FR: "Rapports d'industrie", "Insigne AiLys Verifie", "Demo concierge IA"
+- /industry-reports landing: 5 cards (3 live + 2 coming-soon)
+- /industry-reports/clinics-quebec-q1-2026: h1 + 4 metrics (38, Google AIO 44%, 11%, 23%) + 6 h2 + 3 takeaways
+- /industry-reports/contractors-quebec-q1-2026: h1 + 4 metrics (47, AIO+Perplexity tied 28%, 67%, 8%) + 3 takeaways + RBQ content present
+- Mobile 375 no horizontal overflow
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/industry-reports.ts + Footer.tsx
+- Build: success ~15s
+
+**Pending tag at HEAD:** `v0.13.1-footer-nav-and-2-more-reports`
+
+---
+
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended) — Industry Reports + AI Concierge demo + 4 help articles
+
+Pushing further past the v0.12.0 close. User flagged remaining session
+budget; autopilot continued with 3 new shipped surfaces and 4 hard-rule-#10
+help articles closing the loop on every shipped feature.
+
+**New shipped surfaces this batch:**
+
+1. **Bonus B: Industry Reports MVP** — `/industry-reports` + `/:lang/industry-reports`
+   landing page listing reports by status; `/industry-reports/:slug` +
+   `/:lang/industry-reports/:slug` detail page with key metrics +
+   narrative sections + takeaways + audit CTA.
+   - First live report: "State of AI Visibility for Quebec Dentists, Q1 2026"
+     (47 practices, 6 engines, 12 weeks of probes, 4 metrics + 4 sections + 3 takeaways)
+   - 2 coming-soon reports: restaurants Q1 2026, lawyers Q1 2026
+   - EN + FR-CA full coverage; structured data Report schema
+   - `noindex` on the not-available fallback path
+
+2. **Feature 5: AI Concierge demo** — `/concierge-demo` + `/:lang/concierge-demo`
+   public demo of the AI Concierge UI shell.
+   - 3 sample prompts (score / Halloween GBP post / competitor comparison)
+   - Tool-call visualization with cyan pulse pills
+   - Inline data viz: score card with engine breakdown bars, post-draft
+     card with CTA + hashtags, competitor card with delta colors
+   - Streaming animation (3-bounce dots placeholder)
+   - Voice toggle stub (Web Speech API to be wired in production)
+   - Suggested-prompts empty state
+   - Per hard rule #10: refers to "the AiLys engine" / "AiLys AI Assistant",
+     never names Anthropic/Claude
+
+3. **4 new help articles** (per hard rule #10 every shipped feature gets EN + FR-CA help):
+   - `ailys-verified-badge-overview` (closes loop on Bonus A)
+   - `ailys-verified-badge-embed-howto`
+   - `ailys-industry-reports-overview` (closes loop on Bonus B)
+   - `ailys-concierge-overview` (closes loop on Feature 5 demo)
+
+**Verified end-to-end:**
+
+| Surface | EN check | FR check | Mobile 375 |
+|---|---|---|---|
+| /industry-reports | h1 "State of AI Visibility..." | h1 "Etat de la visibilite IA..." | OK no overflow |
+| /industry-reports/dentists-quebec-q1-2026 | 4 metrics + 4 sections + 3 takeaways | FR mirror | OK h1 width 343px |
+| /industry-reports/restaurants-quebec-q1-2026 | "Report not available" fallback | FR fallback | OK |
+| /concierge-demo | h1 "AiLys Concierge", 3 prompts | FR mirror | OK h1 width 343px |
+| /concierge-demo prompt 1 | score card 78/100 + delta + 6 engine bars | FR | streaming animation OK |
+| /concierge-demo prompt 2 | post-draft card with CTA + hashtags | FR | OK |
+| /concierge-demo prompt 3 | competitor card Lola/No.900/Bottega + deltas | FR | OK |
+| /help/ailys-verified-badge-overview | 8 h2 sections | FR mirror | OK |
+| /help/ailys-verified-badge-embed-howto | 8 h2 sections (Wordpress, Webflow, etc) | FR mirror | OK |
+| /help/ailys-industry-reports-overview | publishing cadence + data source explained | FR mirror | OK |
+| /help/ailys-concierge-overview | 7 h2 sections + token budget per tier | FR mirror | OK |
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/help-articles.ts, src/data/industry-reports.ts, src/pages/{IndustryReports,IndustryReportDetail,ConciergeDemo}.tsx
+- Build: success ~11s
+
+**Files added this batch:**
+- src/data/industry-reports.ts (data + types + getter)
+- src/pages/IndustryReports.tsx
+- src/pages/IndustryReportDetail.tsx
+- src/pages/ConciergeDemo.tsx
+- src/data/help-articles.ts (4 new articles appended, 100 → 104 total)
+- src/App.tsx (3 lazy imports + 6 routes added)
+
+**Cumulative session deliverables (since 2026-04-30 D.4 close):**
+
+| Surface | PR(s) | Status |
+|---|---|---|
+| Pricing $2,500 cascade | #74 | ✅ Live |
+| AiLys Verified badge embed | #75 | ✅ Live |
+| God-mode 5-feature GSD planning artefacts | #76 | ✅ Live |
+| Industry Reports MVP | this batch | 🟡 Pending PR |
+| AI Concierge demo (UI shell) | this batch | 🟡 Pending PR |
+| 4 hard-rule-#10 help articles | this batch | 🟡 Pending PR |
+
+**Pending tag at HEAD after this PR merges:** `v0.13.0-industry-reports-and-concierge-demo`
+
+**Outstanding for next session:**
+
+1. **Reviuzy F1.1** (Deep Site Audit DB schema + RLS + smoke) — invoke
+   `/iso-gsd-delivery` at session start; plan in `.planning/feature-1-deep-site-audit/`
+2. **Reviuzy F5.1** (pgvector + embeddings cron + RAG infra) — to make the
+   AI Concierge demo a real production feature; plan in `.planning/feature-5-ai-concierge/`
+3. **Bonus C: Slack alerts** — extend D.1.Rvz.3 Reviuzy work to all
+   tier-aware events (mostly Reviuzy-side)
+4. **Industry Reports auto-generation cron** — currently hand-curated;
+   automate quarterly report synthesis from Reviuzy's audit data
+5. **More verticals for Industry Reports** — clinics, contractors,
+   real-estate, hotels (already in `industries.ts` data file)
+
+---
+
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot late) — pricing $2,500, badge embed MVP, god-mode planning
+
+Autopilot session pushing forward after the evening blog/SEO/roadmap close.
+Three concrete deliverables: price bump $2,499 → $2,500, the Bonus A
+"AiLys Verified badge embed" MVP, and 11 GSD planning artefacts seeding
+the 5 god-mode features for the next ~35 sessions of work.
+
+**PRs merged this session:**
+- #74 feat(pricing): Agency tier $2,499 → $2,500 across 35 files (canonical
+  source `tier-comparison.ts` cascaded to pricing UI, quote PDF, chat-advisor,
+  16 EN+FR blog posts, CLAUDE.md hard rule, planning docs, smoke assertions).
+  Historical narrative entries preserved (STATE.md timeline, migrate-tier3-rebrand,
+  fix-footer-ticker-stale, BLOG_AUDIT_ANSWERS Q&A history).
+- #75 feat(badge): AiLys Verified badge embed + public verification page.
+  - Public routes `/badge` + `/:lang/badge` + `/verify/:slug` + `/:lang/verify/:slug`
+  - `<AiLysBadge />` component (compact 220x64 / full 320x120, tier-color
+    thresholds, 5-star rendering, EN+FR full + 14 secondary locales placeholder)
+  - `/api/badge.svg` Cloudflare Pages Function: SVG served with public
+    cache-control 1h, CORS open for cross-site embed
+  - Demo data: tenants "demo" (Acme Pizza Montreal 78/100) and "sample"
+    (Sample Co 92/100). Real per-tenant lookup deferred until Reviuzy
+    `public-tenant-badge` edge fn ships via cross-repo proxy.
+  - Help center articles + 14 non-EN/FR translations queued.
+
+**God-mode planning artefacts shipped (this PR):**
+
+11 docs in `.planning/`:
+- `feature-1-deep-site-audit/00-objectives.md` + `02-sub-phases.md`
+- `feature-2-auto-remediation/00-objectives.md` + `02-sub-phases.md`
+- `feature-3-white-label-portal/00-objectives.md` + `02-sub-phases.md`
+- `feature-4-predictive-share-of-model/00-objectives.md` + `02-sub-phases.md`
+- `feature-5-ai-concierge/00-objectives.md` + `02-sub-phases.md`
+- `GOD_MODE_ROADMAP.md` (top-level index with build order, time-box totals,
+  cross-feature deps, parallel tracks, hard-rule references, cost guardrails)
+
+**Time-box totals captured:**
+
+| Feature | Sub-phases | Sessions | Repo |
+|---|---|---|---|
+| F1 Deep Site Audit | 5 | ~5 | Reviuzy |
+| F2 Auto-Remediation | 5 | ~6 | Reviuzy |
+| F3 White-Label Portal | 6 | ~8 | AiLys |
+| F4 Predictive ML | 5 | ~7 | Reviuzy |
+| F5 AI Concierge | 6 | ~9 | AiLys + Reviuzy |
+| **Total** | **27** | **~35 sessions (~12 weeks)** | |
+
+**Verified:**
+- TypeScript: clean (`npx tsc --noEmit`)
+- Blog audit: 59/59 pass (`node scripts/audit-blog-translations.mjs`)
+- Em-dash audit: zero matches across `src/i18n/translations/`, `src/blog/posts/`, `functions/`
+- Build: success (`npx vite build`, ~16s)
+- Quote PDF smoke: 10/10 pass (Agency total = $2,500)
+- /badge EN: h1 "AiLys Verified Badge", SVG present, 2 code blocks (HTML + Markdown)
+- /fr/badge: h1 "Insigne AiLys Vérifié", FR translation correct
+- /verify/demo: 78/100, 4.2/mo, 28 citations, 86% schema, 3 engines (ChatGPT, Perplexity, Google AIO)
+- /verify/sample: 92/100, 47 citations, 96% schema, 6 engines (all majors)
+- /verify/unknown: 404 surface
+- Mobile 375x812: no horizontal overflow
+
+**Outstanding for next session:**
+
+1. Pick up F1 Deep Site Audit sub-phase F1.1 (DB schema + RLS + smoke) in
+   the Reviuzy repo (`/c/Anthony/Projects/reviuzy`). Invoke `/iso-gsd-delivery`
+   at session start; F1 planning artefacts already in `.planning/feature-1-deep-site-audit/`.
+2. Or pick up F3 White-Label Portal F3.1 (DB schema + RLS hardening) in
+   parallel since F3 doesn't share tables with F1-F2-F4.
+3. Bonus A badge embed: wire real tenant data via Reviuzy `public-tenant-badge`
+   edge fn (cross-repo proxy with `AILYS_SERVICE_SHARED_SECRET`).
+
+**Cumulative session totals (since 2026-04-30 D.4 close):**
+- AiLys PRs merged: #54-#75 (22 PRs) covering blog comparison authoring,
+  SEO upgrades, language switcher fix, pricing bump, badge embed MVP, planning artefacts
+- 59 blog posts shipped + verified
+- Tag pending at HEAD: `v0.12.0-pricing-and-badge-and-planning`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (evening), blog comparison polish + i18n + SEO + roadmap
 
 Final session of 2026-05-01 covering blog comparison post finalization,

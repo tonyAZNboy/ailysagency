@@ -1,4 +1,4 @@
-// Cloudflare Pages Function · /api/chat-advisor
+﻿// Cloudflare Pages Function · /api/chat-advisor
 //
 // AiLys AI Search Advisor chat backend. Replaces the previous Reviuzy
 // edge function dependency (was hanging + Reviuzy-flavored answers).

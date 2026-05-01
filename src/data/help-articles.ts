@@ -7102,4 +7102,608 @@ Si vous etes sur un ordinateur partage, effacez le localStorage avant de vous de
       },
     },
   },
+
+  // ─── AiLys Verified Badge (Bonus A) ────────────────────────
+  {
+    slug: "ailys-verified-badge-overview",
+    title: "What is the AiLys Verified badge",
+    excerpt:
+      "A public, auto-updating badge that displays your AI Visibility score on your website. Builds trust with visitors and links back to your public AiLys report. Free for every active client.",
+    category: "getting-started",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 4,
+    body: `## What it is
+
+The AiLys Verified badge is a small SVG image you paste into your website footer (or anywhere on your site). It shows your current AI Visibility score, gets a green or amber or red side bar based on your tier, and links to your public AiLys report when a visitor clicks it.
+
+You see it everywhere on the web in other forms: the SSL Labs A+ badge, the BBB Accredited badge, the Better Business Bureau seal. Same idea, applied to AI Visibility.
+
+## What it shows
+
+Two layouts are available.
+
+**Compact (220 by 64 pixels):** "Verified by AiLys" label, your numeric score out of 100, five stars filled based on your score band, and a colored side bar.
+
+**Full (320 by 120 pixels):** same as compact plus your business name and a larger score readout. Better for prominent placements.
+
+## Why it works
+
+Three things happen when a visitor sees it.
+
+1. **Trust signal.** Independent third-party verification of AI Visibility builds the same instinct as a Yelp star count or a Google review average. The visitor reads "this business has been measured by an external authority" without having to think about it.
+2. **Backlink.** The badge links to ailysagency.ca/verify/your-slug. That is a backlink from your domain to a domain we own, which the AI engines and traditional search engines both crawl and weight.
+3. **Recursive proof.** Your public report mentions which AI engines have cited you. Visitors who find you via ChatGPT or Perplexity get reinforcement: yes, the engine that recommended us also confirms our citation count.
+
+## What the public report shows
+
+When someone clicks the badge, they land on a page like ailysagency.ca/verify/your-slug. The page shows:
+
+- Your business name, industry, and city
+- Current AI Visibility score with a colored badge
+- Review velocity (reviews per month, last 90 days average)
+- Active citations count
+- Schema markup completeness percentage
+- Which AI engines have cited your brand in the last probe cycle (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot)
+- Last probe timestamp
+
+The page is intentionally minimal. No marketing fluff, no extra calls to action that distract from the score. Visitors see the data and the trust signal in one screen.
+
+## Privacy and what does NOT show
+
+The public report only shows aggregate signals. It does NOT show:
+
+- Specific review text or customer names
+- Individual citation source URLs
+- Which queries triggered citations (those are in your strategist report only)
+- Customer email addresses, phone numbers, or any PII
+- Your competitor comparison or share-of-voice (private to your dashboard)
+- Internal notes from your strategist
+
+## Who can see it
+
+Anyone on the internet. The page is public and noindex (search engines do not list it directly). The badge is meant to be embedded on your site; visitors clicking it are already on your site.
+
+If you do not want a public report, contact your strategist and we will disable the slug. The badge will then return a generic placeholder instead of your data, and the report URL will return "report not found".
+
+## How often it updates
+
+The badge image is cached for 1 hour at the edge to keep your site fast. Your score itself updates based on your tier:
+
+- Starter: monthly probes
+- Core: weekly probes
+- Growth: every 3 days
+- Agency: daily probes plus on-demand re-probe via your strategist
+
+So the badge reflects probes within roughly your tier cadence plus 1 hour for cache propagation.
+
+## How to set it up
+
+See the companion article "How to embed your AiLys Verified badge". The TL;DR: copy a 1-line HTML snippet from your dashboard, paste it in your site footer, ship.`,
+    i18n: {
+      fr: {
+        title: "Qu'est-ce que l'insigne AiLys Verifie",
+        excerpt:
+          "Un insigne public, mis a jour automatiquement, qui affiche votre score de visibilite IA sur votre site web. Renforce la confiance des visiteurs et redirige vers votre rapport public AiLys. Gratuit pour tout client actif.",
+        body: `## Ce que c'est
+
+L'insigne AiLys Verifie est une petite image SVG que vous collez dans le pied de page de votre site (ou ailleurs). Il affiche votre score actuel de visibilite IA, recoit une barre laterale verte, ambre ou rouge selon votre palier, et redirige vers votre rapport public AiLys quand un visiteur clique dessus.
+
+Vous le voyez partout sur le web sous d'autres formes : l'insigne SSL Labs A+, l'insigne BBB Accredited, le sceau Better Business Bureau. Meme idee, appliquee a la visibilite IA.
+
+## Ce qu'il affiche
+
+Deux formats sont disponibles.
+
+**Compact (220 par 64 pixels) :** etiquette "Verifie par AiLys", votre score numerique sur 100, cinq etoiles remplies selon votre tranche de score, et une barre laterale coloree.
+
+**Complet (320 par 120 pixels) :** identique au compact plus le nom de votre entreprise et un score plus visible. Mieux pour les placements importants.
+
+## Pourquoi ca marche
+
+Trois choses se passent quand un visiteur le voit.
+
+1. **Signal de confiance.** Une verification tierce independante de la visibilite IA suscite le meme reflexe qu'un compte d'etoiles Yelp ou une moyenne d'avis Google. Le visiteur lit "cette entreprise a ete mesuree par une autorite externe" sans avoir a y reflechir.
+2. **Lien retour.** L'insigne pointe vers ailysagency.ca/verify/votre-slug. C'est un lien retour de votre domaine vers un domaine que nous possedons, que les moteurs IA et les moteurs de recherche traditionnels indexent et ponderent.
+3. **Preuve recursive.** Votre rapport public mentionne quels moteurs IA vous ont cite. Les visiteurs qui vous trouvent via ChatGPT ou Perplexity recoivent un renforcement : oui, le moteur qui nous a recommandes confirme aussi notre nombre de citations.
+
+## Ce que le rapport public montre
+
+Quand quelqu'un clique sur l'insigne, il atterrit sur une page comme ailysagency.ca/verify/votre-slug. La page montre :
+
+- Votre nom d'entreprise, industrie et ville
+- Score actuel de visibilite IA avec un insigne colore
+- Velocite d'avis (avis par mois, moyenne 90 jours)
+- Nombre de citations actives
+- Pourcentage de completude des donnees structurees
+- Quels moteurs IA ont cite votre marque au dernier cycle de probe (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot)
+- Horodatage de la derniere probe
+
+La page est volontairement minimaliste. Pas de fioritures marketing, pas d'appels a l'action supplementaires qui distraient du score. Les visiteurs voient les donnees et le signal de confiance en un seul ecran.
+
+## Confidentialite et ce qui n'est PAS affiche
+
+Le rapport public ne montre que des signaux agreges. Il NE montre PAS :
+
+- Le texte specifique des avis ou les noms des clients
+- Les URL sources de citations individuelles
+- Quelles requetes ont declenche des citations (celles-ci sont uniquement dans votre rapport strategiste)
+- Les courriels, numeros de telephone des clients, ou aucune donnee personnelle
+- Votre comparaison concurrentielle ou part de voix (prive a votre tableau de bord)
+- Notes internes de votre strategiste
+
+## Qui peut le voir
+
+N'importe qui sur internet. La page est publique et noindex (les moteurs de recherche ne la listent pas directement). L'insigne est concu pour etre integre sur votre site ; les visiteurs qui cliquent sont deja sur votre site.
+
+Si vous ne voulez pas de rapport public, contactez votre strategiste et nous desactiverons le slug. L'insigne retournera alors un placeholder generique au lieu de vos donnees, et l'URL du rapport retournera "rapport introuvable".
+
+## Frequence de mise a jour
+
+L'image de l'insigne est mise en cache 1 heure en bordure de reseau pour garder votre site rapide. Votre score lui-meme se met a jour selon votre palier :
+
+- Starter : probes mensuelles
+- Core : probes hebdomadaires
+- Growth : tous les 3 jours
+- Agency : probes quotidiennes plus re-probe a la demande via votre strategiste
+
+L'insigne reflete donc les probes selon environ votre cadence de palier plus 1 heure de propagation cache.
+
+## Comment l'installer
+
+Voir l'article complementaire "Comment integrer votre insigne AiLys Verifie". Resume : copiez un extrait HTML d'une ligne depuis votre tableau de bord, collez-le dans le pied de page de votre site, livrez.`,
+      },
+    },
+  },
+  {
+    slug: "ailys-verified-badge-embed-howto",
+    title: "How to embed your AiLys Verified badge",
+    excerpt:
+      "Copy-paste guide for adding the AiLys Verified badge to your Wordpress, Webflow, Shopify, Squarespace, or custom-coded site. Includes HTML and Markdown formats.",
+    category: "getting-started",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 6,
+    body: `## What you need
+
+- An active AiLys subscription (Starter or higher)
+- Your unique slug (provided at onboarding; visible in your dashboard)
+- Edit access to your website footer or wherever you want the badge
+
+If you do not have your slug yet, contact your strategist or check your welcome email.
+
+## Step 1: get your embed code
+
+Go to ailysagency.ca/badge. Enter your slug in the "client identifier" field (or "demo" to preview the demo). Pick the variant: compact (220 by 64) for footers, full (320 by 120) for prominent placements.
+
+Two code blocks appear: HTML and Markdown. Click "Copy" on the one that fits your site.
+
+## Step 2: paste it into your site
+
+### Wordpress
+
+1. Go to Appearance > Widgets (or Appearance > Customize > Widgets depending on your theme)
+2. Find your footer widget area
+3. Add a "Custom HTML" widget
+4. Paste the HTML code
+5. Save
+
+If your theme uses a footer template file, you can also paste the HTML directly into footer.php inside the closing footer tag, but using a widget keeps the code editable from the admin without touching theme files.
+
+### Webflow
+
+1. Open your project in the Webflow Designer
+2. Add an Embed component to your footer (drag from the Add panel)
+3. Paste the HTML code into the Embed
+4. Save and Publish
+
+### Shopify
+
+1. Go to Online Store > Themes > Edit code
+2. Open Sections > footer.liquid (or your theme's footer file)
+3. Paste the HTML code where you want the badge to appear
+4. Save
+
+For Shopify 2.0 themes with a "Custom HTML" section block, you can use that without editing theme code.
+
+### Squarespace
+
+1. Edit the page where you want the badge
+2. Add a Code block (in Squarespace 7.1: Add Block > Code)
+3. Paste the HTML code
+4. Save
+
+### Custom code or static site
+
+Paste the HTML wherever you want it. The badge is a single anchor tag wrapping an img tag, no JavaScript dependencies, no CSS reset needed.
+
+### Markdown sites (GitHub README, Notion, blog posts)
+
+Use the Markdown format instead of HTML.
+
+## Step 3: verify it loads
+
+Open your site in a private browsing window (so cache does not interfere). Scroll to your footer. The badge should display:
+
+- Compact: a 220 by 64 pixel image with "Verified by AiLys", your score, and 5 stars
+- Full: a 320 by 120 pixel image with your business name and a larger score readout
+
+Click the badge. It should open ailysagency.ca/verify/your-slug in a new tab and show your public report.
+
+## What if it does not load
+
+If the badge appears as a broken image or a generic placeholder showing 0 out of 100:
+
+1. Double-check your slug. It must match exactly what your strategist provided. Common typos: hyphen vs underscore, leading or trailing spaces.
+2. Confirm your subscription is active. The badge surface is gated to active subscriptions.
+3. Confirm your AI Visibility score has been computed at least once. New clients have their first probe scheduled within 24 hours of onboarding.
+4. Try the demo slug "demo" or "sample" first. If those work and yours does not, contact support.
+
+## Customizing appearance
+
+The badge is an SVG with a transparent background-friendly design (it has its own dark gradient background built in, so it works on light or dark site backgrounds). To customize:
+
+- **Size:** the embed includes width and height attributes. Edit those to scale. The SVG is vector, so it stays sharp at any size.
+- **Alignment:** wrap the anchor tag in a div with text-align center or left or right.
+- **Margin and spacing:** add a class to the anchor tag and target it with your site CSS.
+
+## Removing the badge
+
+Just delete the embed code from your footer. There is no callback to AiLys, no analytics tracking on the badge image, no cleanup needed.
+
+If you want to also retire your public report (the page the badge links to), contact your strategist. We will mark your slug as private, and the URL will return "report not found".
+
+## Caching note
+
+The badge image is served with a 1-hour cache header. If you have just had your AI Visibility score recomputed and want the badge to show the new score immediately, your visitors may see the old score for up to 1 hour. There is no way to force-bust the cache for embedded images on third-party sites; this 1-hour ceiling protects your site speed by reducing requests.
+
+## Multilingual sites
+
+If your site has French and English versions, embed the badge once with the lang parameter that matches your default audience. The badge is locale-aware: append &lang=fr to the SVG URL for French labels, &lang=en for English (default).
+
+For sites that auto-detect locale, you can use server-side rendering to swap the lang query param, or you can show two separate badges (one per locale) and rely on your locale switcher to hide the inactive one.`,
+    i18n: {
+      fr: {
+        title: "Comment integrer votre insigne AiLys Verifie",
+        excerpt:
+          "Guide copier-coller pour ajouter l'insigne AiLys Verifie a votre site Wordpress, Webflow, Shopify, Squarespace, ou code custom. Inclut formats HTML et Markdown.",
+        body: `## Ce dont vous avez besoin
+
+- Un abonnement AiLys actif (Starter ou superieur)
+- Votre slug unique (fourni a l'onboarding ; visible dans votre tableau de bord)
+- Acces edition au pied de page de votre site web ou la ou vous voulez l'insigne
+
+Si vous n'avez pas encore votre slug, contactez votre strategiste ou verifiez votre courriel de bienvenue.
+
+## Etape 1 : obtenir votre code d'integration
+
+Allez sur ailysagency.ca/fr/badge. Entrez votre slug dans le champ "identifiant client" (ou "demo" pour previsualiser la demo). Choisissez le format : compact (220 par 64) pour les pieds de page, complet (320 par 120) pour les placements importants.
+
+Deux blocs de code apparaissent : HTML et Markdown. Cliquez "Copier" sur celui qui convient a votre site.
+
+## Etape 2 : collez-le dans votre site
+
+### Wordpress
+
+1. Allez a Apparence > Widgets (ou Apparence > Personnaliser > Widgets selon votre theme)
+2. Trouvez votre zone widget de pied de page
+3. Ajoutez un widget "HTML personnalise"
+4. Collez le code HTML
+5. Enregistrez
+
+Si votre theme utilise un fichier template de pied de page, vous pouvez aussi coller le HTML directement dans footer.php a l'interieur de la balise footer fermante, mais utiliser un widget garde le code editable depuis l'administration sans toucher aux fichiers du theme.
+
+### Webflow
+
+1. Ouvrez votre projet dans le Webflow Designer
+2. Ajoutez un composant Embed a votre pied de page (glissez depuis le panneau Add)
+3. Collez le code HTML dans l'Embed
+4. Enregistrez et publiez
+
+### Shopify
+
+1. Allez a Boutique en ligne > Themes > Modifier le code
+2. Ouvrez Sections > footer.liquid (ou le fichier pied de page de votre theme)
+3. Collez le code HTML la ou vous voulez que l'insigne apparaisse
+4. Enregistrez
+
+Pour les themes Shopify 2.0 avec un bloc de section "HTML personnalise", vous pouvez l'utiliser sans editer le code du theme.
+
+### Squarespace
+
+1. Editez la page ou vous voulez l'insigne
+2. Ajoutez un bloc Code (dans Squarespace 7.1 : Ajouter un bloc > Code)
+3. Collez le code HTML
+4. Enregistrez
+
+### Code custom ou site statique
+
+Collez le HTML ou vous voulez. L'insigne est une seule balise ancre qui enveloppe une balise img, aucune dependance JavaScript, aucun reset CSS necessaire.
+
+### Sites Markdown (README GitHub, Notion, articles de blogue)
+
+Utilisez le format Markdown au lieu du HTML.
+
+## Etape 3 : verifier qu'il charge
+
+Ouvrez votre site dans une fenetre de navigation privee (pour que le cache n'interfere pas). Faites defiler jusqu'au pied de page. L'insigne devrait afficher :
+
+- Compact : une image de 220 par 64 pixels avec "Verifie par AiLys", votre score, et 5 etoiles
+- Complet : une image de 320 par 120 pixels avec le nom de votre entreprise et un score plus visible
+
+Cliquez sur l'insigne. Il devrait ouvrir ailysagency.ca/fr/verify/votre-slug dans un nouvel onglet et afficher votre rapport public.
+
+## Si ca ne charge pas
+
+Si l'insigne apparait comme une image brisee ou un placeholder generique affichant 0 sur 100 :
+
+1. Verifiez votre slug. Il doit correspondre exactement a ce que votre strategiste a fourni. Fautes de frappe courantes : tiret vs underscore, espaces avant ou apres.
+2. Confirmez que votre abonnement est actif. La surface de l'insigne est protegee aux abonnements actifs.
+3. Confirmez que votre score de visibilite IA a ete calcule au moins une fois. Les nouveaux clients ont leur premiere probe planifiee dans les 24 heures suivant l'onboarding.
+4. Essayez le slug demo "demo" ou "sample" d'abord. Si ceux-la fonctionnent et que le votre non, contactez le support.
+
+## Personnalisation de l'apparence
+
+L'insigne est un SVG avec un design qui supporte les fonds transparents (il a son propre fond degrade fonce integre, donc il fonctionne sur les fonds clairs ou fonces de site). Pour personnaliser :
+
+- **Taille :** l'integration inclut des attributs width et height. Editez-les pour redimensionner. Le SVG est vectoriel, donc il reste net a toute taille.
+- **Alignement :** enveloppez la balise ancre dans un div avec text-align center, left ou right.
+- **Marge et espacement :** ajoutez une classe a la balise ancre et ciblez-la avec votre CSS de site.
+
+## Retirer l'insigne
+
+Supprimez simplement le code d'integration de votre pied de page. Il n'y a pas de callback vers AiLys, pas de pistage analytics sur l'image de l'insigne, pas de nettoyage necessaire.
+
+Si vous voulez aussi retirer votre rapport public (la page vers laquelle l'insigne pointe), contactez votre strategiste. Nous marquerons votre slug comme prive, et l'URL retournera "rapport introuvable".
+
+## Note sur le cache
+
+L'image de l'insigne est servie avec un en-tete de cache de 1 heure. Si vous venez de faire recalculer votre score de visibilite IA et voulez que l'insigne montre le nouveau score immediatement, vos visiteurs peuvent voir l'ancien score jusqu'a 1 heure. Il n'y a pas de moyen de forcer l'invalidation du cache pour les images integrees sur des sites tiers ; ce plafond de 1 heure protege la vitesse de votre site en reduisant les requetes.
+
+## Sites multilingues
+
+Si votre site a des versions francaise et anglaise, integrez l'insigne une fois avec le parametre lang qui correspond a votre audience par defaut. L'insigne est sensible a la locale : ajoutez &lang=fr a l'URL SVG pour les etiquettes francaises, &lang=en pour l'anglais (defaut).
+
+Pour les sites qui detectent la locale automatiquement, vous pouvez utiliser le rendu cote serveur pour echanger le parametre lang, ou vous pouvez afficher deux insignes separes (un par locale) et compter sur votre selecteur de locale pour cacher l'inactif.`,
+      },
+    },
+  },
+
+  // ─── Industry Reports (Bonus B) ────────────────────────────
+  {
+    slug: "ailys-industry-reports-overview",
+    title: "About the AiLys Quarterly Industry Reports",
+    excerpt:
+      "Free public reports on the state of AI Visibility in Quebec verticals (dentists, restaurants, lawyers, and more). Anonymized aggregate data across 6 AI engines. What's in them, who they're for, how to use them.",
+    category: "getting-started",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 4,
+    body: `## What they are
+
+Every quarter, AiLys publishes a free public report on the state of AI Visibility in a specific Quebec vertical. The first three covered are dentists, restaurants, and lawyers (Q1 2026). More verticals roll out each quarter.
+
+Each report aggregates anonymized data from 30 to 60 businesses we probe across 6 AI engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) over a 12-week window. The output is a 7-minute read with median scores, top engines, common gaps, and the 3 actions that move the needle fastest in that vertical.
+
+## Who they're for
+
+- **Operators in the vertical:** see how you compare to the median of your competitive set
+- **Marketing managers:** understand what AI engines weight for your category and where the leverage points are
+- **Press and analysts:** quotable benchmarks on AI search behavior in Quebec local business
+
+## What they include
+
+- Sample size and methodology (which businesses, how many probes, what queries)
+- Top 4 metrics: median score, top engine cited, NAP consistency average, schema adoption percentage
+- 3 to 5 narrative sections covering vertical-specific patterns
+- 3 takeaways: the actions that produced the biggest score uplift in observed practices
+
+## What they do NOT include
+
+- Names of individual businesses (anonymized aggregate only)
+- Competitor comparison tables (those are private to each AiLys client's dashboard)
+- Source URLs of citations (private to client reports)
+- Any PII
+
+## How to use them
+
+If you operate in a covered vertical: read the relevant report, identify which of the 3 takeaways your business has not yet implemented, and prioritize that fix this quarter. The takeaways are ordered by ROI in the data.
+
+If your vertical is not yet covered: subscribe to be notified when it launches. Reports rotate quarterly.
+
+## Cadence
+
+- Q1 reports publish in April
+- Q2 reports publish in July
+- Q3 reports publish in October
+- Q4 reports publish in January
+
+Each report covers the previous 12 weeks of probes.
+
+## Data source
+
+The aggregate data comes from AiLys client probes (with explicit consent in client agreements) plus anonymous public-business probes for vertical coverage. Methodology is described in each report.
+
+## Cost
+
+Free. No email gate, no paywall. The reports are lead magnets for AiLys, but the value is delivered without conversion friction. If the report helps you and you want personalized analysis for your business, the AiLys audit at ailysagency.ca/audit is also free.`,
+    i18n: {
+      fr: {
+        title: "A propos des rapports d'industrie trimestriels AiLys",
+        excerpt:
+          "Rapports publics gratuits sur l'etat de la visibilite IA dans les verticales quebecoises (dentistes, restaurants, avocats, et plus). Donnees agregees anonymisees a travers 6 moteurs IA. Ce qu'ils contiennent, a qui ils s'adressent, comment les utiliser.",
+        body: `## Ce que c'est
+
+Chaque trimestre, AiLys publie un rapport public gratuit sur l'etat de la visibilite IA dans une verticale quebecoise specifique. Les trois premiers couverts sont les dentistes, les restaurants, et les avocats (T1 2026). Plus de verticales se deploient a chaque trimestre.
+
+Chaque rapport agrege des donnees anonymisees de 30 a 60 entreprises que nous sondons a travers 6 moteurs IA (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) sur une fenetre de 12 semaines. Le resultat est une lecture de 7 minutes avec scores medians, moteurs principaux, lacunes courantes, et les 3 actions qui font le plus de difference dans cette verticale.
+
+## Pour qui
+
+- **Operateurs dans la verticale :** voyez comment vous vous comparez a la mediane de votre ensemble concurrentiel
+- **Gestionnaires marketing :** comprenez ce que les moteurs IA ponderent pour votre categorie et ou sont les points de levier
+- **Presse et analystes :** reperes citables sur le comportement de recherche IA dans les entreprises locales du Quebec
+
+## Ce qu'ils incluent
+
+- Taille d'echantillon et methodologie (quelles entreprises, combien de probes, quelles requetes)
+- 4 metriques principales : score median, moteur principal citant, moyenne coherence NAP, pourcentage d'adoption schema
+- 3 a 5 sections narratives couvrant les motifs specifiques a la verticale
+- 3 a retenir : les actions qui ont produit la plus grande hausse de score dans les pratiques observees
+
+## Ce qu'ils n'incluent PAS
+
+- Noms d'entreprises individuelles (agregat anonymise uniquement)
+- Tableaux de comparaison concurrentielle (prives au tableau de bord de chaque client AiLys)
+- URL sources de citations (privees aux rapports clients)
+- Aucune donnee personnelle
+
+## Comment les utiliser
+
+Si vous operez dans une verticale couverte : lisez le rapport pertinent, identifiez laquelle des 3 a retenir votre entreprise n'a pas encore implementee, et priorisez ce correctif ce trimestre. Les a retenir sont ordonnes par ROI dans les donnees.
+
+Si votre verticale n'est pas encore couverte : inscrivez-vous pour etre notifie au lancement. Les rapports tournent trimestriellement.
+
+## Cadence
+
+- Rapports T1 publies en avril
+- Rapports T2 publies en juillet
+- Rapports T3 publies en octobre
+- Rapports T4 publies en janvier
+
+Chaque rapport couvre les 12 semaines precedentes de probes.
+
+## Source de donnees
+
+Les donnees agregees viennent des probes clients AiLys (avec consentement explicite dans les ententes clients) plus des probes publiques anonymes d'entreprises pour la couverture de verticale. La methodologie est decrite dans chaque rapport.
+
+## Cout
+
+Gratuit. Pas de barriere courriel, pas de paywall. Les rapports sont des aimants a leads pour AiLys, mais la valeur est livree sans friction de conversion. Si le rapport vous aide et que vous voulez une analyse personnalisee pour votre entreprise, l'audit AiLys a ailysagency.ca/fr/audit est aussi gratuit.`,
+      },
+    },
+  },
+
+  // ─── AI Concierge (Feature 5) ──────────────────────────────
+  {
+    slug: "ailys-concierge-overview",
+    title: "About the AiLys Concierge",
+    excerpt:
+      "Conversational AI assistant in your AiLys client dashboard. Ask anything about your AI Visibility, generate GBP posts, compare yourself to competitors. Included in Growth and Agency plans.",
+    category: "getting-started",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 5,
+    body: `## What it is
+
+The AiLys Concierge is a conversational AI assistant embedded in your client dashboard. You ask questions in plain language. It reads your AiLys + reputation data in real time and answers with context, often pulling up charts or drafting actions inline.
+
+Think of it as having your strategist available 24/7 for the kind of questions that do not need human judgment: "What was my score last week", "Draft a Halloween GBP post", "How am I doing vs my top 3 competitors". Strategists handle the strategy. The concierge handles the rest.
+
+## What you can ask
+
+The concierge has 10 tools available to it. Examples of queries each tool handles:
+
+- **Score and trends:** "Why did my score drop this week?", "Show me my Share of Model for the last 90 days", "How am I doing on ChatGPT specifically?"
+- **Reviews:** "What reviews came in this week?", "Any negative ones I should respond to?", "Draft a reply to the review from yesterday"
+- **GBP content:** "Generate a GBP post for Mother's Day", "Show me last month's posts and their engagement", "Schedule that post for Tuesday at 10am"
+- **Competitors:** "Compare me to my top 3", "Who's gaining citation share?", "What are they doing that I'm not?"
+- **Actions:** "What should I work on next?", "How do I improve my schema score?", "What's the highest-ROI fix this quarter?"
+- **Projections:** "If I publish 4 posts a week, where will my score be in 60 days?", "What does my MRR look like if I move from Core to Growth?"
+
+## What it cannot do
+
+- **Replace your strategist.** The concierge does not make strategy decisions. It surfaces data and drafts content. Your strategist still owns the quarterly direction.
+- **Access other businesses' private data.** The concierge is pinned to your tenant. It cannot leak data across clients.
+- **Take destructive actions without approval.** Mutating actions (publishing a post, replying to a review, submitting a citation) require your explicit "approve" click before they go live.
+- **Operate outside its training data.** It does not know about events after the underlying engine's knowledge cutoff. For real-time news or latest tech, use a regular web search.
+
+## Voice mode
+
+If your browser supports it (Safari on Mac, Chrome on most platforms), you can use voice input and voice output. Click the microphone icon to dictate a question. Toggle the speaker icon to have answers read aloud.
+
+Voice transcripts are processed on your device only when you use the browser's native speech recognition. They are not sent to AiLys servers until you press send on the typed text. If you opt in to "save voice transcripts" in settings, the typed-equivalent text is saved with your conversation history. The audio itself is never stored.
+
+## Token budget per tier
+
+Each tier has a daily token budget for the concierge:
+
+- Starter: 10k tokens per day (about 8 to 12 conversations)
+- Core: 50k tokens per day (about 40 to 60 conversations)
+- Growth: 200k tokens per day (about 150 to 250 conversations)
+- Agency: unlimited (subject to fair-use cap of ~1M tokens per day)
+
+When you reach your daily limit, the concierge falls back to a basic mode (no tool calls, plain conversational answers using cached data). The full mode resumes the next day.
+
+If you regularly hit the cap, that is a strong signal you should upgrade your tier.
+
+## Privacy
+
+Conversation history is stored encrypted at rest and tied to your tenant. By default, conversations auto-purge after 90 days. You can opt in to longer retention in your settings if you want a searchable history beyond 90 days.
+
+Your strategist can read your conversation history if you ask them to investigate something specific (for support purposes), but they do not browse it routinely. AiLys staff at the platform level can access conversation logs only for incident debugging and only with audit logging.
+
+## Where to find it
+
+Once you are logged in to your AiLys client dashboard, the concierge lives at /dashboard/concierge. There is also a quick-launcher icon in the top-right of every dashboard page so you can ask a question without navigating away from what you are looking at.
+
+For a non-client preview, see ailysagency.ca/concierge-demo (3 sample prompts, no real client data).`,
+    i18n: {
+      fr: {
+        title: "A propos du concierge AiLys",
+        excerpt:
+          "Assistant IA conversationnel dans votre tableau de bord client AiLys. Demandez n'importe quoi sur votre visibilite IA, generez des publications GBP, comparez-vous aux concurrents. Inclus dans les forfaits Growth et Agency.",
+        body: `## Ce que c'est
+
+Le concierge AiLys est un assistant IA conversationnel integre dans votre tableau de bord client. Vous posez des questions en langage simple. Il lit vos donnees AiLys + reputation en temps reel et repond avec contexte, souvent en faisant apparaitre des graphiques ou en redigeant des actions en ligne.
+
+Voyez-le comme avoir votre strategiste disponible 24/7 pour le genre de questions qui n'ont pas besoin de jugement humain : "Quel etait mon score la semaine derniere", "Redige une publication GBP pour Halloween", "Comment je me situe face a mes 3 principaux concurrents". Les strategistes gerent la strategie. Le concierge gere le reste.
+
+## Ce que vous pouvez demander
+
+Le concierge dispose de 10 outils. Exemples de requetes que chaque outil gere :
+
+- **Score et tendances :** "Pourquoi mon score a-t-il baisse cette semaine ?", "Montre ma part de modele sur les 90 derniers jours", "Comment je me situe sur ChatGPT specifiquement ?"
+- **Avis :** "Quels avis sont rentres cette semaine ?", "Y en a-t-il des negatifs auxquels je devrais repondre ?", "Redige une reponse a l'avis d'hier"
+- **Contenu GBP :** "Genere une publication GBP pour la fete des Meres", "Montre les publications du mois dernier et leur engagement", "Programme cette publication pour mardi a 10h"
+- **Concurrents :** "Compare-moi a mes 3 principaux", "Qui gagne en part de citations ?", "Que font-ils que je ne fais pas ?"
+- **Actions :** "Sur quoi devrais-je travailler ensuite ?", "Comment ameliorer mon score schema ?", "Quel est le correctif au plus haut ROI ce trimestre ?"
+- **Projections :** "Si je publie 4 publications par semaine, ou sera mon score dans 60 jours ?", "A quoi ressemble mon MRR si je passe de Core a Growth ?"
+
+## Ce qu'il ne peut pas faire
+
+- **Remplacer votre strategiste.** Le concierge ne prend pas de decisions de strategie. Il fait apparaitre des donnees et redige du contenu. Votre strategiste possede toujours la direction trimestrielle.
+- **Acceder aux donnees privees d'autres entreprises.** Le concierge est ancre a votre tenant. Il ne peut pas faire fuiter de donnees entre clients.
+- **Prendre des actions destructives sans approbation.** Les actions modifiantes (publier une publication, repondre a un avis, soumettre une citation) requierent votre clic "approuver" explicite avant d'etre executees.
+- **Operer hors de ses donnees d'entrainement.** Il ne connait pas les evenements apres la date de coupure de connaissance du moteur sous-jacent. Pour les nouvelles en temps reel ou la derniere techno, utilisez une recherche web reguliere.
+
+## Mode vocal
+
+Si votre navigateur le supporte (Safari sur Mac, Chrome sur la plupart des plateformes), vous pouvez utiliser l'entree vocale et la sortie vocale. Cliquez sur l'icone du microphone pour dicter une question. Basculez l'icone du haut-parleur pour faire lire les reponses.
+
+Les transcriptions vocales sont traitees uniquement sur votre appareil quand vous utilisez la reconnaissance vocale native du navigateur. Elles ne sont pas envoyees aux serveurs AiLys avant que vous appuyiez sur envoyer sur le texte tape. Si vous optez pour "sauvegarder les transcriptions vocales" dans les parametres, le texte tape equivalent est sauvegarde avec votre historique de conversation. L'audio lui-meme n'est jamais stocke.
+
+## Budget de tokens par palier
+
+Chaque palier a un budget de tokens quotidien pour le concierge :
+
+- Starter : 10 000 tokens par jour (environ 8 a 12 conversations)
+- Core : 50 000 tokens par jour (environ 40 a 60 conversations)
+- Growth : 200 000 tokens par jour (environ 150 a 250 conversations)
+- Agency : illimite (sous reserve d'un plafond d'usage equitable d'environ 1M tokens par jour)
+
+Quand vous atteignez votre limite quotidienne, le concierge bascule en mode basique (pas d'appels d'outils, reponses conversationnelles simples utilisant les donnees en cache). Le mode complet reprend le lendemain.
+
+Si vous atteignez regulierement le plafond, c'est un signal fort que vous devriez ameliorer votre palier.
+
+## Confidentialite
+
+L'historique de conversation est stocke chiffre au repos et lie a votre tenant. Par defaut, les conversations s'auto-purgent apres 90 jours. Vous pouvez opter pour une retention plus longue dans vos parametres si vous voulez un historique cherchable au-dela de 90 jours.
+
+Votre strategiste peut lire votre historique de conversation si vous lui demandez d'enqueter sur quelque chose de specifique (pour des fins de support), mais il ne le parcourt pas de maniere routiniere. Le personnel AiLys au niveau plateforme peut acceder aux journaux de conversation uniquement pour le debogage d'incidents et uniquement avec journalisation d'audit.
+
+## Ou le trouver
+
+Une fois connecte a votre tableau de bord client AiLys, le concierge se trouve a /dashboard/concierge. Il y a aussi une icone de lancement rapide en haut a droite de chaque page du tableau de bord pour que vous puissiez poser une question sans naviguer hors de ce que vous regardez.
+
+Pour un apercu non-client, voir ailysagency.ca/fr/concierge-demo (3 prompts d'exemple, pas de donnees client reelles).`,
+      },
+    },
+  },
 ];

@@ -1,4 +1,4 @@
-# AiLys Agency — Claude operating rules
+﻿# AiLys Agency — Claude operating rules
 
 ## START HERE — every new session
 

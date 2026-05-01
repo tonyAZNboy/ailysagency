@@ -1,4 +1,4 @@
-// /forfaits-complets (FR) and /pricing-details (EN)
+﻿// /forfaits-complets (FR) and /pricing-details (EN)
 //
 // Phase E.1.4 + E.1.5 + E.1.6 + E.1.7: detailed pricing page with sticky
 // comparison grid, engagement toggle (mensuel/annuel/biennal), Quebec tax

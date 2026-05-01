@@ -1,4 +1,4 @@
-# AiLys Keyword Research Universe
+﻿# AiLys Keyword Research Universe
 
 Anchored to AiLys reality: Quebec local businesses, bilingual EN and FR-CA, $300 to $2,500 CAD pricing, AI Visibility, GBP, NAP, Wikidata, Reviuzy add-on. No invented stats. Every keyword should map to a real query a Quebec local owner or marketing manager would type.
 

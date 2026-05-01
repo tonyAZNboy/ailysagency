@@ -1,4 +1,4 @@
-# Reviuzy SaaS Implementation Spec
+﻿# Reviuzy SaaS Implementation Spec
 
 **Status**: Draft v1.0 (2026-04-27)
 **Owner**: AiLys Agency engineering

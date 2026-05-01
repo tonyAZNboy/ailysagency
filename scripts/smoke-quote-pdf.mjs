@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * Smoke test for Phase E.1.9: personalized quote PDF endpoint + render.
  *
