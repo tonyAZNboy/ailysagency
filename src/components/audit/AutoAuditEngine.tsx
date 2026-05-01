@@ -32,6 +32,7 @@ import { CompetitorOverlay } from "@/components/audit/CompetitorOverlay";
 import { ExportActionPlan } from "@/components/audit/ExportActionPlan";
 import { AuditPdfDownload } from "@/components/audit/AuditPdfDownload";
 import { SectionBoundary } from "@/components/audit/SectionBoundary";
+import { AuditProcessingModal } from "@/components/audit/AuditProcessingModal";
 import { useLang } from "@/i18n/LangContext";
 import type { TranslationKeys } from "@/i18n";
 
@@ -291,6 +292,8 @@ export function AutoAuditEngine({
   // ── No result yet → show input form
   if (!result) {
     return (
+      <>
+        <AuditProcessingModal open={loading} />
       <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-6 sm:p-8 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]">
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-3">
           {flavorMeta.eyebrow}
@@ -399,6 +402,7 @@ export function AutoAuditEngine({
           {t.audit.results.free}
         </p>
       </div>
+      </>
     );
   }
 
@@ -771,7 +775,7 @@ function ResultsPanel({
               <AuditPdfDownload
                 businessName={businessName}
                 city={city}
-                vertical={industry}
+                vertical={vertical}
                 scoreNumeric={result.reputation_score}
                 prefilledEmail={email}
                 autoOpen
