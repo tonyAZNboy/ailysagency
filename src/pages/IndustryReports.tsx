@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/animation";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import { industryReports } from "@/data/industry-reports";
+import { NewsletterSignup } from "@/components/landing/NewsletterSignup";
 
 export default function IndustryReports() {
   const { lang: urlLang } = useParams<{ lang?: string }>();
@@ -157,7 +158,7 @@ export default function IndustryReports() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <section className="p-6 sm:p-8 rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-950/40 to-slate-900/60 backdrop-blur-sm text-center">
+            <section className="p-6 sm:p-8 rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-950/40 to-slate-900/60 backdrop-blur-sm text-center mb-8">
               <h2 className="text-2xl font-bold text-white mb-3">
                 {isFr ? "Vous etes dans une de ces verticales ?" : "You're in one of these verticals?"}
               </h2>
@@ -173,6 +174,25 @@ export default function IndustryReports() {
                 {isFr ? "Lancer l'audit gratuit" : "Run free audit"}
                 <ArrowRight className="w-4 h-4" />
               </Link>
+            </section>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <section className="mb-2">
+              <NewsletterSignup
+                source="industry-reports"
+                variant="card"
+                headline={
+                  isFr
+                    ? "Recevez les prochains rapports par courriel"
+                    : "Get future reports by email"
+                }
+              />
+              <p className="text-xs text-slate-500 mt-3 text-center">
+                {isFr
+                  ? "Un courriel par trimestre quand un nouveau rapport est publie. Desinscription en un clic."
+                  : "One email per quarter when a new report publishes. One-click unsubscribe."}
+              </p>
             </section>
           </ScrollReveal>
         </main>

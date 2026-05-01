@@ -7706,4 +7706,444 @@ Pour un apercu non-client, voir ailysagency.ca/fr/concierge-demo (3 prompts d'ex
       },
     },
   },
+
+  // ─── More privacy & technical detail articles ──────────────
+  {
+    slug: "ailys-concierge-privacy-deep-dive",
+    title: "AiLys Concierge privacy: what we store, what we don't, and what you control",
+    excerpt:
+      "Detailed privacy reference for the AiLys Concierge. Encryption at rest, retention windows, who can read your conversations, voice transcript handling, opt-in retention, and how to export or delete your history.",
+    category: "account-billing",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 6,
+    body: `## What gets stored
+
+Every concierge conversation is associated with your tenant ID and your authenticated user ID. The following fields are stored encrypted at rest in our Supabase Postgres database:
+
+- The text of each message you send (your prompt)
+- The text of each response from the AiLys engine
+- Tool calls executed during the conversation (which tool, what args, what result)
+- Timestamps (conversation start, each message, conversation end)
+- Token usage (tokens_in, tokens_out) for budget tracking
+- Feedback you give (thumbs up, thumbs down, optional comment)
+
+What does NOT get stored:
+
+- Your IP address (used only for rate limiting, hashed and discarded after 60 minutes)
+- Your browser fingerprint or session ID
+- Voice audio (when you use voice mode, the browser does the transcription locally; we never receive the audio)
+- Other tenants' data that surfaced during your conversation (each tool pins to your tenant ID)
+
+## How long does it stay
+
+Default retention is 90 days. After 90 days, the conversation row is hard-deleted from the database. There is no soft-delete flag and no archive bucket; the row is gone.
+
+If you want a longer history (for example to refer back to past strategy discussions), you can opt in to extended retention in your account settings. Options are 1 year, 3 years, or indefinite. Extended retention only applies to new conversations from the moment you opt in; previously-purged conversations cannot be recovered.
+
+## Who can read your conversations
+
+In practical operation:
+
+- You: always, via the AiLys client dashboard search.
+- Your strategist: only if you ask them to investigate something specific (for example, "I had a weird answer last Tuesday, can you check what happened"). Strategist access is logged and you can see who accessed what when in your audit trail.
+- AiLys staff at the platform level: only for incident debugging. Every access creates an audit log entry. Routine analytics use only de-identified aggregates (no PII).
+
+In legal exception:
+
+- Court order or law enforcement valid request: we comply with Quebec, federal Canadian, and applicable extradition law. We notify you unless prohibited by the order.
+
+In NO scenario:
+
+- Other AiLys clients (cross-tenant isolation is enforced at the database row-level via RLS)
+- Third-party advertisers, data brokers, or marketing partners (we do not sell or rent any data, ever)
+- Other AiLys staff outside the audit-log perimeter (the access path is gated and logged)
+
+## Voice mode privacy
+
+If your browser supports the Web Speech API (Safari on Mac, Chrome on most platforms, latest Edge):
+
+- Voice input: your browser transcribes audio locally on your device. The transcribed text appears in the chat composer. Only when you press Send is the text transmitted to AiLys. The audio itself never leaves your device.
+- Voice output: text-to-speech is also handled by your browser. We send the response text; your browser reads it aloud locally.
+
+If you opt in to "save voice transcripts" in settings, the typed-equivalent text is saved with your conversation history (subject to the 90-day or extended retention you chose). The audio is never saved.
+
+## Cross-tenant data leak prevention
+
+This is a security commitment we take very seriously. The concierge is not allowed to surface another tenant's data, ever, under any prompt. Three layers of defense:
+
+1. Tool-level RLS: every tool query is pinned to your tenant ID via your authenticated session JWT. The database refuses queries for other tenant IDs.
+2. System prompt hardening: the AiLys engine system prompt explicitly instructs the model to refuse any request that would require accessing other tenants' data, even if you ask creatively.
+3. Audit + alert: every tool call is logged with tenant ID, tool name, args. Any pattern matching cross-tenant data access triggers a Sentry alert and pages on-call.
+
+We red-team this monthly with prompt injection attempts. Last red-team report is shared in your account settings under "Security disclosures".
+
+## Exporting your conversations
+
+You can export your full conversation history at any time from your account settings. The export is a JSON file containing every conversation, message, tool call, and timestamp. It is delivered via signed download URL valid for 24 hours, sent to your account email.
+
+## Deleting your conversations
+
+Three options:
+
+- Delete one conversation: open the conversation, click the trash icon, confirm. Hard-delete in under 60 seconds.
+- Delete all conversations: account settings > "Delete all concierge history". Hard-delete in under 5 minutes.
+- Delete and disable: account settings > "Disable concierge for this tenant". Hard-deletes everything and turns off the feature for all your team members. Can be re-enabled later but the deleted history does not come back.
+
+All three are tenant-scoped. Deleting your own conversations does not affect other team members in the same tenant unless you choose "all team members" in the confirmation dialog.
+
+## What happens if AiLys gets acquired
+
+In the event of a corporate transaction (acquisition, merger, asset sale), you will be notified by email at least 30 days before any data transfer. You will have the option to export your data and delete it before the transfer. The acquiring entity inherits this same privacy commitment for at least 12 months. You can cancel your subscription with prorated refund for any remaining period.
+
+## Concierge does not train on your data
+
+Important: the AiLys engine that powers the concierge does NOT train on your prompts or responses. The model is the same for every tenant; your conversations do not improve future answers for other tenants or for AiLys generally. Each prompt is processed in a fresh context that includes only your tenant's data via authorized tool calls.
+
+This is a contractual commitment with the underlying engine provider. We re-verify it annually.
+
+## Questions
+
+If anything here is unclear, email privacy@ailysagency.ca. Response within 2 business days.`,
+    i18n: {
+      fr: {
+        title: "Confidentialite du concierge AiLys : ce que nous stockons, ce que nous ne stockons pas, ce que vous controlez",
+        excerpt:
+          "Reference detaillee de confidentialite pour le concierge AiLys. Chiffrement au repos, fenetres de retention, qui peut lire vos conversations, gestion des transcriptions vocales, opt-in retention, et comment exporter ou supprimer votre historique.",
+        body: `## Ce qui est stocke
+
+Chaque conversation de concierge est associee a votre ID de tenant et votre ID d'utilisateur authentifie. Les champs suivants sont stockes chiffres au repos dans notre base de donnees Supabase Postgres :
+
+- Le texte de chaque message que vous envoyez (votre prompt)
+- Le texte de chaque reponse du moteur AiLys
+- Appels d'outils executes pendant la conversation (quel outil, quels arguments, quel resultat)
+- Horodatages (debut de conversation, chaque message, fin de conversation)
+- Utilisation de tokens (tokens_in, tokens_out) pour le suivi du budget
+- Feedback que vous donnez (pouce en haut, pouce en bas, commentaire optionnel)
+
+Ce qui n'est PAS stocke :
+
+- Votre adresse IP (utilisee uniquement pour la limitation de debit, hashee et jetee apres 60 minutes)
+- Votre empreinte de navigateur ou ID de session
+- Audio vocal (quand vous utilisez le mode vocal, le navigateur fait la transcription localement ; nous ne recevons jamais l'audio)
+- Donnees d'autres tenants qui apparaitraient pendant votre conversation (chaque outil est ancre a votre ID de tenant)
+
+## Combien de temps c'est conserve
+
+La retention par defaut est de 90 jours. Apres 90 jours, la ligne de conversation est supprimee definitivement de la base de donnees. Il n'y a pas de drapeau de suppression douce et pas de bucket d'archive ; la ligne est partie.
+
+Si vous voulez un historique plus long (par exemple pour vous referer a des discussions strategiques passees), vous pouvez opter pour une retention etendue dans vos parametres de compte. Les options sont 1 an, 3 ans, ou indefiniment. La retention etendue ne s'applique qu'aux nouvelles conversations a partir du moment ou vous optez ; les conversations precedemment purgees ne peuvent pas etre recuperees.
+
+## Qui peut lire vos conversations
+
+En operation pratique :
+
+- Vous : toujours, via la recherche du tableau de bord client AiLys.
+- Votre strategiste : uniquement si vous lui demandez d'enqueter sur quelque chose de specifique (par exemple, "j'ai eu une reponse bizarre mardi dernier, peux-tu verifier ce qui s'est passe"). L'acces strategiste est journalise et vous pouvez voir qui a accede a quoi quand dans votre piste d'audit.
+- Personnel AiLys au niveau plateforme : uniquement pour le debogage d'incidents. Chaque acces cree une entree de journal d'audit. Les analyses de routine n'utilisent que des agregats anonymises (pas de donnees personnelles).
+
+En exception legale :
+
+- Ordonnance judiciaire ou demande valide d'application de la loi : nous nous conformons au droit du Quebec, federal canadien, et au droit d'extradition applicable. Nous vous notifions sauf interdiction de l'ordonnance.
+
+Dans AUCUN scenario :
+
+- Autres clients AiLys (l'isolation entre tenants est appliquee au niveau de la ligne via RLS)
+- Annonceurs tiers, courtiers de donnees, ou partenaires marketing (nous ne vendons ou louons aucune donnee, jamais)
+- Autre personnel AiLys hors du perimetre du journal d'audit (le chemin d'acces est protege et journalise)
+
+## Confidentialite du mode vocal
+
+Si votre navigateur supporte la Web Speech API (Safari sur Mac, Chrome sur la plupart des plateformes, derniere version d'Edge) :
+
+- Entree vocale : votre navigateur transcrit l'audio localement sur votre appareil. Le texte transcrit apparait dans le compositeur de chat. Seulement quand vous appuyez sur Envoyer, le texte est transmis a AiLys. L'audio lui-meme ne quitte jamais votre appareil.
+- Sortie vocale : la synthese de texte en parole est aussi geree par votre navigateur. Nous envoyons le texte de la reponse ; votre navigateur le lit a haute voix localement.
+
+Si vous optez pour "sauvegarder les transcriptions vocales" dans les parametres, le texte tape equivalent est sauvegarde avec votre historique de conversation (sous reserve de la retention de 90 jours ou etendue que vous avez choisie). L'audio n'est jamais sauvegarde.
+
+## Prevention des fuites de donnees entre tenants
+
+C'est un engagement de securite que nous prenons tres au serieux. Le concierge n'est pas autorise a faire apparaitre les donnees d'un autre tenant, jamais, sous aucun prompt. Trois couches de defense :
+
+1. RLS au niveau outil : chaque requete d'outil est ancree a votre ID de tenant via votre JWT de session authentifiee. La base de donnees refuse les requetes pour d'autres ID de tenant.
+2. Durcissement du prompt systeme : le prompt systeme du moteur AiLys instruit explicitement le modele de refuser toute demande qui necessiterait d'acceder aux donnees d'autres tenants, meme si vous demandez de maniere creative.
+3. Audit + alerte : chaque appel d'outil est journalise avec ID de tenant, nom d'outil, arguments. Tout motif correspondant a un acces de donnees entre tenants declenche une alerte Sentry et appelle l'astreinte.
+
+Nous testons ceci en red-team chaque mois avec des tentatives d'injection de prompt. Le dernier rapport de red-team est partage dans vos parametres de compte sous "Divulgations de securite".
+
+## Exporter vos conversations
+
+Vous pouvez exporter votre historique complet de conversation a tout moment depuis vos parametres de compte. L'export est un fichier JSON contenant chaque conversation, message, appel d'outil, et horodatage. Il est livre via une URL de telechargement signee valide 24 heures, envoyee a votre courriel de compte.
+
+## Supprimer vos conversations
+
+Trois options :
+
+- Supprimer une conversation : ouvrez la conversation, cliquez sur l'icone de la corbeille, confirmez. Suppression definitive en moins de 60 secondes.
+- Supprimer toutes les conversations : parametres de compte > "Supprimer tout l'historique du concierge". Suppression definitive en moins de 5 minutes.
+- Supprimer et desactiver : parametres de compte > "Desactiver le concierge pour ce tenant". Supprime tout definitivement et eteint la fonctionnalite pour tous les membres de votre equipe. Peut etre reactivee plus tard mais l'historique supprime ne revient pas.
+
+Les trois sont a portee tenant. Supprimer vos propres conversations n'affecte pas les autres membres de l'equipe dans le meme tenant a moins que vous choisissiez "tous les membres de l'equipe" dans la boite de dialogue de confirmation.
+
+## Que se passe-t-il si AiLys est acquis
+
+En cas de transaction d'entreprise (acquisition, fusion, vente d'actifs), vous serez notifie par courriel au moins 30 jours avant tout transfert de donnees. Vous aurez l'option d'exporter vos donnees et les supprimer avant le transfert. L'entite acquereuse herite de ce meme engagement de confidentialite pour au moins 12 mois. Vous pouvez annuler votre abonnement avec un remboursement au prorata pour toute periode restante.
+
+## Le concierge ne s'entraine pas sur vos donnees
+
+Important : le moteur AiLys qui alimente le concierge ne s'entraine PAS sur vos prompts ou reponses. Le modele est le meme pour chaque tenant ; vos conversations n'ameliorent pas les futures reponses pour d'autres tenants ou pour AiLys en general. Chaque prompt est traite dans un contexte frais qui inclut uniquement les donnees de votre tenant via les appels d'outils autorises.
+
+C'est un engagement contractuel avec le fournisseur du moteur sous-jacent. Nous le re-verifions annuellement.
+
+## Questions
+
+Si quelque chose n'est pas clair ici, ecrivez a privacy@ailysagency.ca. Reponse dans les 2 jours ouvrables.`,
+      },
+    },
+  },
+  {
+    slug: "ailys-verified-badge-verification-process",
+    title: "How AiLys actually verifies the data behind your badge",
+    excerpt:
+      "Technical reference for what 'Verified by AiLys' means. The 6-engine probe pipeline, scoring formula in plain language, freshness windows, what the score includes and excludes, and why we publish the methodology openly.",
+    category: "audit",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 7,
+    body: `## What "Verified by AiLys" means
+
+When a visitor sees the AiLys Verified badge on your site, the implicit promise is that an independent third-party (AiLys) has measured your AI Visibility and is publishing the score honestly. This article explains exactly what that measurement is, how it is collected, and what guarantees we make.
+
+## The probe pipeline
+
+We probe your brand across 6 AI search engines on a recurring schedule:
+
+- ChatGPT (the consumer ChatGPT product, not the API)
+- Perplexity
+- Claude (the consumer Claude product, not the API)
+- Gemini (the consumer Google Gemini product)
+- Google AI Overviews (the inline AI summaries that appear above traditional results)
+- Bing Copilot (Microsoft's chat-mode search)
+
+For each engine, we run a panel of 20 to 80 queries that a real prospect in your category would plausibly type. Examples for a Montreal pizzeria: "best pizza Montreal", "pizza Plateau", "where to eat late night Mile End", "pizza near me open Sunday", "best gluten free pizza Montreal". Queries are generated from your category + your geographic service area + your published differentiators, then validated against real query logs from comScore-equivalent panels.
+
+For each query, we record:
+
+- Whether the engine cited your brand by name in its answer
+- The position of your citation (first mentioned vs buried at the bottom)
+- The source URL the engine attributed the citation to (if any)
+- The engine's confidence (when the API or interface exposes it)
+- The exact text snippet of the citation
+
+A "citation" is counted only when your brand is named explicitly in the engine's answer. A vague mention of your category without naming you (for example "there are several great pizzerias on the Plateau") does not count.
+
+## The scoring formula in plain language
+
+Your AI Visibility score is a weighted average across the 6 engines. The weights reflect each engine's market share in Quebec consumer search behavior:
+
+- Google AIO: 30% weight (highest)
+- ChatGPT: 25% weight
+- Perplexity: 18% weight
+- Bing Copilot: 12% weight
+- Claude: 8% weight
+- Gemini: 7% weight
+
+Within each engine, your engine-specific score is the percentage of your query panel where your brand was cited, multiplied by a position bonus (first-citation gets 1.0, second-citation gets 0.7, third gets 0.5, fourth or later gets 0.3, no citation gets 0).
+
+The composite score is then mapped to a 0-100 scale where 100 means you are cited as the first-mentioned brand in every relevant query across every engine, and 0 means no engine cites you for any relevant query.
+
+## What the score includes
+
+- Citations across the 6 engines listed above
+- Position weighting within each engine's answer
+- Query panel relevance to your category and geographic service area
+- Last 30 days of probe results (the freshness window, see below)
+
+## What the score excludes
+
+- Traditional Google search rankings (we do not measure SERP position; that is classical SEO and a separate concern)
+- Social media mentions or shares (those are counted as input signals to the AI engines but not as separate citations)
+- Backlink count or domain authority (those feed into AI engine training data over time but are not part of the AI Visibility measurement)
+- Paid search or paid AI placements (your score reflects organic citation only; paid placements are tracked separately if you run them)
+- Subjective brand quality (we measure cited vs not, not whether the citation is positive)
+
+## Freshness window
+
+Your score reflects the last 30 days of probes. New probes overwrite older ones in a rolling 30-day window. This means a sudden gain (you publish FAQPage schema and ChatGPT starts citing you next week) shows up within 30 days. A sudden loss (your Wikipedia entry gets vandalized and ChatGPT stops citing you) also shows up within 30 days.
+
+If you want a longer historical view (90, 180, or 365 days), it is available in your client dashboard under "Score history". The badge always reflects the 30-day rolling.
+
+## Probe cadence per tier
+
+How often we re-probe across the 6 engines:
+
+- Starter: monthly probes
+- Core: weekly probes
+- Growth: every 3 days
+- Agency: daily probes plus on-demand re-probe via your strategist
+
+Higher tier = fresher score reflected in the badge.
+
+## Why we publish the methodology openly
+
+Three reasons.
+
+1. Trust. The badge has no value if visitors do not believe the measurement. Publishing methodology lets visitors and skeptics verify our work.
+2. Industry maturation. AI Visibility as a measurable category is new. Open methodology accelerates the field, attracts good talent, and lets clients challenge us when we get something wrong.
+3. Competitive integrity. We win because we are good at the strategy work that improves AI Visibility, not because we hide how we measure it. Hiding methodology would attract bad-faith competitors who fudge numbers.
+
+## How fraud is prevented
+
+We have seen attempts to game AI Visibility scores in the early industry. Common attempts and how we block them:
+
+1. Brand-stuffing on third-party sites: spamming "Acme Pizza is the best Montreal pizza" across low-quality directory sites does not move the score because we filter out citations from sites with low domain authority and low edit history.
+2. AI-generated review farms: Reviuzy detects and excludes AI-generated reviews from the freshness signal feeding the AI engines.
+3. Wikipedia self-edits: detected by edit-history pattern analysis. Wikidata Q-numbers must be created with proper external IDs verified independently.
+4. Schema spoofing: schema markup that lies (claiming 5-star rating when actual is 3.2) is detected by cross-referencing public review sources.
+5. Coordinated mention campaigns on Reddit: detected by velocity + account-age + thread-context analysis.
+
+Score gains that pattern-match these tactics are flagged in your dashboard and your strategist works with you to build sustainable signal instead.
+
+## What happens if you cancel
+
+Your slug stays public for 30 days after cancellation, with the badge frozen at your final score. After 30 days, the badge URL returns a generic placeholder and /verify/your-slug returns "report not found". The grace period gives you time to remove the badge from your site footer if you choose.
+
+If you want immediate removal, contact your strategist and we will mark the slug as private same-day.
+
+## Reproducing the measurement
+
+If you want to verify our score independently:
+
+1. Pick 5 to 10 queries from your category that you would expect a real prospect to type
+2. Run each query in ChatGPT (chat.openai.com), Perplexity, Claude, Gemini, Google (look for the AIO box), and Bing (look for the Copilot answer)
+3. Note for each: was your brand named, and at what position
+4. Compute a rough percentage: brand-named in N out of total
+5. Compare to your AiLys score's per-engine breakdown in your dashboard
+
+Your score should be in the same ballpark as your spot-check. If it is not, contact your strategist and we will investigate (most often: the query panel we use covers a different sub-segment than the one you spot-checked, which is itself useful information).
+
+## Questions
+
+For technical questions on the measurement: methodology@ailysagency.ca. Response within 2 business days.`,
+    i18n: {
+      fr: {
+        title: "Comment AiLys verifie reellement les donnees derriere votre insigne",
+        excerpt:
+          "Reference technique sur ce que signifie 'Verifie par AiLys'. Le pipeline de probes a 6 moteurs, formule de score en langage simple, fenetres de fraicheur, ce que le score inclut et exclut, et pourquoi nous publions la methodologie ouvertement.",
+        body: `## Ce que "Verifie par AiLys" signifie
+
+Quand un visiteur voit l'insigne AiLys Verifie sur votre site, la promesse implicite est qu'un tiers independant (AiLys) a mesure votre visibilite IA et publie le score honnetement. Cet article explique exactement ce qu'est cette mesure, comment elle est collectee, et quelles garanties nous donnons.
+
+## Le pipeline de probes
+
+Nous sondons votre marque a travers 6 moteurs de recherche IA selon un calendrier recurrent :
+
+- ChatGPT (le produit consommateur ChatGPT, pas l'API)
+- Perplexity
+- Claude (le produit consommateur Claude, pas l'API)
+- Gemini (le produit consommateur Google Gemini)
+- Google AI Overviews (les resumes IA en ligne qui apparaissent au-dessus des resultats traditionnels)
+- Bing Copilot (la recherche en mode chat de Microsoft)
+
+Pour chaque moteur, nous executons un panel de 20 a 80 requetes qu'un vrai prospect dans votre categorie taperait plausiblement. Exemples pour une pizzeria de Montreal : "meilleure pizza Montreal", "pizza Plateau", "ou manger tard le soir Mile End", "pizza pres de moi ouvert dimanche", "meilleure pizza sans gluten Montreal". Les requetes sont generees a partir de votre categorie + votre zone de service geographique + vos differenciateurs publies, puis validees contre les vrais journaux de requetes des panels equivalents a comScore.
+
+Pour chaque requete, nous enregistrons :
+
+- Si le moteur a cite votre marque par son nom dans sa reponse
+- La position de votre citation (mentionne en premier vs enfoui en bas)
+- L'URL source que le moteur a attribuee a la citation (le cas echeant)
+- La confiance du moteur (quand l'API ou l'interface l'expose)
+- L'extrait de texte exact de la citation
+
+Une "citation" est comptee uniquement quand votre marque est nommee explicitement dans la reponse du moteur. Une mention vague de votre categorie sans vous nommer (par exemple "il y a plusieurs excellentes pizzerias sur le Plateau") ne compte pas.
+
+## La formule de score en langage simple
+
+Votre score de visibilite IA est une moyenne ponderee a travers les 6 moteurs. Les ponderations refletent la part de marche de chaque moteur dans le comportement de recherche consommateur quebecois :
+
+- Google AIO : 30% poids (le plus eleve)
+- ChatGPT : 25% poids
+- Perplexity : 18% poids
+- Bing Copilot : 12% poids
+- Claude : 8% poids
+- Gemini : 7% poids
+
+Au sein de chaque moteur, votre score specifique au moteur est le pourcentage de votre panel de requetes ou votre marque a ete citee, multiplie par un bonus de position (premiere-citation obtient 1,0, deuxieme-citation obtient 0,7, troisieme obtient 0,5, quatrieme ou plus tard obtient 0,3, aucune citation obtient 0).
+
+Le score composite est ensuite mappe sur une echelle de 0 a 100 ou 100 signifie que vous etes cite comme la marque mentionnee en premier dans chaque requete pertinente a travers chaque moteur, et 0 signifie qu'aucun moteur ne vous cite pour aucune requete pertinente.
+
+## Ce que le score inclut
+
+- Citations a travers les 6 moteurs listes ci-dessus
+- Ponderation de position au sein de la reponse de chaque moteur
+- Pertinence du panel de requetes a votre categorie et zone de service geographique
+- Les 30 derniers jours de resultats de probes (la fenetre de fraicheur, voir ci-dessous)
+
+## Ce que le score exclut
+
+- Classements de recherche Google traditionnels (nous ne mesurons pas la position SERP ; c'est du SEO classique et une preoccupation distincte)
+- Mentions ou partages sur les medias sociaux (ceux-ci sont comptes comme des signaux d'entree pour les moteurs IA mais pas comme des citations distinctes)
+- Nombre de liens retour ou autorite de domaine (ceux-ci alimentent les donnees d'entrainement des moteurs IA au fil du temps mais ne font pas partie de la mesure de visibilite IA)
+- Recherche payee ou placements IA payes (votre score reflete uniquement la citation organique ; les placements payes sont suivis separement si vous en faites)
+- Qualite de marque subjective (nous mesurons cite vs non, pas si la citation est positive)
+
+## Fenetre de fraicheur
+
+Votre score reflete les 30 derniers jours de probes. Les nouvelles probes ecrasent les plus anciennes dans une fenetre roulante de 30 jours. Cela signifie qu'un gain soudain (vous deployez le schema FAQPage et ChatGPT commence a vous citer la semaine suivante) apparait dans les 30 jours. Une perte soudaine (votre entree Wikipedia est vandalisee et ChatGPT cesse de vous citer) apparait aussi dans les 30 jours.
+
+Si vous voulez une vue historique plus longue (90, 180, ou 365 jours), elle est disponible dans votre tableau de bord client sous "Historique de score". L'insigne reflete toujours la moyenne mobile de 30 jours.
+
+## Cadence de probes par palier
+
+A quelle frequence nous re-sondons a travers les 6 moteurs :
+
+- Starter : probes mensuelles
+- Core : probes hebdomadaires
+- Growth : tous les 3 jours
+- Agency : probes quotidiennes plus re-probe a la demande via votre strategiste
+
+Palier plus eleve = score plus frais reflete dans l'insigne.
+
+## Pourquoi nous publions la methodologie ouvertement
+
+Trois raisons.
+
+1. Confiance. L'insigne n'a aucune valeur si les visiteurs ne croient pas la mesure. Publier la methodologie permet aux visiteurs et aux sceptiques de verifier notre travail.
+2. Maturation de l'industrie. La visibilite IA en tant que categorie mesurable est nouvelle. Une methodologie ouverte accelere le domaine, attire les bons talents, et permet aux clients de nous remettre en question quand nous nous trompons.
+3. Integrite concurrentielle. Nous gagnons parce que nous sommes bons dans le travail strategique qui ameliore la visibilite IA, pas parce que nous cachons comment nous mesurons. Cacher la methodologie attirerait des concurrents de mauvaise foi qui falsifient les chiffres.
+
+## Comment la fraude est prevenue
+
+Nous avons vu des tentatives de manipuler les scores de visibilite IA dans la premiere industrie. Tentatives courantes et comment nous les bloquons :
+
+1. Bourrage de marque sur des sites tiers : spammer "Acme Pizza est la meilleure pizza Montreal" sur des sites d'annuaires de basse qualite ne fait pas bouger le score parce que nous filtrons les citations des sites avec une faible autorite de domaine et un faible historique d'edition.
+2. Fermes d'avis generes par IA : Reviuzy detecte et exclut les avis generes par IA du signal de fraicheur alimentant les moteurs IA.
+3. Auto-edits Wikipedia : detectes par analyse de motif d'historique d'edition. Les Q-numbers Wikidata doivent etre crees avec les IDs externes appropries verifies independamment.
+4. Falsification de schema : le balisage schema qui ment (revendiquer une note de 5 etoiles quand la reelle est 3,2) est detecte par recoupement avec les sources d'avis publiques.
+5. Campagnes coordonnees de mentions sur Reddit : detectees par analyse de velocite + age du compte + contexte du fil.
+
+Les gains de score qui correspondent au motif de ces tactiques sont signales dans votre tableau de bord et votre strategiste travaille avec vous pour batir un signal durable a la place.
+
+## Que se passe-t-il si vous annulez
+
+Votre slug reste public pendant 30 jours apres l'annulation, avec l'insigne fige a votre score final. Apres 30 jours, l'URL de l'insigne retourne un placeholder generique et /fr/verify/votre-slug retourne "rapport introuvable". La periode de grace vous donne le temps de retirer l'insigne du pied de page de votre site si vous le choisissez.
+
+Si vous voulez un retrait immediat, contactez votre strategiste et nous marquerons le slug comme prive le jour meme.
+
+## Reproduire la mesure
+
+Si vous voulez verifier notre score independamment :
+
+1. Choisissez 5 a 10 requetes de votre categorie que vous attendriez d'un vrai prospect de taper
+2. Executez chaque requete dans ChatGPT (chat.openai.com), Perplexity, Claude, Gemini, Google (cherchez la boite AIO), et Bing (cherchez la reponse Copilot)
+3. Notez pour chacun : votre marque etait-elle nommee, et a quelle position
+4. Calculez un pourcentage approximatif : marque nommee dans N sur le total
+5. Comparez a la ventilation par moteur de votre score AiLys dans votre tableau de bord
+
+Votre score devrait etre dans le meme ordre de grandeur que votre verification ponctuelle. Si ce n'est pas le cas, contactez votre strategiste et nous enqueterons (le plus souvent : le panel de requetes que nous utilisons couvre un sous-segment different de celui que vous avez verifie ponctuellement, ce qui est en soi une information utile).
+
+## Questions
+
+Pour les questions techniques sur la mesure : methodology@ailysagency.ca. Reponse dans les 2 jours ouvrables.`,
+      },
+    },
+  },
 ];
