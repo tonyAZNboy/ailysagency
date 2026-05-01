@@ -247,6 +247,7 @@ const SUBS = [
   ['hesitez', 'hésitez'], ['hesite', 'hésite'],
   ['reflechir', 'réfléchir'], ['reflechi', 'réfléchi'],
   ['fideliser', 'fidéliser'], ['fidelise', 'fidélisé'],
+<<<<<<< HEAD
   // Round 2: words missed in first pass
   ['numerique', 'numérique'], ['Numerique', 'Numérique'],
   ['numeriques', 'numériques'],
@@ -341,6 +342,8 @@ const SUBS = [
   ['Reviuzy', 'Reviuzy'], // brand stays
   ['Truvizy', 'Truvizy'], // brand stays
   // 'a' as preposition handled in PHRASES
+=======
+>>>>>>> origin/main
 ]
 
 // Phrase-level " a " → " à " safe substitutions
