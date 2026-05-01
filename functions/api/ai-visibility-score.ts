@@ -8,7 +8,7 @@
 //   - Citation density (how often the business shows up in known directories)
 //   - LLM citation density (how often AI engines name the business currently)
 //
-// Backend: Google Generative Language API, gemini-2.5-flash:generateContent
+// Backend: Google Generative Language API, gemini-2.5-pro:generateContent
 // with responseMimeType=application/json. Designed to be fast (~3-5 seconds),
 // cheap, and shareable. KV cache by URL hash for 24h to reduce API spend.
 //
@@ -119,7 +119,7 @@ Be honest and specific about gaps. If you cannot verify a signal, score it neutr
 
   try {
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" +
         encodeURIComponent(env.GEMINI_API_KEY),
       {
         method: "POST",
