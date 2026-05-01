@@ -183,7 +183,7 @@ export function ContentFr() {
       </p>
 
       <ol>
-        <li>Le commerce a besoin de strategie de marque, de production creative et de developpement web en plus du marketing numerique. AiLys ne construit pas de sites web et ne produit pas de creatif de marque.</li>
+        <li>Le commerce a besoin d'une strategie de marque lourde et d'une production creative au-dela de ce qui est inclus avec AiLys. La construction de site web est incluse dans chaque forfait AiLys (avec une clause de recuperation des frais de creation si le contrat est annule avant 6 mois), mais les campagnes de marque d'entreprise et la production creative originale a grande echelle vont a une agence a service complet comme Major Tom.</li>
         <li>La portee marketing est nationale ou internationale, couvrant plusieurs marches avec media payant, contenu et SEO a grande echelle. AiLys se concentre sur les marches locaux.</li>
         <li>Le budget soutient un retainer mensuel a cinq chiffres et l'operateur a besoin d'une seule relation d'agence pour la strategie, l'execution et l'analytique sur tous les canaux numeriques.</li>
       </ol>

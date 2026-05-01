@@ -90,25 +90,29 @@ interface BlogUiStrings {
   readInEnglish: string
   min: string
   tldr: string
+  verifiedBy: string
+  researchTeam: string
+  orgDescription: string
+  relatedHeading: string
 }
 
 const UI_STRINGS: Record<SupportedLang, BlogUiStrings> = {
-  en: { home: 'Home', blog: 'Journal', readInEnglish: 'Read in English', min: 'min read', tldr: 'TL;DR' },
-  fr: { home: 'Accueil', blog: 'Journal', readInEnglish: 'Lire en anglais', min: 'min de lecture', tldr: 'En bref' },
-  es: { home: 'Inicio', blog: 'Blog', readInEnglish: 'Leer en inglés', min: 'min de lectura', tldr: 'En resumen' },
-  zh: { home: '首页', blog: '博客', readInEnglish: '阅读英文版', min: '分钟阅读', tldr: '摘要' },
-  de: { home: 'Startseite', blog: 'Journal', readInEnglish: 'Auf Englisch lesen', min: 'Min. Lesezeit', tldr: 'Kurz gesagt' },
-  ar: { home: 'الرئيسية', blog: 'المدونة', readInEnglish: 'اقرأ بالإنجليزية', min: 'دقيقة قراءة', tldr: 'باختصار' },
-  hi: { home: 'होम', blog: 'ब्लॉग', readInEnglish: 'अंग्रेज़ी में पढ़ें', min: 'मिनट पठन', tldr: 'सारांश' },
-  it: { home: 'Home', blog: 'Journal', readInEnglish: 'Leggi in inglese', min: 'min di lettura', tldr: 'In breve' },
-  ja: { home: 'ホーム', blog: 'ブログ', readInEnglish: '英語で読む', min: '分で読了', tldr: '要約' },
-  ko: { home: '홈', blog: '블로그', readInEnglish: '영어로 읽기', min: '분 소요', tldr: '요약' },
-  nl: { home: 'Home', blog: 'Blog', readInEnglish: 'Lees in het Engels', min: 'min leestijd', tldr: 'Kort samengevat' },
-  pl: { home: 'Strona główna', blog: 'Blog', readInEnglish: 'Czytaj po angielsku', min: 'min czytania', tldr: 'W skrócie' },
-  pt: { home: 'Início', blog: 'Blog', readInEnglish: 'Ler em inglês', min: 'min de leitura', tldr: 'Em resumo' },
-  ru: { home: 'Главная', blog: 'Блог', readInEnglish: 'Читать на английском', min: 'мин чтения', tldr: 'Коротко' },
-  tr: { home: 'Ana sayfa', blog: 'Blog', readInEnglish: 'İngilizce oku', min: 'dk okuma', tldr: 'Özet' },
-  vi: { home: 'Trang chủ', blog: 'Blog', readInEnglish: 'Đọc bằng tiếng Anh', min: 'phút đọc', tldr: 'Tóm tắt' },
+  en: { home: 'Home', blog: 'Journal', readInEnglish: 'Read in English', min: 'min read', tldr: 'TL;DR', verifiedBy: 'Verified by {{team}}', researchTeam: 'AiLys Research', orgDescription: 'The team building the AiLys engine and the Reviuzy SaaS, shipping the tooling that powers AI visibility audits, citation workflows, and reputation automation for local operators.', relatedHeading: 'You Might Also Like' },
+  fr: { home: 'Accueil', blog: 'Journal', readInEnglish: 'Lire en anglais', min: 'min de lecture', tldr: 'En bref', verifiedBy: 'Verifie par {{team}}', researchTeam: 'AiLys Research', orgDescription: "L'equipe qui batit le moteur AiLys et le SaaS Reviuzy, livre l'outillage qui propulse les audits AI Visibility, les flux de citations et l'automatisation de reputation pour les operateurs locaux.", relatedHeading: 'Ces articles pourraient aussi vous plaire' },
+  es: { home: 'Inicio', blog: 'Blog', readInEnglish: 'Leer en inglés', min: 'min de lectura', tldr: 'En resumen', verifiedBy: 'Verificado por {{team}}', researchTeam: 'AiLys Research', orgDescription: 'El equipo que construye el motor AiLys y el SaaS Reviuzy, entregando las herramientas que impulsan auditorías de visibilidad de IA, flujos de citas y automatización de reputación para operadores locales.', relatedHeading: 'También te podría interesar' },
+  zh: { home: '首页', blog: '博客', readInEnglish: '阅读英文版', min: '分钟阅读', tldr: '摘要', verifiedBy: '由 {{team}} 验证', researchTeam: 'AiLys Research', orgDescription: '构建 AiLys 引擎和 Reviuzy SaaS 的团队，为本地经营者提供 AI 可见性审计、引用工作流和声誉自动化的工具。', relatedHeading: '你可能也喜欢' },
+  de: { home: 'Startseite', blog: 'Journal', readInEnglish: 'Auf Englisch lesen', min: 'Min. Lesezeit', tldr: 'Kurz gesagt', verifiedBy: 'Verifiziert von {{team}}', researchTeam: 'AiLys Research', orgDescription: 'Das Team, das die AiLys-Engine und das Reviuzy SaaS aufbaut und Tools für KI-Sichtbarkeitsaudits, Zitations-Workflows und Reputationsautomatisierung für lokale Betreiber liefert.', relatedHeading: 'Das könnte dir auch gefallen' },
+  ar: { home: 'الرئيسية', blog: 'المدونة', readInEnglish: 'اقرأ بالإنجليزية', min: 'دقيقة قراءة', tldr: 'باختصار', verifiedBy: 'تم التحقق بواسطة {{team}}', researchTeam: 'AiLys Research', orgDescription: 'الفريق الذي يبني محرك AiLys و Reviuzy SaaS، ويقدم الأدوات التي تشغل عمليات تدقيق الرؤية بالذكاء الاصطناعي وسير عمل الاستشهادات وأتمتة السمعة للمشغلين المحليين.', relatedHeading: 'قد يعجبك أيضًا' },
+  hi: { home: 'होम', blog: 'ब्लॉग', readInEnglish: 'अंग्रेज़ी में पढ़ें', min: 'मिनट पठन', tldr: 'सारांश', verifiedBy: '{{team}} द्वारा सत्यापित', researchTeam: 'AiLys Research', orgDescription: 'AiLys इंजन और Reviuzy SaaS बनाने वाली टीम, जो स्थानीय संचालकों के लिए AI दृश्यता ऑडिट, उद्धरण वर्कफ़्लो और प्रतिष्ठा स्वचालन को शक्ति प्रदान करने वाले उपकरण प्रदान करती है।', relatedHeading: 'आपको ये भी पसंद आ सकते हैं' },
+  it: { home: 'Home', blog: 'Journal', readInEnglish: 'Leggi in inglese', min: 'min di lettura', tldr: 'In breve', verifiedBy: 'Verificato da {{team}}', researchTeam: 'AiLys Research', orgDescription: "Il team che costruisce il motore AiLys e il SaaS Reviuzy, fornendo gli strumenti che alimentano audit di visibilità AI, flussi di citazioni e automazione della reputazione per gli operatori locali.", relatedHeading: 'Potrebbe interessarti anche' },
+  ja: { home: 'ホーム', blog: 'ブログ', readInEnglish: '英語で読む', min: '分で読了', tldr: '要約', verifiedBy: '{{team}} により検証済み', researchTeam: 'AiLys Research', orgDescription: 'AiLys エンジンと Reviuzy SaaS を構築するチーム。ローカル事業者向けに AI 可視性監査、引用ワークフロー、評判自動化を支えるツールを提供しています。', relatedHeading: 'こちらもおすすめ' },
+  ko: { home: '홈', blog: '블로그', readInEnglish: '영어로 읽기', min: '분 소요', tldr: '요약', verifiedBy: '{{team}} 인증됨', researchTeam: 'AiLys Research', orgDescription: 'AiLys 엔진과 Reviuzy SaaS를 구축하는 팀으로, 로컬 운영자를 위한 AI 가시성 감사, 인용 워크플로우 및 평판 자동화 도구를 제공합니다.', relatedHeading: '함께 보면 좋은 글' },
+  nl: { home: 'Home', blog: 'Blog', readInEnglish: 'Lees in het Engels', min: 'min leestijd', tldr: 'Kort samengevat', verifiedBy: 'Geverifieerd door {{team}}', researchTeam: 'AiLys Research', orgDescription: 'Het team dat de AiLys-engine en de Reviuzy SaaS bouwt en de tooling levert voor AI-zichtbaarheidsaudits, citatieworkflows en reputatieautomatisering voor lokale ondernemers.', relatedHeading: 'Misschien vind je dit ook leuk' },
+  pl: { home: 'Strona główna', blog: 'Blog', readInEnglish: 'Czytaj po angielsku', min: 'min czytania', tldr: 'W skrócie', verifiedBy: 'Zweryfikowane przez {{team}}', researchTeam: 'AiLys Research', orgDescription: 'Zespół budujący silnik AiLys i SaaS Reviuzy, dostarczający narzędzia napędzające audyty widoczności AI, przepływy cytowań i automatyzację reputacji dla lokalnych operatorów.', relatedHeading: 'Może Cię również zainteresować' },
+  pt: { home: 'Início', blog: 'Blog', readInEnglish: 'Ler em inglês', min: 'min de leitura', tldr: 'Em resumo', verifiedBy: 'Verificado por {{team}}', researchTeam: 'AiLys Research', orgDescription: 'A equipe que constrói o motor AiLys e o SaaS Reviuzy, entregando as ferramentas que impulsionam auditorias de visibilidade de IA, fluxos de citações e automação de reputação para operadores locais.', relatedHeading: 'Você também pode gostar' },
+  ru: { home: 'Главная', blog: 'Блог', readInEnglish: 'Читать на английском', min: 'мин чтения', tldr: 'Коротко', verifiedBy: 'Проверено {{team}}', researchTeam: 'AiLys Research', orgDescription: 'Команда, создающая движок AiLys и SaaS Reviuzy, поставляющая инструменты для аудитов видимости в ИИ, рабочих процессов цитирования и автоматизации репутации для локальных операторов.', relatedHeading: 'Вам также может понравиться' },
+  tr: { home: 'Ana sayfa', blog: 'Blog', readInEnglish: 'İngilizce oku', min: 'dk okuma', tldr: 'Özet', verifiedBy: '{{team}} tarafından doğrulandı', researchTeam: 'AiLys Research', orgDescription: 'AiLys motorunu ve Reviuzy SaaS\'i geliştiren ekip; yerel işletmeciler için AI görünürlük denetimleri, alıntı iş akışları ve itibar otomasyonunu güçlendiren araçları sunar.', relatedHeading: 'Bunlar da ilgini çekebilir' },
+  vi: { home: 'Trang chủ', blog: 'Blog', readInEnglish: 'Đọc bằng tiếng Anh', min: 'phút đọc', tldr: 'Tóm tắt', verifiedBy: 'Đã xác minh bởi {{team}}', researchTeam: 'AiLys Research', orgDescription: 'Đội ngũ xây dựng công cụ AiLys và Reviuzy SaaS, cung cấp công cụ hỗ trợ kiểm toán hiển thị AI, quy trình trích dẫn và tự động hóa danh tiếng cho các nhà điều hành địa phương.', relatedHeading: 'Bạn cũng có thể thích' },
 }
 
 function isSupportedLang(code: string | undefined): code is SupportedLang {
@@ -390,12 +394,22 @@ function TranslatedPostContent({ post, lang }: { post: BlogPostEntry; lang: Supp
 
         {/* Author */}
         <div className="max-w-3xl">
-          <AuthorBio author={post.author} />
+          <AuthorBio
+            author={post.author}
+            translatedVerifiedBy={ui.verifiedBy}
+            translatedResearchTeam={ui.researchTeam}
+            translatedOrgDescription={ui.orgDescription}
+          />
         </div>
 
         {/* Related */}
         {post.relatedSlugs.length > 0 && (
-          <RelatedPosts relatedSlugs={post.relatedSlugs} />
+          <RelatedPosts
+            relatedSlugs={post.relatedSlugs}
+            langPrefix={`/${lang}`}
+            translatedHeading={ui.relatedHeading}
+            lang={lang}
+          />
         )}
       </div>
     </div>
