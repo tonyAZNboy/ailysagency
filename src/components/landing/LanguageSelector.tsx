@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Globe } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useLang } from '@/i18n/LangContext';
 import { LANG_LABELS, LANG_FLAGS, SupportedLang } from '@/i18n/index';
 
@@ -18,27 +18,6 @@ const SUPPORTED_LANGS: SupportedLang[] = [
 export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
   const { lang, setLang } = useLang();
   const navigate = useNavigate();
-  const location = useLocation();
-
-  // Preserve the current path when switching languages.
-  // Strips any existing locale prefix and prepends the new one (or none for EN).
-  // Example: /fr/blog/my-slug + switch to es → /es/blog/my-slug
-  //          /blog/my-slug + switch to fr → /fr/blog/my-slug
-  //          /fr/help/something + switch to en → /help/something
-  function buildPathForLang(targetLang: SupportedLang): string {
-    const path = location.pathname || '/';
-    // Strip a leading /<2-letter-code>/ if it matches a supported lang
-    const localePrefix = path.match(/^\/([a-z]{2})(\/|$)/);
-    let stripped = path;
-    if (localePrefix && (SUPPORTED_LANGS as readonly string[]).includes(localePrefix[1])) {
-      stripped = path.slice(3) || '/';
-      if (stripped === '') stripped = '/';
-    }
-    // Re-prepend new locale (EN has no prefix)
-    if (targetLang === 'en') return stripped + (location.search || '') + (location.hash || '');
-    const newPath = stripped === '/' ? `/${targetLang}` : `/${targetLang}${stripped}`;
-    return newPath + (location.search || '') + (location.hash || '');
-  }
   const [open, setOpen] = useState(false);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 208, maxHeight: 320 });
   const [openUpward, setOpenUpward] = useState(false);
@@ -123,10 +102,12 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
             onClick={() => {
               setLang(code);
               setOpen(false);
-              // Preserve current path when switching languages so users on
-              // /blog/my-slug stay on the localized version of that post,
-              // not get redirected to the landing page.
-              navigate(buildPathForLang(code));
+              // Navigate to language-prefixed URL for SEO + page refresh
+              if (code === 'en') {
+                navigate('/');
+              } else {
+                navigate(`/${code}`);
+              }
             }}
             style={{
               display: 'flex',
