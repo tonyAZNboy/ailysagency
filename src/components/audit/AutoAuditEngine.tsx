@@ -745,6 +745,30 @@ function ResultsPanel({
             body={result.action_plan}
           />
 
+          {/* Audit hold-back banner: the action plan above is a preview.
+              The strategic playbook is reserved for the paid strategist
+              discovery call. This banner converts the prospect at the
+              highest-intent moment (right after they read the plan). */}
+          <div className="rounded-2xl border border-primary/30 bg-primary/5 p-5 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <div className="text-sm font-semibold text-primary mb-1">
+                  {t.audit.results.planHoldBackTitle}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {t.audit.results.planHoldBackBody}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => navigate("/book-call")}
+                className="shrink-0 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                {t.audit.results.planHoldBackCta}
+              </button>
+            </div>
+          </div>
+
           {/* Schema fix copy-paste block: generates LocalBusiness + FAQPage
               JSON-LD validated against Google Rich Results, tuned per vertical. */}
           <SectionBoundary name="SchemaPreview">

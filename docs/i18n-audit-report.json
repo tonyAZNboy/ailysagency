@@ -1,14 +1,17 @@
 {
-  "enKeyCount": 1172,
+  "enKeyCount": 1175,
   "locales": {
     "fr": {
       "missing": [],
       "enValueCopy": [],
-      "totalKeys": 1173,
+      "totalKeys": 1176,
       "pct": "100.0"
     },
     "es": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -34,10 +37,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1171,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "zh": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -67,10 +73,13 @@
         "bookCall.placeholderEmail"
       ],
       "totalKeys": 1171,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "ar": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -99,10 +108,13 @@
         "bookCall.placeholderEmail"
       ],
       "totalKeys": 1171,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "ru": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -130,10 +142,13 @@
         "bookCall.placeholderEmail"
       ],
       "totalKeys": 1171,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "de": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -163,10 +178,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "hi": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -199,10 +217,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "it": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -236,10 +257,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "ja": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -273,10 +297,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "ko": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -310,10 +337,13 @@
         "footerExt.versionLine"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "nl": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -349,10 +379,13 @@
         "cofounders.tagLabels.ops_engineering"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "pl": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -379,10 +412,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "pt": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -413,10 +449,13 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "tr": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -446,10 +485,13 @@
         "cofounders.tagLabels.operations_quebec"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     },
     "vi": {
       "missing": [
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "services.statusInDevelopment",
         "services.statusInDevelopmentTitle"
       ],
@@ -482,8 +524,8 @@
         "cofounders.tagLabels.ops_growth_marketing"
       ],
       "totalKeys": 1170,
-      "pct": "99.8"
+      "pct": "99.6"
     }
   },
-  "generatedAt": "2026-05-01T18:44:15.780Z"
+  "generatedAt": "2026-05-01T21:05:46.558Z"
 }
