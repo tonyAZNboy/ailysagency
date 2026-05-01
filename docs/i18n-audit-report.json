@@ -1,20 +1,16 @@
 {
-  "enKeyCount": 1175,
+  "enKeyCount": 1181,
   "locales": {
     "fr": {
       "missing": [],
-      "enValueCopy": [],
-      "totalKeys": 1176,
+      "enValueCopy": [
+        "pricingBuilder.techHealthPackLabel"
+      ],
+      "totalKeys": 1182,
       "pct": "100.0"
     },
     "es": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
@@ -31,22 +27,17 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "pricingBuilder.techHealthPackLabel",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1171,
-      "pct": "99.6"
+      "totalKeys": 1182,
+      "pct": "100.0"
     },
     "zh": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
@@ -66,23 +57,18 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.techHealthPackLabel",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
-      "pct": "99.6"
+      "totalKeys": 1182,
+      "pct": "100.0"
     },
     "ar": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
@@ -102,22 +88,17 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.techHealthPackLabel",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
-      "pct": "99.6"
+      "totalKeys": 1182,
+      "pct": "100.0"
     },
     "ru": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.fields.emailPlaceholder",
         "audit.results.pdfDownload.openCta",
@@ -136,23 +117,21 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "pricingBuilder.techHealthPackLabel",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
-      "pct": "99.6"
+      "totalKeys": 1182,
+      "pct": "100.0"
     },
     "de": {
-      "missing": [
+      "missing": [],
+      "enValueCopy": [
         "audit.results.planHoldBackTitle",
         "audit.results.planHoldBackBody",
         "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
-      "enValueCopy": [
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -168,6 +147,13 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -177,20 +163,17 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "hi": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -207,6 +190,13 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.placeholderEmail",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -216,19 +206,16 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "it": {
-      "missing": [
+      "missing": [],
+      "enValueCopy": [
+        "footer.poweredBy",
         "audit.results.planHoldBackTitle",
         "audit.results.planHoldBackBody",
         "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
-      "enValueCopy": [
-        "footer.poweredBy",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -244,6 +231,13 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -256,22 +250,19 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "ja": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "footer.copyright",
         "footer.poweredBy",
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -289,6 +280,13 @@
         "audit.results.pdfDownload.privacyNote",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "bookCall.placeholderEmail",
@@ -296,22 +294,19 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "ko": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "footer.copyright",
         "footer.poweredBy",
         "audit.unlockPlaceholder",
         "audit.fields.emailPlaceholder",
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -329,6 +324,13 @@
         "audit.results.pdfDownload.privacyNote",
         "signup.emailPlaceholder",
         "heroAuditCard.placeholderEmail",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "bookCall.placeholderEmail",
@@ -336,20 +338,17 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "nl": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "who.r2Manual",
         "audit.results.sentiment",
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -366,6 +365,13 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "heroAuditCard.badgeLive",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "pricingBuilder.premiumOpsTitle",
@@ -378,18 +384,15 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "pl": {
-      "missing": [
+      "missing": [],
+      "enValueCopy": [
         "audit.results.planHoldBackTitle",
         "audit.results.planHoldBackBody",
         "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
-      "enValueCopy": [
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -405,24 +408,28 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "footerExt.gbpPulse",
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "pt": {
-      "missing": [
+      "missing": [],
+      "enValueCopy": [
         "audit.results.planHoldBackTitle",
         "audit.results.planHoldBackBody",
         "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
-      "enValueCopy": [
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -438,6 +445,13 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -448,18 +462,15 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "tr": {
-      "missing": [
+      "missing": [],
+      "enValueCopy": [
         "audit.results.planHoldBackTitle",
         "audit.results.planHoldBackBody",
         "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
-      "enValueCopy": [
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -475,6 +486,13 @@
         "audit.results.pdfDownload.errorNetwork",
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -484,20 +502,17 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     },
     "vi": {
-      "missing": [
-        "audit.results.planHoldBackTitle",
-        "audit.results.planHoldBackBody",
-        "audit.results.planHoldBackCta",
-        "services.statusInDevelopment",
-        "services.statusInDevelopmentTitle"
-      ],
+      "missing": [],
       "enValueCopy": [
         "audit.unlockPlaceholder",
         "audit.fields.industryOptions.salon",
+        "audit.results.planHoldBackTitle",
+        "audit.results.planHoldBackBody",
+        "audit.results.planHoldBackCta",
         "audit.results.pdfDownload.openCta",
         "audit.results.pdfDownload.formBadge",
         "audit.results.pdfDownload.formHeading",
@@ -514,6 +529,13 @@
         "audit.results.pdfDownload.errorGeneric",
         "audit.results.pdfDownload.privacyNote",
         "audit.pulse.verticalSalon",
+        "services.statusInDevelopment",
+        "services.statusInDevelopmentTitle",
+        "services.tier1Feat8",
+        "pricingBuilder.techHealthPackLabel",
+        "pricingBuilder.techHealthPackDesc",
+        "pricingBuilder.gscIndexationLabel",
+        "pricingBuilder.gscIndexationDesc",
         "pricingBuilder.nfcServiceLabel",
         "pricingBuilder.nfcServiceDesc",
         "methodology.step2Title",
@@ -523,9 +545,9 @@
         "cofounders.tagLabels.pt_brazil",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
-      "pct": "99.6"
+      "totalKeys": 1181,
+      "pct": "100.0"
     }
   },
-  "generatedAt": "2026-05-01T21:05:46.558Z"
+  "generatedAt": "2026-05-01T23:55:23.538Z"
 }
