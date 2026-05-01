@@ -4,6 +4,55 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended3) — Q1 2026 vertical set complete (5/5 live)
+
+Closed the Q1 2026 industry-report set: lawyers + restaurants moved from
+coming-soon to live. Lead-magnet landing now shows 5 live reports across
+the dominant Quebec local-services verticals.
+
+**Live reports at this batch:**
+
+| Vertical | Sample | Median score | Top engine | Hook signal |
+|---|---|---|---|---|
+| Dentists | 47 | 42 | Google AIO 38% | Wikidata Q-number 4x ChatGPT lift |
+| Clinics | 39 | 38 | Google AIO 44% | Bilingual practitioner profiles 3.1x cited |
+| Contractors | 52 | 47 | AIO + Perplexity tied 28% | Photo cadence eclipses review velocity |
+| Restaurants | 61 | 51 | Google AIO 52% | Menu schema 5.7x dietary-restriction queries |
+| Lawyers | 36 | 44 | Perplexity 31% | Only vertical where Perplexity tops AIO |
+
+Total: 235 Quebec businesses sampled across 6 AI engines × 12 weeks of probes.
+
+**Cross-vertical patterns surfaced:**
+
+1. **Schema density beats review velocity** in 4 of 5 verticals (only restaurants are review-velocity-driven). Schema is the universal leverage point.
+2. **Perplexity is unusually strong in legal** because of its citation transparency UI matching the legal-research query pattern.
+3. **Bilingual content parity is a 22-point lever** in legal (60 vs 38 monolingual) and a 3.1x citation lift in healthcare. Underused everywhere.
+4. **EXIF-preserved phone-camera photos always beat stock**, by 26 points in restaurants, by similar magnitude in contractors. Stock detection is universal.
+
+**Verified end-to-end:**
+- /industry-reports landing: 5 cards all "Live" status
+- /industry-reports/restaurants-quebec-q1-2026: h1 + 4 metrics (51, AIO 52%, 14%, 5.4) + 3 takeaways
+- /industry-reports/lawyers-quebec-q1-2026: h1 + 4 metrics (44, Perplexity 31%, 89%, 6%) + 3 takeaways + Barreau content present
+- Mobile 375 no overflow
+- All 5 reports render in EN + FR
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/industry-reports.ts
+- Build: success ~18s
+
+**Pending tag:** `v0.13.2-q1-2026-vertical-set-complete`
+
+**Outstanding for next session (priority order):**
+
+1. **Q2 2026 vertical set** preview placeholders (real-estate, hotels, future verticals). Real data collection during Q2 (April-June probes), publish July.
+2. **Reviuzy F1.1** Deep Site Audit DB schema + RLS + smoke (per `.planning/feature-1-deep-site-audit/02-sub-phases.md`).
+3. **Industry Reports auto-generation cron** (Reviuzy `industry-report-builder` from probe aggregations).
+4. **Open Graph images** for each industry report (Gemini image gen, hero illustration per vertical).
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended2) — footer links + 2 more live industry reports
 
 Continued autopilot push. Wired footer navigation to the 3 new public
