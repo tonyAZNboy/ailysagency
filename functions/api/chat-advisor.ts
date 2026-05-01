@@ -13,11 +13,12 @@
 //    text (system prompt instructs the model to refer to itself as
 //    "the AiLys engine", never to disclose the underlying vendor).
 //
-// Backend: Google Generative Language API (gemini-2.5-flash, streamGenerateContent
-// with SSE). Reads GEMINI_API_KEY from Cloudflare Pages env vars. The model
-// is instructed via system prompt to never disclose Gemini/Google as its
-// engine; references to "Gemini" in replies are only to the consumer-facing
-// AI engine that AiLys probes for client citation work.
+// Backend: Google Generative Language API (gemini-2.5-pro, generateContent
+// non-streaming, then re-emitted as a single SSE chunk + [DONE] for
+// frontend compatibility). Reads GEMINI_API_KEY from Cloudflare Pages env
+// vars. The model is instructed via system prompt to never disclose
+// Gemini/Google as its engine; references to "Gemini" in replies are only
+// to the consumer-facing AI engine that AiLys probes for client citation work.
 //
 // Streams Server-Sent Events back to the client. Frontend hook
 // (src/hooks/useAIEngine.ts) already handles SSE; we emit
@@ -396,9 +397,14 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     },
   ];
 
-  // Gemini 2.5 Flash, streaming SSE. Model id is stable on v1beta.
+  // Gemini 2.5 Flash, non-streaming. We collect the full response then emit
+  // as a single SSE chunk + [DONE]. Streaming was attempted via
+  // streamGenerateContent?alt=sse but the upstream chunk boundaries were
+  // unreliable inside Cloudflare Workers. Non-streaming is simpler, more
+  // robust, and Gemini 2.5 Flash is fast enough that the user sees the
+  // reply in roughly 2-3 seconds, which is acceptable for a chat advisor.
   const geminiUrl =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=" +
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" +
     encodeURIComponent(apiKey);
 
   let upstream: Response;
@@ -432,68 +438,45 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     );
   }
 
-  if (!upstream.ok || !upstream.body) {
+  if (!upstream.ok) {
     return sseError(
       "Our AI advisor is busy right now. Try again in a moment, or run the free AI Visibility Audit at /audit.",
     );
   }
 
-  // Translate Gemini SSE -> our normalized SSE shape
-  // Gemini streamGenerateContent with alt=sse returns lines like:
-  //   data: {"candidates":[{"content":{"parts":[{"text":"chunk"}]}}]}
-  // We extract candidates[0].content.parts[*].text and re-emit as
-  //   data: {"content":"chunk"}
-  // terminated by data: [DONE]
+  // Parse the full Gemini response and extract the text from
+  // candidates[0].content.parts[*].text.
+  let parsed: GeminiStreamEvent;
+  try {
+    parsed = (await upstream.json()) as GeminiStreamEvent;
+  } catch {
+    return sseError(
+      "Our AI advisor returned an unexpected format. Try again, or run the free AI Visibility Audit at /audit.",
+    );
+  }
+  const parts = parsed.candidates?.[0]?.content?.parts;
+  let fullText = "";
+  if (Array.isArray(parts)) {
+    for (const p of parts) {
+      if (typeof p?.text === "string") fullText += p.text;
+    }
+  }
+  if (!fullText.trim()) {
+    return sseError(
+      "Our AI advisor did not return content. Try again, or run the free AI Visibility Audit at /audit.",
+    );
+  }
+
+  // Re-emit as a single SSE chunk in the normalized shape the frontend expects:
+  //   data: {"content":"..."}\n\ndata: [DONE]\n\n
   const stream = new ReadableStream({
-    async start(controller) {
-      const reader = upstream.body!.getReader();
-      const decoder = new TextDecoder();
+    start(controller) {
       const encoder = new TextEncoder();
-      let buf = "";
-
-      const emit = (text: string) => {
-        if (!text) return;
-        controller.enqueue(
-          encoder.encode(`data: ${JSON.stringify({ content: text })}\n\n`),
-        );
-      };
-
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buf += decoder.decode(value, { stream: true });
-          let idx: number;
-          while ((idx = buf.indexOf("\n\n")) !== -1) {
-            const chunk = buf.slice(0, idx);
-            buf = buf.slice(idx + 2);
-            for (const rawLine of chunk.split("\n")) {
-              const line = rawLine.trimStart();
-              if (!line.startsWith("data:")) continue;
-              const payload = line.slice(5).trim();
-              if (!payload || payload === "[DONE]") continue;
-              try {
-                const evt = JSON.parse(payload) as GeminiStreamEvent;
-                const parts = evt.candidates?.[0]?.content?.parts;
-                if (Array.isArray(parts)) {
-                  for (const p of parts) {
-                    if (typeof p?.text === "string") emit(p.text);
-                  }
-                }
-              } catch {
-                // skip non-JSON keepalive
-              }
-            }
-          }
-        }
-      } catch {
-        emit(
-          "\n\n(Connection interrupted. Run the audit at /audit for a full report.)",
-        );
-      } finally {
-        controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
-        controller.close();
-      }
+      controller.enqueue(
+        encoder.encode(`data: ${JSON.stringify({ content: fullText })}\n\n`),
+      );
+      controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
+      controller.close();
     },
   });
 

@@ -18,7 +18,7 @@
 // - PII leakage: audit log uses sha256-hashed inputs only.
 // - Fail-closed: missing INSTANT_AI_VIS_ENABLED env -> 503.
 //
-// Backend: Google Generative Language API, gemini-2.5-flash:generateContent.
+// Backend: Google Generative Language API, gemini-2.5-pro:generateContent.
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
@@ -242,7 +242,7 @@ async function callGemini(env: Env, body: RequestBody): Promise<Omit<AuditResult
   let res: Response;
   try {
     res = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' +
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=' +
         encodeURIComponent(env.GEMINI_API_KEY),
       {
         method: 'POST',

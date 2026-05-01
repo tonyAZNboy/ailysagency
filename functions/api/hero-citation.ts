@@ -9,7 +9,7 @@
 //   2. Add GEMINI_API_KEY (encrypted) for production
 //   3. Optionally bind a KV namespace named CITATION_CACHE for cross-region cache
 //
-// Backend: Google Generative Language API, gemini-2.5-flash:generateContent
+// Backend: Google Generative Language API, gemini-2.5-pro:generateContent
 // with responseMimeType=application/json for clean JSON output. Without
 // GEMINI_API_KEY set, returns a clearly-labeled static fallback so the hero
 // never shows fake "live" data.
@@ -100,7 +100,7 @@ Pick a real-sounding business name (you may invent if uncertain, must not be a k
 
   try {
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" +
         encodeURIComponent(apiKey),
       {
         method: "POST",
