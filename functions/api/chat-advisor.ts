@@ -423,7 +423,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         contents,
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 1200,
+          // Gemini 2.5 Pro consumes "thinking tokens" against this budget
+          // before producing visible text. Combined with non-EN locales (FR
+          // typically uses 30-50% more tokens per word than EN), the
+          // previous 1200 budget left some FR replies empty. 4096 leaves
+          // headroom for thinking + a full bilingual response without
+          // truncating the visible answer.
+          maxOutputTokens: 4096,
           topP: 0.95,
         },
         // Loose safety settings appropriate for a B2B marketing chat.
