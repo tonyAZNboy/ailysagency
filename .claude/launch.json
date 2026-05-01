@@ -20,6 +20,12 @@
       "port": 4173
     },
     {
+      "name": "preview-jovial",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "preview", "--port", "4174"],
+      "port": 4174
+    },
+    {
       "name": "supabase-functions",
       "runtimeExecutable": "supabase",
       "runtimeArgs": ["functions", "serve", "--no-verify-jwt"],

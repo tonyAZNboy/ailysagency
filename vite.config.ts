@@ -26,37 +26,23 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Bumped from default 500. Eager hot-path (Index + i18n + blog registry) is
     // still large by design; cold-path pages are already code-split per E.5.
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
+        // Data-only split. Splitting React/Helmet/Router into separate vendor
+        // chunks triggers TDZ on react-helmet-async ("Cannot access 'O' before
+        // initialization") because rollup hoists re-exported React bindings
+        // across chunk boundaries before they've been assigned by the React
+        // module in another chunk. Verified via PR #96 -> PR #100 revert and
+        // local repro at v0.14.3 where rootChildren=0 in vite preview.
+        // Keeping all node_modules in the default index chunk avoids the
+        // circular-init issue. We still get major wins by chunking the large
+        // data-side modules (i18n + EN/FR blog posts) which have no React
+        // import cycles.
         manualChunks: (id) => {
-          // Vendor split for cache stability
-          if (id.includes("node_modules/react/") || id.includes("node_modules/react-dom/")) {
-            return "vendor-react";
-          }
-          if (id.includes("node_modules/react-router")) {
-            return "vendor-router";
-          }
-          if (id.includes("node_modules/@tanstack")) {
-            return "vendor-query";
-          }
-          if (id.includes("node_modules/@radix-ui")) {
-            return "vendor-radix";
-          }
-          if (id.includes("node_modules/lucide-react")) {
-            return "vendor-icons";
-          }
-          if (id.includes("node_modules/react-helmet-async")) {
-            return "vendor-helmet";
-          }
-          if (id.includes("node_modules/react-markdown") || id.includes("node_modules/remark") || id.includes("node_modules/micromark") || id.includes("node_modules/mdast")) {
-            return "vendor-markdown";
-          }
-          // 16 locale i18n translations
           if (id.includes("/src/i18n/translations/")) {
             return "i18n";
           }
-          // Blog post sister files (FR siblings eager-loaded via import.meta.glob)
           if (id.includes("/src/blog/posts/") && id.endsWith(".fr.tsx")) {
             return "blog-posts-fr";
           }
