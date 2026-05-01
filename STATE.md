@@ -4,6 +4,63 @@
 
 ---
 
+## 🏁 SESSION 2026-05-01 (autopilot continuation) — Performance retry FIXED + root cause documented
+
+**Critical finding:** STATE.md at v0.14.3 close claimed PR #100 reverted the
+broken manualChunks. It did not stick. PR #103 (session-close docs squash
+merge) re-introduced the broken vite.config.ts because the squash brought
+in PR #96's commits as part of its history. Live www.ailysagency.ca was
+silently shipping the blank-page config for ~weeks. smoke-jsonld passed
+because it only validates static HTML JSON-LD, not React render. Next time
+a regression test that asserts `rootChildren > 0` from a real browser
+must be wired in (TODO).
+
+**Root cause of PR #96 blank-page:**
+`ReferenceError: Cannot access 'O' before initialization` at
+`vendor-helmet-*.js`. Splitting `react-helmet-async` into its own chunk
+separate from `react`/`react-dom` triggered TDZ on a hoisted re-exported
+React binding. rollup hoists `var O` (the cross-chunk re-export of a React
+symbol) and references it before the React module finishes initializing
+in the other chunk. Reproduced locally in `vite preview` mode at v0.14.3
+HEAD, rootChildren=0, errors invisible because the failing import was the
+entry chunk's static import (no console output, just blank page).
+
+**Safer split shipped:**
+Data-only manualChunks. Splits `/src/i18n/translations/` (1.2MB lazy)
++ `/src/blog/posts/*.fr.tsx` (1.2MB lazy) + `/src/blog/posts/*` EN
+(1.3MB lazy). All node_modules stay in the default index chunk (no
+TDZ risk). Bundle breakdown:
+
+| Chunk | Size | Gzip |
+|---|---|---|
+| index.js | 794 KB | 221 KB |
+| help-articles | 521 KB | 198 KB |
+| i18n (lazy) | 1.2 MB | 487 KB |
+| blog-posts-en (lazy) | 1.3 MB | 341 KB |
+| blog-posts-fr (lazy) | 1.2 MB | 304 KB |
+
+Initial home-page load (vs old 4.7MB monolith): 794KB index + small
+preloads ~= 800KB / 220KB gzipped, an 83% reduction. All node_modules
+including react-helmet-async stay co-located so no circular-init.
+
+**Verified before merge:**
+- `npx vite build` clean
+- `npx vite preview` on port 4174
+- 4 pages confirmed React mounts (rootChildren > 0):
+  - `/` rootChildren=5, h1 "Marketing Agency SEO & AI..."
+  - `/fr` rootChildren=5, h1 "Agence Marketing SEO & IA..."
+  - `/forfaits-complets` rootChildren=4, h1 "Every feature..."
+  - `/badge` rootChildren=5, h1 "AiLys Verified Badge"
+- smoke-jsonld 73/73 PASS against local preview
+- tsc --noEmit clean
+- audit-blog-translations 59/59 PASS
+- em-dash audit: 1 baseline hit in chat-advisor.ts:277 (intentional, in
+  the model's HARD RULES instruction prompt itself)
+
+**Pending:** tag bump after merge.
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (FULL DAY OFFICIAL CLOSE) — ~27 PRs across 3 parallel sessions, 17 tags
 
 End of the longest single-day session of this project. Three Claude
