@@ -8146,4 +8146,354 @@ Pour les questions techniques sur la mesure : methodology@ailysagency.ca. Repons
       },
     },
   },
+
+  // ─── Tech Health Pack + GSC Indexation Audit add-ons ──────
+  {
+    slug: "tech-health-pack-explained",
+    title: "Tech Health Pack: why your monthly blog posts are not getting indexed (and what we do about it)",
+    excerpt:
+      "$150/mo add-on that closes the indexation gap. Without it, monthly blog posts sit in 'Discovered, currently not indexed' for weeks. Includes GSC monitoring, monthly auto-reindex requests, crawl error sweep, and Core Web Vitals alerts. Bundled in Agency.",
+    category: "pricing-plans",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 5,
+    body: `## The problem in one sentence
+
+You publish a blog post on Tuesday. Google says it sees the post. By Friday it is still not in search results. By the following Friday it still is not. By the time it does appear (3 to 6 weeks later, sometimes never), the topic is stale and the AI engines have moved on.
+
+This is the indexation gap, and it is the silent killer of content marketing in 2026.
+
+## Why it happens
+
+Google has a finite crawl budget for every site. Smaller sites with low link authority get crawled less often. Even when Google crawls a new page, it does not always index it: the page goes into "Discovered, currently not indexed" status in Google Search Console. There are three common reasons:
+
+1. The page does not pass quality thresholds (thin content, duplicate content, low-quality outbound links)
+2. The page is structurally similar to other pages on your site (Google de-duplicates)
+3. The site has crawl errors elsewhere that are eating crawl budget (404s on old URLs, redirect chains, broken sitemaps)
+
+Even when none of these apply, smaller sites simply wait. Google indexes them when it gets around to it.
+
+## What the Tech Health Pack does
+
+For $150/mo on top of any AiLys tier (Starter, Core, or Growth; bundled in Agency by default), we run four operations every month:
+
+### 1. GSC indexation monitoring
+
+Connected to your Google Search Console, we pull weekly reports on:
+- New pages discovered vs new pages indexed (the gap)
+- Pages dropped from index (bad signal)
+- Pages with the "Discovered, currently not indexed" or "Crawled, currently not indexed" status
+
+You see this data in your AiLys client dashboard with a 30-day trend chart. Your strategist sees it too and acts on regression.
+
+### 2. Monthly blog auto-reindex requests
+
+For every new blog post we ship that month, we manually submit a reindex request via the GSC API within 48 hours of publication. This typically pulls indexation forward by 2 to 3 weeks compared to letting Google find the post on its own. Sometimes it triggers same-day indexation.
+
+This is not magic, it is just discipline. Most agencies do not bother because it is per-page manual work. We bundle it.
+
+### 3. Crawl error sweep
+
+Twice per month we audit your site for:
+- 404 errors on URLs that should exist (typos in internal links, deleted pages with no redirect)
+- Redirect chains (page A → B → C → D, which Google penalizes)
+- Soft 404s (pages that return 200 but should be 404)
+- Broken outbound links to dead third-party sites
+- Sitemap.xml health (URLs that 404, URLs with wrong canonical, missing lastmod dates)
+
+Errors get fixed in your CMS by your strategist (for AiLys-built sites) or surfaced as a punch list (for client-built sites we do not have access to).
+
+### 4. Core Web Vitals alerts
+
+Connected to Google PageSpeed Insights, we monitor your top 20 pages weekly for:
+- Largest Contentful Paint (LCP): how fast the main content loads
+- Interaction to Next Paint (INP): how fast the page responds to clicks
+- Cumulative Layout Shift (CLS): how much the page jumps around as it loads
+
+When any metric drops below the "Good" threshold for 2 consecutive weeks, you get an email alert with the specific page + metric + likely cause (image size, JavaScript blocking, font swap, third-party script).
+
+## Why it pays for itself
+
+For a Core tier client publishing 4 blog posts per month at $600/mo, the Tech Health Pack adds $150/mo (25% increase in spend). In return:
+
+- Posts get indexed in days instead of weeks (revenue happens sooner on time-sensitive content like seasonal promotions)
+- Crawl errors do not silently sabotage the rest of your site
+- Core Web Vitals do not drop below the threshold without you knowing (drops below threshold cause AIO citation freezes, not just SERP rank drops)
+
+Math: if 1 of your 4 monthly posts drives a $1,000 customer that would not have arrived because the post was un-indexed for 6 weeks, the pack has paid for itself 6x over for that month.
+
+## Why we made it an add-on instead of bundling everywhere
+
+Honestly, because not every client needs it. If you are a Starter client publishing 2 posts per month and your business is not seasonal, the indexation lag rarely costs you a customer. If you are a Growth client publishing 8 per month or running monthly product launches, every week of indexation lag compounds.
+
+Our default recommendation: bundle it from month 3 onward, when you have enough content to make the math obvious.
+
+## How to add it
+
+Mention it to your strategist or toggle it on /forfaits-complets. Activates next billing cycle.`,
+    i18n: {
+      fr: {
+        title: "Tech Health Pack : pourquoi vos articles de blogue mensuels ne sont pas indexes (et ce que nous faisons)",
+        excerpt:
+          "Module a 150 $/mois qui ferme l'ecart d'indexation. Sans lui, les articles de blogue mensuels restent en 'Decouvert, actuellement non indexe' pendant des semaines. Inclut suivi GSC, requetes de reindexation auto mensuelles, balayage des erreurs de crawl, et alertes Core Web Vitals. Inclus dans Agency.",
+        body: `## Le probleme en une phrase
+
+Vous publiez un article de blogue mardi. Google dit qu'il voit l'article. Vendredi, il n'est toujours pas dans les resultats de recherche. Le vendredi suivant non plus. Quand il apparait enfin (3 a 6 semaines plus tard, parfois jamais), le sujet est perime et les moteurs IA sont passes a autre chose.
+
+C'est l'ecart d'indexation, et c'est le tueur silencieux du marketing de contenu en 2026.
+
+## Pourquoi ca arrive
+
+Google a un budget de crawl fini pour chaque site. Les sites plus petits avec peu d'autorite de liens sont crawles moins souvent. Meme quand Google crawle une nouvelle page, il ne l'indexe pas toujours : la page entre dans le statut "Decouvert, actuellement non indexe" dans Google Search Console. Trois raisons courantes :
+
+1. La page ne passe pas les seuils de qualite (contenu mince, contenu duplique, liens sortants de basse qualite)
+2. La page est structurellement similaire a d'autres pages de votre site (Google deduplique)
+3. Le site a des erreurs de crawl ailleurs qui mangent le budget de crawl (404 sur d'anciens URL, chaines de redirection, sitemaps casses)
+
+Meme quand aucune ne s'applique, les sites plus petits attendent simplement. Google les indexe quand il en a le temps.
+
+## Ce que le Tech Health Pack fait
+
+Pour 150 $/mois en plus de n'importe quel palier AiLys (Starter, Core, ou Growth ; inclus par defaut dans Agency), nous executons quatre operations chaque mois :
+
+### 1. Suivi de l'indexation GSC
+
+Connecte a votre Google Search Console, nous tirons des rapports hebdomadaires sur :
+- Nouvelles pages decouvertes vs nouvelles pages indexees (l'ecart)
+- Pages retirees de l'index (mauvais signal)
+- Pages avec le statut "Decouvert, actuellement non indexe" ou "Crawle, actuellement non indexe"
+
+Vous voyez ces donnees dans votre tableau de bord client AiLys avec un graphique de tendance sur 30 jours. Votre strategiste les voit aussi et agit sur les regressions.
+
+### 2. Requetes de reindexation auto mensuelles
+
+Pour chaque nouvel article de blogue que nous expedions ce mois, nous soumettons manuellement une requete de reindexation via l'API GSC dans les 48 heures suivant la publication. Cela tire generalement l'indexation 2 a 3 semaines en avance par rapport a laisser Google trouver l'article seul. Parfois ca declenche l'indexation le jour meme.
+
+Ce n'est pas de la magie, c'est juste de la discipline. La plupart des agences ne s'en occupent pas parce que c'est du travail manuel par page. Nous l'incluons dans le pack.
+
+### 3. Balayage des erreurs de crawl
+
+Deux fois par mois, nous auditons votre site pour :
+- Erreurs 404 sur des URL qui devraient exister (fautes de frappe dans les liens internes, pages supprimees sans redirection)
+- Chaines de redirection (page A vers B vers C vers D, ce que Google penalise)
+- Faux 404 (pages qui retournent 200 mais devraient retourner 404)
+- Liens sortants brises vers des sites tiers morts
+- Sante du sitemap.xml (URL qui retournent 404, URL avec mauvais canonical, dates lastmod manquantes)
+
+Les erreurs sont corrigees dans votre CMS par votre strategiste (pour les sites batis par AiLys) ou remises sous forme de liste de taches (pour les sites batis par le client auxquels nous n'avons pas acces).
+
+### 4. Alertes Core Web Vitals
+
+Connecte a Google PageSpeed Insights, nous surveillons vos 20 pages principales chaque semaine pour :
+- Largest Contentful Paint (LCP) : la vitesse de chargement du contenu principal
+- Interaction to Next Paint (INP) : la vitesse de reponse de la page aux clics
+- Cumulative Layout Shift (CLS) : combien la page saute pendant le chargement
+
+Quand n'importe quelle metrique tombe sous le seuil "Bon" pendant 2 semaines consecutives, vous recevez une alerte courriel avec la page specifique + metrique + cause probable (taille d'image, JavaScript bloquant, swap de police, script tiers).
+
+## Pourquoi ca se rentabilise
+
+Pour un client Core publiant 4 articles de blogue par mois a 600 $/mois, le Tech Health Pack ajoute 150 $/mois (augmentation de 25% des depenses). En retour :
+
+- Les articles s'indexent en jours au lieu de semaines (les revenus arrivent plus tot sur du contenu sensible au temps comme les promotions saisonnieres)
+- Les erreurs de crawl ne sabotent pas silencieusement le reste de votre site
+- Core Web Vitals ne tombent pas sous le seuil sans que vous le sachiez (les chutes sous le seuil causent des gels de citations AIO, pas juste des chutes de rang SERP)
+
+Math : si 1 de vos 4 articles mensuels amene un client a 1 000 $ qui ne serait pas arrive parce que l'article etait non indexe pendant 6 semaines, le pack s'est rentabilise 6 fois pour ce mois-la.
+
+## Pourquoi nous l'avons fait en module au lieu de l'inclure partout
+
+Honnetement, parce que tous les clients n'en ont pas besoin. Si vous etes un client Starter publiant 2 articles par mois et que votre entreprise n'est pas saisonniere, le retard d'indexation vous coute rarement un client. Si vous etes un client Growth publiant 8 par mois ou faisant des lancements de produits mensuels, chaque semaine de retard d'indexation se cumule.
+
+Notre recommandation par defaut : l'inclure a partir du mois 3, quand vous avez assez de contenu pour rendre la math evidente.
+
+## Comment l'ajouter
+
+Mentionnez-le a votre strategiste ou activez-le sur /forfaits-complets. Active au prochain cycle de facturation.`,
+      },
+    },
+  },
+  {
+    slug: "gsc-indexation-audit-explained",
+    title: "GSC Indexation Audit: one-time fix for sites with deep indexation rot",
+    excerpt:
+      "One-time engagement priced by site size ($100 for 1-9 pages, scaling to $800 for 100-149 pages, custom quote 150+). Fixes accumulated indexation issues from years of organic site growth. Bundled at signup in the Agency tier.",
+    category: "pricing-plans",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 4,
+    body: `## When you need this (and when you do not)
+
+The GSC Indexation Audit is for sites that have been around for 2+ years and accumulated indexation rot. Symptoms:
+
+- Lots of pages with "Crawled, currently not indexed" or "Discovered, currently not indexed" in GSC
+- Search Console showing fewer indexed pages than your sitemap reports
+- Old blog posts that used to rank dropping out of results
+- Soft 404s, redirect chains, or broken canonicals reported in GSC
+
+If your site is brand new (under 6 months), you do not need this audit. Just publish good content and run the Tech Health Pack monthly add-on. The audit is for cleanup.
+
+If your site is 2+ years old and you have never had a structured indexation review, you almost certainly need it.
+
+## Pricing by site size
+
+| Site size (pages) | One-time price |
+|---|---|
+| 1 to 9 | $100 |
+| 10 to 19 | $200 |
+| 20 to 29 | $300 |
+| 30 to 39 | $400 |
+| 40 to 74 | $500 |
+| 75 to 99 | $600 |
+| 100 to 149 | $800 |
+| 150+ | Custom quote |
+
+A "page" means a unique URL that returns HTML. We count the canonical URL not the variant query strings. Pricing is set so that the per-page audit cost stays roughly $10 to $15 across the curve, with bigger sites getting a volume discount.
+
+## What is delivered
+
+A 5-section PDF audit:
+
+### Section 1: Indexation snapshot
+Current state across the GSC indexation report categories. Counts of indexed, non-indexed-discovered, non-indexed-crawled, soft-404, redirect, dropped, and excluded URLs.
+
+### Section 2: Issue triage
+Every URL with an issue, grouped by issue type, with:
+- The URL
+- The issue (Discovered not indexed, Soft 404, Redirect chain depth >2, etc.)
+- Likely root cause (thin content, near-duplicate, slow LCP, robots.txt deny, etc.)
+- Recommended action (fix, redirect to canonical, allow in robots, accept and remove from sitemap, etc.)
+
+### Section 3: Sitemap audit
+Full sitemap.xml health check. Are URLs in sitemap actually indexable? Are non-indexable URLs in sitemap? Is lastmod accurate? Are language alternates correct?
+
+### Section 4: Crawl budget analysis
+Based on the issue triage, an estimate of how much crawl budget is being wasted on issues that should not be re-crawled. Recommendations for noindex, robots.txt disallow, or redirect to recover budget.
+
+### Section 5: 30-60-90 day fix plan
+Prioritized list of fixes ordered by:
+- Impact (how many pages benefit)
+- Effort (1-hour content edit vs 1-day developer task)
+- Risk (low for noindex tags, higher for sitemap restructuring)
+
+The plan is concrete enough that your developer or strategist can execute without asking us follow-up questions.
+
+## What is NOT included
+
+- Fix execution. The audit identifies issues. Implementation is either by your developer (free), via your AiLys monthly tier (if the issue falls in scope), or via a separate scope-of-work quote (for site-wide structural changes).
+- Hosting or infrastructure changes. We surface "page X is slow because LCP is 4.8 seconds" but we do not provision a CDN or migrate hosting.
+- Rewriting content. We surface "this page has 230 words and Google considers it thin" but we do not rewrite the page (that is in your AiLys monthly content scope).
+
+## Turnaround
+
+5 business days from when we get GSC access. We need:
+- GSC property access (Owner or Full role) to your domain
+- Read access to your sitemap.xml (almost always public)
+- Read access to your robots.txt (always public)
+
+We do NOT need access to your CMS or hosting. The audit is read-only.
+
+## Why we charge per page (and why it scales the way it does)
+
+Auditing a 9-page brochure site is a 30-minute job. Auditing a 149-page e-commerce site with thousands of product variants is a 1+ day job. Linear pricing per page would be unfair on both ends. The tiered pricing reflects actual time + the fact that bigger sites have more compounding issue patterns we can identify in bulk.
+
+## When it is bundled
+
+In the Agency tier, the GSC Indexation Audit is bundled at signup. We run it in week 2 as part of onboarding (after the technical foundation work in week 1). The findings feed directly into the next 90 days of strategy.
+
+## How to order
+
+If you are an existing client at Starter, Core, or Growth, mention it to your strategist with your page count. We invoice and start within 5 business days.
+
+If you are a prospect, run the free AI Visibility Audit at /audit first to see how AiLys works, then book a strategy call to discuss whether the GSC Indexation Audit is the right next step or if you should start with a tier subscription.`,
+    i18n: {
+      fr: {
+        title: "Audit d'indexation GSC : correctif unique pour sites avec pourriture d'indexation profonde",
+        excerpt:
+          "Engagement unique tarife par taille de site (100 $ pour 1-9 pages, montant a 800 $ pour 100-149 pages, devis personnalise 150+). Corrige les problemes d'indexation accumules sur des annees de croissance organique. Inclus a l'inscription dans le palier Agency.",
+        body: `## Quand vous en avez besoin (et quand non)
+
+L'audit d'indexation GSC est pour les sites qui existent depuis 2+ ans et ont accumule de la pourriture d'indexation. Symptomes :
+
+- Beaucoup de pages avec "Crawle, actuellement non indexe" ou "Decouvert, actuellement non indexe" dans GSC
+- Search Console montrant moins de pages indexees que ce que votre sitemap rapporte
+- Anciens articles de blogue qui se classaient avant et qui chutent des resultats
+- Faux 404, chaines de redirection, ou canoniques brises rapportes dans GSC
+
+Si votre site est tout nouveau (moins de 6 mois), vous n'avez pas besoin de cet audit. Publiez juste du bon contenu et utilisez le module mensuel Tech Health Pack. L'audit est pour le nettoyage.
+
+Si votre site a 2+ ans et que vous n'avez jamais fait de revue d'indexation structuree, vous en avez presque certainement besoin.
+
+## Tarification par taille de site
+
+| Taille du site (pages) | Prix unique |
+|---|---|
+| 1 a 9 | 100 $ |
+| 10 a 19 | 200 $ |
+| 20 a 29 | 300 $ |
+| 30 a 39 | 400 $ |
+| 40 a 74 | 500 $ |
+| 75 a 99 | 600 $ |
+| 100 a 149 | 800 $ |
+| 150+ | Devis personnalise |
+
+Une "page" est une URL unique qui retourne du HTML. Nous comptons l'URL canonique pas les variantes avec parametres de requete. La tarification est etablie pour que le cout d'audit par page reste environ 10 a 15 $ a travers la courbe, avec les sites plus grands obtenant un rabais de volume.
+
+## Ce qui est livre
+
+Un audit PDF de 5 sections :
+
+### Section 1 : Cliche d'indexation
+Etat actuel a travers les categories du rapport d'indexation GSC. Comptes de URL indexees, non indexees decouvertes, non indexees crawlees, faux-404, redirections, retirees, et exclues.
+
+### Section 2 : Triage des problemes
+Chaque URL avec un probleme, groupee par type de probleme, avec :
+- L'URL
+- Le probleme (Decouvert non indexe, Faux 404, Profondeur de chaine de redirection >2, etc.)
+- Cause racine probable (contenu mince, quasi-doublon, LCP lent, blocage robots.txt, etc.)
+- Action recommandee (corriger, rediriger vers canonique, autoriser dans robots, accepter et retirer du sitemap, etc.)
+
+### Section 3 : Audit du sitemap
+Verification complete de la sante du sitemap.xml. Les URL dans le sitemap sont-elles indexables ? Y a-t-il des URL non indexables dans le sitemap ? La date lastmod est-elle exacte ? Les alternates de langue sont-ils corrects ?
+
+### Section 4 : Analyse du budget de crawl
+Base sur le triage des problemes, une estimation du budget de crawl gaspille sur des problemes qui ne devraient pas etre re-crawles. Recommandations pour noindex, robots.txt disallow, ou redirection pour recuperer du budget.
+
+### Section 5 : Plan de correctifs 30-60-90 jours
+Liste priorisee de correctifs ordonnee par :
+- Impact (combien de pages en beneficient)
+- Effort (modification de contenu d'une heure vs tache de developpeur d'une journee)
+- Risque (bas pour les balises noindex, plus eleve pour la restructuration de sitemap)
+
+Le plan est assez concret pour que votre developpeur ou strategiste puisse l'executer sans nous poser de questions de suivi.
+
+## Ce qui n'est PAS inclus
+
+- Execution des correctifs. L'audit identifie les problemes. La mise en oeuvre est soit par votre developpeur (gratuit), via votre palier mensuel AiLys (si le probleme entre dans la portee), ou via un devis de portee separe (pour les changements structurels a l'echelle du site).
+- Changements d'hebergement ou d'infrastructure. Nous identifions "la page X est lente parce que le LCP est de 4,8 secondes" mais nous ne provisionnons pas de CDN ou ne migrons pas l'hebergement.
+- Reecriture de contenu. Nous identifions "cette page a 230 mots et Google la considere mince" mais nous ne reecrivons pas la page (c'est dans votre portee de contenu mensuel AiLys).
+
+## Delai
+
+5 jours ouvrables a partir du moment ou nous obtenons l'acces GSC. Nous avons besoin de :
+- Acces a la propriete GSC (role Proprietaire ou Complet) pour votre domaine
+- Acces en lecture a votre sitemap.xml (presque toujours public)
+- Acces en lecture a votre robots.txt (toujours public)
+
+Nous n'avons PAS besoin d'acces a votre CMS ou hebergement. L'audit est en lecture seule.
+
+## Pourquoi nous facturons par page (et pourquoi ca evolue ainsi)
+
+Auditer un site brochure de 9 pages est un travail de 30 minutes. Auditer un site e-commerce de 149 pages avec des milliers de variantes de produits est un travail d'une journee+. Une tarification lineaire par page serait injuste aux deux extremes. La tarification par paliers reflete le temps reel + le fait que les sites plus grands ont plus de motifs de problemes cumulatifs que nous pouvons identifier en lot.
+
+## Quand c'est inclus
+
+Dans le palier Agency, l'audit d'indexation GSC est inclus a l'inscription. Nous le faisons en semaine 2 dans le cadre de l'onboarding (apres le travail de fondation technique en semaine 1). Les conclusions alimentent directement les 90 prochains jours de strategie.
+
+## Comment commander
+
+Si vous etes un client existant a Starter, Core, ou Growth, mentionnez-le a votre strategiste avec votre nombre de pages. Nous facturons et demarrons dans les 5 jours ouvrables.
+
+Si vous etes un prospect, executez d'abord l'audit gratuit de visibilite IA a /fr/audit pour voir comment AiLys fonctionne, puis reservez un appel strategique pour discuter de si l'audit d'indexation GSC est le bon prochain pas ou si vous devriez commencer par un abonnement de palier.`,
+      },
+    },
+  },
 ];
