@@ -24,6 +24,10 @@ interface Props {
   websiteUrl?: string | null;
   gbpUrl?: string | null;
   auditRunId?: string;
+  /** Pre-fill the email input. Used when the user already entered email on unlock. */
+  prefilledEmail?: string;
+  /** Auto-open the form (skip the closed CTA). Used post-unlock to surface PDF send immediately. */
+  autoOpen?: boolean;
 }
 
 function bandFromScore(score: number): AuditScoreBand {
@@ -50,8 +54,8 @@ type Status = "idle" | "submitting" | "ok" | "error";
 
 export function AuditPdfDownload(props: Props) {
   const { t, lang } = useLang();
-  const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  const [open, setOpen] = useState(props.autoOpen ?? false);
+  const [email, setEmail] = useState(props.prefilledEmail ?? "");
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
