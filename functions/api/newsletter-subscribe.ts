@@ -12,6 +12,7 @@
 
 import { renderEmail } from '../lib/emailTemplate';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
+import { sendAndLog } from '../lib/emailLog';
 
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
@@ -24,6 +25,53 @@ interface Env {
 }
 
 const SITE_BASE_URL = 'https://www.ailysagency.ca';
+
+async function enrollInWelcomeSequence(env: Env, email: string): Promise<void> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return;
+  try {
+    // 1. Look up the newsletter_welcome sequence id
+    const seqResp = await fetch(
+      `${env.SUPABASE_URL}/rest/v1/email_sequences?slug=eq.newsletter_welcome&select=id,steps&limit=1`,
+      {
+        headers: {
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        },
+      },
+    );
+    if (!seqResp.ok) return;
+    const rows = (await seqResp.json().catch(() => [])) as Array<{ id: string; steps: Array<{ delay_days: number }> }>;
+    if (rows.length === 0) return;
+    const seq = rows[0];
+    // current_step starts at 1 because step 0 (welcome confirm) was just sent synchronously
+    const firstFollowUp = seq.steps[0];
+    if (!firstFollowUp) return;
+    const nextSend = new Date(Date.now() + firstFollowUp.delay_days * 24 * 60 * 60 * 1000).toISOString();
+
+    await fetch(
+      `${env.SUPABASE_URL}/rest/v1/email_sequence_enrollments?on_conflict=email,sequence_id`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+          Prefer: 'resolution=merge-duplicates,return=minimal',
+        },
+        body: JSON.stringify({
+          email,
+          sequence_id: seq.id,
+          current_step: 1,
+          status: 'active',
+          next_send_at: nextSend,
+          unsubscribed_at: null,
+        }),
+      },
+    );
+  } catch {
+    // Best-effort enrollment; never blocks signup
+  }
+}
 
 async function upsertSubscriber(env: Env, row: {
   email: string;
@@ -143,6 +191,9 @@ export async function onRequestPost(context: {
     // Continue anyway - we don't want to lose the subscriber to a transient DB failure
   }
 
+  // 1b. Enroll in newsletter_welcome sequence so the cron processor sends day-2 + day-5 follow-ups
+  await enrollInWelcomeSequence(env, email);
+
   // 2. Sign a one-click unsubscribe token for the email footer + List-Unsubscribe header
   let unsubscribeUrl: string | undefined;
   if (env.NEWSLETTER_UNSUB_SECRET) {
@@ -189,20 +240,19 @@ export async function onRequestPost(context: {
         extraHeaders['List-Unsubscribe-Post'] = 'List-Unsubscribe=One-Click';
       }
 
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: 'AiLys Agency <hello@ailysagency.ca>',
-          to: email,
-          subject: isFr ? 'Bienvenue dans l\'infolettre AiLys' : 'Welcome to the AiLys newsletter',
-          html: rendered.html,
-          text: rendered.text,
-          headers: extraHeaders,
-        }),
+      const subject = isFr ? 'Bienvenue dans l\'infolettre AiLys' : 'Welcome to the AiLys newsletter';
+      await sendAndLog(env, {
+        from: 'AiLys Agency <hello@ailysagency.ca>',
+        to: email,
+        subject,
+        html: rendered.html,
+        text: rendered.text,
+        headers: extraHeaders,
+      }, {
+        email,
+        sequence_slug: 'newsletter_welcome',
+        step: 0,
+        subject,
       });
     } catch {
       // Don't fail the subscription if email delivery fails

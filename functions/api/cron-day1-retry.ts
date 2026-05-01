@@ -26,6 +26,7 @@ import { verifyServiceRequest } from '../lib/serviceAuth';
 import { withCronGuard, CronRunSummary } from '../lib/cronGuard';
 import { buildOnboardingPdfRequest } from '../../src/lib/onboardingAuditPayload';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
+import { sendAndLog } from '../lib/emailLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -244,21 +245,19 @@ async function sendRetryEmail(env: Env, body: OnboardingBody, downloadUrl: strin
     body: [introByLang[body.lang] ?? introByLang.en, expiryByLang[body.lang] ?? expiryByLang.en],
     cta: { label: ctaByLang[body.lang] ?? ctaByLang.en, url: downloadUrl },
   });
-  try {
-    const resp = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.RESEND_API_KEY}` },
-      body: JSON.stringify({
-        from: 'AiLys Agency <noreply@ailysagency.ca>',
-        to: body.email,
-        subject: subject[body.lang] ?? subject.en,
-        html: rendered.html,
-        text: rendered.text,
-      }),
-    });
-    if (!resp.ok) return { ok: false, error: `resend_${resp.status}` };
-    return { ok: true };
-  } catch (err) {
-    return { ok: false, error: `resend_threw_${(err as Error).message.slice(0, 80)}` };
-  }
+  const subj = subject[body.lang] ?? subject.en;
+  const result = await sendAndLog(env, {
+    from: 'AiLys Agency <noreply@ailysagency.ca>',
+    to: body.email,
+    subject: subj,
+    html: rendered.html,
+    text: rendered.text,
+  }, {
+    email: body.email,
+    sequence_slug: 'cron_day1_retry',
+    step: 0,
+    subject: subj,
+  });
+  if (result.error) return { ok: false, error: result.error };
+  return { ok: true };
 }

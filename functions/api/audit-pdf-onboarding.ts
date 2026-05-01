@@ -27,6 +27,7 @@ import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { buildOnboardingPdfRequest, OnboardingInput } from '../../src/lib/onboardingAuditPayload';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
+import { sendAndLog } from '../lib/emailLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -257,29 +258,21 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
     cta: { label: cta[body.lang] ?? cta.en, url: downloadUrl },
   });
 
-  try {
-    const resp = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: NOTIFY_FROM,
-        to: body.email,
-        subject: subj[body.lang] ?? subj.en,
-        html: rendered.html,
-        text: rendered.text,
-      }),
-    });
-    if (!resp.ok) {
-      const text = await resp.text();
-      return { ok: false, error: `resend_${resp.status}_${text.slice(0, 120)}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    return { ok: false, error: `resend_threw_${(err as Error).message.slice(0, 120)}` };
-  }
+  const subject = subj[body.lang] ?? subj.en;
+  const result = await sendAndLog(env, {
+    from: NOTIFY_FROM,
+    to: body.email,
+    subject,
+    html: rendered.html,
+    text: rendered.text,
+  }, {
+    email: body.email,
+    sequence_slug: 'audit_pdf_onboarding',
+    step: 0,
+    subject,
+  });
+  if (result.error) return { ok: false, error: result.error };
+  return { ok: true };
 }
 
 function escapeHtml(s: string): string {

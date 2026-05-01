@@ -17,6 +17,7 @@ import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
 import { renderAuditPdf } from '../lib/pdf/AuditReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
+import { sendAndLog } from '../lib/emailLog';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -471,29 +472,20 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
     cta: { label: cta, url: downloadUrl },
   });
 
-  try {
-    const resp = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: NOTIFY_FROM,
-        to: data.email,
-        subject,
-        html: rendered.html,
-        text: rendered.text,
-      }),
-    });
-    if (!resp.ok) {
-      const text = await resp.text();
-      return { ok: false, error: `resend_${resp.status}_${text.slice(0, 120)}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    return { ok: false, error: `resend_threw_${(err as Error).message.slice(0, 120)}` };
-  }
+  const result = await sendAndLog(env, {
+    from: NOTIFY_FROM,
+    to: data.email,
+    subject,
+    html: rendered.html,
+    text: rendered.text,
+  }, {
+    email: data.email,
+    sequence_slug: 'audit_pdf',
+    step: 0,
+    subject,
+  });
+  if (result.error) return { ok: false, error: result.error };
+  return { ok: true };
 }
 
 function pickLocale(lang: string, map: Record<string, string>): string {

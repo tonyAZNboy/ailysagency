@@ -13,6 +13,7 @@
 //    are logged + audited but do not surface as 5xx to Resend.
 
 import { verifySvixSignature } from '../lib/svixHmac';
+import { updateEmailSendByProviderId } from '../lib/emailLog';
 
 interface Env {
   RESEND_WEBHOOK_SECRET?: string;
@@ -202,6 +203,26 @@ export const onRequest = async (ctx: PagesContext): Promise<Response> => {
   }
 
   const persist = await persistEvent(env, svixId as string, event, event);
+
+  // Update email_sends row by Resend message_id for opens/clicks/bounces tracking
+  const resendEmailId = event.data?.email_id;
+  if (resendEmailId && !persist.duplicate) {
+    const patch: { status?: 'sent' | 'delivered' | 'bounced' | 'failed' | 'opened' | 'clicked'; opened_at?: string; clicked_at?: string; error?: string } = {};
+    const occurredAt = event.created_at ?? new Date().toISOString();
+    switch (eventType) {
+      case 'email.delivered': patch.status = 'delivered'; break;
+      case 'email.opened': patch.status = 'opened'; patch.opened_at = occurredAt; break;
+      case 'email.clicked': patch.status = 'clicked'; patch.clicked_at = occurredAt; break;
+      case 'email.bounced': patch.status = 'bounced'; patch.error = event.data?.bounce?.message ?? 'bounced'; break;
+      case 'email.failed': patch.status = 'failed'; patch.error = 'failed'; break;
+      case 'email.complained': patch.status = 'failed'; patch.error = 'complaint'; break;
+      default: break;
+    }
+    if (Object.keys(patch).length > 0) {
+      await updateEmailSendByProviderId(env, resendEmailId, patch).catch(() => {});
+    }
+  }
+
   emitAudit({
     ts: new Date().toISOString(),
     action: persist.duplicate ? 'duplicate' : persist.ok ? 'stored' : 'persist_failed',
