@@ -46,7 +46,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Quels modules peut-on empiler sur un forfait Starter ou Core?",
       answer:
-        "Les modules disponibles sont Reviuzy automatisation des avis à 100 $ par mois (inclus dans Agency), Domain Shield à 35 $ par mois, Domain Speed Boost à 35 $ par mois, Stratège dédié à 35 $ par mois, le trio Premium Ops à 79 $ par mois, et Langues additionnelles à 50 $ par mois chacune. Les modules se combinent à n'importe quel palier, donc un forfait Starter avec Reviuzy et Domain Shield revient à 435 $ par mois.",
+        "Les modules disponibles sont Reviuzy automatisation des avis à 100 $ par mois (inclus dans Agency), Tech Health Pack à 150 $ par mois (suivi indexation GSC + reindexation auto des blogues mensuels + balayage erreurs de crawl + alertes Core Web Vitals; inclus dans Agency), Domain Shield à 35 $ par mois, Domain Speed Boost à 35 $ par mois, Stratège dédié à 35 $ par mois, le trio Premium Ops à 79 $ par mois, et Langues additionnelles à 50 $ par mois chacune. Il existe aussi un Audit Indexation GSC une fois, tarifé selon la taille du site de 100 $ (1-9 pages) à 800 $ (100-149 pages) avec 150+ sur devis sur mesure. Les modules s'empilent sur n'importe quel palier, donc un forfait Starter avec Reviuzy et Tech Health Pack revient à 550 $ par mois.",
     },
   ],
   headings: [
@@ -188,6 +188,8 @@ export function ContentFr() {
 
       <ul>
         <li>Reviuzy automatisation des avis : 100 $ par mois (inclus sans coût dans Agency)</li>
+        <li>Tech Health Pack : 150 $ par mois, garantit que les blogues mensuels qu'AiLys publie sont effectivement indexés par Google. Sans ce module, les nouvelles pages peuvent rester dans « Détectées, actuellement non indexées » pendant des semaines, ce qui tue silencieusement le ROI de la production de contenu. Inclut le suivi indexation GSC, la reindexation auto des nouvelles pages, le balayage hebdomadaire des erreurs de crawl, la surveillance des liens brisés et les alertes Core Web Vitals. Inclus dans Agency.</li>
+        <li>Audit Indexation GSC (une fois) : 100 $ pour les sites sous 10 pages, jusqu'à 800 $ pour 100-149 pages, et sur devis pour 150+ pages. Pair naturel avec le Tech Health Pack : l'audit règle l'arriéré de pages non indexées, le module garde les nouvelles pages indexées par la suite.</li>
         <li>Domain Shield : 35 $ par mois pour la surveillance d'usurpation de marque, de domaines sosies et d'empoisonnement de citations</li>
         <li>Domain Speed Boost : 35 $ par mois pour le travail de performance qui pousse les Core Web Vitals dans la bande verte</li>
         <li>Stratège dédié : 35 $ par mois pour du temps stratège direct sur Starter, Core ou Growth (Agency inclut un stratège senior par défaut)</li>

@@ -57,7 +57,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'What add-ons can be stacked on a Starter or Core plan?',
       answer:
-        'The available add-ons are Reviuzy review automation at $100 per month (bundled in Agency), Domain Shield at $35 per month, Domain Speed Boost at $35 per month, Dedicated strategist at $35 per month, the Premium Ops trio at $79 per month, and Extra languages at $50 per month each. Add-ons can be combined with any tier, so a Starter plan with Reviuzy and Domain Shield runs $435 per month.',
+        'The available add-ons are Reviuzy review automation at $100 per month (bundled in Agency), Tech Health Pack at $150 per month (GSC indexation monitoring + auto-reindex of monthly blog posts + crawl errors sweep + Core Web Vitals alerts; bundled in Agency), Domain Shield at $35 per month, Domain Speed Boost at $35 per month, Dedicated strategist at $35 per month, the Premium Ops trio at $79 per month, and Extra languages at $50 per month each. There is also a one-time GSC Indexation Audit priced by site size from $100 (1-9 pages) to $800 (100-149 pages) with 150+ on custom quote. Add-ons stack on any tier, so a Starter plan with Reviuzy and Tech Health Pack runs $550 per month.',
     },
   ],
   relatedSlugs: ['ailys-vs-traditional-seo-agency', 'ai-visibility-audit-checklist-2026'],
@@ -197,6 +197,8 @@ export function Content() {
 
       <ul>
         <li>Reviuzy review automation: $100 per month (bundled at no cost in Agency)</li>
+        <li>Tech Health Pack: $150 per month, ensures the monthly blog posts AiLys publishes actually get indexed by Google. Without this pack new pages can sit in "Discovered, currently not indexed" for weeks, which silently kills the ROI of content production. Includes GSC indexation monitoring, auto-reindex of new pages, weekly crawl errors sweep, broken links monitoring, and Core Web Vitals alerts. Bundled in Agency.</li>
+        <li>GSC Indexation Audit (one-time): $100 for sites under 10 pages, scaling up by site size to $800 at 100-149 pages, with 150+ pages quoted custom. Pairs with the Tech Health Pack: the audit clears the existing backlog of unindexed pages, the pack keeps new pages indexed going forward.</li>
         <li>Domain Shield: $35 per month for monitoring of brand impersonation, look-alike domains, and citation poisoning</li>
         <li>Domain Speed Boost: $35 per month for performance work that pushes Core Web Vitals into the green band</li>
         <li>Dedicated strategist: $35 per month for direct strategist time on Starter, Core, or Growth (Agency includes a senior strategist by default)</li>
