@@ -12,12 +12,12 @@ export const en = {
   },
   // Hero, AiLys Agency LLM Visibility positioning
   hero: {
-    eyebrow: "AiLys Agency · Modern SEO + LLM Visibility",
+    eyebrow: "AiLys · Marketing Agency SEO & AI · Made in Québec",
     eyebrowPills: "Classical SEO · AEO · GEO · E-E-A-T · Made in Québec",
-    headline1: "Get cited by ChatGPT, Perplexity and Google AIO.",
+    headline1: "Marketing Agency SEO & AI: get cited by ChatGPT, Perplexity, Google AIO.",
     headline2: "Built for local businesses.",
-    subheadline: "AiLys is an AI-search reputation agency for local businesses. We turn your reviews, citations and Google Business Profile into the signals that get your brand named in LLM answers, where 1.2 billion people now search every month.",
-    subheadlineSupport: "Plans from $300/mo. Bilingual EN/FR-CA. Quebec-anchored.",
+    subheadline: "AiLys is a Marketing Agency for SEO & AI for local businesses. We turn your reviews, citations and Google Business Profile into the signals that get your brand named in LLM answers, where 1.2 billion people now search every month.",
+    subheadlineSupport: "Plans from $300/mo include your website build (or deep audit if you already have one). Bilingual EN/FR-CA. Quebec-anchored.",
 
     // 3-card flow (Reviews+GBP → Citations+E-E-A-T → LLM visibility)
     flowCard1Label: "Reviews + GBP signals",
