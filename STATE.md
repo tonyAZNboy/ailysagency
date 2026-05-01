@@ -4,6 +4,114 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (evening), blog comparison polish + i18n + SEO + roadmap
+
+Final session of 2026-05-01 covering blog comparison post finalization,
+language switcher bug, SEO upgrade, pricing messaging, and the 5-feature
+roadmap that primes the next session.
+
+**PRs merged (this session):**
+- #54 add 8 competitor comparison posts (EN+FR pairs)
+- #55 new competitor-comparisons category + placeholder images + mobile sort
+- #56 unique Gemini-generated images for 8 comparison posts
+- #57 BlogPostPage AuthorBio/RelatedPosts FR translations + pills wrap +
+  CTA contrast + Major Tom website-build claim
+- #58 inline tier breakdowns replaced with /forfaits-complets CTA + accents
+- #59 actually wire FR translations to BlogPostPage (PR #57 had hit the
+  unrouted TranslatedBlogPostPage.tsx by mistake)
+- #61 ToC + AuthorBio role/name + comprehensive accent pass (200+ subs)
+- #62 round 2 accents (numerique, priorite, denigrement, inventees) + top
+  inline author + TL;DR → En bref
+- #63 strip merge conflict markers from FR posts (audit recovery)
+- #64 BlogCTA + BlogFAQ heading FR translation
+- #65 round 4 final FR accents (defaut, periode, entree, personnalises)
+  + a-prep proper-noun replacement
+- #69 lang switcher first attempt (had an unrelated revert)
+- #70 lang switcher revert + clean (final)
+- #71 SEO: 'Marketing Agency SEO & AI' / 'Agence Marketing SEO & IA' in
+  H1 + meta title + 'website-build-included or deep-audit-if-existing'
+  hint in subheadline
+- #72 STATE.md roadmap with 5 god-mode features + bonus tactics
+
+**Blog state at close:**
+- 59 posts total (51 base + 8 new comparison)
+- New category: competitor-comparisons (own pill, badges, FR label
+  "Comparaisons concurrents")
+- 8 comparison posts with unique Gemini-generated photoreal images
+- All FR comparison posts hand-authored with accents (Quebec idioms
+  preserved: courriel, magasiner, fin de semaine)
+- BlogPostPage now lang-aware for AuthorBio (Équipe AiLys / Produit et
+  ingénierie / Vérifié par AiLys Research / L'équipe qui bâtit le moteur
+  AiLys et le SaaS Reviuzy...), RelatedPosts (Ces articles pourraient aussi
+  vous plaire + uses getLocalizedMeta per related post), TableOfContents
+  (Table des matières), BlogCTA (Prêt à voir votre visibilité IA? + Lancer
+  l'audit gratuit), BlogFAQ (Questions fréquentes), TL;DR label (En bref),
+  inline author summary at top of post (Équipe AiLys / Produit et
+  ingénierie). EN paths unchanged.
+- Pricing tier breakdown bullet lists removed from Digitad + Traditional
+  comparison posts; replaced with summary paragraph + InlineCTA pointing
+  to /forfaits-complets so the source of truth lives on the pricing page
+  and blog content does not drift when tiers change.
+- Major Tom comparison post: corrected the false claim "AiLys does not
+  build websites" → website builds are included in every tier with the
+  6-month creation-fee recovery clause documented on /forfaits-complets.
+
+**Language switcher behavior at close:**
+- LanguageSelector preserves the current path when switching languages
+  instead of throwing the user back to the landing page. Examples:
+  /blog/my-slug + switch FR → /fr/blog/my-slug, /fr/help/article + switch
+  EN → /help/article, /es/forfaits-complets + switch FR →
+  /fr/forfaits-complets. Preserves search params and hash.
+
+**SEO upgrade at close:**
+- HTML title: "AiLys · Marketing Agency SEO & AI · LLM Visibility · Agence
+  Marketing Québec"
+- Meta description includes "Marketing Agency SEO & AI in Québec" + the
+  website-build-included hint + standard LLM-engine list
+- Hero EN: "Marketing Agency SEO & AI: get cited by ChatGPT, Perplexity,
+  Google AIO." headline1, with subheadlineSupport explaining the website
+  build is included or a deep audit is run if the prospect already has a
+  site.
+- Hero FR: "Agence Marketing SEO & IA : faites-vous citer par ChatGPT,
+  Perplexity, Google AIO." headline1, subheadlineSupport mentions
+  "incluant la construction de votre site web (ou audit complet si vous
+  en avez déjà un)".
+
+**Gates green at close:**
+- TypeScript: clean (npx tsc --noEmit)
+- Blog audit: 59/59 posts pass (node scripts/audit-blog-translations.mjs)
+- Em-dash audit: zero matches across src/i18n + src/blog/posts + functions
+- Build: success (npx vite build, ~17s)
+- Live verified: EN landing 200, FR landing 200, EN blog 200, FR blog 200,
+  FR comparison post 200, deployed HTML title contains the new SEO copy.
+
+**Latest Cloudflare deploy:**
+- Run 25225964426 against sha a5d250c (PR #72 squash)
+- Status: success
+
+**Outstanding for next session (queued in roadmap below):**
+1. Deep Site Audit (Reviuzy) — foundation
+2. Auto-Remediation Engine — closes diagnostic loop
+3. White-Label Agency Portal — B2B2B revenue
+4. Predictive Share-of-Model — ML moat
+5. AI Concierge dashboard — retention/upsell
+Plus 3 bonus 1-week tactics (badge embed, quarterly industry reports,
+Slack/Teams alerts).
+
+**Operator backlog (manual, no code blockers):**
+- Generate proper hero/mid/end Gemini images for the 8 comparison post
+  slugs if the placeholder visuals (currently unique per slug but not
+  hand-curated) need refinement. Script:
+  `node scripts/generate-blog-hero-images.mjs --slug=<slug> --force`
+- Hard-reload your browser (Ctrl+Shift+R) to bypass any stale Cloudflare
+  CDN cache after each deploy. Cloudflare Pages occasionally serves an
+  older bundle; manual workflow_dispatch via Actions tab forces a fresh
+  build.
+- ES/ZH/AR/RU translations of the 8 new comparison posts (tracked in
+  docs/i18n-translation-queue.md when the queue ledger is rebuilt).
+
+---
+
 ## 🚀 ROADMAP — 5 god-mode features to 10x AiLys + Reviuzy (queued 2026-05-01)
 
 The five features below are the highest-leverage builds queued for the next
