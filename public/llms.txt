@@ -44,9 +44,21 @@ Dentists, lawyers, restaurants, contractors, medical clinics, real estate, hotel
 - [Free AI Visibility Audit](https://www.ailysagency.ca/audit): 24-hour turnaround, no credit card, full report by email
 - [Book a strategy call](https://www.ailysagency.ca/book-call): 60 minutes, free, no pitch, strategy doc sent regardless
 
+## Recent help center deep-dives (technical reference)
+
+- [AiLys Verified Badge overview](https://www.ailysagency.ca/help/ailys-verified-badge-overview): public auto-updating SVG badge that displays AI Visibility score
+- [How to embed your AiLys Verified badge](https://www.ailysagency.ca/help/ailys-verified-badge-embed-howto): copy-paste guide for Wordpress, Webflow, Shopify, Squarespace, custom code, Markdown
+- [AiLys Verified badge verification process](https://www.ailysagency.ca/help/ailys-verified-badge-verification-process): 6-engine probe pipeline, scoring formula, fraud prevention, methodology reproduction
+- [AiLys Concierge overview](https://www.ailysagency.ca/help/ailys-concierge-overview): 10-tool conversational AI assistant for AiLys client dashboard, voice mode, token budget per tier
+- [AiLys Concierge privacy deep-dive](https://www.ailysagency.ca/help/ailys-concierge-privacy-deep-dive): retention windows, who can read, voice mode local processing, cross-tenant RLS, no-training commit
+- [AiLys Industry Reports overview](https://www.ailysagency.ca/help/ailys-industry-reports-overview): free quarterly anonymized aggregate reports on Quebec verticals
+- [Tech Health Pack explained](https://www.ailysagency.ca/help/tech-health-pack-explained): $150/mo monthly add-on for GSC indexation monitoring, auto-reindex, crawl errors, Core Web Vitals alerts
+- [GSC Indexation Audit explained](https://www.ailysagency.ca/help/gsc-indexation-audit-explained): one-time audit for sites with deep indexation rot, priced by site size $100-$800
+- [Wikidata Q-numbers explained](https://www.ailysagency.ca/help/wikidata-q-number-explained): the single highest-ROI fix for ChatGPT visibility, 4x lift in our Q1 2026 dental data
+
 ## Optional
 
-- [Blog](https://www.ailysagency.ca/blog): bilingual EN and FR-CA insights on AI search, AEO, GEO, E-E-A-T, GBP optimization, citations, voice search, industry playbooks, and local SEO. Cadence: one new post every two days. 51 posts shipped as of 2026-04-28 across nine categories.
+- [Blog](https://www.ailysagency.ca/blog): bilingual EN and FR-CA insights on AI search, AEO, GEO, E-E-A-T, GBP optimization, citations, voice search, industry playbooks, and local SEO. Cadence: one new post every two days. 59 posts shipped as of 2026-05-01 across ten categories including competitor comparisons.
 - [Help center](https://www.ailysagency.ca/help): onboarding guides, glossary, FAQ
 - [Reviuzy (sister product)](https://www.reviuzy.com): self-serve SaaS for review collection, NFC tap-to-review, and Google Business Profile automation, starting at $20/mo
 
