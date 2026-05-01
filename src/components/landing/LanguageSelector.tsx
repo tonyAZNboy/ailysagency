@@ -19,27 +19,23 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
   const { lang, setLang } = useLang();
   const navigate = useNavigate();
   const location = useLocation();
+  const [open, setOpen] = useState(false);
 
-  // Preserve the current path when switching languages.
-  // Strips any existing locale prefix and prepends the new one (or none for EN).
-  // Example: /fr/blog/my-slug + switch to es → /es/blog/my-slug
-  //          /blog/my-slug + switch to fr → /fr/blog/my-slug
-  //          /fr/help/something + switch to en → /help/something
+  // Preserve the current path when switching languages so a user on
+  // /blog/my-slug stays on the localized version of that post instead of
+  // being thrown back to the landing page.
   function buildPathForLang(targetLang: SupportedLang): string {
     const path = location.pathname || '/';
-    // Strip a leading /<2-letter-code>/ if it matches a supported lang
     const localePrefix = path.match(/^\/([a-z]{2})(\/|$)/);
     let stripped = path;
     if (localePrefix && (SUPPORTED_LANGS as readonly string[]).includes(localePrefix[1])) {
       stripped = path.slice(3) || '/';
       if (stripped === '') stripped = '/';
     }
-    // Re-prepend new locale (EN has no prefix)
     if (targetLang === 'en') return stripped + (location.search || '') + (location.hash || '');
     const newPath = stripped === '/' ? `/${targetLang}` : `/${targetLang}${stripped}`;
     return newPath + (location.search || '') + (location.hash || '');
   }
-  const [open, setOpen] = useState(false);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 208, maxHeight: 320 });
   const [openUpward, setOpenUpward] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -123,9 +119,6 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
             onClick={() => {
               setLang(code);
               setOpen(false);
-              // Preserve current path when switching languages so users on
-              // /blog/my-slug stay on the localized version of that post,
-              // not get redirected to the landing page.
               navigate(buildPathForLang(code));
             }}
             style={{

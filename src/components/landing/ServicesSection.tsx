@@ -282,14 +282,27 @@ export function ServicesSection() {
                       {t.services.badgeMostChosen}
                     </div>
                   )}
-                  {isAutopilot && (
+                  {/* Combined badge when tier is both Autopilot AND in-development.
+                      Avoids visual collision on narrow viewports where left-7 and
+                      right-7 badges crowd into each other. */}
+                  {isAutopilot && tier.status === "in-development" && (
+                    <div
+                      className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.275)] inline-flex items-center gap-2 whitespace-nowrap`}
+                      title={t.services.statusInDevelopmentTitle || "In development"}
+                    >
+                      <span>{t.services.badgeAutopilot}</span>
+                      <span aria-hidden="true" className="opacity-60">·</span>
+                      <span className="text-amber-900">{t.services.statusInDevelopment || "In development"}</span>
+                    </div>
+                  )}
+                  {isAutopilot && tier.status !== "in-development" && (
                     <div
                       className={`absolute -top-3 left-7 px-3 py-1 rounded-full bg-gradient-to-r ${p.ribbonGrad} text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(52,211,153,0.275)]`}
                     >
                       {t.services.badgeAutopilot}
                     </div>
                   )}
-                  {tier.status === "in-development" && (
+                  {!isAutopilot && tier.status === "in-development" && (
                     <div
                       className="absolute -top-3 right-7 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-[10px] font-mono uppercase tracking-[0.18em] text-background font-bold shadow-[0_4px_20px_-4px_rgba(251,191,36,0.275)]"
                       title={t.services.statusInDevelopmentTitle || "In development"}
