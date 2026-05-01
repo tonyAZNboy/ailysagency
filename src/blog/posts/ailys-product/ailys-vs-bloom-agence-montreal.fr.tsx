@@ -68,7 +68,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         Les opérateurs montréalais qui recherchent des agences marketing trouvent rapidement Bloom et AiLys. Les deux agences resolvent des problèmes différents pour des profils d'opérateurs différents, et les confondre mène au mauvais choix. Cette page comparé les deux sur la portée, les tarifs, le canal principal et la livraison bilingue, sans dénigrement et sans statistiques inventées.
 =======
-        Les opérateurs montréalais qui recherchent des agences marketing trouvent rapidement Bloom et AiLys. Les deux agences resolvent des problèmes différents pour des profils d'opérateurs différents, et les confondre mène au mauvais choix. Cette page compare les deux sur la portée, les tarifs, le canal principal et la livraison bilingue, sans denigrement et sans statistiques inventees.
+        Les opérateurs montréalais qui recherchent des agences marketing trouvent rapidement Bloom et AiLys. Les deux agences resolvent des problèmes différents pour des profils d'opérateurs différents, et les confondre mène au mauvais choix. Cette page comparé les deux sur la portée, les tarifs, le canal principal et la livraison bilingue, sans dénigrement et sans statistiques inventées.
 >>>>>>> origin/main
       </p>
 
@@ -109,7 +109,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         Bloom fonctionne sur un modèle de retainer personnalise plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) démarre typiquement bien au-dessus du seuil d'entree AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
 =======
-        Bloom fonctionne sur un modèle de retainer personnalise plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) demarre typiquement bien au-dessus du seuil d'entree AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
+        Bloom fonctionne sur un modèle de retainer personnalise plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) démarre typiquement bien au-dessus du seuil d'entree AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
 >>>>>>> origin/main
       </p>
       <p>
@@ -165,11 +165,11 @@ export function ContentFr() {
       <CalloutBox type="tip" translatedLabel="Conseil">
         <p>Le filtre de décision le plus simple : si le commerce à un emplacement physique et que le canal d'acquisition principal est Google Maps plus la recherche IA, AiLys est conçue pour ce problème. Si le commerce vend en ligne et que le canal d'acquisition principal est les annonces payantes, Bloom est conçue pour ce problème.</p>
 =======
-        Bloom offre des services SEO mais l'accent principal est le media payant et le e-commerce. Le SEO local et l'optimisation GBP ne sont pas le centre de gravite de Bloom. Pour un commerce de service à un seul emplacement, AiLys livre un travail GBP plus approfondi à un coût plus bas. Pour une marque e-commerce multi-emplacements qui a besoin de SEO en parallele du media payant, Bloom couvre la surface numerique plus large.
+        Bloom offre des services SEO mais l'accent principal est le media payant et le e-commerce. Le SEO local et l'optimisation GBP ne sont pas le centre de gravite de Bloom. Pour un commerce de service à un seul emplacement, AiLys livre un travail GBP plus approfondi à un coût plus bas. Pour une marque e-commerce multi-emplacements qui a besoin de SEO en parallele du media payant, Bloom couvre la surface numérique plus large.
       </p>
 
       <CalloutBox type="tip" translatedLabel="Conseil">
-        <p>Le filtre de décision le plus simple : si le commerce à un emplacement physique et que le canal d'acquisition principal est Google Maps plus la recherche IA, AiLys est concue pour ce problème. Si le commerce vend en ligne et que le canal d'acquisition principal est les annonces payantes, Bloom est concue pour ce problème.</p>
+        <p>Le filtre de décision le plus simple : si le commerce à un emplacement physique et que le canal d'acquisition principal est Google Maps plus la recherche IA, AiLys est conçue pour ce problème. Si le commerce vend en ligne et que le canal d'acquisition principal est les annonces payantes, Bloom est conçue pour ce problème.</p>
 >>>>>>> origin/main
       </CalloutBox>
 

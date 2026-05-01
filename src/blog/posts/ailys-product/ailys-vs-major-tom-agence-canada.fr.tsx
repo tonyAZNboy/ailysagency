@@ -19,7 +19,7 @@ export const metaFr: BlogPostMeta = {
 <<<<<<< HEAD
   tldr: "Major Tom est une agence numérique pancanadienne avec des bureaux a Vancouver et New York, offrant stratégie, créatif, développement, media payant et SEO pour les marques de taille moyenne et les entreprises. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Major Tom convient aux marques qui ont besoin d'un partenaire numérique complet avec portée nationale ou internationale. AiLys convient aux opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations livres rapidement à un coût prévisible.",
 =======
-  tldr: "Major Tom est une agence numerique pancanadienne avec des bureaux a Vancouver et New York, offrant stratégie, créatif, développement, media payant et SEO pour les marques de taille moyenne et les entreprises. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Major Tom convient aux marques qui ont besoin d'un partenaire numerique complet avec portée nationale ou internationale. AiLys convient aux opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations livres rapidement à un coût prévisible.",
+  tldr: "Major Tom est une agence numérique pancanadienne avec des bureaux a Vancouver et New York, offrant stratégie, créatif, développement, media payant et SEO pour les marques de taille moyenne et les entreprises. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Major Tom convient aux marques qui ont besoin d'un partenaire numérique complet avec portée nationale ou internationale. AiLys convient aux opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations livres rapidement à un coût prévisible.",
 >>>>>>> origin/main
   faqItems: [
     {
@@ -28,7 +28,7 @@ export const metaFr: BlogPostMeta = {
 <<<<<<< HEAD
         "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux à partir de 300 dollars CAD par mois avec livraison bilingue EN et FR-CA. Major Tom est une agence numérique a service complet avec portée nationale et internationale, couvrant stratégie, créatif, développement, media payant et SEO sur des retainers personnalises. AiLys à une portée plus étroite mais est moins chere et plus rapide pour le travail d'AI Visibility locale. Major Tom couvre la surface numérique plus large pour les marques de taille moyenne et les entreprises.",
 =======
-        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux à partir de 300 dollars CAD par mois avec livraison bilingue EN et FR-CA. Major Tom est une agence numerique a service complet avec portée nationale et internationale, couvrant stratégie, créatif, développement, media payant et SEO sur des retainers personnalises. AiLys à une portée plus étroite mais est moins chere et plus rapide pour le travail d'AI Visibility locale. Major Tom couvre la surface numerique plus large pour les marques de taille moyenne et les entreprises.",
+        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux à partir de 300 dollars CAD par mois avec livraison bilingue EN et FR-CA. Major Tom est une agence numérique a service complet avec portée nationale et internationale, couvrant stratégie, créatif, développement, media payant et SEO sur des retainers personnalises. AiLys à une portée plus étroite mais est moins chere et plus rapide pour le travail d'AI Visibility locale. Major Tom couvre la surface numérique plus large pour les marques de taille moyenne et les entreprises.",
 >>>>>>> origin/main
     },
     {
@@ -37,7 +37,7 @@ export const metaFr: BlogPostMeta = {
 <<<<<<< HEAD
         "Les forfaits AiLys vont de 300 à 2 499 dollars CAD par mois avec des listes de livrables publiées. Les retainers Major Tom sont sur devis et démarrent typiquement bien plus haut parce que la portée inclut stratégie, créatif, développement et gestion de media en plus du SEO. Pour le travail d'AI Visibility locale et de GBP, AiLys livre plus dans cette voie à un coût moindre. Pour la stratégie numérique d'entreprise sur plusieurs canaux et marchés, Major Tom livre une portée qu'AiLys ne couvre pas.",
 =======
-        "Les forfaits AiLys vont de 300 à 2 499 dollars CAD par mois avec des listes de livrables publiées. Les retainers Major Tom sont sur devis et demarrent typiquement bien plus haut parce que la portée inclut stratégie, créatif, développement et gestion de media en plus du SEO. Pour le travail d'AI Visibility locale et de GBP, AiLys livre plus dans cette voie à un coût moindre. Pour la stratégie numerique d'entreprise sur plusieurs canaux et marchés, Major Tom livre une portée qu'AiLys ne couvre pas.",
+        "Les forfaits AiLys vont de 300 à 2 499 dollars CAD par mois avec des listes de livrables publiées. Les retainers Major Tom sont sur devis et démarrent typiquement bien plus haut parce que la portée inclut stratégie, créatif, développement et gestion de media en plus du SEO. Pour le travail d'AI Visibility locale et de GBP, AiLys livre plus dans cette voie à un coût moindre. Pour la stratégie numérique d'entreprise sur plusieurs canaux et marchés, Major Tom livre une portée qu'AiLys ne couvre pas.",
 >>>>>>> origin/main
     },
     {
@@ -56,7 +56,7 @@ export const metaFr: BlogPostMeta = {
 <<<<<<< HEAD
         "Pour un commerce de service local a Toronto ou Vancouver qui a besoin d'AI Visibility, d'optimisation GBP et de travail de citations, AiLys livre à un coût moindre avec un onboarding plus rapide (audit de 24 heures versus découverte de plusieurs semaines). Pour une marque a Toronto ou Vancouver qui a besoin de stratégie numérique complete incluant développement web, créatif, media payant et campagnes nationales, Major Tom est le partenaire local avec présence physique dans ces marchés. La décision depend de la portée, pas de la geographie.",
 =======
-        "Pour un commerce de service local a Toronto ou Vancouver qui a besoin d'AI Visibility, d'optimisation GBP et de travail de citations, AiLys livre à un coût moindre avec un onboarding plus rapide (audit de 24 heures versus découverte de plusieurs semaines). Pour une marque a Toronto ou Vancouver qui a besoin de stratégie numerique complete incluant développement web, créatif, media payant et campagnes nationales, Major Tom est le partenaire local avec présence physique dans ces marchés. La décision depend de la portée, pas de la geographie.",
+        "Pour un commerce de service local a Toronto ou Vancouver qui a besoin d'AI Visibility, d'optimisation GBP et de travail de citations, AiLys livre à un coût moindre avec un onboarding plus rapide (audit de 24 heures versus découverte de plusieurs semaines). Pour une marque a Toronto ou Vancouver qui a besoin de stratégie numérique complete incluant développement web, créatif, media payant et campagnes nationales, Major Tom est le partenaire local avec présence physique dans ces marchés. La décision depend de la portée, pas de la geographie.",
 >>>>>>> origin/main
     },
     {
@@ -84,7 +84,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         Les propriétaires d'entreprises canadiens qui comparent les agences numériques finissent par tomber sur Major Tom et AiLys. Les deux servent des profils d'opérateurs fondamentalement différents, et les comparer tête a tête revient a comparer une ligne aerienne nationale à une navette régionale. Les deux vous amenent quelque part, mais les cartes de routes ne se chevauchent pas. Cette page détaillé les différences sur la portée, les tarifs, la geographie et la livraison bilingue.
 =======
-        Les propriétaires d'entreprises canadiens qui comparent les agences numeriques finissent par tomber sur Major Tom et AiLys. Les deux servent des profils d'opérateurs fondamentalement différents, et les comparer tête a tête revient a comparer une ligne aerienne nationale à une navette régionale. Les deux vous amenent quelque part, mais les cartes de routes ne se chevauchent pas. Cette page détaillé les différences sur la portée, les tarifs, la geographie et la livraison bilingue.
+        Les propriétaires d'entreprises canadiens qui comparent les agences numériques finissent par tomber sur Major Tom et AiLys. Les deux servent des profils d'opérateurs fondamentalement différents, et les comparer tête a tête revient a comparer une ligne aerienne nationale à une navette régionale. Les deux vous amenent quelque part, mais les cartes de routes ne se chevauchent pas. Cette page détaillé les différences sur la portée, les tarifs, la geographie et la livraison bilingue.
 >>>>>>> origin/main
       </p>
 
@@ -143,7 +143,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         explanation="Major Tom sert les marques de taille moyenne et les entreprises qui ont besoin de stratégie numérique complete incluant créatif, développement et campagnes nationales. AiLys sert les opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel fixe."
 =======
-        explanation="Major Tom sert les marques de taille moyenne et les entreprises qui ont besoin de stratégie numerique complete incluant créatif, développement et campagnes nationales. AiLys sert les opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel fixe."
+        explanation="Major Tom sert les marques de taille moyenne et les entreprises qui ont besoin de stratégie numérique complete incluant créatif, développement et campagnes nationales. AiLys sert les opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel fixe."
 >>>>>>> origin/main
       />
 
@@ -154,7 +154,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         Major Tom fonctionne à l'échelle nationale et internationale. L'agence gère des campagnes qui traversent plusieurs marchés, plusieurs langues (pour le travail international) et plusieurs canaux. L'équipe est repartie entre Vancouver et New York. Le travail inclut des campagnes de marque, des constructions de sites web et des projets de transformation numérique qui prennent des mois a exécuter.
 =======
-        Major Tom fonctionne à l'échelle nationale et internationale. L'agence gère des campagnes qui traversent plusieurs marchés, plusieurs langues (pour le travail international) et plusieurs canaux. L'équipe est repartie entre Vancouver et New York. Le travail inclut des campagnes de marque, des constructions de sites web et des projets de transformation numerique qui prennent des mois a exécuter.
+        Major Tom fonctionne à l'échelle nationale et internationale. L'agence gère des campagnes qui traversent plusieurs marchés, plusieurs langues (pour le travail international) et plusieurs canaux. L'équipe est repartie entre Vancouver et New York. Le travail inclut des campagnes de marque, des constructions de sites web et des projets de transformation numérique qui prennent des mois a exécuter.
 >>>>>>> origin/main
       </p>
       <p>
@@ -224,7 +224,7 @@ export function ContentFr() {
 <<<<<<< HEAD
         <p>Evitez d'engager une agence d'entreprise pour un problème local. Un commerce de service à un seul emplacement qui a besoin d'AI Visibility et de travail GBP va surpayer à des tarifs d'entreprise et attendre plus longtemps pour des livrables conçus pour une échelle différente. Associez l'agence au problème, pas au prestige.</p>
 =======
-        <p>Evitez d'engager une agence d'entreprise pour un problème local. Un commerce de service à un seul emplacement qui a besoin d'AI Visibility et de travail GBP va surpayer à des tarifs d'entreprise et attendre plus longtemps pour des livrables concus pour une échelle différente. Associez l'agence au problème, pas au prestige.</p>
+        <p>Evitez d'engager une agence d'entreprise pour un problème local. Un commerce de service à un seul emplacement qui a besoin d'AI Visibility et de travail GBP va surpayer à des tarifs d'entreprise et attendre plus longtemps pour des livrables conçus pour une échelle différente. Associez l'agence au problème, pas au prestige.</p>
 >>>>>>> origin/main
       </CalloutBox>
 
@@ -248,7 +248,7 @@ export function ContentFr() {
 <<<<<<< HEAD
           "Major Tom est une agence numérique pancanadienne a service complet pour les marques de taille moyenne et les entreprises. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
 =======
-          "Major Tom est une agence numerique pancanadienne a service complet pour les marques de taille moyenne et les entreprises. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
+          "Major Tom est une agence numérique pancanadienne a service complet pour les marques de taille moyenne et les entreprises. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
 >>>>>>> origin/main
           'Les forfaits AiLys vont de 300 à 2 499 dollars CAD avec portée fixe. Les retainers Major Tom sont sur devis a l\'échelle d\'entreprise.',
           "Major Tom livre stratégie, créatif, développement, media payant et SEO à l'échelle nationale. AiLys livre AI Visibility, GBP et citations localement.",
