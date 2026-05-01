@@ -273,12 +273,22 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
 
         {/* Author bio */}
         <div className="max-w-3xl">
-          <AuthorBio author={post.author} />
+          <AuthorBio
+            author={post.author}
+            translatedVerifiedBy={lang === 'fr' ? 'Vérifié par {{team}}' : undefined}
+            translatedResearchTeam={lang === 'fr' ? 'AiLys Research' : undefined}
+            translatedOrgDescription={lang === 'fr' ? "L'équipe qui bâtit le moteur AiLys et le SaaS Reviuzy, livre l'outillage qui propulse les audits AI Visibility, les flux de citations et l'automatisation de réputation pour les opérateurs locaux." : undefined}
+          />
         </div>
 
         {/* Related posts */}
         {post.relatedSlugs.length > 0 && (
-          <RelatedPosts relatedSlugs={post.relatedSlugs} />
+          <RelatedPosts
+            relatedSlugs={post.relatedSlugs}
+            langPrefix={lang === 'en' ? '' : `/${lang}`}
+            translatedHeading={lang === 'fr' ? 'Ces articles pourraient aussi vous plaire' : undefined}
+            lang={lang}
+          />
         )}
       </div>
 
