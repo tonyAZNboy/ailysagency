@@ -1029,7 +1029,7 @@ flow plus a complete EN/FR translation of the 10-page PDF.
   long-term fix (deferred to next session).
 - Pricing alignment: Tier features in the PDF now match the canonical
   `tier-comparison.ts` source of truth: 2/4/6/8 citations and 4/6/8/12
-  GBP posts (managed mode) per tier. Agency price corrected to $2,499
+  GBP posts (single quota, client can self-publish) per tier. Agency price corrected to $2,500
   (was $2,500). Reviuzy reputation add-on note added to Agency.
 - PDF dynamic page count: data-driven pages (citation matrix, GBP, comp,
   action plan) skip when their underlying array is empty, avoiding 4
@@ -1712,7 +1712,7 @@ Operator-validated content audit on the 4 Reviuzy add-on blog posts (EN+FR pairs
 
 ## 🟢 RESOLVED 2026-04-30 — blog content audit (Phase E.18)
 
-**Status:** end of autopilot session 2026-04-30. v0.8.3-legal-entity-disclosure tagged. 2 blog posts (`ailys-reviuzy-addon-deep-dive` EN+FR + `reviuzy-review-automation-guide` EN+FR) had Reviuzy → AiLys Automation bulk replace + price corrections (Core 799→600, Growth 1499→1200, Agency 2500→2499, add-on math 899→700, 1599→1300).
+**Status:** end of autopilot session 2026-04-30. v0.8.3-legal-entity-disclosure tagged. 2 blog posts (`ailys-reviuzy-addon-deep-dive` EN+FR + `reviuzy-review-automation-guide` EN+FR) had Reviuzy → AiLys Automation bulk replace + price corrections (Core 799→600, Growth 1499→1200, Agency 2500→2500, add-on math 899→700, 1599→1300).
 
 **Operator must validate these 10 architectural claims before next merge to main.** They were inherited from pre-rebrand Reviuzy product copy and may be stale or inaccurate post-pivot to AiLys-only public brand.
 
@@ -2643,7 +2643,7 @@ Shipped end-to-end through 4 deploys (`1997d6f` → `196a6d5`):
 - Floating "Back to blog" button on every BlogPostPage (fixed bottom-left, safe-area-inset, EN/FR/ES/ZH/AR/RU/VI localized).
 
 ### Tier 4 Agency price update
-- $2,499 → $2,500 swept across 49 files (i18n translations 16 locales + blog post bodies + ServicesSection + FoundingClients).
+- $2,500 → $2,500 swept across 49 files (i18n translations 16 locales + blog post bodies + ServicesSection + FoundingClients).
 - New "in development" amber badge surfaces top-right on the Agency tier card with i18n labels (`statusInDevelopment` + `statusInDevelopmentTitle`) in EN + FR.
 
 ### Blog index renders FR-CA titles
@@ -2694,7 +2694,7 @@ ailysagency `8cfe5db`: Phase 12.H help article 'how-the-visibility-dashboard-wor
 **Production Reviuzy SaaS:** https://reviuzy.com (apex domain, last commit `25a2491` Phase 4)
 **.com → .ca redirect:** ✅ live via `functions/_middleware.ts` (Pages middleware, 301 with path/query preserved)
 **`my.ailysagency.ca` (NEW):** ✅ DNS CNAME created → `ailysagency.pages.dev` proxied. To be wired in routing for AiLys-managed clients (Phase 4.5 work).
-**Pricing:** Starter $300 / Core $600 / Growth $1,200 / Agency $2,499 CAD/mo (Reviuzy SaaS public prices in USD, exact values TBD per Q3 2026-04-27).
+**Pricing:** Starter $300 / Core $600 / Growth $1,200 / Agency $2,500 CAD/mo (Reviuzy SaaS public prices in USD, exact values TBD per Q3 2026-04-27).
 **Add-ons:** Reviuzy reputation system $100/mo (bundled in Agency) · Domain Shield $35/mo · Domain Speed Boost $35/mo · Dedicated strategist $35/mo · Premium Ops trio bundle $79/mo · Extra languages +$50/mo each.
 **Languages included:** EN + FR-CA. Extra: ES, ZH, AR, RU, UK, SR.
 **GBP post cadence:** Starter 1 · Core 4 · Growth 8 · Agency 12 per month.
@@ -3010,7 +3010,7 @@ Pending (Cloudflare + Resend):
 
 ## ⚠️ HANDOFF FOR NEXT SESSION (read first)
 
-**Architecture decided 2026-04-27**: AiLys Agency clients and Reviuzy SaaS self-serve clients are the SAME backend (one Supabase, one codebase) but **isolated by hostname** to prevent AiLys clients from discovering cheaper Reviuzy direct option (which would cause downsell from $300-$2,499 AiLys to $39-$149 Reviuzy).
+**Architecture decided 2026-04-27**: AiLys Agency clients and Reviuzy SaaS self-serve clients are the SAME backend (one Supabase, one codebase) but **isolated by hostname** to prevent AiLys clients from discovering cheaper Reviuzy direct option (which would cause downsell from $300-$2,500 AiLys to $39-$149 Reviuzy).
 
 **The discriminator** is a new `client_type` column on `tenants`:
 - `reviuzy_self_serve` → uses `reviuzy.com`, sees Reviuzy plans, can upgrade to Reviuzy max
@@ -3168,7 +3168,7 @@ Updates needed for v1.2 spec (next session):
 - Mobile UI fix (TextReveal text-xl removed, headings overflowWrap, navbar pill backdrop)
 - Logo Quebec white+blue redesign with neon halo
 - `.com → .ca` redirect via Pages middleware (DNS + custom domains + middleware)
-- Pricing rebrand $300/$600/$1,200/$2,499 (16 locales)
+- Pricing rebrand $300/$600/$1,200/$2,500 (16 locales)
 - Photo cadence 4/8/12/(12 per domain) (16 locales)
 - Contest scope = client-managed (16 locales + chat advisor + CLAUDE.md)
 - Link-building scope = no active outreach, Wikidata only (16 locales + chat advisor + CLAUDE.md)

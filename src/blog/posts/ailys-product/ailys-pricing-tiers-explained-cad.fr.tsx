@@ -16,27 +16,27 @@ export const metaFr: BlogPostMeta = {
   title: 'Forfaits AiLys expliqués, de 300 à 2 500 dollars CAD par mois',
   metaDescription:
     "Décortiqué palier par palier des forfaits AiLys en dollars canadiens. Ce qui est inclus dans Starter, Core, Growth et Agency. Modules, garantie et comment choisir.",
-  tldr: "AiLys propose quatre forfaits mensuels en CAD. Starter à 300 $ livre le SEO technique, GBP, cohérence NAP, suivi hebdomadaire des citations LLM, 1 publication GBP et 4 photos. Core à 600 $ ajoute le schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP et 8 photos. Growth à 1 200 $ ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP, 12 photos, contenu bilingue hebdomadaire et surveillance concurrentielle. Agency à 2 500 $ ajoute un tableau de bord multi-emplacements, des PDF en marque blanche, un SLA Slack sous 4 heures, l'accès API et un stratège senior dédié.",
+  tldr: "AiLys propose quatre forfaits mensuels en CAD. Starter à 300 $ livre le SEO technique, GBP, cohérence NAP, sonde Visibilité IA mensuelle, 4 publications GBP, 4 photos et 2 citations. Core à 600 $ ajoute le schéma AEO, 4 citations mensuelles, contenu bilingue, 6 publications GBP, 6 photos, sondes Visibilité IA hebdomadaires, analyse de sentiment. Growth à 1 200 $ ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP, 8 photos, 6 citations, contenu bilingue hebdomadaire, tableau multi-emplacements jusqu'à 3 emplacements. Agency à 2 500 $ ajoute un tableau de bord multi-emplacements illimité, des PDF en marque blanche, un SLA Slack sous 4 heures, l'accès API, sondes Visibilité IA quotidiennes, 12 publications GBP, jusqu'à 12 photos par domaine, 8 citations par domaine et un stratège senior dédié.",
   faqItems: [
     {
       question: "Qu'est-ce qui est inclus dans le forfait Starter à 300 $ d'AiLys?",
       answer:
-        "Le forfait Starter à 300 $ CAD par mois inclut le SEO technique, l'optimisation Google Business Profile, le travail de cohérence NAP, le suivi hebdomadaire des citations LLM sur les principaux moteurs IA, une publication GBP par mois et quatre photos GBP par mois. C'est le palier d'entrée pour un seul emplacement qui veut de l'AI Visibility livrée à un tarif mensuel fixe sans facturation à l'heure.",
+        "Le forfait Starter à 300 $ CAD par mois inclut le SEO technique, l'optimisation Google Business Profile, le travail de cohérence NAP, une sonde Visibilité IA mensuelle sur les principaux moteurs IA, quatre publications GBP par mois, quatre photos GBP par mois et deux citations par mois. C'est le palier d'entrée pour un seul emplacement qui veut de l'AI Visibility livrée à un tarif mensuel fixe sans facturation à l'heure.",
     },
     {
       question: "Combien coûte le forfait Core d'AiLys en dollars canadiens?",
       answer:
-        "Core est à 600 $ CAD par mois. Il inclut tout ce qui est dans Starter plus le travail de schéma AEO, cinq citations mensuelles sur des annuaires de qualité, la production de contenu bilingue EN et FR-CA, quatre publications GBP par mois à raison d'une par semaine, et huit photos GBP par mois. Core est le choix le plus fréquent pour un opérateur à un seul emplacement qui veut une cadence hebdomadaire de contenu et de citations.",
+        "Core est à 600 $ CAD par mois. Il inclut tout ce qui est dans Starter plus le travail de schéma AEO, quatre citations mensuelles sur des annuaires de qualité, la production de contenu bilingue EN et FR-CA (4 sujets uniques par mois), six publications GBP par mois, six photos GBP par mois, sondes Visibilité IA hebdomadaires et analyse de sentiment sur les mentions IA. Core est le choix le plus fréquent pour un opérateur à un seul emplacement qui veut une cadence hebdomadaire de contenu et de citations.",
     },
     {
       question: "Qu'ajoute le palier Growth par rapport à Core?",
       answer:
-        "Growth à 1 200 $ CAD par mois ajoute le travail d'autorité d'entité GEO, la présence Wikipedia et Wikidata quand la marque y est éligible, huit publications GBP par mois à deux par semaine, douze photos GBP par mois, la production de contenu bilingue hebdomadaire et la surveillance concurrentielle sur les moteurs IA. Il convient à un opérateur qui veut faire composer ses signaux d'entité sur le web ouvert plutôt que d'optimiser uniquement ses propres pages.",
+        "Growth à 1 200 $ CAD par mois ajoute le travail d'autorité d'entité GEO, la présence Wikipedia et Wikidata quand la marque y est éligible, huit publications GBP par mois, huit photos GBP par mois, six citations par mois, six sujets de blogue uniques par mois en EN et FR-CA, tableau multi-emplacements jusqu'à 3 emplacements et surveillance concurrentielle sur les moteurs IA. Il convient à un opérateur qui veut faire composer ses signaux d'entité sur le web ouvert plutôt que d'optimiser uniquement ses propres pages.",
     },
     {
       question: "Quand le palier Agency à 2 500 $ a-t-il du sens?",
       answer:
-        "Agency à 2 500 $ CAD par mois a du sens pour les opérateurs multi-emplacements ou pour les partenaires qui ont besoin d'un tableau de bord multi-emplacements, de rapports PDF en marque blanche, d'un SLA Slack sous quatre heures, de l'accès API, d'intégrations sur mesure, de douze publications GBP par mois à trois par semaine, jusqu'à douze photos par mois par domaine et d'un stratège senior dédié. Le module d'automatisation Reviuzy est inclus sans coût supplémentaire.",
+        "Agency à 2 500 $ CAD par mois a du sens pour les opérateurs multi-emplacements ou pour les partenaires qui ont besoin d'un tableau de bord multi-emplacements illimité, de rapports PDF en marque blanche, d'un SLA Slack sous quatre heures, de l'accès API, d'intégrations sur mesure, de sondes Visibilité IA quotidiennes, de douze publications GBP par mois, jusqu'à douze photos par mois par domaine, huit citations par mois par domaine, huit sujets de blogue uniques par mois par domaine et d'un stratège senior dédié. Les modules d'automatisation Reviuzy et Domain Shield sont inclus sans coût supplémentaire.",
     },
     {
       question: "Les forfaits AiLys sont-ils mensuels avec une garantie?",
@@ -109,14 +109,15 @@ export function ContentFr() {
         <li>Optimisation complète du Google Business Profile</li>
         <li>Cohérence NAP sur les principales sources de citations</li>
         <li>Suivi hebdomadaire des citations LLM sur les principaux moteurs IA</li>
-        <li>1 publication GBP par mois, 4 photos GBP par mois</li>
+        <li>4 publications GBP par mois, 4 photos GBP par mois</li>
+        <li>2 citations par mois (max par domaine)</li>
       </ul>
 
       <SectionDivider />
 
       <h2 id="core-600-le-palier-contenu-et-aeo">Core à 600 $, le palier contenu et AEO</h2>
       <p>
-        Core double le volume de citations et active la production de contenu bilingue. En plus de tout ce qui est dans Starter, Core livre le travail de schéma AEO (FAQ, HowTo, LocalBusiness, MedicalBusiness ou LegalService selon le cas), cinq citations mensuelles sur des annuaires de qualité, la production de contenu bilingue EN et FR-CA, quatre publications GBP par mois à raison d'une par semaine, et huit photos GBP par mois. Le contenu bilingue est rédigé à la main, jamais passé par une API de traduction, et c'est pour cette raison qu'il classe aussi bien en français du Québec qu'en anglais.
+        Core double le volume de citations et active la production de contenu bilingue. En plus de tout ce qui est dans Starter, Core livre le travail de schéma AEO (FAQ, HowTo, LocalBusiness, MedicalBusiness ou LegalService selon le cas), quatre citations mensuelles sur des annuaires de qualité, la production de contenu bilingue EN et FR-CA (4 sujets uniques par mois), six publications GBP par mois, six photos GBP par mois, sondes Visibilité IA hebdomadaires et analyse de sentiment sur les mentions IA. Le contenu bilingue est rédigé à la main, jamais passé par une API de traduction, et c'est pour cette raison qu'il classe aussi bien en français du Québec qu'en anglais.
       </p>
       <p>
         Core est le point de départ le plus fréquent pour un opérateur à un seul emplacement qui veut que la cadence hebdomadaire compose. La part de citations commence à bouger en deux à trois mois sur Core parce que la vélocité des publications GBP, le nouveau schéma et les citations mensuelles d'annuaire alimentent les moteurs IA en signaux frais chaque semaine.
@@ -132,7 +133,7 @@ export function ContentFr() {
 
       <h2 id="growth-1200-le-palier-autorite-d-entite">Growth à 1 200 $, le palier autorité d'entité</h2>
       <p>
-        Growth ajoute la partie de l'AI Visibility qui compose le plus longtemps. En plus de tout ce qui est dans Core, Growth livre le travail d'autorité d'entité GEO, la présence Wikipedia et Wikidata quand la marque y est éligible, huit publications GBP par mois à deux par semaine, douze photos GBP par mois, la production de contenu bilingue hebdomadaire (donc 4 à 5 articles longs par mois répartis EN et FR-CA), et une surveillance concurrentielle qui regarde ce que les moteurs IA disent des trois principaux concurrents du pack local.
+        Growth ajoute la partie de l'AI Visibility qui compose le plus longtemps. En plus de tout ce qui est dans Core, Growth livre le travail d'autorité d'entité GEO, la présence Wikipedia et Wikidata quand la marque y est éligible, huit publications GBP par mois, huit photos GBP par mois, six citations par mois, la production de contenu bilingue hebdomadaire (6 sujets uniques par mois répartis EN et FR-CA), tableau multi-emplacements jusqu'à 3 emplacements et une surveillance concurrentielle qui regarde ce que les moteurs IA disent des trois principaux concurrents du pack local.
       </p>
       <p>
         Wikidata en particulier est le levier méconnu. Les moteurs IA s'appuient fortement sur les données ouvertes structurées quand ils choisissent quelle entité locale citer, et un item Wikidata propre avec les bonnes propriétés P (fondateur, adresse, zone desservie, site officiel, profils sociaux) débloque souvent de la part de citations sur des requêtes que la marque n'a jamais ciblées directement. Growth est le palier qui livre ce travail.
@@ -157,7 +158,9 @@ export function ContentFr() {
       <ul>
         <li>Travail d'autorité d'entité GEO (signaux de graphe de connaissances, alignement des données structurées)</li>
         <li>Présence Wikipedia et Wikidata quand la marque y est éligible</li>
-        <li>8 publications GBP par mois, 12 photos par mois</li>
+        <li>8 publications GBP par mois, 8 photos par mois</li>
+        <li>6 citations par mois (max par domaine)</li>
+        <li>Tableau multi-emplacements jusqu'à 3 emplacements</li>
         <li>Production de contenu bilingue hebdomadaire</li>
         <li>Surveillance concurrentielle sur les moteurs IA</li>
       </ul>
@@ -166,7 +169,7 @@ export function ContentFr() {
 
       <h2 id="agency-2500-le-palier-multi-emplacements">Agency à 2 500 $, le palier multi-emplacements</h2>
       <p>
-        Agency est conçu pour les partenaires et pour les opérateurs qui gèrent plusieurs marques ou plusieurs emplacements. En plus de tout ce qui est dans Growth, Agency livre un tableau de bord multi-emplacements, des rapports PDF en marque blanche (pour qu'un partenaire puisse remettre un livrable à sa propre marque à son client), un SLA Slack sous quatre heures les jours ouvrables, l'accès API, des intégrations sur mesure, douze publications GBP par mois à trois par semaine, jusqu'à douze photos par mois par domaine, et un stratège senior dédié qui pilote le compte de bout en bout.
+        Agency est conçu pour les partenaires et pour les opérateurs qui gèrent plusieurs marques ou plusieurs emplacements. En plus de tout ce qui est dans Growth, Agency livre un tableau de bord multi-emplacements illimité, des rapports PDF en marque blanche (pour qu'un partenaire puisse remettre un livrable à sa propre marque à son client), un SLA Slack sous quatre heures les jours ouvrables, l'accès API, des intégrations sur mesure, sondes Visibilité IA quotidiennes, douze publications GBP par mois, jusqu'à douze photos par mois par domaine, huit citations par mois par domaine, huit sujets de blogue uniques par mois par domaine et un stratège senior dédié qui pilote le compte de bout en bout.
       </p>
       <p>
         Le module Reviuzy d'automatisation des avis est inclus dans Agency sans coût supplémentaire. Pour un opérateur multi-emplacements qui paie déjà l'automatisation des avis séparément, ce regroupement à lui seul couvre une part appréciable du calcul de mise à niveau de palier. L'accès API à ce palier est l'autre levier de qualité opérateur : tout ce qui tourne dans le tableau de bord peut être déclenché depuis le backend du partenaire, donc le suivi de citations, le planificateur de publications GBP et le téléverseur de photos peuvent tous vivre dans un flux partenaire existant.
@@ -225,9 +228,9 @@ export function ContentFr() {
       <KeyTakeaway
         translatedLabel="À retenir"
         points={[
-          "Starter à 300 $ CAD livre le SEO technique, GBP, NAP, suivi hebdomadaire des citations LLM, 1 publication GBP et 4 photos par mois.",
-          "Core à 600 $ CAD ajoute le schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP et 8 photos par mois.",
-          "Growth à 1 200 $ CAD ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP et 12 photos, contenu hebdomadaire, surveillance concurrentielle.",
+          "Starter à 300 $ CAD livre le SEO technique, GBP, NAP, sonde Visibilité IA mensuelle, 4 publications GBP, 4 photos et 2 citations par mois.",
+          "Core à 600 $ CAD ajoute le schéma AEO, 4 citations mensuelles, contenu bilingue, 6 publications GBP, 6 photos par mois, sondes Visibilité IA hebdomadaires, analyse de sentiment.",
+          "Growth à 1 200 $ CAD ajoute l'autorité d'entité GEO, Wikipedia et Wikidata, 8 publications GBP, 8 photos, 6 citations par mois, contenu hebdomadaire, tableau multi-emplacements jusqu'à 3.",
           "Agency à 2 500 $ CAD ajoute le tableau de bord multi-emplacements, PDF en marque blanche, SLA Slack sous 4 heures, accès API, stratège senior dédié, et inclut Reviuzy.",
           "Chaque forfait est mensuel avec une garantie de satisfaction de 30 jours. Les modules s'empilent indépendamment sur n'importe quel palier.",
         ]}

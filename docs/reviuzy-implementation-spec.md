@@ -29,8 +29,8 @@ Legend: ✅ included · ⚠️ limited · — not in tier · 🆕 GOD MODE featu
 | Feature | ST | CO | GR | AG | Notes |
 |---|---|---|---|---|---|
 | GBP profile management (categories, attributes, hours) | ✅ | ✅ | ✅ | ✅ | Phase 2 B.3 already shipped |
-| GBP posts auto-generation | ⚠️ 1/mo | ✅ 4/mo (1/wk) | ✅ 8/mo (2/wk) | ✅ 12/mo (3/wk) | Reviuzy SaaS handles drafts + scheduling |
-| GBP photos quota (client-uploaded) | ⚠️ 4/mo | ✅ 8/mo | ✅ 12/mo | ✅ up to 12/mo per domain | **Multi-domain** scaling for AG |
+| GBP posts auto-generation (managed) | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | ✅ 12/mo | Reviuzy SaaS handles drafts + scheduling. |
+| GBP photos quota (client-uploaded) | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | ✅ up to 12/mo per domain | **Multi-domain** scaling for AG |
 | GBP Q&A monitor + auto-draft replies | — | ✅ | ✅ | ✅ | Phase 2 B.2 already shipped |
 | GBP review reply automation (AI-personalized) | — | ✅ | ✅ | ✅ | Reviuzy add-on |
 | GBP duplicate detection + merge automation 🆕 | — | — | ✅ | ✅ | Find dup listings, submit merges via API |
@@ -40,7 +40,7 @@ Legend: ✅ included · ⚠️ limited · — not in tier · 🆕 GOD MODE featu
 | Feature | ST | CO | GR | AG | Notes |
 |---|---|---|---|---|---|
 | NAP consistency monitor (50+ directories sweep) | ✅ | ✅ | ✅ | ✅ | Phase 3 already shipped |
-| New citation building cadence | — | ⚠️ 5/mo | ✅ 10/mo | ✅ 15/mo | Manual strategist work + tracker |
+| New citation building cadence (max per domain) | ✅ 2/mo | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | Manual strategist work + tracker |
 | Citation Health Monitoring with auto-fix 🆕 | — | — | ✅ | ✅ | Auto-correct via Yelp/GBP APIs; email template for manual |
 | Citation Gap Analysis with AI outreach scripts 🆕 | — | ✅ | ✅ | ✅ | AI drafts submission text per directory |
 

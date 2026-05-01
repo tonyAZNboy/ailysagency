@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys onboarding, the week-by-week walkthrough for Quebec owners',
   metaDescription:
     'A clear week-by-week breakdown of AiLys onboarding for a Quebec local business. The audit, the GBP work, the citations, the AI Visibility baseline, and the first weekly report.',
-  tldr: 'AiLys onboarding for a Quebec local business runs four weeks. Week 1 ships the free audit + the GBP optimization pass + the consent layer. Week 2 ships the first 5 to 15 citations and the AEO schema. Week 3 ships the AI Visibility baseline and the first content brief. Week 4 ships the first executive report and aligns the cadence. After week 4, the work moves to a steady rhythm matched to the tier.',
+  tldr: 'AiLys onboarding for a Quebec local business runs four weeks. Week 1 ships the free audit + the GBP optimization pass + the consent layer. Week 2 ships the first 2 to 8 citations (per tier) and the AEO schema. Week 3 ships the AI Visibility baseline and the first content brief. Week 4 ships the first executive report and aligns the cadence. After week 4, the work moves to a steady rhythm matched to the tier.',
   category: 'ailys-product',
   tags: ['ailys', 'onboarding', 'quebec', 'workflow', 'ailys-product'],
   publishedDate: '2026-04-28',
@@ -52,7 +52,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'What happens after week 4?',
       answer:
-        'The work shifts to a steady cadence matched to your tier. Starter sees one GBP post per month plus weekly LLM citation tracking. Core sees four GBP posts per month, five citations per month, and weekly bilingual content. Growth adds Wikipedia and Wikidata work, eight posts per month, and competitive monitoring. Agency adds dedicated strategist hours, multi-location dashboard, twelve posts per month, and quarterly executive deck presented in person.',
+        'The work shifts to a steady cadence matched to your tier. Starter ships four GBP posts per month plus monthly AI Visibility probes. Core ships six GBP posts, four citations per month, and weekly bilingual content (4 unique topics). Growth adds Wikipedia and Wikidata work, eight posts per month, six citations, multi-location dashboard up to 3 locations. Agency adds dedicated strategist hours, unlimited multi-location dashboard, twelve posts per month, eight citations per domain, and quarterly executive deck presented in person.',
     },
   ],
   relatedSlugs: [
@@ -80,7 +80,7 @@ export function Content() {
       <p>
         AiLys onboarding takes four weeks from contract signature to a steady
         rhythm. Week 1 closes the audit and the GBP pass. Week 2 ships the
-        first 5 to 15 citations and the schema. Week 3 ships the AI
+        first 2 to 8 citations (per tier) and the schema. Week 3 ships the AI
         Visibility baseline and the first content brief. Week 4 ships the
         first executive report and aligns the cadence with your tier.
       </p>
@@ -163,11 +163,11 @@ export function Content() {
 
       <h2 id="week-two-citations-and-schema">Week 2: citations and AEO schema</h2>
       <p>
-        Citations land based on your tier. Starter sees the technical
-        baseline plus monthly tracking. Core ships 5 citations to the
-        directories that matter for your vertical (Yelp, BBB, Pages Jaunes,
-        plus 2 vertical-specific). Growth ships 10. Agency ships 15 with
-        deeper geographic spread.
+        Citations land based on your tier. Starter ships 2 citations per
+        month. Core ships 4 citations to the directories that matter for
+        your vertical (Yelp, BBB, Pages Jaunes, plus a vertical-specific
+        directory). Growth ships 6. Agency ships 8 per domain with deeper
+        geographic spread.
       </p>
       <p>
         AEO schema deploys on the homepage and the top three service pages.
@@ -256,10 +256,10 @@ export function Content() {
         cadence change.
       </p>
       <ul>
-        <li><strong>Starter ($300 CAD/mo):</strong> audit, GBP pass, NAP consistency, weekly LLM citation tracking, 1 GBP post/mo, 4 photos/mo</li>
-        <li><strong>Core ($600):</strong> all of Starter plus AEO schema, 5 monthly citations, bilingual content, 4 GBP posts/mo (1/week), 8 photos/mo</li>
-        <li><strong>Growth ($1,200):</strong> all of Core plus GEO entity authority, Wikipedia and Wikidata, 8 GBP posts/mo (2/week), 12 photos/mo, weekly bilingual content, competitive monitoring</li>
-        <li><strong>Agency ($2,500):</strong> all of Growth plus multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, custom integrations, 12 GBP posts/mo (3/week), up to 12 photos/mo per domain, dedicated senior strategist, quarterly executive deck presented in person</li>
+        <li><strong>Starter ($300 CAD/mo):</strong> audit, GBP pass, NAP consistency, monthly AI Visibility probe, 4 GBP posts/mo, 4 photos/mo, 2 citations/mo</li>
+        <li><strong>Core ($600):</strong> all of Starter plus AEO schema, 4 monthly citations, bilingual content (4 unique blog topics/mo), 6 GBP posts/mo, 6 photos/mo, weekly AI Visibility, sentiment analysis</li>
+        <li><strong>Growth ($1,200):</strong> all of Core plus GEO entity authority, Wikipedia and Wikidata, 8 GBP posts/mo, 8 photos/mo, 6 citations/mo, weekly bilingual content (6 topics/mo), multi-location dashboard up to 3 locations, competitive monitoring</li>
+        <li><strong>Agency ($2,500):</strong> all of Growth plus unlimited multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, custom integrations, daily AI Visibility probes, 12 GBP posts/mo, up to 12 photos/mo per domain, 8 citations/mo per domain, 8 unique blog topics/mo per domain, dedicated senior strategist, quarterly executive deck presented in person</li>
       </ul>
 
       <InternalLink

@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'GBP posts strategy, the weekly cadence that moves the local pack',
   metaDescription:
     'GBP posts strategy: how often to post, what to post, and the weekly cadence that lifts local pack ranking. Includes the AiLys per-tier cadence chart.',
-  tldr: 'A weekly Google Business Profile posting cadence is the floor for local pack movement. AiLys ships at four cadence tiers: Starter at one post a month, Core at four a month, Growth at eight a month, Agency at twelve a month. The post type matters as much as frequency: Offers, Updates, and Events each move different ranking signals.',
+  tldr: 'A weekly Google Business Profile posting cadence is the floor for local pack movement. AiLys ships at four cadence tiers: Starter at four posts a month, Core at six, Growth at eight, Agency at twelve. The post type matters as much as frequency: Offers, Updates, and Events each move different ranking signals.',
   category: 'gbp-google-maps',
   tags: ['gbp posts strategy', 'google business profile', 'local pack', 'cadence', 'gbp-google-maps'],
   publishedDate: '2026-02-23',
@@ -32,7 +32,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How often should I post to my Google Business Profile?',
       answer:
-        'A weekly cadence is the floor for local pack movement. One post per week keeps the GBP fresh enough to feed the recency signal that Google weights for "open now" and constrained queries. AiLys ships four tiers: Starter at one post a month, Core at four a month (one a week), Growth at eight a month (two a week), Agency at twelve a month (three a week). Above three a week, returns flatten on most categories.',
+        'A weekly cadence is the floor for local pack movement. One post per week keeps the GBP fresh enough to feed the recency signal that Google weights for "open now" and constrained queries. AiLys ships four tiers: Starter at four posts a month, Core at six, Growth at eight, Agency at twelve. Above three a week, returns flatten on most categories.',
     },
     {
       question: 'Do GBP posts actually affect local pack ranking?',
@@ -104,10 +104,10 @@ export function Content() {
 
       <h3>Cadence by AiLys tier</h3>
       <ul>
-        <li>Starter (300 dollars CAD a month): 1 GBP post a month, written by hand, scheduled in advance</li>
-        <li>Core (799 dollars CAD a month): 4 GBP posts a month, one per week, mixed across post types</li>
-        <li>Growth (1,499 dollars CAD a month): 8 GBP posts a month, two per week, with monthly photo refresh</li>
-        <li>Agency (2,500 dollars CAD a month): 12 GBP posts a month, three per week, with multi-location coordination</li>
+        <li>Starter (300 dollars CAD a month): 4 GBP posts a month, written by hand, scheduled in advance.</li>
+        <li>Core (600 dollars CAD a month): 6 GBP posts a month, mixed across post types</li>
+        <li>Growth (1,200 dollars CAD a month): 8 GBP posts a month, with monthly photo refresh</li>
+        <li>Agency (2,500 dollars CAD a month): 12 GBP posts a month, with multi-location coordination</li>
       </ul>
 
       <p>
@@ -196,7 +196,7 @@ export function Content() {
         Write the four posts in advance at the start of each month. Schedule them through the GBP API or a third-party scheduler. Do not auto-generate the copy. The GBP spam classifier flags repetitive auto-generated copy and suspensions follow. <InternalLink to="/services/gbp-optimization" title="GBP optimization service" description="Includes the weekly cadence and the multi-location coordination work" /> handles the cadence end-to-end on every paid tier. For pillar context on how cadence feeds the citation graph, see <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model explained" description="The citation share metric for AI search visibility" />.
       </p>
 
-      <InlineCTA variant="pricing" text="See AiLys cadence tiers, from one post a month at Starter to twelve a month per location at Agency." />
+      <InlineCTA variant="pricing" text="See AiLys cadence tiers, from four posts a month at Starter to twelve a month per location at Agency." />
 
       <SectionDivider />
 

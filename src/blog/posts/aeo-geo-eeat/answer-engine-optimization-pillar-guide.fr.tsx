@@ -169,7 +169,7 @@ export function ContentFr() {
         Trois types de citations font la majeure partie du travail de multiplicateur. Des publications Reddit sur des sous-Reddit de niveau ville où la marque est mentionnée organiquement. Des fiches d'annuaire régionales (sectorielles, pas génériques). Des mentions de presse dans des médias locaux ou régionaux. Un commerce avec les trois types cités constamment se fait nommer dans les réponses IA à un taux beaucoup plus élevé qu'un commerce avec seulement des citations d'annuaires ou seulement des mentions Reddit.
       </p>
       <p>
-        AiLys livre la construction de citations à 5 par mois au forfait Core, 10 au Growth et 15 à l'Agency. Les citations sont diversifiées entre les trois types intentionnellement. Les propriétaires qui font ce travail à l'interne peuvent s'aligner sur environ quatre heures par semaine de temps opérateur, axées sur la soumission de contenu et la prospection plutôt que sur la saisie de données d'annuaires.
+        AiLys livre la construction de citations à 2 par mois au forfait Starter, 4 au Core, 6 au Growth et 8 à Agency (max par domaine). Les citations sont diversifiées entre les trois types intentionnellement. Les propriétaires qui font ce travail à l'interne peuvent s'aligner sur environ quatre heures par semaine de temps opérateur, axées sur la soumission de contenu et la prospection plutôt que sur la saisie de données d'annuaires.
       </p>
 
       <SectionDivider />

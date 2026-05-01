@@ -891,9 +891,9 @@ export const en = {
     d4Title: "Content language depth",
     d4Body: "Bilingual EN and FR-CA is in every tier. Adding Spanish, Chinese, Arabic, Russian, Ukrainian, or Serbian via our partner network adds production cost. Each extra language pulls a separate citation footprint.",
     d5Title: "Citation acquisition pace",
-    d5Body: "Citation building is a verified-directory effort. Five high-DA citations a month at Core, ten at Growth, fifteen at Agency. Each one demands research, NAP normalization, and listing-specific verification (postcard, phone, email). The cost difference reflects those hours.",
+    d5Body: "Citation building is a verified-directory effort. Two high-DA citations a month at Starter, four at Core, six at Growth, eight at Agency, max per domain. Each one demands research, NAP normalization, and listing-specific verification (postcard, phone, email). The cost difference reflects those hours.",
 
-    srSeo: "AiLys pricing varies by client because five real factors drive cost. First, LLM engine coverage: we track citations across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot, and price scales with how many engines we actively optimize for, not just monitor. Second, industry complexity: E-E-A-T weight varies by vertical, so healthcare and law need credentialed authorship and citation density that restaurants do not. Third, schema and entity scope: a 5-page WordPress site is a different shape of work than a 200-page Shopify catalog with multi-location. Fourth, content language depth: bilingual EN and FR-CA is in every tier, and adding Spanish, Chinese, Arabic, Russian, Ukrainian, or Serbian adds production cost. Fifth, citation acquisition pace: 5 high-DA citations a month at Core, 10 plus at Growth, reflecting real research and outreach hours.",
+    srSeo: "AiLys pricing varies by client because five real factors drive cost. First, LLM engine coverage: we track citations across ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot, and price scales with how many engines we actively optimize for, not just monitor. Second, industry complexity: E-E-A-T weight varies by vertical, so healthcare and law need credentialed authorship and citation density that restaurants do not. Third, schema and entity scope: a 5-page WordPress site is a different shape of work than a 200-page Shopify catalog with multi-location. Fourth, content language depth: bilingual EN and FR-CA is in every tier, and adding Spanish, Chinese, Arabic, Russian, Ukrainian, or Serbian adds production cost. Fifth, citation acquisition pace: 2 high-DA citations at Starter, 4 at Core, 6 at Growth, 8 at Agency per month (max per domain), reflecting real research and outreach hours.",
   },
 
   pricingBuilder: {
@@ -940,10 +940,10 @@ export const en = {
     svc2Desc: "Across 6 AI engines, weekly polls.",
     svc3Label: "AEO schema deployment",
     svc3Desc: "FAQ + Review + LocalBusiness + HowTo.",
-    svc4Label: "Citation building (5/mo)",
-    svc4Desc: "High-DA submissions, NAP consistency.",
-    svc5Label: "Citation building (10+/mo)",
-    svc5Desc: "Aggressive citation pace, NAP-consistent across all.",
+    svc4Label: "Citation building (4/mo)",
+    svc4Desc: "High-DA submissions, NAP consistency. Max per domain.",
+    svc5Label: "Citation building (6-8/mo)",
+    svc5Desc: "Aggressive citation pace at Growth (6/mo) and Agency (8/mo), NAP-consistent across all.",
     svc6Label: "Bilingual content (EN+FR)",
     svc6Desc: "1 piece/month.",
     svc7Label: "Weekly content production",

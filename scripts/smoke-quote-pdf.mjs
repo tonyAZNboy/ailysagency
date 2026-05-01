@@ -6,7 +6,7 @@
  *  1. Starter monthly: tierBase=$300, no discount, total=$300
  *  2. Core annual -15%: tierBase=$600, discount=$90, total=$510
  *  3. Growth biennial -20%: tierBase=$1200, discount=$240, total=$960
- *  4. Agency monthly: tierBase=$2499, no discount, reviuzyAddon bundled (no charge)
+ *  4. Agency monthly: tierBase=$2500, no discount, reviuzyAddon bundled (no charge)
  *  5. Tax-incl Core monthly: total = $600 * 1.14975 = $689.85
  *  6. Reviuzy add-on on Core: subtotal = $600 + $100 = $700
  *  7. Biennial rejected on Starter (tier-locked decision #7)

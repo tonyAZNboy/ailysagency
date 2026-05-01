@@ -6,11 +6,13 @@
 //
 // Setup:
 //   1. Cloudflare Pages → ailysagency project → Settings → Environment variables
-//   2. Add ANTHROPIC_API_KEY (encrypted) for production
+//   2. Add GEMINI_API_KEY (encrypted) for production
 //   3. Optionally bind a KV namespace named CITATION_CACHE for cross-region cache
 //
-// Without ANTHROPIC_API_KEY set, returns a clearly-labeled static fallback so
-// the hero never shows fake "live" data.
+// Backend: Google Generative Language API, gemini-2.5-flash:generateContent
+// with responseMimeType=application/json for clean JSON output. Without
+// GEMINI_API_KEY set, returns a clearly-labeled static fallback so the hero
+// never shows fake "live" data.
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
@@ -22,7 +24,7 @@ interface KVNamespace {
 }
 
 interface Env {
-  ANTHROPIC_API_KEY?: string;
+  GEMINI_API_KEY?: string;
   CITATION_CACHE?: KVNamespace;
 }
 
@@ -73,14 +75,14 @@ function staticFallback(renderIndex: number): CitationResult {
   };
 }
 
-async function fetchFromAnthropic(
+async function fetchFromGemini(
   env: Env,
   renderIndex: number,
 ): Promise<CitationResult> {
   const q = QUERIES[renderIndex % QUERIES.length];
   const queryString = `Best ${q.vertical.toLowerCase()} in ${q.city}`;
 
-  const apiKey = env.ANTHROPIC_API_KEY;
+  const apiKey = env.GEMINI_API_KEY;
   if (!apiKey) {
     return staticFallback(renderIndex);
   }
@@ -97,27 +99,38 @@ Schema:
 Pick a real-sounding business name (you may invent if uncertain, must not be a known fictional brand). Cite 3 plausible source domains a real LLM would pull from for this query (Yelp, Google Business Profile, the business own site, industry directory, news mention, etc).`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+        encodeURIComponent(apiKey),
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: queryString }] }],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 400,
+            responseMimeType: "application/json",
+          },
+          safetySettings: [
+            { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 400,
-        system: systemPrompt,
-        messages: [{ role: "user", content: queryString }],
-      }),
-    });
+    );
 
     if (!response.ok) return staticFallback(renderIndex);
 
     const data = (await response.json()) as {
-      content?: Array<{ text?: string }>;
+      candidates?: Array<{
+        content?: { parts?: Array<{ text?: string }> };
+      }>;
     };
-    const raw = data?.content?.[0]?.text ?? "{}";
+    const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
     const parsed = JSON.parse(raw) as {
       cited_business?: string;
       context?: string;
@@ -185,8 +198,8 @@ export async function onRequest(context: { env: Env }): Promise<Response> {
   let cacheStatus: string;
 
   if (isFreshFetchRender) {
-    // Pull fresh data from Anthropic
-    result = await fetchFromAnthropic(env, nextCount - 1);
+    // Pull fresh data from Gemini
+    result = await fetchFromGemini(env, nextCount - 1);
     await setCachedResult(env, result);
     if (!env.CITATION_CACHE) {
       memCache = { result, renderCount: nextCount };

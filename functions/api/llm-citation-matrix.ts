@@ -6,22 +6,20 @@
 // cite the audited business and which don't.
 //
 // Implementation:
-//   - Single Anthropic Claude call with structured prompt that asks Claude
-//     to simulate each engine's likely answer (Claude is excellent at
-//     style-matching the other engines' response patterns)
-//   - Parses JSON matrix output
+//   - Single generative-AI call with structured prompt that asks the model
+//     to simulate each engine's likely answer
+//   - Parses JSON matrix output (responseMimeType=application/json)
 //   - Scores: cited (full match) | mentioned (partial) | absent
 //   - KV-cached 24h per (business + city + url) tuple to control cost
 //
-// Cost: ~$0.05 per uncached call (Claude Haiku 4.5, ~3500 input + 1200 output
-// tokens). With 5-call cache amortization that's roughly $0.01/visitor, well
-// within free-audit unit economics.
+// Backend: Google Generative Language API, gemini-2.5-flash:generateContent.
+// Cheap and fast for the structured JSON workload. KV cache amortizes cost.
 //
 // Security:
 //   - Server-side input validation on every field
 //   - Rate-limit via Cloudflare WAF rule (5 req/min per IP recommended)
 //   - URL parsing to reject internal/private addresses
-//   - Anthropic API key server-side only
+//   - Gemini API key server-side only
 //   - Origin allowlist via _headers + this function's CORS check
 
 interface KVNamespace {
@@ -34,7 +32,7 @@ interface KVNamespace {
 }
 
 interface Env {
-  ANTHROPIC_API_KEY?: string;
+  GEMINI_API_KEY?: string;
   LLM_MATRIX_CACHE?: KVNamespace;
 }
 
@@ -63,7 +61,7 @@ interface MatrixResult {
   totalScore: number;
   /** Human-readable summary */
   summary: string;
-  /** "live" if Claude succeeded, "sample" if API key missing or call failed */
+  /** "live" if the model call succeeded, "sample" if API key missing or call failed */
   isLive: boolean;
   generatedAt: string;
 }
@@ -163,34 +161,29 @@ function staticFallback(
     queries: queryResults,
     totalScore: 0,
     summary:
-      "Sample matrix. Set ANTHROPIC_API_KEY in Cloudflare Pages env to see live AI engine citations.",
+      "Sample matrix. Set GEMINI_API_KEY in Cloudflare Pages env to see live AI engine citations.",
     isLive: false,
     generatedAt: new Date().toISOString(),
   };
 }
 
-async function fetchMatrixFromAnthropic(
+async function fetchMatrixFromGemini(
   env: Env,
   businessName: string,
   city: string,
   url: string | undefined,
   vertical: string,
 ): Promise<MatrixResult> {
-  if (!env.ANTHROPIC_API_KEY) return staticFallback(businessName, city, url, vertical);
+  if (!env.GEMINI_API_KEY) return staticFallback(businessName, city, url, vertical);
 
   const queryTemplates = (VERTICAL_QUERIES[vertical] ?? VERTICAL_QUERIES.default).slice(0, 3);
   const queries = queryTemplates.map((q) =>
     q.replace("[vertical]", vertical).replace("[city]", city),
   );
 
-  const systemPrompt = `You simulate how 6 different AI search engines would respond to local business queries. The 6 engines have distinct retrieval and citation behaviors:
+  const systemPrompt = `You simulate how 6 different AI search engines would respond to local business queries on behalf of AiLys Agency. The 6 engines have distinct retrieval and citation behaviors that the AiLys strategist team is expert in.
 
-- ChatGPT: weights Wikipedia, Wikidata, high-DA directories (Yelp, BBB), recent news
-- Perplexity: weights freshness, Reddit discussions, news, and structured data
-- Claude: weights authoritative sources, Wikipedia, .gov/.edu, expertise signals
-- Gemini: weights Google Business Profile, Maps reviews, Google Search Console-class signals
-- Google AIO: weights Knowledge Graph, GBP, schema.org structured data, freshness
-- Bing Copilot: weights LinkedIn, business directories, news, and Microsoft ecosystem signals
+This is a TEASER matrix, not a full deliverable. Show the prospect WHICH engines cite or don't, and the high-level pattern. DO NOT prescribe specific remediation tactics, schema patches, exact directories to claim, prompt-engineering tricks, or step-by-step playbooks. The strategist unlocks the full remediation strategy during the paid discovery call. Surface the gap, not the cure.
 
 For each query, predict the most likely top-5 cited businesses for a real user in the named city, and report whether the AUDITED business appears.
 
@@ -209,17 +202,17 @@ Return ONLY valid JSON matching this exact schema. No prose.
           "engine": "ChatGPT" | "Perplexity" | "Claude" | "Gemini" | "Google AIO" | "Bing Copilot",
           "status": "cited" | "mentioned" | "absent",
           "rank": 1-5 if cited, omit otherwise,
-          "excerpt": "one sentence about why this engine would or would not name this specific business based on the signals it weights most"
+          "excerpt": "one short sentence (under 25 words) naming the symptom only. Do NOT prescribe fixes, do NOT name specific signal weights or remediation tactics. Example: 'This engine does not surface the brand for this query.' or 'Cited at position 3 with thin excerpt.'"
         },
         ...6 engines per query
       ]
     },
     ...3 queries total
   ],
-  "summary": "one paragraph (under 80 words) describing the overall AI visibility pattern: which engines tend to cite, which don't, and what specific signal gap explains the absences"
+  "summary": "one paragraph (under 80 words). Describe the overall pattern in plain language: which engines tend to cite, which do not. End with: 'Book a 15-minute strategist call at ailysagency.ca/audit to unlock the prioritized remediation plan tailored to your gap profile.' Do not include the plan itself."
 }
 
-Be honest. If the business is unknown to you, that is itself a signal: most engines will not cite it, and the summary should explain what they would need (Wikidata entry, GBP completeness, citation density, etc.). Do not invent fake citations.`;
+Be honest. If the business is unknown to you, that is itself a signal: most engines will not cite it, and the summary should hint at the category of gap (visibility, authority, presence) without naming the specific tactic. Do not invent fake citations.`;
 
   const userPrompt = `Business: ${businessName}
 City: ${city}${url ? `\nURL: ${url}` : ""}
@@ -231,25 +224,38 @@ ${queries.map((q, i) => `${i + 1}. ${q}`).join("\n")}
 Return the citation matrix.`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+        encodeURIComponent(env.GEMINI_API_KEY),
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+          generationConfig: {
+            temperature: 0.5,
+            maxOutputTokens: 2000,
+            responseMimeType: "application/json",
+          },
+          safetySettings: [
+            { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 2000,
-        system: systemPrompt,
-        messages: [{ role: "user", content: userPrompt }],
-      }),
-    });
+    );
 
     if (!response.ok) return staticFallback(businessName, city, url, vertical);
 
-    const data = (await response.json()) as { content?: Array<{ text?: string }> };
-    const raw = data?.content?.[0]?.text ?? "{}";
+    const data = (await response.json()) as {
+      candidates?: Array<{
+        content?: { parts?: Array<{ text?: string }> };
+      }>;
+    };
+    const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
     const parsed = JSON.parse(raw) as {
       queries?: QueryResult[];
       summary?: string;
@@ -353,7 +359,7 @@ export async function onRequestPost(context: {
     }
   }
 
-  const result = await fetchMatrixFromAnthropic(env, businessName, city, cleanUrl, vertical);
+  const result = await fetchMatrixFromGemini(env, businessName, city, cleanUrl, vertical);
   const json = JSON.stringify(result);
 
   if (env.LLM_MATRIX_CACHE && result.isLive) {
