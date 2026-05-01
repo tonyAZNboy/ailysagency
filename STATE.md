@@ -4,6 +4,34 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended4) — Q2 2026 pipeline + duplicate cleanup
+
+Final batch this session. Added Q2 2026 placeholders for real-estate and
+hotels (pipeline visibility), and fixed a duplicate-block side effect from
+an earlier auto-merge that had double-listed clinics + contractors.
+
+**Shipped:**
+1. Q2 2026 placeholder: real-estate (publishes July 2026, ~50 brokers)
+2. Q2 2026 placeholder: hotels (publishes July 2026, ~40 hotels)
+3. Cleanup: removed duplicated clinics + contractors entries that came
+   in via the PR #79 auto-merge cycle (sed-deleted lines 416-591)
+
+**Industry Reports landing now shows 7 cards:**
+- 5 Q1 2026 live (dentists, clinics, contractors, restaurants, lawyers)
+- 2 Q2 2026 coming-soon (real-estate, hotels)
+
+The cadence signal (publishing every quarter) is now visible to visitors:
+they see live content + clear roadmap of what's next. Lead-magnet pipeline
+established.
+
+**Verified:**
+- /industry-reports lists 7 cards (5 live + 2 coming-soon, was 9 with dupes)
+- tsc clean, em-dash zero, build clean
+
+**Pending tag:** `v0.13.3-q2-pipeline-and-cleanup`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended3) — Q1 2026 vertical set complete (5/5 live)
 
 Closed the Q1 2026 industry-report set: lawyers + restaurants moved from
