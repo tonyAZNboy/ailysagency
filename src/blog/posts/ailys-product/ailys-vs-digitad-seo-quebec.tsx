@@ -117,13 +117,11 @@ export function Content() {
         Digitad prices on a custom retainer model. The monthly cost depends on the channels selected (SEO, paid media, social, content) and the volume of work. Retainers typically start above the AiLys entry point because the scope is broader. The trade-off is coverage: Digitad delivers across more channels under one contract.
       </p>
 
-      <h3>What AiLys delivers at each tier</h3>
-      <ul>
-        <li>Starter (300 dollars): GBP optimization, monthly AI Visibility report, 1 GBP post per month, 4 photos per month, NAP audit on top citations</li>
-        <li>Core (600 dollars): everything in Starter plus 4 GBP posts per week, 8 photos per month, citation cleanup on ten targets, FAQ schema, Reviuzy add-on available</li>
-        <li>Growth (1,200 dollars): everything in Core plus 8 GBP posts per month, 12 photos per month, 15 citations, Reviuzy bundled, two AI Visibility audits per quarter</li>
-        <li>Agency (2,499 dollars): everything in Growth plus white-label deliverables, multi-location support, dedicated strategist, 12 GBP posts per month, API access, Slack SLA</li>
-      </ul>
+      <p>
+        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month) with fixed deliverables on GBP posts and photos, AI Visibility probes, citations, schema, blog cadence, and Reviuzy reputation work. Website builds (Vitrine, PME, Commerce) are tier-eligible add-ons amortized over 6 months. Cancellation policy includes a creation-fee recovery clause if you cancel before 6 months on a build.
+      </p>
+
+      <InlineCTA variant="pricing" text="See the complete 60+ feature side-by-side comparison across all 4 AiLys plans on the official pricing page." buttonText="See full pricing" to="/forfaits-complets" />
 
       <QuickQuiz
         question="When does a full-service agency like Digitad make more sense than AiLys for a Quebec local owner?"
