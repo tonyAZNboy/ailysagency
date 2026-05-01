@@ -171,9 +171,9 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
               </div>
               <div>
                 <p className="text-sm font-medium text-white">
-                  {post.author.name}
+                  {lang === 'fr' ? 'Équipe AiLys' : post.author.name}
                 </p>
-                <p className="text-xs text-white/40">{post.author.role}</p>
+                <p className="text-xs text-white/40">{lang === 'fr' ? 'Produit et ingénierie' : post.author.role}</p>
               </div>
             </div>
 
@@ -200,7 +200,7 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
 
         {/* TL;DR */}
         <div className="mt-8 max-w-3xl rounded-2xl border border-white/10 border-l-4 border-l-cyan-500 bg-white/[0.02] backdrop-blur-sm p-5">
-          <p className="text-sm font-semibold text-cyan-400 mb-1">TL;DR</p>
+          <p className="text-sm font-semibold text-cyan-400 mb-1">{lang === 'fr' ? 'En bref' : 'TL;DR'}</p>
           <p className="text-white/70 italic leading-relaxed">{localizedMeta.tldr}</p>
         </div>
 

@@ -247,6 +247,103 @@ const SUBS = [
   ['hesitez', 'hésitez'], ['hesite', 'hésite'],
   ['reflechir', 'réfléchir'], ['reflechi', 'réfléchi'],
   ['fideliser', 'fidéliser'], ['fidelise', 'fidélisé'],
+<<<<<<< HEAD
+  // Round 2: words missed in first pass
+  ['numerique', 'numérique'], ['Numerique', 'Numérique'],
+  ['numeriques', 'numériques'],
+  ['priorite', 'priorité'], ['priorites', 'priorités'],
+  ['denigrement', 'dénigrement'],
+  ['inventee', 'inventée'], ['inventees', 'inventées'],
+  ['invente', 'inventé'], ['inventes', 'inventés'],
+  ['etabli', 'établi'], ['etabli', 'établi'],
+  ['determine', 'déterminé'], ['determinee', 'déterminée'],
+  ['determines', 'déterminés'], ['determinees', 'déterminées'],
+  ['determinent', 'déterminent'], ['determiner', 'déterminer'],
+  ['concue', 'conçue'], ['concu', 'conçu'],
+  ['concues', 'conçues'], ['concus', 'conçus'],
+  ['concevoir', 'concevoir'], // no accent
+  ['conception', 'conception'], // no accent
+  ['etende', 'étend'], ['etendent', 'étendent'],
+  ['etendre', 'étendre'], ['etendu', 'étendu'],
+  ['etendue', 'étendue'], ['etendus', 'étendus'],
+  ['categorise', 'catégorisé'], ['categorisee', 'catégorisée'],
+  ['debattre', 'débattre'], ['debat', 'débat'], ['debats', 'débats'],
+  ['demarre', 'démarre'], ['demarrer', 'démarrer'],
+  ['demarrent', 'démarrent'], ['demarrage', 'démarrage'],
+  ['demande', 'demande'], // no accent
+  ['demandent', 'demandent'], // no accent
+  ['comparée', 'comparée'], // no change
+  ['compare', 'comparé'], ['comparee', 'comparée'],
+  ['compares', 'comparés'], ['comparees', 'comparées'],
+  ['detrompe', 'détrompe'],
+  ['certifications', 'certifications'], // no accent
+  ['certifie', 'certifié'], ['certifiee', 'certifiée'],
+  ['certifies', 'certifiés'], ['certifiees', 'certifiées'],
+  ['certificat', 'certificat'], // no accent
+  ['certain', 'certain'], // no accent
+  ['certaine', 'certaine'], // no accent
+  ['centre', 'centre'], // no accent
+  ['centree', 'centrée'], ['centres', 'centres'],
+  ['concurrentielle', 'concurrentielle'], // no accent
+  ['suceptibilite', 'susceptibilité'],
+  ['accumule', 'accumulé'], ['accumulees', 'accumulées'],
+  ['acces', 'accès'],
+  ['proces', 'procès'],
+  ['progres', 'progrès'],
+  ['exces', 'excès'],
+  ['reussi', 'réussi'], ['reussie', 'réussie'],
+  ['reussis', 'réussis'], ['reussies', 'réussies'],
+  ['reussir', 'réussir'], ['reussite', 'réussite'],
+  ['heberge', 'hébergé'], ['hebergee', 'hébergée'],
+  ['hebergement', 'hébergement'],
+  ['leger', 'léger'], ['legere', 'légère'],
+  ['legers', 'légers'], ['legeres', 'légères'],
+  ['ideal', 'idéal'], ['ideale', 'idéale'],
+  ['ideaux', 'idéaux'], ['ideales', 'idéales'],
+  ['detache', 'détaché'], ['detachee', 'détachée'],
+  ['detail', 'détail'], ['details', 'détails'],
+  ['detaille', 'détaillé'], ['detaillee', 'détaillée'],
+  ['profil', 'profil'], // no accent
+  ['profils', 'profils'],
+  ['ressource', 'ressource'], // no accent
+  ['ressources', 'ressources'],
+  ['voila', 'voilà'],
+  // Verbs ending -ee/-é where ascii eats the accent
+  ['delivre', 'délivre'], ['delivrent', 'délivrent'],
+  ['delivrer', 'délivrer'],
+  ['decline', 'décline'], ['declinent', 'déclinent'],
+  ['declarent', 'déclarent'], ['declare', 'déclare'],
+  ['déclarer', 'déclarer'], // no change
+  ['declarer', 'déclarer'],
+  ['relais', 'relais'], // no accent
+  ['relai', 'relai'],
+  ['etalent', 'étalent'], ['etale', 'étalé'],
+  ['echec', 'échec'], ['echecs', 'échecs'],
+  ['echoue', 'échoué'], ['echouee', 'échouée'],
+  ['echouer', 'échouer'], ['echouent', 'échouent'],
+  // Misc
+  ['emerger', 'émerger'], ['emergent', 'émergent'],
+  ['emerge', 'émerge'], ['emergence', 'émergence'],
+  ['etudient', 'étudient'], ['etudiees', 'étudiées'],
+  ['etudie', 'étudié'], ['etudiee', 'étudiée'],
+  ['etudies', 'étudiés'],
+  ['ecrit', 'écrit'], ['ecrite', 'écrite'],
+  ['ecrits', 'écrits'], ['ecrites', 'écrites'],
+  ['ecrire', 'écrire'], ['ecriture', 'écriture'],
+  ['ecran', 'écran'], ['ecrans', 'écrans'],
+  ['rappelle', 'rappelle'], // no accent
+  ['rappelez', 'rappelez'],
+  ['interactive', 'interactive'], // no accent
+  ['interactives', 'interactives'],
+  ['interactif', 'interactif'],
+  ['interactifs', 'interactifs'],
+  ['narration', 'narration'], // no accent
+  // Important brand-context
+  ['Reviuzy', 'Reviuzy'], // brand stays
+  ['Truvizy', 'Truvizy'], // brand stays
+  // 'a' as preposition handled in PHRASES
+=======
+>>>>>>> origin/main
 ]
 
 // Phrase-level " a " → " à " safe substitutions
