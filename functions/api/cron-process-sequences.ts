@@ -22,7 +22,16 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string;
   NEWSLETTER_UNSUB_SECRET?: string;
   AILYS_SERVICE_SHARED_SECRET?: string;
+  /** Static bearer token for cron-job.org / Upstash QStash (less secure than HMAC but works with services that can't sign dynamically). 64-char random hex. */
+  CRON_PROCESS_SEQUENCES_TOKEN?: string;
   CRON_PROCESS_SEQUENCES_KILL_SWITCH?: string;
+}
+
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
 }
 
 interface PagesContext {
@@ -265,17 +274,39 @@ export const onRequest = async (ctx: PagesContext): Promise<Response> => {
     return jsonResponse({ ok: true, skipped: 'kill_switch' }, 200);
   }
 
-  // HMAC service auth (caller must be allowlisted in serviceAuth.ts)
   const rawBody = await request.text();
-  const verify = await verifyServiceRequest(env.AILYS_SERVICE_SHARED_SECRET, request, rawBody);
-  if (!verify.ok) {
+
+  // Auth path 1: static bearer token (for cron-job.org / Upstash QStash that
+  // cannot sign HMAC dynamically). Less secure but acceptable for a 5-min cron.
+  // Auth path 2: HMAC service auth (preferred; for GitHub Actions or internal callers).
+  const bearer = (request.headers.get('authorization') ?? '').replace(/^Bearer\s+/i, '').trim();
+  const tokenAuthOk =
+    !!env.CRON_PROCESS_SEQUENCES_TOKEN &&
+    bearer.length === env.CRON_PROCESS_SEQUENCES_TOKEN.length &&
+    constantTimeEqual(bearer, env.CRON_PROCESS_SEQUENCES_TOKEN);
+
+  let authOk = tokenAuthOk;
+  let authMode = tokenAuthOk ? 'bearer' : 'unauth';
+  let hmacReason: string | undefined;
+  if (!authOk) {
+    const verify = await verifyServiceRequest(env.AILYS_SERVICE_SHARED_SECRET, request, rawBody);
+    if (verify.ok) {
+      authOk = true;
+      authMode = 'hmac';
+    } else {
+      hmacReason = verify.reason;
+    }
+  }
+
+  if (!authOk) {
     logAudit('cron-process-sequences', {
       action: 'auth_failed',
-      reason: verify.reason,
+      reason: hmacReason ?? 'no_valid_credential',
       latencyMs: Date.now() - start,
     });
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
+  logAudit('cron-process-sequences', { action: 'auth_ok', authMode });
 
   // Optional DRY_RUN flag in request body for safe rollout
   let dryRun = false;
