@@ -3,19 +3,20 @@
 // Quick mini-audit (different from the full /audit lead magnet).
 // Takes a business URL + city, returns a 0-100 score across 5 dimensions:
 //   - Technical foundation (HTTPS, mobile, page speed signals)
-//   - GBP completeness (pulled via Anthropic's web knowledge)
+//   - GBP completeness (estimated from the model's general web knowledge)
 //   - Schema deployment (FAQ, LocalBusiness, etc.)
 //   - Citation density (how often the business shows up in known directories)
 //   - LLM citation density (how often AI engines name the business currently)
 //
-// Designed to be fast (~3-5 seconds), cheap (~$0.01 per call), and shareable.
-// Long-term plan: cache scores by URL hash for 7 days in KV to reduce API spend.
+// Backend: Google Generative Language API, gemini-2.5-flash:generateContent
+// with responseMimeType=application/json. Designed to be fast (~3-5 seconds),
+// cheap, and shareable. KV cache by URL hash for 24h to reduce API spend.
 //
 // Security:
 //   - Rate-limited via Cloudflare WAF rule (5 req/min per IP)
 //   - Input sanitization (URL must parse, city must be alphanumeric + spaces)
 //   - No PII collected at this step (email is optional, separate flow)
-//   - Anthropic API key is server-side only, never exposed to client
+//   - Gemini API key is server-side only, never exposed to client
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
@@ -23,7 +24,7 @@ interface KVNamespace {
 }
 
 interface Env {
-  ANTHROPIC_API_KEY?: string;
+  GEMINI_API_KEY?: string;
   AI_VIS_CACHE?: KVNamespace;
 }
 
@@ -90,53 +91,65 @@ function sanitizeCity(s: string): string {
   return s.replace(/[^\p{L}\p{N}\s\-,]/gu, "").trim().slice(0, 80);
 }
 
-async function scoreFromAnthropic(
+async function scoreFromGemini(
   env: Env,
   url: string,
   city: string,
 ): Promise<ScoreResult> {
-  if (!env.ANTHROPIC_API_KEY) return staticFallback(url, city);
+  if (!env.GEMINI_API_KEY) return staticFallback(url, city);
 
-  const systemPrompt = `You are an AI search visibility analyst. Given a local business URL and city, return a JSON object scoring the business's visibility inside AI search engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).
+  const systemPrompt = `You are an AI search visibility analyst for AiLys Agency. Given a local business URL and city, return a JSON object scoring the business's visibility inside AI search engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).
+
+This is a TEASER audit, not a full deliverable. Findings should NAME the gap (in under 25 words) but NOT prescribe specific remediation tactics, exact schema entities, exact directory names, code, or step-by-step plans. The strategist unlocks the detailed playbook on the discovery call.
 
 Return ONLY valid JSON matching this schema. No prose, no commentary.
 
 {
-  "technical": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "gbp": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "schema": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "citations": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "llmCitations": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "topRecommendation": "one specific action in under 35 words"
+  "technical": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "gbp": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "schema": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "citations": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "llmCitations": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "topRecommendation": "high-level next step (under 35 words). Always end with an explicit nudge: 'Book a strategist call to unlock the 90-day remediation plan.' Do not give the plan itself."
 }
 
-Be honest and specific. If you cannot verify a signal, score it neutrally (50) and note the uncertainty in the finding. Do not fabricate. If the URL appears unreachable or generic, return moderate scores with that observation.`;
+Be honest and specific about gaps. If you cannot verify a signal, score it neutrally (50) and note the uncertainty in the finding. Do not fabricate. If the URL appears unreachable or generic, return moderate scores with that observation.`;
+
+  const userPrompt = `Business URL: ${url}\nBusiness city: ${city}\n\nScore this business's AI search visibility.`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 800,
-        system: systemPrompt,
-        messages: [
-          {
-            role: "user",
-            content: `Business URL: ${url}\nBusiness city: ${city}\n\nScore this business's AI search visibility.`,
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+        encodeURIComponent(env.GEMINI_API_KEY),
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 800,
+            responseMimeType: "application/json",
           },
-        ],
-      }),
-    });
+          safetySettings: [
+            { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
+            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
+          ],
+        }),
+      },
+    );
 
     if (!response.ok) return staticFallback(url, city);
 
-    const data = (await response.json()) as { content?: Array<{ text?: string }> };
-    const raw = data?.content?.[0]?.text ?? "{}";
+    const data = (await response.json()) as {
+      candidates?: Array<{
+        content?: { parts?: Array<{ text?: string }> };
+      }>;
+    };
+    const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
     const parsed = JSON.parse(raw) as {
       technical?: { score?: number; finding?: string };
       gbp?: { score?: number; finding?: string };
@@ -243,7 +256,7 @@ export async function onRequestPost(context: {
     }
   }
 
-  const result = await scoreFromAnthropic(env, cleanUrl, cleanCity);
+  const result = await scoreFromGemini(env, cleanUrl, cleanCity);
   const json = JSON.stringify(result);
 
   if (env.AI_VIS_CACHE && result.isLive) {

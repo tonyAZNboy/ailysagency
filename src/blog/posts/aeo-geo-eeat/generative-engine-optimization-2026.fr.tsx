@@ -204,10 +204,10 @@ export function ContentFr() {
         AiLys couvre la GEO sur chaque forfait, avec une profondeur qui s'adapte au palier :
       </p>
       <ul>
-        <li>Starter (300 dollars CAD par mois) : optimisation GBP, balisage schema de base, audit NAP sur les 5 citations principales, rapport AI Visibility mensuel</li>
-        <li>Core (799 dollars) : tout ce qu'il y a dans Starter plus publications GBP hebdomadaires, 5 cycles de fraîcheur de citations mensuels, schéma FAQ, production de pages Q-R</li>
-        <li>Growth (1 499 dollars) : tout ce qu'il y a dans Core plus 10 citations mensuelles, 8 photos mensuelles, séances de photographie originale, travail Wikidata, deux audits AI Visibility par trimestre, automatisation de réputation Reviuzy</li>
-        <li>Agency (2 500 dollars) : tout ce qu'il y a dans Growth plus 15 citations mensuelles, 12 photos mensuelles, livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
+        <li>Starter (300 dollars CAD par mois) : optimisation GBP, balisage schema de base, audit NAP, 4 publications GBP/mois, 4 photos/mois, 2 citations/mois, sonde Visibilité IA mensuelle</li>
+        <li>Core (600 dollars) : tout ce qu'il y a dans Starter plus 6 publications GBP/mois, 6 photos/mois, 4 citations mensuelles, schéma FAQ + Service + Review, sondes Visibilité IA hebdomadaires, analyse de sentiment, contenu bilingue (4 sujets uniques/mois)</li>
+        <li>Growth (1 200 dollars) : tout ce qu'il y a dans Core plus 8 publications GBP/mois, 8 photos/mois, 6 citations mensuelles, schéma HowTo + Person, travail Wikidata, sondes Visibilité IA hebdomadaires, tableau multi-emplacements jusqu'à 3 emplacements, suivi AI Traffic UTM, module Reviuzy disponible</li>
+        <li>Agency (2 500 dollars) : tout ce qu'il y a dans Growth plus 12 publications GBP/mois, jusqu'à 12 photos/mois par domaine, 8 citations mensuelles par domaine, toutes les couches schema + JSON-LD personnalisé, sondes Visibilité IA quotidiennes, livrables en marque blanche, soutien multi-emplacements illimité, stratège senior dédié, Reviuzy inclus, Domain Shield inclus</li>
       </ul>
 
       <CalloutBox type="warning" translatedLabel="Attention">

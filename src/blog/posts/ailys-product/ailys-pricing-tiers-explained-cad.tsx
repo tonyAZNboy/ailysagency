@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys pricing tiers explained, $300 to $2,500 CAD per month',
   metaDescription:
     'A tier-by-tier breakdown of AiLys pricing in Canadian dollars. What ships at Starter, Core, Growth, and Agency. Add-ons, guarantees, and how to pick a plan.',
-  tldr: 'AiLys runs four monthly tiers in CAD. Starter at $300 ships technical SEO, GBP, NAP consistency, weekly LLM citation tracking, 1 GBP post and 4 photos. Core at $600 adds AEO schema, 5 monthly citations, bilingual content, 4 GBP posts and 8 photos. Growth at $1,200 adds GEO entity authority, Wikipedia and Wikidata work, 8 GBP posts, 12 photos, weekly bilingual content, and competitive monitoring. Agency at $2,500 adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, and a dedicated senior strategist.',
+  tldr: 'AiLys runs four monthly tiers in CAD. Starter at $300 ships technical SEO, GBP, NAP consistency, monthly AI Visibility probe, 4 GBP posts, 4 photos and 2 citations. Core at $600 adds AEO schema, 4 monthly citations, bilingual content, 6 GBP posts, 6 photos, weekly AI Visibility, sentiment analysis. Growth at $1,200 adds GEO entity authority, Wikipedia and Wikidata work, 8 GBP posts, 8 photos, 6 citations, weekly bilingual content, multi-location dashboard up to 3 locations. Agency at $2,500 adds unlimited multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, daily AI Visibility probes, 12 GBP posts, up to 12 photos per domain, 8 citations per domain, and a dedicated senior strategist.',
   category: 'ailys-product',
   tags: ['pricing', 'plans', 'cad', 'ailys-product', 'starter', 'core', 'growth', 'agency'],
   publishedDate: '2026-03-09',
@@ -32,22 +32,22 @@ export const meta: BlogPostMeta = {
     {
       question: 'What is included in the AiLys $300 starter tier?',
       answer:
-        'The Starter tier at $300 CAD per month includes technical SEO, Google Business Profile optimization, NAP consistency work, weekly LLM citation tracking across the major AI engines, one GBP post per month, and four GBP photos per month. It is the entry tier for a single location that wants AI Visibility shipped on a fixed monthly fee with no hourly billing.',
+        'The Starter tier at $300 CAD per month includes technical SEO, Google Business Profile optimization, NAP consistency work, monthly AI Visibility probe across the major AI engines, four GBP posts per month, four GBP photos per month, and two citations per month. It is the entry tier for a single location that wants AI Visibility shipped on a fixed monthly fee with no hourly billing.',
     },
     {
       question: 'How much does the AiLys Core plan cost in Canadian dollars?',
       answer:
-        'Core is $600 CAD per month. It includes everything in Starter plus AEO schema work, five monthly citations on quality directories, bilingual content production in EN and FR-CA, four GBP posts per month at one per week, and eight GBP photos per month. Core is the most common pick for a single-location operator who wants weekly content and citation velocity.',
+        'Core is $600 CAD per month. It includes everything in Starter plus AEO schema work, four monthly citations on quality directories, bilingual content production in EN and FR-CA (4 unique blog topics per month), six GBP posts per month, six GBP photos per month, weekly AI Visibility probes, and sentiment analysis on AI mentions. Core is the most common pick for a single-location operator who wants weekly content and citation velocity.',
     },
     {
       question: 'What does the Growth tier add beyond Core?',
       answer:
-        'Growth at $1,200 CAD per month adds GEO entity authority work, Wikipedia and Wikidata presence where eligible, eight GBP posts per month at two per week, twelve GBP photos per month, weekly bilingual content production, and competitive monitoring across the AI engines. It fits an operator who wants to compound entity signals across the open web rather than only optimizing their own pages.',
+        'Growth at $1,200 CAD per month adds GEO entity authority work, Wikipedia and Wikidata presence where eligible, eight GBP posts per month, eight GBP photos per month, six citations per month, six unique blog topics per month split EN and FR-CA, multi-location dashboard up to 3 locations, and competitive monitoring across the AI engines. It fits an operator who wants to compound entity signals across the open web rather than only optimizing their own pages.',
     },
     {
       question: 'When does the Agency tier at $2,500 make sense?',
       answer:
-        'Agency at $2,500 CAD per month makes sense for multi-location operators or for partners who need a multi-location dashboard, white-label PDF reporting, a Slack SLA under four hours, API access, custom integrations, twelve GBP posts per month at three per week, up to twelve photos per month per domain, and a dedicated senior strategist. It bundles the Reviuzy reputation automation add-on at no extra cost.',
+        'Agency at $2,500 CAD per month makes sense for multi-location operators or for partners who need an unlimited multi-location dashboard, white-label PDF reporting, a Slack SLA under four hours, API access, custom integrations, daily AI Visibility probes, twelve GBP posts per month, up to twelve photos per month per domain, eight citations per month per domain, eight unique blog topics per month per domain, and a dedicated senior strategist. It bundles the Reviuzy reputation automation add-on and Domain Shield at no extra cost.',
     },
     {
       question: 'Are AiLys plans month-to-month with a guarantee?',
@@ -93,7 +93,7 @@ export function Content() {
 
       <h2 id="how-the-four-tiers-fit-together">How the four tiers fit together</h2>
       <p>
-        The four tiers stack additively. Each higher tier inherits everything in the tier below and adds new scope on top. Starter is the foundation: technical SEO, Google Business Profile, NAP consistency, weekly LLM citation tracking, one GBP post per month, and four GBP photos per month. Core layers in AEO schema, monthly citations, bilingual content, and weekly GBP posts. Growth layers in GEO entity authority and Wikidata work. Agency layers in multi-location infrastructure for partners and operators with several brands.
+        The four tiers stack additively. Each higher tier inherits everything in the tier below and adds new scope on top. Starter is the foundation: technical SEO, Google Business Profile, NAP consistency, monthly AI Visibility probe, four GBP posts per month, four GBP photos per month, two citations per month. Core layers in AEO schema, four monthly citations, bilingual content, six GBP posts, six photos, weekly AI Visibility, sentiment analysis. Growth layers in GEO entity authority and Wikidata work, eight GBP posts, eight photos, six citations, multi-location dashboard up to 3 locations. Agency layers in unlimited multi-location infrastructure, daily probes, white-label PDF and dedicated senior strategist for partners and operators with several brands.
       </p>
       <p>
         The reason the structure matters is that an operator never needs to reshop the contract when they want a small upgrade. The path from Starter to Core is one click in the dashboard, no new agreement, no new SOW. Plans pro-rate on the day the upgrade lands.
@@ -120,15 +120,16 @@ export function Content() {
         <li>Technical SEO audit and fixes (sitemaps, schema basics, Core Web Vitals review)</li>
         <li>Google Business Profile full optimization</li>
         <li>NAP consistency on the top citation sources</li>
-        <li>Weekly LLM citation tracking across the major AI engines</li>
-        <li>1 GBP post per month, 4 GBP photos per month</li>
+        <li>Monthly AI Visibility probe across the major AI engines</li>
+        <li>4 GBP posts per month, 4 GBP photos per month</li>
+        <li>2 citations per month (max per domain)</li>
       </ul>
 
       <SectionDivider />
 
       <h2 id="core-600-the-content-and-aeo-tier">Core at $600, the content and AEO tier</h2>
       <p>
-        Core doubles the citation volume and turns on bilingual content production. On top of everything in Starter, Core ships AEO schema work (FAQ, HowTo, LocalBusiness, MedicalBusiness or LegalService where appropriate), five monthly citations on quality directories, bilingual content production in EN and FR-CA, four GBP posts per month at one per week, and eight GBP photos per month. The bilingual content is hand-authored, never piped through a translation API, which is why it ranks the same in Quebec French as in English.
+        Core doubles the citation volume and turns on bilingual content production. On top of everything in Starter, Core ships AEO schema work (FAQ, HowTo, LocalBusiness, MedicalBusiness or LegalService where appropriate), four monthly citations on quality directories, bilingual content production in EN and FR-CA (4 unique blog topics per month), six GBP posts per month, and six GBP photos per month, plus weekly AI Visibility probes and sentiment analysis on AI mentions. The bilingual content is hand-authored, never piped through a translation API, which is why it ranks the same in Quebec French as in English.
       </p>
       <p>
         Core is the most common starting point for a single-location operator who wants the weekly cadence to compound. Citation share starts moving inside two to three months on Core because the GBP post velocity, the new schema, and the monthly directory citations feed the AI engines fresh signals each week.
@@ -144,7 +145,7 @@ export function Content() {
 
       <h2 id="growth-1200-the-entity-authority-tier">Growth at $1,200, the entity authority tier</h2>
       <p>
-        Growth adds the part of AI Visibility that compounds the longest. On top of everything in Core, Growth ships GEO entity authority work, Wikipedia and Wikidata presence where the brand qualifies, eight GBP posts per month at two per week, twelve GBP photos per month, weekly bilingual content production (so 4 to 5 long-form posts per month split EN and FR-CA), and competitive monitoring that watches what the AI engines say about the top three competitors in the local pack.
+        Growth adds the part of AI Visibility that compounds the longest. On top of everything in Core, Growth ships GEO entity authority work, Wikipedia and Wikidata presence where the brand qualifies, eight GBP posts per month, eight GBP photos per month, six citations per month, weekly bilingual content production (6 unique blog topics per month split EN and FR-CA), multi-location dashboard up to 3 locations, and competitive monitoring that watches what the AI engines say about the top three competitors in the local pack.
       </p>
       <p>
         Wikidata in particular is the unsung lever. The AI engines lean heavily on structured open data when they pick which local entity to cite, and a clean Wikidata item with proper P-properties (founder, address, area served, official website, social profiles) often unlocks citation share in queries the brand never targeted directly. Growth is the tier that ships that work.
@@ -166,8 +167,10 @@ export function Content() {
       <ul>
         <li>GEO entity authority work (knowledge graph signals, structured data alignment)</li>
         <li>Wikipedia and Wikidata presence where eligible</li>
-        <li>8 GBP posts per month, 12 photos per month</li>
-        <li>Weekly bilingual content production</li>
+        <li>8 GBP posts per month, 8 photos per month</li>
+        <li>6 citations per month (max per domain)</li>
+        <li>Weekly bilingual content production (6 unique blog topics per month, EN+FR)</li>
+        <li>Multi-location dashboard up to 3 locations</li>
         <li>Competitive monitoring across the AI engines</li>
       </ul>
 
@@ -175,7 +178,7 @@ export function Content() {
 
       <h2 id="agency-2500-the-multi-location-tier">Agency at $2,500, the multi-location tier</h2>
       <p>
-        Agency is built for partners and for operators with several brands or several locations. On top of everything in Growth, Agency ships a multi-location dashboard, white-label PDF reporting (so a partner can hand a branded deliverable to their own client), a Slack SLA under four hours during business days, API access, custom integrations, twelve GBP posts per month at three per week, up to twelve photos per month per domain, and a dedicated senior strategist who runs the account end to end.
+        Agency is built for partners and for operators with several brands or several locations. On top of everything in Growth, Agency ships an unlimited multi-location dashboard, white-label PDF reporting (so a partner can hand a branded deliverable to their own client), a Slack SLA under four hours during business days, API access, custom integrations, twelve GBP posts per month, up to twelve photos per month per domain, eight citations per month per domain, daily AI Visibility probes, all schema layers plus custom JSON-LD, eight unique blog topics per month per domain, and a dedicated senior strategist who runs the account end to end.
       </p>
       <p>
         The Reviuzy review automation add-on bundles into Agency at no extra cost. For a multi-location operator that already pays for review automation separately, that bundling alone covers a meaningful slice of the tier upgrade math. API access at this tier is the other operator-grade lever: anything that runs in the dashboard can be triggered from a partner's own backend, so the citation tracker output, the GBP post scheduler, and the photo uploader can all sit inside an existing partner workflow.
@@ -233,9 +236,9 @@ export function Content() {
 
       <KeyTakeaway
         points={[
-          'Starter at $300 CAD ships technical SEO, GBP, NAP, weekly LLM citation tracking, 1 GBP post and 4 photos per month.',
-          'Core at $600 CAD adds AEO schema, 5 monthly citations, bilingual content, 4 GBP posts and 8 photos per month.',
-          'Growth at $1,200 CAD adds GEO entity authority, Wikipedia and Wikidata, 8 GBP posts and 12 photos, weekly content, competitive monitoring.',
+          'Starter at $300 CAD ships technical SEO, GBP, NAP, monthly AI Visibility probe, 4 GBP posts, 4 photos and 2 citations per month.',
+          'Core at $600 CAD adds AEO schema, 4 monthly citations, bilingual content, 6 GBP posts, 6 photos per month, weekly AI Visibility, sentiment analysis.',
+          'Growth at $1,200 CAD adds GEO entity authority, Wikipedia and Wikidata, 8 GBP posts, 8 photos, 6 citations per month, weekly content, multi-location dashboard up to 3.',
           'Agency at $2,500 CAD adds multi-location dashboard, white-label PDF, Slack SLA under 4 hours, API access, dedicated senior strategist, and bundles Reviuzy.',
           'Every plan is month-to-month with a 30-day satisfaction guarantee. Add-ons stack independently on any tier.',
         ]}

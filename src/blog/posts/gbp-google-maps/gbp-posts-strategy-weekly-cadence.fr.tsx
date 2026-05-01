@@ -16,12 +16,12 @@ export const metaFr: BlogPostMeta = {
   title: 'Stratégie de publications GBP, la cadence hebdomadaire qui bouge le pack local',
   metaDescription:
     'Stratégie de publications GBP : à quelle fréquence publier, quoi publier, et la cadence hebdomadaire qui fait monter le pack local. Inclut le tableau des cadences AiLys par forfait.',
-  tldr: "Une cadence hebdomadaire de publications Google Business Profile est le plancher pour bouger le pack local. AiLys livre quatre paliers : Starter à une publication par mois, Core à quatre par mois, Growth à huit par mois, Agency à douze par mois. Le type de publication compte autant que la fréquence : Offres, Mises à jour et Événements bougent des signaux différents.",
+  tldr: "Une cadence hebdomadaire de publications Google Business Profile est le plancher pour bouger le pack local. AiLys livre quatre paliers : Starter à quatre publications par mois, Core à six, Growth à huit, Agency à douze. Le type de publication compte autant que la fréquence : Offres, Mises à jour et Événements bougent des signaux différents.",
   faqItems: [
     {
       question: "À quelle fréquence faut-il publier sur Google Business Profile?",
       answer:
-        "Une cadence hebdomadaire est le plancher pour bouger le pack local. Une publication par semaine garde le GBP assez frais pour alimenter le signal de récence que Google pondère pour les requêtes « ouvert maintenant » et contraintes. AiLys livre quatre paliers : Starter à une publication par mois, Core à quatre par mois (une par semaine), Growth à huit par mois (deux par semaine), Agency à douze par mois (trois par semaine). Au-delà de trois par semaine, les rendements stagnent dans la plupart des catégories.",
+        "Une cadence hebdomadaire est le plancher pour bouger le pack local. Une publication par semaine garde le GBP assez frais pour alimenter le signal de récence que Google pondère pour les requêtes « ouvert maintenant » et contraintes. AiLys livre quatre paliers : Starter à quatre publications par mois, Core à six, Growth à huit, Agency à douze. Au-delà de trois par semaine, les rendements stagnent dans la plupart des catégories.",
     },
     {
       question: "Les publications GBP affectent-elles vraiment le classement du pack local?",
@@ -92,10 +92,10 @@ export function ContentFr() {
 
       <h3>Cadence par palier AiLys</h3>
       <ul>
-        <li>Starter (300 dollars CAD par mois) : 1 publication GBP par mois, écrite à la main, planifiée à l'avance</li>
-        <li>Core (799 dollars CAD par mois) : 4 publications par mois, une par semaine, mélangées entre les types</li>
-        <li>Growth (1 499 dollars CAD par mois) : 8 publications par mois, deux par semaine, avec rafraîchissement photo mensuel</li>
-        <li>Agency (2 500 dollars CAD par mois) : 12 publications par mois, trois par semaine, avec coordination multi-emplacements</li>
+        <li>Starter (300 dollars CAD par mois) : 4 publications GBP par mois, écrites à la main, planifiées à l'avance.</li>
+        <li>Core (600 dollars CAD par mois) : 6 publications par mois, mélangées entre les types</li>
+        <li>Growth (1 200 dollars CAD par mois) : 8 publications par mois, avec rafraîchissement photo mensuel</li>
+        <li>Agency (2 500 dollars CAD par mois) : 12 publications par mois, avec coordination multi-emplacements</li>
       </ul>
 
       <p>
@@ -187,7 +187,7 @@ export function ContentFr() {
         Rédigez les quatre publications à l'avance au début de chaque mois. Planifiez-les par l'API GBP ou un planificateur tiers. Ne générez pas le texte automatiquement. Le classifieur antispam GBP signale les textes auto-générés répétitifs et les suspensions suivent. <InternalLink to="/services/gbp-optimization" title="Service d'optimisation GBP" description="Inclut la cadence hebdomadaire et la coordination multi-emplacements" /> gère la cadence de bout en bout sur chaque palier payant. Pour le contexte pilier sur la façon dont la cadence alimente le graphe de citations, voyez <InternalLink to="/blog/share-of-model-metric-explained" title="Share of Model expliqué" description="La métrique de part de citations pour la recherche IA" />.
       </p>
 
-      <InlineCTA variant="pricing" text="Voyez les paliers de cadence AiLys, d'une publication par mois à Starter à douze par mois par emplacement à Agency." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les paliers de cadence AiLys, de quatre publications par mois à Starter à douze par mois par emplacement à Agency." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

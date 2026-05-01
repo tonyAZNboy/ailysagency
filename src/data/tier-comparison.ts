@@ -39,21 +39,14 @@ export const TIER_COMPARISON: TierCategory[] = [
     label: { en: "Google Business Profile", fr: "Fiche Google Business" },
     rows: [
       {
-        feature: { en: "GBP posts per month (managed mode)", fr: "Publications GBP par mois (mode pilote auto)" },
+        feature: { en: "GBP posts per month (AiLys publishes, or client self-publishes from the dashboard)", fr: "Publications GBP par mois (AiLys publie, ou le client publie lui-meme depuis le tableau de bord)" },
         starter: text("4", "4"),
         core: text("6", "6"),
         growth: text("8", "8"),
         agency: text("12", "12"),
       },
       {
-        feature: { en: "GBP posts per month (self-serve mode)", fr: "Publications GBP par mois (mode auto-gestion)" },
-        starter: text("6", "6"),
-        core: text("8", "8"),
-        growth: text("10", "10"),
-        agency: text("12", "12"),
-      },
-      {
-        feature: { en: "GBP photos per month (managed)", fr: "Photos GBP par mois (mode pilote auto)" },
+        feature: { en: "GBP photos per month", fr: "Photos GBP par mois" },
         starter: text("4", "4"),
         core: text("6", "6"),
         growth: text("8", "8"),

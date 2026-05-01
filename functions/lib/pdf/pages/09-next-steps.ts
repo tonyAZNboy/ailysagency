@@ -13,7 +13,7 @@ const TIERS_EN: TierLine[] = [
     name: 'Starter',
     price: '$300 CAD per month',
     bullet:
-      'GBP foundations, 4 GBP posts per month (managed), 2 citations per month, monthly AI Visibility report. For solo operators ready to defend their local map placement.',
+      'GBP foundations, 4 GBP posts per month, 2 citations per month, monthly AI Visibility report. For solo operators ready to defend their local map placement.',
   },
   {
     name: 'Core',
@@ -40,7 +40,7 @@ const TIERS_FR: TierLine[] = [
     name: 'Starter',
     price: '300 $ CAD par mois',
     bullet:
-      'Bases GBP, 4 publications GBP par mois (mode pilote auto), 2 citations par mois, rapport AI Visibility mensuel. Pour les entrepreneurs solos qui veulent protéger leur place dans le carrousel local.',
+      'Bases GBP, 4 publications GBP par mois, 2 citations par mois, rapport AI Visibility mensuel. Pour les entrepreneurs solos qui veulent protéger leur place dans le carrousel local.',
   },
   {
     name: 'Core',

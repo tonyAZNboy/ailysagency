@@ -10,7 +10,7 @@ Marketing/conversion overhaul, AiLys-side only. Phase E sits parallel to Phase C
 
 | # | Decision | Locked |
 |---|---|---|
-| 1 | Posts GBP quotas: 4/6/8/12 (managed) + 6/8/10/12 (self-serve, per domain) | ✅ |
+| 1 | Posts GBP quotas: 4/6/8/12 (managed) | ✅ |
 | 2 | Photos GBP: same cadence as posts. Client-uploaded (real EXIF) does NOT count against AI image quota (E-E-A-T booster) | ✅ |
 | 3 | Blog posts (bilingual EN+FR): 2/4/6/8 unique topics/month, each published EN+FR (so Starter = 2 topics = 4 articles) | ✅ |
 | 4 | Citations: 2/4/6/8 per month, max per domain | ✅ |
