@@ -4,6 +4,48 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended5) — sitemap + llms.txt for AI/SEO discoverability
+
+User-flagged manual tasks done, now extending to sustained autopilot:
+sitemap and llms.txt indexing for the 3 new public surfaces, plus a
+stale-pricing fix in llms.txt.
+
+**Live deploy verified (9/9 URLs return 200):**
+- /badge, /fr/badge ✅
+- /industry-reports, /fr/industry-reports ✅
+- /industry-reports/dentists-quebec-q1-2026 ✅
+- /concierge-demo ✅
+- /verify/demo ✅
+- /api/badge.svg?slug=demo (returns valid SVG with `Verified by AiLys: 78/100` aria-label) ✅
+- /help/ailys-verified-badge-overview ✅
+- /api/badge.svg?slug=sample&variant=full&lang=fr (returns FR full-variant SVG) ✅
+
+**sitemap.xml entries added (20 new × 16 locales = 320 new URLs total):**
+- /badge (compact embed page)
+- /concierge-demo (public AI Concierge preview)
+- /industry-reports (lead-magnet landing)
+- 5 Q1 2026 report detail pages (dentists, clinics, contractors, restaurants, lawyers)
+
+URL counts: was 142/locale, now 162/locale = 2592 total across 16 locales.
+
+**llms.txt updates:**
+- Pricing tier table refreshed: Autopilot $1,299 → Agency $2,500, full deliverables list per tier accurate
+- Added AiLys Automation $100 add-on note
+- New section in Documentation block: Industry Reports (publishing cadence + sample size), AiLys Verified Badge (copy-paste embed), AiLys Concierge demo (public preview)
+
+**Skipped (deliberate):**
+- OG images per industry report: SEOHead falls back to APP_CONFIG.logo, brand-consistent. Vertical-specific Gemini-generated hero images deferred to a future session as a polish pass.
+
+**Gates green:**
+- TypeScript: clean
+- Em-dash: zero in llms.txt
+- sitemap regen: 16 locales, 162 URLs each, master index points correctly
+- node scripts/generate-sitemap.mjs exit 0
+
+**Pending tag:** `v0.13.4-sitemap-llmstxt-discoverability`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended4) — Q2 2026 pipeline + duplicate cleanup
 
 Final batch this session. Added Q2 2026 placeholders for real-estate and

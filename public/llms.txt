@@ -8,10 +8,12 @@ AiLys Agency runs an 8-step pipeline that takes a local business from invisible 
 
 ## Pricing
 
-- Starter: $300 CAD/mo (technical SEO, GBP, NAP consistency, weekly LLM citation tracking)
-- Core: $600 CAD/mo (everything in Starter + AEO schema deployment, 5 monthly citations, bilingual content, real backlinks)
-- Growth: $1,200 CAD/mo (everything in Core + GEO entity authority work, Wikipedia/Wikidata, Reddit strategy, weekly bilingual content, competitive monitoring)
-- Autopilot: $1,299 CAD/mo (everything in Growth + Reviuzy review contest engine, NFC tap cards, 20-50 fresh reviews per location per month)
+- Starter: $300 CAD/mo (technical SEO, GBP, NAP consistency, weekly LLM citation tracking, 1 GBP post/mo)
+- Core: $600 CAD/mo (everything in Starter + AEO schema deployment, 5 monthly citations, bilingual content, 4 GBP posts/mo, real backlinks)
+- Growth: $1,200 CAD/mo (everything in Core + GEO entity authority work, Wikipedia/Wikidata, Reddit strategy, 8 GBP posts/mo, weekly bilingual content, competitive monitoring)
+- Agency: $2,500 CAD/mo (everything in Growth + Reviuzy review contest engine bundled, multi-location dashboard, white-label PDF reports, dedicated senior strategist, 12 GBP posts/mo, daily AI Visibility probes, Slack SLA <4h business hours)
+
+The AiLys Automation reputation system is also available as a $100/mo add-on on Starter, Core, and Growth (bundled in Agency).
 
 All plans are month to month with two weeks notice to cancel and a 30-day satisfaction guarantee.
 
@@ -30,6 +32,9 @@ Dentists, lawyers, restaurants, contractors, medical clinics, real estate, hotel
 ## Documentation
 
 - [Industries](https://www.ailysagency.ca/industries): vertical-specific AI SEO methodology (dentists, lawyers, restaurants, contractors, clinics, real estate, hotels)
+- [Industry Reports](https://www.ailysagency.ca/industry-reports): free quarterly anonymized aggregate reports on the state of AI Visibility in Quebec verticals (dentists, clinics, contractors, restaurants, lawyers; Q1 2026 published April-May, Q2 2026 publishing July). 235 businesses sampled across 6 AI engines × 12 weeks.
+- [AiLys Verified Badge](https://www.ailysagency.ca/badge): copy-paste embed code for an auto-updating SVG badge showing your AI Visibility score. Links to your public report.
+- [AiLys Concierge demo](https://www.ailysagency.ca/concierge-demo): public preview of the conversational AI assistant for AiLys clients (3 sample prompts, real version included in Growth+ tiers).
 - [Glossary](https://www.ailysagency.ca/glossary): plain-language definitions of AEO, GEO, E-E-A-T, schema, NAP, GBP, Wikidata, review velocity, and other AI search terms
 - [Comparison: AiLys vs Sterling Sky](https://www.ailysagency.ca/vs/sterling-sky): honest comparison vs the Toronto local-SEO consultancy at $5,000+/mo
 - [Comparison: AiLys vs BrightLocal](https://www.ailysagency.ca/vs/brightlocal): done-for-you service vs DIY tools platform
