@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Globe } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLang } from '@/i18n/LangContext';
 import { LANG_LABELS, LANG_FLAGS, SupportedLang } from '@/i18n/index';
 
@@ -18,7 +18,24 @@ const SUPPORTED_LANGS: SupportedLang[] = [
 export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
   const { lang, setLang } = useLang();
   const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
+
+  // Preserve the current path when switching languages so a user on
+  // /blog/my-slug stays on the localized version of that post instead of
+  // being thrown back to the landing page.
+  function buildPathForLang(targetLang: SupportedLang): string {
+    const path = location.pathname || '/';
+    const localePrefix = path.match(/^\/([a-z]{2})(\/|$)/);
+    let stripped = path;
+    if (localePrefix && (SUPPORTED_LANGS as readonly string[]).includes(localePrefix[1])) {
+      stripped = path.slice(3) || '/';
+      if (stripped === '') stripped = '/';
+    }
+    if (targetLang === 'en') return stripped + (location.search || '') + (location.hash || '');
+    const newPath = stripped === '/' ? `/${targetLang}` : `/${targetLang}${stripped}`;
+    return newPath + (location.search || '') + (location.hash || '');
+  }
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 208, maxHeight: 320 });
   const [openUpward, setOpenUpward] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -102,12 +119,7 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
             onClick={() => {
               setLang(code);
               setOpen(false);
-              // Navigate to language-prefixed URL for SEO + page refresh
-              if (code === 'en') {
-                navigate('/');
-              } else {
-                navigate(`/${code}`);
-              }
+              navigate(buildPathForLang(code));
             }}
             style={{
               display: 'flex',
