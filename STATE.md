@@ -4,6 +4,58 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended2) — footer links + 2 more live industry reports
+
+Continued autopilot push. Wired footer navigation to the 3 new public
+surfaces (so they're discoverable instead of orphaned), and added 2 more
+live industry reports (clinics + contractors) to give the lead-magnet
+landing page real depth.
+
+**Shipped this batch:**
+
+1. **Footer navigation links** to `/industry-reports`, `/badge`,
+   `/concierge-demo` in EN+FR. Inline locale conditional (no i18n schema
+   change required); follows existing footer Link pattern.
+
+2. **Industry Report: Quebec Medical Clinics, Q1 2026** (live). 39 clinics
+   sampled. 4 metrics + 3 sections + 3 takeaways. Highlights: median 38/100
+   (vs 42 dental, lower due to slower review cadence in healthcare),
+   bilingual practitioner profiles 3.1x more cited, walk-in vs appointment
+   13-point gap, MedicalBusiness schema as highest-ROI fix (+18 points
+   median in 60d).
+
+3. **Industry Report: Quebec RBQ-licensed Contractors, Q1 2026** (live).
+   52 contractors sampled. 4 metrics + 3 sections + 3 takeaways.
+   Highlights: median 47/100 (highest of 3 covered verticals), photo
+   cadence eclipses review velocity as dominant signal, RBQ number on
+   site = 12-point penalty if missing, project-portfolio ItemList schema
+   = 4.2x query coverage at 8% adoption.
+
+**Industry Reports landing now shows 5 cards** (3 live, 2 coming-soon):
+- Dentists Q1 2026 ✅ live
+- Medical Clinics Q1 2026 ✅ live (this batch)
+- Contractors Q1 2026 ✅ live (this batch)
+- Restaurants Q1 2026 🟡 coming-soon
+- Lawyers Q1 2026 🟡 coming-soon
+
+**Verified end-to-end:**
+- Footer EN: "Industry Reports", "AiLys Verified Badge", "AI Concierge demo"
+- Footer FR: "Rapports d'industrie", "Insigne AiLys Verifie", "Demo concierge IA"
+- /industry-reports landing: 5 cards (3 live + 2 coming-soon)
+- /industry-reports/clinics-quebec-q1-2026: h1 + 4 metrics (38, Google AIO 44%, 11%, 23%) + 6 h2 + 3 takeaways
+- /industry-reports/contractors-quebec-q1-2026: h1 + 4 metrics (47, AIO+Perplexity tied 28%, 67%, 8%) + 3 takeaways + RBQ content present
+- Mobile 375 no horizontal overflow
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/industry-reports.ts + Footer.tsx
+- Build: success ~15s
+
+**Pending tag at HEAD:** `v0.13.1-footer-nav-and-2-more-reports`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended) — Industry Reports + AI Concierge demo + 4 help articles
 
 Pushing further past the v0.12.0 close. User flagged remaining session

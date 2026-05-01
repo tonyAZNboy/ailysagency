@@ -27,6 +27,9 @@ export function Footer() {
     { label: t.footerExt.bookCall, href: "/book-call" },
     { label: t.footerExt.auditLink, href: "/audit" },
     { label: t.footerExt.gbpPulse, href: "/audit/gbp" },
+    { label: lang === "fr" ? "Rapports d'industrie" : "Industry Reports", href: "/industry-reports" },
+    { label: lang === "fr" ? "Insigne AiLys Verifie" : "AiLys Verified Badge", href: "/badge" },
+    { label: lang === "fr" ? "Demo concierge IA" : "AI Concierge demo", href: "/concierge-demo" },
     { label: t.footer?.contact ?? "Contact", href: `mailto:${APP_CONFIG.email}` },
   ];
 
