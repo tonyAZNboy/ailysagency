@@ -4,6 +4,83 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot late) — pricing $2,500, badge embed MVP, god-mode planning
+
+Autopilot session pushing forward after the evening blog/SEO/roadmap close.
+Three concrete deliverables: price bump $2,499 → $2,500, the Bonus A
+"AiLys Verified badge embed" MVP, and 11 GSD planning artefacts seeding
+the 5 god-mode features for the next ~35 sessions of work.
+
+**PRs merged this session:**
+- #74 feat(pricing): Agency tier $2,499 → $2,500 across 35 files (canonical
+  source `tier-comparison.ts` cascaded to pricing UI, quote PDF, chat-advisor,
+  16 EN+FR blog posts, CLAUDE.md hard rule, planning docs, smoke assertions).
+  Historical narrative entries preserved (STATE.md timeline, migrate-tier3-rebrand,
+  fix-footer-ticker-stale, BLOG_AUDIT_ANSWERS Q&A history).
+- #75 feat(badge): AiLys Verified badge embed + public verification page.
+  - Public routes `/badge` + `/:lang/badge` + `/verify/:slug` + `/:lang/verify/:slug`
+  - `<AiLysBadge />` component (compact 220x64 / full 320x120, tier-color
+    thresholds, 5-star rendering, EN+FR full + 14 secondary locales placeholder)
+  - `/api/badge.svg` Cloudflare Pages Function: SVG served with public
+    cache-control 1h, CORS open for cross-site embed
+  - Demo data: tenants "demo" (Acme Pizza Montreal 78/100) and "sample"
+    (Sample Co 92/100). Real per-tenant lookup deferred until Reviuzy
+    `public-tenant-badge` edge fn ships via cross-repo proxy.
+  - Help center articles + 14 non-EN/FR translations queued.
+
+**God-mode planning artefacts shipped (this PR):**
+
+11 docs in `.planning/`:
+- `feature-1-deep-site-audit/00-objectives.md` + `02-sub-phases.md`
+- `feature-2-auto-remediation/00-objectives.md` + `02-sub-phases.md`
+- `feature-3-white-label-portal/00-objectives.md` + `02-sub-phases.md`
+- `feature-4-predictive-share-of-model/00-objectives.md` + `02-sub-phases.md`
+- `feature-5-ai-concierge/00-objectives.md` + `02-sub-phases.md`
+- `GOD_MODE_ROADMAP.md` (top-level index with build order, time-box totals,
+  cross-feature deps, parallel tracks, hard-rule references, cost guardrails)
+
+**Time-box totals captured:**
+
+| Feature | Sub-phases | Sessions | Repo |
+|---|---|---|---|
+| F1 Deep Site Audit | 5 | ~5 | Reviuzy |
+| F2 Auto-Remediation | 5 | ~6 | Reviuzy |
+| F3 White-Label Portal | 6 | ~8 | AiLys |
+| F4 Predictive ML | 5 | ~7 | Reviuzy |
+| F5 AI Concierge | 6 | ~9 | AiLys + Reviuzy |
+| **Total** | **27** | **~35 sessions (~12 weeks)** | |
+
+**Verified:**
+- TypeScript: clean (`npx tsc --noEmit`)
+- Blog audit: 59/59 pass (`node scripts/audit-blog-translations.mjs`)
+- Em-dash audit: zero matches across `src/i18n/translations/`, `src/blog/posts/`, `functions/`
+- Build: success (`npx vite build`, ~16s)
+- Quote PDF smoke: 10/10 pass (Agency total = $2,500)
+- /badge EN: h1 "AiLys Verified Badge", SVG present, 2 code blocks (HTML + Markdown)
+- /fr/badge: h1 "Insigne AiLys Vérifié", FR translation correct
+- /verify/demo: 78/100, 4.2/mo, 28 citations, 86% schema, 3 engines (ChatGPT, Perplexity, Google AIO)
+- /verify/sample: 92/100, 47 citations, 96% schema, 6 engines (all majors)
+- /verify/unknown: 404 surface
+- Mobile 375x812: no horizontal overflow
+
+**Outstanding for next session:**
+
+1. Pick up F1 Deep Site Audit sub-phase F1.1 (DB schema + RLS + smoke) in
+   the Reviuzy repo (`/c/Anthony/Projects/reviuzy`). Invoke `/iso-gsd-delivery`
+   at session start; F1 planning artefacts already in `.planning/feature-1-deep-site-audit/`.
+2. Or pick up F3 White-Label Portal F3.1 (DB schema + RLS hardening) in
+   parallel since F3 doesn't share tables with F1-F2-F4.
+3. Bonus A badge embed: wire real tenant data via Reviuzy `public-tenant-badge`
+   edge fn (cross-repo proxy with `AILYS_SERVICE_SHARED_SECRET`).
+
+**Cumulative session totals (since 2026-04-30 D.4 close):**
+- AiLys PRs merged: #54-#75 (22 PRs) covering blog comparison authoring,
+  SEO upgrades, language switcher fix, pricing bump, badge embed MVP, planning artefacts
+- 59 blog posts shipped + verified
+- Tag pending at HEAD: `v0.12.0-pricing-and-badge-and-planning`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (evening), blog comparison polish + i18n + SEO + roadmap
 
 Final session of 2026-05-01 covering blog comparison post finalization,
