@@ -4,6 +4,466 @@
 
 ---
 
+## 🚀 ROADMAP — 5 god-mode features to 10x AiLys + Reviuzy (queued 2026-05-01)
+
+The five features below are the highest-leverage builds queued for the next
+session. They go beyond CRUD: each one closes a competitive gap or unlocks a
+new revenue model. Build order is intentional (Deep Site Audit first because
+it feeds Auto-Remediation, then White-Label Agency Portal opens B2B2B, then
+Predictive Share-of-Model is the technological moat, then AI Concierge is the
+retention/upsell trigger). Bonus tactics at the bottom are 1-week wins.
+
+### Build order (recommended)
+1. **Deep Site Audit** (foundation, AiLys + Reviuzy)
+2. **Auto-Remediation Engine** (closes the diagnostic loop)
+3. **White-Label Agency Portal** (B2B2B revenue)
+4. **Predictive Share-of-Model** (ML moat)
+5. **AI Concierge dashboard** (retention + upsell)
+
+---
+
+### Feature 1: Deep Site Audit (Reviuzy)
+
+**Pitch:** When a client already has a website (vs net-new build), AiLys runs
+a full technical + content + AI-readiness audit and produces a prioritized
+action plan. Today Reviuzy audits cover reputation/AI-citation only; this
+adds the missing technical layer.
+
+**Scope (build):**
+- New tables: `audit_web_runs`, `audit_web_findings` in Supabase
+- New cron: `crawl-website` runs Lighthouse + custom crawler (max 50 pages or
+  sitemap-limited)
+- Lighthouse / PageSpeed Insights API integration (perf, accessibility, best
+  practices, SEO score, mobile usability)
+- Schema.org JSON-LD validation per page (LocalBusiness, FAQPage, Service,
+  HowTo, BreadcrumbList, Person)
+- Crawl errors: 404s, redirect chains, broken internal links, broken external
+  links
+- On-page audit: title length, meta description, H1 count, alt text coverage,
+  canonical tag presence, hreflang validity, sitemap.xml + robots.txt audit
+- Security: HTTPS, HSTS, security headers (CSP, Referrer-Policy)
+- AI-readiness: structured data density per page, FAQ coverage, NAP
+  consistency cross-page, Wikidata Q-number presence
+- Scoring: each layer 0-100, weighted composite score, percentile vs industry
+- Output: Day-1 PDF (complements existing AI Visibility audit), persistent
+  dashboard with drill-down, export to CSV/JSON
+- Reuses: HMAC signed URLs, onboarding PDF infrastructure, Cloudflare
+  edge function pattern
+
+**God-mode prompt to paste into Cursor (Reviuzy repo):**
+```
+Build a "Deep Site Audit" module in Reviuzy that supplements the existing
+AI Visibility audit. Run when a client has an existing website (vs new build).
+
+Database (Supabase migrations):
+- audit_web_runs: id, tenant_id, run_id (FK audit_runs), root_url, status
+  (pending/crawling/scoring/done/failed), started_at, completed_at, score,
+  pages_crawled, error_count
+- audit_web_findings: id, run_id (FK), category (perf/seo/schema/security/
+  accessibility/ai-readiness), severity (critical/high/medium/low),
+  page_url, finding_key, finding_value, recommendation, fix_effort_hours
+- RLS: tenant-scoped read/write, service role for cron writes
+
+Backend (supabase/functions):
+- crawl-website edge function: input { run_id, root_url }, output { pages: [
+  {url, status, html_size, schema_present, lighthouse_score, errors: []}]}.
+  Sitemap-first; fallback to BFS crawl, max 50 pages, respect robots.txt,
+  3s/page timeout, parallel batch of 5.
+- analyze-page edge function: input { url }, runs Lighthouse via PageSpeed
+  Insights API + custom checks (schema lint via schema.org validator, broken
+  link probe, on-page meta audit). Output: findings array.
+- score-audit edge function: aggregates findings, computes composite, ranks
+  by impact (severity * fix_effort inverse), returns top-20 action items.
+- generate-deep-audit-pdf edge function: 12-page PDF: cover, exec summary,
+  perf (Lighthouse breakdown), SEO on-page, schema audit, AI-readiness,
+  security, accessibility, top-20 action items, glossary, next steps,
+  appendix. EN + FR locales (mirror audit-pdf pattern).
+
+Frontend:
+- /admin/clients/[tenantId]/deep-audit: trigger run, view history, drill into
+  findings by category, mark findings as fixed (auto-tracks remediation
+  velocity).
+- Public client dashboard widget: composite score + delta vs last run +
+  top-3 actions.
+
+Cron:
+- weekly per Growth+, monthly per Core, quarterly per Starter (re-uses
+  ailys_tier helper). Honor DRY_RUN env var.
+
+Cost guardrails:
+- PageSpeed API: free up to 25k/day, hard cap at 1k pages/tenant/month.
+- Crawl: max 50 pages/run, max 4 runs/month/tenant on lower tiers.
+
+ISO gates required (per CLAUDE.md hard rule #14): server-side input
+validation (zod), rate-limit, audit log, RLS isolation test (tenant A
+cannot read tenant B findings), DRY_RUN mode, EN+FR PDF parity, STATE.md
+updated same commit, smoke tests for the 4 edge functions and the PDF.
+
+Help center articles required (EN + FR-CA) before UI ships:
+"What the Deep Site Audit checks", "How to read the score", "How to
+prioritize fixes". Articles must NOT name PageSpeed/Lighthouse/Schema.org
+internals; refer to "the AiLys engine" per hard rule #10.
+```
+
+---
+
+### Feature 2: Auto-Remediation Engine (Reviuzy + AiLys)
+
+**Pitch:** Diagnose AND fix. When the audit (AI Visibility OR Deep Site)
+detects a gap, the engine generates the fix and either auto-applies it
+(via API where possible) or queues it for one-click strategist approval.
+Closes the diagnostic loop that competitors leave open.
+
+**Auto-fixable gaps (initial scope):**
+- Missing schema markup → engine generates JSON-LD per page, opens PR
+  against client's Wordpress/Webflow site (via plugin), or surfaces a
+  copy-paste block
+- Inconsistent NAP across citations → auto-submits corrections to Yelp /
+  BBB / YP via their APIs (or queues for strategist if no API)
+- Reviews unanswered > 24h → Reviuzy auto-generates personalized reply in
+  client brand voice, posts via GBP API after strategist approves
+- GBP photo gap → generates AI image via Gemini, surfaces to client
+  approval queue, auto-uploads on approve
+- FAQ schema missing → mines client's site + AI Visibility queries to draft
+  10 FAQs, auto-deploys
+- Broken sitemap → auto-regenerates and submits to GSC + Bing Webmaster
+- Citation submission backlog → auto-fills NAP, hits citation directories,
+  tracks acceptance state
+
+**Stack:**
+- Queue: `auto_remediations` table (id, tenant_id, finding_id, action_type,
+  status, payload, executed_at, requires_approval)
+- Worker: Cloudflare Workers + Supabase Edge cron, processes queue every
+  5 min, max 10 actions/tenant/hour
+- Approval inbox: per-tenant dashboard showing pending actions with diff
+  preview, one-click approve/reject
+- Audit log: every action logged with before/after state, reversible
+
+**God-mode prompt:**
+```
+Build the Auto-Remediation Engine in Reviuzy. New module that turns audit
+findings into automated or strategist-approved fixes.
+
+Tables:
+- remediation_recipes: action_type, requires_approval, executor_fn,
+  rollback_fn, est_minutes, max_per_day_per_tenant
+- auto_remediations: id, tenant_id, source_finding_id (poly: ai_audit or
+  web_audit), action_type, status (queued/awaiting_approval/executing/
+  done/failed/rolled_back), payload jsonb, executed_at, executed_by
+  (system|strategist_id), undo_payload jsonb
+- RLS: tenant-scoped, service role for executor
+
+Edge functions:
+- enqueue-remediations: cron daily, scans new audit findings against
+  remediation_recipes, enqueues matching actions
+- execute-remediation-queue: cron every 5 min, picks queued actions where
+  requires_approval=false OR has approval_token, executes via the
+  registered executor fn, writes undo_payload
+- approve-remediation: HMAC endpoint called from approval-inbox UI,
+  flips status to executing
+- rollback-remediation: HMAC endpoint, runs rollback_fn using undo_payload
+
+First 7 recipe types to implement:
+1. inject_schema_jsonld (Wordpress + Webflow connectors)
+2. submit_nap_correction (Yelp + BBB + YP via their APIs)
+3. publish_review_reply (GBP API + Reviuzy AI reply gen)
+4. upload_gbp_photo (Gemini image gen + GBP API + EXIF preservation)
+5. deploy_faq_schema (mines top FAQ candidates from AI queries +
+   strategist-approved FAQ deck)
+6. regenerate_sitemap_xml + submit_to_gsc_bing
+7. submit_citation_directory (5/10/15/8 per tier, hits directory APIs)
+
+Frontend:
+- /admin/remediations: queue view (pending, awaiting_approval, executing,
+  done), filters by tenant + action_type, bulk approve, drill-down with
+  diff preview, rollback button
+- Per-client widget: "23 fixes auto-deployed this month, 5 awaiting your
+  approval"
+
+Cost guardrails: hard cap 100 actions/tenant/day, opt-in per recipe type
+in tenant_settings. Sentry on every executor failure.
+
+ISO gates: idempotent executors (same action twice = no-op), undo coverage
+on every recipe, RLS test that tenant A cannot approve tenant B actions,
+audit log with full payload + actor + timestamp + tenant_id.
+```
+
+---
+
+### Feature 3: White-Label Agency Portal (B2B2B revenue model)
+
+**Pitch:** Resellable AiLys for other Quebec/Canadian agencies. They white-
+label the platform under their brand, charge their own clients, AiLys takes
+revenue share. Turns AiLys into "the platform other agencies use" instead
+of just an end-customer SaaS.
+
+**Scope:**
+- New tier: `agency_partner` ($X/mo seat + Y% rev share OR flat $Z/seat)
+- Multi-tenant subdomain: `{partner-slug}.ailysagency.ca` OR custom domain
+  (CNAME flow with auto-cert via Cloudflare for SaaS)
+- Per-partner branding: logo, primary color, custom favicon, OG image,
+  email-from address
+- Tenant hierarchy: agency_partner → manages their own tenants
+  (sub-clients), each with full AiLys feature set scoped to their
+  agency_partner_id
+- Partner dashboard: list sub-clients, aggregate AI Visibility metrics,
+  revenue tracking, churn alerts
+- Billing: agency invoiced once for all sub-clients (Stripe Connect or
+  per-partner Stripe customer)
+- White-labeled PDFs: generated with partner brand instead of AiLys
+- Per-partner help center: partner can override or supplement AiLys
+  documentation
+
+**God-mode prompt:**
+```
+Build the White-Label Agency Portal in AiLys. New tenant_tier
+'agency_partner' that can manage sub-clients under their own brand.
+
+Database:
+- agency_partners: id, slug, custom_domain, brand_name, logo_url,
+  primary_color, favicon_url, og_image_url, email_from, billing_model
+  (rev_share|per_seat), commission_pct, monthly_seat_fee
+- tenants: add agency_partner_id (nullable FK), agency_relationship
+  (own|managed_by_partner)
+- partner_invitations: id, partner_id, invited_email, status, expires_at
+- partner_revenue_log: monthly aggregation of sub-client billings
+- RLS: agency_partner can read/write their sub-clients' data, NOT other
+  partners' data; AiLys staff (god_mode role) sees all
+
+Backend:
+- Cloudflare for SaaS integration: dynamic SSL for partner custom domains
+- Domain claim flow: partner adds CNAME → AiLys verifies → cert auto-issued
+- Subdomain routing in pages-functions: extract partner from request.url
+  hostname, inject brand context into all renders
+- Branded PDF generator: partner logo replaces AiLys logo, partner
+  colors override cyan, partner email-from on all transactional sends
+- Partner billing: nightly cron aggregates sub-client tier prices,
+  produces invoice line items, sends to Stripe via Connect
+
+Frontend:
+- /partner-portal: agency dashboard (sub-clients list, aggregate metrics,
+  revenue YTD, churn alerts, onboard new client wizard)
+- /partner-settings: brand customization, billing config, team members
+  (with seat limit per agency tier), domain management
+- Sub-client onboarding: agency invites via email, sub-client lands on
+  partner-branded onboarding flow, no AiLys branding visible
+- Partner-scoped admin: sub-client AI Visibility, GBP, citations all
+  visible to partner team
+
+Pricing model proposal:
+- Tier 1 Agency Starter: $499/mo for 5 sub-client seats + 30% rev share
+- Tier 2 Agency Core: $999/mo for 15 sub-client seats + 25% rev share
+- Tier 3 Agency Growth: $1999/mo for 50 sub-client seats + 20% rev share
+- Tier 4 Agency Enterprise: custom
+
+ISO gates: RLS isolation test (partner A cannot read partner B data,
+sub-client A cannot read sub-client B data even within same partner),
+billing reconciliation test, custom domain SSL test, branded PDF render
+parity test. Sentry on every cross-tenant query attempt.
+
+Help center articles for partners (EN + FR-CA): "How to onboard a
+sub-client", "Managing your white-label brand", "Reading aggregate
+metrics", "Billing and revenue share explained". Articles must NOT
+expose AiLys vendor names per hard rule #10.
+```
+
+---
+
+### Feature 4: Predictive Share-of-Model (ML moat)
+
+**Pitch:** Doesn't just measure citation share, predicts where it's going.
+ML model trained on historical citation data + signal velocity (review
+freshness, citation count, schema deployment, content cadence) outputs
+"ChatGPT will cite your brand within 14 days at 73% confidence if you
+maintain current cadence." Becomes the unique selling point no competitor
+can match.
+
+**Scope:**
+- Time-series store: TimescaleDB on Supabase (or hyperscale alternative)
+  for daily citation snapshots per tenant per engine per query
+- Feature engineering pipeline: rolling-window aggregates (review velocity
+  7d/30d/90d, citation density trend, schema completeness delta, content
+  cadence)
+- Model: gradient-boosted regression (LightGBM or XGBoost) per engine
+  predicting next-30-day citation probability + confidence interval
+- Re-train weekly via Modal or Replicate (Python, no in-house infra)
+- Inference endpoint: edge function that scores current tenant state,
+  returns 30/60/90 day forecasts with explainability (top 5 drivers)
+- Dashboard: time-series chart of actual vs predicted, "actions you can
+  take to move the prediction" (counterfactual analysis)
+
+**God-mode prompt:**
+```
+Build the Predictive Share-of-Model ML pipeline.
+
+Data:
+- TimescaleDB on Supabase: ai_citation_snapshots table, daily writes per
+  tenant x engine x query, partitioned by week
+- Snapshot fields: tenant_id, engine, query, cited (bool), citation_rank,
+  source_excerpt, captured_at
+- Feature store table: ai_features_daily, computed via materialized view
+  refreshed nightly. Features: review_velocity_7d, review_velocity_30d,
+  citation_count_active, schema_completeness_pct, content_cadence_30d,
+  gbp_post_cadence_30d, photo_cadence_30d, nap_consistency_pct,
+  competitor_share_delta_30d
+
+Model:
+- Python pipeline in Modal Labs (serverless, pay per run)
+- LightGBM regressor per engine (6 models: ChatGPT, Perplexity, Claude,
+  Gemini, Google AIO, Bing Copilot)
+- Target: probability_of_citation_within_30d
+- Train weekly on 90d history, validate on holdout (last 7 days)
+- Save model artifacts to Supabase storage with version
+- Track MAE + AUC per model in audit table
+
+Inference:
+- score-prediction edge function: input { tenant_id, engine, horizon_days
+  (30|60|90) }, output { probability, confidence_interval, top_5_drivers
+  with shap values, counterfactuals: "if you publish 4 GBP posts/wk
+  instead of 2, probability rises to 0.78" }
+- Batch nightly cron: scores all active tenants, writes to ai_predictions
+  table, surfaces in dashboard
+
+Frontend:
+- /dashboard/predictions: time-series chart (actual citation share + 30d
+  prediction band), per-engine breakdown, top drivers card,
+  counterfactual sandbox (sliders for review velocity, content cadence,
+  see live prediction recompute)
+- Email digest: weekly summary "Your ChatGPT prediction this week: 67%
+  (up from 54% last week). Top driver: schema completeness +12%."
+
+Cost guardrails: Modal compute cap $200/mo, fallback to baseline last-7d
+average if model unavailable. PageSpeed-style throttle on inference (max
+50/min/tenant).
+
+ISO gates: model lineage stored (training data hash, hyperparams, metric
+delta vs prev model, shipped on PR with eval notebook), DRY_RUN mode
+that returns synthetic predictions for staging, A/B test new models vs
+production for 7 days before promotion.
+
+Help center articles (EN + FR-CA): "How AiLys predicts your AI
+Visibility", "Reading the confidence interval", "Using counterfactuals to
+improve your score". MUST NOT name LightGBM/Modal/SHAP per hard rule #10;
+refer to "the AiLys prediction engine".
+```
+
+---
+
+### Feature 5: AI Concierge dashboard (retention + upsell trigger)
+
+**Pitch:** Embedded Claude/GPT assistant in the client dashboard that
+understands their data. Conversational interface for "Why did my Share
+of Model drop this week?" / "Generate a GBP post for Halloween" /
+"Compare me to my top 3 competitors". Drives session length, surfaces
+upsell moments, makes the platform stickier than any competitor's
+static dashboard.
+
+**Scope:**
+- Anthropic Claude API integration with tool-calling
+- Tool registry: `get_share_of_model`, `get_recent_reviews`, `get_gbp_posts`,
+  `get_competitor_analysis`, `generate_gbp_post`, `schedule_gbp_post`,
+  `draft_review_reply`, `get_audit_findings`, `recommend_next_action`,
+  `compute_revenue_projection`
+- RAG over tenant data: weekly snapshot of all tenant signals indexed in
+  pgvector, retrieves relevant context per query
+- Voice in/out via Web Speech API (browser-native, no extra cost)
+- Chat history persisted per tenant with full audit trail
+- Token budget per tenant per day (Starter 10k tokens, Core 50k, Growth
+  200k, Agency unlimited)
+
+**God-mode prompt:**
+```
+Build the AI Concierge dashboard module in AiLys.
+
+Backend:
+- pgvector extension on Supabase
+- tenant_context_embeddings table: tenant_id, source (audit|reviews|gbp|
+  citations|content), source_id, embedding vector(1536), text, captured_at
+- Nightly cron: re-embeds latest tenant signals (top 100 per source) using
+  OpenAI text-embedding-3-small ($0.02/1M tokens)
+- concierge-chat edge function: streaming response from Anthropic Claude
+  Sonnet with tool-calling, RAG over tenant_context_embeddings, persists
+  to concierge_conversations table
+- Tool definitions (Anthropic tool-use schema):
+  - get_share_of_model(engine?, period?): returns latest scores
+  - get_recent_reviews(limit, sentiment?): returns Reviuzy review data
+  - get_gbp_posts(period): returns post list with engagement
+  - get_competitor_analysis(): returns top-3 competitors current vs trend
+  - generate_gbp_post(theme, length): drafts post via Claude
+  - schedule_gbp_post(post_id, publish_at): queues to GBP API
+  - draft_review_reply(review_id, tone): generates reply
+  - get_audit_findings(category?): returns deep site audit findings
+  - recommend_next_action(): top-3 prioritized actions based on findings
+  - compute_revenue_projection(scenario): runs ROI model
+
+Frontend:
+- /dashboard/concierge: chat interface (right rail or full panel)
+  - Streaming text via SSE
+  - Tool-call visualization: "🔍 Looking up your Share of Model..."
+  - Inline data viz: tool results render as charts/cards inline in
+    chat thread, not just text
+  - Voice input button (mic icon, Web Speech API)
+  - Voice output toggle (TTS via Web Speech API)
+  - Suggested prompts on empty state: "Why did my score drop?", "Generate
+    a Halloween GBP post", "Compare me to top 3 competitors"
+- Chat history sidebar with search
+- Per-message thumbs up/down for feedback (saves to concierge_feedback)
+
+Cost guardrails:
+- Token budget enforcement: tenant_token_usage table tracks daily spend,
+  edge function rejects requests when over tier limit (with upgrade CTA)
+- Caching: identical recent queries (15 min window) return cached response
+- Anthropic API max $500/mo across all tenants; alarm at $400
+
+Privacy:
+- Concierge prompts NEVER expose other tenants' data (RLS on every tool
+  call, tenant_id pinned to authenticated session)
+- Conversation logs auto-purge after 90d unless tenant opts in
+
+ISO gates: tool-call audit log (who called what tool with what args),
+tenant_id pinning test (concierge cannot leak data across tenants), token
+budget enforcement test, fallback to plain Claude (no tools) when token
+budget exhausted, EN/FR Claude system prompts reviewed for hallucination
+guardrails.
+
+Help center articles (EN + FR-CA): "How to talk to the AiLys Concierge",
+"What the concierge can do", "Voice mode", "Privacy and your
+conversations". MUST NOT name Anthropic/Claude per hard rule #10; call it
+"the AiLys engine" or "the AiLys AI assistant".
+```
+
+---
+
+### Bonus 1-week tactics (low effort, high return)
+
+**A. AiLys Certified badge embed**
+- Generate a public verifiable badge per tenant: "Verified by AiLys ★★★★★"
+  + link to public AI Visibility report
+- Tenants embed in their site footer → free backlinks + brand authority
+- Build: 1-page badge generator, public report URL, embed code copy
+- ETA: 1 week
+
+**B. Quarterly Industry Reports as lead magnets**
+- Auto-generate per industry per quarter: "État de l'AI Visibility des
+  dentistes au Québec, Q4 2026"
+- Aggregates anonymized AiLys data + LLM probes across the vertical
+- PDF + landing page + email sequence
+- Drives PR + backlinks + qualified leads
+- Build: report generator template, scheduling, distribution list
+- ETA: 2 weeks for first 3 industries
+
+**C. Slack/Teams alerts**
+- Per-tenant webhook config for score changes, new reviews, citation
+  shifts, audit findings
+- Drives dashboard re-engagement (the #1 churn signal is "client never
+  logs in")
+- Build: webhook config UI, event-to-message templates, signing
+- ETA: 3 days
+- Already partially built per STATE.md D.1.Rvz.3 (Reviuzy slack routing
+  for Agency tier). Extend to all tier-aware events.
+
+---
+
 ## 🔒 SESSION CLOSE 2026-05-01, audit page hardening + PDF i18n
 
 End-to-end hardening of the `/audit` page experience and the audit PDF
