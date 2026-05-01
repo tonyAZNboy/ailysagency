@@ -4,6 +4,44 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended13) — JSON-LD smoke test + CI gate 19 (post-deploy regression guard)
+
+The JSON-LD bug discovered during PR #88 + #91 (react-helmet-async v2
+silently stripping inline scripts on dozens of pages) had been shipping
+for weeks unnoticed. Adding a regression-prevention smoke test so the
+same class of bug cannot ship again.
+
+**Shipped:**
+
+1. **`scripts/smoke-jsonld.mjs`**: end-to-end smoke test that crawls 10
+   critical pages and asserts:
+   - HTTP 200 response
+   - JSON-LD scripts parse cleanly (no syntax errors)
+   - Expected `@type` values present per page (WebSite, BreadcrumbList,
+     ProfessionalService, Service, etc.)
+   - Canonical URL link present
+   - og:title meta tag present
+   - No stale "Autopilot" tier mention (was the deprecated tier 4 name)
+   - No stale $1,299 pricing (was old Autopilot price)
+   - 73 assertions across 10 pages (Home, /badge, /concierge-demo, 2x
+     industry-reports, 3x help articles, /audit, /forfaits-complets)
+
+2. **CI Gate 19**: post-deploy smoke test wired into
+   `.github/workflows/deploy.yml`. Runs after Cloudflare deploy
+   completes + 60s edge propagation wait. `continue-on-error: true`
+   because Cloudflare Pages does not support programmatic rollback in
+   CI (failure surfaces in run log; operator manually rolls back from
+   dashboard if needed).
+
+**Verified:**
+- Production smoke: 73/73 pass against live www.ailysagency.ca
+- Local invocation: \`node scripts/smoke-jsonld.mjs --base=http://localhost:8080\` works
+- Gate 19 syntax checked, won't block deploys (continue-on-error)
+
+**Pending tag:** `v0.14.3-jsonld-smoke-and-ci-gate-19`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended12) — Performance: code-split index.js 4.7MB → 578KB
 
 The vite build had been warning "chunk > 500KB" on every build for many

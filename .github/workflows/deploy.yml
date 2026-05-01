@@ -143,9 +143,24 @@ jobs:
           echo "Token has Pages access on the right account."
 
       - name: Deploy to Cloudflare Pages
+        id: cf-deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 3b889a272b6925fa7cbc892a83999541
           wranglerVersion: "4"
           command: pages deploy dist --project-name=ailysagency --branch=main
+
+      # Post-deploy smoke: confirm production renders with expected
+      # JSON-LD types + canonical + OG meta + no stale Autopilot/$1,299.
+      # Runs against the deployed www.ailysagency.ca after Cloudflare
+      # propagates (default 60s wait for global edge). Failure here does
+      # NOT roll back the deploy (Cloudflare Pages does not support
+      # programmatic rollback in CI), but surfaces the regression in the
+      # run log immediately so the operator can re-deploy from a previous
+      # commit via the dashboard.
+      - name: Wait for Cloudflare edge propagation
+        run: sleep 60
+      - name: Gate 19, post-deploy JSON-LD smoke (production)
+        run: node scripts/smoke-jsonld.mjs
+        continue-on-error: true
