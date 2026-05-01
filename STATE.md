@@ -4,6 +4,64 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended10) — Help article JSON-LD fix + 3 BreadcrumbList graphs + Index Resources section
+
+The SEOHead JSON-LD bug fix in PR #88 covered SEOHead consumers, but
+HelpArticle.tsx had its OWN inline `<script>` in Helmet, also stripped
+by react-helmet-async v2. That meant **108 help articles** had been
+silently shipping without their BreadcrumbList + TechArticle structured
+data. Big SEO leak. Closed it.
+
+Plus added BreadcrumbList graphs to the 2 industry-reports surfaces and
+a 3-card Resources section on the home page promoting the new public
+surfaces.
+
+**Shipped:**
+
+1. **HelpArticle.tsx JSON-LD injection fix:** moved the BreadcrumbList +
+   TechArticle JSON-LD from a Helmet inline script to a `useEffect` that
+   appends + cleans up `<script data-page-jsonld="1">` directly in
+   document.head. Same pattern as the SEOHead fix in PR #88. Affects all
+   108 help articles in the site immediately on next deploy.
+   - Verified: /help/ailys-concierge-overview now renders 2 JSON-LD
+     scripts (static WebSite + injected BreadcrumbList+TechArticle).
+
+2. **IndustryReports landing BreadcrumbList:** existing ItemList graph
+   wrapped into `@graph` array with new BreadcrumbList sibling
+   (Home > Industry Reports). Verified: 2 scripts (WebSite + ItemList +
+   BreadcrumbList).
+
+3. **IndustryReportDetail BreadcrumbList:** Report graph wrapped into
+   `@graph` array with new BreadcrumbList sibling (Home > Industry
+   Reports > <vertical title>). Verified: Report+BreadcrumbList
+   rendered alongside global WebSite.
+
+4. **Resources section on Index (home) page:** new
+   `<ResourcesSection />` component with 3 cards promoting Industry
+   Reports / Verified Badge / Concierge demo. Inserted between
+   `<AuditCtaSection />` and `<AboutSection />`. Inline EN+FR strings,
+   icon + label-pill + title + description + CTA arrow per card.
+   Mobile 375 verified no overflow.
+
+**Project-wide SEO impact summary (after PRs #88 + this batch):**
+- Glossary, Industry, IndustryReports, IndustryReportDetail, BlogPost,
+  HelpArticle, etc. all now properly emit their structured data
+- Every help article now has BreadcrumbList + TechArticle for rich-result
+  eligibility (108 articles)
+- Industry report list + detail pages have BreadcrumbList for
+  Google's "site structure" understanding
+- Home page has lead-magnet visibility above the FAQ fold
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash: zero
+- Build: success ~17s
+
+**Pending tag:** `v0.13.9-helparticle-jsonld-fix-breadcrumbs-resources-section`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended9) — Help articles for Tech Health Pack + GSC Indexation Audit (hard rule #10 closure)
 
 The parallel session that landed PR #86 (Tech Health Pack $150/mo + GSC

@@ -21,6 +21,7 @@ import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
 import { ExitIntentModal } from "@/components/landing/ExitIntentModal";
 import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
 import { APP_CONFIG } from "@/config/app";
+import { ResourcesSection } from "@/components/landing/ResourcesSection";
 
 const Index = () => {
   const { lang: urlLang } = useParams<{ lang?: string }>();
@@ -132,6 +133,7 @@ const Index = () => {
           <WhyAiLysSection />
           <FoundingClientsSection />
           <AuditCtaSection />
+          <ResourcesSection />
           <AboutSection />
           <FaqSection />
         </main>

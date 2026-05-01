@@ -88,16 +88,28 @@ export default function IndustryReportDetail() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Report",
-    name: title,
-    description: excerpt,
-    datePublished: report.publishedAt,
-    inLanguage: isFr ? "fr-CA" : "en",
-    publisher: {
-      "@type": "Organization",
-      name: "AiLys Agency",
-      url: baseUrl,
-    },
+    "@graph": [
+      {
+        "@type": "Report",
+        name: title,
+        description: excerpt,
+        datePublished: report.publishedAt,
+        inLanguage: isFr ? "fr-CA" : "en",
+        publisher: {
+          "@type": "Organization",
+          name: "AiLys Agency",
+          url: baseUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: isFr ? "Accueil" : "Home", item: lang === "en" ? baseUrl : `${baseUrl}/${lang}` },
+          { "@type": "ListItem", position: 2, name: isFr ? "Rapports d'industrie" : "Industry Reports", item: `${baseUrl}${lang === "en" ? "" : `/${lang}`}/industry-reports` },
+          { "@type": "ListItem", position: 3, name: title, item: canonical },
+        ],
+      },
+    ],
   };
 
   return (
