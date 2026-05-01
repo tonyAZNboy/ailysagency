@@ -507,6 +507,72 @@ const POSTS = [
       'Wide angle of a small Quebec storefront with the owner unlocking the door for the day, fresh morning light, hopeful atmosphere.',
     ],
   },
+
+  // ── Competitor Comparisons (Quebec / Canada) ──
+  {
+    slug: 'ailys-vs-digitad-seo-quebec',
+    prompts: [
+      'Two Montreal marketing professionals in business casual at a glass meeting table comparing approaches, one with a laptop one with a printed strategy doc, modern Montreal office with city skyline view, daylight, photorealistic editorial.',
+      'Top-down flatlay of two side-by-side notebooks on a wooden desk, one open with abstract bullet points and one with abstract diagrams, espresso cup, smartphone, no readable letters.',
+      'Wide angle of a small Quebec local business storefront at golden hour, owner standing at the entrance smiling, calm Plateau Mont-Royal street, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-bloom-agence-montreal',
+    prompts: [
+      'Performance marketing analyst at a triple-monitor setup with abstract paid media dashboards on the side screens (no readable text), modern Montreal office at night with bias light, photorealistic editorial.',
+      'Close-up of a hand pointing to an abstract printed funnel diagram on a wooden desk with marker annotations, no readable letters, editorial detail.',
+      'Wide angle of a Quebec ecommerce business owner at a packing table preparing online orders, warm daylight from windows, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-major-tom-agence-canada',
+    prompts: [
+      'Strategist with a Canada wall map covered in abstract pin markers (no readable letters), modern downtown corporate office with floor-to-ceiling windows and Vancouver-style mountain skyline, late afternoon natural light, photorealistic editorial.',
+      'Close-up of a hand placing a small marker on an abstract printed map of Canada with several city dots, no readable letters, editorial detail.',
+      'Wide angle of a small Quebec local owner at a tidy desk with a single laptop, contrasting calm with corporate scale, soft morning light, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-prostar-seo-canada',
+    prompts: [
+      'Four professionals around a table representing a multi-city team meeting (Quebec City, Montreal, Toronto, Calgary), modern bright conference room, glass walls, daylight, photorealistic editorial collaboration scene.',
+      'Top-down flatlay of an abstract printed pricing comparison sheet with two columns (no readable letters), pen, smartphone, espresso, on a wooden desk.',
+      'Wide angle of a clean modern Canadian agency office reception with a calm receptionist, glass entrance, late afternoon natural light, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-bofu-marketing-quebec',
+    prompts: [
+      'Conversion optimization specialist at a clean modern desk with an abstract funnel-shaped chart on a curved monitor narrowing toward the bottom, no readable text, Quebec home office with indirect natural light, photorealistic editorial.',
+      'Close-up of a hand sketching a funnel with three stages in a leather notebook, no readable letters, espresso cup beside, soft daylight.',
+      'Wide angle of a small Laurentides-style Quebec town storefront with a smiling owner at a counter completing a sale on a tablet, warm interior lighting, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-adviso-conseil-numerique',
+    prompts: [
+      'Senior strategy consultant in business attire presenting at a clean conference table with abstract frameworks printed on paper (no readable letters), prestigious Montreal high-rise office with city view, photorealistic editorial.',
+      'Close-up of a hand drawing a strategic framework diagram with overlapping circles in a leather notebook, fountain pen, no readable letters, editorial detail.',
+      'Wide angle of a tidy executive corner office with bookshelves, plants, single curved monitor on a clean desk with subtle skyline view, calm professional atmosphere, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-rablab-creative-montreal',
+    prompts: [
+      'Creative director at a tilted drafting desk with abstract design mockups, sketchbook open with rough shapes (no readable letters), trendy Montreal Mile End creative agency loft with exposed brick and large windows, daylight, photorealistic editorial.',
+      'Close-up of a designer hand sketching brand identity concepts with a fineliner pen on layout paper, abstract logo shapes, no readable letters, soft daylight.',
+      'Wide angle of a cozy creative collaboration corner with two designers reviewing printed mockups pinned on a corkboard with abstract layouts, warm tungsten lighting, photorealistic.',
+    ],
+  },
+  {
+    slug: 'ailys-vs-wsi-canada-franchise',
+    prompts: [
+      'Single consultant in business casual at a tidy home office desk with a laptop and a printed methodology binder beside, photo of Toronto skyline as wall art, calm warm afternoon light, photorealistic editorial.',
+      'Close-up flatlay of a leather business portfolio with an abstract methodology card and a pen, no readable letters, wooden desk surface, editorial detail.',
+      'Wide angle of a small consultant office with two professionals shaking hands across a desk in a friendly client meeting, daylight, calm professional atmosphere, photorealistic.',
+    ],
+  },
 ]
 
 console.log(`Loaded ${POSTS.length} hand-curated post prompt sets.`)
