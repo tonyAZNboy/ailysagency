@@ -77,22 +77,52 @@ export function PricingBuilderSection() {
   //   + Reviuzy add-on ($100, free on Agency)
   //   + Premium Ops items: bundle ($79 for the trio) OR individual ($35 each), free on Agency
   //
-  // Page scale uses stepped 10-page brackets (per agency directive):
-  //   1-9 pages    -> $0   (covered by base)
-  //   10-19 pages  -> +$30
-  //   20-29 pages  -> +$60
-  //   30-39 pages  -> +$90
-  //   40-49 pages  -> +$120
-  //   50+ pages    -> +$150 (cap)
-  // Each jump of 10 pages adds $30 to the recurring monthly tier price.
+  // Page count drives the tier directly via published brackets. Within a
+  // bracket the page count is included; crossing the bracket bumps the
+  // tier (per agency directive). Brackets:
+  //   1-5 pages   -> Starter  ($300)   vitrine territory
+  //   6-15 pages  -> Core     ($600)   PME territory
+  //   16-25 pages -> Growth   ($1,200) commerce territory
+  //   26+ pages   -> Agency   ($2,500)
+  // Examples (the directive math):
+  //   8 pages on Core (6-15)  = (8-5)  * $50 = $150 over the Starter bracket
+  //   17 pages on Growth (16-25) = (17-15) * $50 = $100 over the Core bracket
+  //   30 pages on Agency (26+)   = (30-25) * $50 = $250 over the Growth bracket
+  // The pageScale is the informational delta vs the previous bracket's
+  // included max. The actual recurring price is the tier base; the delta
+  // explains why the tier price lands where it does.
+  //
+  // Services can ALSO bump the tier when they aggregate above the page-
+  // derived tier (e.g. 5-page Starter + content_weekly $400 + geo $300
+  // pushes subtotal to Growth).
   const computed = useMemo(() => {
     const base = 300;
-    const pageScale = Math.min(150, Math.max(0, Math.floor(pages / 10) * 30));
+    // Tier from page brackets (the "natural" tier for this page count)
+    const tierFromPages =
+      pages <= 5 ? 300 : pages <= 15 ? 600 : pages <= 25 ? 1200 : 2500;
+    // pageScale: $50/page above the previous bracket's max, informational
+    const pageScale =
+      pages <= 5
+        ? 0
+        : pages <= 15
+          ? (pages - 5) * 50
+          : pages <= 25
+            ? (pages - 15) * 50
+            : (pages - 25) * 50;
     const servicesAdd = services
       .filter((s) => selectedServices.includes(s.id))
       .reduce((acc, s) => acc + s.monthlyAdd, 0);
-    const subtotal = base + pageScale + servicesAdd;
-    const tierPrice = Math.min(2500, Math.max(300, Math.round(subtotal / 50) * 50));
+    // Tier from services (services-only subtotal -> tier snap)
+    const subtotalForServices = base + servicesAdd;
+    const tierFromServices = Math.min(
+      2500,
+      Math.max(300, Math.round(subtotalForServices / 50) * 50),
+    );
+    // Final tier: max of page-derived and services-derived. Whichever is
+    // bigger wins, so a low-page-count client picking expensive services
+    // still climbs to the right tier.
+    const tierPrice = Math.max(tierFromPages, tierFromServices);
+    const subtotal = tierPrice; // legacy alias used elsewhere in this hook
     const tier = tierForPrice(tierPrice);
     const isAgency = tier.price === 2500;
 
