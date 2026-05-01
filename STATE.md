@@ -4,6 +4,88 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (FULL DAY OFFICIAL CLOSE) — ~27 PRs across 3 parallel sessions, 17 tags
+
+End of the longest single-day session of this project. Three Claude
+sessions ran in parallel (this autopilot session + Gemini-migration
+session + biennial-fix session) and converged on main through the
+auto-merge cycle.
+
+**This autopilot session's PRs (18):** #74, #75, #76, #77, #78, #79,
+#80, #82, #84, #85, #88, #89, #91, #95, #96, #98, #99, #101
+
+**Parallel session PRs that landed alongside (9):** #81, #83, #86, #92,
+#93, #94, #97, #100, #102
+
+**Tags at close:** v0.12.0, v0.13.0 → v0.13.9, v0.14.0 → v0.14.3 (15 tags)
+
+**Tag of record:** `v0.14.3-jsonld-smoke-and-ci-gate-19` at origin/main HEAD c8cdafa.
+
+**Critical lesson (PR #96 → PR #100 revert):**
+The manualChunks split (v0.14.1) reduced index.js 4.7MB → 578KB but
+caused live site to render blank (vendor-react chunk loading order
+broke React provider tree). Reverted via PR #100 within hours. The
+4.7MB monolith is back as the ship-ready state. **Next perf attempt
+must include real production-mode browser smoke (vite preview not
+vite dev) verifying h1 + 3 cards visible BEFORE merging.**
+
+**Session deliverables that survived:**
+- 5 new public surfaces (/badge, /verify/:slug, /industry-reports
+  landing + 7 detail pages, /concierge-demo)
+- 3 new Pages Functions (/api/badge.svg, /api/og.svg, /api/concierge-chat)
+- 10 new help articles (108 → 118)
+- Pricing $2,499 → $2,500 cascade across 35 files
+- Biennial -20% extended to all 4 tiers (PR #102 from parallel session)
+- Sitemap +85 URLs, llms.txt indexed 9 new help articles
+- BreadcrumbList + ItemList + Article + Report JSON-LD now properly
+  rendered on 178+ pages (was silently dropped by react-helmet-async v2)
+- Resources section on home page
+- Footer nav + Industries cross-link + Newsletter signup on Industry
+  Reports + Related reports on detail page
+- 11 GSD planning artefacts in `.planning/feature-1..5/`
+- CI Gate 19: post-deploy smoke-jsonld (73 cases)
+- Tech Health Pack $150/mo + GSC Indexation Audit one-time pricing
+  (parallel session) + EN+FR help articles for both
+- Audit hold-back discipline extended from PDF to emails + UI banner
+  + pricing blog (parallel session)
+- Gemini migration: all 5 AI surfaces now use gemini-2.5-pro instead
+  of Anthropic Claude (parallel session)
+- index.html JSON-LD: pricing refreshed + Organization sameAs added
+
+**Final gates at close:**
+- TypeScript: clean (`npx tsc --noEmit`)
+- Blog audit: 59/59 pass (`node scripts/audit-blog-translations.mjs`)
+- Em-dash sweep: 0 matches in `src/i18n/translations/`,
+  `src/blog/posts/`, `functions/`
+- ESLint: 87 pre-existing issues (64 errors, 23 warnings) baseline
+  unchanged (no new lint regressions introduced this session)
+- Production smoke (smoke-jsonld 73 cases): all PASS against live
+  www.ailysagency.ca
+- git status: working tree clean
+- origin/claude/elegant-bassi-22a6d3 in sync with origin/main
+
+**Outstanding next session (priority order):**
+1. **Performance retry** with proper smoke: split index.js bundle
+   without breaking SSR/hydration order. Smoke against `vite preview`
+   (production build) before merge.
+2. **Reviuzy F1.1** Deep Site Audit DB schema + RLS + smoke per
+   `.planning/feature-1-deep-site-audit/02-sub-phases.md`
+3. **Reviuzy F5.2** Concierge backend (Anthropic Claude tool-calling
+   via Anthropic SDK + RAG over pgvector) per
+   `.planning/feature-5-ai-concierge/02-sub-phases.md`
+4. **AiLys's own Wikidata Q-number** registration + add to
+   Organization sameAs (eat own dog food)
+5. **ES/ZH/AR/RU translations** of 9+ new help articles
+6. **Apply 4 Supabase migrations** to dedicated AiLys Supabase project
+   + reconcile missing tables (parallel session backlog)
+7. **VITE_SUPABASE_URL + VITE_SUPABASE_PUBLISHABLE_KEY** env vars in
+   Cloudflare Build to activate auth + admin pages
+8. **AILYS_SERVICE_SHARED_SECRET + REVIUZY_CONCIERGE_URL** Cloudflare
+   env vars when Reviuzy F5.2 ships (activates `/api/concierge-chat`)
+9. **ESLint baseline cleanup** (87 pre-existing issues — separate sweep)
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended13) — JSON-LD smoke test + CI gate 19 (post-deploy regression guard)
 
 The JSON-LD bug discovered during PR #88 + #91 (react-helmet-async v2
