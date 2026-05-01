@@ -29,11 +29,7 @@ import { drawGlossaryPage } from './pages/08-glossary';
 import { drawNextStepsPage } from './pages/09-next-steps';
 import { drawAppendixPage } from './pages/10-appendix';
 
-// Pages 4 (GBP), 5 (Competitors), 6 (Action plan) are SKIPPED when their
-// underlying data array is empty (avoids 4 blank pages of "no data captured"
-// in transactional PDFs sent from /api/audit-pdf where the Reviuzy edge fn
-// did not surface those sections). Cover, Summary, Citation Matrix, Schema
-// teaser, Glossary, Next steps, Appendix always render.
+const TOTAL_PAGES = 10;
 
 export async function renderAuditPdf(req: AuditPdfRequest): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
@@ -50,37 +46,32 @@ export async function renderAuditPdf(req: AuditPdfRequest): Promise<Uint8Array> 
   const page1 = doc.addPage();
   const builder = new Builder(doc, page1, fonts);
 
-  // Build the active page list dynamically. Skip data-driven pages when
-  // their underlying arrays are empty so we never ship a paper-wasting
-  // "No data captured" placeholder.
-  const pages: Array<(b: Builder, r: AuditPdfRequest) => void> = [];
-  pages.push(drawExecutiveSummary);
-  if (req.payload.citationMatrix.length > 0) pages.push(drawCitationMatrixPage);
-  if (req.payload.gbpSignals.length > 0) pages.push(drawGbpDeepDivePage);
-  if (req.payload.competitors.length > 0) pages.push(drawCompetitorsPage);
-  if (req.payload.actionItems.length > 0) pages.push(drawActionPlanPage);
-  pages.push(drawSchemaSnippetsPage);
-  pages.push(drawGlossaryPage);
-  pages.push(drawNextStepsPage);
-  pages.push(drawAppendixPage);
-
-  const totalPages = pages.length + 1; // +1 for cover
-
   // Page 1: cover (no header/footer chrome)
   drawCoverPage(builder, req);
 
-  // Remaining pages with standard chrome
-  const isFr = req.lang === 'fr';
-  const pageLabel = isFr ? 'Audit, page' : 'Audit, page';
-  const ofWord = isFr ? 'sur' : 'of';
-
-  pages.forEach((drawFn, i) => {
-    const pageNumber = i + 2;
-    builder.newPage();
-    builder.drawHeader(`${pageLabel} ${pageNumber} ${ofWord} ${totalPages}`);
-    drawFn(builder, req);
-    builder.drawFooter(pageNumber, totalPages);
-  });
+  // Pages 2-10: standard chrome + content
+  drawWithChrome(builder, 2, drawExecutiveSummary, req);
+  drawWithChrome(builder, 3, drawCitationMatrixPage, req);
+  drawWithChrome(builder, 4, drawGbpDeepDivePage, req);
+  drawWithChrome(builder, 5, drawCompetitorsPage, req);
+  drawWithChrome(builder, 6, drawActionPlanPage, req);
+  drawWithChrome(builder, 7, drawSchemaSnippetsPage, req);
+  drawWithChrome(builder, 8, drawGlossaryPage, req);
+  drawWithChrome(builder, 9, drawNextStepsPage, req);
+  drawWithChrome(builder, 10, drawAppendixPage, req);
 
   return doc.save();
+}
+
+function drawWithChrome(
+  builder: Builder,
+  pageNumber: number,
+  drawFn: (b: Builder, r: AuditPdfRequest) => void,
+  req: AuditPdfRequest,
+) {
+  builder.newPage();
+  const label = `Audit, page ${pageNumber} of ${TOTAL_PAGES}`;
+  builder.drawHeader(label);
+  drawFn(builder, req);
+  builder.drawFooter(pageNumber, TOTAL_PAGES);
 }

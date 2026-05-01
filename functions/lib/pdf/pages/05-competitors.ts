@@ -1,18 +1,15 @@
 import type { Builder } from '../builder';
 import type { AuditPdfRequest } from '../../../../src/lib/pdfRequestSchema';
 import { COLOR, FONT_SIZE, PAGE, SPACE } from '../tokens';
-import { sanitizeForPdf } from '../sanitize';
 
 export function drawCompetitorsPage(b: Builder, req: AuditPdfRequest) {
-  const isFr = req.lang === 'fr';
   b.cursorY = 80;
-  b.drawHeading(isFr ? 'Comparaison des concurrents' : 'Competitor comparison', 'h1');
+  b.drawHeading('Competitor comparison', 'h1');
 
   if (req.payload.competitors.length === 0) {
     b.drawWrapped({
-      text: isFr
-        ? 'Aucune donnée concurrent capturée. Fournis l\'URL de ton Google Business Profile au moment de l\'audit et on tirera les trois commerces les plus proches dans la même catégorie, à moins de 5 km.'
-        : 'No competitor data was captured. Provide your Google Business Profile URL when running the audit and we will pull the top three same-category businesses within 5km.',
+      text:
+        'No competitor data was captured. Provide your Google Business Profile URL when running the audit and we will pull the top three same-category businesses within 5km.',
       size: FONT_SIZE.body,
       color: COLOR.inkMuted,
     });
@@ -20,9 +17,8 @@ export function drawCompetitorsPage(b: Builder, req: AuditPdfRequest) {
   }
 
   b.drawWrapped({
-    text: isFr
-      ? 'Les trois commerces les plus proches dans la même catégorie, à moins de 5 km, classés par note multipliée par nombre d\'avis. Sers-toi de ça pour fixer des cibles réalistes pour ta propre vélocité d\'avis et ta note.'
-      : 'The closest three same-category businesses within 5km, ranked by rating times review count. Use this to set realistic targets for your own review velocity and rating goals.',
+    text:
+      'The closest three same-category businesses within 5km, ranked by rating times review count. Use this to set realistic targets for your own review velocity and rating goals.',
     size: FONT_SIZE.body,
     color: COLOR.ink,
   });
@@ -35,9 +31,7 @@ export function drawCompetitorsPage(b: Builder, req: AuditPdfRequest) {
   const distanceW = 80;
   const rowH = 32;
 
-  const headerLabels = isFr
-    ? ['Commerce', 'Note', 'Avis', 'Distance']
-    : ['Business', 'Rating', 'Reviews', 'Distance'];
+  const headerLabels = ['Business', 'Rating', 'Reviews', 'Distance'];
   const headerXs = [
     PAGE.marginLeft,
     PAGE.marginLeft + nameW,
@@ -68,7 +62,7 @@ export function drawCompetitorsPage(b: Builder, req: AuditPdfRequest) {
       color: COLOR.surface,
     });
 
-    drawCellAt(b, headerXs[0] + 4, cardYTop + 9, sanitizeForPdf(truncate(co.name, 38)), b.fonts.semibold, COLOR.ink);
+    drawCellAt(b, headerXs[0] + 4, cardYTop + 9, truncate(co.name, 38), b.fonts.semibold, COLOR.ink);
     drawCellAt(
       b,
       headerXs[1] + 4,
@@ -98,11 +92,10 @@ export function drawCompetitorsPage(b: Builder, req: AuditPdfRequest) {
   }
 
   b.advance(SPACE.md);
-  b.drawHeading(isFr ? 'Comment lire ça' : 'How to read this', 'h3');
+  b.drawHeading('How to read this', 'h3');
   b.drawWrapped({
-    text: isFr
-      ? 'Si ta note est sous celle de ton concurrent le plus proche par 0,3 ou plus, les moteurs IA vont favoriser le concurrent dans les réponses vocales et chat. Si ton nombre d\'avis est inférieur de 30 % ou plus, le signal de confiance se compose contre toi. Les deux se réparent par la vélocité des avis, pas par des campagnes ponctuelles.'
-      : 'If your rating is below your nearest competitor by 0.3 or more, AI engines will favor the competitor in voice and chat answers. If your review count is below by 30% or more, the trust signal compounds against you. Both are repaired by review velocity, not by single-event campaigns.',
+    text:
+      'If your rating is below your nearest competitor by 0.3 or more, AI engines will favor the competitor in voice and chat answers. If your review count is below by 30% or more, the trust signal compounds against you. Both are repaired by review velocity, not by single-event campaigns.',
     size: FONT_SIZE.body,
     color: COLOR.inkSoft,
   });

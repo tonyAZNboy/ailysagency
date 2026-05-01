@@ -16,17 +16,10 @@ const REVIUZY_URL = "https://qucxhksrpqunlyjjvuae.supabase.co";
 const REVIUZY_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1Y3hoa3NycHF1bmx5amp2dWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ5NjU4ODEsImV4cCI6MjA3MDU0MTg4MX0.Bd4wu_DdAJN8OknkoXBjCpIt8F4q-j54LrkzE_zioVs";
 
-// Distinct storageKey so this client does not collide with the main supabase
-// client (../supabase/client.ts). Both call createClient under the same browser
-// context; without unique storageKeys, Supabase warns "Multiple GoTrueClient
-// instances detected" at runtime. We do not persist auth on the audit source
-// (anon-only public lead-gen), so storage is effectively unused, but the key
-// must still be unique to silence the warning.
 export const auditSourceClient = createClient(REVIUZY_URL, REVIUZY_ANON_KEY, {
   auth: {
     persistSession: false,
     autoRefreshToken: false,
-    storageKey: "ailys-audit-source-auth",
   },
 });
 

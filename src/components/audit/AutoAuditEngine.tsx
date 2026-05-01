@@ -31,8 +31,6 @@ import { SchemaPreview } from "@/components/audit/SchemaPreview";
 import { CompetitorOverlay } from "@/components/audit/CompetitorOverlay";
 import { ExportActionPlan } from "@/components/audit/ExportActionPlan";
 import { AuditPdfDownload } from "@/components/audit/AuditPdfDownload";
-import { SectionBoundary } from "@/components/audit/SectionBoundary";
-import { AuditProcessingModal } from "@/components/audit/AuditProcessingModal";
 import { useLang } from "@/i18n/LangContext";
 import type { TranslationKeys } from "@/i18n";
 
@@ -270,12 +268,20 @@ export function AutoAuditEngine({
         title: t.audit.toasts.unlocked,
         description: t.audit.toasts.unlockedDesc,
       });
-      // Note: the AiLys-branded PDF is sent via the AuditPdfDownload form below
-      // (/api/audit-pdf endpoint, white-labeled, lang-aware, sequence-logged).
-      // We intentionally do NOT call the Reviuzy send-audit-report edge fn here:
-      // its output has Reviuzy header chrome and EN-only content, both of which
-      // violate CLAUDE.md hard rule #10 (no proprietary disclosure to AiLys
-      // clients).
+      // Send email report (non-blocking)
+      auditSourceClient.functions
+        .invoke("send-audit-report", {
+          body: {
+            email: trimmed,
+            businessName: businessName.trim(),
+            auditResult: result,
+            lang: "en",
+          },
+        })
+        .catch((err) => {
+          // eslint-disable-next-line no-console
+          console.error("Email send failed:", err);
+        });
     } catch (err) {
       const msg =
         err instanceof Error ? err.message : t.audit.loading.cantRecord;
@@ -292,8 +298,6 @@ export function AutoAuditEngine({
   // ── No result yet → show input form
   if (!result) {
     return (
-      <>
-        <AuditProcessingModal open={loading} />
       <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-xl p-6 sm:p-8 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]">
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/90 mb-3">
           {flavorMeta.eyebrow}
@@ -402,7 +406,6 @@ export function AutoAuditEngine({
           {t.audit.results.free}
         </p>
       </div>
-      </>
     );
   }
 
@@ -702,28 +705,22 @@ function ResultsPanel({
           />
 
           {/* Live Google Places data (real GBP, no Anthropic approximations) */}
-          <SectionBoundary name="PlacesPreview">
-            <PlacesPreview businessName={businessName} city={city} />
-          </SectionBoundary>
+          <PlacesPreview businessName={businessName} city={city} />
 
           {/* Competitor overlay: 3 nearest competitors via Places nearbysearch */}
-          <SectionBoundary name="CompetitorOverlay">
-            <CompetitorOverlay businessName={businessName} city={city} />
-          </SectionBoundary>
+          <CompetitorOverlay businessName={businessName} city={city} />
 
-          {/* Real LLM citation matrix, the actual product behind the marketing.
+          {/* Real LLM citation matrix — the actual product behind the marketing.
               Renders only after unlock to control API spend (1 call per unlocked
               audit, KV-cached 24h on the edge for repeat visitors). */}
           {flavor === "ai-visibility" && (
-            <SectionBoundary name="LlmCitationMatrix">
-              <LlmCitationMatrix
-                businessName={businessName}
-                city={city}
-                url={url}
-                vertical={vertical}
-                autoFetch
-              />
-            </SectionBoundary>
+            <LlmCitationMatrix
+              businessName={businessName}
+              city={city}
+              url={url}
+              vertical={vertical}
+              autoFetch
+            />
           )}
 
           <DiagnosticCard
@@ -747,40 +744,29 @@ function ResultsPanel({
 
           {/* Schema fix copy-paste block: generates LocalBusiness + FAQPage
               JSON-LD validated against Google Rich Results, tuned per vertical. */}
-          <SectionBoundary name="SchemaPreview">
-            <SchemaPreview
-              businessName={businessName}
-              city={city}
-              url={url}
-              vertical={vertical}
-            />
-          </SectionBoundary>
+          <SchemaPreview
+            businessName={businessName}
+            city={city}
+            url={url}
+            vertical={vertical}
+          />
 
           {/* Export action plan to Notion / Google Doc / clipboard */}
-          <SectionBoundary name="ExportActionPlan">
-            <ExportActionPlan
+          <ExportActionPlan
+            businessName={businessName}
+            city={city}
+            actionPlan={result.action_plan}
+            score={result.reputation_score}
+          />
+
+          {/* B.4.3.b: branded 10-page PDF emailed to user (signed 24h link) */}
+          <div className="flex justify-center">
+            <AuditPdfDownload
               businessName={businessName}
               city={city}
-              actionPlan={result.action_plan}
-              score={result.reputation_score}
+              vertical={industry}
+              scoreNumeric={result.reputation_score}
             />
-          </SectionBoundary>
-
-          {/* B.4.3.b: branded 10-page PDF emailed to user (signed 24h link).
-              Auto-opens with the email entered at unlock so the user can submit
-              in one click and receive the AiLys-branded PDF (no Reviuzy chrome,
-              respects current locale via useLang). */}
-          <div className="flex justify-center">
-            <SectionBoundary name="AuditPdfDownload">
-              <AuditPdfDownload
-                businessName={businessName}
-                city={city}
-                vertical={vertical}
-                scoreNumeric={result.reputation_score}
-                prefilledEmail={email}
-                autoOpen
-              />
-            </SectionBoundary>
           </div>
         </div>
       )}

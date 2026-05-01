@@ -1,64 +1,106 @@
 import type { Builder } from '../builder';
 import type { AuditPdfRequest } from '../../../../src/lib/pdfRequestSchema';
-import { COLOR, FONT_SIZE, SPACE } from '../tokens';
-
-interface I18N {
-  heading: string;
-  intro: string;
-  whatHeading: string;
-  whatBody: string;
-  whyHeading: string;
-  whyBody: string;
-  nextHeading: string;
-  nextBody: string;
-}
-
-const I18N_EN: I18N = {
-  heading: 'Schema markup, deployed for you',
-  intro:
-    'Schema markup is the structured-data layer that lets AI engines pull a clean answer about your business. It is the highest-leverage AEO investment most local businesses miss.',
-  whatHeading: 'What we deploy at the Core tier',
-  whatBody:
-    'Three schema entities, validated against Google Rich Results, tuned to your vertical and city: LocalBusiness with full address and hours, FAQPage with 5 to 10 vertical-specific questions, and Service entities for each offering you sell.',
-  whyHeading: 'Why this matters',
-  whyBody:
-    'Internal data across our roster shows schema density correlates strongly with citation rate on Perplexity, ChatGPT and Google AI Overviews. Sites without schema get cited 12 to 18 percent of the time on relevant queries; sites with full schema deployment hit 35 to 55 percent.',
-  nextHeading: 'Next step',
-  nextBody:
-    'Reply to the email this PDF arrived in, or visit ailysagency.ca to book a 60 minute strategy call. We confirm scope and ship schema in under 7 business days at the Core tier.',
-};
-
-const I18N_FR: I18N = {
-  heading: 'Balisage schéma, déployé pour toi',
-  intro:
-    'Le balisage schéma est la couche de données structurées qui permet aux moteurs IA de tirer une réponse propre à propos de ton commerce. C\'est l\'investissement AEO à plus haut levier que la plupart des commerces locaux manquent.',
-  whatHeading: 'Ce qu\'on déploie au forfait Core',
-  whatBody:
-    'Trois entités schéma, validées contre Google Rich Results, ajustées à ton secteur et à ta ville : LocalBusiness avec adresse complète et heures, FAQPage avec 5 à 10 questions spécifiques à ton secteur, et entités Service pour chaque offre que tu vends.',
-  whyHeading: 'Pourquoi c\'est important',
-  whyBody:
-    'Les données internes sur notre roster montrent que la densité de schéma corrèle fortement avec le taux de citation sur Perplexity, ChatGPT et Google AI Overviews. Les sites sans schéma sont cités 12 à 18 pour cent du temps sur les requêtes pertinentes; les sites avec déploiement complet de schéma atteignent 35 à 55 pour cent.',
-  nextHeading: 'Prochaine étape',
-  nextBody:
-    'Réponds au courriel qui a livré ce PDF, ou visite ailysagency.ca pour réserver un appel stratégique de 60 minutes. On confirme la portée et on livre le schéma en moins de 7 jours ouvrables au forfait Core.',
-};
+import { COLOR, FONT_SIZE, PAGE, SPACE } from '../tokens';
 
 export function drawSchemaSnippetsPage(b: Builder, req: AuditPdfRequest) {
-  const i18n = req.lang === 'fr' ? I18N_FR : I18N_EN;
   b.cursorY = 80;
-  b.drawHeading(i18n.heading, 'h1');
+  b.drawHeading('Schema snippets, copy-paste ready', 'h1');
 
-  b.drawWrapped({ text: i18n.intro, size: FONT_SIZE.body, color: COLOR.ink });
+  b.drawWrapped({
+    text:
+      'Add these JSON-LD blocks to your home page, contact page, and any FAQ page. Schema density correlates with citation rate on Perplexity and Google AI Overviews. Validate the result at search.google.com/test/rich-results.',
+    size: FONT_SIZE.body,
+    color: COLOR.ink,
+  });
   b.advance(SPACE.md);
 
-  b.drawHeading(i18n.whatHeading, 'h3');
-  b.drawWrapped({ text: i18n.whatBody, size: FONT_SIZE.body, color: COLOR.ink });
+  // LocalBusiness snippet
+  b.drawHeading('LocalBusiness', 'h3');
+  drawCodeBlock(b, localBusinessJson(req));
   b.advance(SPACE.md);
 
-  b.drawHeading(i18n.whyHeading, 'h3');
-  b.drawWrapped({ text: i18n.whyBody, size: FONT_SIZE.body, color: COLOR.ink });
-  b.advance(SPACE.md);
+  // FAQPage stub
+  b.drawHeading('FAQPage (replace items)', 'h3');
+  drawCodeBlock(b, faqPageJson());
+}
 
-  b.drawHeading(i18n.nextHeading, 'h3');
-  b.drawWrapped({ text: i18n.nextBody, size: FONT_SIZE.body, color: COLOR.ink });
+function localBusinessJson(req: AuditPdfRequest): string {
+  // Generate a minimal LocalBusiness shape from the audit data.
+  // Keep field names exact (Schema.org canonical casing).
+  const business = {
+    '@context': 'https://schema.org',
+    '@type': mapVerticalToSchemaType(req.vertical),
+    name: req.businessName,
+    address: req.location ? { '@type': 'PostalAddress', addressLocality: req.location } : undefined,
+    url: req.websiteUrl ?? undefined,
+    sameAs: req.gbpUrl ? [req.gbpUrl] : undefined,
+  };
+  return JSON.stringify(business, null, 2);
+}
+
+function faqPageJson(): string {
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Sample question goes here',
+        acceptedAnswer: { '@type': 'Answer', text: 'Sample answer text for this question.' },
+      },
+    ],
+  };
+  return JSON.stringify(obj, null, 2);
+}
+
+function mapVerticalToSchemaType(vertical: string): string {
+  switch (vertical) {
+    case 'dentist':
+      return 'Dentist';
+    case 'lawyer':
+      return 'LegalService';
+    case 'restaurant':
+      return 'Restaurant';
+    case 'contractor':
+      return 'GeneralContractor';
+    case 'clinic':
+      return 'MedicalClinic';
+    case 'real_estate':
+      return 'RealEstateAgent';
+    case 'hotel':
+      return 'Hotel';
+    default:
+      return 'LocalBusiness';
+  }
+}
+
+function drawCodeBlock(b: Builder, code: string) {
+  // pdf-lib's standard Helvetica is not monospace, but we can approximate
+  // a code block by using a smaller size + surface card background. Bundle
+  // size matters more than aesthetics here.
+  const lines = code.split('\n');
+  const lineHeight = FONT_SIZE.caption * 1.4;
+  const padding = 10;
+  const cardH = lines.length * lineHeight + padding * 2;
+  b.drawCard({
+    x: PAGE.marginLeft,
+    width: PAGE.contentWidth,
+    height: cardH,
+    color: COLOR.surface,
+    border: COLOR.border,
+    borderThickness: 0.5,
+  });
+  let y = b.cursorY + padding;
+  for (const line of lines) {
+    const yPdf = PAGE.height - (y + FONT_SIZE.caption);
+    b.page.drawText(line, {
+      x: PAGE.marginLeft + padding,
+      y: yPdf,
+      size: FONT_SIZE.caption,
+      font: b.fonts.regular,
+      color: COLOR.ink,
+    });
+    y += lineHeight;
+  }
+  b.advance(cardH + SPACE.sm);
 }
