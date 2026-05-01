@@ -4,6 +4,74 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended6) — Industry cross-links + newsletter + concierge stub + 2 help articles
+
+Sustained autopilot push. Wired the new surfaces into the existing site
+fabric so prospects discover them naturally, plus 2 more deep-dive help
+articles closing privacy + verification questions, plus the cross-repo
+proxy stub for the Concierge backend integration.
+
+**Shipped this batch:**
+
+1. **Industries → Industry Reports cross-link** on `/industries/:slug` pages.
+   Each vertical page gets a violet (live) or amber (coming-soon) banner
+   pointing to the matching industry report. EN+FR. Renders 5 verticals
+   live + 2 coming-soon placeholders correctly. Component `IndustryReportLink`
+   inline in `Industry.tsx`, smart match by industry slug.
+
+2. **Newsletter signup on `/industry-reports`** using the existing
+   `<NewsletterSignup />` component with `source="industry-reports"`. Sits
+   below the audit CTA. Captures emails for quarterly report announcements.
+   Pre-existing `/api/newsletter-subscribe` Pages Function handles the
+   submit (honeypot, disposable-email block, Supabase persistence,
+   double-opt-in via Resend, source attribution for cohort analysis).
+
+3. **`/api/concierge-chat` stub edge fn** (`functions/api/concierge-chat.ts`).
+   Cross-repo proxy pattern same as audit-pdf-stats-proxy. Returns 503
+   `backend_not_configured` until both `AILYS_SERVICE_SHARED_SECRET` and
+   `REVIUZY_CONCIERGE_URL` are set. Full input validation (zod-equivalent
+   inline checks: message required + max 4000 chars, conversation_id
+   alphanumeric 1-64, lang en|fr), CORS preflight, kill-switch via
+   `CONCIERGE_KILL_SWITCH=true`, GET endpoint for operator visibility
+   (returns ready/killed/demo_url/docs).
+
+4. **2 more help articles** (104 → 106 total):
+   - `ailys-concierge-privacy-deep-dive`: encryption at rest, retention
+     windows (90d default + opt-in 1y/3y/indefinite), who can read
+     (you, strategist on request, AiLys staff for incident debug only),
+     voice mode local processing, cross-tenant RLS + system prompt +
+     audit-log triple defense, export + 3 deletion options, M&A
+     notification clause, no-training-on-your-data contractual commit
+   - `ailys-verified-badge-verification-process`: 6-engine probe pipeline
+     (ChatGPT, Perplexity, Claude, Gemini, AIO, Bing Copilot), citation
+     definition (named explicitly + position weighting), scoring formula
+     in plain language (engine market-share weights), what score includes
+     and excludes, freshness window 30d rolling, probe cadence per tier,
+     fraud-prevention against 5 common gaming tactics, post-cancellation
+     30d grace period, methodology reproduction guide for skeptics
+
+**Verified end-to-end:**
+- /industries/dentists EN: violet banner "Industry report available" + link to /industry-reports/dentists-quebec-q1-2026 with text "Read the free report"
+- /industries/restaurants mobile 375: report link present, no horizontal overflow
+- /industry-reports landing: NewsletterSignup form rendered with email input + "Subscribe" button + footer note about quarterly cadence + 1-click unsubscribe
+- /api/concierge-chat (Pages Function): not testable on Vite dev server (vite returns SPA HTML), but tsc compiles cleanly + follows existing cross-repo proxy pattern verified in production deploy
+- /help/ailys-concierge-privacy-deep-dive: renders, EN+FR (full body); /help/ailys-verified-badge-verification-process: renders, EN+FR
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero across new files (also fixed pre-existing em-dash in Industry.tsx code comment line 107)
+- Build: success ~29s
+
+**Pending tag:** `v0.13.5-cross-links-newsletter-concierge-stub`
+
+**Operator backlog (manual, no code blockers):**
+- Set `AILYS_SERVICE_SHARED_SECRET` + `REVIUZY_CONCIERGE_URL` in Cloudflare Pages env to activate `/api/concierge-chat` real proxy (currently 503 fail-closed which is correct)
+- Configure `newsletter_signups` Supabase table source attribution dashboard to track `source=industry-reports` cohort engagement vs other sources
+- Submit `sitemap-en.xml` to Google Search Console (already done per user)
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended5) — sitemap + llms.txt for AI/SEO discoverability
 
 User-flagged manual tasks done, now extending to sustained autopilot:

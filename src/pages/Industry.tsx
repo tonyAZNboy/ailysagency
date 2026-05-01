@@ -16,6 +16,8 @@ import {
   industries,
   type RecommendedTier,
 } from "@/data/industries";
+import { industryReports } from "@/data/industry-reports";
+import { FileText } from "lucide-react";
 
 const TIER_PRICE: Record<RecommendedTier, string> = {
   starter: "$300",
@@ -102,7 +104,7 @@ export default function Industry() {
         : `${baseUrl}/${l}/industries/${industry.slug}`,
   }));
 
-  // Schema.org structured data — Service + FAQPage + BreadcrumbList
+  // Schema.org structured data: Service + FAQPage + BreadcrumbList
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -614,6 +616,9 @@ export default function Industry() {
             </div>
           </section>
 
+          {/* Cross-link to Industry Report if one exists for this vertical */}
+          <IndustryReportLink industrySlug={industry.slug} lang={lang} />
+
           {/* sr-only SEO summary block */}
           <div className="sr-only" aria-hidden="false">
             {c.seoDescription} {c.subheadline}
@@ -626,5 +631,89 @@ export default function Industry() {
         <LandingChatWidget />
       </div>
     </>
+  );
+}
+
+interface IndustryReportLinkProps {
+  industrySlug: string;
+  lang: SupportedLang;
+}
+
+function IndustryReportLink({ industrySlug, lang }: IndustryReportLinkProps) {
+  const liveReport = industryReports.find(
+    (r) => r.industry === industrySlug && r.status === "live"
+  );
+  const upcomingReport = industryReports.find(
+    (r) => r.industry === industrySlug && r.status === "coming-soon"
+  );
+  const report = liveReport ?? upcomingReport;
+  if (!report) return null;
+
+  const isFr = lang === "fr";
+  const href =
+    lang === "en"
+      ? `/industry-reports/${report.slug}`
+      : `/${lang}/industry-reports/${report.slug}`;
+  const title = isFr ? report.titleFr : report.title;
+  const isLive = report.status === "live";
+
+  return (
+    <section className="py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <div
+          className={`p-6 sm:p-8 rounded-2xl border backdrop-blur-sm ${
+            isLive
+              ? "border-violet-500/30 bg-gradient-to-br from-violet-950/30 to-slate-900/40"
+              : "border-amber-500/30 bg-gradient-to-br from-amber-950/20 to-slate-900/40"
+          }`}
+        >
+          <div className="flex items-start gap-3 mb-3">
+            <FileText className={`w-5 h-5 mt-0.5 ${isLive ? "text-violet-300" : "text-amber-300"}`} />
+            <span
+              className={`text-xs font-medium uppercase tracking-wider ${
+                isLive ? "text-violet-300" : "text-amber-300"
+              }`}
+            >
+              {isLive
+                ? isFr
+                  ? "Rapport d'industrie disponible"
+                  : "Industry report available"
+                : isFr
+                ? "Rapport d'industrie a venir"
+                : "Industry report coming soon"}
+            </span>
+          </div>
+          <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-3 leading-tight">
+            {title}
+          </h2>
+          <p className="text-sm text-muted-foreground mb-5">
+            {isLive
+              ? isFr
+                ? `Donnees agregees anonymisees sur ${report.sampleSizeFr.toLowerCase()}. Lecture de 7 minutes.`
+                : `Anonymized aggregate data covering ${report.sampleSize.toLowerCase()}. 7-minute read.`
+              : isFr
+              ? `Publication prevue. Inscrivez-vous pour etre notifie.`
+              : `Publishing soon. Sign up to be notified.`}
+          </p>
+          {isLive ? (
+            <Link
+              to={href}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-violet-300 hover:text-violet-200 transition-colors"
+            >
+              {isFr ? "Lire le rapport gratuit" : "Read the free report"}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          ) : (
+            <Link
+              to={lang === "en" ? "/industry-reports" : `/${lang}/industry-reports`}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
+            >
+              {isFr ? "Voir tous les rapports" : "See all reports"}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
