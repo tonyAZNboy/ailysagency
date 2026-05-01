@@ -250,11 +250,24 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
     ru: 'Ссылка для загрузки истекает через 24 часа. Ответьте на это письмо, если потребуется её перевыпустить.',
   };
 
+  const callOut: Record<string, string> = {
+    en: 'The day-1 baseline gives you the score and gap categories. The full 90-day plan (sequenced actions, JSON-LD templates per page, citation outreach scripts, week-by-week deployment) is delivered live during your kickoff call. Reply to this email to confirm a 60-minute window.',
+    fr: 'La référence du jour 1 vous donne le score et les categories de gaps. Le plan complet de 90 jours (actions sequencees, gabarits JSON-LD par page, scripts d\'outreach pour les citations, deploiement semaine par semaine) est livre en direct durant l\'appel de coup d\'envoi. Repondez a ce courriel pour confirmer une plage de 60 minutes.',
+    es: 'La línea base de día 1 te da la puntuación y las categorías de brechas. El plan completo de 90 días se entrega en vivo durante tu llamada de inicio. Responde a este correo para confirmar una ventana de 60 minutos.',
+    zh: '第1天基线给你分数和差距类别。完整的90天计划（顺序行动、每页的JSON-LD模板、引用外联脚本、每周部署）在启动电话会议中现场交付。回复此邮件以确认60分钟时段。',
+    ar: 'تمنحك خط الأساس لليوم الأول النتيجة وفئات الفجوات. تُسلَّم خطة الـ 90 يومًا الكاملة مباشرةً خلال مكالمة الانطلاق. ردّ على هذا البريد لتأكيد نافذة 60 دقيقة.',
+    ru: 'Базис первого дня даёт оценку и категории пробелов. Полный 90-дневный план доставляется в прямом эфире на установочном звонке. Ответьте на это письмо, чтобы подтвердить окно на 60 минут.',
+  };
+
   const rendered = renderEmail({
     lang: body.lang as EmailLang,
     preheader: greet[body.lang] ?? greet.en,
     title: greet[body.lang] ?? greet.en,
-    body: [intro[body.lang] ?? intro.en, expiry[body.lang] ?? expiry.en],
+    body: [
+      intro[body.lang] ?? intro.en,
+      callOut[body.lang] ?? callOut.en,
+      expiry[body.lang] ?? expiry.en,
+    ],
     cta: { label: cta[body.lang] ?? cta.en, url: downloadUrl },
   });
 

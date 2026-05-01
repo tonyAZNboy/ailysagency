@@ -472,11 +472,29 @@ async function sendPdfAttachmentEmail(
     ru: `Мы подготовили персональный отчет для ${data.businessName}. PDF прикреплен к письму.`,
   });
 
+  const holdBack = pickLocale(lang, {
+    en: 'Inside the PDF you will find the score, the citation matrix on 6 AI engines, the GBP pulse, the top 3 prioritized actions, and a one-page schema preview. The next 5 actions of the 90-day plan, the JSON-LD templates per page, the citation directory outreach scripts, and the week-by-week deployment sequence are reserved for the strategist call.',
+    fr: 'Dans le PDF vous trouverez le score, la matrice de citations sur 6 moteurs IA, le pouls GBP, les 3 actions prioritaires et un apercu schema d\'une page. Les 5 actions suivantes du plan 90 jours, les gabarits JSON-LD par page, les scripts d\'outreach pour les annuaires de citations et la sequence de deploiement semaine par semaine sont reserves a l\'appel strategiste.',
+    es: 'En el PDF encontraras la puntuacion, la matriz de citas en 6 motores IA, el pulso de GBP, las 3 acciones prioritarias y una vista previa del schema. Las 5 acciones siguientes del plan de 90 dias, las plantillas JSON-LD por pagina y los scripts de divulgacion de citas se reservan para la llamada con el estratega.',
+    zh: 'PDF包含分数、6个AI引擎的引用矩阵、GBP脉冲、前3个优先行动和一页schema预览。90天计划的接下来5个行动、每页的JSON-LD模板、引用目录外联脚本和按周部署顺序保留给策略师电话会议。',
+    ar: 'يحتوي PDF على النتيجة ومصفوفة الاستشهادات على 6 محركات ذكاء اصطناعي ونبض GBP وأعلى 3 إجراءات وأول صفحة من schema. الإجراءات الخمسة التالية من خطة 90 يومًا وقوالب JSON-LD لكل صفحة وسكربتات الاستشهاد محفوظة لمكالمة الاستراتيجي.',
+    ru: 'В PDF вы найдете оценку, матрицу цитирований по 6 ИИ-движкам, пульс GBP, топ-3 приоритетных действия и предварительный просмотр схемы. Следующие 5 действий 90-дневного плана, шаблоны JSON-LD по страницам и скрипты для каталогов цитирований зарезервированы для звонка со стратегом.',
+  });
+
+  const callCta = pickLocale(lang, {
+    en: 'Reply to this email with a 60-minute window that works, or book directly at https://www.ailysagency.ca/audit. The first call is free, no credit card required.',
+    fr: 'Repondez a ce courriel avec une plage de 60 minutes qui vous convient, ou reservez directement a https://www.ailysagency.ca/fr/audit. Le premier appel est gratuit, sans carte de credit.',
+    es: 'Responde a este correo con una ventana de 60 minutos que te funcione, o reserva en https://www.ailysagency.ca/audit. La primera llamada es gratis.',
+    zh: '回复此邮件并提供合适的60分钟时段，或直接在 https://www.ailysagency.ca/audit 预约。首次通话免费。',
+    ar: 'رد على هذا البريد بنافذة 60 دقيقة تناسبك، أو احجز مباشرة على https://www.ailysagency.ca/audit. المكالمة الأولى مجانية.',
+    ru: 'Ответьте на это письмо с подходящим окном на 60 минут, или забронируйте на https://www.ailysagency.ca/audit. Первый звонок бесплатный.',
+  });
+
   const rendered = renderEmail({
     lang: lang as EmailLang,
     preheader: greeting,
     title: greeting,
-    body: [intro],
+    body: [intro, holdBack, callCta],
   });
 
   // Convert pdfBytes -> base64 for Resend attachment
@@ -552,11 +570,29 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
     ru: `Мы подготовили персональный отчет для ${data.businessName}. Нажмите кнопку ниже, чтобы скачать PDF.`,
   });
 
+  const holdBack = pickLocale(lang, {
+    en: 'Inside the PDF you will find the score, the citation matrix on 6 AI engines, the GBP pulse, the top 3 prioritized actions, and a one-page schema preview. The next 5 actions of the 90-day plan, the JSON-LD templates per page, the citation directory outreach scripts, and the week-by-week deployment sequence are reserved for the strategist call.',
+    fr: 'Dans le PDF vous trouverez le score, la matrice de citations sur 6 moteurs IA, le pouls GBP, les 3 actions prioritaires et un apercu schema d\'une page. Les 5 actions suivantes du plan 90 jours, les gabarits JSON-LD par page, les scripts d\'outreach pour les annuaires de citations et la sequence de deploiement semaine par semaine sont reserves a l\'appel strategiste.',
+    es: 'En el PDF encontraras la puntuacion, la matriz de citas en 6 motores IA, el pulso de GBP, las 3 acciones prioritarias y una vista previa del schema. Las 5 acciones siguientes del plan de 90 dias, las plantillas JSON-LD por pagina y los scripts de divulgacion de citas se reservan para la llamada con el estratega.',
+    zh: 'PDF包含分数、6个AI引擎的引用矩阵、GBP脉冲、前3个优先行动和一页schema预览。90天计划的接下来5个行动、每页的JSON-LD模板、引用目录外联脚本和按周部署顺序保留给策略师电话会议。',
+    ar: 'يحتوي PDF على النتيجة ومصفوفة الاستشهادات على 6 محركات ذكاء اصطناعي ونبض GBP وأعلى 3 إجراءات وأول صفحة من schema. الإجراءات الخمسة التالية من خطة 90 يومًا وقوالب JSON-LD لكل صفحة وسكربتات الاستشهاد محفوظة لمكالمة الاستراتيجي.',
+    ru: 'В PDF вы найдете оценку, матрицу цитирований по 6 ИИ-движкам, пульс GBP, топ-3 приоритетных действия и предварительный просмотр схемы. Следующие 5 действий 90-дневного плана, шаблоны JSON-LD по страницам и скрипты для каталогов цитирований зарезервированы для звонка со стратегом.',
+  });
+
+  const callCta = pickLocale(lang, {
+    en: 'Reply to this email with a 60-minute window that works, or book directly at https://www.ailysagency.ca/audit. The first call is free, no credit card required.',
+    fr: 'Repondez a ce courriel avec une plage de 60 minutes qui vous convient, ou reservez directement a https://www.ailysagency.ca/fr/audit. Le premier appel est gratuit, sans carte de credit.',
+    es: 'Responde a este correo con una ventana de 60 minutos que te funcione, o reserva en https://www.ailysagency.ca/audit. La primera llamada es gratis.',
+    zh: '回复此邮件并提供合适的60分钟时段，或直接在 https://www.ailysagency.ca/audit 预约。首次通话免费。',
+    ar: 'رد على هذا البريد بنافذة 60 دقيقة تناسبك، أو احجز مباشرة على https://www.ailysagency.ca/audit. المكالمة الأولى مجانية.',
+    ru: 'Ответьте на это письмо с подходящим окном на 60 минут, или забронируйте на https://www.ailysagency.ca/audit. Первый звонок бесплатный.',
+  });
+
   const rendered = renderEmail({
     lang: lang as EmailLang,
     preheader: greeting,
     title: greeting,
-    body: [intro, expiryLine],
+    body: [intro, expiryLine, holdBack, callCta],
     cta: { label: cta, url: downloadUrl },
   });
 
