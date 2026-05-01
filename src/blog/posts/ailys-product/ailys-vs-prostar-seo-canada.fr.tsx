@@ -66,11 +66,7 @@ export function ContentFr() {
   return (
     <article>
       <p>
-<<<<<<< HEAD
         Les commerçants locaux canadiens qui recherchent des agences SEO ont souvent ProStar SEO et AiLys sur leur courte liste parce que les deux servent le marché bilingue et les deux ont des racines québécoises. Les deux agences ne sont pas interchangeables : ProStar est une boutique de SEO local traditionnel avec des bureaux physiques dans quatre villes canadiennes, AiLys est une spécialiste d'AI Visibility avec des forfaits publiés et une livraison a distance. Cette page comparé les deux sur la portée, les tarifs et ou chaque modèle gagne.
-=======
-        Les commerçants locaux canadiens qui recherchent des agences SEO ont souvent ProStar SEO et AiLys sur leur courte liste parce que les deux servent le marché bilingue et les deux ont des racines québécoises. Les deux agences ne sont pas interchangeables : ProStar est une boutique de SEO local traditionnel avec des bureaux physiques dans quatre villes canadiennes, AiLys est une spécialiste d'AI Visibility avec des forfaits publiés et une livraison a distance. Cette page compare les deux sur la portée, les tarifs et ou chaque modèle gagne.
->>>>>>> origin/main
       </p>
 
       <StatHighlight
@@ -95,11 +91,7 @@ export function ContentFr() {
       </p>
 
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
-<<<<<<< HEAD
         <p>Pour des comparaisons avec d'autres agences canadiennes et québécoises, voir <InternalLink to="/blog/ailys-vs-major-tom-agence-canada" title="AiLys vs Major Tom" description="Specialiste local Québec versus agence numérique pancanadienne" />, <InternalLink to="/blog/ailys-vs-digitad-seo-quebec" title="AiLys vs Digitad" description="Comparaison des agences SEO au Québec pour les commerçants locaux" /> et <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs agence SEO traditionnelle" description="La comparaison québécoise sur les tarifs, la vitesse d'audit et la portée bilingue" />.</p>
-=======
-        <p>Pour des comparaisons avec d'autres agences canadiennes et québécoises, voir <InternalLink to="/blog/ailys-vs-major-tom-agence-canada" title="AiLys vs Major Tom" description="Specialiste local Québec versus agence numerique pancanadienne" />, <InternalLink to="/blog/ailys-vs-digitad-seo-quebec" title="AiLys vs Digitad" description="Comparaison des agences SEO au Québec pour les commerçants locaux" /> et <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs agence SEO traditionnelle" description="La comparaison québécoise sur les tarifs, la vitesse d'audit et la portée bilingue" />.</p>
->>>>>>> origin/main
       </CalloutBox>
 
       <InlineCTA variant="audit" text="Vous voulez voir ou votre commerce se situe dans la recherche IA? L'audit AI Visibility gratuit sort en 24 heures, sans engagement." buttonText="Lancer l'audit gratuit" />
@@ -114,36 +106,21 @@ export function ContentFr() {
         AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars CAD par mois. Chaque palier à une portée publiée et le chemin de mise a niveau est visible sur la page des forfaits.
       </p>
       <p>
-<<<<<<< HEAD
         ProStar SEO publié des prix de depart en USD par verticale. Le SEO local démarre à 2 000 USD par mois. Le SEO e-commerce démarre à 2 500 USD. Les fournisseurs de services professionnels démarrent à 3 000 USD. Les industries reglementees (juridique, medical, financier) démarrent à 3 500 USD. La portée reelle est construite sur mesure dans ces prix de depart, donc la liste de livrables est déterminée par engagement.
       </p>
       <p>
         Au seuil d'entree, AiLys Starter à 300 CAD par mois est environ un cinquieme du plancher de SEO local le plus bas de ProStar à 2 000 USD. Au palier AiLys Agency (2 499 CAD), le prix reste sous le plancher de SEO local de ProStar une fois la conversion CAD vers USD appliquee. Pour les opérateurs avec des budgets sous 2 000 USD par mois, AiLys est la seule option de cet ensemble comparé qui livre dans cette plage.
-=======
-        ProStar SEO publié des prix de depart en USD par verticale. Le SEO local demarre à 2 000 USD par mois. Le SEO e-commerce demarre à 2 500 USD. Les fournisseurs de services professionnels demarrent à 3 000 USD. Les industries reglementees (juridique, medical, financier) demarrent à 3 500 USD. La portée reelle est construite sur mesure dans ces prix de depart, donc la liste de livrables est determinee par engagement.
-      </p>
-      <p>
-        Au seuil d'entree, AiLys Starter à 300 CAD par mois est environ un cinquieme du plancher de SEO local le plus bas de ProStar à 2 000 USD. Au palier AiLys Agency (2 499 CAD), le prix reste sous le plancher de SEO local de ProStar une fois la conversion CAD vers USD appliquee. Pour les opérateurs avec des budgets sous 2 000 USD par mois, AiLys est la seule option de cet ensemble compare qui livre dans cette plage.
->>>>>>> origin/main
       </p>
 
       <QuickQuiz
         translatedLabel="Quiz éclair"
         translatedCorrect="Bonne réponse!"
         translatedNotQuite="Pas tout à fait."
-<<<<<<< HEAD
         question="A quel budget mensuel ProStar SEO devient-elle accessible comparé a AiLys?"
         options={[
           'ProStar démarre à 300 CAD, comme AiLys',
           'ProStar démarre à 2 000 USD par mois pour le SEO local',
           'ProStar démarre à 500 CAD par mois',
-=======
-        question="A quel budget mensuel ProStar SEO devient-elle accessible compare a AiLys?"
-        options={[
-          'ProStar demarre à 300 CAD, comme AiLys',
-          'ProStar demarre à 2 000 USD par mois pour le SEO local',
-          'ProStar demarre à 500 CAD par mois',
->>>>>>> origin/main
           "Les deux ont des prix d'entree identiques",
         ]}
         correctIndex={1}
@@ -226,11 +203,7 @@ export function ContentFr() {
       </ol>
 
       <p>
-<<<<<<< HEAD
         AiLys oriente régulièrement des opérateurs vers les agences SEO canadiennes traditionnelles quand la portée depasse la voie AI Visibility et automatisation GBP. Les deux modèles sont complementaires plus souvent que competitifs quand les besoins de l'opérateur s'étendent à la fois sur l'AI Visibility et le link building traditionnel.
-=======
-        AiLys oriente régulièrement des opérateurs vers les agences SEO canadiennes traditionnelles quand la portée depasse la voie AI Visibility et automatisation GBP. Les deux modèles sont complementaires plus souvent que competitifs quand les besoins de l'opérateur s'etendent à la fois sur l'AI Visibility et le link building traditionnel.
->>>>>>> origin/main
       </p>
 
       <CalloutBox type="warning" translatedLabel="Attention">
