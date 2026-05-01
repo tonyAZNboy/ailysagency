@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Major Tom for Canadian businesses. Pricing, AI Visibility, national scope, bilingual delivery, and where each agency fits best.',
   tldr: 'Major Tom is a pan-Canadian digital agency with offices in Vancouver and New York, offering strategy, creative, development, paid media, and SEO for mid-market and enterprise brands. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Major Tom fits brands that need a full-service digital partner with national or international reach. AiLys fits local operators who need AI Visibility, GBP, and citation work shipped fast at a predictable cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'major tom', 'comparison', 'canada', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

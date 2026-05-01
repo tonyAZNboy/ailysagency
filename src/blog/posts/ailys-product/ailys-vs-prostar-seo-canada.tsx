@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and ProStar SEO for Canadian local businesses. Pricing tiers, AI Visibility, GBP work, bilingual scope, and where each agency fits.',
   tldr: 'ProStar SEO is a Canadian local SEO agency with offices in Quebec City, Montreal, Toronto, and Calgary, offering a full traditional local SEO suite (GBP, citations, link building, reviews, content) on no-lock-in month-to-month contracts starting at 2,000 USD per month for local SEO and going up to 3,500 USD per month for regulated industries. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. ProStar fits operators who want a multi-city Canadian agency with traditional SEO scope. AiLys fits operators who want AI engine citation work and GBP at a lower entry tier in CAD.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'prostar seo', 'comparison', 'canada', 'quebec', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

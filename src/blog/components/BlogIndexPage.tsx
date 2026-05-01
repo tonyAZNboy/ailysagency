@@ -204,15 +204,15 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
                 <option key={cat.id} value={cat.id}>{t.categories?.[cat.id] || cat.label}</option>
               ))}
             </select>
-            <button
-              type="button"
-              onClick={() => { setSort(sort === 'latest' ? 'oldest' : 'latest'); setPage(1) }}
-              className="shrink-0 min-h-[44px] min-w-[44px] grid place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+            <select
+              value={sort}
+              onChange={(e) => { setSort(e.target.value as SortOrder); setPage(1) }}
+              className="shrink-0 min-h-[44px] max-w-[34vw] rounded-xl border border-white/10 bg-white/5 px-2.5 text-sm text-white focus:border-cyan-500/50 focus:outline-none truncate"
               aria-label={sort === 'latest' ? (t.sortLatest || 'Latest first') : (t.sortOldest || 'Oldest first')}
-              title={sort === 'latest' ? (t.sortLatest || 'Latest first') : (t.sortOldest || 'Oldest first')}
             >
-              <SlidersHorizontal className="h-4 w-4" />
-            </button>
+              <option value="latest">{t.sortLatest || 'Latest First'}</option>
+              <option value="oldest">{t.sortOldest || 'Oldest First'}</option>
+            </select>
           </div>
 
           {/* Desktop / tablet full layout (sm and up) */}

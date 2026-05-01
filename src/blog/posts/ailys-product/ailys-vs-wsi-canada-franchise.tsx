@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and WSI for Canadian local businesses. Pricing model, AI Visibility, franchise consultant network, bilingual scope, and where each fits.',
   tldr: 'WSI was founded in Toronto in 1995 and operates as a global network of consultants across 80-plus countries, with each consultant running their own franchise territory and serving local SMB clients with SEO, paid media, social, web design, and AI consulting. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. WSI fits operators who want a local consultant relationship through a global brand. AiLys fits operators who want a Quebec-built specialist platform with published pricing.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'wsi', 'comparison', 'canada', 'franchise', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

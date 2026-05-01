@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Bofu Agence Marketing for Quebec businesses. Pricing, AI Visibility, conversion focus, bilingual scope, and where each agency wins.',
   tldr: 'Bofu Agence Marketing is a Laurentides-based Quebec marketing agency focused on bottom-of-funnel conversion across SEO/GEO, paid media (Google Ads, Meta, LinkedIn, Amazon Ads), HubSpot CRM implementation, marketing automation, branding, and web design. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Bofu fits operators who want a HubSpot-driven omnichannel growth partner with conversion focus. AiLys fits operators who want AI engine citation work and GBP at a transparent monthly cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'bofu', 'comparison', 'quebec', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

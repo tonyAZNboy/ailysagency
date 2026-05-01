@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Bloom for Montreal and Quebec businesses. Pricing, AI Visibility, paid media, bilingual scope, and where each agency wins.',
   tldr: 'Bloom is a Montreal performance marketing agency that specializes in paid media, e-commerce growth, and data-driven marketing strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Bloom fits operators who need paid media scale and conversion optimization. AiLys fits operators who need AI Visibility, GBP, and citation work at a predictable monthly cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'bloom', 'comparison', 'montreal', 'quebec', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',
