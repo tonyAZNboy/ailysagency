@@ -19,7 +19,7 @@ export const metaFr: BlogPostMeta = {
   tldr: "Bofu Agence Marketing est une agence marketing québécoise basee dans les Laurentides, axee sur la conversion bas-de-l'entonnoir avec SEO/GEO, media payant (Google Ads, Meta, LinkedIn, Amazon Ads), implementation HubSpot CRM, automatisation marketing, branding et conception web. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu convient aux opérateurs qui veulent un partenaire de croissance omnicanal pilote par HubSpot avec focus conversion. AiLys convient aux opérateurs qui veulent du travail de citations dans les moteurs IA et du GBP à un coût mensuel transparent.",
   faqItems: [
     {
-      question: 'Comment AiLys se comparé-t-elle a Bofu Agence Marketing pour les entreprises québécoises?',
+      question: 'Comment AiLys se comparé-t-elle à Bofu Agence Marketing pour les entreprises québécoises?',
       answer:
         "AiLys est une plateforme d'AI Visibility a prix fixe avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu Agence Marketing est une agence de performance québécoise basee dans les Laurentides axee sur la conversion (le nom vient de « Bottom of Funnel »), avec des services en SEO/GEO, media payant sur Google Ads, Meta, LinkedIn et Amazon Ads, implementation HubSpot CRM (Gold Partner), automatisation marketing, branding et conception web. AiLys à une portée plus étroite mais moins chere a démarrer et plus rapide en onboarding pour le travail AI Visibility. Bofu couvre une pile axee conversion plus large.",
     },
@@ -41,7 +41,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'Comment se comparé la livraison bilingue?',
       answer:
-        "Bofu sert les clients en français, anglais et espagnol. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par defaut, avec du français québécois rédigé à la main (courriel, magasiner, fin de semaine) et aucune API de traduction a aucune etape. Les deux agences sont capables en français et en anglais. La distinction AiLys est la livraison bilingue systematique sur chaque piece de contenu par defaut, avec l'espagnol presentement en repli vers EN jusqu'à ce que le déploiement de la deuxieme locale s'étend.",
+        "Bofu sert les clients en français, anglais et espagnol. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par défaut, avec du français québécois rédigé à la main (courriel, magasiner, fin de semaine) et aucune API de traduction a aucune etape. Les deux agences sont capables en français et en anglais. La distinction AiLys est la livraison bilingue systematique sur chaque piece de contenu par défaut, avec l'espagnol presentement en repli vers EN jusqu'à ce que le déploiement de la deuxieme locale s'étend.",
     },
     {
       question: "Quand devrait-on choisir Bofu plutot qu'AiLys?",
@@ -130,7 +130,7 @@ export function ContentFr() {
         Bofu optimise pour le moment ou un prospect devient client : taux de conversion des pages d'atterrissage, sequences de nurture par courriel, ROAS du media payant, habilitation des ventes pilotee CRM. La metrique est les conversions, les clients acquis et les revenus par canal. C'est du travail bas-de-l'entonnoir, ou l'audience connait déjà la marque et la question est si elle achete.
       </p>
       <p>
-        AiLys optimise pour le moment ou un client demande pour la première fois à un moteur IA au sujet d'une catégorie ou d'un commerce : apparaitre dans les réponses ChatGPT quand quelqu'un demande « meilleur dentiste a Laval », apparaitre dans les réponses Perplexity pour « cabinet d'avocats en droit familial au Québec », apparaitre dans Google AIO quand quelqu'un cherche un service. La metrique est la part de citations, le score AI Visibility et la présence dans les réponses generees par IA. C'est du travail de découverte haut-d'entonnoir, ou l'audience ne connait pas encore la marque et la question est si elle vous trouve.
+        AiLys optimise pour le moment ou un client demande pour la première fois à un moteur IA au sujet d'une catégorie ou d'un commerce : apparaitre dans les réponses ChatGPT quand quelqu'un demande « meilleur dentiste à Laval », apparaitre dans les réponses Perplexity pour « cabinet d'avocats en droit familial au Québec », apparaitre dans Google AIO quand quelqu'un cherche un service. La metrique est la part de citations, le score AI Visibility et la présence dans les réponses generees par IA. C'est du travail de découverte haut-d'entonnoir, ou l'audience ne connait pas encore la marque et la question est si elle vous trouve.
       </p>
       <p>
         Les deux couches se composent. Une AI Visibility forte amene de nouveaux prospects vers la marque. Une conversion bas-d'entonnoir forte transforme ces prospects en clients. Un opérateur qui fait rouler AiLys pour la découverte et Bofu (ou n'importe quel spécialiste de conversion) pour le closing couvre les deux extremites de l'entonnoir.
@@ -147,10 +147,10 @@ export function ContentFr() {
 
       <h2 id="hubspot-et-integration-crm">HubSpot et intégration CRM</h2>
       <p>
-        Bofu est un HubSpot Gold Partner, ce qui signifie une expertise certifiée en implementation HubSpot CRM, automatisation marketing, configuration de pipeline de vente et intégration de rapports. Pour les opérateurs qui font tourner leur entreprise sur HubSpot et qui ont besoin d'une agence qui peut étendre la plateforme, Bofu convient. La même chose s'applique a Klaviyo pour le courriel marketing.
+        Bofu est un HubSpot Gold Partner, ce qui signifie une expertise certifiée en implementation HubSpot CRM, automatisation marketing, configuration de pipeline de vente et intégration de rapports. Pour les opérateurs qui font tourner leur entreprise sur HubSpot et qui ont besoin d'une agence qui peut étendre la plateforme, Bofu convient. La même chose s'applique à Klaviyo pour le courriel marketing.
       </p>
       <p>
-        AiLys n'implemente pas de CRM. La plateforme s'intégré avec les rapports existants du client à travers les evenements GA4, l'attribution basee UTM pour le AI Traffic, et les rapports Reviuzy pour la velocite des avis. Le CRM, le courriel et le travail de pipeline de vente sont explicitement hors portée. Pour les opérateurs qui ont besoin d'implementation CRM, ce travail va a Bofu ou à un partenaire certifié HubSpot.
+        AiLys n'implemente pas de CRM. La plateforme s'intégré avec les rapports existants du client à travers les evenements GA4, l'attribution basee UTM pour le AI Traffic, et les rapports Reviuzy pour la velocite des avis. Le CRM, le courriel et le travail de pipeline de vente sont explicitement hors portée. Pour les opérateurs qui ont besoin d'implementation CRM, ce travail va à Bofu ou à un partenaire certifié HubSpot.
       </p>
 
       <CalloutBox type="tip" translatedLabel="Conseil">
@@ -161,10 +161,10 @@ export function ContentFr() {
 
       <h2 id="livraison-bilingue">Livraison bilingue</h2>
       <p>
-        Bofu sert les clients en français, anglais et espagnol, ce qui est plus large que la plupart des agences québécoises. L'équipe des Laurentides fonctionne bilingue par defaut pour le marché québécois.
+        Bofu sert les clients en français, anglais et espagnol, ce qui est plus large que la plupart des agences québécoises. L'équipe des Laurentides fonctionne bilingue par défaut pour le marché québécois.
       </p>
       <p>
-        AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par defaut. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux est preserve (courriel, magasiner, fin de semaine). L'espagnol est dans le schema typage mais retourne presentement vers EN jusqu'à ce que le déploiement de la deuxieme locale s'étend.
+        AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par défaut. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux est preserve (courriel, magasiner, fin de semaine). L'espagnol est dans le schema typage mais retourne presentement vers EN jusqu'à ce que le déploiement de la deuxieme locale s'étend.
       </p>
       <p>
         Pour les opérateurs qui ont besoin specifiquement de contenu en espagnol (expansion sur le marché mexicain, clientele latino-americaine), la couverture en trois langues de Bofu peut compter. Pour les opérateurs concentres sur le marché québécois EN/FR, les deux agences sont capables dans ces deux langues.
@@ -213,7 +213,7 @@ export function ContentFr() {
           "Bofu Agence Marketing est une agence de performance québécoise axee sur la conversion bas-d'entonnoir, le CRM et le media payant. AiLys est une plateforme spécialisée d'AI Visibility pour la découverte haut-d'entonnoir.",
           'AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Bofu côté par engagement selon le mix de canaux.',
           "Bofu couvre HubSpot CRM, courriel Klaviyo, media payant, conception web et branding. AiLys couvre les citations des moteurs IA, l'automatisation GBP, les citations et le schema FAQ.",
-          "Les deux sont bilingues EN et FR. Bofu ajoute la capacité espagnole. AiLys livre du bilingue systematique sur chaque piece de contenu par defaut.",
+          "Les deux sont bilingues EN et FR. Bofu ajoute la capacité espagnole. AiLys livre du bilingue systematique sur chaque piece de contenu par défaut.",
           "Les deux sont complementaires sur l'entonnoir. AiLys pour la découverte, Bofu pour la conversion, sans chevauchement.",
         ]}
       />

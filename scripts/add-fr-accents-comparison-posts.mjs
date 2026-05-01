@@ -247,6 +247,16 @@ const SUBS = [
   ['hesitez', 'hésitez'], ['hesite', 'hésite'],
   ['reflechir', 'réfléchir'], ['reflechi', 'réfléchi'],
   ['fideliser', 'fidéliser'], ['fidelise', 'fidélisé'],
+  // Round 3: minor accent words
+  ['defaut', 'défaut'], ['defauts', 'défauts'],
+  ['personnalise', 'personnalisé'], ['personnalisee', 'personnalisée'],
+  ['personnalises', 'personnalisés'], ['personnalisees', 'personnalisées'],
+  ['entree', 'entrée'], ['entrees', 'entrées'],
+  ['periode', 'période'], ['periodes', 'périodes'],
+  ['periodique', 'périodique'], ['periodiquement', 'périodiquement'],
+  ['caracteristique', 'caractéristique'],
+  ['caracteristiques', 'caractéristiques'],
+  ['demarche', 'démarche'], ['demarches', 'démarches'],
   // Round 2: words missed in first pass
   ['numerique', 'numérique'], ['Numerique', 'Numérique'],
   ['numeriques', 'numériques'],
@@ -378,6 +388,9 @@ const PHRASES = [
   [/cote a cote/g, 'côte à côte'], [/Cote a cote/g, 'Côte à côte'],
   [/face a face/g, 'face à face'],
   [/un a un/g, 'un à un'],
+  // " a [ProperNoun]" → " à [ProperNoun]" - safe because lowercase 'a' before
+  // a capitalized word is almost always the preposition (not avoir conjugation)
+  [/\ba (Digitad|Bloom|Major|ProStar|Bofu|Adviso|Rablab|WSI|AiLys|Reviuzy|Truvizy|Quebec|Québec|Montreal|Montréal|Toronto|Vancouver|Calgary|Sherbrooke|Laval|Google|ChatGPT|Perplexity|Claude|Gemini|Bing|Meta|LinkedIn|TikTok|Anthropic|HubSpot|Klaviyo|Air|Banque|Cirque|Nespresso|New|Mile|Ouest|Sud|Nord|Est)/g, 'à $1'],
   // Common headers
   [/Quiz eclair/g, 'Quiz éclair'], [/QUIZ ECLAIR/g, 'QUIZ ÉCLAIR'],
   [/Bonne reponse/g, 'Bonne réponse'],

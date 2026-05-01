@@ -19,9 +19,9 @@ export const metaFr: BlogPostMeta = {
   tldr: "Digitad est une agence de marketing numérique montréalaise bien établie avec une surface large qui inclut le media payant, les réseaux sociaux et la stratégie de contenu. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux, avec quatre forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Les deux servent des profils d'opérateurs différents : Digitad convient à l'opérateur qui veut un partenaire numérique complet, AiLys convient à l'opérateur qui veut du travail AI Visibility, GBP et citations livre rapidement à un coût mensuel prévisible.",
   faqItems: [
     {
-      question: 'Comment AiLys se comparé-t-elle a Digitad pour le SEO local au Québec?',
+      question: 'Comment AiLys se comparé-t-elle à Digitad pour le SEO local au Québec?',
       answer:
-        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux, à partir de 300 dollars CAD par mois avec livraison bilingue EN et FR-CA. Digitad est une agence de marketing numérique montréalaise offrant SEO, media payant, réseaux sociaux et stratégie de contenu sur des retainers personnalises. AiLys à une portée plus étroite mais un seuil d'entree plus bas et un onboarding plus rapide. Digitad couvre plus de canaux mais exige un budget plus élevé et une periode de découverte plus longue.",
+        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux, à partir de 300 dollars CAD par mois avec livraison bilingue EN et FR-CA. Digitad est une agence de marketing numérique montréalaise offrant SEO, media payant, réseaux sociaux et stratégie de contenu sur des retainers personnalisés. AiLys à une portée plus étroite mais un seuil d'entrée plus bas et un onboarding plus rapide. Digitad couvre plus de canaux mais exige un budget plus élevé et une période de découverte plus longue.",
     },
     {
       question: 'AiLys est-elle moins chere que Digitad pour les entreprises québécoises?',
@@ -34,14 +34,14 @@ export const metaFr: BlogPostMeta = {
         "Digitad offre des audits SEO traditionnels couvrant la sante technique, les écarts de mots-cles et les opportunites de contenu. AiLys fait un audit AI Visibility spécialisé qui interroge ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour des requetes de marque et de catégorie, évalue la part de citations sur ces moteurs et nomme les écarts dans cinq couches (GBP, NAP, schemas, photographie, FAQ). L'audit AiLys sort en 24 heures. Les audits SEO traditionnels dans n'importe quelle agence prennent generalement une a trois semaines.",
     },
     {
-      question: 'Quelle agence est meilleure pour un restaurant ou une clinique a Montréal?',
+      question: 'Quelle agence est meilleure pour un restaurant ou une clinique à Montréal?',
       answer:
-        "Pour un restaurant ou une clinique à un seul emplacement a Montréal qui a besoin d'optimisation GBP, d'AI Visibility et d'automatisation des avis à un budget sous 1 500 dollars par mois, AiLys est l'option plus rapide et moins chere. Pour un groupe multi-emplacements qui a aussi besoin de campagnes de media payant, de gestion de réseaux sociaux et de stratégie de contenu sur plusieurs canaux, Digitad offre la surface plus large. La décision depend des canaux dont l'opérateur a reellement besoin, pas de quelle agence est generiquement meilleure.",
+        "Pour un restaurant ou une clinique à un seul emplacement à Montréal qui a besoin d'optimisation GBP, d'AI Visibility et d'automatisation des avis à un budget sous 1 500 dollars par mois, AiLys est l'option plus rapide et moins chere. Pour un groupe multi-emplacements qui a aussi besoin de campagnes de media payant, de gestion de réseaux sociaux et de stratégie de contenu sur plusieurs canaux, Digitad offre la surface plus large. La décision depend des canaux dont l'opérateur a reellement besoin, pas de quelle agence est generiquement meilleure.",
     },
     {
       question: "AiLys gère-t-elle le contenu en français mieux que Digitad?",
       answer:
-        "Les deux agences servent le marché québécois en français. La différence est le flux de travail. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne, avec du français québécois rédigé à la main (courriel, magasiner, fin de semaine) et aucune API de traduction a aucune etape. Digitad fonctionne principalement en français avec capacité anglaise. Les deux produisent du contenu français de qualite native. L'avantage AiLys est la livraison bilingue systematique sur chaque piece de contenu par defaut, ce qui compte pour les opérateurs qui servent les publics anglophones et francophones.",
+        "Les deux agences servent le marché québécois en français. La différence est le flux de travail. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne, avec du français québécois rédigé à la main (courriel, magasiner, fin de semaine) et aucune API de traduction a aucune etape. Digitad fonctionne principalement en français avec capacité anglaise. Les deux produisent du contenu français de qualite native. L'avantage AiLys est la livraison bilingue systematique sur chaque piece de contenu par défaut, ce qui compte pour les opérateurs qui servent les publics anglophones et francophones.",
     },
     {
       question: 'Quand devrait-on choisir Digitad plutot qu\'AiLys?',
@@ -80,7 +80,7 @@ export function ContentFr() {
 
       <h2 id="la-comparaison-honnete">La comparaison honnête</h2>
       <p>
-        Digitad est une agence de marketing numérique basee a Montréal, fondée en 2017. La portée est large : SEO, Google Ads, Meta Ads, gestion de réseaux sociaux, stratégie de contenu, courriel marketing et développement web. L'équipe fonctionne principalement en français avec capacité anglaise, et les tarifs sont sur devis par engagement.
+        Digitad est une agence de marketing numérique basee à Montréal, fondée en 2017. La portée est large : SEO, Google Ads, Meta Ads, gestion de réseaux sociaux, stratégie de contenu, courriel marketing et développement web. L'équipe fonctionne principalement en français avec capacité anglaise, et les tarifs sont sur devis par engagement.
       </p>
       <p>
         AiLys est une plateforme d'AI Visibility bâtie au Québec avec quatre forfaits mensuels a prix fixe. La portée est volontairement étroite : audits AI Visibility sur ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot, optimisation GBP, travail de citations NAP, couches de schemas, pages FAQ et automatisation de réputation via le module Reviuzy. L'équipe est bilingue EN et FR-CA à l'interne, et l'audit sort en 24 heures.
@@ -102,7 +102,7 @@ export function ContentFr() {
         AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et le chemin de mise a niveau est visible sur la page des forfaits.
       </p>
       <p>
-        Digitad tarifie sur un modèle de retainer personnalise. Le coût mensuel depend des canaux selectionnes (SEO, media payant, social, contenu) et du volume de travail. Les retainers démarrent typiquement au-dessus du seuil d'entree AiLys parce que la portée est plus large. Le compromis est la couverture : Digitad livre sur plus de canaux sous un seul contrat.
+        Digitad tarifie sur un modèle de retainer personnalisé. Le coût mensuel depend des canaux selectionnes (SEO, media payant, social, contenu) et du volume de travail. Les retainers démarrent typiquement au-dessus du seuil d'entrée AiLys parce que la portée est plus large. Le compromis est la couverture : Digitad livre sur plus de canaux sous un seul contrat.
       </p>
 
       <p>
@@ -130,7 +130,7 @@ export function ContentFr() {
 
       <h2 id="ai-visibility-vs-seo-traditionnel">AI Visibility vs SEO traditionnel</h2>
       <p>
-        La plus grande différence entre les deux est la définition de visibilite. Digitad optimise pour les classements organiques Google, les placements Google Ads et la portée sociale. AiLys optimise pour les citations des moteurs IA : être nomme quand quelqu'un demande a ChatGPT, Perplexity, Claude, Gemini, Google AIO ou Bing Copilot au sujet d'une catégorie ou d'un commerce.
+        La plus grande différence entre les deux est la définition de visibilite. Digitad optimise pour les classements organiques Google, les placements Google Ads et la portée sociale. AiLys optimise pour les citations des moteurs IA : être nomme quand quelqu'un demande à ChatGPT, Perplexity, Claude, Gemini, Google AIO ou Bing Copilot au sujet d'une catégorie ou d'un commerce.
       </p>
       <p>
         L'AI Visibility est une couche que le SEO traditionnel soutient mais ne mesure ni ne cible directement. AiLys interroge les principaux moteurs IA chaque semaine (quotidiennement au palier Agency), évalue la part de citations par modèle et type de requete, et livre le travail qui comble les écarts de citations : couches de schemas, contenu FAQ, coherence NAP, completude GBP et données structurees que les moteurs IA analysent pour generer des réponses.
@@ -150,13 +150,13 @@ export function ContentFr() {
 
       <h2 id="livraison-bilingue">Livraison bilingue</h2>
       <p>
-        Les deux agences servent le marché québécois en français. Digitad fonctionne principalement en français, ce qui est une force pour les clients francophones. L'anglais est disponible mais le français est le defaut.
+        Les deux agences servent le marché québécois en français. Digitad fonctionne principalement en français, ce qui est une force pour les clients francophones. L'anglais est disponible mais le français est le défaut.
       </p>
       <p>
-        AiLys livre chaque livrable bilingue EN et FR-CA par defaut. Articles de blogue, publications GBP, reecritures de citations, contenu FAQ, livrables d'audit et l'interface de la plateforme. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux (courriel, magasiner, fin de semaine) est preserve.
+        AiLys livre chaque livrable bilingue EN et FR-CA par défaut. Articles de blogue, publications GBP, reecritures de citations, contenu FAQ, livrables d'audit et l'interface de la plateforme. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux (courriel, magasiner, fin de semaine) est preserve.
       </p>
       <p>
-        La distinction compte pour les opérateurs qui servent les publics anglophone et francophone. Un dentiste dans le West Island de Montréal a besoin de l'anglais et du français egalement. Un cabinet d'avocats au centre-ville de Montréal peut avoir besoin du français d'abord avec l'anglais pour l'index de recherche canadien plus large. AiLys livre les deux par defaut. Digitad par defaut livre en français avec l'anglais sur demande.
+        La distinction compte pour les opérateurs qui servent les publics anglophone et francophone. Un dentiste dans le West Island de Montréal a besoin de l'anglais et du français egalement. Un cabinet d'avocats au centre-ville de Montréal peut avoir besoin du français d'abord avec l'anglais pour l'index de recherche canadien plus large. AiLys livre les deux par défaut. Digitad par défaut livre en français avec l'anglais sur demande.
       </p>
 
       <CalloutBox type="tip" translatedLabel="Conseil">
@@ -219,7 +219,7 @@ export function ContentFr() {
           "Digitad est une agence numérique montréalaise a service complet couvrant SEO, media payant, social et contenu. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
           'Les forfaits AiLys vont de 300 à 2 499 dollars CAD avec portée publiée. Les retainers Digitad sont sur devis pour une couverture de canaux plus large.',
           'AiLys mesure et cible les citations des moteurs IA directement. Digitad livre du SEO traditionnel qui soutient les citations indirectement.',
-          "AiLys livre chaque livrable bilingue EN et FR-CA par defaut. Digitad par defaut livre en français avec l'anglais sur demande.",
+          "AiLys livre chaque livrable bilingue EN et FR-CA par défaut. Digitad par défaut livre en français avec l'anglais sur demande.",
           "Pour le media payant, le social et la stratégie de contenu sous un même toit, Digitad convient mieux. Pour l'AI Visibility, GBP et citations à un coût prévisible, AiLys livre plus vite.",
         ]}
       />
