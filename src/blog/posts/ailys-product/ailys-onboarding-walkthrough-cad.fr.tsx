@@ -41,7 +41,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'Que se passe-t-il après la semaine 4?',
       answer:
-        'Le travail passe à une cadence régulière adaptée à votre palier. Starter livre quatre publications GBP par mois plus la sonde Visibilité IA mensuelle. Core livre six publications GBP, quatre citations par mois et du contenu bilingue hebdomadaire (4 sujets uniques). Growth ajoute le travail Wikipedia et Wikidata, huit publications par mois, six citations, tableau multi-emplacements jusqu'à 3 emplacements. Agency ajoute les heures de stratège dédié, le tableau multi-emplacements illimité, douze publications par mois, huit citations par domaine, et la présentation exécutive trimestrielle livrée en personne.',
+        "Le travail passe à une cadence régulière adaptée à votre palier. Starter livre quatre publications GBP par mois plus la sonde Visibilité IA mensuelle. Core livre six publications GBP, quatre citations par mois et du contenu bilingue hebdomadaire (4 sujets uniques). Growth ajoute le travail Wikipedia et Wikidata, huit publications par mois, six citations, tableau multi-emplacements jusqu'à 3 emplacements. Agency ajoute les heures de stratège dédié, le tableau multi-emplacements illimité, douze publications par mois, huit citations par domaine, et la présentation exécutive trimestrielle livrée en personne.",
     },
   ],
   headings: [
