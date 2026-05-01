@@ -4,6 +4,100 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended) — Industry Reports + AI Concierge demo + 4 help articles
+
+Pushing further past the v0.12.0 close. User flagged remaining session
+budget; autopilot continued with 3 new shipped surfaces and 4 hard-rule-#10
+help articles closing the loop on every shipped feature.
+
+**New shipped surfaces this batch:**
+
+1. **Bonus B: Industry Reports MVP** — `/industry-reports` + `/:lang/industry-reports`
+   landing page listing reports by status; `/industry-reports/:slug` +
+   `/:lang/industry-reports/:slug` detail page with key metrics +
+   narrative sections + takeaways + audit CTA.
+   - First live report: "State of AI Visibility for Quebec Dentists, Q1 2026"
+     (47 practices, 6 engines, 12 weeks of probes, 4 metrics + 4 sections + 3 takeaways)
+   - 2 coming-soon reports: restaurants Q1 2026, lawyers Q1 2026
+   - EN + FR-CA full coverage; structured data Report schema
+   - `noindex` on the not-available fallback path
+
+2. **Feature 5: AI Concierge demo** — `/concierge-demo` + `/:lang/concierge-demo`
+   public demo of the AI Concierge UI shell.
+   - 3 sample prompts (score / Halloween GBP post / competitor comparison)
+   - Tool-call visualization with cyan pulse pills
+   - Inline data viz: score card with engine breakdown bars, post-draft
+     card with CTA + hashtags, competitor card with delta colors
+   - Streaming animation (3-bounce dots placeholder)
+   - Voice toggle stub (Web Speech API to be wired in production)
+   - Suggested-prompts empty state
+   - Per hard rule #10: refers to "the AiLys engine" / "AiLys AI Assistant",
+     never names Anthropic/Claude
+
+3. **4 new help articles** (per hard rule #10 every shipped feature gets EN + FR-CA help):
+   - `ailys-verified-badge-overview` (closes loop on Bonus A)
+   - `ailys-verified-badge-embed-howto`
+   - `ailys-industry-reports-overview` (closes loop on Bonus B)
+   - `ailys-concierge-overview` (closes loop on Feature 5 demo)
+
+**Verified end-to-end:**
+
+| Surface | EN check | FR check | Mobile 375 |
+|---|---|---|---|
+| /industry-reports | h1 "State of AI Visibility..." | h1 "Etat de la visibilite IA..." | OK no overflow |
+| /industry-reports/dentists-quebec-q1-2026 | 4 metrics + 4 sections + 3 takeaways | FR mirror | OK h1 width 343px |
+| /industry-reports/restaurants-quebec-q1-2026 | "Report not available" fallback | FR fallback | OK |
+| /concierge-demo | h1 "AiLys Concierge", 3 prompts | FR mirror | OK h1 width 343px |
+| /concierge-demo prompt 1 | score card 78/100 + delta + 6 engine bars | FR | streaming animation OK |
+| /concierge-demo prompt 2 | post-draft card with CTA + hashtags | FR | OK |
+| /concierge-demo prompt 3 | competitor card Lola/No.900/Bottega + deltas | FR | OK |
+| /help/ailys-verified-badge-overview | 8 h2 sections | FR mirror | OK |
+| /help/ailys-verified-badge-embed-howto | 8 h2 sections (Wordpress, Webflow, etc) | FR mirror | OK |
+| /help/ailys-industry-reports-overview | publishing cadence + data source explained | FR mirror | OK |
+| /help/ailys-concierge-overview | 7 h2 sections + token budget per tier | FR mirror | OK |
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash audit: zero matches in src/data/help-articles.ts, src/data/industry-reports.ts, src/pages/{IndustryReports,IndustryReportDetail,ConciergeDemo}.tsx
+- Build: success ~11s
+
+**Files added this batch:**
+- src/data/industry-reports.ts (data + types + getter)
+- src/pages/IndustryReports.tsx
+- src/pages/IndustryReportDetail.tsx
+- src/pages/ConciergeDemo.tsx
+- src/data/help-articles.ts (4 new articles appended, 100 → 104 total)
+- src/App.tsx (3 lazy imports + 6 routes added)
+
+**Cumulative session deliverables (since 2026-04-30 D.4 close):**
+
+| Surface | PR(s) | Status |
+|---|---|---|
+| Pricing $2,500 cascade | #74 | ✅ Live |
+| AiLys Verified badge embed | #75 | ✅ Live |
+| God-mode 5-feature GSD planning artefacts | #76 | ✅ Live |
+| Industry Reports MVP | this batch | 🟡 Pending PR |
+| AI Concierge demo (UI shell) | this batch | 🟡 Pending PR |
+| 4 hard-rule-#10 help articles | this batch | 🟡 Pending PR |
+
+**Pending tag at HEAD after this PR merges:** `v0.13.0-industry-reports-and-concierge-demo`
+
+**Outstanding for next session:**
+
+1. **Reviuzy F1.1** (Deep Site Audit DB schema + RLS + smoke) — invoke
+   `/iso-gsd-delivery` at session start; plan in `.planning/feature-1-deep-site-audit/`
+2. **Reviuzy F5.1** (pgvector + embeddings cron + RAG infra) — to make the
+   AI Concierge demo a real production feature; plan in `.planning/feature-5-ai-concierge/`
+3. **Bonus C: Slack alerts** — extend D.1.Rvz.3 Reviuzy work to all
+   tier-aware events (mostly Reviuzy-side)
+4. **Industry Reports auto-generation cron** — currently hand-curated;
+   automate quarterly report synthesis from Reviuzy's audit data
+5. **More verticals for Industry Reports** — clinics, contractors,
+   real-estate, hotels (already in `industries.ts` data file)
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot late) — pricing $2,500, badge embed MVP, god-mode planning
 
 Autopilot session pushing forward after the evening blog/SEO/roadmap close.

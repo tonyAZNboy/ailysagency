@@ -48,6 +48,9 @@ const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
 const BadgeEmbed = lazy(() => import("./pages/BadgeEmbed"));
 const PublicVerify = lazy(() => import("./pages/PublicVerify"));
+const IndustryReports = lazy(() => import("./pages/IndustryReports"));
+const IndustryReportDetail = lazy(() => import("./pages/IndustryReportDetail"));
+const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -177,6 +180,16 @@ const App = () => {
                 <Route path="/:lang/badge" element={<BadgeEmbed />} />
                 <Route path="/verify/:slug" element={<PublicVerify />} />
                 <Route path="/:lang/verify/:slug" element={<PublicVerify />} />
+
+                {/* Bonus B: Quarterly Industry Reports lead magnets */}
+                <Route path="/industry-reports" element={<IndustryReports />} />
+                <Route path="/:lang/industry-reports" element={<IndustryReports />} />
+                <Route path="/industry-reports/:slug" element={<IndustryReportDetail />} />
+                <Route path="/:lang/industry-reports/:slug" element={<IndustryReportDetail />} />
+
+                {/* Feature 5: AI Concierge demo (UI shell, real backend in next sessions) */}
+                <Route path="/concierge-demo" element={<ConciergeDemo />} />
+                <Route path="/:lang/concierge-demo" element={<ConciergeDemo />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
