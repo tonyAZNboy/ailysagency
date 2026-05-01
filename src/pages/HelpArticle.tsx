@@ -118,6 +118,54 @@ export default function HelpArticle() {
   const bookCallLabel = lang === "fr" ? "Réserver un appel stratégique" : "Book a strategy call";
   const helpTitleSuffix = lang === "fr" ? "Aide AiLys Agency" : "AiLys Agency Help";
 
+  // react-helmet-async v2 strips inline <script> children silently. Inject
+  // BreadcrumbList + TechArticle JSON-LD directly into document.head via the
+  // useEffect below. Same fix as SEOHead.
+  useEffect(() => {
+    if (!article) return;
+    const tag = document.createElement('script');
+    tag.type = 'application/ld+json';
+    tag.setAttribute('data-page-jsonld', '1');
+    tag.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: homeLabel, item: homeUrl },
+            { "@type": "ListItem", position: 2, name: helpLabel, item: helpUrl },
+            { "@type": "ListItem", position: 3, name: meta.label, item: `${helpUrl}#${article.category}` },
+            { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+          ],
+        },
+        {
+          "@type": "TechArticle",
+          "@id": `${articleUrl}#article`,
+          headline: article.title,
+          description: article.excerpt,
+          datePublished: article.updatedAt,
+          dateModified: article.updatedAt,
+          wordCount: article.body.split(/\s+/).length,
+          inLanguage,
+          articleSection: meta.label,
+          proficiencyLevel: "Beginner",
+          author: { "@id": "https://www.ailysagency.ca/#organization" },
+          publisher: { "@id": "https://www.ailysagency.ca/#organization" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["h1", ".prose p:first-of-type"],
+          },
+        },
+      ],
+    });
+    document.head.appendChild(tag);
+    return () => {
+      tag.parentNode?.removeChild(tag);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [article?.slug, lang]);
+
   return (
     <>
       <Helmet>
@@ -126,41 +174,6 @@ export default function HelpArticle() {
         <meta name="description" content={article.excerpt} />
         <meta property="og:locale" content={ogLocale} />
         <link rel="canonical" href={articleUrl} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  { "@type": "ListItem", position: 1, name: homeLabel, item: homeUrl },
-                  { "@type": "ListItem", position: 2, name: helpLabel, item: helpUrl },
-                  { "@type": "ListItem", position: 3, name: meta.label, item: `${helpUrl}#${article.category}` },
-                  { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
-                ],
-              },
-              {
-                "@type": "TechArticle",
-                "@id": `${articleUrl}#article`,
-                headline: article.title,
-                description: article.excerpt,
-                datePublished: article.updatedAt,
-                dateModified: article.updatedAt,
-                wordCount: article.body.split(/\s+/).length,
-                inLanguage,
-                articleSection: meta.label,
-                proficiencyLevel: "Beginner",
-                author: { "@id": "https://www.ailysagency.ca/#organization" },
-                publisher: { "@id": "https://www.ailysagency.ca/#organization" },
-                mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-                speakable: {
-                  "@type": "SpeakableSpecification",
-                  cssSelector: ["h1", ".prose p:first-of-type"],
-                },
-              },
-            ],
-          })}
-        </script>
       </Helmet>
 
       <NetworkBackground
