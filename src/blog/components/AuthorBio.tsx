@@ -9,9 +9,13 @@ interface AuthorBioProps {
   translatedOrgDescription?: string
   /** Translated team name */
   translatedResearchTeam?: string
+  /** Translated role label (replaces English author.role) */
+  translatedRole?: string
+  /** Translated author display name (replaces English author.name) */
+  translatedName?: string
 }
 
-export function AuthorBio({ author, translatedVerifiedBy, translatedOrgDescription, translatedResearchTeam }: AuthorBioProps) {
+export function AuthorBio({ author, translatedVerifiedBy, translatedOrgDescription, translatedResearchTeam, translatedRole, translatedName }: AuthorBioProps) {
   const teamName = translatedResearchTeam || 'AiLys Research'
   const verifiedLabel = translatedVerifiedBy
     ? translatedVerifiedBy.replace('{{team}}', teamName)
@@ -26,13 +30,13 @@ export function AuthorBio({ author, translatedVerifiedBy, translatedOrgDescripti
         </div>
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className="text-lg font-semibold text-white">{author.name}</h4>
+            <h4 className="text-lg font-semibold text-white">{translatedName || author.name}</h4>
             <span className="inline-flex items-center gap-1 rounded-full bg-cyan-500/10 px-2.5 py-0.5 text-xs font-medium text-cyan-400">
               <CheckCircle2 className="h-3 w-3" />
               {verifiedLabel}
             </span>
           </div>
-          <p className="text-sm text-white/50 mt-0.5">{author.role}</p>
+          <p className="text-sm text-white/50 mt-0.5">{translatedRole || author.role}</p>
           <p className="text-sm text-white/60 mt-2 leading-relaxed">
             {bio}
           </p>
