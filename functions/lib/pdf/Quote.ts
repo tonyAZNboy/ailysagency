@@ -109,9 +109,10 @@ export interface QuoteCalc {
 
 export function computeQuote(input: QuoteRenderInput): QuoteCalc {
   const tierBase = TIER_PRICE_CAD[input.tier];
-  const discountPct = (input.engagement === 'biennial' && (input.tier === 'starter' || input.tier === 'core'))
-    ? 0 // biennial only on growth+agency, fall back to monthly
-    : ENGAGEMENT_DISCOUNT[input.engagement];
+  // Biennial is now eligible across all 4 tiers (was previously growth+agency
+  // only). See src/data/tier-comparison.ts ENGAGEMENT_OPTIONS for the
+  // canonical eligibility list.
+  const discountPct = ENGAGEMENT_DISCOUNT[input.engagement];
   const engagementDiscount = Math.round(tierBase * discountPct);
   const reviuzyAddonCost = input.reviuzyAddon && input.tier !== 'agency' ? REVIUZY_ADDON_CAD : 0;
   const subtotal = tierBase - engagementDiscount + reviuzyAddonCost;
