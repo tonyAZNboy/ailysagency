@@ -13,13 +13,13 @@ import { meta } from './ailys-vs-rablab-creative-montreal'
 
 export const metaFr: BlogPostMeta = {
   ...meta,
-  title: "AiLys vs Rablab, plateforme d'AI Visibility versus agence créative numérique a Montréal",
+  title: "AiLys vs Rablab, plateforme d'AI Visibility versus agence créative numérique à Montréal",
   metaDescription:
     "Comparaison honnête d'AiLys et Rablab pour les marques québécoises. Tarifs, AI Visibility, production créative, bilinguisme et ou chaque agence convient.",
   tldr: "Rablab est une agence créative numérique montréalaise reconnue pour le branding, la production créative, le contenu et le travail d'expérience numérique pour des clients de marques de taille moyenne et grande. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab convient aux marques qui ont besoin de production créative et de design d'expérience numérique. AiLys convient aux opérateurs qui ont besoin de travail de citations dans les moteurs IA et de GBP à un coût mensuel transparent.",
   faqItems: [
     {
-      question: 'Comment AiLys se comparé-t-elle a Rablab pour les marques montréalaises?',
+      question: 'Comment AiLys se comparé-t-elle à Rablab pour les marques montréalaises?',
       answer:
         "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab est une agence créative numérique montréalaise axee sur le branding, la production créative, le design d'expérience numérique et le travail de contenu pour des clients de marques de taille moyenne et grande. Les deux resolvent des problèmes différents : Rablab bâtit les marques et les actifs créatifs, AiLys livre du travail de citations dans les moteurs IA et de l'automatisation GBP. Elles se chevauchent rarement sur le même engagement.",
     },
@@ -31,17 +31,17 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que Rablab?',
       answer:
-        "AiLys publié quatre forfaits CAD (300 à 2 499 dollars par mois) avec des listes de livrables fixes. Rablab ne publié pas de tarifs. Les engagements d'agence créative sont typiquement par projet ou par retainer avec une tarification personnalisee qui reflete la portée de la production créative. La comparaison directe n'a pas vraiment de sens parce que les livrables différent : AiLys livre des audits AI Visibility et du travail GBP, Rablab livre des identités de marque et des campagnes créatives.",
+        "AiLys publié quatre forfaits CAD (300 à 2 499 dollars par mois) avec des listes de livrables fixes. Rablab ne publié pas de tarifs. Les engagements d'agence créative sont typiquement par projet ou par retainer avec une tarification personnalisée qui reflete la portée de la production créative. La comparaison directe n'a pas vraiment de sens parce que les livrables différent : AiLys livre des audits AI Visibility et du travail GBP, Rablab livre des identités de marque et des campagnes créatives.",
     },
     {
       question: 'Une marque peut-elle utiliser AiLys et Rablab à la fois?',
       answer:
-        "Oui. Une pile commune est Rablab (ou une autre agence créative) pour l'identité de marque, la production créative et l'expérience numérique, jumelee a AiLys pour la couche d'exécution AI Visibility. Le travail créatif faconne comment la marque à l'air et sonne. Le travail AI Visibility s'assure que la marque apparait quand les clients demandent aux moteurs IA au sujet de la catégorie. Les deux couches ne se chevauchent pas et peuvent rouler en parallele.",
+        "Oui. Une pile commune est Rablab (ou une autre agence créative) pour l'identité de marque, la production créative et l'expérience numérique, jumelee à AiLys pour la couche d'exécution AI Visibility. Le travail créatif faconne comment la marque à l'air et sonne. Le travail AI Visibility s'assure que la marque apparait quand les clients demandent aux moteurs IA au sujet de la catégorie. Les deux couches ne se chevauchent pas et peuvent rouler en parallele.",
     },
     {
       question: 'Comment se comparé la livraison bilingue?',
       answer:
-        "Les deux organisations sont basees a Montréal et servent les clients québécois en français et en anglais. Rablab produit du contenu créatif bilingue pour les clients qui le requierent. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par defaut, avec du français québécois rédigé à la main et aucune API de traduction a aucune etape. Pour les campagnes créatives, Rablab couvre la production bilingue. Pour le contenu de recherche locale (articles de blogue, publications GBP, citations, FAQ), AiLys couvre la production bilingue.",
+        "Les deux organisations sont basees à Montréal et servent les clients québécois en français et en anglais. Rablab produit du contenu créatif bilingue pour les clients qui le requierent. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par défaut, avec du français québécois rédigé à la main et aucune API de traduction a aucune etape. Pour les campagnes créatives, Rablab couvre la production bilingue. Pour le contenu de recherche locale (articles de blogue, publications GBP, citations, FAQ), AiLys couvre la production bilingue.",
     },
     {
       question: "Quand devrait-on choisir Rablab plutot qu'AiLys?",
@@ -65,7 +65,7 @@ export function ContentFr() {
   return (
     <article>
       <p>
-        Les marques québécoises ont parfois Rablab et AiLys ensemble sur leur courte liste parce que les deux sont basees a Montréal et servent des clients sur le marché bilingue. Les deux resolvent des problèmes fondamentalement différents. Rablab est une agence numérique dirigee par le créatif. AiLys est une plateforme d'AI Visibility a prix fixe. La comparaison est plus une question de quel problème la marque a que de quelle agence est meilleure. Cette page présente les différences.
+        Les marques québécoises ont parfois Rablab et AiLys ensemble sur leur courte liste parce que les deux sont basees à Montréal et servent des clients sur le marché bilingue. Les deux resolvent des problèmes fondamentalement différents. Rablab est une agence numérique dirigee par le créatif. AiLys est une plateforme d'AI Visibility a prix fixe. La comparaison est plus une question de quel problème la marque a que de quelle agence est meilleure. Cette page présente les différences.
       </p>
 
       <StatHighlight
@@ -133,7 +133,7 @@ export function ContentFr() {
         Rablab ne publié pas de tarifs publiquement. La tarification d'agence créative depend typiquement de la portée de la production créative : un projet d'identité de marque differe d'une campagne de contenu qui differe d'une construction d'expérience numérique. Les engagements sont côtés par projet ou par retainer.
       </p>
       <p>
-        Pour les opérateurs avec un besoin défini d'AI Visibility et de GBP à un coût mensuel fixe, AiLys publié un palier qui convient. Pour les marques qui ont besoin de production créative avec portée personnalisee, Rablab côté par engagement. Les deux modèles de prix refletent des catégories de livrables différentes.
+        Pour les opérateurs avec un besoin défini d'AI Visibility et de GBP à un coût mensuel fixe, AiLys publié un palier qui convient. Pour les marques qui ont besoin de production créative avec portée personnalisée, Rablab côté par engagement. Les deux modèles de prix refletent des catégories de livrables différentes.
       </p>
 
       <SectionDivider />
@@ -161,13 +161,13 @@ export function ContentFr() {
 
       <h2 id="livraison-bilingue">Livraison bilingue</h2>
       <p>
-        Les deux organisations sont basees a Montréal et servent les clients québécois bilingues. Rablab produit du contenu créatif en français et en anglais pour les clients qui le requierent, avec de la rédaction native en français québécois disponible pour les campagnes locales.
+        Les deux organisations sont basees à Montréal et servent les clients québécois bilingues. Rablab produit du contenu créatif en français et en anglais pour les clients qui le requierent, avec de la rédaction native en français québécois disponible pour les campagnes locales.
       </p>
       <p>
-        AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par defaut. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux (courriel, magasiner, fin de semaine) est preserve sur chaque piece de contenu.
+        AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par défaut. Le flux est EN canonique d'abord, FR-CA rédigé à la main ensuite par une personne bilingue à l'interne. Aucune API de traduction a aucune etape. Le français québécois avec ses idiomes régionaux (courriel, magasiner, fin de semaine) est preserve sur chaque piece de contenu.
       </p>
       <p>
-        Pour les campagnes créatives et le travail de marque, Rablab couvre la production créative bilingue. Pour le contenu de recherche locale (articles de blogue, publications GBP, citations, FAQ, livrables d'audit), AiLys couvre la production bilingue comme defaut de palier.
+        Pour les campagnes créatives et le travail de marque, Rablab couvre la production créative bilingue. Pour le contenu de recherche locale (articles de blogue, publications GBP, citations, FAQ, livrables d'audit), AiLys couvre la production bilingue comme défaut de palier.
       </p>
 
       <InlineCTA variant="pricing" text="Comparez les quatre forfaits AiLys côté a côté avec les listes de livrables, les cadences GBP et le coût mensuel publié." buttonText="Voir les forfaits" />
@@ -182,7 +182,7 @@ export function ContentFr() {
       <ol>
         <li>Le defi marketing est l'identité de marque. Lancer une nouvelle marque, en rafraichir une existante ou aligner l'identité visuelle à travers les canaux.</li>
         <li>Le livrable est de la production créative. Campagnes, series de contenu, photographie, video, expériences web interactives, narration de marque.</li>
-        <li>Le travail a besoin de stratèges créatifs seniors, designers, redacteurs et producteurs travaillant sur une portée personnalisee. AiLys ne fournit pas de direction ou de production créative à cette portée.</li>
+        <li>Le travail a besoin de stratèges créatifs seniors, designers, redacteurs et producteurs travaillant sur une portée personnalisée. AiLys ne fournit pas de direction ou de production créative à cette portée.</li>
       </ol>
 
       <p>
@@ -197,7 +197,7 @@ export function ContentFr() {
 
       <h2 id="comment-choisir">Comment choisir</h2>
       <p>
-        Une question décide quelle agence engager en premier : le besoin immédiat est-il de la production créative (identité de marque, campagnes, contenu, expérience numérique) ou de l'exécution AI Visibility (citations dans les moteurs IA, GBP, schemas)? Le créatif va a Rablab. L'AI Visibility va a AiLys. La plupart des marques ont eventuellement besoin des deux, mais l'ordre depend de quel écart est plus grand maintenant.
+        Une question décide quelle agence engager en premier : le besoin immédiat est-il de la production créative (identité de marque, campagnes, contenu, expérience numérique) ou de l'exécution AI Visibility (citations dans les moteurs IA, GBP, schemas)? Le créatif va à Rablab. L'AI Visibility va à AiLys. La plupart des marques ont eventuellement besoin des deux, mais l'ordre depend de quel écart est plus grand maintenant.
       </p>
       <p>
         Si l'AI Visibility est l'écart immédiat, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de signer quoi que ce soit" /> et examinez le livrable. L'audit est gratuit et prend 24 heures.
@@ -214,7 +214,7 @@ export function ContentFr() {
           'AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Rablab côté des engagements créatifs par projet ou retainer.',
           "Rablab livre des artefacts créatifs (identité de marque, campagnes, contenu, expérience numérique). AiLys livre de l'exécution AI Visibility (audits, GBP, citations, schemas).",
           "Les deux sont complementaires sur la pile marketing. Agence créative pour le travail de marque, plateforme d'AI Visibility pour la découverte dans les moteurs IA.",
-          'Les deux sont bilingues EN et FR a Montréal. AiLys livre du bilingue systematique sur chaque piece de contenu par defaut.',
+          'Les deux sont bilingues EN et FR à Montréal. AiLys livre du bilingue systematique sur chaque piece de contenu par défaut.',
         ]}
       />
 
