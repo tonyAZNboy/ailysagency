@@ -19,14 +19,14 @@ export const metaFr: BlogPostMeta = {
   tldr: "Bloom est une agence de marketing de performance montréalaise spécialisée en media payant, croissance e-commerce et stratégie marketing axee sur les données. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bloom convient aux opérateurs qui ont besoin de media payant a grande échelle et d'optimisation des conversions. AiLys convient aux opérateurs qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel prévisible.",
   faqItems: [
     {
-      question: 'Comment AiLys se compare-t-elle a Bloom pour les commerces locaux a Montréal?',
+      question: 'Comment AiLys se comparé-t-elle a Bloom pour les commerces locaux a Montréal?',
       answer:
         "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux à partir de 300 dollars CAD par mois. Bloom est une agence de marketing de performance spécialisée en media payant, croissance e-commerce et stratégie axee sur les données sur des retainers personnalises. AiLys se concentre sur les citations des moteurs IA, le GBP et la recherche locale. Bloom se concentre sur l'acquisition payante, l'optimisation des conversions et l'analytique marketing. Les deux répondent à des problèmes principaux différents.",
     },
     {
       question: "Bloom offre-t-elle des services d'AI Visibility comme AiLys?",
       answer:
-        "Bloom se concentre sur le marketing de performance : recherche payante (Google Ads, Bing Ads), social payant (Meta, TikTok, LinkedIn), programmatique et croissance e-commerce. L'AI Visibility (citations dans ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) n'est pas une ligne de service centrale chez Bloom. AiLys est concue pour cette voie, avec des interrogations hebdomadaires des moteurs IA, l'évaluation de la part de citations et le travail de données structurees qui comble les écarts.",
+        "Bloom se concentre sur le marketing de performance : recherche payante (Google Ads, Bing Ads), social payant (Meta, TikTok, LinkedIn), programmatique et croissance e-commerce. L'AI Visibility (citations dans ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) n'est pas une ligne de service centrale chez Bloom. AiLys est conçue pour cette voie, avec des interrogations hebdomadaires des moteurs IA, l'évaluation de la part de citations et le travail de données structurees qui comble les écarts.",
     },
     {
       question: 'AiLys ou Bloom est-elle meilleure pour un commerce e-commerce au Québec?',
@@ -65,7 +65,7 @@ export function ContentFr() {
   return (
     <article>
       <p>
-        Les opérateurs montréalais qui recherchent des agences marketing trouvent rapidement Bloom et AiLys. Les deux agences resolvent des problèmes différents pour des profils d'opérateurs différents, et les confondre mène au mauvais choix. Cette page compare les deux sur la portée, les tarifs, le canal principal et la livraison bilingue, sans denigrement et sans statistiques inventees.
+        Les opérateurs montréalais qui recherchent des agences marketing trouvent rapidement Bloom et AiLys. Les deux agences resolvent des problèmes différents pour des profils d'opérateurs différents, et les confondre mène au mauvais choix. Cette page comparé les deux sur la portée, les tarifs, le canal principal et la livraison bilingue, sans dénigrement et sans statistiques inventées.
       </p>
 
       <StatHighlight
@@ -102,7 +102,7 @@ export function ContentFr() {
         AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et l'opérateur sait exactement ce qui est livre chaque mois.
       </p>
       <p>
-        Bloom fonctionne sur un modèle de retainer personnalise plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) demarre typiquement bien au-dessus du seuil d'entree AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
+        Bloom fonctionne sur un modèle de retainer personnalise plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) démarre typiquement bien au-dessus du seuil d'entree AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
       </p>
       <p>
         La différence de prix reflete une différence de portée, pas une différence de valeur. Bloom gère des budgets media ou le retour se mesure en ROAS et en volume de conversions. AiLys gère l'AI Visibility ou le retour se mesure en part de citations et en découverte locale. Comparer les montants bruts de retainer sans considerer le canal est trompeur.
@@ -150,11 +150,11 @@ export function ContentFr() {
         AiLys fait du GBP le canal de livraison central avec des cadences de publication par palier (1, 4, 8 ou 12 publications par mois), l'automatisation de telechargement de photos via Reviuzy, la surveillance des Q et R et l'optimisation des attributs. La plateforme est bâtie specifiquement pour l'opérateur local qui a besoin de présence sur Google Maps et de citations dans les moteurs IA.
       </p>
       <p>
-        Bloom offre des services SEO mais l'accent principal est le media payant et le e-commerce. Le SEO local et l'optimisation GBP ne sont pas le centre de gravite de Bloom. Pour un commerce de service à un seul emplacement, AiLys livre un travail GBP plus approfondi à un coût plus bas. Pour une marque e-commerce multi-emplacements qui a besoin de SEO en parallele du media payant, Bloom couvre la surface numerique plus large.
+        Bloom offre des services SEO mais l'accent principal est le media payant et le e-commerce. Le SEO local et l'optimisation GBP ne sont pas le centre de gravite de Bloom. Pour un commerce de service à un seul emplacement, AiLys livre un travail GBP plus approfondi à un coût plus bas. Pour une marque e-commerce multi-emplacements qui a besoin de SEO en parallele du media payant, Bloom couvre la surface numérique plus large.
       </p>
 
       <CalloutBox type="tip" translatedLabel="Conseil">
-        <p>Le filtre de décision le plus simple : si le commerce à un emplacement physique et que le canal d'acquisition principal est Google Maps plus la recherche IA, AiLys est concue pour ce problème. Si le commerce vend en ligne et que le canal d'acquisition principal est les annonces payantes, Bloom est concue pour ce problème.</p>
+        <p>Le filtre de décision le plus simple : si le commerce à un emplacement physique et que le canal d'acquisition principal est Google Maps plus la recherche IA, AiLys est conçue pour ce problème. Si le commerce vend en ligne et que le canal d'acquisition principal est les annonces payantes, Bloom est conçue pour ce problème.</p>
       </CalloutBox>
 
       <SectionDivider />
@@ -200,10 +200,10 @@ export function ContentFr() {
         Deux questions tranchent. Premierement, le canal de croissance principal est-il le media payant ou la recherche IA organique? Si c'est le payant, Bloom est le spécialiste. Si c'est la recherche IA organique et la découverte locale, AiLys est le spécialiste. Deuxiemement, le modèle d'affaires est-il un service local (dentiste, restaurant, clinique) ou du e-commerce? Les commerces de service locaux tirent plus de valeur de l'AI Visibility et du GBP. Les commerces e-commerce tirent plus de valeur de l'optimisation du media payant.
       </p>
       <p>
-        Si l'AI Visibility et la recherche locale sont la priorite, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de prendre une décision" /> et examinez le livrable avant de prendre une décision.
+        Si l'AI Visibility et la recherche locale sont la priorité, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de prendre une décision" /> et examinez le livrable avant de prendre une décision.
       </p>
 
-      <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour determiner si vous avez besoin d'AI Visibility, de media payant ou des deux? Sans pitch, doc stratégique livree." buttonText="Reserver un appel" />
+      <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour déterminer si vous avez besoin d'AI Visibility, de media payant ou des deux? Sans pitch, doc stratégique livree." buttonText="Reserver un appel" />
 
       <SectionDivider />
 

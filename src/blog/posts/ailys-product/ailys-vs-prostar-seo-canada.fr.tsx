@@ -19,7 +19,7 @@ export const metaFr: BlogPostMeta = {
   tldr: "ProStar SEO est une agence canadienne de SEO local avec des bureaux a Québec, Montréal, Toronto et Calgary, offrant une suite complete de SEO local traditionnel (GBP, citations, link building, avis, contenu) sans contrat a long terme, à partir de 2 000 USD par mois pour le SEO local et jusqu'à 3 500 USD par mois pour les industries reglementees. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. ProStar convient aux opérateurs qui veulent une agence canadienne multi-villes avec une portée SEO traditionnelle. AiLys convient aux opérateurs qui veulent du travail de citations dans les moteurs IA et du GBP à un palier d'entree plus bas en CAD.",
   faqItems: [
     {
-      question: 'Comment AiLys se compare-t-elle a ProStar SEO pour les commerces locaux canadiens?',
+      question: 'Comment AiLys se comparé-t-elle a ProStar SEO pour les commerces locaux canadiens?',
       answer:
         "AiLys est une plateforme d'AI Visibility a prix fixe avec des forfaits mensuels publiés (300 à 2 499 dollars CAD), une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. ProStar SEO est une agence canadienne avec des bureaux a Québec, Montréal, Toronto et Calgary qui offre une suite complete de SEO local traditionnel sur des engagements personnalises sans contrat a long terme. AiLys se concentre specifiquement sur les citations dans les moteurs IA et l'automatisation GBP. ProStar couvre une portée SEO traditionnelle plus large incluant le link building et l'intégration PPC continue.",
     },
@@ -31,7 +31,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "ProStar SEO offre-t-elle des services d'AI Visibility comme AiLys?",
       answer:
-        "ProStar SEO offre du SEO local traditionnel : gestion GBP, construction de citations, recherche de mots-cles, gestion d'avis, link building local, contenu geocible et optimisation du pack local. L'AI Visibility (citations dans ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) n'est pas une ligne de service nommee chez ProStar. AiLys est concue pour cette voie, avec des interrogations hebdomadaires des principaux moteurs IA, l'évaluation de la part de citations par modèle et le travail de données structurees qui comble les écarts de citations dans les réponses IA.",
+        "ProStar SEO offre du SEO local traditionnel : gestion GBP, construction de citations, recherche de mots-cles, gestion d'avis, link building local, contenu geocible et optimisation du pack local. L'AI Visibility (citations dans ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot) n'est pas une ligne de service nommee chez ProStar. AiLys est conçue pour cette voie, avec des interrogations hebdomadaires des principaux moteurs IA, l'évaluation de la part de citations par modèle et le travail de données structurees qui comble les écarts de citations dans les réponses IA.",
     },
     {
       question: 'Quelle agence est meilleure pour un commerce canadien multi-villes?',
@@ -39,14 +39,14 @@ export const metaFr: BlogPostMeta = {
         "Pour un commerce avec des emplacements a Québec, Montréal, Toronto et Calgary qui veut une présence d'agence en personne dans chaque marché, ProStar SEO à des bureaux physiques dans ces villes. Pour un commerce multi-emplacements qui veut des audits AI Visibility, l'automatisation GBP et du contenu bilingue livres a distance par une équipe québécoise au palier Agency (2 499 dollars CAD par mois), AiLys couvre le travail multi-emplacements avec un tableau de bord multi-emplacements et des rapports par emplacement. La décision depend si la présence physique compte plus que la specialisation de portée.",
     },
     {
-      question: 'Comment se compare la livraison bilingue?',
+      question: 'Comment se comparé la livraison bilingue?',
       answer:
         "Les deux agences servent les clients canadiens en anglais et en français. ProStar SEO offre des services SEO bilingues à travers ses bureaux québécois. AiLys livre chaque livrable bilingue EN et FR-CA à l'interne par defaut, avec du français québécois rédigé à la main (courriel, magasiner, fin de semaine) et aucune API de traduction a aucune etape. La distinction AiLys est la livraison bilingue systematique sur chaque piece de contenu par defaut, pas un ajout configure par engagement.",
     },
     {
       question: "Quand devrait-on choisir ProStar SEO plutot qu'AiLys?",
       answer:
-        "Choisissez ProStar SEO quand vous voulez une agence canadienne multi-villes avec des bureaux physiques a Québec, Montréal, Toronto et Calgary. Choisissez ProStar quand le link building local est une attente de livrable principale, puisque AiLys n'offre pas de link building actif (nous livrons des citations NAP, du travail Wikidata structure et du GBP, avec les backlinks emergeant comme effet secondaire plutot que comme livrable promis). Choisissez ProStar quand la gestion SEO plus PPC intégrée sous une seule agence est la priorite, puisque AiLys ne fait pas tourner de campagnes de media payant.",
+        "Choisissez ProStar SEO quand vous voulez une agence canadienne multi-villes avec des bureaux physiques a Québec, Montréal, Toronto et Calgary. Choisissez ProStar quand le link building local est une attente de livrable principale, puisque AiLys n'offre pas de link building actif (nous livrons des citations NAP, du travail Wikidata structure et du GBP, avec les backlinks emergeant comme effet secondaire plutot que comme livrable promis). Choisissez ProStar quand la gestion SEO plus PPC intégrée sous une seule agence est la priorité, puisque AiLys ne fait pas tourner de campagnes de media payant.",
     },
   ],
   headings: [
@@ -66,7 +66,7 @@ export function ContentFr() {
   return (
     <article>
       <p>
-        Les commerçants locaux canadiens qui recherchent des agences SEO ont souvent ProStar SEO et AiLys sur leur courte liste parce que les deux servent le marché bilingue et les deux ont des racines québécoises. Les deux agences ne sont pas interchangeables : ProStar est une boutique de SEO local traditionnel avec des bureaux physiques dans quatre villes canadiennes, AiLys est une spécialiste d'AI Visibility avec des forfaits publiés et une livraison a distance. Cette page compare les deux sur la portée, les tarifs et ou chaque modèle gagne.
+        Les commerçants locaux canadiens qui recherchent des agences SEO ont souvent ProStar SEO et AiLys sur leur courte liste parce que les deux servent le marché bilingue et les deux ont des racines québécoises. Les deux agences ne sont pas interchangeables : ProStar est une boutique de SEO local traditionnel avec des bureaux physiques dans quatre villes canadiennes, AiLys est une spécialiste d'AI Visibility avec des forfaits publiés et une livraison a distance. Cette page comparé les deux sur la portée, les tarifs et ou chaque modèle gagne.
       </p>
 
       <StatHighlight
@@ -91,7 +91,7 @@ export function ContentFr() {
       </p>
 
       <CalloutBox type="info" translatedLabel="Le saviez-vous?">
-        <p>Pour des comparaisons avec d'autres agences canadiennes et québécoises, voir <InternalLink to="/blog/ailys-vs-major-tom-agence-canada" title="AiLys vs Major Tom" description="Specialiste local Québec versus agence numerique pancanadienne" />, <InternalLink to="/blog/ailys-vs-digitad-seo-quebec" title="AiLys vs Digitad" description="Comparaison des agences SEO au Québec pour les commerçants locaux" /> et <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs agence SEO traditionnelle" description="La comparaison québécoise sur les tarifs, la vitesse d'audit et la portée bilingue" />.</p>
+        <p>Pour des comparaisons avec d'autres agences canadiennes et québécoises, voir <InternalLink to="/blog/ailys-vs-major-tom-agence-canada" title="AiLys vs Major Tom" description="Specialiste local Québec versus agence numérique pancanadienne" />, <InternalLink to="/blog/ailys-vs-digitad-seo-quebec" title="AiLys vs Digitad" description="Comparaison des agences SEO au Québec pour les commerçants locaux" /> et <InternalLink to="/blog/ailys-vs-traditional-seo-agency" title="AiLys vs agence SEO traditionnelle" description="La comparaison québécoise sur les tarifs, la vitesse d'audit et la portée bilingue" />.</p>
       </CalloutBox>
 
       <InlineCTA variant="audit" text="Vous voulez voir ou votre commerce se situe dans la recherche IA? L'audit AI Visibility gratuit sort en 24 heures, sans engagement." buttonText="Lancer l'audit gratuit" />
@@ -106,21 +106,21 @@ export function ContentFr() {
         AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars CAD par mois. Chaque palier à une portée publiée et le chemin de mise a niveau est visible sur la page des forfaits.
       </p>
       <p>
-        ProStar SEO publié des prix de depart en USD par verticale. Le SEO local demarre à 2 000 USD par mois. Le SEO e-commerce demarre à 2 500 USD. Les fournisseurs de services professionnels demarrent à 3 000 USD. Les industries reglementees (juridique, medical, financier) demarrent à 3 500 USD. La portée reelle est construite sur mesure dans ces prix de depart, donc la liste de livrables est determinee par engagement.
+        ProStar SEO publié des prix de depart en USD par verticale. Le SEO local démarre à 2 000 USD par mois. Le SEO e-commerce démarre à 2 500 USD. Les fournisseurs de services professionnels démarrent à 3 000 USD. Les industries reglementees (juridique, medical, financier) démarrent à 3 500 USD. La portée reelle est construite sur mesure dans ces prix de depart, donc la liste de livrables est déterminée par engagement.
       </p>
       <p>
-        Au seuil d'entree, AiLys Starter à 300 CAD par mois est environ un cinquieme du plancher de SEO local le plus bas de ProStar à 2 000 USD. Au palier AiLys Agency (2 499 CAD), le prix reste sous le plancher de SEO local de ProStar une fois la conversion CAD vers USD appliquee. Pour les opérateurs avec des budgets sous 2 000 USD par mois, AiLys est la seule option de cet ensemble compare qui livre dans cette plage.
+        Au seuil d'entree, AiLys Starter à 300 CAD par mois est environ un cinquieme du plancher de SEO local le plus bas de ProStar à 2 000 USD. Au palier AiLys Agency (2 499 CAD), le prix reste sous le plancher de SEO local de ProStar une fois la conversion CAD vers USD appliquee. Pour les opérateurs avec des budgets sous 2 000 USD par mois, AiLys est la seule option de cet ensemble comparé qui livre dans cette plage.
       </p>
 
       <QuickQuiz
         translatedLabel="Quiz éclair"
         translatedCorrect="Bonne réponse!"
         translatedNotQuite="Pas tout à fait."
-        question="A quel budget mensuel ProStar SEO devient-elle accessible compare a AiLys?"
+        question="A quel budget mensuel ProStar SEO devient-elle accessible comparé a AiLys?"
         options={[
-          'ProStar demarre à 300 CAD, comme AiLys',
-          'ProStar demarre à 2 000 USD par mois pour le SEO local',
-          'ProStar demarre à 500 CAD par mois',
+          'ProStar démarre à 300 CAD, comme AiLys',
+          'ProStar démarre à 2 000 USD par mois pour le SEO local',
+          'ProStar démarre à 500 CAD par mois',
           "Les deux ont des prix d'entree identiques",
         ]}
         correctIndex={1}
@@ -199,11 +199,11 @@ export function ContentFr() {
       <ol>
         <li>L'opérateur veut une présence d'agence en personne a Québec, Montréal, Toronto ou Calgary, avec des rencontres face à face dans le cadre de l'engagement.</li>
         <li>Le link building local actif est une attente de livrable principale. AiLys ne dote pas de link building. ProStar l'offre comme service nomme.</li>
-        <li>Le SEO intégré plus PPC et SEM sous un seul engagement d'agence est la priorite. AiLys ne fait pas tourner de media payant. ProStar regroupe le SEO avec la gestion payante.</li>
+        <li>Le SEO intégré plus PPC et SEM sous un seul engagement d'agence est la priorité. AiLys ne fait pas tourner de media payant. ProStar regroupe le SEO avec la gestion payante.</li>
       </ol>
 
       <p>
-        AiLys oriente régulièrement des opérateurs vers les agences SEO canadiennes traditionnelles quand la portée depasse la voie AI Visibility et automatisation GBP. Les deux modèles sont complementaires plus souvent que competitifs quand les besoins de l'opérateur s'etendent à la fois sur l'AI Visibility et le link building traditionnel.
+        AiLys oriente régulièrement des opérateurs vers les agences SEO canadiennes traditionnelles quand la portée depasse la voie AI Visibility et automatisation GBP. Les deux modèles sont complementaires plus souvent que competitifs quand les besoins de l'opérateur s'étendent à la fois sur l'AI Visibility et le link building traditionnel.
       </p>
 
       <CalloutBox type="warning" translatedLabel="Attention">
@@ -217,7 +217,7 @@ export function ContentFr() {
         Trois questions tranchent. Premierement, le problème principal est-il les citations dans les moteurs IA (apparaitre dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot)? Si oui, AiLys cible cet écart directement avec des interrogations hebdomadaires et l'évaluation de la part de citations. Deuxiemement, l'engagement exige-t-il du link building actif ou de la gestion PPC? Si oui, ProStar couvre ces portées et AiLys non. Troisiemement, l'opérateur valorise-t-il les prix transparents publiés en CAD ou la flexibilite de portée personnalisee dans des planchers USD? AiLys publié en CAD, ProStar publié des planchers USD avec portée sur mesure.
       </p>
       <p>
-        Si l'AI Visibility est la priorite, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de signer quoi que ce soit" /> et examinez le livrable avant de prendre une décision. L'audit est gratuit et prend 24 heures, donc vous pouvez le comparer directement avec ce que les autres agences proposent.
+        Si l'AI Visibility est la priorité, lancez l'<InternalLink to="/audit" title="Audit AI Visibility gratuit en 24 heures" description="Voyez les écarts de citations avant de signer quoi que ce soit" /> et examinez le livrable avant de prendre une décision. L'audit est gratuit et prend 24 heures, donc vous pouvez le comparer directement avec ce que les autres agences proposent.
       </p>
 
       <InlineCTA variant="book" text="Vous voulez un appel stratégique de 60 minutes pour comparer AiLys avec ProStar ou d'autres agences preselectionees? Sans pitch, doc stratégique livree." buttonText="Reserver un appel" />
