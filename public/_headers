@@ -21,12 +21,8 @@
   # Referrer info: send to same-origin, only origin to cross-origin
   Referrer-Policy: strict-origin-when-cross-origin
 
-  # Permissions Policy: lock down sensors and APIs we do not use.
-  # Only features Chrome / Firefox / Safari currently recognize. Removed:
-  # ambient-light-sensor, battery, document-domain, execution-while-not-rendered,
-  # execution-while-out-of-viewport, navigation-override (browser console warns
-  # "Unrecognized feature" for these on modern Chrome).
-  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(self), picture-in-picture=(), publickey-credentials-get=(self), screen-wake-lock=(), sync-xhr=(self), usb=(), web-share=(self), xr-spatial-tracking=()
+  # Permissions Policy: lock down sensors and APIs we do not use
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(self), picture-in-picture=(), publickey-credentials-get=(self), screen-wake-lock=(), sync-xhr=(self), usb=(), web-share=(self), xr-spatial-tracking=()
 
   # Cross-Origin policies (light, since we embed external scripts)
   Cross-Origin-Opener-Policy: same-origin-allow-popups
@@ -34,10 +30,7 @@
 
   # Content Security Policy
   # default-src 'self' for everything except where we explicitly need third-party
-  # Allows Cloudflare Web Analytics beacon (static.cloudflareinsights.com) and
-  # connect for the cloudflareinsights collector. report-uri removed because we
-  # do not yet ship a /csp-report receiver, the 405s pollute logs.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://cdn.jsdelivr.net https://challenges.cloudflare.com https://static.cloudflareinsights.com; script-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https: http:; media-src 'self' https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com https://www.youtube.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://cdn.jsdelivr.net https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https: http:; media-src 'self' https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com https://www.youtube.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests; report-uri /csp-report
 
   # Cache static assets aggressively
 /assets/*

@@ -143,18 +143,7 @@ export function buildOnboardingPdfRequest(input: OnboardingInput): AuditPdfReque
     { key: 'review_count', label: 'Total reviews', weight: 0.12, status: 'partial', observation: 'First scan pending.' },
   ];
 
-  // Single placeholder competitor row so the Day-1 PDF still renders the
-  // competitor comparison page (10-page promise). Replaced with real data
-  // after the first Places probe runs.
-  const competitors: AuditPdfCompetitor[] = [
-    {
-      name: 'First scan pending',
-      rating: null,
-      reviewCount: null,
-      primaryCategory: 'We will pull your top 5 competitors after the first probe.',
-      distanceMeters: null,
-    },
-  ];
+  const competitors: AuditPdfCompetitor[] = []; // empty until first probe runs
 
   const actionTemplate = VERTICAL_ACTION_ITEMS[input.vertical] ?? fallbackActionItems();
   const actionItems: AuditPdfActionItem[] = actionTemplate.map((item, idx) => ({

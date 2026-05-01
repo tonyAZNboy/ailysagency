@@ -1,29 +1,16 @@
 import type { Builder } from '../builder';
 import type { AuditPdfRequest } from '../../../../src/lib/pdfRequestSchema';
 import { BRAND, COLOR, FONT_SIZE, PAGE, SCORE_BAND_COLOR, SPACE } from '../tokens';
-import { sanitizeForPdf } from '../sanitize';
 
-const BAND_LABEL_EN: Record<AuditPdfRequest['payload']['scoreBand'], string> = {
+const BAND_LABEL: Record<AuditPdfRequest['payload']['scoreBand'], string> = {
   critical: 'CRITICAL',
   weak: 'WEAK',
   developing: 'DEVELOPING',
   strong: 'STRONG',
   leader: 'LEADER',
 };
-const BAND_LABEL_FR: Record<AuditPdfRequest['payload']['scoreBand'], string> = {
-  critical: 'CRITIQUE',
-  weak: 'FAIBLE',
-  developing: 'EN DÉVELOPPEMENT',
-  strong: 'SOLIDE',
-  leader: 'LEADER',
-};
 
 export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
-  const isFr = req.lang === 'fr';
-  const BAND_LABEL = isFr ? BAND_LABEL_FR : BAND_LABEL_EN;
-  const reportTitleI18n = isFr ? 'Rapport audit visibilité IA' : BRAND.reportTitle;
-  const scoreLabel = isFr ? 'Score visibilité IA (0 à 100)' : 'AI Visibility Score (0 to 100)';
-  const issuedLabel = isFr ? 'Émis' : 'Issued';
   // Top brand band
   b.page.drawRectangle({
     x: 0,
@@ -44,7 +31,7 @@ export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
   });
   b.advance(SPACE.xs);
   b.drawLine({
-    text: reportTitleI18n.toUpperCase(),
+    text: BRAND.reportTitle.toUpperCase(),
     size: FONT_SIZE.caption,
     font: b.fonts.regular,
     color: COLOR.inkMuted,
@@ -54,7 +41,7 @@ export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
 
   b.advance(SPACE.xxl);
   b.drawLine({
-    text: sanitizeForPdf(req.businessName),
+    text: req.businessName,
     size: FONT_SIZE.display,
     font: b.fonts.bold,
     color: COLOR.ink,
@@ -65,7 +52,7 @@ export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
   if (req.location) {
     b.advance(SPACE.sm);
     b.drawLine({
-      text: sanitizeForPdf(req.location),
+      text: req.location,
       size: FONT_SIZE.h3,
       font: b.fonts.regular,
       color: COLOR.inkSoft,
@@ -86,7 +73,7 @@ export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
   });
   b.advance(SPACE.xs);
   b.drawLine({
-    text: scoreLabel,
+    text: 'AI Visibility Score (0 to 100)',
     size: FONT_SIZE.caption,
     font: b.fonts.regular,
     color: COLOR.inkMuted,
@@ -97,7 +84,7 @@ export function drawCoverPage(b: Builder, req: AuditPdfRequest) {
   // Footer band: date + URL
   const dateStr = new Date().toISOString().slice(0, 10);
   const footerY = PAGE.height - 80;
-  b.page.drawText(`${issuedLabel} ${dateStr}`, {
+  b.page.drawText(`Issued ${dateStr}`, {
     x: PAGE.marginLeft,
     y: PAGE.height - footerY,
     size: FONT_SIZE.footer,

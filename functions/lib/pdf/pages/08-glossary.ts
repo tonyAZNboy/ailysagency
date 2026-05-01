@@ -7,7 +7,7 @@ interface Term {
   definition: string;
 }
 
-const GLOSSARY_EN: Term[] = [
+const GLOSSARY: Term[] = [
   {
     term: 'AEO',
     definition:
@@ -49,59 +49,13 @@ const GLOSSARY_EN: Term[] = [
   },
 ];
 
-const GLOSSARY_FR: Term[] = [
-  {
-    term: 'AEO',
-    definition:
-      'Answer Engine Optimization. Façonne le contenu pour que les moteurs de réponses extractives (Google AI Overviews, cartes-réponses Bing, assistants vocaux) fassent ressortir ta page comme la réponse citée.',
-  },
-  {
-    term: 'GEO',
-    definition:
-      'Generative Engine Optimization. Façonne le contenu pour que les moteurs génératifs (ChatGPT, Perplexity, Claude) nomment et citent ta marque dans leurs réponses synthétisées.',
-  },
-  {
-    term: 'E-E-A-T',
-    definition:
-      'Expérience, Expertise, Autorité, Confiance. Le cadre qualité de Google. Les moteurs IA pondèrent fortement ces signaux pour les requêtes locales et YMYL.',
-  },
-  {
-    term: 'Share of Model',
-    definition:
-      'Le pourcentage de requêtes à intention d\'achat où un moteur nomme ta marque. Le nouveau classement du carrousel local. Suivi par moteur et comparé à trois concurrents nommés.',
-  },
-  {
-    term: 'Cohérence NAP',
-    definition:
-      'Nom, Adresse, Téléphone identiques sur chaque répertoire et profil social. Un NAP incohérent affaiblit la confiance d\'entité; les moteurs IA écartent les entités à faible confiance.',
-  },
-  {
-    term: 'Fraîcheur des citations',
-    definition:
-      'À quel point tes citations principales ont été mises à jour récemment. 40 à 60 pour cent des sources citées changent d\'un mois à l\'autre; les citations périmées perdent leur rang sans avertissement.',
-  },
-  {
-    term: 'GBP',
-    definition: 'Google Business Profile, l\'enregistrement canonique de l\'entité locale. Alimente le carrousel local et amorce les réponses AI Overviews.',
-  },
-  {
-    term: 'Schéma Speakable',
-    definition:
-      'JSON-LD pointant les parties d\'une page propices à une lecture vocale. Améliore la captation par Siri et Google Assistant pour les réponses de type FAQ.',
-  },
-];
-
 export function drawGlossaryPage(b: Builder, req: AuditPdfRequest) {
-  const isFr = req.lang === 'fr';
-  const heading = isFr ? 'Glossaire, les termes derrière le score' : 'Glossary, the terms behind the score';
-  const pageLabel = isFr ? 'Glossaire' : 'Glossary';
-  const items = isFr ? GLOSSARY_FR : GLOSSARY_EN;
-
+  void req;
   b.cursorY = 80;
-  b.drawHeading(heading, 'h1');
+  b.drawHeading('Glossary, the terms behind the score', 'h1');
 
-  for (const item of items) {
-    b.ensureSpace(60, pageLabel, 8, 10);
+  for (const item of GLOSSARY) {
+    b.ensureSpace(60, 'Glossary', 8, 10);
     b.drawLine({
       text: item.term,
       size: FONT_SIZE.h3,

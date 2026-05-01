@@ -389,35 +389,8 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     );
   }
 
-  // Fallback path: R2 + HMAC not configured. Instead of streaming the PDF
-  // back to the client (and not emailing), we attach the PDF to a Resend
-  // email so the user still receives it. Resend supports up to 40MB
-  // attachments. Our PDFs are ~13KB, well within limits.
-  if (env.RESEND_API_KEY) {
-    const attachResult = await sendPdfAttachmentEmail(env, data, pdfBytes);
-    emitAuditLog(ctx, {
-      ts: new Date().toISOString(),
-      action: attachResult.ok ? 'pdf_attached_email_sent' : 'pdf_attached_email_failed',
-      actorHash,
-      ipHash,
-      status: attachResult.ok ? 200 : 500,
-      payloadHash,
-      reason: attachResult.error,
-      latencyMs: Date.now() - start,
-    });
-    if (!attachResult.ok) {
-      return jsonResponse({ error: 'email_failed', detail: attachResult.error }, 500);
-    }
-    return jsonResponse(
-      {
-        status: 'emailed_attachment',
-        message: 'Your audit PDF is on its way as an attachment. Check your inbox.',
-      },
-      202,
-    );
-  }
-
-  // Final fallback: stream directly when even Resend is missing.
+  // Fallback: stream directly. Useful in local dev and for the first deploy
+  // before the user wires R2 + HMAC secret.
   emitAuditLog(ctx, {
     ts: new Date().toISOString(),
     action: 'pdf_streamed',
@@ -425,7 +398,7 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     ipHash,
     status: 200,
     payloadHash,
-    reason: `bytes=${pdfBytes.byteLength},mode=fallback_no_r2_or_hmac_or_resend`,
+    reason: `bytes=${pdfBytes.byteLength},mode=fallback_no_r2_or_hmac`,
     latencyMs: Date.now() - start,
   });
   return new Response(pdfBytes, {
@@ -438,67 +411,6 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
     },
   });
 };
-
-async function sendPdfAttachmentEmail(
-  env: Env,
-  data: AuditPdfRequest,
-  pdfBytes: Uint8Array,
-): Promise<SendResult> {
-  if (!env.RESEND_API_KEY) return { ok: false, error: 'no_resend_key' };
-  const lang = data.lang;
-
-  const subject = pickLocale(lang, {
-    en: `Your AiLys audit report is ready, ${data.businessName}`,
-    fr: `Votre rapport AiLys est pret, ${data.businessName}`,
-    es: `Tu informe AiLys esta listo, ${data.businessName}`,
-    zh: `${data.businessName}, 您的AiLys审计报告已就绪`,
-    ar: `تقرير AiLys الخاص بك جاهز, ${data.businessName}`,
-    ru: `Ваш отчет AiLys готов, ${data.businessName}`,
-  });
-  const greeting = pickLocale(lang, {
-    en: 'Your AI Visibility audit is ready.',
-    fr: 'Votre audit AI Visibility est pret.',
-    es: 'Tu auditoria de AI Visibility esta lista.',
-    zh: '您的AI可见性审计已就绪。',
-    ar: 'تدقيق AI Visibility الخاص بك جاهز.',
-    ru: 'Ваш аудит AI Visibility готов.',
-  });
-  const intro = pickLocale(lang, {
-    en: `We have prepared the branded audit report for ${data.businessName}. The PDF is attached to this email.`,
-    fr: `Nous avons prepare le rapport personnalise pour ${data.businessName}. Le PDF est joint a ce courriel.`,
-    es: `Hemos preparado el informe personalizado para ${data.businessName}. El PDF esta adjunto a este correo.`,
-    zh: `我们已为${data.businessName}准备好专属审计报告。PDF已附加到此邮件。`,
-    ar: `لقد أعددنا تقرير التدقيق المخصص لـ ${data.businessName}. مرفق PDF بهذا البريد.`,
-    ru: `Мы подготовили персональный отчет для ${data.businessName}. PDF прикреплен к письму.`,
-  });
-
-  const rendered = renderEmail({
-    lang: lang as EmailLang,
-    preheader: greeting,
-    title: greeting,
-    body: [intro],
-  });
-
-  // Convert pdfBytes -> base64 for Resend attachment
-  const b64 = btoa(String.fromCharCode(...pdfBytes));
-  const filename = `audit-${data.businessName.replace(/[^a-z0-9]/gi, '-').toLowerCase().slice(0, 40)}.pdf`;
-
-  const result = await sendAndLog(env, {
-    from: NOTIFY_FROM,
-    to: data.email,
-    subject,
-    html: rendered.html,
-    text: rendered.text,
-    attachments: [{ filename, content: b64 }],
-  }, {
-    email: data.email,
-    sequence_slug: 'audit_pdf',
-    step: 0,
-    subject,
-  });
-  if (result.error) return { ok: false, error: result.error };
-  return { ok: true };
-}
 
 interface SendResult { ok: boolean; error?: string }
 

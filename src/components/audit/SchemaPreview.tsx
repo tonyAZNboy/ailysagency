@@ -8,7 +8,8 @@
 // Tested types: LocalBusiness + Dentist + Attorney + Restaurant + GeneralContractor +
 // MedicalClinic + RealEstateAgent + Hotel.
 
-import { Code2, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { Check, Copy, Code2, ExternalLink } from "lucide-react";
 
 interface Props {
   businessName: string;
@@ -170,41 +171,77 @@ function buildSchemaBlock({
   ].join("\n");
 }
 
-export function SchemaPreview(_props: Props) {
-  // Per CLAUDE.md hard rule #10 (no proprietary disclosure to AiLys clients):
-  // we no longer expose the raw JSON-LD schema markup on the public audit
-  // results page. The schema work is part of the Core tier deliverable; giving
-  // copy-paste-ready code to leads undermines the agency's value proposition.
-  // Instead we surface a teaser card that names what they are missing and
-  // routes to pricing.
+export function SchemaPreview(props: Props) {
+  const [copied, setCopied] = useState(false);
+  const block = buildSchemaBlock(props);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(block);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch {
+      // ignore clipboard errors silently
+    }
+  };
+
   return (
     <div className="rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/[0.05] via-transparent to-transparent backdrop-blur-md p-6">
-      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400 mb-1.5 inline-flex items-center gap-1.5">
-        <Code2 className="w-3.5 h-3.5" />
-        Schema markup · couvert par Core
-      </div>
-      <h4 className="font-display text-lg sm:text-xl leading-tight mb-2">
-        FAQ + LocalBusiness + Service schema, deploye et valide pour ton site
-      </h4>
-      <p className="text-xs text-muted-foreground leading-relaxed mb-4 max-w-prose">
-        Le balisage structure (Schema.org JSON-LD) est ce qui permet aux
-        moteurs IA de citer ton commerce avec precision. Le forfait Core
-        deploie le schema FAQ, LocalBusiness et Service pour ton vertical,
-        valide contre Google Rich Results, en moins de 7 jours.
-      </p>
-      <div className="flex flex-wrap gap-3 text-xs">
-        <a
-          href="https://www.ailysagency.ca/#services"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono uppercase tracking-[0.18em] border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+      <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400 mb-1.5 inline-flex items-center gap-1.5">
+            <Code2 className="w-3.5 h-3.5" />
+            Schema fix · copy-paste ready
+          </div>
+          <h4 className="font-display text-lg sm:text-xl leading-tight">
+            Drop these 2 blocks into your site &lt;head&gt;
+          </h4>
+          <p className="text-xs text-muted-foreground mt-1">
+            Pre-validated against Google Rich Results. LocalBusiness +
+            FAQPage schema, tuned for your vertical. Edit the FAQ answers to
+            match your real policies before shipping.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-[0.18em] border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
         >
-          Voir les forfaits
+          {copied ? (
+            <>
+              <Check className="w-3 h-3" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="w-3 h-3" />
+              Copy
+            </>
+          )}
+        </button>
+      </div>
+
+      <pre className="rounded-lg bg-black/40 border border-border/30 p-4 overflow-x-auto text-[11px] sm:text-xs font-mono leading-relaxed text-foreground/85 max-h-80">
+        <code>{block}</code>
+      </pre>
+
+      <div className="mt-3 flex flex-wrap gap-3 text-xs">
+        <a
+          href="https://search.google.com/test/rich-results"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="inline-flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
+        >
+          Validate at Google Rich Results
           <ExternalLink className="w-3 h-3" />
         </a>
         <a
-          href="https://www.ailysagency.ca/book-call"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono uppercase tracking-[0.18em] border border-border/40 bg-background/40 text-muted-foreground hover:bg-background/60 transition-colors"
+          href="https://validator.schema.org/"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="inline-flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
         >
-          Reserver un appel
+          Validate at Schema.org
           <ExternalLink className="w-3 h-3" />
         </a>
       </div>
