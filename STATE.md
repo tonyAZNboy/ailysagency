@@ -4,41 +4,27 @@
 
 ---
 
-## ✉️ EMAIL INFRA, 2026-04-30
+## 📝 SESSION 2026-04-30 (cont.) — Blog: 8 competitor comparison posts (EN+FR)
 
-End-to-end email infra session: BookCall placeholder, Resend domain auth, Cloudflare Email Routing, DMARC, Resend webhooks scaffold.
+Added 8 honest competitor comparison posts in `ailys-product` category, each with full SEO (meta, FAQ x6, headings, related, StatHighlight, QuickQuiz, KeyTakeaway, CalloutBox, InternalLink) and hand-authored EN+FR-CA pairs:
 
-**Shipped:**
-- BookCall section moved to "Bientôt" placeholder (Cal.com integration deferred). Form removed; all 16 locales updated with `comingSoonLabel/Heading/Body/Cta` keys. Mailto fallback to `hello@ailysagency.ca`.
-- Cloudflare Email Routing live for `ailysagency.ca`: 5 custom routes (`hello@`, `support@`, `privacy@`, `anthonyng@` → `ryanalexng135@gmail.com`; `noreply@` → drop) + catch-all → Gmail.
-- Resend domain `ailysagency.ca` verified (DKIM at `resend._domainkey`, SPF subdomain at `send.ailysagency.ca`, no apex SPF conflict).
-- DMARC live: `_dmarc.ailysagency.ca` TXT `v=DMARC1; p=none; rua=mailto:c83202affe1b407fad24387dd6d7d777@dmarc-reports.cloudflare.net` (Cloudflare DMARC Management beta dashboard parses reports). Single record, RFC 7489 valid.
-- `functions/api/founding-clients-apply.ts` cleaned: removed hardcoded gmail fallback, now requires `FOUNDING_NOTIFY_EMAIL` env var or skips gracefully.
-- `docs/email-addresses.md`: single source of truth for every `@ailysagency.ca` address.
+1. AiLys vs Digitad (Quebec SEO generalist)
+2. AiLys vs Bloom (Montreal performance marketing)
+3. AiLys vs Major Tom (pan-Canadian full-service)
+4. AiLys vs ProStar SEO (multi-city Canadian local SEO, real published $2k-$3.5k USD pricing)
+5. AiLys vs Bofu Agence Marketing (HubSpot, bottom-of-funnel conversion)
+6. AiLys vs Adviso (enterprise digital consultancy)
+7. AiLys vs Rablab (Montreal creative-led agency)
+8. AiLys vs WSI (Toronto-founded global franchise network, since 1995)
 
-**Resend webhook scaffold (D):**
-- Migration [0003_email_webhook_events.sql](supabase/migrations/0003_email_webhook_events.sql): table `email_webhook_events` keyed by `svix_msg_id` (UNIQUE) for idempotency, RLS = service_role write + admin_users read.
-- [functions/lib/svixHmac.ts](functions/lib/svixHmac.ts): Svix HMAC-SHA256 verification helper, 5-min timestamp tolerance, supports rotated multi-sig headers.
-- [functions/api/resend-webhook.ts](functions/api/resend-webhook.ts): POST endpoint, verifies signature, validates event type whitelist, persists to Supabase, audit-logs with svix-id hash, kill switch via `RESEND_WEBHOOK_KILL_SWITCH=true`.
-- [scripts/smoke-resend-webhook.mjs](scripts/smoke-resend-webhook.mjs): 15 cases covering valid sig, missing headers, malformed secret, tampered body, wrong svix-id, timestamp tolerance bounds, signature rotation, sig mismatch. **15/15 pass.**
-- Typecheck clean.
+**Blog count:** 51 → 59 posts. All gates green (tsc, em-dash audit, 59/59 blog translations audit, build OK).
 
-**Operator backlog (manual, ~5 min):**
+**Shipped:** PR [#54](https://github.com/tonyAZNboy/ailysagency/pull/54) (commit `2e9d940`, 18 files, +4031 lines). Awaiting merge → Cloudflare auto-deploy.
 
-| Action | Effort |
-|---|---|
-| Apply migration `0003_email_webhook_events.sql` (Supabase SQL editor) | 1 min |
-| Resend dashboard > Webhooks > add endpoint `https://www.ailysagency.ca/api/resend-webhook` subscribed to all `email.*` events | 2 min |
-| Set `RESEND_WEBHOOK_SECRET` (`whsec_...`) in Cloudflare Pages env (Production + Preview) | 1 min |
-| Set `FOUNDING_NOTIFY_EMAIL=anthonyng@ailysagency.ca` in Cloudflare Pages env | 30 sec |
-| Redeploy ailysagency Pages project | 30 sec |
-| Wire `scripts/smoke-resend-webhook.mjs` into `.github/workflows/deploy.yml` (next session) | deferred |
-
-**Deferred to next session:**
-- `/admin/email-events` admin panel (table view of last 50 webhook events, per-event-type counts, bounce rate, click-through rate)
-- Wire smoke test to CI workflow
-- Retention job: truncate `recipient_email` on rows >90 days
-- Cross-reference: when `email_sends.provider_message_id` matches `email_webhook_events.resend_email_id`, update `email_sends.opened_at` / `clicked_at` / `status`
+**TODO future:**
+- ES/ZH/AR/RU translations for the 8 new comparison posts (currently fall back to EN)
+- Hero/mid/end images per slug to be generated and uploaded to `/blog-images/<slug>/`
+- Consider additional Quebec/Canadian competitors in next batch: Substance, Cossette, Sandbox, Reptile, Castor, Edkent Media
 
 ---
 

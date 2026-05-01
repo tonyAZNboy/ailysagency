@@ -1,10 +1,10 @@
 {
-  "enKeyCount": 1172,
+  "enKeyCount": 1168,
   "locales": {
     "fr": {
       "missing": [],
       "enValueCopy": [],
-      "totalKeys": 1173,
+      "totalKeys": 1169,
       "pct": "100.0"
     },
     "es": {
@@ -33,7 +33,7 @@
         "methodology.step2Title",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1171,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "zh": {
@@ -66,7 +66,7 @@
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "ar": {
@@ -98,7 +98,7 @@
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "ru": {
@@ -129,7 +129,7 @@
         "methodology.step2Title",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1171,
+      "totalKeys": 1167,
       "pct": "99.8"
     },
     "de": {
@@ -162,7 +162,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "hi": {
@@ -198,7 +198,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "it": {
@@ -235,7 +235,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "ja": {
@@ -272,7 +272,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "ko": {
@@ -309,7 +309,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "nl": {
@@ -348,7 +348,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "pl": {
@@ -378,7 +378,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "pt": {
@@ -412,7 +412,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "tr": {
@@ -445,7 +445,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     },
     "vi": {
@@ -481,9 +481,9 @@
         "cofounders.tagLabels.pt_brazil",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1170,
+      "totalKeys": 1166,
       "pct": "99.8"
     }
   },
-  "generatedAt": "2026-04-30T23:00:52.479Z"
+  "generatedAt": "2026-04-30T14:44:12.932Z"
 }

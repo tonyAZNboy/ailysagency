@@ -39,7 +39,6 @@ const ALLOWED_CALLERS = new Set([
   'reviuzy-admin-quote-pdf-stats', // E.3: Reviuzy admin reads AiLys quote-pdf observability
   'reviuzy-admin-client-error-stats', // E.12: Reviuzy admin reads AiLys client-error observability
   'ailys-cron-day1-retry', // self-call from AiLys cron worker
-  'ailys-cron-process-sequences', // external cron that drains email_sequence_enrollments
 ]);
 
 function hexToBytes(hex: string): Uint8Array {

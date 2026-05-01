@@ -5,9 +5,13 @@ import type { BlogHeading } from '../types'
 
 interface TableOfContentsProps {
   headings: BlogHeading[]
+  /** Translated heading for "Table of Contents". Defaults to EN. */
+  translatedHeading?: string
+  /** Translated aria-label for the mobile toggle button */
+  translatedToggleLabel?: string
 }
 
-export function TableOfContents({ headings }: TableOfContentsProps) {
+export function TableOfContents({ headings, translatedHeading, translatedToggleLabel }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
 
@@ -37,7 +41,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   const tocList = (
     <nav className="space-y-1">
       <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">
-        Table of Contents
+        {translatedHeading || 'Table of Contents'}
       </p>
       {headings.map((heading) => (
         <a
@@ -68,7 +72,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-4 right-4 z-40 lg:hidden flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
-        aria-label="Toggle table of contents"
+        aria-label={translatedToggleLabel || 'Toggle table of contents'}
       >
         {isOpen ? <X className="h-5 w-5" /> : <List className="h-5 w-5" />}
       </button>
