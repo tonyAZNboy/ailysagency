@@ -17,6 +17,36 @@ auto-merge cycle.
 **Parallel session PRs that landed alongside (9):** #81, #83, #86, #92,
 #93, #94, #97, #100, #102
 
+**Parallel session detail (per-PR scope, for next-session pickup):**
+- #81 Migrate AI surfaces to Gemini + align pricing units (Agency
+  $2,499 -> $2,500 across 36 files, GBP posts unified to single quota
+  4/6/8/12, photos 4/6/8/12, citations 2/4/6/8, AI Visibility cadence
+  monthly/weekly/weekly/daily, CLAUDE.md "CANONICAL UNITS PER TIER"
+  block pointing to tier-comparison.ts as single source of truth)
+- #83 Switch chat-advisor to gemini-2.5-pro + non-streaming for
+  reliability (Cloudflare Workers SSE chunk boundaries unreliable;
+  re-emit single chunk + [DONE] for frontend compatibility)
+- #86 Tech Health Pack $150/mo + GSC Indexation Audit one-time tiers
+  ($100 1-9p -> $800 100-149p, custom 150+) added to tier-comparison.ts,
+  CLAUDE.md, chat-advisor system prompt
+- #92 Audit hold-back discipline extended into emails (audit-pdf,
+  audit-pdf-onboarding) + audit results UI banner ("This is the preview,
+  not the full plan" with book-call CTA pointing to /book-call)
+- #93 Pricing-tiers blog post EN+FR lists Tech Health Pack +
+  GSC Indexation Audit
+- #94 STATE.md autopilot continuation log
+- #97 Page brackets per tier in PricingBuilder (1-5 Starter / 6-15 Core
+  / 16-25 Growth / 26+ Agency, $50/page over previous bracket as
+  informational delta) + chat-advisor latency cut from ~12s to ~4s via
+  thinkingConfig.thinkingBudget = 128 (Pro minimum, Pro requires
+  thinking enabled, cannot be 0 like Flash)
+- #100 Hotfix revert manualChunks split (PR #96) live site blank
+- #102 Biennial -20% eligible on all 4 tiers (was Growth+Agency only)
+  + landing tier card units fully aligned to /forfaits-complets
+  canonical (8 stale references replaced across en.ts/fr.ts: tier0Feat2,
+  tier0Feat4, tier1Feat2/4/5, tier2Feat2/5, tier3Feat2 + pricingBuilder
+  srSeo + FAQ Q3 FR Reddit-participation contradiction with EN fixed)
+
 **Tags at close:** v0.12.0, v0.13.0 → v0.13.9, v0.14.0 → v0.14.3 (15 tags)
 
 **Tag of record:** `v0.14.3-jsonld-smoke-and-ci-gate-19` at origin/main HEAD c8cdafa.
