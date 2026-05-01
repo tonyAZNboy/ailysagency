@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Clock, Globe2, Send, Loader2 } from "lucide-react";
+import { CalendarClock, Globe2, Mail } from "lucide-react";
 import { ScrollReveal } from "@/components/animation";
-import { useToast } from "@/hooks/use-toast";
 import { useLang } from "@/i18n/LangContext";
+
+const CONTACT_EMAIL = "hello@ailysagency.ca";
 
 interface Language {
   code: string;
@@ -15,11 +13,6 @@ interface Language {
   flag: string;
 }
 
-/**
- * Strategy-call booking section. While we're in pre-Cal.com mode, this captures
- * intent + language + email and emails it to the team. Swap to a Cal.com or
- * Calendly inline embed once the account exists.
- */
 export function BookCallSection() {
   const { t } = useLang();
 
@@ -107,10 +100,10 @@ export function BookCallSection() {
             </ScrollReveal>
           </div>
 
-          {/* Right: booking form */}
+          {/* Right: coming-soon placeholder */}
           <div className="min-w-0 lg:col-span-6 lg:col-start-7">
             <ScrollReveal variant="fade-up" delay={150} duration={700}>
-              <EmailFallbackForm languages={languages} />
+              <ComingSoonCard />
             </ScrollReveal>
           </div>
         </div>
@@ -120,126 +113,28 @@ export function BookCallSection() {
   );
 }
 
-/* ─────────────────────────────────────────────────────── */
-
-function EmailFallbackForm({ languages }: { languages: Language[] }) {
-  const { toast } = useToast();
+function ComingSoonCard() {
   const { t } = useLang();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [business, setBusiness] = useState("");
-  const [language, setLanguage] = useState(t.bookCall.lang1Name);
-  const [notes, setNotes] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !email) {
-      toast({
-        title: t.bookCall.toastTitle,
-        description: t.bookCall.toastDesc,
-        variant: "destructive",
-      });
-      return;
-    }
-    setSubmitting(true);
-    try {
-      await new Promise((r) => setTimeout(r, 900));
-      setSubmitted(true);
-      toast({
-        title: t.bookCall.toastReceivedTitle,
-        description: t.bookCall.toastReceivedDesc,
-      });
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  if (submitted) {
-    return (
-      <div className="rounded-2xl border border-emerald-400/40 bg-gradient-to-br from-emerald-500/10 via-cyan-500/5 to-transparent backdrop-blur-md p-8 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 mb-4">
-          <Calendar className="w-6 h-6 text-emerald-300" />
-        </div>
-        <h3 className="font-display text-3xl mb-3">{t.bookCall.successHeading}</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-2 max-w-md mx-auto">
-          {t.bookCall.successBody}
-        </p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-emerald-300/80">
-          {t.bookCall.successCheck}
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
       className="rounded-2xl border border-secondary/30 bg-card/40 backdrop-blur-xl p-6 sm:p-8 shadow-[0_0_50px_-15px_hsl(var(--secondary)/0.35)]"
     >
       <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/40">
-        <Clock className="w-4 h-4 text-secondary" />
+        <CalendarClock className="w-4 h-4 text-secondary" />
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">
-          {t.bookCall.formLabel}
+          {t.bookCall.comingSoonLabel}
         </span>
       </div>
 
-      <div className="space-y-3 mb-4">
-        <Field label={t.bookCall.fieldName}>
-          <Input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder={t.bookCall.placeholderName}
-            className="bg-background/50 border-border/50"
-            required
-          />
-        </Field>
-        <Field label={t.bookCall.fieldEmail}>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={t.bookCall.placeholderEmail}
-            className="bg-background/50 border-border/50"
-            required
-          />
-        </Field>
-        <Field label={t.bookCall.fieldBusiness}>
-          <Input
-            value={business}
-            onChange={(e) => setBusiness(e.target.value)}
-            placeholder={t.bookCall.placeholderBusiness}
-            className="bg-background/50 border-border/50"
-          />
-        </Field>
-        <Field label={t.bookCall.fieldLanguage}>
-          <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="w-full h-10 rounded-md border border-border/50 bg-background/50 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50"
-          >
-            {languages.map((l) => (
-              <option key={l.code} value={l.name}>
-                {l.flag} {l.native} ({l.type === "in-house" ? t.bookCall.inHouse : t.bookCall.partner})
-              </option>
-            ))}
-          </select>
-        </Field>
-        <Field label={t.bookCall.fieldNotes}>
-          <Textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder={t.bookCall.placeholderNotes}
-            rows={3}
-            className="bg-background/50 border-border/50 resize-none"
-          />
-        </Field>
-      </div>
+      <h3 className="font-display text-3xl sm:text-4xl leading-tight mb-4">
+        {t.bookCall.comingSoonHeading}
+      </h3>
+      <p className="text-base text-muted-foreground leading-relaxed mb-6">
+        {t.bookCall.comingSoonBody}
+      </p>
 
       <Button
-        type="submit"
-        disabled={submitting}
+        asChild
         size="lg"
         className="w-full rounded-full font-semibold"
         style={{
@@ -249,31 +144,14 @@ function EmailFallbackForm({ languages }: { languages: Language[] }) {
             "linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)))",
         }}
       >
-        {submitting ? (
-          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-        ) : (
-          <Send className="w-4 h-4 mr-2" />
-        )}
-        {submitting ? t.bookCall.submitLoading : t.bookCall.submit}
+        <a href={`mailto:${CONTACT_EMAIL}`}>
+          <Mail className="w-4 h-4 mr-2" />
+          {t.bookCall.comingSoonCta}
+        </a>
       </Button>
-      <p className="mt-3 text-[11px] text-muted-foreground/70 text-center">
-        {t.bookCall.legal}
+      <p className="mt-3 text-[11px] text-muted-foreground/70 text-center font-mono tracking-wide">
+        {CONTACT_EMAIL}
       </p>
-    </form>
-  );
-}
-
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <label className="block">
-      <span className="text-xs text-muted-foreground/80 mb-1.5 block">{label}</span>
-      {children}
-    </label>
+    </div>
   );
 }

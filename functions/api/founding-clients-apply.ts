@@ -23,7 +23,6 @@ interface Env {
   FOUNDING_NOTIFY_EMAIL?: string;
 }
 
-const NOTIFY_EMAIL_FALLBACK = "anthonyng135@gmail.com";
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
 
 const DISPOSABLE_DOMAINS = new Set([
@@ -240,7 +239,11 @@ async function sendOpsEmail(
     console.log("Founding-client email skipped (no RESEND_API_KEY)");
     return { ok: true };
   }
-  const to = env.FOUNDING_NOTIFY_EMAIL || NOTIFY_EMAIL_FALLBACK;
+  const to = env.FOUNDING_NOTIFY_EMAIL;
+  if (!to) {
+    console.log("Founding-client email skipped (FOUNDING_NOTIFY_EMAIL not set)");
+    return { ok: true };
+  }
   const verticalLabel = data.vertical;
   const tierLabel = data.tier;
   const subject = `[Founding-Client] ${data.businessName} (${verticalLabel}, tier ${tierLabel})`;

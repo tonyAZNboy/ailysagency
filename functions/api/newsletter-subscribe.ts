@@ -10,10 +10,103 @@
 //   - Webhook to Buttondown / ConvertKit / native broadcast tool
 // For now: log to a simple D1 or Supabase REST insert via service role.
 
+import { renderEmail } from '../lib/emailTemplate';
+import { signUnsubscribeToken } from '../lib/unsubscribeToken';
+import { sendAndLog } from '../lib/emailLog';
+
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
   RESEND_API_KEY?: string;
   ALLOWED_ORIGINS?: string;
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** 64-char hex secret for signing one-click unsubscribe tokens. */
+  NEWSLETTER_UNSUB_SECRET?: string;
+}
+
+const SITE_BASE_URL = 'https://www.ailysagency.ca';
+
+async function enrollInWelcomeSequence(env: Env, email: string): Promise<void> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return;
+  try {
+    // 1. Look up the newsletter_welcome sequence id
+    const seqResp = await fetch(
+      `${env.SUPABASE_URL}/rest/v1/email_sequences?slug=eq.newsletter_welcome&select=id,steps&limit=1`,
+      {
+        headers: {
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        },
+      },
+    );
+    if (!seqResp.ok) return;
+    const rows = (await seqResp.json().catch(() => [])) as Array<{ id: string; steps: Array<{ delay_days: number }> }>;
+    if (rows.length === 0) return;
+    const seq = rows[0];
+    // current_step starts at 1 because step 0 (welcome confirm) was just sent synchronously
+    const firstFollowUp = seq.steps[0];
+    if (!firstFollowUp) return;
+    const nextSend = new Date(Date.now() + firstFollowUp.delay_days * 24 * 60 * 60 * 1000).toISOString();
+
+    await fetch(
+      `${env.SUPABASE_URL}/rest/v1/email_sequence_enrollments?on_conflict=email,sequence_id`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+          Prefer: 'resolution=merge-duplicates,return=minimal',
+        },
+        body: JSON.stringify({
+          email,
+          sequence_id: seq.id,
+          current_step: 1,
+          status: 'active',
+          next_send_at: nextSend,
+          unsubscribed_at: null,
+        }),
+      },
+    );
+  } catch {
+    // Best-effort enrollment; never blocks signup
+  }
+}
+
+async function upsertSubscriber(env: Env, row: {
+  email: string;
+  source: string;
+  language: string;
+}): Promise<{ ok: boolean; reactivated?: boolean; error?: string }> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+    return { ok: false, error: 'supabase_not_configured' };
+  }
+  const url = `${env.SUPABASE_URL}/rest/v1/newsletter_signups?on_conflict=email`;
+  try {
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        Prefer: 'resolution=merge-duplicates,return=representation',
+      },
+      body: JSON.stringify({
+        email: row.email,
+        source: row.source,
+        language: row.language,
+        status: 'active',
+        unsubscribed_at: null,
+      }),
+    });
+    if (!resp.ok) {
+      const t = await resp.text().catch(() => '');
+      return { ok: false, error: `supabase_${resp.status}: ${t.slice(0, 200)}` };
+    }
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: (err as Error).message.slice(0, 200) };
+  }
 }
 
 const DISPOSABLE_DOMAINS = new Set([
@@ -81,46 +174,91 @@ export async function onRequestPost(context: {
   const lang = (body.lang ?? "en").trim().slice(0, 4);
   const subscribedAt = new Date().toISOString();
 
-  // For now, just log. Future: persist to Supabase + send confirmation email via Resend.
-  // The structure of the future record:
   const subscription = {
     email,
-    source, // "exit-intent" | "footer" | "blog" | "audit-result" | etc.
-    lang, // "en" | "fr" | etc.
+    source,
+    lang,
     subscribed_at: subscribedAt,
-    confirmed_at: null, // set on double opt-in confirmation
+    confirmed_at: null,
     user_agent: request.headers.get("user-agent") ?? "",
     ip_country: request.headers.get("cf-ipcountry") ?? "",
   };
 
-  // Optional: send the confirmation email via Resend if configured
+  // 1. Persist (or reactivate) the subscriber in Supabase
+  const upsertResult = await upsertSubscriber(env, { email, source, language: lang });
+  if (!upsertResult.ok) {
+    console.warn(`newsletter_upsert_failed: ${upsertResult.error}`);
+    // Continue anyway - we don't want to lose the subscriber to a transient DB failure
+  }
+
+  // 1b. Enroll in newsletter_welcome sequence so the cron processor sends day-2 + day-5 follow-ups
+  await enrollInWelcomeSequence(env, email);
+
+  // 2. Sign a one-click unsubscribe token for the email footer + List-Unsubscribe header
+  let unsubscribeUrl: string | undefined;
+  if (env.NEWSLETTER_UNSUB_SECRET) {
+    try {
+      const token = await signUnsubscribeToken({ email, secret: env.NEWSLETTER_UNSUB_SECRET });
+      unsubscribeUrl = `${SITE_BASE_URL}/api/newsletter-unsubscribe?token=${encodeURIComponent(token)}&email=${encodeURIComponent(email)}`;
+    } catch (err) {
+      console.warn(`unsub_token_failed: ${(err as Error).message}`);
+    }
+  }
+
+  // 3. Send the confirmation email via Resend
   if (env.RESEND_API_KEY) {
     try {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      const isFr = lang === 'fr';
+      const rendered = renderEmail({
+        lang: isFr ? 'fr' : 'en',
+        preheader: isFr
+          ? 'Trois marques citees par ChatGPT, chaque semaine.'
+          : 'Three brands cited by ChatGPT, every week.',
+        title: isFr ? 'Bienvenue dans l\'infolettre AiLys' : 'Welcome to the AiLys newsletter',
+        body: isFr
+          ? [
+              'Merci de t\'etre inscrit. Chaque semaine, on t\'envoie trois marques qui ont reussi a etre citees par ChatGPT, Perplexity ou Claude cette semaine, et la tactique exacte qui a fait la difference.',
+              'Pas de bourrage de boite, pas de promo agressive. Juste des cas concrets que tu peux appliquer cette semaine.',
+              'Si tu ne reconnais pas cette inscription, tu peux ignorer ce courriel sans rien faire.',
+            ]
+          : [
+              'Thanks for signing up. Each week we send three brands that got cited by ChatGPT, Perplexity, or Claude this week, plus the exact tactic that made the difference.',
+              'No inbox bloat, no aggressive sales. Just concrete cases you can apply this week.',
+              'If you do not recognize this signup, you can ignore this message.',
+            ],
+        cta: {
+          label: isFr ? 'Voir notre dernier audit AI' : 'See our latest AI audit',
+          url: 'https://www.ailysagency.ca/audit',
         },
-        body: JSON.stringify({
-          from: "AiLys Agency <hello@ailysagency.ca>",
-          to: email,
-          subject:
-            lang === "fr"
-              ? "Bienvenue · AiLys Agency"
-              : "Welcome · AiLys Agency",
-          text:
-            lang === "fr"
-              ? `Merci de vous être inscrit à l'infolettre AiLys.\n\nChaque semaine, on vous envoie 3 marques qui ont été citées par ChatGPT cette semaine et comment elles l'ont fait.\n\nSi vous n'avez pas demandé cette inscription, vous pouvez ignorer ce message.\n\nAiLys Agency, Montréal, Québec`
-              : `Thanks for subscribing to the AiLys newsletter.\n\nEach week we send 3 brands that got cited in ChatGPT this week and how they did it.\n\nIf you did not request this subscription, you can ignore this message.\n\nAiLys Agency, Montreal, Quebec`,
-        }),
+        unsubscribeUrl,
+      });
+
+      // Build List-Unsubscribe headers per RFC 8058 (Gmail / Yahoo bulk-sender requirement, 2024)
+      const extraHeaders: Record<string, string> = {};
+      if (unsubscribeUrl) {
+        extraHeaders['List-Unsubscribe'] = `<${unsubscribeUrl}>, <mailto:hello@ailysagency.ca?subject=Unsubscribe>`;
+        extraHeaders['List-Unsubscribe-Post'] = 'List-Unsubscribe=One-Click';
+      }
+
+      const subject = isFr ? 'Bienvenue dans l\'infolettre AiLys' : 'Welcome to the AiLys newsletter';
+      await sendAndLog(env, {
+        from: 'AiLys Agency <hello@ailysagency.ca>',
+        to: email,
+        subject,
+        html: rendered.html,
+        text: rendered.text,
+        headers: extraHeaders,
+      }, {
+        email,
+        sequence_slug: 'newsletter_welcome',
+        step: 0,
+        subject,
       });
     } catch {
       // Don't fail the subscription if email delivery fails
     }
   }
 
-  // Always return success even if downstream is misconfigured (we have the log)
   return Response.json({ success: true, ...subscription });
 }
 
