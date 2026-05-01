@@ -90,6 +90,17 @@ const MAIN_ROUTES = [
   { path: "/glossary/local-seo", priority: 0.65, changefreq: "monthly" },
   // Free tools (lead magnets, backlink magnets)
   { path: "/tools/ai-visibility-score", priority: 0.85, changefreq: "monthly" },
+  // Bonus A: AiLys Verified Badge (public marketing surface)
+  { path: "/badge", priority: 0.85, changefreq: "monthly" },
+  // Feature 5: AI Concierge demo (public preview)
+  { path: "/concierge-demo", priority: 0.85, changefreq: "monthly" },
+  // Bonus B: Quarterly Industry Reports (lead magnets, high backlink potential)
+  { path: "/industry-reports", priority: 0.9, changefreq: "weekly" },
+  { path: "/industry-reports/dentists-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },
+  { path: "/industry-reports/clinics-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },
+  { path: "/industry-reports/contractors-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },
+  { path: "/industry-reports/restaurants-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },
+  { path: "/industry-reports/lawyers-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },
   // Legal
   { path: "/privacy", priority: 0.3, changefreq: "yearly" },
   { path: "/terms", priority: 0.3, changefreq: "yearly" },
