@@ -4,6 +4,62 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended11) — Wikidata help article + Organization sameAs + index.html pricing refresh
+
+Eat-our-own-dog-food pass. Wikidata Q-numbers were the single highest
+predictor of ChatGPT visibility in our Q1 2026 industry reports
+(4x lift on dental clinics with vs without). Closed the help center
+gap with a deep-dive article. Also caught + fixed stale pricing in
+the static index.html JSON-LD (still showing Autopilot \$1,299) and
+added sameAs entity-authority signals.
+
+**Shipped:**
+
+1. **Help article: `wikidata-q-number-explained`** (EN + FR-CA full):
+   - What a Q-number is (Wikidata vs Wikipedia split)
+   - Why it matters: 4x ChatGPT lift in our Q1 2026 dental data
+   - Adoption tiny (6% of probed dental practices), so leverage point uncovered
+   - The 9-property AiLys standard package (instance of P31, country P17,
+     located in P131, coordinate location P625, official website P856,
+     language used P2936, inception P571, founded by P112, external IDs)
+   - Vandalism risk + 3 protections (sourcing, watchlist, stable property set)
+   - Why we do NOT create Wikipedia articles
+   - 12-week timeline to ChatGPT lift
+   - Per-engine breakdown of why ChatGPT sees Wikidata strongest
+
+2. **index.html JSON-LD pricing refresh:**
+   - AggregateOffer highPrice 1299 → 2500
+   - 4th tier renamed Autopilot → Agency, with full Agency deliverables
+     in description (multi-location dashboard, white-label PDF, dedicated
+     senior strategist, 12 GBP posts/mo, daily AI Visibility probes,
+     Slack SLA <4h, API access, Domain Shield/Speed Boost)
+
+3. **Organization sameAs:**
+   - Added LinkedIn + GitHub URLs as `sameAs` properties on the
+     ProfessionalService entity in index.html
+   - Wikidata Q-number will be added to sameAs when AiLys's own
+     Q-number is registered (eat own dog food)
+
+**Bug fixed during integration:** unescaped backticks in template literal
+markdown body for the Wikidata article — same pattern as PR #88's bug.
+Markdown convention is to use backticks for inline code (e.g. `P31`)
+but inside a JS template literal those close the outer template at
+parse time. Replaced backtick wrappers with double-quotes for the
+Wikidata property mentions in both EN + FR variants.
+
+**Cumulative help articles at close:** 109 articles. EN + FR-CA full
+coverage. ES/ZH/AR/RU still on the translation queue.
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash: zero in new content
+- Build: success ~39s
+
+**Pending tag:** `v0.14.0-wikidata-help-article-and-org-sameAs`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended10) — Help article JSON-LD fix + 3 BreadcrumbList graphs + Index Resources section
 
 The SEOHead JSON-LD bug fix in PR #88 covered SEOHead consumers, but

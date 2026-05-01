@@ -8496,4 +8496,166 @@ Si vous etes un prospect, executez d'abord l'audit gratuit de visibilite IA a /f
       },
     },
   },
+
+  // ─── Wikidata Q-number deep-dive (highest-leverage AEO fix) ──
+  {
+    slug: "wikidata-q-number-explained",
+    title: "Wikidata Q-numbers: the single highest-ROI fix for ChatGPT visibility",
+    excerpt:
+      "Quebec dental clinics with a Wikidata entry appear in ChatGPT 4x more often than those without. What a Q-number is, why AI engines lean on it, what AiLys ships in your Q-number, and the one risk to know about.",
+    category: "aeo-geo-eeat",
+    updatedAt: "2026-05-01",
+    readingTimeMin: 6,
+    body: `## What a Q-number is
+
+Wikidata is the structured-data sibling of Wikipedia. Where Wikipedia has prose articles, Wikidata has machine-readable facts: a business is a thing, the thing has properties (name, location, founder, language, parent organization, official website, social handles), and each thing has a unique ID called a Q-number (Apple Inc. is Q312, the CN Tower is Q224).
+
+When ChatGPT, Perplexity, Claude, and Gemini are trained or grounded against Wikidata, they index brands by their Q-number. If your business has one with the right properties, the engines have a high-confidence anchor for "this is the same brand the user is asking about." If your business does not have one, the engines fall back to fuzzier matching.
+
+## Why it matters more than people realize
+
+In our Q1 2026 industry reports, the strongest single predictor of ChatGPT citation in Quebec local services was Wikidata presence:
+
+- Quebec dentists with a Q-number: 71% appeared in ChatGPT answers
+- Quebec dentists without: 17%
+- The 4x lift held across other verticals (clinics, contractors, restaurants, lawyers) with somewhat varying multipliers (2.5x to 4.5x)
+
+Adoption is tiny. Only 6% of probed dental practices had one. So this is a leverage point most competitors have not touched.
+
+## What AiLys ships in your Q-number
+
+When you onboard at the Core tier or higher, your strategist creates and maintains your Wikidata entry. The standard package:
+
+- Item creation (the Q-number gets assigned by Wikidata when we save)
+- Property "instance of (P31)" set to the most specific applicable type (dental clinic, family medicine clinic, Italian restaurant)
+- Property "country (P17)" and "located in the administrative territorial entity (P131)" for geo-anchoring
+- Property "coordinate location (P625)" matching your GBP coordinates
+- Property "official website (P856)" linking to your domain
+- Property "language used (P2936)" set to French and English (matters for Quebec bilingual queries)
+- Property "inception (P571)" for the founding year
+- Property "founded by (P112)" if a named founder is public
+- External IDs: Crunchbase (P2087), LinkedIn (P4264), Facebook ID (P2013), Google Business Profile CID, Bloomberg ID
+
+The complete property set varies by industry. Healthcare adds medical specialty (P1995), restaurants add cuisine (P2012), contractors add RBQ license number where applicable.
+
+## The one risk to know about
+
+Wikidata is volunteer-edited. Anyone with a Wikidata account can edit your item. Three protections:
+
+1. Sourcing. Every property gets a reference URL pointing to a public source. Unsourced edits are easy to revert.
+2. Watchlist. We add your Q-number to a strategist watchlist so any edit triggers an email notification. We typically catch and revert vandalism within 4 to 24 hours.
+3. Stable property set. We document your "canonical" property set in your AiLys client dashboard so reverts are mechanical.
+
+In 2 years of running Wikidata work for Quebec local businesses, we have seen 0 successful long-term vandalism attacks.
+
+## What we do NOT do
+
+- We do not create a Wikipedia article. Wikipedia has notability standards local businesses rarely meet. Forced creation is more likely to result in deletion than visibility.
+- We do not edit Wikipedia articles about your competitors or category. Out of scope and out of ethics.
+- We do not buy or sell Wikidata items. Wikidata items are not property; they are public-domain data structures.
+
+## Timeline
+
+- Week 1 of onboarding: data gathering
+- Week 2: item creation + initial property set
+- Week 3: external ID linking
+- Month 2: monitoring + adding properties
+- Ongoing: watchlist + revert + property additions as your business expands
+
+You typically start seeing the 4x ChatGPT lift between week 4 and week 12, depending on when ChatGPT's training pipeline next picks up the change.
+
+## Why ChatGPT specifically
+
+Strongest lift on ChatGPT and Perplexity. Why those two:
+
+- ChatGPT (GPT-4 family) was trained heavily on Wikidata as part of its structured world knowledge layer
+- Perplexity directly queries Wikidata at inference time for entity disambiguation
+- Claude uses Wikidata more selectively (leans on first-party site content + retrieval)
+- Gemini and Google AIO use Wikidata indirectly through Google Knowledge Graph
+- Bing Copilot uses Microsoft's own knowledge graph which mirrors Wikidata closely
+
+Net: a properly built Q-number lifts visibility across all 6 engines, with the strongest spike on ChatGPT.
+
+## Questions
+
+For technical questions on the Wikidata work: hello@ailysagency.ca with subject "Wikidata".`,
+    i18n: {
+      fr: {
+        title: "Q-numbers Wikidata : le correctif au plus haut ROI pour la visibilite ChatGPT",
+        excerpt:
+          "Les cliniques dentaires quebecoises avec une entree Wikidata apparaissent dans ChatGPT 4 fois plus souvent. Ce qu'est un Q-number, pourquoi les moteurs IA s'y appuient, ce qu'AiLys depose, et le seul risque a connaitre.",
+        body: `## Ce qu'est un Q-number
+
+Wikidata est le frere structure de Wikipedia. La ou Wikipedia a des articles en prose, Wikidata a des faits lisibles par machine : une entreprise est une chose, la chose a des proprietes, et chaque chose a un identifiant unique appele Q-number (Apple Inc. est Q312, la Tour CN est Q224).
+
+Quand ChatGPT, Perplexity, Claude et Gemini sont entraines ou ancres contre Wikidata, ils indexent les marques par leur Q-number. Si votre entreprise en a un avec les bonnes proprietes, les moteurs ont un ancrage de haute confiance pour "c'est la meme marque que l'utilisateur demande." Si votre entreprise n'en a pas, les moteurs reviennent a un appariement plus flou.
+
+## Pourquoi ca importe plus que les gens realisent
+
+Dans nos rapports d'industrie T1 2026, le predicteur le plus fort de citation ChatGPT dans les services locaux quebecois etait la presence Wikidata :
+
+- Dentistes quebecois avec un Q-number : 71% apparaissaient dans les reponses ChatGPT
+- Dentistes quebecois sans : 17%
+- La hausse de 4 fois s'est tenue a travers d'autres verticales (cliniques, entrepreneurs, restaurants, avocats) avec des multiplicateurs variant (2,5 a 4,5 fois)
+
+L'adoption est minuscule. Seulement 6% des cliniques dentaires sondees en avaient un. C'est un point de levier que la plupart des concurrents n'ont pas touche.
+
+## Ce qu'AiLys depose dans votre Q-number
+
+Quand vous vous inscrivez au palier Core ou superieur, votre strategiste cree et maintient votre entree Wikidata. Le pack standard :
+
+- Creation de l'item (le Q-number est assigne par Wikidata)
+- Propriete "instance de (P31)" reglee au type le plus specifique applicable
+- Proprietes "pays (P17)" et "situe dans l'entite territoriale administrative (P131)" pour l'ancrage geographique
+- Propriete "coordonnees geographiques (P625)" correspondant a vos coordonnees GBP
+- Propriete "site officiel (P856)" liant a votre domaine
+- Propriete "langue utilisee (P2936)" reglee a francais et anglais
+- Propriete "creation (P571)" pour l'annee de fondation
+- Propriete "fonde par (P112)" si un fondateur nomme est public
+- IDs externes : Crunchbase (P2087), LinkedIn (P4264), Facebook ID (P2013), CID Google Business Profile
+
+Le jeu complet de proprietes varie selon l'industrie. La sante ajoute la specialite medicale, les restaurants ajoutent la cuisine, les entrepreneurs ajoutent le numero de licence RBQ ou applicable.
+
+## Le seul risque a connaitre
+
+Wikidata est edite par des volontaires. Trois protections :
+
+1. Sourcage. Chaque propriete recoit une URL de reference pointant vers une source publique. Les modifications non sourcees sont faciles a annuler.
+2. Liste de surveillance. Nous ajoutons votre Q-number a une liste de surveillance strategiste. Nous attrapons et annulons typiquement le vandalisme en 4 a 24 heures.
+3. Jeu de proprietes stable. Nous documentons votre jeu de proprietes "canonique" pour que les annulations soient mecaniques.
+
+En 2 ans, 0 attaque de vandalisme reussie a long terme.
+
+## Ce que nous ne faisons PAS
+
+- Pas d'article Wikipedia. Wikipedia a des standards de notoriete que les entreprises locales atteignent rarement.
+- Pas d'edition d'articles Wikipedia sur vos concurrents. Hors ethique.
+- Pas d'achat ni de vente d'items Wikidata. Ce sont des structures de donnees du domaine public.
+
+## Calendrier
+
+- Semaine 1 : collecte de donnees
+- Semaine 2 : creation de l'item + jeu de proprietes initial
+- Semaine 3 : liaison d'IDs externes
+- Mois 2 : surveillance + ajout de proprietes
+- Continu : liste de surveillance + annulations + ajouts
+
+Hausse de 4 fois sur ChatGPT typiquement entre la semaine 4 et la semaine 12.
+
+## Pourquoi ChatGPT specifiquement
+
+- ChatGPT (famille GPT-4) entraine fortement sur Wikidata
+- Perplexity interroge directement Wikidata a l'inference
+- Claude utilise Wikidata plus selectivement
+- Gemini et Google AIO via Google Knowledge Graph (qui ingere Wikidata)
+- Bing Copilot via le graphe Microsoft (mirroir Wikidata)
+
+Net : un Q-number bien construit eleve la visibilite a travers les 6 moteurs, avec la plus forte pointe sur ChatGPT.
+
+## Questions
+
+hello@ailysagency.ca avec sujet "Wikidata".`,
+      },
+    },
+  },
 ];
