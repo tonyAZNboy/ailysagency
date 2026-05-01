@@ -112,13 +112,11 @@ export function Content() {
         Traditional agencies typically price on a retainer plus scope-of-work model. Sterling Sky retainers start at 5,000 dollars a month for local SEO work. BrightLocal managed packages run 4,000 to 8,000 dollars depending on citation volume. LocalIQ multi-channel packages typically start above 5,000 dollars when GBP and content marketing are bundled. None of these are bad numbers for the scope offered. They are just a different scope.
       </p>
 
-      <h3>What you get at each AiLys tier</h3>
-      <ul>
-        <li>Starter (300 dollars): GBP optimization, monthly AI Visibility report, NAP audit on the top five citations</li>
-        <li>Core (799 dollars): everything in Starter plus weekly GBP posts, citation cleanup on twenty targets, FAQ schema build, doctor or business byline schema</li>
-        <li>Growth (1,499 dollars): everything in Core plus original photography sessions, monthly content production, Reviuzy reputation automation, two AI Visibility audits a quarter</li>
-        <li>Agency (2,500 dollars): everything in Growth plus white label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
-      </ul>
+      <p>
+        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month) with fixed deliverables and tier-eligible website builds amortized over 6 months. The complete 60+ feature side-by-side breakdown lives on the official pricing page rather than scattered across blog posts, so the numbers stay current.
+      </p>
+
+      <InlineCTA variant="pricing" text="See the complete 60+ feature side-by-side comparison across all 4 AiLys plans on the official pricing page." buttonText="See full pricing" to="/forfaits-complets" />
 
       <QuickQuiz
         question="At what monthly budget does a traditional SEO agency typically beat AiLys for a Quebec local owner?"

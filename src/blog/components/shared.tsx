@@ -134,7 +134,7 @@ export function InlineCTA({
       </div>
       <Link
         to={to || cfg.to}
-        className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-2.5 text-sm font-bold text-black hover:bg-cyan-400 transition-colors shrink-0 whitespace-nowrap"
+        className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-2.5 text-sm font-bold !text-black hover:bg-cyan-400 hover:!text-black transition-colors shrink-0 whitespace-nowrap !border-0"
       >
         {buttonText || cfg.button}
         <ArrowRight className="h-4 w-4" />
