@@ -23,7 +23,8 @@
     "industry-playbook": "Guides sectoriels",
     "reputation-reviews": "Reputation et avis",
     "analytics-attribution": "Analytique et attribution",
-    "ailys-product": "AiLys"
+    "ailys-product": "AiLys",
+    "competitor-comparisons": "Comparaisons concurrents"
   },
   "categoryDescriptions": {
     "ai-visibility": "Comment les commerces locaux se font citer dans les reponses de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot.",
@@ -34,7 +35,8 @@
     "industry-playbook": "Tactiques sectorielles pour dentistes, avocats, restaurants, entrepreneurs, cliniques, immobilier, hotels.",
     "reputation-reviews": "Velocite des avis, surveillance du sentiment et le module d'automatisation Reviuzy.",
     "analytics-attribution": "Suivi du trafic IA, strategie UTM et lien entre citations LLM et reservations reelles.",
-    "ailys-product": "Comment AiLys fonctionne, ventilation de la methodologie et comparaisons honnetes."
+    "ailys-product": "Comment AiLys fonctionne, ventilation de la methodologie et comparaisons honnetes.",
+    "competitor-comparisons": "Comparaisons honnetes cote a cote d'AiLys avec les agences et plateformes quebecoises et canadiennes."
   },
   "cta": {
     "heading": "Pret a apparaitre dans la recherche IA?",

@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Digitad for Quebec local businesses. Pricing, AI Visibility, bilingual scope, GBP work, and where each agency fits best.',
   tldr: 'Digitad is a well-established Montreal SEO agency with a broad digital marketing surface that includes paid media, social, and content strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners, with four fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. The two serve different operator profiles: Digitad fits the operator who wants a full-service digital partner, AiLys fits the operator who wants AI Visibility, GBP, and citation work shipped fast at a predictable monthly cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'digitad', 'comparison', 'quebec', 'montreal', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

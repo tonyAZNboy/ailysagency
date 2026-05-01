@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Rablab for Quebec brands. Pricing, AI Visibility, creative production, bilingual scope, and where each agency fits.',
   tldr: 'Rablab is a Montreal creative digital agency known for branding, creative production, content, and digital experience work for mid-market and large brand clients. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Rablab fits brands that need creative production and digital experience design. AiLys fits operators who need AI engine citation work and GBP at a transparent monthly cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'rablab', 'comparison', 'montreal', 'creative', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

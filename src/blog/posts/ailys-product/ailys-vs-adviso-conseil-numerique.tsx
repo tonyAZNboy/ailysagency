@@ -17,7 +17,7 @@ export const meta: BlogPostMeta = {
   metaDescription:
     'Honest comparison of AiLys and Adviso for Quebec businesses. Pricing, AI Visibility, enterprise consulting, bilingual scope, and where each fits best.',
   tldr: 'Adviso is a Montreal-based digital consultancy serving mid-market and enterprise brands (Air Canada, Banque Nationale, Cirque du Soleil, Nespresso) across customer experience, relational marketing, media planning, content marketing and SEO, analytics and data science, MarTech consulting, business strategy, generative AI consulting, and training. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Adviso fits enterprise brands needing strategic consulting and data science. AiLys fits local operators needing AI engine citation work and GBP at a transparent monthly cost.',
-  category: 'ailys-product',
+  category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'adviso', 'comparison', 'quebec', 'enterprise', 'ailys-product'],
   publishedDate: '2026-04-30',
   updatedDate: '2026-04-30',

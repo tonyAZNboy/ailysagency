@@ -10,6 +10,7 @@ export const BLOG_CATEGORIES: CategoryInfo[] = [
   { id: 'reputation-reviews', label: 'Reputation and Reviews', description: 'Review velocity, sentiment monitoring, and the Reviuzy automation add-on.', color: 'pink', icon: '⭐' },
   { id: 'analytics-attribution', label: 'Analytics and Attribution', description: 'AI Traffic tracking, UTM strategy, and tying LLM citations to actual bookings.', color: 'green', icon: '📊' },
   { id: 'ailys-product', label: 'AiLys', description: 'How AiLys works, methodology breakdowns, and honest comparisons.', color: 'cyan', icon: '⚡' },
+  { id: 'competitor-comparisons', label: 'Competitor Comparisons', description: 'Honest side-by-side comparisons of AiLys against Quebec and Canadian agencies and platforms.', color: 'cyan', icon: '⚖️' },
 ]
 
 export function getCategoryInfo(id: string): CategoryInfo | undefined {

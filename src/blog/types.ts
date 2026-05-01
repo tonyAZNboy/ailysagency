@@ -10,6 +10,7 @@ export type BlogCategory =
   | 'reputation-reviews'
   | 'analytics-attribution'
   | 'ailys-product'
+  | 'competitor-comparisons'
 
 export interface BlogAuthor {
   name: string
