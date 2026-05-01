@@ -332,7 +332,7 @@ export const TIERS: TierMeta[] = [
   {
     id: "agency",
     name: "Agency",
-    monthlyPriceCAD: 2499,
+    monthlyPriceCAD: 2500,
     tagline: {
       en: "Multi-location, white-label, dedicated strategist",
       fr: "Multi-emplacements, marque blanche, stratege attitre",

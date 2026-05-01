@@ -1,4 +1,4 @@
-// JSON-LD structured data generators for AiLys Agency.
+﻿// JSON-LD structured data generators for AiLys Agency.
 // AiLys is a Quebec-based LLM visibility / AI search reputation agency.
 // AiLys Automation is the proprietary platform powering review growth, GBP, and AI Visibility.
 import { APP_CONFIG } from '@/config/app';
@@ -341,7 +341,7 @@ export const generateAiLysAutomationSchema = () => ({
   offers: {
     '@type': 'AggregateOffer',
     lowPrice: '100',
-    highPrice: '2499',
+    highPrice: '2500',
     priceCurrency: 'CAD',
     offerCount: 4,
     availability: 'https://schema.org/InStock',

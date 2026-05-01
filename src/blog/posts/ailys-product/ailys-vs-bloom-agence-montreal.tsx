@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import { AUTHORS } from '../../authors'
 import {
@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs Bloom, Montreal performance marketing versus AI Visibility',
   metaDescription:
     'Honest comparison of AiLys and Bloom for Montreal and Quebec businesses. Pricing, AI Visibility, paid media, bilingual scope, and where each agency wins.',
-  tldr: 'Bloom is a Montreal performance marketing agency that specializes in paid media, e-commerce growth, and data-driven marketing strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Bloom fits operators who need paid media scale and conversion optimization. AiLys fits operators who need AI Visibility, GBP, and citation work at a predictable monthly cost.',
+  tldr: 'Bloom is a Montreal performance marketing agency that specializes in paid media, e-commerce growth, and data-driven marketing strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Bloom fits operators who need paid media scale and conversion optimization. AiLys fits operators who need AI Visibility, GBP, and citation work at a predictable monthly cost.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'bloom', 'comparison', 'montreal', 'quebec', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -82,7 +82,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: 'Paid media', label: 'Bloom core: Google Ads, Meta, programmatic' },
           { value: 'AI Visibility', label: 'AiLys core: citations in AI engines' },
         ]}
@@ -111,7 +111,7 @@ export function Content() {
 
       <h2 id="pricing-and-engagement-model">Pricing and engagement model</h2>
       <p>
-        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars. Each tier has a published scope, no hourly billing, and the operator knows exactly what ships each month.
+        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars. Each tier has a published scope, no hourly billing, and the operator knows exactly what ships each month.
       </p>
       <p>
         Bloom operates on a custom retainer plus ad spend model. The retainer covers strategy, management, and optimization. Ad spend is separate and scales with campaign goals. Total monthly investment (retainer plus media) typically starts well above the AiLys entry point because paid media requires meaningful spend to test and scale.
@@ -219,7 +219,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'Bloom is a Montreal performance marketing agency specializing in paid media and e-commerce growth. AiLys is a specialist AI Visibility platform for local owners.',
-          'AiLys tiers run 300 to 2,499 dollars CAD with fixed scope. Bloom retainers are custom-quoted with ad spend on top.',
+          'AiLys tiers run 300 to 2,500 dollars CAD with fixed scope. Bloom retainers are custom-quoted with ad spend on top.',
           'Bloom optimizes paid channels (Google Ads, Meta, programmatic). AiLys optimizes AI engine citations and local search.',
           'Both agencies serve Quebec bilingually in French and English from Montreal.',
           'The two are complementary. Local businesses can run AiLys for AI Visibility and Bloom for paid media without overlap.',

@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import {
   CalloutBox,
@@ -16,7 +16,7 @@ export const metaFr: BlogPostMeta = {
   title: 'AiLys vs Major Tom, spécialiste local Québec versus agence numérique pancanadienne',
   metaDescription:
     "Comparaison honnête d'AiLys et Major Tom pour les entreprises canadiennes. Tarifs, AI Visibility, portée nationale, bilinguisme et ou chaque agence convient le mieux.",
-  tldr: "Major Tom est une agence numérique pancanadienne avec des bureaux à Vancouver et New York, offrant stratégie, créatif, développement, media payant et SEO pour les marques de taille moyenne et les entreprises. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Major Tom convient aux marques qui ont besoin d'un partenaire numérique complet avec portée nationale ou internationale. AiLys convient aux opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations livres rapidement à un coût prévisible.",
+  tldr: "Major Tom est une agence numérique pancanadienne avec des bureaux à Vancouver et New York, offrant stratégie, créatif, développement, media payant et SEO pour les marques de taille moyenne et les entreprises. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 500 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Major Tom convient aux marques qui ont besoin d'un partenaire numérique complet avec portée nationale ou internationale. AiLys convient aux opérateurs locaux qui ont besoin d'AI Visibility, GBP et citations livres rapidement à un coût prévisible.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à Major Tom pour les commerces locaux au Canada?',
@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que Major Tom?',
       answer:
-        "Les forfaits AiLys vont de 300 à 2 499 dollars CAD par mois avec des listes de livrables publiées. Les retainers Major Tom sont sur devis et démarrent typiquement bien plus haut parce que la portée inclut stratégie, créatif, développement et gestion de media en plus du SEO. Pour le travail d'AI Visibility locale et de GBP, AiLys livre plus dans cette voie à un coût moindre. Pour la stratégie numérique d'entreprise sur plusieurs canaux et marchés, Major Tom livre une portée qu'AiLys ne couvre pas.",
+        "Les forfaits AiLys vont de 300 à 2 500 dollars CAD par mois avec des listes de livrables publiées. Les retainers Major Tom sont sur devis et démarrent typiquement bien plus haut parce que la portée inclut stratégie, créatif, développement et gestion de media en plus du SEO. Pour le travail d'AI Visibility locale et de GBP, AiLys livre plus dans cette voie à un coût moindre. Pour la stratégie numérique d'entreprise sur plusieurs canaux et marchés, Major Tom livre une portée qu'AiLys ne couvre pas.",
     },
     {
       question: 'Major Tom sert-elle les clients québécois en français?',
@@ -36,7 +36,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys peut-elle remplacer Major Tom pour un commerce multi-emplacements?',
       answer:
-        "AiLys sert les commerces multi-emplacements au palier Agency (2 499 dollars CAD par mois) avec des tableaux de bord multi-emplacements, des rapports en marque blanche et l'optimisation GBP par emplacement. Major Tom sert les marques multi-emplacements avec une portée plus large : campagnes nationales, développement web, stratégie de marque et production créative en plus de l'optimisation locale. Si le besoin multi-emplacements est l'AI Visibility et le GBP à travers les emplacements, AiLys le couvre. Si le besoin inclut des campagnes de marque nationales et de la production créative, Major Tom couvre la surface plus large.",
+        "AiLys sert les commerces multi-emplacements au palier Agency (2 500 dollars CAD par mois) avec des tableaux de bord multi-emplacements, des rapports en marque blanche et l'optimisation GBP par emplacement. Major Tom sert les marques multi-emplacements avec une portée plus large : campagnes nationales, développement web, stratégie de marque et production créative en plus de l'optimisation locale. Si le besoin multi-emplacements est l'AI Visibility et le GBP à travers les emplacements, AiLys le couvre. Si le besoin inclut des campagnes de marque nationales et de la production créative, Major Tom couvre la surface plus large.",
     },
     {
       question: 'Quelle agence est meilleure pour un commerce à Toronto ou Vancouver?',
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: 'National', label: 'Major Tom : stratégie, créatif, dev, media, SEO' },
           { value: 'IA locale', label: 'AiLys : citations IA et GBP pour commerçants locaux' },
         ]}
@@ -99,7 +99,7 @@ export function ContentFr() {
 
       <h2 id="tarifs-et-portee">Tarifs et portée</h2>
       <p>
-        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars. Chaque palier livre un ensemble défini de livrables chaque mois, sans facturation à l'heure, sans derive de portée.
+        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars. Chaque palier livre un ensemble défini de livrables chaque mois, sans facturation à l'heure, sans derive de portée.
       </p>
       <p>
         Major Tom fonctionne sur des retainers personnalisés qui refletent une portée d'entreprise. Les engagements démarrent typiquement dans les cinq chiffres par mois parce que la surface de livrables inclut la stratégie, le créatif, le développement et la gestion de media en plus du SEO. Les tarifs sont competitifs pour la portée offerte, mais la portée est d'un ordre de grandeur plus large qu'AiLys.
@@ -214,7 +214,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "Major Tom est une agence numérique pancanadienne a service complet pour les marques de taille moyenne et les entreprises. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
-          'Les forfaits AiLys vont de 300 à 2 499 dollars CAD avec portée fixe. Les retainers Major Tom sont sur devis a l\'échelle d\'entreprise.',
+          'Les forfaits AiLys vont de 300 à 2 500 dollars CAD avec portée fixe. Les retainers Major Tom sont sur devis a l\'échelle d\'entreprise.',
           "Major Tom livre stratégie, créatif, développement, media payant et SEO à l'échelle nationale. AiLys livre AI Visibility, GBP et citations localement.",
           "AiLys livre chaque livrable bilingue EN et FR-CA par défaut. Major Tom fonctionne principalement en anglais depuis Vancouver.",
           "Associez l'agence au problème : construction de marque nationale va à Major Tom, AI Visibility locale va à AiLys.",

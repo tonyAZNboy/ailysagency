@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import { AUTHORS } from '../../authors'
 import {
@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs Adviso, AI Visibility platform versus enterprise digital consultancy',
   metaDescription:
     'Honest comparison of AiLys and Adviso for Quebec businesses. Pricing, AI Visibility, enterprise consulting, bilingual scope, and where each fits best.',
-  tldr: 'Adviso is a Montreal-based digital consultancy serving mid-market and enterprise brands (Air Canada, Banque Nationale, Cirque du Soleil, Nespresso) across customer experience, relational marketing, media planning, content marketing and SEO, analytics and data science, MarTech consulting, business strategy, generative AI consulting, and training. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Adviso fits enterprise brands needing strategic consulting and data science. AiLys fits local operators needing AI engine citation work and GBP at a transparent monthly cost.',
+  tldr: 'Adviso is a Montreal-based digital consultancy serving mid-market and enterprise brands (Air Canada, Banque Nationale, Cirque du Soleil, Nespresso) across customer experience, relational marketing, media planning, content marketing and SEO, analytics and data science, MarTech consulting, business strategy, generative AI consulting, and training. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Adviso fits enterprise brands needing strategic consulting and data science. AiLys fits local operators needing AI engine citation work and GBP at a transparent monthly cost.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'adviso', 'comparison', 'quebec', 'enterprise', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -32,12 +32,12 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does AiLys compare to Adviso for Quebec businesses?',
       answer:
-        'AiLys is a fixed-price AI Visibility platform for local owners with four published CAD tiers (300 to 2,499 dollars), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Adviso is a Montreal-based digital consultancy serving mid-market and enterprise brands like Air Canada, Banque Nationale, Cirque du Soleil, and Nespresso, with services across customer experience, data science, MarTech, media planning, and digital transformation. AiLys is purpose-built for the local AI Visibility lane at predictable cost. Adviso provides enterprise-grade strategic consulting on custom engagements.',
+        'AiLys is a fixed-price AI Visibility platform for local owners with four published CAD tiers (300 to 2,500 dollars), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Adviso is a Montreal-based digital consultancy serving mid-market and enterprise brands like Air Canada, Banque Nationale, Cirque du Soleil, and Nespresso, with services across customer experience, data science, MarTech, media planning, and digital transformation. AiLys is purpose-built for the local AI Visibility lane at predictable cost. Adviso provides enterprise-grade strategic consulting on custom engagements.',
     },
     {
       question: 'Is AiLys a competitor to Adviso?',
       answer:
-        'Not really. The two operate at different scales for different client profiles. Adviso engagements typically involve enterprise brands with seven-figure annual marketing budgets, multi-year digital transformation projects, and complex MarTech stacks. AiLys serves local operators with monthly budgets of 300 to 2,499 CAD who need AI Visibility, GBP, and citation work. The two rarely compete head to head. A local dental clinic does not hire Adviso, and Air Canada does not hire AiLys. The decision is about scale, not preference.',
+        'Not really. The two operate at different scales for different client profiles. Adviso engagements typically involve enterprise brands with seven-figure annual marketing budgets, multi-year digital transformation projects, and complex MarTech stacks. AiLys serves local operators with monthly budgets of 300 to 2,500 CAD who need AI Visibility, GBP, and citation work. The two rarely compete head to head. A local dental clinic does not hire Adviso, and Air Canada does not hire AiLys. The decision is about scale, not preference.',
     },
     {
       question: 'Does Adviso offer AI Visibility services like AiLys?',
@@ -83,7 +83,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499 CAD', label: 'AiLys monthly tiers for local operators' },
+          { value: '$300 to $2,500 CAD', label: 'AiLys monthly tiers for local operators' },
           { value: 'Enterprise', label: 'Adviso clients: Air Canada, BN, Cirque, Nespresso' },
           { value: 'Specialist vs generalist', label: 'AI Visibility vs full-service consultancy' },
         ]}
@@ -137,7 +137,7 @@ export function Content() {
 
       <h2 id="pricing-and-engagement-model">Pricing and engagement model</h2>
       <p>
-        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month. Each tier ships a defined set of deliverables and the operator knows the scope before signing.
+        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars per month. Each tier ships a defined set of deliverables and the operator knows the scope before signing.
       </p>
       <p>
         Adviso does not publish rates publicly. Engagements are scoped per project or per retainer based on the strategic work required. The pricing reflects enterprise consulting norms: senior strategist time, data science capability, and integration with the client's MarTech stack. The cost is well above any AiLys tier because the scope, the seniority, and the engagement model are different.
@@ -233,7 +233,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'Adviso is a Montreal enterprise digital consultancy serving Air Canada, Banque Nationale, Cirque du Soleil, Nespresso. AiLys is a specialist AI Visibility platform for local operators.',
-          'AiLys publishes four CAD tiers (300 to 2,499 dollars). Adviso quotes enterprise consulting engagements custom per project.',
+          'AiLys publishes four CAD tiers (300 to 2,500 dollars). Adviso quotes enterprise consulting engagements custom per project.',
           'Adviso advises on strategy, MarTech, data science, customer experience, and digital transformation. AiLys executes AI Visibility, GBP, citations, and schema work.',
           'The two rarely compete directly because they serve different client scales. They can be complementary at enterprise scale (Adviso for strategy, AiLys for AI Visibility execution).',
           'Both are bilingual EN and FR-CA in Montreal. AiLys ships systematic bilingual delivery on every piece of content by default.',

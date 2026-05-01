@@ -1,4 +1,4 @@
-import type { Builder } from '../builder';
+﻿import type { Builder } from '../builder';
 import type { AuditPdfRequest } from '../../../../src/lib/pdfRequestSchema';
 import { COLOR, FONT_SIZE, SPACE } from '../tokens';
 
@@ -29,7 +29,7 @@ const TIERS_EN: TierLine[] = [
   },
   {
     name: 'Agency',
-    price: '$2,499 CAD per month',
+    price: '$2,500 CAD per month',
     bullet:
       'Everything in Growth, plus 8 citations per month, 12 GBP posts per month, multi-location dashboard, white-label PDF reports, Slack SLA under 4h, dedicated senior strategist, quarterly in-person review. Reviuzy reputation add-on bundled.',
   },
@@ -56,7 +56,7 @@ const TIERS_FR: TierLine[] = [
   },
   {
     name: 'Agency',
-    price: '2 499 $ CAD par mois',
+    price: '2 500 $ CAD par mois',
     bullet:
       'Tout ce qui est dans Growth, plus 8 citations par mois, 12 publications GBP par mois, tableau de bord multi-emplacements, rapports PDF marque blanche, SLA Slack en moins de 4h, stratège senior attitré, revue trimestrielle en personne. Module réputation Reviuzy inclus.',
   },

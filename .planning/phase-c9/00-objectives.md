@@ -1,4 +1,4 @@
-# Phase C.9 : Health-score-driven churn prediction (cross-repo)
+﻿# Phase C.9 : Health-score-driven churn prediction (cross-repo)
 
 ## Business goal
 
@@ -6,7 +6,7 @@ Reduce churn by detecting at-risk clients 30 to 60 days before cancellation. Tod
 
 ## Hours saved + retention uplift
 
-- **Retention uplift estimate:** at 50 active clients, every 1% churn reduction saves $300 to $2,499 MRR. Realistic target: -3% annual churn = ~$15k-$45k incremental ARR retained.
+- **Retention uplift estimate:** at 50 active clients, every 1% churn reduction saves $300 to $2,500 MRR. Realistic target: -3% annual churn = ~$15k-$45k incremental ARR retained.
 - **Strategist hours saved:** ~5h/mo across 50 clients (early intervention beats post-cancellation save attempts)
 
 ## Who benefits
