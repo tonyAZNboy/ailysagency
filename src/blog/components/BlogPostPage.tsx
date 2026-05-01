@@ -265,13 +265,17 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
 
         {/* CTA */}
         <div className="mt-16 max-w-3xl">
-          <BlogCTA />
+          <BlogCTA
+            heading={lang === 'fr' ? 'Prêt à voir votre visibilité IA?' : undefined}
+            subtitle={lang === 'fr' ? "Vous voulez savoir où en est votre commerce dans la recherche IA? Lancez l'audit AI Visibility gratuit en 24 heures." : undefined}
+            button={lang === 'fr' ? "Lancer l'audit gratuit" : undefined}
+          />
         </div>
 
         {/* FAQ */}
         {localizedMeta.faqItems.length > 0 && (
           <div className="max-w-3xl">
-            <BlogFAQ items={localizedMeta.faqItems} />
+            <BlogFAQ items={localizedMeta.faqItems} heading={lang === 'fr' ? 'Questions fréquentes' : undefined} />
           </div>
         )}
 
