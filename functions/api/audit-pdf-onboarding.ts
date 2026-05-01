@@ -26,6 +26,7 @@ import { renderAuditPdf } from '../lib/pdf/AuditReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { buildOnboardingPdfRequest, OnboardingInput } from '../../src/lib/onboardingAuditPayload';
+import { renderEmail, EmailLang } from '../lib/emailTemplate';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -248,19 +249,13 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
     ru: 'Ссылка для загрузки истекает через 24 часа. Ответьте на это письмо, если потребуется её перевыпустить.',
   };
 
-  const html = `<!doctype html>
-<html lang="${body.lang}">
-<body style="font-family:Inter,Helvetica,Arial,sans-serif;color:#0A0F1F;background:#FFFFFF;padding:24px;">
-  <p style="font-size:14px;color:#3F4761;">AiLys Agency</p>
-  <h1 style="font-size:22px;color:#0E2A4A;margin:8px 0 16px;">${escapeHtml(greet[body.lang] ?? greet.en)}</h1>
-  <p style="font-size:14px;line-height:1.5;color:#0A0F1F;">${escapeHtml(intro[body.lang] ?? intro.en)}</p>
-  <p style="margin:24px 0;">
-    <a href="${downloadUrl}" style="background:#0E2A4A;color:#FFFFFF;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;font-size:14px;">${escapeHtml(cta[body.lang] ?? cta.en)}</a>
-  </p>
-  <p style="font-size:12px;color:#6B7280;">${escapeHtml(expiry[body.lang] ?? expiry.en)}</p>
-  <p style="font-size:12px;color:#6B7280;">ailysagency.ca</p>
-</body>
-</html>`;
+  const rendered = renderEmail({
+    lang: body.lang as EmailLang,
+    preheader: greet[body.lang] ?? greet.en,
+    title: greet[body.lang] ?? greet.en,
+    body: [intro[body.lang] ?? intro.en, expiry[body.lang] ?? expiry.en],
+    cta: { label: cta[body.lang] ?? cta.en, url: downloadUrl },
+  });
 
   try {
     const resp = await fetch('https://api.resend.com/emails', {
@@ -273,7 +268,8 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
         from: NOTIFY_FROM,
         to: body.email,
         subject: subj[body.lang] ?? subj.en,
-        html,
+        html: rendered.html,
+        text: rendered.text,
       }),
     });
     if (!resp.ok) {

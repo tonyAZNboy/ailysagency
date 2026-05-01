@@ -16,6 +16,7 @@ import { validateAuditPdfRequest, AuditPdfRequest } from '../../src/lib/pdfReque
 import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
 import { renderAuditPdf } from '../lib/pdf/AuditReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
+import { renderEmail, EmailLang } from '../lib/emailTemplate';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -453,28 +454,22 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
     ru: 'Ссылка истекает через 24 часа.',
   });
 
-  const html = `<!doctype html>
-<html lang="${lang}">
-<body style="font-family:Inter,Helvetica,Arial,sans-serif;color:#0A0F1F;background:#FFFFFF;padding:24px;">
-  <p style="font-size:14px;color:#3F4761;">AiLys Agency</p>
-  <h1 style="font-size:20px;color:#0E2A4A;margin:8px 0 16px;">${escapeHtml(greeting)}</h1>
-  <p style="font-size:14px;line-height:1.5;color:#0A0F1F;">
-    ${escapeHtml(pickLocale(lang, {
-      en: `We have prepared the branded audit report for ${data.businessName}. Click the button below to download the PDF.`,
-      fr: `Nous avons préparé le rapport personnalisé pour ${data.businessName}. Cliquez sur le bouton ci-dessous pour télécharger le PDF.`,
-      es: `Hemos preparado el informe personalizado para ${data.businessName}. Haz clic en el botón para descargar el PDF.`,
-      zh: `我们已为${data.businessName}准备好专属审计报告。点击下方按钮下载PDF。`,
-      ar: `لقد أعددنا تقرير التدقيق المخصص لـ ${data.businessName}. انقر على الزر أدناه لتنزيل PDF.`,
-      ru: `Мы подготовили персональный отчёт для ${data.businessName}. Нажмите кнопку ниже, чтобы скачать PDF.`,
-    }))}
-  </p>
-  <p style="margin:24px 0;">
-    <a href="${downloadUrl}" style="background:#0E2A4A;color:#FFFFFF;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;font-size:14px;">${escapeHtml(cta)}</a>
-  </p>
-  <p style="font-size:12px;color:#6B7280;">${escapeHtml(expiryLine)}</p>
-  <p style="font-size:12px;color:#6B7280;">ailysagency.ca</p>
-</body>
-</html>`;
+  const intro = pickLocale(lang, {
+    en: `We have prepared the branded audit report for ${data.businessName}. Click the button below to download the PDF.`,
+    fr: `Nous avons prepare le rapport personnalise pour ${data.businessName}. Cliquez sur le bouton ci-dessous pour telecharger le PDF.`,
+    es: `Hemos preparado el informe personalizado para ${data.businessName}. Haz clic en el boton para descargar el PDF.`,
+    zh: `我们已为${data.businessName}准备好专属审计报告。点击下方按钮下载PDF。`,
+    ar: `لقد أعددنا تقرير التدقيق المخصص لـ ${data.businessName}. انقر على الزر أدناه لتنزيل PDF.`,
+    ru: `Мы подготовили персональный отчет для ${data.businessName}. Нажмите кнопку ниже, чтобы скачать PDF.`,
+  });
+
+  const rendered = renderEmail({
+    lang: lang as EmailLang,
+    preheader: greeting,
+    title: greeting,
+    body: [intro, expiryLine],
+    cta: { label: cta, url: downloadUrl },
+  });
 
   try {
     const resp = await fetch('https://api.resend.com/emails', {
@@ -487,7 +482,8 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
         from: NOTIFY_FROM,
         to: data.email,
         subject,
-        html,
+        html: rendered.html,
+        text: rendered.text,
       }),
     });
     if (!resp.ok) {

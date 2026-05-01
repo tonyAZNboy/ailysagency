@@ -4,6 +4,44 @@
 
 ---
 
+## ✉️ EMAIL INFRA, 2026-04-30
+
+End-to-end email infra session: BookCall placeholder, Resend domain auth, Cloudflare Email Routing, DMARC, Resend webhooks scaffold.
+
+**Shipped:**
+- BookCall section moved to "Bientôt" placeholder (Cal.com integration deferred). Form removed; all 16 locales updated with `comingSoonLabel/Heading/Body/Cta` keys. Mailto fallback to `hello@ailysagency.ca`.
+- Cloudflare Email Routing live for `ailysagency.ca`: 5 custom routes (`hello@`, `support@`, `privacy@`, `anthonyng@` → `ryanalexng135@gmail.com`; `noreply@` → drop) + catch-all → Gmail.
+- Resend domain `ailysagency.ca` verified (DKIM at `resend._domainkey`, SPF subdomain at `send.ailysagency.ca`, no apex SPF conflict).
+- DMARC live: `_dmarc.ailysagency.ca` TXT `v=DMARC1; p=none; rua=mailto:c83202affe1b407fad24387dd6d7d777@dmarc-reports.cloudflare.net` (Cloudflare DMARC Management beta dashboard parses reports). Single record, RFC 7489 valid.
+- `functions/api/founding-clients-apply.ts` cleaned: removed hardcoded gmail fallback, now requires `FOUNDING_NOTIFY_EMAIL` env var or skips gracefully.
+- `docs/email-addresses.md`: single source of truth for every `@ailysagency.ca` address.
+
+**Resend webhook scaffold (D):**
+- Migration [0003_email_webhook_events.sql](supabase/migrations/0003_email_webhook_events.sql): table `email_webhook_events` keyed by `svix_msg_id` (UNIQUE) for idempotency, RLS = service_role write + admin_users read.
+- [functions/lib/svixHmac.ts](functions/lib/svixHmac.ts): Svix HMAC-SHA256 verification helper, 5-min timestamp tolerance, supports rotated multi-sig headers.
+- [functions/api/resend-webhook.ts](functions/api/resend-webhook.ts): POST endpoint, verifies signature, validates event type whitelist, persists to Supabase, audit-logs with svix-id hash, kill switch via `RESEND_WEBHOOK_KILL_SWITCH=true`.
+- [scripts/smoke-resend-webhook.mjs](scripts/smoke-resend-webhook.mjs): 15 cases covering valid sig, missing headers, malformed secret, tampered body, wrong svix-id, timestamp tolerance bounds, signature rotation, sig mismatch. **15/15 pass.**
+- Typecheck clean.
+
+**Operator backlog (manual, ~5 min):**
+
+| Action | Effort |
+|---|---|
+| Apply migration `0003_email_webhook_events.sql` (Supabase SQL editor) | 1 min |
+| Resend dashboard > Webhooks > add endpoint `https://www.ailysagency.ca/api/resend-webhook` subscribed to all `email.*` events | 2 min |
+| Set `RESEND_WEBHOOK_SECRET` (`whsec_...`) in Cloudflare Pages env (Production + Preview) | 1 min |
+| Set `FOUNDING_NOTIFY_EMAIL=anthonyng@ailysagency.ca` in Cloudflare Pages env | 30 sec |
+| Redeploy ailysagency Pages project | 30 sec |
+| Wire `scripts/smoke-resend-webhook.mjs` into `.github/workflows/deploy.yml` (next session) | deferred |
+
+**Deferred to next session:**
+- `/admin/email-events` admin panel (table view of last 50 webhook events, per-event-type counts, bounce rate, click-through rate)
+- Wire smoke test to CI workflow
+- Retention job: truncate `recipient_email` on rows >90 days
+- Cross-reference: when `email_sends.provider_message_id` matches `email_webhook_events.resend_email_id`, update `email_sends.opened_at` / `clicked_at` / `status`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-04-30 — `v0.11.0-d4-complete`
 
 D.4 observability + C.7.Rvz.4 renewal emails + 4 cron orchestrators end-to-end + Slack routing + health-check fn all shipped, tested, deployed.

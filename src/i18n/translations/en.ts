@@ -1101,6 +1101,10 @@ export const en = {
     successHeading: "Got it.",
     successBody: "We just emailed our team with your request. You will get three slot options within 12 hours, plus a one-pager about how the call runs.",
     successCheck: "Check your inbox · including spam",
+    comingSoonLabel: "Online booking · Coming soon",
+    comingSoonHeading: "We're putting the booking system online.",
+    comingSoonBody: "Our online scheduling tool is being finalized. In the meantime, email us and we will reply within 12 hours with three slot options that match your timezone and language.",
+    comingSoonCta: "Email us",
 
     srSeo: "Book a free 60-minute strategy call with AiLys Agency. We map your AI search position, walk through audit results, and tell you whether AiLys is the right fit. If we are not, we send a one-page strategy doc anyway. Calls run in English, French, Spanish, Chinese, Arabic, and Russian with in-house team members. Ukrainian and Serbian run through vetted partner agencies on the same playbook. The call is free with no credit card and no pitch. We reply within 12 hours of request with three slot options. You leave with something actionable either way, whether you sign or not.",
 

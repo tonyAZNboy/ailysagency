@@ -25,6 +25,7 @@ import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { withCronGuard, CronRunSummary } from '../lib/cronGuard';
 import { buildOnboardingPdfRequest } from '../../src/lib/onboardingAuditPayload';
+import { renderEmail, EmailLang } from '../lib/emailTemplate';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -204,14 +205,45 @@ async function sendRetryEmail(env: Env, body: OnboardingBody, downloadUrl: strin
     ar: `AiLys: تقرير اليوم الأول جاهز, ${body.businessName}`,
     ru: `AiLys: ваш отчёт первого дня готов, ${body.businessName}`,
   };
-  const html = `<!doctype html>
-<html lang="${body.lang}"><body style="font-family:Inter,Arial,sans-serif;color:#0A0F1F;background:#FFF;padding:24px;">
-  <p style="font-size:14px;color:#3F4761;">AiLys Agency</p>
-  <h1 style="font-size:20px;color:#0E2A4A;margin:8px 0 16px;">Your day-1 report is ready</h1>
-  <p style="font-size:14px;line-height:1.5;">We had a brief delay processing your report. It is now ready.</p>
-  <p style="margin:24px 0;"><a href="${downloadUrl}" style="background:#0E2A4A;color:#FFF;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;">Open report</a></p>
-  <p style="font-size:12px;color:#6B7280;">Link expires in 24 hours. ailysagency.ca</p>
-</body></html>`;
+  const titleByLang: Record<string, string> = {
+    en: 'Your day-1 report is ready',
+    fr: 'Votre rapport de jour 1 est pret',
+    es: 'Tu informe de dia 1 esta listo',
+    zh: '您的第1天报告已就绪',
+    ar: 'تقرير اليوم الأول جاهز',
+    ru: 'Ваш отчет первого дня готов',
+  };
+  const introByLang: Record<string, string> = {
+    en: 'We had a brief delay processing your report. It is now ready.',
+    fr: 'Nous avons eu un bref delai pour traiter votre rapport. Il est maintenant pret.',
+    es: 'Hubo un breve retraso procesando tu informe. Ya esta listo.',
+    zh: '处理您的报告时有短暂延迟,现已准备就绪。',
+    ar: 'كان هناك تأخير قصير في معالجة تقريرك. أصبح جاهزًا الآن.',
+    ru: 'Произошла небольшая задержка с подготовкой вашего отчета. Сейчас он готов.',
+  };
+  const ctaByLang: Record<string, string> = {
+    en: 'Open report',
+    fr: 'Ouvrir le rapport',
+    es: 'Abrir informe',
+    zh: '打开报告',
+    ar: 'افتح التقرير',
+    ru: 'Открыть отчет',
+  };
+  const expiryByLang: Record<string, string> = {
+    en: 'The link expires in 24 hours.',
+    fr: 'Le lien expire dans 24 heures.',
+    es: 'El enlace caduca en 24 horas.',
+    zh: '链接将在24小时后过期。',
+    ar: 'الرابط ينتهي خلال 24 ساعة.',
+    ru: 'Ссылка истекает через 24 часа.',
+  };
+  const rendered = renderEmail({
+    lang: body.lang as EmailLang,
+    preheader: titleByLang[body.lang] ?? titleByLang.en,
+    title: titleByLang[body.lang] ?? titleByLang.en,
+    body: [introByLang[body.lang] ?? introByLang.en, expiryByLang[body.lang] ?? expiryByLang.en],
+    cta: { label: ctaByLang[body.lang] ?? ctaByLang.en, url: downloadUrl },
+  });
   try {
     const resp = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -220,7 +252,8 @@ async function sendRetryEmail(env: Env, body: OnboardingBody, downloadUrl: strin
         from: 'AiLys Agency <noreply@ailysagency.ca>',
         to: body.email,
         subject: subject[body.lang] ?? subject.en,
-        html,
+        html: rendered.html,
+        text: rendered.text,
       }),
     });
     if (!resp.ok) return { ok: false, error: `resend_${resp.status}` };
