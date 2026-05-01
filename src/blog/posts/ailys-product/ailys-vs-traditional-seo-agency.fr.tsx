@@ -100,13 +100,11 @@ export function ContentFr() {
         Les agences traditionnelles tarifient généralement sur un modèle retainer plus portée de travail. Les retainers Sterling Sky démarrent à 5 000 dollars par mois pour le SEO local. Les forfaits gérés BrightLocal vont de 4 000 à 8 000 dollars selon le volume de citations. Les forfaits multicanaux LocalIQ démarrent typiquement au-dessus de 5 000 dollars quand GBP et marketing de contenu sont combinés. Aucun de ces chiffres n'est mauvais pour la portée offerte. C'est simplement une portée différente.
       </p>
 
-      <h3>Ce que vous obtenez à chaque palier AiLys</h3>
-      <ul>
-        <li>Starter (300 dollars) : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales</li>
-        <li>Core (799 dollars) : tout ce qu'il y a dans Starter plus publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, schéma de signature de médecin ou d'entreprise</li>
-        <li>Growth (1 499 dollars) : tout ce qu'il y a dans Core plus séances de photographie originale, production de contenu mensuelle, automatisation de réputation Reviuzy, deux audits AI Visibility par trimestre</li>
-        <li>Agency (2 500 dollars) : tout ce qu'il y a dans Growth plus livrables en marque blanche, soutien multi-emplacements, stratège dédié, rapports hebdomadaires</li>
-      </ul>
+      <p>
+        AiLys publie quatre forfaits CAD (Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois) avec des livrables fixes et des constructions de sites web éligibles par palier amorties sur 6 mois. La ventilation complète de 60+ fonctionnalités côte à côte vit sur la page officielle des forfaits plutôt que d'être éparpillée dans les articles de blogue, pour que les chiffres restent à jour.
+      </p>
+
+      <InlineCTA variant="pricing" text="Consultez la comparaison complète de 60+ fonctionnalités côte à côte sur les 4 forfaits AiLys sur la page officielle des forfaits." buttonText="Voir tous les forfaits" to="/fr/forfaits-complets" />
 
       <QuickQuiz
         translatedLabel="Quiz éclair"
