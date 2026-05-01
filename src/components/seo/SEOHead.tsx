@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 import { APP_CONFIG } from '@/config/app';
 
 interface AlternateLocale {
@@ -40,6 +41,22 @@ export const SEOHead = ({
   const defaultImage = `${APP_CONFIG.url}${APP_CONFIG.logo}`;
   const fullTitle = `${title} | ${siteName}`;
   const fullImage = image?.startsWith('http') ? image : `${APP_CONFIG.url}${image || APP_CONFIG.logo}`;
+
+  // react-helmet-async v2 strips <script> children silently. Inject JSON-LD
+  // directly into document.head so it appears for crawlers + dev tools alike.
+  // The injected node is keyed with data-page-jsonld="1" and replaced on each
+  // route change via the useEffect cleanup.
+  useEffect(() => {
+    if (!structuredData) return;
+    const tag = document.createElement('script');
+    tag.type = 'application/ld+json';
+    tag.setAttribute('data-page-jsonld', '1');
+    tag.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(tag);
+    return () => {
+      tag.parentNode?.removeChild(tag);
+    };
+  }, [structuredData]);
 
   return (
     <Helmet>
@@ -107,12 +124,7 @@ export const SEOHead = ({
       <meta name="citation_author" content={author} />
       {publishedTime && <meta name="citation_publication_date" content={publishedTime.split('T')[0]} />}
 
-      {/* Structured Data for AI Understanding */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      )}
+      {/* Structured Data injected client-side via useEffect above (react-helmet-async v2 strips inline script children) */}
     </Helmet>
   );
 };

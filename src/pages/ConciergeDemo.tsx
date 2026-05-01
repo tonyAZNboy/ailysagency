@@ -176,6 +176,27 @@ export default function ConciergeDemo() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Deep link: /concierge-demo?prompt=score|post|competitors auto-runs the
+  // matching demo prompt on first load. Useful for marketing screenshots and
+  // social shares like "see what AiLys Concierge can do for your competitors".
+  useEffect(() => {
+    if (messages.length > 0 || streaming) return;
+    const params = new URLSearchParams(window.location.search);
+    const promptKey = params.get("prompt");
+    if (!promptKey) return;
+    const promptMap: Record<string, { en: string; fr: string }> = {
+      score: { en: "Why did my score move this week?", fr: "Pourquoi mon score a-t-il bouge cette semaine ?" },
+      post: { en: "Generate a Halloween GBP post", fr: "Genere une publication GBP pour Halloween" },
+      competitors: { en: "Compare me to my top 3 competitors", fr: "Compare-moi a mes 3 principaux concurrents" },
+    };
+    const text = promptMap[promptKey]?.[lang === "fr" ? "fr" : "en"];
+    if (text) {
+      // Defer one tick so handleSend closure resolves
+      setTimeout(() => handleSend(text), 0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const isFr = lang === "fr";
 
   const suggestedPrompts = isFr
