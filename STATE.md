@@ -4,6 +4,63 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (Gemini autopilot continuation) — audit hold-back in emails + results UI + pricing blog
+
+Autopilot continuation of the late-evening Gemini session. Extends the
+audit teaser discipline (already in PDF + 3 AI surface prompts via
+PR #81, #92) to the email touchpoints and the live results page, then
+updates the pricing-tiers blog post to surface the new add-ons.
+
+**PRs merged:**
+- #92 audit hold-back emails + results UI banner with book-call CTA
+- #93 pricing-tiers blog post lists Tech Health Pack + GSC Indexation Audit
+
+**Email hold-back now in place:**
+- functions/api/audit-pdf.ts: both sendAttachmentEmail and
+  sendDownloadEmail include 2 new body paragraphs (hold-back + book-call
+  CTA) localized in EN/FR/ES/ZH/AR/RU.
+- functions/api/audit-pdf-onboarding.ts: day-1 baseline email reframes
+  as gap report and reserves full plan for kickoff call.
+
+**Audit results UI banner:**
+- src/components/audit/AutoAuditEngine.tsx: new banner right after the
+  action plan card, "This is the preview, not the full plan" with
+  right-aligned book-call button to /book-call.
+- 3 new i18n keys EN+FR (planHoldBackTitle, planHoldBackBody,
+  planHoldBackCta). 14 secondary locales fall back to EN.
+
+**Pricing tiers blog post:**
+- src/blog/posts/ailys-product/ailys-pricing-tiers-explained-cad.tsx
+  and .fr.tsx: add-ons FAQ answer + bullet list + new stack example
+  (Starter + Reviuzy + Tech Health Pack at \$550/mo).
+
+**Audit hold-back surface coverage map:**
+- ✅ /audit/gbp deep audit prompt (PR #81)
+- ✅ /audit instant prompt (PR #81)
+- ✅ /api/llm-citation-matrix prompt (PR #81)
+- ✅ /api/ai-visibility-score prompt (PR #81)
+- ✅ Audit PDF action plan page (PR #81)
+- ✅ Post-audit emails attachment + signed-URL (PR #92)
+- ✅ Day-1 onboarding email (PR #92)
+- ✅ Live audit results UI banner (PR #92)
+- ✅ Pricing-tiers blog (PR #93)
+- ⏳ ailys-onboarding-walkthrough-cad blog post tier breakdowns
+  (still mention old add-on list without Tech Health Pack)
+- ⏳ Audit-engine-roadmap.md and reviuzy-implementation-spec.md
+  Phase C.2 monitoring section (could surface the Tech Health Pack
+  as an explicit deliverable)
+
+**Outstanding from previous close still open:**
+1. Apply 4 supabase/migrations/ to the new dedicated AiLys Supabase project
+2. Reconcile missing tables (pricing_config, tenants, subscriptions,
+   subscription_plans, tenant_overrides) inherited from shared Reviuzy DB
+3. Push real VITE_SUPABASE_URL + VITE_SUPABASE_PUBLISHABLE_KEY to
+   Cloudflare Build env vars to activate auth + admin pages
+4. Deploy 2 Supabase edge functions if still needed
+5. ANTHROPIC_API_KEY can be removed from Cloudflare (no function reads it)
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended10) — Help article JSON-LD fix + 3 BreadcrumbList graphs + Index Resources section
 
 The SEOHead JSON-LD bug fix in PR #88 covered SEOHead consumers, but
