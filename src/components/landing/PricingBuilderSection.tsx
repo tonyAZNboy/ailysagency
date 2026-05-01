@@ -20,6 +20,8 @@ interface ExtraLanguageOption {
 
 const EXTRA_LANGUAGE_PRICE = 50;
 const REVIUZY_ADDON_PRICE = 100;
+const TECH_HEALTH_PACK_PRICE = 150;
+const GSC_INDEXATION_AUDIT_FROM = 100;
 const NFC_CARD_SERVICE_ONETIME = 100;
 const PREMIUM_OPS_INDIVIDUAL = 35;
 const PREMIUM_OPS_BUNDLE = 79;
@@ -62,6 +64,8 @@ export function PricingBuilderSection() {
   const [selectedServices, setSelectedServices] = useState<string[]>(["gbp", "tracking"]);
   const [extraLanguages, setExtraLanguages] = useState<Set<string>>(new Set());
   const [reviuzyAddon, setReviuzyAddon] = useState<boolean>(false);
+  const [techHealthPack, setTechHealthPack] = useState<boolean>(false);
+  const [gscIndexationAudit, setGscIndexationAudit] = useState<boolean>(false);
   const [nfcCardService, setNfcCardService] = useState<boolean>(false);
   const [domainShield, setDomainShield] = useState<boolean>(false);
   const [domainSpeedBoost, setDomainSpeedBoost] = useState<boolean>(false);
@@ -72,14 +76,53 @@ export function PricingBuilderSection() {
   //   + extra language fee ($50 per language beyond EN+FR-CA)
   //   + Reviuzy add-on ($100, free on Agency)
   //   + Premium Ops items: bundle ($79 for the trio) OR individual ($35 each), free on Agency
+  //
+  // Page count drives the tier directly via published brackets. Within a
+  // bracket the page count is included; crossing the bracket bumps the
+  // tier (per agency directive). Brackets:
+  //   1-5 pages   -> Starter  ($300)   vitrine territory
+  //   6-15 pages  -> Core     ($600)   PME territory
+  //   16-25 pages -> Growth   ($1,200) commerce territory
+  //   26+ pages   -> Agency   ($2,500)
+  // Examples (the directive math):
+  //   8 pages on Core (6-15)  = (8-5)  * $50 = $150 over the Starter bracket
+  //   17 pages on Growth (16-25) = (17-15) * $50 = $100 over the Core bracket
+  //   30 pages on Agency (26+)   = (30-25) * $50 = $250 over the Growth bracket
+  // The pageScale is the informational delta vs the previous bracket's
+  // included max. The actual recurring price is the tier base; the delta
+  // explains why the tier price lands where it does.
+  //
+  // Services can ALSO bump the tier when they aggregate above the page-
+  // derived tier (e.g. 5-page Starter + content_weekly $400 + geo $300
+  // pushes subtotal to Growth).
   const computed = useMemo(() => {
     const base = 300;
-    const pageScale = Math.min(150, Math.max(0, (pages - 5) * 4));
+    // Tier from page brackets (the "natural" tier for this page count)
+    const tierFromPages =
+      pages <= 5 ? 300 : pages <= 15 ? 600 : pages <= 25 ? 1200 : 2500;
+    // pageScale: $50/page above the previous bracket's max, informational
+    const pageScale =
+      pages <= 5
+        ? 0
+        : pages <= 15
+          ? (pages - 5) * 50
+          : pages <= 25
+            ? (pages - 15) * 50
+            : (pages - 25) * 50;
     const servicesAdd = services
       .filter((s) => selectedServices.includes(s.id))
       .reduce((acc, s) => acc + s.monthlyAdd, 0);
-    const subtotal = base + pageScale + servicesAdd;
-    const tierPrice = Math.min(2500, Math.max(300, Math.round(subtotal / 50) * 50));
+    // Tier from services (services-only subtotal -> tier snap)
+    const subtotalForServices = base + servicesAdd;
+    const tierFromServices = Math.min(
+      2500,
+      Math.max(300, Math.round(subtotalForServices / 50) * 50),
+    );
+    // Final tier: max of page-derived and services-derived. Whichever is
+    // bigger wins, so a low-page-count client picking expensive services
+    // still climbs to the right tier.
+    const tierPrice = Math.max(tierFromPages, tierFromServices);
+    const subtotal = tierPrice; // legacy alias used elsewhere in this hook
     const tier = tierForPrice(tierPrice);
     const isAgency = tier.price === 2500;
 
@@ -94,7 +137,8 @@ export function PricingBuilderSection() {
         ? PREMIUM_OPS_BUNDLE
         : opsIndividualCount * PREMIUM_OPS_INDIVIDUAL;
     const reviuzyCost = isAgency ? 0 : reviuzyAddon ? REVIUZY_ADDON_PRICE : 0;
-    const addonsCost = reviuzyCost + opsCost;
+    const techHealthCost = isAgency ? 0 : techHealthPack ? TECH_HEALTH_PACK_PRICE : 0;
+    const addonsCost = reviuzyCost + techHealthCost + opsCost;
     const clamped = tierPrice + languageCost + addonsCost;
 
     return {
@@ -102,6 +146,7 @@ export function PricingBuilderSection() {
       tierPrice,
       languageCost,
       reviuzyCost,
+      techHealthCost,
       opsCost,
       allThreeOps,
       opsIndividualCount,
@@ -116,6 +161,7 @@ export function PricingBuilderSection() {
     selectedServices,
     extraLanguages,
     reviuzyAddon,
+    techHealthPack,
     domainShield,
     domainSpeedBoost,
     dedicatedStrategist,
@@ -323,6 +369,34 @@ export function PricingBuilderSection() {
                     : `+$${REVIUZY_ADDON_PRICE}/${t.pricingBuilder.perMoSuffix}`
                 }
                 priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* Tech Health Pack: GSC indexation monitoring + auto-reindex of monthly blogs */}
+              <AddonRow
+                checked={techHealthPack || computed.isAgency}
+                disabled={computed.isAgency}
+                onToggle={() => setTechHealthPack((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.techHealthPackLabel}
+                description={t.pricingBuilder.techHealthPackDesc}
+                priceLabel={
+                  computed.isAgency
+                    ? t.pricingBuilder.addOnIncludedNote
+                    : `+$${TECH_HEALTH_PACK_PRICE}/${t.pricingBuilder.perMoSuffix}`
+                }
+                priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* GSC Indexation Audit (one-time, priced by site size) */}
+              <AddonRow
+                checked={gscIndexationAudit}
+                disabled={false}
+                onToggle={() => setGscIndexationAudit((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.gscIndexationLabel}
+                description={t.pricingBuilder.gscIndexationDesc}
+                priceLabel={`${t.pricingBuilder.fromPrefix} +$${GSC_INDEXATION_AUDIT_FROM} ${t.pricingBuilder.oneTimeSuffix}`}
+                priceTone="default"
               />
 
               {/* AiLys NFC card service (one-time, 3 pre-programmed cards) */}
