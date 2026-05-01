@@ -4,6 +4,117 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended9) — Help articles for Tech Health Pack + GSC Indexation Audit (hard rule #10 closure)
+
+The parallel session that landed PR #86 (Tech Health Pack $150/mo + GSC
+Indexation Audit one-time pricing) shipped the marketing UI without the
+EN+FR help articles required by hard rule #10. Closing that gap.
+
+**Shipped:**
+
+1. **Help article: `tech-health-pack-explained`** (EN + FR-CA full):
+   - The indexation gap problem in plain language
+   - 4 services included: GSC monitoring, monthly auto-reindex via GSC API,
+     bi-monthly crawl error sweep, weekly Core Web Vitals alerts on top 20 pages
+   - ROI math: 1 customer-driving post un-indexed for 6 weeks = pack pays for itself 6x
+   - Why add-on (not bundled by default) on Starter/Core/Growth, bundled in Agency
+
+2. **Help article: `gsc-indexation-audit-explained`** (EN + FR-CA full):
+   - When you need it (2+ year old sites with indexation rot) vs when you do not (under 6 months)
+   - Pricing table by site size: 1-9p $100, 10-19p $200, 20-29p $300, 30-39p $400, 40-74p $500, 75-99p $600, 100-149p $800, 150+p custom
+   - 5-section PDF deliverable: indexation snapshot, issue triage, sitemap audit, crawl budget analysis, 30-60-90 fix plan
+   - What is NOT included (fix execution, hosting, content rewrites)
+   - 5-business-day turnaround, GSC + sitemap + robots access read-only
+   - Bundled at signup in Agency tier, week 2 of onboarding
+
+**Bug fixed during integration:** unescaped backticks in template literal
+strings (\`\`\`/forfaits-complets\`\`\` inside a markdown body inside a JS
+template literal closed the outer template at runtime, throwing
+"ReferenceError: forfaits is not defined" via the route chunk error
+boundary). Replaced with plain inline path text in both EN + FR variants.
+
+**Verified end-to-end:**
+- /help/tech-health-pack-explained EN: h1 "Tech Health Pack: why...", 6 main h2 sections, content includes "$150/mo"
+- /fr/help/gsc-indexation-audit-explained FR: h1 "Audit d'indexation GSC...", 8 main h2 sections, "Tarification par taille" present
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash: zero
+- Build: success ~46s
+
+**Pending tag:** `v0.13.8-help-articles-tech-health-and-gsc-audit`
+
+---
+
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended8) — JSON-LD injection fix + concierge deep links + ItemList + related reports + robots allowlist
+
+Sustained autopilot. Discovered + fixed a project-wide bug where SEOHead's
+`structuredData` prop was silently dropped because react-helmet-async v2
+strips inline `<script>` children. Multiple pages (Glossary, IndustryReportDetail,
+Industry, etc.) had JSON-LD that never made it to the rendered DOM. Now fixed
+via direct document.head injection in a useEffect.
+
+**Shipped this batch:**
+
+1. **SEOHead JSON-LD injection fix (project-wide):** `useEffect` injects
+   `<script type="application/ld+json" data-page-jsonld="1">` directly into
+   `document.head` and removes it on unmount. Replaces the broken Helmet
+   inline-script child pattern. Affects every page that ever passed
+   `structuredData` (DefinedTermSet on Glossary, Service+FAQPage on Industry,
+   Report on IndustryReportDetail, etc.).
+
+2. **Concierge `/concierge-demo?prompt=...` deep links:**
+   - `?prompt=score` auto-runs the score+engines breakdown demo
+   - `?prompt=post` auto-runs the Halloween GBP post demo
+   - `?prompt=competitors` auto-runs the top-3 competitors demo
+   - Useful for marketing screenshots, social shares, and onboarding emails
+     ("here's what AiLys Concierge does for you").
+   - Verified EN+FR (FR locale auto-detected from `/fr/concierge-demo` path
+     OR localStorage `reviuzy_lang`).
+
+3. **ItemList structured data on `/industry-reports`:** all 5 live reports
+   surfaced as a Schema.org ItemList. Each item has position + url + name.
+   Helps search engines understand the page is a list of reports rather
+   than a single article. Verified: 2 JSON-LD scripts on page (WebSite +
+   ItemList with 5 numberOfItems).
+
+4. **Related reports on `/industry-reports/:slug`:** detail pages get a
+   "Other industry reports" section listing the other 4 live reports as
+   FileText-iconed cards. Verified: 4 related links rendered on dentists
+   detail page.
+
+5. **`/api/og.svg` + `/api/badge.svg` allowlist in robots.txt:** ensures
+   crawlers can fetch the dynamic SVG endpoints for OG previews even
+   though `/api/` is otherwise disallowed. Verified live: all 4 og.svg
+   variants return 200.
+
+**Verified end-to-end:**
+- /api/og.svg?kind=report&title=Test&score=78 → 200 (live)
+- /api/og.svg?kind=badge&lang=fr → 200 (live)
+- /api/og.svg?kind=concierge&lang=en → 200 (live)
+- /api/og.svg?kind=default → 200 (live)
+- /concierge-demo?prompt=score (EN): user message "Why did my score..." +
+  assistant response with score card "78/100" + engine breakdown
+- /fr/concierge-demo?prompt=competitors: user message in FR + Pizzeria Lola
+  competitor card
+- /industry-reports JSON-LD: 2 scripts (WebSite + ItemList numberOfItems=5)
+- /industry-reports/dentists-quebec-q1-2026 JSON-LD: 2 scripts (WebSite +
+  Report) + 4 related-report links rendered
+
+**Gates green:**
+- TypeScript: clean
+- Blog audit: 59/59 pass
+- Em-dash: zero in new files
+- Build: success ~86s
+
+**Pending tag:** `v0.13.7-jsonld-fix-deeplinks-itemlist-related`
+
+**Project-wide SEO impact:** the SEOHead fix means dozens of pages that
+were silently shipping incomplete structured data are now complete.
+Glossary, Industry pages, Industry Reports, etc. all benefit immediately
+on next deploy. Improves AI engine + Google rich-result eligibility.
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (late evening) — Gemini migration + audit hold-back discipline + Tech Health Pack add-on
 
 User had no Anthropic API key provisioned in Cloudflare and only the
