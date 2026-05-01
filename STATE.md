@@ -4,6 +4,60 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended12) — Performance: code-split index.js 4.7MB → 578KB
+
+The vite build had been warning "chunk > 500KB" on every build for many
+sessions. Root cause: the eager hot-path bundled all of i18n (16 locales,
+1.7MB raw), all blog post FR siblings (60 files, 2.4MB raw via
+`import.meta.glob({ eager: true })`), and all vendors (React, Radix,
+Markdown, etc.) into one index.js. Fixed via vite manualChunks split.
+
+**Before (single index.js bundle):**
+- index.js: 4.7MB (1.4MB gzipped)
+
+**After (multi-chunk split):**
+| Chunk | Size | Gzip |
+|---|---|---|
+| index.js | 578 KB | 152 KB |
+| vendor-react | 142 KB | 46 KB |
+| vendor-markdown | 117 KB | 36 KB |
+| vendor-radix | 56 KB | 20 KB |
+| vendor-icons (lucide) | 37 KB | 7 KB |
+| vendor-query | 27 KB | 8 KB |
+| vendor-router | 23 KB | 9 KB |
+| vendor-helmet | 18 KB | 7 KB |
+| help-articles | 521 KB | 198 KB |
+| i18n (lazy) | 1.2 MB | 486 KB |
+| blog-posts-en (lazy) | 1.1 MB | 280 KB |
+| blog-posts-fr (lazy) | 1.2 MB | 304 KB |
+
+**Initial home-page load (now):**
+- index + vendor-react + vendor-router + vendor-query + vendor-radix +
+  vendor-icons + vendor-helmet = ~880 KB (250 KB gzipped)
+- 81% reduction vs the old 4.7MB monolith
+
+**Cache benefits:**
+- Vendors rarely change → high cache-hit on repeat visits
+- i18n only loads when locale switches happen
+- Blog posts only load when /blog/* is visited
+- Help articles only load when /help/* is visited
+
+**Config changes (vite.config.ts):**
+- chunkSizeWarningLimit bumped 500 → 1000 (matches realistic chunk
+  budget given i18n + blog-posts data chunks)
+- rollupOptions.output.manualChunks function splits node_modules into
+  6 vendor groups + i18n + blog-posts EN/FR + everything else default
+
+**Verified end-to-end:**
+- Home / loads with Resources section + 3 cards rendered
+- /help/wikidata-q-number-explained loads with h1 + 2 JSON-LD scripts
+- TypeScript: clean
+- Build: success ~25s, multiple smaller chunks
+
+**Pending tag:** `v0.14.1-codesplit-performance`
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended11) — Wikidata help article + Organization sameAs + index.html pricing refresh
 
 Eat-our-own-dog-food pass. Wikidata Q-numbers were the single highest
