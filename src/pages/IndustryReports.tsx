@@ -41,6 +41,23 @@ export default function IndustryReports() {
     href: l === "en" ? `${baseUrl}/industry-reports` : `${baseUrl}/${l}/industry-reports`,
   }));
 
+  const liveOnly = industryReports.filter((r) => r.status === "live");
+  const itemListStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: isFr ? "Rapports d'industrie AiLys" : "AiLys Industry Reports",
+    description: isFr
+      ? "Rapports trimestriels gratuits sur la visibilite IA des verticales locales du Quebec."
+      : "Free quarterly reports on AI Visibility for Quebec local verticals.",
+    numberOfItems: liveOnly.length,
+    itemListElement: liveOnly.map((r, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      url: lang === "en" ? `${baseUrl}/industry-reports/${r.slug}` : `${baseUrl}/${lang}/industry-reports/${r.slug}`,
+      name: isFr ? r.titleFr : r.title,
+    })),
+  };
+
   return (
     <>
       <SEOHead
@@ -64,6 +81,7 @@ export default function IndustryReports() {
           "restaurant SEO Quebec",
         ]}
         alternateLocales={alternates}
+        structuredData={itemListStructuredData}
       />
       <NetworkBackground
         backgroundColor="#050505"

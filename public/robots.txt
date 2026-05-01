@@ -5,6 +5,8 @@
 # ─── Default policy ────────────────────────────────────────────
 User-agent: *
 Allow: /
+Allow: /api/badge.svg
+Allow: /api/og.svg
 Disallow: /admin
 Disallow: /admin/
 Disallow: /auth

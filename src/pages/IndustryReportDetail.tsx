@@ -9,7 +9,8 @@ import { SEOHead } from "@/components/seo";
 import { ScrollReveal } from "@/components/animation";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
-import { getIndustryReport } from "@/data/industry-reports";
+import { getIndustryReport, industryReports } from "@/data/industry-reports";
+import { FileText } from "lucide-react";
 
 export default function IndustryReportDetail() {
   const { lang: urlLang, slug } = useParams<{ lang?: string; slug?: string }>();
@@ -240,6 +241,44 @@ export default function IndustryReportDetail() {
               </Link>
             </section>
           </ScrollReveal>
+
+          {/* Related reports: other live reports in different verticals */}
+          {(() => {
+            const related = industryReports.filter(
+              (r) => r.status === "live" && r.slug !== report.slug
+            );
+            if (related.length === 0) return null;
+            return (
+              <ScrollReveal>
+                <section className="mt-12">
+                  <h2 className="text-xl font-semibold text-white mb-4">
+                    {isFr ? "Autres rapports d'industrie" : "Other industry reports"}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {related.slice(0, 4).map((r) => {
+                      const rTitle = isFr ? r.titleFr : r.title;
+                      const rHref =
+                        lang === "en"
+                          ? `/industry-reports/${r.slug}`
+                          : `/${lang}/industry-reports/${r.slug}`;
+                      return (
+                        <Link
+                          key={r.slug}
+                          to={rHref}
+                          className="flex items-start gap-3 p-4 rounded-xl border border-slate-700/60 bg-slate-900/60 hover:border-cyan-500/40 transition-colors"
+                        >
+                          <FileText className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm font-medium text-slate-200 leading-snug">
+                            {rTitle}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </section>
+              </ScrollReveal>
+            );
+          })()}
         </main>
 
         <Footer />
