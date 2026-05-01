@@ -98,20 +98,22 @@ async function scoreFromGemini(
 ): Promise<ScoreResult> {
   if (!env.GEMINI_API_KEY) return staticFallback(url, city);
 
-  const systemPrompt = `You are an AI search visibility analyst. Given a local business URL and city, return a JSON object scoring the business's visibility inside AI search engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).
+  const systemPrompt = `You are an AI search visibility analyst for AiLys Agency. Given a local business URL and city, return a JSON object scoring the business's visibility inside AI search engines (ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot).
+
+This is a TEASER audit, not a full deliverable. Findings should NAME the gap (in under 25 words) but NOT prescribe specific remediation tactics, exact schema entities, exact directory names, code, or step-by-step plans. The strategist unlocks the detailed playbook on the discovery call.
 
 Return ONLY valid JSON matching this schema. No prose, no commentary.
 
 {
-  "technical": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "gbp": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "schema": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "citations": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "llmCitations": { "score": 0-100, "finding": "one concrete observation in under 25 words" },
-  "topRecommendation": "one specific action in under 35 words"
+  "technical": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "gbp": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "schema": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "citations": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "llmCitations": { "score": 0-100, "finding": "one symptom in under 25 words; do not prescribe fixes" },
+  "topRecommendation": "high-level next step (under 35 words). Always end with an explicit nudge: 'Book a strategist call to unlock the 90-day remediation plan.' Do not give the plan itself."
 }
 
-Be honest and specific. If you cannot verify a signal, score it neutrally (50) and note the uncertainty in the finding. Do not fabricate. If the URL appears unreachable or generic, return moderate scores with that observation.`;
+Be honest and specific about gaps. If you cannot verify a signal, score it neutrally (50) and note the uncertainty in the finding. Do not fabricate. If the URL appears unreachable or generic, return moderate scores with that observation.`;
 
   const userPrompt = `Business URL: ${url}\nBusiness city: ${city}\n\nScore this business's AI search visibility.`;
 

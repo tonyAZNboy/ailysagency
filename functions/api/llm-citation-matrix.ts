@@ -181,14 +181,9 @@ async function fetchMatrixFromGemini(
     q.replace("[vertical]", vertical).replace("[city]", city),
   );
 
-  const systemPrompt = `You simulate how 6 different AI search engines would respond to local business queries. The 6 engines have distinct retrieval and citation behaviors:
+  const systemPrompt = `You simulate how 6 different AI search engines would respond to local business queries on behalf of AiLys Agency. The 6 engines have distinct retrieval and citation behaviors that the AiLys strategist team is expert in.
 
-- ChatGPT: weights Wikipedia, Wikidata, high-DA directories (Yelp, BBB), recent news
-- Perplexity: weights freshness, Reddit discussions, news, and structured data
-- Claude: weights authoritative sources, Wikipedia, .gov/.edu, expertise signals
-- Gemini: weights Google Business Profile, Maps reviews, Google Search Console-class signals
-- Google AIO: weights Knowledge Graph, GBP, schema.org structured data, freshness
-- Bing Copilot: weights LinkedIn, business directories, news, and Microsoft ecosystem signals
+This is a TEASER matrix, not a full deliverable. Show the prospect WHICH engines cite or don't, and the high-level pattern. DO NOT prescribe specific remediation tactics, schema patches, exact directories to claim, prompt-engineering tricks, or step-by-step playbooks. The strategist unlocks the full remediation strategy during the paid discovery call. Surface the gap, not the cure.
 
 For each query, predict the most likely top-5 cited businesses for a real user in the named city, and report whether the AUDITED business appears.
 
@@ -207,17 +202,17 @@ Return ONLY valid JSON matching this exact schema. No prose.
           "engine": "ChatGPT" | "Perplexity" | "Claude" | "Gemini" | "Google AIO" | "Bing Copilot",
           "status": "cited" | "mentioned" | "absent",
           "rank": 1-5 if cited, omit otherwise,
-          "excerpt": "one sentence about why this engine would or would not name this specific business based on the signals it weights most"
+          "excerpt": "one short sentence (under 25 words) naming the symptom only. Do NOT prescribe fixes, do NOT name specific signal weights or remediation tactics. Example: 'This engine does not surface the brand for this query.' or 'Cited at position 3 with thin excerpt.'"
         },
         ...6 engines per query
       ]
     },
     ...3 queries total
   ],
-  "summary": "one paragraph (under 80 words) describing the overall AI visibility pattern: which engines tend to cite, which don't, and what specific signal gap explains the absences"
+  "summary": "one paragraph (under 80 words). Describe the overall pattern in plain language: which engines tend to cite, which do not. End with: 'Book a 15-minute strategist call at ailysagency.ca/audit to unlock the prioritized remediation plan tailored to your gap profile.' Do not include the plan itself."
 }
 
-Be honest. If the business is unknown to you, that is itself a signal: most engines will not cite it, and the summary should explain what they would need (Wikidata entry, GBP completeness, citation density, etc.). Do not invent fake citations.`;
+Be honest. If the business is unknown to you, that is itself a signal: most engines will not cite it, and the summary should hint at the category of gap (visibility, authority, presence) without naming the specific tactic. Do not invent fake citations.`;
 
   const userPrompt = `Business: ${businessName}
 City: ${city}${url ? `\nURL: ${url}` : ""}

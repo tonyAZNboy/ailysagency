@@ -55,14 +55,18 @@ export function drawActionPlanPage(b: Builder, req: AuditPdfRequest) {
 
   b.drawWrapped({
     text: isFr
-      ? 'Huit actions principales, classées par priorité. L\'ordre est construit pour que chaque action compose la suivante; ne saute pas d\'étapes. Les estimations d\'effort supposent que ton équipe fait le travail; la livraison AiLys réduit l\'effort d\'environ moitié sur la plupart des items.'
-      : 'Top eight actions, ordered by priority. The order is built so each action compounds the next; do not skip ahead. Effort estimates assume your team handles the work; AiLys delivery cuts effort by roughly half on most items.',
+      ? 'Top trois actions, classées par priorité. C\'est l\'aperçu. Le plan complet de 90 jours (séquence détaillée, gabarits schéma, scripts d\'outreach citations, calendrier de déploiement, checkpoints de mesure) est livré durant l\'appel stratégiste de 60 minutes. Réservez à ailysagency.ca/audit. Les estimations d\'effort supposent que ton équipe fait le travail; la livraison AiLys réduit l\'effort d\'environ moitié sur la plupart des items.'
+      : 'Top three actions, ordered by priority. This is the preview. The full 90-day plan (detailed sequence, schema templates, citation outreach scripts, deployment calendar, measurement checkpoints) is delivered during the 60-minute strategist call. Book at ailysagency.ca/audit. Effort estimates assume your team handles the work; AiLys delivery cuts effort by roughly half on most items.',
     size: FONT_SIZE.body,
     color: COLOR.ink,
   });
   b.advance(SPACE.md);
 
-  const sorted = [...req.payload.actionItems].sort((a, c) => a.priority - c.priority);
+  // Hold-back: show only the top 3 priority items in the free PDF.
+  // The full 8-item plan with schema/citation specifics is delivered during
+  // the paid strategist call. This is per the AiLys "audit teaser" discipline:
+  // surface symptoms, withhold cures, drive the discovery call CTA.
+  const sorted = [...req.payload.actionItems].sort((a, c) => a.priority - c.priority).slice(0, 3);
   for (const item of sorted) {
     b.ensureSpace(58, isFr ? 'Plan d\'action' : 'Action plan', 6, 10);
 
@@ -97,4 +101,20 @@ export function drawActionPlanPage(b: Builder, req: AuditPdfRequest) {
     b.advance(SPACE.sm);
     b.drawDivider();
   }
+
+  // Strategist call CTA after the top-3 preview.
+  b.advance(SPACE.md);
+  b.drawHeading(
+    isFr
+      ? 'Les 5 actions suivantes sont reservees a l\'appel strategiste'
+      : 'The next 5 actions are reserved for the strategist call',
+    'h3',
+  );
+  b.drawWrapped({
+    text: isFr
+      ? 'Items 4 a 8 du plan (incluant les gabarits JSON-LD, les scripts d\'outreach pour les annuaires de citations, et la sequence de deploiement par semaine) sont livres en personne durant l\'appel decouverte de 60 minutes. C\'est gratuit, sans carte de credit. Reservez sur ailysagency.ca/audit.'
+      : 'Items 4 through 8 of the plan (including JSON-LD templates, citation directory outreach scripts, and the week-by-week deployment sequence) are delivered live during the 60-minute discovery call. Free, no credit card required. Book at ailysagency.ca/audit.',
+    size: FONT_SIZE.body,
+    color: COLOR.ink,
+  });
 }
