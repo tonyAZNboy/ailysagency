@@ -236,6 +236,7 @@ export default function ConciergeDemo() {
             ? "https://www.ailysagency.ca/concierge-demo"
             : `https://www.ailysagency.ca/${lang}/concierge-demo`
         }
+        image={`/api/og.svg?kind=concierge&lang=${lang === "fr" ? "fr" : "en"}`}
         keywords={["AI concierge", "AI assistant", "AiLys engine", "client dashboard"]}
       />
       <NetworkBackground backgroundColor="#050505" nodeColor="#22D3EE" lineColor="#A78BFA" nodeCount={26} mobileNodeCount={14} />

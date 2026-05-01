@@ -55,6 +55,7 @@ export default function IndustryReports() {
             : "Free quarterly reports on AI Visibility for dentists, restaurants, lawyers, and other Quebec local verticals. Anonymized aggregate data across 6 AI search engines. Bilingual EN and FR-CA."
         }
         canonicalUrl={canonical}
+        image={`/api/og.svg?kind=default&title=${encodeURIComponent(isFr ? "Rapports d'industrie AiLys" : "AiLys Industry Reports")}&subtitle=${encodeURIComponent(isFr ? "Visibilite IA par verticale, mises a jour trimestrielles" : "AI Visibility by vertical, quarterly updates")}`}
         keywords={[
           "industry reports",
           "AI Visibility Quebec",
