@@ -46,6 +46,8 @@ const Industry = lazy(() => import("./pages/Industry"));
 const Comparison = lazy(() => import("./pages/Comparison"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
+const BadgeEmbed = lazy(() => import("./pages/BadgeEmbed"));
+const PublicVerify = lazy(() => import("./pages/PublicVerify"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -169,6 +171,12 @@ const App = () => {
                 {/* Free tools — AI Visibility Score (lead magnet + backlink magnet) */}
                 <Route path="/tools/ai-visibility-score" element={<AiVisibilityScoreTool />} />
                 <Route path="/:lang/tools/ai-visibility-score" element={<AiVisibilityScoreTool />} />
+
+                {/* Bonus A: AiLys Verified badge embed + public verification */}
+                <Route path="/badge" element={<BadgeEmbed />} />
+                <Route path="/:lang/badge" element={<BadgeEmbed />} />
+                <Route path="/verify/:slug" element={<PublicVerify />} />
+                <Route path="/:lang/verify/:slug" element={<PublicVerify />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
