@@ -171,9 +171,9 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
               </div>
               <div>
                 <p className="text-sm font-medium text-white">
-                  {post.author.name}
+                  {lang === 'fr' ? 'Équipe AiLys' : post.author.name}
                 </p>
-                <p className="text-xs text-white/40">{post.author.role}</p>
+                <p className="text-xs text-white/40">{lang === 'fr' ? 'Produit et ingénierie' : post.author.role}</p>
               </div>
             </div>
 
@@ -200,7 +200,7 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
 
         {/* TL;DR */}
         <div className="mt-8 max-w-3xl rounded-2xl border border-white/10 border-l-4 border-l-cyan-500 bg-white/[0.02] backdrop-blur-sm p-5">
-          <p className="text-sm font-semibold text-cyan-400 mb-1">TL;DR</p>
+          <p className="text-sm font-semibold text-cyan-400 mb-1">{lang === 'fr' ? 'En bref' : 'TL;DR'}</p>
           <p className="text-white/70 italic leading-relaxed">{localizedMeta.tldr}</p>
         </div>
 
@@ -247,7 +247,11 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
           {/* ToC sidebar */}
           {localizedMeta.headings.length > 0 && (
             <aside className="hidden lg:block w-64 shrink-0">
-              <TableOfContents headings={localizedMeta.headings} />
+              <TableOfContents
+                headings={localizedMeta.headings}
+                translatedHeading={lang === 'fr' ? 'Table des matières' : undefined}
+                translatedToggleLabel={lang === 'fr' ? 'Afficher la table des matières' : undefined}
+              />
             </aside>
           )}
         </div>
@@ -278,6 +282,8 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
             translatedVerifiedBy={lang === 'fr' ? 'Vérifié par {{team}}' : undefined}
             translatedResearchTeam={lang === 'fr' ? 'AiLys Research' : undefined}
             translatedOrgDescription={lang === 'fr' ? "L'équipe qui bâtit le moteur AiLys et le SaaS Reviuzy, livre l'outillage qui propulse les audits AI Visibility, les flux de citations et l'automatisation de réputation pour les opérateurs locaux." : undefined}
+            translatedRole={lang === 'fr' ? 'Produit et ingénierie' : undefined}
+            translatedName={lang === 'fr' ? 'Équipe AiLys' : undefined}
           />
         </div>
 
