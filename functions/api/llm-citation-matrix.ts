@@ -12,7 +12,7 @@
 //   - Scores: cited (full match) | mentioned (partial) | absent
 //   - KV-cached 24h per (business + city + url) tuple to control cost
 //
-// Backend: Google Generative Language API, gemini-2.5-flash:generateContent.
+// Backend: Google Generative Language API, gemini-2.5-pro:generateContent.
 // Cheap and fast for the structured JSON workload. KV cache amortizes cost.
 //
 // Security:
@@ -225,7 +225,7 @@ Return the citation matrix.`;
 
   try {
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" +
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" +
         encodeURIComponent(env.GEMINI_API_KEY),
       {
         method: "POST",
