@@ -16,29 +16,17 @@ export const metaFr: BlogPostMeta = {
   title: "AiLys vs Adviso, plateforme d'AI Visibility versus consultance numérique d'entreprise",
   metaDescription:
     "Comparaison honnête d'AiLys et Adviso pour les entreprises québécoises. Tarifs, AI Visibility, conseil d'entreprise, bilinguisme et ou chacune convient le mieux.",
-<<<<<<< HEAD
   tldr: "Adviso est une consultance numérique basee a Montréal qui sert les marques de taille moyenne et d'entreprise (Air Canada, Banque Nationale, Cirque du Soleil, Nespresso) sur l'expérience client, le marketing relationnel, la planification media, le marketing de contenu et SEO, l'analytique et la science des données, le conseil MarTech, la stratégie d'affaires, le conseil en IA générative et la formation. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Adviso convient aux marques d'entreprise qui ont besoin de conseil stratégique et de science des données. AiLys convient aux opérateurs locaux qui ont besoin de travail de citations dans les moteurs IA et de GBP à un coût mensuel transparent.",
-=======
-  tldr: "Adviso est une consultance numerique basee a Montréal qui sert les marques de taille moyenne et d'entreprise (Air Canada, Banque Nationale, Cirque du Soleil, Nespresso) sur l'expérience client, le marketing relationnel, la planification media, le marketing de contenu et SEO, l'analytique et la science des données, le conseil MarTech, la stratégie d'affaires, le conseil en IA générative et la formation. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Adviso convient aux marques d'entreprise qui ont besoin de conseil stratégique et de science des données. AiLys convient aux opérateurs locaux qui ont besoin de travail de citations dans les moteurs IA et de GBP à un coût mensuel transparent.",
->>>>>>> origin/main
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle a Adviso pour les entreprises québécoises?',
       answer:
-<<<<<<< HEAD
         "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Adviso est une consultance numérique basee a Montréal qui sert les marques de taille moyenne et d'entreprise comme Air Canada, Banque Nationale, Cirque du Soleil et Nespresso, avec des services en expérience client, science des données, MarTech, planification media et transformation numérique. AiLys est conçue pour la voie d'AI Visibility locale a coût prévisible. Adviso fournit du conseil stratégique de qualite entreprise sur des engagements personnalises.",
-=======
-        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Adviso est une consultance numerique basee a Montréal qui sert les marques de taille moyenne et d'entreprise comme Air Canada, Banque Nationale, Cirque du Soleil et Nespresso, avec des services en expérience client, science des données, MarTech, planification media et transformation numerique. AiLys est concue pour la voie d'AI Visibility locale a coût prévisible. Adviso fournit du conseil stratégique de qualite entreprise sur des engagements personnalises.",
->>>>>>> origin/main
     },
     {
       question: 'AiLys est-elle un concurrent d\'Adviso?',
       answer:
-<<<<<<< HEAD
         "Pas vraiment. Les deux fonctionnent à des échelles différentes pour des profils de clients différents. Les engagements Adviso impliquent typiquement des marques d'entreprise avec des budgets marketing annuels a sept chiffres, des projets de transformation numérique pluriannuels et des piles MarTech complexes. AiLys sert les opérateurs locaux avec des budgets mensuels de 300 à 2 499 CAD qui ont besoin d'AI Visibility, de GBP et de travail de citations. Les deux se font rarement concurrence frontale. Une clinique dentaire locale n'engage pas Adviso, et Air Canada n'engage pas AiLys. La décision est une question d'échelle, pas de préférence.",
-=======
-        "Pas vraiment. Les deux fonctionnent à des échelles différentes pour des profils de clients différents. Les engagements Adviso impliquent typiquement des marques d'entreprise avec des budgets marketing annuels a sept chiffres, des projets de transformation numerique pluriannuels et des piles MarTech complexes. AiLys sert les opérateurs locaux avec des budgets mensuels de 300 à 2 499 CAD qui ont besoin d'AI Visibility, de GBP et de travail de citations. Les deux se font rarement concurrence frontale. Une clinique dentaire locale n'engage pas Adviso, et Air Canada n'engage pas AiLys. La décision est une question d'échelle, pas de préférence.",
->>>>>>> origin/main
     },
     {
       question: "Adviso offre-t-elle des services d'AI Visibility comme AiLys?",
@@ -58,11 +46,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Quand devrait-on choisir Adviso plutot qu'AiLys?",
       answer:
-<<<<<<< HEAD
         "Choisissez Adviso quand le commerce est une marque de taille moyenne ou d'entreprise qui a besoin de conseil stratégique sur l'expérience client, la science des données, l'architecture MarTech ou la transformation numérique. Choisissez Adviso quand l'engagement exige des stratèges seniors travaillant aux côtés des équipes marketing internes sur des projets pluriannuels. Choisissez Adviso quand le budget soutient des honoraires de conseil d'entreprise et que le livrable est une perspective stratégique plutot que de l'exécution. Choisissez AiLys quand la priorité est l'exécution AI Visibility locale à un coût mensuel prévisible.",
-=======
-        "Choisissez Adviso quand le commerce est une marque de taille moyenne ou d'entreprise qui a besoin de conseil stratégique sur l'expérience client, la science des données, l'architecture MarTech ou la transformation numerique. Choisissez Adviso quand l'engagement exige des stratèges seniors travaillant aux côtés des équipes marketing internes sur des projets pluriannuels. Choisissez Adviso quand le budget soutient des honoraires de conseil d'entreprise et que le livrable est une perspective stratégique plutot que de l'exécution. Choisissez AiLys quand la priorite est l'exécution AI Visibility locale à un coût mensuel prévisible.",
->>>>>>> origin/main
     },
   ],
   headings: [
@@ -157,11 +141,7 @@ export function ContentFr() {
 
       <h2 id="strategie-vs-execution">Strategie versus exécution</h2>
       <p>
-<<<<<<< HEAD
         Adviso conseille. Le livrable est une perspective stratégique, des cadres, des décisions d'architecture MarTech et du renforcement de capacités à l'intérieur de l'organisation du client. Le travail faconne comment le client pense au marketing, à l'expérience client et aux canaux numériques pour des années.
-=======
-        Adviso conseille. Le livrable est une perspective stratégique, des cadres, des décisions d'architecture MarTech et du renforcement de capacités à l'intérieur de l'organisation du client. Le travail faconne comment le client pense au marketing, à l'expérience client et aux canaux numeriques pour des années.
->>>>>>> origin/main
       </p>
       <p>
         AiLys exécute. Le livrable est des scores AI Visibility, des écarts de citations combles, des publications GBP publiées, des schemas deployes, du contenu FAQ livre, des citations reecrites et soumises. Le travail change directement la part de citations dans les réponses des moteurs IA et la completude GBP en quelques semaines.
@@ -214,11 +194,7 @@ export function ContentFr() {
       </p>
 
       <ol>
-<<<<<<< HEAD
         <li>Le commerce est une marque de taille moyenne ou d'entreprise qui a besoin de conseil stratégique sur l'expérience client, la science des données, l'architecture MarTech ou la transformation numérique. AiLys ne fournit pas de conseil stratégique à cette portée.</li>
-=======
-        <li>Le commerce est une marque de taille moyenne ou d'entreprise qui a besoin de conseil stratégique sur l'expérience client, la science des données, l'architecture MarTech ou la transformation numerique. AiLys ne fournit pas de conseil stratégique à cette portée.</li>
->>>>>>> origin/main
         <li>L'engagement exige des stratèges seniors integres aux équipes marketing et TI internes du client sur des projets pluri-trimestriels. AiLys livre du travail d'exécution a palier fixe, pas du conseil intégré.</li>
         <li>Le livrable est de la formation corporative, de la gestion du changement ou du renforcement de capacités à l'intérieur de l'organisation. AiLys livre une sortie AI Visibility, pas des programmes de capacités internes.</li>
       </ol>
@@ -248,15 +224,9 @@ export function ContentFr() {
       <KeyTakeaway
         translatedLabel="A retenir"
         points={[
-<<<<<<< HEAD
           "Adviso est une consultance numérique d'entreprise montréalaise servant Air Canada, Banque Nationale, Cirque du Soleil, Nespresso. AiLys est une plateforme spécialisée d'AI Visibility pour les opérateurs locaux.",
           "AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Adviso côté des engagements de conseil d'entreprise sur mesure par projet.",
           "Adviso conseille sur la stratégie, le MarTech, la science des données, l'expérience client et la transformation numérique. AiLys exécute le travail d'AI Visibility, GBP, citations et schemas.",
-=======
-          "Adviso est une consultance numerique d'entreprise montréalaise servant Air Canada, Banque Nationale, Cirque du Soleil, Nespresso. AiLys est une plateforme spécialisée d'AI Visibility pour les opérateurs locaux.",
-          "AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Adviso côté des engagements de conseil d'entreprise sur mesure par projet.",
-          "Adviso conseille sur la stratégie, le MarTech, la science des données, l'expérience client et la transformation numerique. AiLys exécute le travail d'AI Visibility, GBP, citations et schemas.",
->>>>>>> origin/main
           "Les deux se font rarement concurrence directement parce qu'elles servent des échelles de clients différentes. Elles peuvent être complementaires à l'échelle entreprise (Adviso pour la stratégie, AiLys pour l'exécution AI Visibility).",
           'Les deux sont bilingues EN et FR-CA a Montréal. AiLys livre du bilingue systematique sur chaque piece de contenu par defaut.',
         ]}
