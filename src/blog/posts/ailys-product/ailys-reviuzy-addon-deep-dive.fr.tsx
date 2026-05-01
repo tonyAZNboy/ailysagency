@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import {
   CalloutBox,
@@ -21,7 +21,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte le module AiLys Automation d'AiLys et qu'est-ce qu'il inclut?",
       answer:
-        "Le module AiLys Automation coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 499 dollars par mois. La portée couvre la collecte NFC tap-to-review (les cartes NFC physiques ne sont PAS incluses dans le prix mensuel, le client se les procure et les programme lui-même chez tout fournisseur NFC, ou achète le service de cartes AiLys à 100 dollars CAD à charge unique pour 3 cartes avec programmation et livraison), la génération IA d'avis et de réponses, un moteur de concours avec tirage vidéo, un générateur de termes légaux selon la juridiction, la détection de faux avis et l'ensemble d'automatisation GBP qui comprend la mise en ligne de photos, le suivi des questions-réponses et la gestion des attributs.",
+        "Le module AiLys Automation coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 500 dollars par mois. La portée couvre la collecte NFC tap-to-review (les cartes NFC physiques ne sont PAS incluses dans le prix mensuel, le client se les procure et les programme lui-même chez tout fournisseur NFC, ou achète le service de cartes AiLys à 100 dollars CAD à charge unique pour 3 cartes avec programmation et livraison), la génération IA d'avis et de réponses, un moteur de concours avec tirage vidéo, un générateur de termes légaux selon la juridiction, la détection de faux avis et l'ensemble d'automatisation GBP qui comprend la mise en ligne de photos, le suivi des questions-réponses et la gestion des attributs.",
     },
     {
       question: "Est-ce qu'AiLys opère le concours AiLys Automation à la place du client?",
@@ -67,7 +67,7 @@ export function ContentFr() {
       <StatHighlight
         stats={[
           { value: '100 $ CAD', label: 'Prix mensuel du module AiLys Automation' },
-          { value: 'Inclus', label: 'Dans le forfait Agency à 2 499 dollars' },
+          { value: 'Inclus', label: 'Dans le forfait Agency à 2 500 dollars' },
           { value: '8 modules', label: 'NFC, réponses IA, concours, légal, faux avis, photos, questions-réponses, attributs' },
         ]}
       />
@@ -86,13 +86,13 @@ export function ContentFr() {
         <p>Le module AiLys Automation prolonge les forfaits AiLys de base avec le pipeline complet de réputation. Les forfaits de base (Starter, Core, Growth) couvrent l'optimisation GBP, le travail de citations, la cohérence NAP et le score AI Visibility. Le module ajoute la collecte NFC, l'automatisation des réponses IA, le moteur de concours, le générateur légal selon la juridiction, la file de faux avis et la suite d'automatisation GBP. Voir <InternalLink to="/blog/reviuzy-review-automation-guide" title="Guide d'automatisation des avis AiLys Automation" description="Le guide long sur le flux du module" /> pour la visite ligne par ligne.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez où s'insère le module AiLys Automation dans les quatre forfaits AiLys, de Starter à 300 dollars à Agency à 2 499 dollars." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez où s'insère le module AiLys Automation dans les quatre forfaits AiLys, de Starter à 300 dollars à Agency à 2 500 dollars." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 
       <h2 id="tarifs-et-inclusion-agency">Tarifs et inclusion dans Agency</h2>
       <p>
-        Le module AiLys Automation coûte 100 dollars CAD par mois forfaitaires. Il se greffe sur Starter (300 dollars), Core (600 dollars) ou Growth (1 200 dollars), portant ces forfaits à 400, 700 ou 1 300 dollars par mois respectivement. Au forfait Agency (2 499 dollars), AiLys Automation est inclus, donc l'opérateur ne paie rien de plus. Cette décision reflète le positionnement du forfait Agency : c'est le palier multi-emplacements et marque blanche où le travail de réputation est l'attente par défaut, pas un ajout.
+        Le module AiLys Automation coûte 100 dollars CAD par mois forfaitaires. Il se greffe sur Starter (300 dollars), Core (600 dollars) ou Growth (1 200 dollars), portant ces forfaits à 400, 700 ou 1 300 dollars par mois respectivement. Au forfait Agency (2 500 dollars), AiLys Automation est inclus, donc l'opérateur ne paie rien de plus. Cette décision reflète le positionnement du forfait Agency : c'est le palier multi-emplacements et marque blanche où le travail de réputation est l'attente par défaut, pas un ajout.
       </p>
       <p>
         La facturation annuelle applique un léger rabais. Le côté tableau de bord d'AiLys Automation s'active la même journée que le module est activé, donc la file de réponses IA, le moteur de concours et l'automatisation GBP démarrent immédiatement. Les cartes NFC sont approvisionnées séparément par le client (voir la section NFC ci-dessous pour les deux chemins) donc la boucle au comptoir monte en parallèle du travail dans le tableau de bord, et n'agit pas comme un blocage.
@@ -103,7 +103,7 @@ export function ContentFr() {
         <li>Starter avec AiLys Automation à 400 dollars : optimisation GBP, rapport AI Visibility mensuel, audit NAP sur les cinq citations principales, plus la suite AiLys Automation complète. Le soutien stratège est asynchrone seulement à ce palier, sans appels.</li>
         <li>Core avec AiLys Automation à 700 dollars : publications GBP hebdomadaires, nettoyage de citations sur vingt cibles, schéma FAQ, plus AiLys Automation. Le soutien stratège est asynchrone seulement à ce palier, sans appels.</li>
         <li>Growth avec AiLys Automation à 1 300 dollars : photographie originale, production de contenu mensuelle, deux audits AI Visibility par trimestre, plus AiLys Automation. Inclut un appel mensuel avec le stratège.</li>
-        <li>Agency à 2 499 dollars : AiLys Automation est inclus, tableau de bord multi-emplacements et marque blanche compris, stratège dédié, un appel mensuel avec le stratège, rapport mensuel écrit.</li>
+        <li>Agency à 2 500 dollars : AiLys Automation est inclus, tableau de bord multi-emplacements et marque blanche compris, stratège dédié, un appel mensuel avec le stratège, rapport mensuel écrit.</li>
       </ul>
 
       <SectionDivider />
@@ -139,7 +139,7 @@ export function ContentFr() {
           'Starter à 300 dollars CAD par mois',
           'Core à 600 dollars CAD par mois',
           'Growth à 1 200 dollars CAD par mois',
-          'Agency à 2 499 dollars CAD par mois',
+          'Agency à 2 500 dollars CAD par mois',
         ]}
         correctIndex={3}
         explanation="AiLys Automation est inclus dans le forfait Agency. À Starter, Core et Growth, le module coûte 100 dollars CAD par mois en plus du prix du forfait. À Agency, il est inclus par défaut parce que l'automatisation de réputation est la portée standard au palier multi-emplacements et marque blanche."
@@ -212,7 +212,7 @@ export function ContentFr() {
       <KeyTakeaway
         translatedLabel="À retenir"
         points={[
-          "Le module AiLys Automation coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 499 dollars par mois.",
+          "Le module AiLys Automation coûte 100 dollars CAD par mois en plus de n'importe quel forfait AiLys, et il est inclus dans le forfait Agency à 2 500 dollars par mois.",
           "Les cartes NFC sur le comptoir battent les codes QR pour la collecte d'avis parce que le geste correspond au paiement sans contact.",
           'Le concours est opéré par le client. AiLys livre uniquement la configuration, les termes légaux et les guides.',
           "Les photos pour l'automatisation GBP viennent toujours du client via l'app AiLys Automation, ce qui préserve les vraies données EXIF.",

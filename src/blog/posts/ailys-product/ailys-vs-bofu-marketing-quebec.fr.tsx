@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import {
   CalloutBox,
@@ -16,12 +16,12 @@ export const metaFr: BlogPostMeta = {
   title: 'AiLys vs Bofu Agence Marketing, performance Québec versus AI Visibility',
   metaDescription:
     "Comparaison honnête d'AiLys et Bofu Agence Marketing pour les entreprises québécoises. Tarifs, AI Visibility, focus conversion, bilinguisme et ou chaque agence gagne.",
-  tldr: "Bofu Agence Marketing est une agence marketing québécoise basee dans les Laurentides, axee sur la conversion bas-de-l'entonnoir avec SEO/GEO, media payant (Google Ads, Meta, LinkedIn, Amazon Ads), implementation HubSpot CRM, automatisation marketing, branding et conception web. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu convient aux opérateurs qui veulent un partenaire de croissance omnicanal pilote par HubSpot avec focus conversion. AiLys convient aux opérateurs qui veulent du travail de citations dans les moteurs IA et du GBP à un coût mensuel transparent.",
+  tldr: "Bofu Agence Marketing est une agence marketing québécoise basee dans les Laurentides, axee sur la conversion bas-de-l'entonnoir avec SEO/GEO, media payant (Google Ads, Meta, LinkedIn, Amazon Ads), implementation HubSpot CRM, automatisation marketing, branding et conception web. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 500 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu convient aux opérateurs qui veulent un partenaire de croissance omnicanal pilote par HubSpot avec focus conversion. AiLys convient aux opérateurs qui veulent du travail de citations dans les moteurs IA et du GBP à un coût mensuel transparent.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à Bofu Agence Marketing pour les entreprises québécoises?',
       answer:
-        "AiLys est une plateforme d'AI Visibility a prix fixe avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu Agence Marketing est une agence de performance québécoise basee dans les Laurentides axee sur la conversion (le nom vient de « Bottom of Funnel »), avec des services en SEO/GEO, media payant sur Google Ads, Meta, LinkedIn et Amazon Ads, implementation HubSpot CRM (Gold Partner), automatisation marketing, branding et conception web. AiLys à une portée plus étroite mais moins chere a démarrer et plus rapide en onboarding pour le travail AI Visibility. Bofu couvre une pile axee conversion plus large.",
+        "AiLys est une plateforme d'AI Visibility a prix fixe avec quatre forfaits CAD publiés (300 à 2 500 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bofu Agence Marketing est une agence de performance québécoise basee dans les Laurentides axee sur la conversion (le nom vient de « Bottom of Funnel »), avec des services en SEO/GEO, media payant sur Google Ads, Meta, LinkedIn et Amazon Ads, implementation HubSpot CRM (Gold Partner), automatisation marketing, branding et conception web. AiLys à une portée plus étroite mais moins chere a démarrer et plus rapide en onboarding pour le travail AI Visibility. Bofu couvre une pile axee conversion plus large.",
     },
     {
       question: "Bofu offre-t-elle des services d'AI Visibility comme AiLys?",
@@ -31,7 +31,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que Bofu?',
       answer:
-        "AiLys publié quatre forfaits CAD : Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois. Bofu ne publié pas de tarifs ; les prix sont déterminés par engagement selon le mix de canaux (SEO, payant, CRM, web). Pour les opérateurs qui veulent un coût mensuel transparent specifiquement pour l'AI Visibility et le GBP, AiLys publié les chiffres. Pour les opérateurs qui ont besoin d'un engagement multi-canaux sur mesure avec intégration HubSpot, Bofu côté par portée.",
+        "AiLys publié quatre forfaits CAD : Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois. Bofu ne publié pas de tarifs ; les prix sont déterminés par engagement selon le mix de canaux (SEO, payant, CRM, web). Pour les opérateurs qui veulent un coût mensuel transparent specifiquement pour l'AI Visibility et le GBP, AiLys publié les chiffres. Pour les opérateurs qui ont besoin d'un engagement multi-canaux sur mesure avec intégration HubSpot, Bofu côté par portée.",
     },
     {
       question: 'Quelle agence est meilleure pour un commerce e-commerce ou B2B au Québec?',
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: 'Bas-entonnoir', label: 'Coeur Bofu : conversion et CRM' },
           { value: 'Moteurs IA', label: 'Coeur AiLys : citations dans la recherche IA' },
         ]}
@@ -99,7 +99,7 @@ export function ContentFr() {
 
       <h2 id="tarifs-et-modele-d-engagement">Tarifs et modèle d'engagement</h2>
       <p>
-        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois. L'opérateur connait le coût et la portée avant tout appel de vente.
+        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois. L'opérateur connait le coût et la portée avant tout appel de vente.
       </p>
       <p>
         Bofu ne publié pas de tarifs publiquement. Le modèle d'engagement est sur devis selon le mix de canaux selectionnes. Un engagement SEO seulement coute differemment d'une implementation HubSpot complete plus media payant plus conception web. La flexibilite correspond à la portée précisément mais exige un appel de vente pour connaitre le prix.
@@ -211,7 +211,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "Bofu Agence Marketing est une agence de performance québécoise axee sur la conversion bas-d'entonnoir, le CRM et le media payant. AiLys est une plateforme spécialisée d'AI Visibility pour la découverte haut-d'entonnoir.",
-          'AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Bofu côté par engagement selon le mix de canaux.',
+          'AiLys publié quatre forfaits CAD (300 à 2 500 dollars). Bofu côté par engagement selon le mix de canaux.',
           "Bofu couvre HubSpot CRM, courriel Klaviyo, media payant, conception web et branding. AiLys couvre les citations des moteurs IA, l'automatisation GBP, les citations et le schema FAQ.",
           "Les deux sont bilingues EN et FR. Bofu ajoute la capacité espagnole. AiLys livre du bilingue systematique sur chaque piece de contenu par défaut.",
           "Les deux sont complementaires sur l'entonnoir. AiLys pour la découverte, Bofu pour la conversion, sans chevauchement.",

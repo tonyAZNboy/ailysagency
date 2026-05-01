@@ -1,4 +1,4 @@
-# Reviuzy SaaS Implementation Spec
+﻿# Reviuzy SaaS Implementation Spec
 
 **Status**: Draft v1.0 (2026-04-27)
 **Owner**: AiLys Agency engineering
@@ -14,7 +14,7 @@
 | ST | Starter | 300 | ~1h | Limited (review collection only) |
 | CO | Core | 600 | ~3h | Full (Reviuzy add-on $100 separate, OR bundle) |
 | GR | Growth | 1,200 | ~6h | Full (add-on $100 OR bundle) |
-| AG | Agency | 2,499 | ~12-15h | Bundled by default |
+| AG | Agency | 2,500 | ~12-15h | Bundled by default |
 
 Add-on (orthogonal to tier): **Reviuzy reputation system** at $100/mo on ST/CO/GR. Bundled in AG.
 
@@ -548,7 +548,7 @@ Per CLAUDE.md hard rule 11 (admin center mandatory), all costs must be tracked p
 - GR: ~$25
 - AG: ~$60 (with AI Agent + Real-time)
 
-At $300-$2,499 per tier per month, **gross margin on AI cost stays >85%** even at the AG tier.
+At $300-$2,500 per tier per month, **gross margin on AI cost stays >85%** even at the AG tier.
 
 ### Third-party API costs
 
@@ -832,7 +832,7 @@ npm run test                        # all green (when tests exist)
 **~54h, 2 sessions.** Photo flow complete + Reddit signal monitoring. These are referenced in shipped help articles, so closing them removes broken-promise risk.
 
 ### Sprint 3 (Phase 8 + Phase 9): unlock Agency tier value
-**~52h, 2 sessions.** White-label + API access. Lets us actually charge $2,499 with confidence.
+**~52h, 2 sessions.** White-label + API access. Lets us actually charge $2,500 with confidence.
 
 ### Sprint 4 (Phase 10): demo-able feature
 **~25h, 1 session.** Crisis Early Warning. Easy win, high perceived value, sales differentiator.

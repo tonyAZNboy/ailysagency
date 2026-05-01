@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import {
   CalloutBox,
@@ -16,12 +16,12 @@ export const metaFr: BlogPostMeta = {
   title: "AiLys vs Rablab, plateforme d'AI Visibility versus agence créative numérique à Montréal",
   metaDescription:
     "Comparaison honnête d'AiLys et Rablab pour les marques québécoises. Tarifs, AI Visibility, production créative, bilinguisme et ou chaque agence convient.",
-  tldr: "Rablab est une agence créative numérique montréalaise reconnue pour le branding, la production créative, le contenu et le travail d'expérience numérique pour des clients de marques de taille moyenne et grande. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab convient aux marques qui ont besoin de production créative et de design d'expérience numérique. AiLys convient aux opérateurs qui ont besoin de travail de citations dans les moteurs IA et de GBP à un coût mensuel transparent.",
+  tldr: "Rablab est une agence créative numérique montréalaise reconnue pour le branding, la production créative, le contenu et le travail d'expérience numérique pour des clients de marques de taille moyenne et grande. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 500 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab convient aux marques qui ont besoin de production créative et de design d'expérience numérique. AiLys convient aux opérateurs qui ont besoin de travail de citations dans les moteurs IA et de GBP à un coût mensuel transparent.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à Rablab pour les marques montréalaises?',
       answer:
-        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab est une agence créative numérique montréalaise axee sur le branding, la production créative, le design d'expérience numérique et le travail de contenu pour des clients de marques de taille moyenne et grande. Les deux resolvent des problèmes différents : Rablab bâtit les marques et les actifs créatifs, AiLys livre du travail de citations dans les moteurs IA et de l'automatisation GBP. Elles se chevauchent rarement sur le même engagement.",
+        "AiLys est une plateforme d'AI Visibility a prix fixe pour les commerçants locaux avec quatre forfaits CAD publiés (300 à 2 500 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Rablab est une agence créative numérique montréalaise axee sur le branding, la production créative, le design d'expérience numérique et le travail de contenu pour des clients de marques de taille moyenne et grande. Les deux resolvent des problèmes différents : Rablab bâtit les marques et les actifs créatifs, AiLys livre du travail de citations dans les moteurs IA et de l'automatisation GBP. Elles se chevauchent rarement sur le même engagement.",
     },
     {
       question: "Rablab offre-t-elle des services d'AI Visibility comme AiLys?",
@@ -31,7 +31,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que Rablab?',
       answer:
-        "AiLys publié quatre forfaits CAD (300 à 2 499 dollars par mois) avec des listes de livrables fixes. Rablab ne publié pas de tarifs. Les engagements d'agence créative sont typiquement par projet ou par retainer avec une tarification personnalisée qui reflete la portée de la production créative. La comparaison directe n'a pas vraiment de sens parce que les livrables différent : AiLys livre des audits AI Visibility et du travail GBP, Rablab livre des identités de marque et des campagnes créatives.",
+        "AiLys publié quatre forfaits CAD (300 à 2 500 dollars par mois) avec des listes de livrables fixes. Rablab ne publié pas de tarifs. Les engagements d'agence créative sont typiquement par projet ou par retainer avec une tarification personnalisée qui reflete la portée de la production créative. La comparaison directe n'a pas vraiment de sens parce que les livrables différent : AiLys livre des audits AI Visibility et du travail GBP, Rablab livre des identités de marque et des campagnes créatives.",
     },
     {
       question: 'Une marque peut-elle utiliser AiLys et Rablab à la fois?',
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: 'Dirige par créatif', label: 'Focus Rablab : marque, contenu, expérience' },
           { value: 'AI Visibility', label: 'Focus AiLys : citations IA et GBP' },
         ]}
@@ -127,7 +127,7 @@ export function ContentFr() {
 
       <h2 id="tarifs-et-modele-d-engagement">Tarifs et modèle d'engagement</h2>
       <p>
-        AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois. Chaque palier à une portée publiée et l'opérateur connait le coût avant de signer.
+        AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois. Chaque palier à une portée publiée et l'opérateur connait le coût avant de signer.
       </p>
       <p>
         Rablab ne publié pas de tarifs publiquement. La tarification d'agence créative depend typiquement de la portée de la production créative : un projet d'identité de marque differe d'une campagne de contenu qui differe d'une construction d'expérience numérique. Les engagements sont côtés par projet ou par retainer.
@@ -211,7 +211,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "Rablab est une agence créative numérique montréalaise axee sur l'identité de marque, la production créative et l'expérience numérique. AiLys est une plateforme spécialisée d'AI Visibility pour les opérateurs locaux.",
-          'AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Rablab côté des engagements créatifs par projet ou retainer.',
+          'AiLys publié quatre forfaits CAD (300 à 2 500 dollars). Rablab côté des engagements créatifs par projet ou retainer.',
           "Rablab livre des artefacts créatifs (identité de marque, campagnes, contenu, expérience numérique). AiLys livre de l'exécution AI Visibility (audits, GBP, citations, schemas).",
           "Les deux sont complementaires sur la pile marketing. Agence créative pour le travail de marque, plateforme d'AI Visibility pour la découverte dans les moteurs IA.",
           'Les deux sont bilingues EN et FR à Montréal. AiLys livre du bilingue systematique sur chaque piece de contenu par défaut.',

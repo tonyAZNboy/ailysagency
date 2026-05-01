@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+﻿/* eslint-disable react-refresh/only-export-components */
 import type { BlogPostMeta } from '../../types'
 import { AUTHORS } from '../../authors'
 import {
@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs Rablab, AI Visibility platform versus Montreal creative digital agency',
   metaDescription:
     'Honest comparison of AiLys and Rablab for Quebec brands. Pricing, AI Visibility, creative production, bilingual scope, and where each agency fits.',
-  tldr: 'Rablab is a Montreal creative digital agency known for branding, creative production, content, and digital experience work for mid-market and large brand clients. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Rablab fits brands that need creative production and digital experience design. AiLys fits operators who need AI engine citation work and GBP at a transparent monthly cost.',
+  tldr: 'Rablab is a Montreal creative digital agency known for branding, creative production, content, and digital experience work for mid-market and large brand clients. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Rablab fits brands that need creative production and digital experience design. AiLys fits operators who need AI engine citation work and GBP at a transparent monthly cost.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'rablab', 'comparison', 'montreal', 'creative', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -32,7 +32,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does AiLys compare to Rablab for Montreal brands?',
       answer:
-        'AiLys is a fixed-price AI Visibility platform for local owners with four published CAD tiers (300 to 2,499 dollars), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Rablab is a Montreal creative digital agency focused on branding, creative production, digital experience design, and content work for mid-market and large brand clients. The two solve different problems: Rablab builds brands and creative assets, AiLys ships AI engine citation work and GBP automation. They rarely overlap on the same engagement.',
+        'AiLys is a fixed-price AI Visibility platform for local owners with four published CAD tiers (300 to 2,500 dollars), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Rablab is a Montreal creative digital agency focused on branding, creative production, digital experience design, and content work for mid-market and large brand clients. The two solve different problems: Rablab builds brands and creative assets, AiLys ships AI engine citation work and GBP automation. They rarely overlap on the same engagement.',
     },
     {
       question: 'Does Rablab offer AI Visibility services like AiLys?',
@@ -42,7 +42,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Is AiLys cheaper than Rablab?',
       answer:
-        'AiLys publishes four CAD tiers (300 to 2,499 dollars per month) with fixed deliverable lists. Rablab does not publish rates. Creative agency engagements are typically project-based or retainer-based with custom pricing reflecting the scope of creative production. Direct comparison is not meaningful because the deliverables differ: AiLys ships AI Visibility audits and GBP work, Rablab ships brand identities and creative campaigns.',
+        'AiLys publishes four CAD tiers (300 to 2,500 dollars per month) with fixed deliverable lists. Rablab does not publish rates. Creative agency engagements are typically project-based or retainer-based with custom pricing reflecting the scope of creative production. Direct comparison is not meaningful because the deliverables differ: AiLys ships AI Visibility audits and GBP work, Rablab ships brand identities and creative campaigns.',
     },
     {
       question: 'Can a brand use both AiLys and Rablab?',
@@ -82,7 +82,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: 'Creative-led', label: 'Rablab focus: brand, content, digital experience' },
           { value: 'AI Visibility', label: 'AiLys focus: AI engine citations and GBP' },
         ]}
@@ -136,7 +136,7 @@ export function Content() {
 
       <h2 id="pricing-and-engagement-model">Pricing and engagement model</h2>
       <p>
-        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month. Each tier has a published scope and the operator knows the cost before signing.
+        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars per month. Each tier has a published scope and the operator knows the cost before signing.
       </p>
       <p>
         Rablab does not publish rates publicly. Creative agency pricing typically depends on the scope of creative production: a brand identity project differs from a content campaign which differs from a digital experience build. Engagements are quoted per project or per retainer.
@@ -219,7 +219,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'Rablab is a Montreal creative digital agency focused on brand identity, creative production, and digital experience. AiLys is a specialist AI Visibility platform for local operators.',
-          'AiLys publishes four CAD tiers (300 to 2,499 dollars). Rablab quotes creative engagements per project or retainer.',
+          'AiLys publishes four CAD tiers (300 to 2,500 dollars). Rablab quotes creative engagements per project or retainer.',
           'Rablab delivers creative artifacts (brand identity, campaigns, content, digital experience). AiLys delivers AI Visibility execution (audits, GBP, citations, schema).',
           'The two are complementary across the marketing stack. Creative agency for brand work, AI Visibility platform for AI engine discovery.',
           'Both are bilingual EN and FR in Montreal. AiLys ships systematic bilingual delivery on every piece of content by default.',

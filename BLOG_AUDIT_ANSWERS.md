@@ -1,4 +1,4 @@
-# Blog audit answers (Phase E.18 follow-up)
+﻿# Blog audit answers (Phase E.18 follow-up)
 
 **Operator answers received 2026-04-30** to the 10 validation questions in STATE.md (top section: "NEXT SESSION PICKUP — blog content audit (Phase E.18)").
 
@@ -117,13 +117,13 @@ Per CLAUDE.md (current as of v0.8.3):
 - Starter: $300/mo CAD
 - Core: $600/mo CAD
 - Growth: $1,200/mo CAD
-- Agency: $2,499/mo CAD
+- Agency: $2,500/mo CAD
 - AiLys Automation reputation add-on: $100/mo (bundled in Agency)
 
 Effective pricing with add-on:
 - Starter+addon: $400/mo
 - Core+addon: $700/mo
 - Growth+addon: $1,300/mo
-- Agency: $2,499/mo (addon included)
+- Agency: $2,500/mo (addon included)
 
 Make sure blog content reflects these numbers. Earlier session already corrected stale prices (799→600, 1499→1200, 2500→2499) but verify nothing else is stale during the Q9/Q10 audit pass.

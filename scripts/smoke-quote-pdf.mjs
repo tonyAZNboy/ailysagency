@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * Smoke test for Phase E.1.9: personalized quote PDF endpoint + render.
  *
@@ -65,7 +65,7 @@ function validate(body) {
 // Case 4: Agency monthly + reviuzy bundled
 {
   const calc = computeQuote({ prospectName: 'X', businessName: 'Y', email: 'a@b.c', lang: 'en', tier: 'agency', engagement: 'monthly', reviuzyAddon: true, websiteSize: 'none', taxIncluded: false });
-  assert('4. Agency reviuzyAddon bundled (no charge)', calc.tierBase === 2499 && calc.reviuzyAddonCost === 0 && calc.total === 2499, JSON.stringify(calc));
+  assert('4. Agency reviuzyAddon bundled (no charge)', calc.tierBase === 2500 && calc.reviuzyAddonCost === 0 && calc.total === 2500, JSON.stringify(calc));
 }
 // Case 5: Tax-incl Core monthly
 {

@@ -1,4 +1,4 @@
-# AiLys Agency — Claude operating rules
+﻿# AiLys Agency — Claude operating rules
 
 ## START HERE — every new session
 
@@ -34,7 +34,7 @@ When you finish meaningful work in any session, **update `STATE.md`** before com
 - **Stack:** Vite + React + TypeScript + Tailwind + shadcn/ui, deployed on Cloudflare Pages
 - **Sister product:** Reviuzy SaaS (https://www.reviuzy.com)
 - **Home market:** Quebec, bilingual EN/FR-CA in-house
-- **Pricing:** $300 (Starter) / $600 (Core) / $1,200 (Growth) / $2,499 (Agency) CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
+- **Pricing:** $300 (Starter) / $600 (Core) / $1,200 (Growth) / $2,500 (Agency) CAD per month, 4 tiers, month-to-month, 30-day satisfaction guarantee.
 - **Tier 4 renamed:** "Autopilot" → **"Agency"** (positioning shift to brand and agency clients). Display name only; i18n key prefix `tier3*` stays for backwards compatibility.
 - **Reviuzy automation add-on:** $100 CAD/month, available as toggle on Starter / Core / Growth. Bundled by default in Agency tier. Includes the full Reviuzy SaaS surface: NFC review collection + AI review generation + auto-replies + contest engine with video winner announcement + legal T&C generator + fake review detection + the entire Phase 2-4 stack (GBP automation, citations, NAP, AI Visibility, AI Traffic).
 - **Agency tier exclusive (vs add-on):** multi-location dashboard, white-label PDF reports, Slack SLA <4h business hours, API access (Share of Model / AI Traffic / Visibility scores), custom integrations (HubSpot, Salesforce, hospitality PMS), quarterly executive deck presented in person, dedicated senior strategist, daily AI Visibility probes (vs weekly Growth), 12 GBP posts/mo + 4-6 photos/mo, Domain Shield + Domain Speed Boost.
