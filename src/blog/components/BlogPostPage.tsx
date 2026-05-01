@@ -247,7 +247,11 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
           {/* ToC sidebar */}
           {localizedMeta.headings.length > 0 && (
             <aside className="hidden lg:block w-64 shrink-0">
-              <TableOfContents headings={localizedMeta.headings} />
+              <TableOfContents
+                headings={localizedMeta.headings}
+                translatedHeading={lang === 'fr' ? 'Table des matières' : undefined}
+                translatedToggleLabel={lang === 'fr' ? 'Afficher la table des matières' : undefined}
+              />
             </aside>
           )}
         </div>
@@ -278,6 +282,8 @@ function BlogPostContent({ post, lang }: { post: BlogPostEntry; lang: string }) 
             translatedVerifiedBy={lang === 'fr' ? 'Vérifié par {{team}}' : undefined}
             translatedResearchTeam={lang === 'fr' ? 'AiLys Research' : undefined}
             translatedOrgDescription={lang === 'fr' ? "L'équipe qui bâtit le moteur AiLys et le SaaS Reviuzy, livre l'outillage qui propulse les audits AI Visibility, les flux de citations et l'automatisation de réputation pour les opérateurs locaux." : undefined}
+            translatedRole={lang === 'fr' ? 'Produit et ingénierie' : undefined}
+            translatedName={lang === 'fr' ? 'Équipe AiLys' : undefined}
           />
         </div>
 
