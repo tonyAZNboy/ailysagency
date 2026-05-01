@@ -241,7 +241,7 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps = {}) {
           </div>
 
           {/* Category pills (sm and up only). Mobile uses the dropdown above. */}
-          <div className="hidden sm:flex mt-3 gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          <div className="hidden sm:flex sm:flex-wrap mt-3 gap-2 pb-1">
             <button
               onClick={() => { setActiveCategory('all'); setPage(1) }}
               className={cn(

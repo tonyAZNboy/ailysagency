@@ -192,7 +192,7 @@ export function Content() {
       </p>
 
       <ol>
-        <li>The business needs brand strategy, creative production, and web development alongside digital marketing. AiLys does not build websites or produce brand creative.</li>
+        <li>The business needs heavy brand strategy and creative production beyond what is included with AiLys. Website builds are included in every AiLys tier (with a creation fee recovery clause if the contract is cancelled before 6 months), but enterprise brand campaigns and original creative production at scale go to a full-service agency like Major Tom.</li>
         <li>The marketing scope is national or international, spanning multiple markets with paid media, content, and SEO at scale. AiLys focuses on local markets.</li>
         <li>The budget supports a five-figure monthly retainer and the operator needs a single agency relationship for strategy, execution, and analytics across all digital channels.</li>
       </ol>
