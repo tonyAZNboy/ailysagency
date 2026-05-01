@@ -26,6 +26,7 @@ export function HeroAuditCard() {
   const { t } = useLang();
   const [businessName, setBusinessName] = useState("");
   const [city, setCity] = useState("");
+  const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [citation, setCitation] = useState<LiveCitation | null>(null);
@@ -67,7 +68,7 @@ export function HeroAuditCard() {
     setSubmitting(true);
     setTimeout(() => {
       navigate("/audit", {
-        state: { businessName, city, email, prefilled: true },
+        state: { businessName, city, url, email, prefilled: true },
       });
     }, 300);
   };
@@ -202,6 +203,14 @@ export function HeroAuditCard() {
               className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
               required
               aria-label={t.heroAuditCard.placeholderCity}
+            />
+            <Input
+              type="url"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder={t.heroAuditCard.placeholderUrl ?? "yourbusiness.ca (optional, deeper crawl)"}
+              className="h-11 bg-white border-white/70 text-slate-900 placeholder:text-slate-500 focus-visible:ring-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] text-sm sm:text-base"
+              aria-label={t.heroAuditCard.placeholderUrl ?? "Website URL"}
             />
             <Input
               type="email"
