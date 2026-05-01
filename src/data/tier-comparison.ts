@@ -254,6 +254,26 @@ export const TIER_COMPARISON: TierCategory[] = [
         growth: text("Add-on +$35", "Module +35 $"),
         agency: yes("Bundled", "Inclus"),
       },
+      {
+        feature: {
+          en: "Tech Health Pack (GSC indexation monitoring + monthly blog auto-reindex + crawl errors sweep + Core Web Vitals alerts)",
+          fr: "Tech Health Pack (suivi indexation GSC + reindexation auto des blogues mensuels + balayage erreurs de crawl + alertes Core Web Vitals)",
+        },
+        starter: text("Add-on +$150/mo", "Module +150 $/mois"),
+        core: text("Add-on +$150/mo", "Module +150 $/mois"),
+        growth: text("Add-on +$150/mo", "Module +150 $/mois"),
+        agency: yes("Bundled", "Inclus"),
+      },
+      {
+        feature: {
+          en: "GSC Indexation Audit (one-time, priced by site size: 1-9p $100, 10-19p $200, 20-29p $300, 30-39p $400, 40-74p $500, 75-99p $600, 100-149p $800, 150+p custom quote)",
+          fr: "Audit Indexation GSC (une fois, tarif selon taille du site : 1-9p 100 $, 10-19p 200 $, 20-29p 300 $, 30-39p 400 $, 40-74p 500 $, 75-99p 600 $, 100-149p 800 $, 150+p sur mesure)",
+        },
+        starter: text("Available", "Disponible"),
+        core: text("Available", "Disponible"),
+        growth: text("Available", "Disponible"),
+        agency: yes("Bundled at signup", "Inclus a la signature"),
+      },
     ],
   },
   {

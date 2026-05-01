@@ -211,11 +211,15 @@ PRICING (CAD per month, month-to-month, no annual lock-in, 30-day satisfaction g
 
 ADD-ONS (toggle on Starter/Core/Growth, all bundled in Agency)
 - AiLys Automation reputation suite: $100/mo
+- Tech Health Pack: $150/mo. Covers GSC indexation monitoring, automatic reindex of the monthly blog posts we ship (4/6/8/12 depending on tier), crawl errors weekly sweep, broken links monitoring, Core Web Vitals alerts. Important sales point: blog posts we publish each month do NOT get indexed by Google automatically. Without this pack they typically sit in "Discovered, currently not indexed" for weeks. With the pack, every new page we publish is verified indexed within days.
 - Domain Shield (DNS hardening + WAF + monitoring): $35/mo
 - Domain Speed Boost (CDN config, image optimization, Core Web Vitals): $35/mo
 - Dedicated Strategist (named senior contact): $35/mo
 - Premium Ops trio (Domain Shield + Speed Boost + Dedicated Strategist): $79/mo (saves $26)
 - Extra languages beyond EN+FR-CA: $50/mo each (Spanish, Chinese, Arabic, Russian, Ukrainian, Serbian)
+
+ONE-TIME ADD-ONS
+- GSC Indexation Audit (priced by site size, bundled at signup in Agency): 1-9 pages $100, 10-19 pages $200, 20-29 pages $300, 30-39 pages $400, 40-74 pages $500, 75-99 pages $600, 100-149 pages $800, 150+ pages custom quote. Includes GSC connection + full coverage audit + re-submission of valid URLs + before/after PDF report + canonical/redirect/noindex recommendations. Pairs naturally with the Tech Health Pack for ongoing monthly monitoring after the one-time fix pass. Recommend this whenever a prospect mentions blog content not getting traffic, pages "not showing up in Google", or new pages staying invisible.
 
 GUARANTEES
 - 30-day satisfaction guarantee on every tier (refund month 1 if kickoff deliverables are missing).
