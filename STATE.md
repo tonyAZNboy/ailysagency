@@ -4,6 +4,69 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended7) — /api/og.svg dynamic OG images + 4 SEOHead wires
+
+Final autopilot batch this session. Branded 1200x630 OG images served at
+request time by a Cloudflare Pages Function. Renders 4 kinds (report,
+badge, concierge, default) in EN+FR, with score colorization for reports.
+
+**Shipped:**
+
+1. **`/api/og.svg` Pages Function** (`functions/api/og.svg.ts`):
+   - 4 kinds: `report`, `badge`, `concierge`, `default`
+   - Query params: `kind`, `title`, `subtitle`, `score` (0-100), `lang` (en|fr)
+   - Tier-color score badges (>=80 emerald, >=60 cyan, >=40 amber, else red) for `kind=report`
+   - Word-wrap helper for multi-line titles (3 lines max for reports, 2 for default)
+   - XML-escape for any user-provided strings (XSS-safe)
+   - Cache: 1h public on known kinds, 5min on unknown fallback
+   - CORS open + X-Robots noindex (per existing /api/badge.svg pattern)
+
+2. **4 SEOHead wires** to consume the new endpoint:
+   - `BadgeEmbed.tsx`: `kind=badge&lang=...` (renders badge preview + headline)
+   - `ConciergeDemo.tsx`: `kind=concierge&lang=...` (renders concierge headline + sample prompt)
+   - `IndustryReports.tsx`: `kind=default&title=...&subtitle=...` (lead-magnet branding)
+   - `IndustryReportDetail.tsx`: `kind=report&title=...&subtitle=sampleSize&score=N` (extracts score from median metric for color)
+
+**Why SVG OG (not PNG):**
+- Twitter/X, LinkedIn, Facebook, Slack, Discord, iMessage all render SVG OG images correctly as of late 2025
+- Generated at request time = zero asset management overhead (no /og-images/ folder to maintain when reports update)
+- Vector = perfect rendering at any density, light + dark backgrounds
+- Pricing: free (Cloudflare Pages Functions free tier covers this easily)
+
+**Verified:**
+- TypeScript: clean
+- Em-dash: zero in og.svg.ts
+- Build: success ~21s
+- 4 SEOHead refs compile and pass tsc
+
+**Cumulative session totals (since 2026-04-30 D.4 close):**
+- AiLys PRs: 11 merged (#74-#84, except #81 unused) + 7 STATE syncs
+- Tags pushed: 7 (v0.12.0, v0.13.0, v0.13.1, v0.13.2, v0.13.3, v0.13.4, v0.13.5, v0.13.6)
+- 5 new public surfaces: /badge, /verify/:slug, /industry-reports, /industry-reports/:slug, /concierge-demo
+- 6 help articles added (4 + 2 deep-dives)
+- 5 live industry reports + 2 Q2 placeholders
+- 11 GSD planning artefacts for 5 features
+- Pricing $2,499 → $2,500 cascaded
+- Sitemap 142 → 162 URLs/locale (2272 → 2592 total)
+- llms.txt pricing block refreshed
+- Footer nav for new surfaces + Industries cross-link to reports
+- Newsletter signup on industry reports
+- /api/concierge-chat stub fail-closed
+- /api/og.svg dynamic OG images
+- /api/badge.svg dynamic per-tenant SVG badges
+
+**Pending tag:** `v0.13.6-dynamic-og-images`
+
+**Outstanding for next session (priority order):**
+
+1. **Reviuzy F1.1** (Deep Site Audit DB schema + RLS + smoke). Plan in `.planning/feature-1-deep-site-audit/`.
+2. **Reviuzy F5.2** (Concierge backend with Anthropic tool-calling + RAG over pgvector). Activates `/api/concierge-chat` AiLys-side proxy.
+3. **AILYS_SERVICE_SHARED_SECRET** + **REVIUZY_CONCIERGE_URL** env vars in Cloudflare Pages dashboard once Reviuzy backend ships.
+4. ES/ZH/AR/RU translations of the 6 new help articles (currently EN+FR only, per i18n queue).
+5. Reviuzy F3 White-Label Agency Portal (parallel track, independent of F1/F2).
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended6) — Industry cross-links + newsletter + concierge stub + 2 help articles
 
 Sustained autopilot push. Wired the new surfaces into the existing site

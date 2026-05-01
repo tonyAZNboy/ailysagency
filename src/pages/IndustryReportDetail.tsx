@@ -105,6 +105,14 @@ export default function IndustryReportDetail() {
         title={title}
         description={excerpt}
         canonicalUrl={canonical}
+        image={(() => {
+          const medianMetric = report.topMetrics.find((m) =>
+            (m.label || "").toLowerCase().includes("median")
+          );
+          const scoreMatch = medianMetric?.value.match(/(\d{1,3})/);
+          const score = scoreMatch ? scoreMatch[1] : "0";
+          return `/api/og.svg?kind=report&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(sampleSize)}&score=${score}`;
+        })()}
         keywords={[
           report.industry,
           report.region,

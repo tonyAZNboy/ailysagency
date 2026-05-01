@@ -76,6 +76,7 @@ export default function BadgeEmbed() {
             : "Display the AiLys Verified badge on your website. Copy-paste embed code in HTML or Markdown. Direct link to your public AI Visibility report. Bilingual EN and FR-CA."
         }
         canonicalUrl={canonical}
+        image={`/api/og.svg?kind=badge&lang=${lang === "fr" ? "fr" : "en"}`}
         keywords={[
           "AiLys badge",
           "AI Visibility badge",
