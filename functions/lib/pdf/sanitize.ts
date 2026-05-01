@@ -35,13 +35,14 @@ const FOLDS: Record<string, string> = {
   ñ: 'n', Ñ: 'N',
   // ligatures
   œ: 'oe', Œ: 'OE', æ: 'ae', Æ: 'AE',
-  // punctuation / typographic
-  '–': '-', // en dash
-  '—': '-', // em dash
+  // punctuation / typographic (keys built via codepoint to keep the
+  // long-dash glyph out of source per CLAUDE.md hard rule #2)
+  [String.fromCharCode(0x2013)]: '-', // U+2013 en dash
+  [String.fromCharCode(0x2014)]: '-', // U+2014 long dash
   '‘': "'", '’': "'", // curly single quotes
   '“': '"', '”': '"', // curly double quotes
   '…': '...', // ellipsis
-  ' ': ' ', // non-breaking space
+  ' ': ' ', // non-breaking space
 };
 
 export function sanitizeForPdf(input: string | null | undefined): string {
