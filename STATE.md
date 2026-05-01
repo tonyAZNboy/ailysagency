@@ -4,6 +4,79 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-01 (late evening) — Gemini migration + audit hold-back discipline + Tech Health Pack add-on
+
+User had no Anthropic API key provisioned in Cloudflare and only the
+Gemini key in `~/.claude/keys.env`. Migrated all 5 AI surfaces to
+Gemini 2.5 Pro, tightened the audit prompts to hold back the strategic
+playbook for the paid discovery call, and added a new monthly add-on
+(Tech Health Pack at $150/mo) plus a one-time GSC Indexation Audit
+priced by site size.
+
+**PRs merged this session:**
+- #81 Migrate AI surfaces to Gemini + align pricing units to /forfaits-complets
+- #83 Switch to gemini-2.5-pro + non-streaming chat-advisor for reliability
+- #86 Tech Health Pack $150/mo + GSC Indexation Audit one-time tiers
+
+**AI backend at close:**
+- All 5 AI surfaces (chat-advisor, hero-citation, ai-visibility-score,
+  llm-citation-matrix, audit-ai-visibility-instant) now use Google
+  Generative Language API, model `gemini-2.5-pro:generateContent`.
+- Reads `GEMINI_API_KEY` from Cloudflare Pages Runtime env vars.
+- chat-advisor is non-streaming (was streamGenerateContent SSE; chunk
+  boundaries unreliable inside Cloudflare Workers).
+- JSON-output endpoints set `responseMimeType: application/json`.
+- Safety settings: BLOCK_ONLY_HIGH on all 4 categories.
+- Live verified post-deploy: chat returns full Quebec French AiLys
+  context in ~10s, /forfaits-complets returns 200 with new add-on rows.
+
+**Pricing canonicalization:**
+- Agency tier $2,499 -> $2,500 across 36 files
+- GBP posts/mo unified to single quota (4/6/8/12); client can self-publish
+- GBP photos/mo aligned 4/6/8/12, citations/mo aligned 2/4/6/8
+- AI Visibility probe cadence aligned: monthly/weekly/weekly/daily
+- CLAUDE.md "CANONICAL UNITS PER TIER" block points to
+  src/data/tier-comparison.ts as single source of truth
+
+**Audit hold-back discipline (per agency directive "ne donne pas tout"):**
+- 3 audit system prompts reframed: surface the symptom, not the cure.
+  Forbidden: specific tactics, exact code, prompt templates, schema
+  patches, step-by-step plans. Allowed: high-level gap categorization +
+  "book the strategist call" CTA.
+- PDF action plan page: shows top 3 priority items (was top 8). New CTA
+  section: "The next 5 actions are reserved for the strategist call"
+  with concrete examples of what is withheld.
+
+**New add-ons (PR #86):**
+- Tech Health Pack at $150/mo (toggle on Starter/Core/Growth, bundled
+  in Agency). Sales angle: monthly blog posts do NOT get indexed by
+  Google automatically; without this pack they sit in "Discovered,
+  currently not indexed" for weeks.
+- GSC Indexation Audit one-time, priced by site size: 1-9p $100,
+  10-19p $200, 20-29p $300, 30-39p $400, 40-74p $500, 75-99p $600,
+  100-149p $800, 150+p custom quote. Bundled at signup in Agency.
+
+**Cloudflare config status:**
+- `GEMINI_API_KEY` confirmed live in Runtime.
+- `ANTHROPIC_API_KEY` can be removed (no longer read by any function).
+- `VITE_SUPABASE_*` still placeholders. User created a dedicated AiLys
+  Supabase project but values not yet pushed to Cloudflare Build env.
+  Public surfaces work without it; auth/admin pages will not.
+
+**Outstanding for next session:**
+1. Apply the 4 migrations in supabase/migrations/ to the new dedicated
+   AiLys Supabase project.
+2. Reconcile or migrate the missing tables (pricing_config, tenants,
+   subscriptions, subscription_plans, tenant_overrides) which the hooks
+   query but are not in the migration scripts.
+3. Push real VITE_SUPABASE_URL + VITE_SUPABASE_PUBLISHABLE_KEY to
+   Cloudflare Build env vars to activate auth + admin pages.
+4. Deploy the 2 Supabase edge functions if still needed.
+5. Optional: roll out the audit hold-back discipline into email
+   templates (currently only PDF + 3 AI surface prompts have it).
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-01 (autopilot extended7) — /api/og.svg dynamic OG images + 4 SEOHead wires
 
 Final autopilot batch this session. Branded 1200x630 OG images served at
