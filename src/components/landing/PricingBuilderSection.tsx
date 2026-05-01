@@ -20,6 +20,8 @@ interface ExtraLanguageOption {
 
 const EXTRA_LANGUAGE_PRICE = 50;
 const REVIUZY_ADDON_PRICE = 100;
+const TECH_HEALTH_PACK_PRICE = 150;
+const GSC_INDEXATION_AUDIT_FROM = 100;
 const NFC_CARD_SERVICE_ONETIME = 100;
 const PREMIUM_OPS_INDIVIDUAL = 35;
 const PREMIUM_OPS_BUNDLE = 79;
@@ -62,6 +64,8 @@ export function PricingBuilderSection() {
   const [selectedServices, setSelectedServices] = useState<string[]>(["gbp", "tracking"]);
   const [extraLanguages, setExtraLanguages] = useState<Set<string>>(new Set());
   const [reviuzyAddon, setReviuzyAddon] = useState<boolean>(false);
+  const [techHealthPack, setTechHealthPack] = useState<boolean>(false);
+  const [gscIndexationAudit, setGscIndexationAudit] = useState<boolean>(false);
   const [nfcCardService, setNfcCardService] = useState<boolean>(false);
   const [domainShield, setDomainShield] = useState<boolean>(false);
   const [domainSpeedBoost, setDomainSpeedBoost] = useState<boolean>(false);
@@ -72,9 +76,18 @@ export function PricingBuilderSection() {
   //   + extra language fee ($50 per language beyond EN+FR-CA)
   //   + Reviuzy add-on ($100, free on Agency)
   //   + Premium Ops items: bundle ($79 for the trio) OR individual ($35 each), free on Agency
+  //
+  // Page scale uses stepped 10-page brackets (per agency directive):
+  //   1-9 pages    -> $0   (covered by base)
+  //   10-19 pages  -> +$30
+  //   20-29 pages  -> +$60
+  //   30-39 pages  -> +$90
+  //   40-49 pages  -> +$120
+  //   50+ pages    -> +$150 (cap)
+  // Each jump of 10 pages adds $30 to the recurring monthly tier price.
   const computed = useMemo(() => {
     const base = 300;
-    const pageScale = Math.min(150, Math.max(0, (pages - 5) * 4));
+    const pageScale = Math.min(150, Math.max(0, Math.floor(pages / 10) * 30));
     const servicesAdd = services
       .filter((s) => selectedServices.includes(s.id))
       .reduce((acc, s) => acc + s.monthlyAdd, 0);
@@ -94,7 +107,8 @@ export function PricingBuilderSection() {
         ? PREMIUM_OPS_BUNDLE
         : opsIndividualCount * PREMIUM_OPS_INDIVIDUAL;
     const reviuzyCost = isAgency ? 0 : reviuzyAddon ? REVIUZY_ADDON_PRICE : 0;
-    const addonsCost = reviuzyCost + opsCost;
+    const techHealthCost = isAgency ? 0 : techHealthPack ? TECH_HEALTH_PACK_PRICE : 0;
+    const addonsCost = reviuzyCost + techHealthCost + opsCost;
     const clamped = tierPrice + languageCost + addonsCost;
 
     return {
@@ -102,6 +116,7 @@ export function PricingBuilderSection() {
       tierPrice,
       languageCost,
       reviuzyCost,
+      techHealthCost,
       opsCost,
       allThreeOps,
       opsIndividualCount,
@@ -116,6 +131,7 @@ export function PricingBuilderSection() {
     selectedServices,
     extraLanguages,
     reviuzyAddon,
+    techHealthPack,
     domainShield,
     domainSpeedBoost,
     dedicatedStrategist,
@@ -323,6 +339,34 @@ export function PricingBuilderSection() {
                     : `+$${REVIUZY_ADDON_PRICE}/${t.pricingBuilder.perMoSuffix}`
                 }
                 priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* Tech Health Pack: GSC indexation monitoring + auto-reindex of monthly blogs */}
+              <AddonRow
+                checked={techHealthPack || computed.isAgency}
+                disabled={computed.isAgency}
+                onToggle={() => setTechHealthPack((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.techHealthPackLabel}
+                description={t.pricingBuilder.techHealthPackDesc}
+                priceLabel={
+                  computed.isAgency
+                    ? t.pricingBuilder.addOnIncludedNote
+                    : `+$${TECH_HEALTH_PACK_PRICE}/${t.pricingBuilder.perMoSuffix}`
+                }
+                priceTone={computed.isAgency ? "muted-included" : "default"}
+              />
+
+              {/* GSC Indexation Audit (one-time, priced by site size) */}
+              <AddonRow
+                checked={gscIndexationAudit}
+                disabled={false}
+                onToggle={() => setGscIndexationAudit((v) => !v)}
+                accent="emerald"
+                title={t.pricingBuilder.gscIndexationLabel}
+                description={t.pricingBuilder.gscIndexationDesc}
+                priceLabel={`${t.pricingBuilder.fromPrefix} +$${GSC_INDEXATION_AUDIT_FROM} ${t.pricingBuilder.oneTimeSuffix}`}
+                priceTone="default"
               />
 
               {/* AiLys NFC card service (one-time, 3 pre-programmed cards) */}

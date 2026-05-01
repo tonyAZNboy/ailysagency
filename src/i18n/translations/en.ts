@@ -934,6 +934,11 @@ export const en = {
     perLangSuffix: "lang/mo",
     perMoSuffix: "mo",
     oneTimeSuffix: "one-time",
+    fromPrefix: "from",
+    techHealthPackLabel: "Tech Health Pack",
+    techHealthPackDesc: "Ensures the monthly blog posts AiLys publishes actually get indexed by Google. Without this, new pages can sit in \"Discovered, currently not indexed\" for weeks. Includes GSC indexation monitoring, auto-reindex of new pages, weekly crawl errors sweep, broken links monitoring, and Core Web Vitals alerts. Bundled in Agency.",
+    gscIndexationLabel: "GSC Indexation Audit (one-time)",
+    gscIndexationDesc: "One-time site coverage audit. Connects GSC, identifies all valid pages not yet indexed, re-submits them, and delivers a before/after PDF with canonical/redirect/noindex recommendations. Priced by site size: $100 (1-9 pages) up to $800 (100-149 pages), 150+ on custom quote. Bundled at signup in Agency.",
     nfcServiceLabel: "AiLys NFC card service",
     nfcServiceDesc: "One-time fulfillment: 3 pre-programmed NFC cards keyed to your AiLys Automation landing URL, with programming and delivery included. Optional: clients can self-procure blank cards from any NFC supplier and program the URL with a free phone NFC writer at lower cost.",
 
