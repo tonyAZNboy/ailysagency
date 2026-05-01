@@ -365,7 +365,7 @@ export interface EngagementInfo {
 export const ENGAGEMENT_OPTIONS: Record<EngagementMode, EngagementInfo> = {
   monthly: { mode: "monthly", discountPct: 0, eligibleTiers: ["starter", "core", "growth", "agency"] },
   annual: { mode: "annual", discountPct: 15, eligibleTiers: ["starter", "core", "growth", "agency"] },
-  biennial: { mode: "biennial", discountPct: 20, eligibleTiers: ["growth", "agency"] },
+  biennial: { mode: "biennial", discountPct: 20, eligibleTiers: ["starter", "core", "growth", "agency"] },
 };
 
 export const QUEBEC_TAX_RATE = 0.14975; // TPS 5% + TVQ 9.975%
