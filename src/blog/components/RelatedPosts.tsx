@@ -1,4 +1,4 @@
-import { BLOG_POSTS } from '../registry'
+import { BLOG_POSTS, getLocalizedMeta } from '../registry'
 import type { BlogPostEntry } from '../types'
 import { BlogCard } from './BlogCard'
 
@@ -30,17 +30,25 @@ export function RelatedPosts({ relatedSlugs, langPrefix = '', translatedHeading,
         {translatedHeading || 'You Might Also Like'}
       </h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {related.slice(0, 4).map((post) => (
-          <BlogCard
-            key={post.slug}
-            post={post}
-            langPrefix={langPrefix}
-            translatedTitle={translatedPosts?.[post.slug]?.title}
-            translatedDescription={translatedPosts?.[post.slug]?.metaDescription}
-            translatedCategoryLabel={translatedCategories?.[post.category]}
-            lang={lang}
-          />
-        ))}
+        {related.slice(0, 4).map((post) => {
+          // Pull FR-CA hand-authored title/description from the sister file
+          // when lang='fr' so related cards on a FR post page show the
+          // localized meta. Falls back to EN canonical for other locales.
+          const localized = lang ? getLocalizedMeta(post, lang) : post
+          const fallbackTitle = localized !== post ? localized.title : undefined
+          const fallbackDescription = localized !== post ? localized.metaDescription : undefined
+          return (
+            <BlogCard
+              key={post.slug}
+              post={post}
+              langPrefix={langPrefix}
+              translatedTitle={translatedPosts?.[post.slug]?.title ?? fallbackTitle}
+              translatedDescription={translatedPosts?.[post.slug]?.metaDescription ?? fallbackDescription}
+              translatedCategoryLabel={translatedCategories?.[post.category]}
+              lang={lang}
+            />
+          )
+        })}
       </div>
     </section>
   )
