@@ -319,7 +319,7 @@ export default function PricingDetails() {
               questions: lang === "fr" ? [
                 {
                   question: "Combien coute AiLys par mois?",
-                  answer: "4 forfaits CAD/mois: Starter 300$, Core 600$, Growth 1200$, Agency 2499$. Engagement annuel reduit de 15%, biennal reduit de 20% (Growth + Agency seulement). Tous les forfaits sont mois-a-mois avec garantie de satisfaction 30 jours.",
+                  answer: "4 forfaits CAD/mois: Starter 300$, Core 600$, Growth 1200$, Agency 2500$. Engagement annuel reduit de 15%, biennal reduit de 20% (Growth + Agency seulement). Tous les forfaits sont mois-a-mois avec garantie de satisfaction 30 jours.",
                 },
                 {
                   question: "Comment fonctionne la garantie de hausse mesurable a 90 jours?",
@@ -352,7 +352,7 @@ export default function PricingDetails() {
               ] : [
                 {
                   question: "How much does AiLys cost per month?",
-                  answer: "4 plans CAD/month: Starter $300, Core $600, Growth $1200, Agency $2499. Annual prepay saves 15%, biennial prepay saves 20% (Growth + Agency only). All plans month-to-month with 30-day satisfaction guarantee.",
+                  answer: "4 plans CAD/month: Starter $300, Core $600, Growth $1200, Agency $2500. Annual prepay saves 15%, biennial prepay saves 20% (Growth + Agency only). All plans month-to-month with 30-day satisfaction guarantee.",
                 },
                 {
                   question: "How does the 90-day measurable uplift guarantee work?",

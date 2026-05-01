@@ -35,7 +35,7 @@ const TIER_PRICE_CAD: Record<QuoteTier, number> = {
   starter: 300,
   core: 600,
   growth: 1200,
-  agency: 2499,
+  agency: 2500,
 };
 
 const TIER_NAME: Record<QuoteTier, string> = {

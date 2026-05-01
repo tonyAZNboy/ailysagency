@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs ProStar SEO, AI Visibility versus traditional local SEO in Canada',
   metaDescription:
     'Honest comparison of AiLys and ProStar SEO for Canadian local businesses. Pricing tiers, AI Visibility, GBP work, bilingual scope, and where each agency fits.',
-  tldr: 'ProStar SEO is a Canadian local SEO agency with offices in Quebec City, Montreal, Toronto, and Calgary, offering a full traditional local SEO suite (GBP, citations, link building, reviews, content) on no-lock-in month-to-month contracts starting at 2,000 USD per month for local SEO and going up to 3,500 USD per month for regulated industries. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. ProStar fits operators who want a multi-city Canadian agency with traditional SEO scope. AiLys fits operators who want AI engine citation work and GBP at a lower entry tier in CAD.',
+  tldr: 'ProStar SEO is a Canadian local SEO agency with offices in Quebec City, Montreal, Toronto, and Calgary, offering a full traditional local SEO suite (GBP, citations, link building, reviews, content) on no-lock-in month-to-month contracts starting at 2,000 USD per month for local SEO and going up to 3,500 USD per month for regulated industries. AiLys is a Quebec-built AI Visibility platform with four published tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. ProStar fits operators who want a multi-city Canadian agency with traditional SEO scope. AiLys fits operators who want AI engine citation work and GBP at a lower entry tier in CAD.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'prostar seo', 'comparison', 'canada', 'quebec', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -32,12 +32,12 @@ export const meta: BlogPostMeta = {
     {
       question: 'How does AiLys compare to ProStar SEO for Canadian local businesses?',
       answer:
-        'AiLys is a fixed-price AI Visibility platform with published monthly tiers (300 to 2,499 dollars CAD), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. ProStar SEO is a Canadian agency with offices in Quebec City, Montreal, Toronto, and Calgary that offers a full traditional local SEO suite on quote-based engagements with no long-term contracts. AiLys focuses specifically on AI engine citations and GBP automation. ProStar covers a broader traditional SEO scope including link building and ongoing PPC integration.',
+        'AiLys is a fixed-price AI Visibility platform with published monthly tiers (300 to 2,500 dollars CAD), bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. ProStar SEO is a Canadian agency with offices in Quebec City, Montreal, Toronto, and Calgary that offers a full traditional local SEO suite on quote-based engagements with no long-term contracts. AiLys focuses specifically on AI engine citations and GBP automation. ProStar covers a broader traditional SEO scope including link building and ongoing PPC integration.',
     },
     {
       question: 'Is AiLys cheaper than ProStar SEO?',
       answer:
-        'AiLys publishes four CAD tiers: Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars CAD per month. ProStar SEO publishes USD starting prices: 2,000 USD per month for local SEO, 2,500 USD for ecommerce SEO, 3,000 USD for professional service providers, and 3,500 USD for regulated industries (legal, medical, financial). At the entry point, AiLys Starter at 300 CAD is significantly below ProStar local SEO at 2,000 USD. At the top, AiLys Agency at 2,499 CAD is still under ProStar local SEO once the currency is converted. The two pricing models target different scope expectations: AiLys ships a defined deliverable list per tier, ProStar customizes within the starting-price floor.',
+        'AiLys publishes four CAD tiers: Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars CAD per month. ProStar SEO publishes USD starting prices: 2,000 USD per month for local SEO, 2,500 USD for ecommerce SEO, 3,000 USD for professional service providers, and 3,500 USD for regulated industries (legal, medical, financial). At the entry point, AiLys Starter at 300 CAD is significantly below ProStar local SEO at 2,000 USD. At the top, AiLys Agency at 2,500 CAD is still under ProStar local SEO once the currency is converted. The two pricing models target different scope expectations: AiLys ships a defined deliverable list per tier, ProStar customizes within the starting-price floor.',
     },
     {
       question: 'Does ProStar SEO offer AI Visibility services like AiLys?',
@@ -47,7 +47,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Which agency is better for a multi-city Canadian business?',
       answer:
-        'For a business with locations in Quebec City, Montreal, Toronto, and Calgary that wants in-person agency presence in each market, ProStar SEO has physical offices in those cities. For a multi-location business that wants AI Visibility audits, GBP automation, and bilingual content delivered remotely from a Quebec team at the Agency tier (2,499 dollars CAD a month), AiLys covers multi-location work with a multi-location dashboard and per-location reporting. The decision depends on whether physical presence matters more than scope specialization.',
+        'For a business with locations in Quebec City, Montreal, Toronto, and Calgary that wants in-person agency presence in each market, ProStar SEO has physical offices in those cities. For a multi-location business that wants AI Visibility audits, GBP automation, and bilingual content delivered remotely from a Quebec team at the Agency tier (2,500 dollars CAD a month), AiLys covers multi-location work with a multi-location dashboard and per-location reporting. The decision depends on whether physical presence matters more than scope specialization.',
     },
     {
       question: 'How does the bilingual delivery compare?',
@@ -83,7 +83,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499 CAD', label: 'AiLys published monthly tiers' },
+          { value: '$300 to $2,500 CAD', label: 'AiLys published monthly tiers' },
           { value: '$2,000 to $3,500 USD', label: 'ProStar SEO starting prices per vertical' },
           { value: '4 cities', label: 'ProStar offices: Quebec, Montreal, Toronto, Calgary' },
         ]}
@@ -115,13 +115,13 @@ export function Content() {
         Both agencies publish starting prices, which is unusual in the Canadian SEO market and a credit to both. The difference is the entry point and the scope at each tier.
       </p>
       <p>
-        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars CAD per month. Each tier has a published scope and the upgrade path is visible on the pricing page.
+        AiLys publishes four CAD tiers with fixed deliverable lists. Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars CAD per month. Each tier has a published scope and the upgrade path is visible on the pricing page.
       </p>
       <p>
         ProStar SEO publishes USD starting prices by vertical. Local SEO starts at 2,000 USD per month. Ecommerce SEO starts at 2,500 USD. Professional service providers start at 3,000 USD. Regulated industries (legal, medical, financial) start at 3,500 USD. The actual scope is custom-built within those starting prices, so the deliverable list is determined per engagement.
       </p>
       <p>
-        At the entry point, AiLys Starter at 300 CAD per month is roughly one-fifth of ProStar's lowest local SEO floor at 2,000 USD. At the AiLys Agency tier (2,499 CAD), the price stays under ProStar's local SEO floor once the CAD-to-USD conversion is applied. For operators with budgets under 2,000 USD per month, AiLys is the only option in this comparison set that ships at that range.
+        At the entry point, AiLys Starter at 300 CAD per month is roughly one-fifth of ProStar's lowest local SEO floor at 2,000 USD. At the AiLys Agency tier (2,500 CAD), the price stays under ProStar's local SEO floor once the CAD-to-USD conversion is applied. For operators with budgets under 2,000 USD per month, AiLys is the only option in this comparison set that ships at that range.
       </p>
 
       <QuickQuiz
@@ -236,7 +236,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'ProStar SEO is a multi-city Canadian local SEO agency with offices in Quebec, Montreal, Toronto, and Calgary. AiLys is a Quebec-built AI Visibility platform with remote delivery.',
-          'AiLys publishes four CAD tiers (300 to 2,499 dollars). ProStar publishes USD starting prices (2,000 for local SEO, up to 3,500 for regulated industries) with custom scope.',
+          'AiLys publishes four CAD tiers (300 to 2,500 dollars). ProStar publishes USD starting prices (2,000 for local SEO, up to 3,500 for regulated industries) with custom scope.',
           'AiLys measures and targets AI engine citations directly. ProStar delivers traditional local SEO that supports AI citations indirectly.',
           'ProStar offers active link building and integrated PPC management. AiLys does not staff link building or run paid media campaigns.',
           'Both agencies serve Canadian clients bilingually. AiLys ships bilingual delivery on every piece of content by default.',

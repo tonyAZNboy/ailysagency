@@ -9,18 +9,21 @@
 // - Replay/cost: KV cache 24h on sha256(url|businessName), KV rate limit
 //   5 audits/IP/15min, daily cap 500/day fail-closed
 // - SSRF: endpoint NEVER fetches the prospect URL server-side. URL passed
-//   to Claude as a string only; Claude reasons about brand from URL/name.
+//   to the model as a string only; the model reasons about brand from URL/name.
 // - Prompt injection: business name regex whitelist, URL is z.string().url(),
 //   inputs wrapped in <user_input> tags inside system prompt, output
-//   constrained to JSON schema, fallback on any deviation.
+//   constrained to JSON schema (responseMimeType=application/json),
+//   fallback on any deviation.
 // - Email harvest: no email field required.
 // - PII leakage: audit log uses sha256-hashed inputs only.
 // - Fail-closed: missing INSTANT_AI_VIS_ENABLED env -> 503.
+//
+// Backend: Google Generative Language API, gemini-2.5-flash:generateContent.
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
   AUDIT_PDF_RATE_LIMIT?: KVNamespace; // reused for rate limit + audit log ring buffer
-  ANTHROPIC_API_KEY?: string;
+  GEMINI_API_KEY?: string;
   INSTANT_AI_VIS_ENABLED?: string;
 }
 
@@ -229,30 +232,43 @@ const FALLBACK: Record<RequestBody['lang'], { score: 0; missing: [string, string
   ru: { score: 0, missing: ['Аудит временно недоступен.', 'Повторите через несколько минут.', 'Или закажите бесплатный звонок.'] },
 };
 
-async function callAnthropic(env: Env, body: RequestBody): Promise<Omit<AuditResult, 'cached'> | null> {
-  if (!env.ANTHROPIC_API_KEY) return null;
+async function callGemini(env: Env, body: RequestBody): Promise<Omit<AuditResult, 'cached'> | null> {
+  if (!env.GEMINI_API_KEY) return null;
   const userBlock = `<user_input>\nBusiness name: ${body.businessName}\nURL: ${body.url}\n</user_input>`;
   let res: Response;
   try {
-    res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'x-api-key': env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
+    res = await fetch(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' +
+        encodeURIComponent(env.GEMINI_API_KEY),
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT_BY_LANG[body.lang] }] },
+          contents: [{ role: 'user', parts: [{ text: userBlock }] }],
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 400,
+            responseMimeType: 'application/json',
+          },
+          safetySettings: [
+            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 400,
-        system: SYSTEM_PROMPT_BY_LANG[body.lang],
-        messages: [{ role: 'user', content: userBlock }],
-      }),
-    });
+    );
   } catch { return null; }
   if (!res.ok) return null;
-  let parsed: { content?: Array<{ text?: string; type: string }> };
+  let parsed: {
+    candidates?: Array<{
+      content?: { parts?: Array<{ text?: string }> };
+    }>;
+  };
   try { parsed = await res.json(); } catch { return null; }
-  const text = parsed.content?.find((c) => c.type === 'text')?.text?.trim() ?? '';
+  const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? '';
   if (!text) return null;
   // Parse JSON output, defensive: extract first {...} block if model added prose
   const jsonMatch = text.match(/\{[\s\S]*\}/);
@@ -319,7 +335,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
   }
 
   // Anthropic call
-  const result = await callAnthropic(ctx.env, body);
+  const result = await callGemini(ctx.env, body);
   if (!result) {
     emit({ ts, action: 'anthropic_fail', ipHash: ipHash.slice(0, 8) });
     return new Response(JSON.stringify({ ...FALLBACK[body.lang], cached: false }), {

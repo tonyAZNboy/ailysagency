@@ -68,7 +68,7 @@ Measured 30 days after deploy:
 
 | # | Decision |
 |---|---|
-| 1 | Posts GBP quotas: 4/6/8/12 (managed) + 6/8/10/12 (self-serve, per domain). Self-serve mode unlocked via onboarding toggle. |
+| 1 | Posts GBP quotas: 4/6/8/12 (managed) |
 | 2 | Photos GBP: same cadence as posts (4/6/8/12 managed, 6/8/10/12 self-serve, per domain). Client-uploaded photos do not count against AI image quota. |
 | 3 | Blog posts (bilingual EN+FR): 2/4/6/8 unique topics per month, each topic published in both EN and FR (so 2 topics = 4 published articles). Max 8/domain Agency to avoid Google thin-content penalty. |
 | 4 | Citations: 2/4/6/8 per month, max per domain. |

@@ -16,7 +16,7 @@ export const metaFr: BlogPostMeta = {
   title: 'Intégration AiLys, le déroulement semaine par semaine pour les PME québécoises',
   metaDescription:
     'Le déroulement clair semaine par semaine de l\'intégration AiLys pour une PME québécoise. L\'audit, le travail GBP, les citations, la base de visibilité IA, et le premier rapport hebdomadaire.',
-  tldr: 'L\'intégration AiLys pour une PME québécoise dure quatre semaines. Semaine 1 : audit gratuit + passe GBP + couche de consentement. Semaine 2 : premières 5 à 15 citations et schéma AEO. Semaine 3 : base de visibilité IA et premier breffé de contenu. Semaine 4 : premier rapport exécutif et alignement de la cadence. Après la semaine 4, le travail passe à un rythme régulier adapté au palier.',
+  tldr: 'L\'intégration AiLys pour une PME québécoise dure quatre semaines. Semaine 1 : audit gratuit + passe GBP + couche de consentement. Semaine 2 : premières 2 à 8 citations (selon le palier) et schéma AEO. Semaine 3 : base de visibilité IA et premier breffé de contenu. Semaine 4 : premier rapport exécutif et alignement de la cadence. Après la semaine 4, le travail passe à un rythme régulier adapté au palier.',
   faqItems: [
     {
       question: 'Combien de temps prend réellement l\'intégration AiLys?',
@@ -41,7 +41,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'Que se passe-t-il après la semaine 4?',
       answer:
-        'Le travail passe à une cadence régulière adaptée à votre palier. Starter voit une publication GBP par mois plus le suivi hebdomadaire des citations LLM. Core voit quatre publications GBP par mois, cinq citations par mois, et du contenu bilingue hebdomadaire. Growth ajoute le travail Wikipedia et Wikidata, huit publications par mois, et la surveillance concurrentielle. Agency ajoute les heures de stratège dédié, le tableau multi-emplacements, douze publications par mois, et la présentation exécutive trimestrielle livrée en personne.',
+        'Le travail passe à une cadence régulière adaptée à votre palier. Starter livre quatre publications GBP par mois plus la sonde Visibilité IA mensuelle. Core livre six publications GBP, quatre citations par mois et du contenu bilingue hebdomadaire (4 sujets uniques). Growth ajoute le travail Wikipedia et Wikidata, huit publications par mois, six citations, tableau multi-emplacements jusqu'à 3 emplacements. Agency ajoute les heures de stratège dédié, le tableau multi-emplacements illimité, douze publications par mois, huit citations par domaine, et la présentation exécutive trimestrielle livrée en personne.',
     },
   ],
   headings: [
@@ -63,8 +63,8 @@ export function ContentFr() {
       <p>
         L\'intégration AiLys prend quatre semaines de la signature du
         contrat à un rythme régulier. La semaine 1 ferme l\'audit et la
-        passe GBP. La semaine 2 livre les premières 5 à 15 citations et
-        le schéma. La semaine 3 livre la base de visibilité IA et le
+        passe GBP. La semaine 2 livre les premières 2 à 8 citations (selon le
+        palier) et le schéma. La semaine 3 livre la base de visibilité IA et le
         premier breffé de contenu. La semaine 4 livre le premier rapport
         exécutif et aligne la cadence avec votre palier.
       </p>
@@ -155,11 +155,11 @@ export function ContentFr() {
 
       <h2 id="week-two-citations-and-schema">Semaine 2 : citations et schéma AEO</h2>
       <p>
-        Les citations atterrissent selon votre palier. Starter voit la
-        base technique plus le suivi mensuel. Core livre 5 citations
-        vers les répertoires qui comptent pour votre secteur (Yelp, BBB,
-        Pages Jaunes, plus 2 spécifiques au secteur). Growth livre 10.
-        Agency livre 15 avec une dispersion géographique plus profonde.
+        Les citations atterrissent selon votre palier. Starter livre 2
+        citations par mois. Core livre 4 citations vers les répertoires qui
+        comptent pour votre secteur (Yelp, BBB, Pages Jaunes, plus un
+        annuaire spécifique au secteur). Growth livre 6. Agency livre 8 par
+        domaine avec une dispersion géographique plus profonde.
       </p>
       <p>
         Le schéma AEO se déploie sur la page d\'accueil et les trois
@@ -256,10 +256,10 @@ export function ContentFr() {
         profondeur et la cadence changent.
       </p>
       <ul>
-        <li><strong>Starter (300 $ CAD/mois) :</strong> audit, passe GBP, cohérence NAP, suivi hebdomadaire des citations LLM, 1 publication GBP/mois, 4 photos/mois</li>
-        <li><strong>Core (600 $) :</strong> tout Starter plus schéma AEO, 5 citations mensuelles, contenu bilingue, 4 publications GBP/mois (1/semaine), 8 photos/mois</li>
-        <li><strong>Growth (1 200 $) :</strong> tout Core plus autorité d\'entité GEO, Wikipedia et Wikidata, 8 publications GBP/mois (2/semaine), 12 photos/mois, contenu bilingue hebdomadaire, surveillance concurrentielle</li>
-        <li><strong>Agency (2 500 $) :</strong> tout Growth plus tableau multi-emplacements, PDF en marque blanche, SLA Slack moins de 4 heures, accès API, intégrations sur mesure, 12 publications GBP/mois (3/semaine), jusqu\'à 12 photos/mois par domaine, stratège senior dédié, présentation exécutive trimestrielle livrée en personne</li>
+        <li><strong>Starter (300 $ CAD/mois) :</strong> audit, passe GBP, cohérence NAP, sonde Visibilité IA mensuelle, 4 publications GBP/mois, 4 photos/mois, 2 citations/mois</li>
+        <li><strong>Core (600 $) :</strong> tout Starter plus schéma AEO, 4 citations mensuelles, contenu bilingue (4 sujets uniques/mois), 6 publications GBP/mois, 6 photos/mois, sondes Visibilité IA hebdomadaires, analyse de sentiment</li>
+        <li><strong>Growth (1 200 $) :</strong> tout Core plus autorité d\'entité GEO, Wikipedia et Wikidata, 8 publications GBP/mois, 8 photos/mois, 6 citations/mois, contenu bilingue hebdomadaire (6 sujets/mois), tableau multi-emplacements jusqu\'à 3 emplacements, surveillance concurrentielle</li>
+        <li><strong>Agency (2 500 $) :</strong> tout Growth plus tableau multi-emplacements illimité, PDF en marque blanche, SLA Slack moins de 4 heures, accès API, intégrations sur mesure, sondes Visibilité IA quotidiennes, 12 publications GBP/mois, jusqu\'à 12 photos/mois par domaine, 8 citations/mois par domaine, 8 sujets de blogue uniques/mois par domaine, stratège senior dédié, présentation exécutive trimestrielle livrée en personne</li>
       </ul>
 
       <InternalLink

@@ -32,7 +32,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'What does the AiLys Automation add-on cost and include?',
       answer:
-        'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month. The scope covers NFC tap-to-review collection (the physical NFC cards are NOT included in the monthly price, the client procures and programs them from any NFC supplier, or buys the AiLys card service at 100 dollars CAD one-time for 3 cards with programming and delivery), AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
+        'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,500 dollars a month. The scope covers NFC tap-to-review collection (the physical NFC cards are NOT included in the monthly price, the client procures and programs them from any NFC supplier, or buys the AiLys card service at 100 dollars CAD one-time for 3 cards with programming and delivery), AI review and reply generation, a contest engine with video winner picker, a jurisdiction-aware legal terms generator, fake review detection, and the full GBP automation suite that includes photo upload, Q and A monitoring, and attribute management.',
     },
     {
       question: 'Does AiLys run the AiLys Automation contest for the client?',
@@ -79,7 +79,7 @@ export function Content() {
       <StatHighlight
         stats={[
           { value: '$100 CAD', label: 'AiLys Automation add-on monthly price' },
-          { value: 'Bundled', label: 'Inside the Agency tier at 2,499 dollars' },
+          { value: 'Bundled', label: 'Inside the Agency tier at 2,500 dollars' },
           { value: '8 modules', label: 'NFC, AI replies, contests, legal, fakes, photos, Q and A, attributes' },
         ]}
       />
@@ -98,13 +98,13 @@ export function Content() {
         <p>The AiLys Automation reputation add-on extends the AiLys base tiers with the full reputation pipeline. The base tiers (Starter, Core, Growth) cover GBP optimization, citation work, NAP consistency, and the AI Visibility score. The add-on layers in NFC review collection, AI reply automation, the contest engine, the jurisdiction-aware legal generator, the fake review queue, and the GBP automation suite. See <InternalLink to="/blog/reviuzy-review-automation-guide" title="AiLys Automation review automation guide" description="The longer playbook on the add-on workflow" /> for the line-by-line walkthrough.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See where the AiLys Automation add-on slots into the four AiLys tiers, from Starter at 300 dollars to Agency at 2,499 dollars." />
+      <InlineCTA variant="pricing" text="See where the AiLys Automation add-on slots into the four AiLys tiers, from Starter at 300 dollars to Agency at 2,500 dollars." />
 
       <SectionDivider />
 
       <h2 id="pricing-and-bundling">Pricing and how Agency bundles it</h2>
       <p>
-        The AiLys Automation reputation add-on is 100 dollars CAD a month flat. It bolts onto Starter (300 dollars), Core (600 dollars), or Growth (1,200 dollars), bringing those tiers to 400, 700, or 1,300 dollars a month respectively. At the Agency tier (2,499 dollars), AiLys Automation is bundled, so the operator does not pay extra. The bundling decision reflects how the Agency tier is positioned: it is the multi-location, white label tier where reputation work is the default expectation, not an upsell.
+        The AiLys Automation reputation add-on is 100 dollars CAD a month flat. It bolts onto Starter (300 dollars), Core (600 dollars), or Growth (1,200 dollars), bringing those tiers to 400, 700, or 1,300 dollars a month respectively. At the Agency tier (2,500 dollars), AiLys Automation is bundled, so the operator does not pay extra. The bundling decision reflects how the Agency tier is positioned: it is the multi-location, white label tier where reputation work is the default expectation, not an upsell.
       </p>
       <p>
         Annual billing applies a small discount. The dashboard side of AiLys Automation activates the same day the add-on is enabled, so the AI reply queue, the contest engine, and the GBP automation start running immediately. The NFC cards are procured separately by the client (see the NFC section below for the two paths) so the front-counter loop ramps in parallel with the dashboard work, not as a blocker on it.
@@ -115,7 +115,7 @@ export function Content() {
         <li>Starter plus AiLys Automation at 400 dollars: GBP optimization, monthly AI Visibility report, NAP audit on the top five citations, plus the full AiLys Automation suite. Strategist support is async-only at this tier, no calls.</li>
         <li>Core plus AiLys Automation at 700 dollars: weekly GBP posts, citation cleanup on twenty targets, FAQ schema, plus AiLys Automation. Strategist support is async-only at this tier, no calls.</li>
         <li>Growth plus AiLys Automation at 1,300 dollars: original photography, monthly content production, two AI Visibility audits a quarter, plus AiLys Automation. Includes one monthly strategist call.</li>
-        <li>Agency at 2,499 dollars: AiLys Automation is bundled, multi-location dashboard and white label included, dedicated strategist, one monthly strategist call, monthly written report.</li>
+        <li>Agency at 2,500 dollars: AiLys Automation is bundled, multi-location dashboard and white label included, dedicated strategist, one monthly strategist call, monthly written report.</li>
       </ul>
 
       <SectionDivider />
@@ -148,7 +148,7 @@ export function Content() {
           'Starter at 300 dollars CAD a month',
           'Core at 600 dollars CAD a month',
           'Growth at 1,200 dollars CAD a month',
-          'Agency at 2,499 dollars CAD a month',
+          'Agency at 2,500 dollars CAD a month',
         ]}
         correctIndex={3}
         explanation="AiLys Automation is bundled inside the Agency tier. At Starter, Core, and Growth, the add-on is 100 dollars CAD a month on top of the tier price. At Agency, it is included by default because reputation automation is the standard scope at the multi-location and white label level."
@@ -220,7 +220,7 @@ export function Content() {
 
       <KeyTakeaway
         points={[
-          'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,499 dollars a month.',
+          'The AiLys Automation add-on is 100 dollars CAD a month on top of any AiLys tier, and it is bundled inside the Agency tier at 2,500 dollars a month.',
           'NFC cards on the counter beat QR codes for review collection because the gesture matches contactless payment.',
           'The contest engine is run by the client. AiLys ships only the setup, the legal terms, and the help docs.',
           'Photos for GBP automation always come from the client through the AiLys client app, which preserves real EXIF data.',

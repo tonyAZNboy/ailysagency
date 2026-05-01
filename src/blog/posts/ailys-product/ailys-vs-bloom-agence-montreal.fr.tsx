@@ -16,7 +16,7 @@ export const metaFr: BlogPostMeta = {
   title: 'AiLys vs Bloom, marketing de performance Montréal versus AI Visibility',
   metaDescription:
     "Comparaison honnête d'AiLys et Bloom pour les entreprises de Montréal et du Québec. Tarifs, AI Visibility, media payant, bilinguisme et ou chaque agence gagne.",
-  tldr: "Bloom est une agence de marketing de performance montréalaise spécialisée en media payant, croissance e-commerce et stratégie marketing axee sur les données. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bloom convient aux opérateurs qui ont besoin de media payant a grande échelle et d'optimisation des conversions. AiLys convient aux opérateurs qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel prévisible.",
+  tldr: "Bloom est une agence de marketing de performance montréalaise spécialisée en media payant, croissance e-commerce et stratégie marketing axee sur les données. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux avec des forfaits de 300 à 2 500 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Bloom convient aux opérateurs qui ont besoin de media payant a grande échelle et d'optimisation des conversions. AiLys convient aux opérateurs qui ont besoin d'AI Visibility, GBP et citations à un coût mensuel prévisible.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à Bloom pour les commerces locaux à Montréal?',
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: 'Media payant', label: 'Coeur Bloom : Google Ads, Meta, programmatique' },
           { value: 'AI Visibility', label: 'Coeur AiLys : citations dans les moteurs IA' },
         ]}
@@ -99,7 +99,7 @@ export function ContentFr() {
 
       <h2 id="tarifs-et-modele-d-engagement">Tarifs et modèle d'engagement</h2>
       <p>
-        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et l'opérateur sait exactement ce qui est livre chaque mois.
+        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et l'opérateur sait exactement ce qui est livre chaque mois.
       </p>
       <p>
         Bloom fonctionne sur un modèle de retainer personnalisé plus depenses publicitaires. Le retainer couvre la stratégie, la gestion et l'optimisation. Les depenses publicitaires sont separees et augmentent avec les objectifs de campagne. L'investissement mensuel total (retainer plus media) démarre typiquement bien au-dessus du seuil d'entrée AiLys parce que le media payant exige des depenses significatives pour tester et mettre à l'échelle.
@@ -211,7 +211,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "Bloom est une agence de marketing de performance montréalaise spécialisée en media payant et croissance e-commerce. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
-          'Les forfaits AiLys vont de 300 à 2 499 dollars CAD avec portée fixe. Les retainers Bloom sont sur devis avec les depenses publicitaires en plus.',
+          'Les forfaits AiLys vont de 300 à 2 500 dollars CAD avec portée fixe. Les retainers Bloom sont sur devis avec les depenses publicitaires en plus.',
           'Bloom optimise les canaux payants (Google Ads, Meta, programmatique). AiLys optimise les citations des moteurs IA et la recherche locale.',
           'Les deux agences servent le Québec bilingue en français et en anglais depuis Montréal.',
           "Les deux sont complementaires. Les commerces locaux peuvent faire rouler AiLys pour l'AI Visibility et Bloom pour le media payant sans chevauchement.",

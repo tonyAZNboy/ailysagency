@@ -14,7 +14,7 @@
 | ST | Starter | 300 | ~1h | Limited (review collection only) |
 | CO | Core | 600 | ~3h | Full (Reviuzy add-on $100 separate, OR bundle) |
 | GR | Growth | 1,200 | ~6h | Full (add-on $100 OR bundle) |
-| AG | Agency | 2,499 | ~12-15h | Bundled by default |
+| AG | Agency | 2,500 | ~12-15h | Bundled by default |
 
 Add-on (orthogonal to tier): **Reviuzy reputation system** at $100/mo on ST/CO/GR. Bundled in AG.
 
@@ -29,8 +29,8 @@ Legend: ✅ included · ⚠️ limited · — not in tier · 🆕 GOD MODE featu
 | Feature | ST | CO | GR | AG | Notes |
 |---|---|---|---|---|---|
 | GBP profile management (categories, attributes, hours) | ✅ | ✅ | ✅ | ✅ | Phase 2 B.3 already shipped |
-| GBP posts auto-generation | ⚠️ 1/mo | ✅ 4/mo (1/wk) | ✅ 8/mo (2/wk) | ✅ 12/mo (3/wk) | Reviuzy SaaS handles drafts + scheduling |
-| GBP photos quota (client-uploaded) | ⚠️ 4/mo | ✅ 8/mo | ✅ 12/mo | ✅ up to 12/mo per domain | **Multi-domain** scaling for AG |
+| GBP posts auto-generation (managed) | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | ✅ 12/mo | Reviuzy SaaS handles drafts + scheduling. |
+| GBP photos quota (client-uploaded) | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | ✅ up to 12/mo per domain | **Multi-domain** scaling for AG |
 | GBP Q&A monitor + auto-draft replies | — | ✅ | ✅ | ✅ | Phase 2 B.2 already shipped |
 | GBP review reply automation (AI-personalized) | — | ✅ | ✅ | ✅ | Reviuzy add-on |
 | GBP duplicate detection + merge automation 🆕 | — | — | ✅ | ✅ | Find dup listings, submit merges via API |
@@ -40,7 +40,7 @@ Legend: ✅ included · ⚠️ limited · — not in tier · 🆕 GOD MODE featu
 | Feature | ST | CO | GR | AG | Notes |
 |---|---|---|---|---|---|
 | NAP consistency monitor (50+ directories sweep) | ✅ | ✅ | ✅ | ✅ | Phase 3 already shipped |
-| New citation building cadence | — | ⚠️ 5/mo | ✅ 10/mo | ✅ 15/mo | Manual strategist work + tracker |
+| New citation building cadence (max per domain) | ✅ 2/mo | ✅ 4/mo | ✅ 6/mo | ✅ 8/mo | Manual strategist work + tracker |
 | Citation Health Monitoring with auto-fix 🆕 | — | — | ✅ | ✅ | Auto-correct via Yelp/GBP APIs; email template for manual |
 | Citation Gap Analysis with AI outreach scripts 🆕 | — | ✅ | ✅ | ✅ | AI drafts submission text per directory |
 
@@ -548,7 +548,7 @@ Per CLAUDE.md hard rule 11 (admin center mandatory), all costs must be tracked p
 - GR: ~$25
 - AG: ~$60 (with AI Agent + Real-time)
 
-At $300-$2,499 per tier per month, **gross margin on AI cost stays >85%** even at the AG tier.
+At $300-$2,500 per tier per month, **gross margin on AI cost stays >85%** even at the AG tier.
 
 ### Third-party API costs
 
@@ -832,7 +832,7 @@ npm run test                        # all green (when tests exist)
 **~54h, 2 sessions.** Photo flow complete + Reddit signal monitoring. These are referenced in shipped help articles, so closing them removes broken-promise risk.
 
 ### Sprint 3 (Phase 8 + Phase 9): unlock Agency tier value
-**~52h, 2 sessions.** White-label + API access. Lets us actually charge $2,499 with confidence.
+**~52h, 2 sessions.** White-label + API access. Lets us actually charge $2,500 with confidence.
 
 ### Sprint 4 (Phase 10): demo-able feature
 **~25h, 1 session.** Crisis Early Warning. Easy win, high perceived value, sales differentiator.

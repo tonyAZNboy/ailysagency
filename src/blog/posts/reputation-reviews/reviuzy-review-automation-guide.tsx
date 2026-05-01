@@ -37,7 +37,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How much does AiLys Automation cost and how do I add it to my AiLys plan?',
       answer:
-        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,499 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the dashboard, the auto-reply workflow, the contest engine, and the legal template library covering 20 countries. NFC cards are procured separately by the client (self-program from any supplier, or buy the AiLys card service for 100 dollars CAD one-time per 3-card set with programming included).',
+        'AiLys Automation is 100 dollars CAD per month as a standalone add-on. It is bundled at no extra cost in the AiLys Agency tier at 2,500 dollars per month. Owners on Starter, Core, or Growth can add AiLys Automation on the pricing page or ask the strategist to attach it to the next billing cycle. The add-on includes the dashboard, the auto-reply workflow, the contest engine, and the legal template library covering 20 countries. NFC cards are procured separately by the client (self-program from any supplier, or buy the AiLys card service for 100 dollars CAD one-time per 3-card set with programming included).',
     },
     {
       question: 'Does AiLys Automation run my contest for me or do I run it?',
@@ -106,7 +106,7 @@ export function Content() {
         <p>The 100 dollar monthly price covers the full software toolkit: dashboard access, AI draft suggestions, auto-reply workflow, contest engine, legal template library covering 20 countries, and fake review detection. NFC cards are procured separately (self-program from any supplier or buy the AiLys card service for 100 dollars CAD one-time per 3-card set with programming included). There is no per-review surcharge and no per-location surcharge for single-location businesses. Multi-location pricing is calculated on the AiLys pricing page based on the location count.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="See the AiLys plans and where AiLys Automation is bundled or added on top, from Starter at 300 dollars to Agency at 2,499 dollars CAD." />
+      <InlineCTA variant="pricing" text="See the AiLys plans and where AiLys Automation is bundled or added on top, from Starter at 300 dollars to Agency at 2,500 dollars CAD." />
 
       <SectionDivider />
 

@@ -178,7 +178,7 @@ export function Content() {
         Three citation types do most of the multiplier work. Reddit posts on city-level subreddits where the brand is mentioned organically. Regional directory listings (industry-specific, not generic). Press mentions in local or regional outlets. A business with all three types cited consistently gets named in AI answers at a much higher rate than a business with only directory citations or only Reddit mentions.
       </p>
       <p>
-        AiLys ships citation building at five citations per month at the Core tier, ten at Growth, and fifteen at Agency. The citations are diversified across the three types intentionally. Owners running this in-house can match it with about four hours per week of operator time, focused on content submission and outreach rather than directory data entry.
+        AiLys ships citation building at two citations per month at Starter, four at Core, six at Growth, and eight at Agency (max per domain). The citations are diversified across the three types intentionally. Owners running this in-house can match it with about four hours per week of operator time, focused on content submission and outreach rather than directory data entry.
       </p>
 
       <SectionDivider />

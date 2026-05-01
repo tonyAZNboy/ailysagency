@@ -33,7 +33,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How often should I add new photos to my Google Business Profile?',
       answer:
-        'Every week at the absolute minimum, ideally two to three times per week. Google Business Profile rewards recency and signal freshness, so a profile with steady weekly photo uploads ranks higher in the local pack than a profile with the same total photo count uploaded all at once. AiLys ships 4 photos per month at Starter, 8 at Core, and 12 at Growth and Agency tiers.',
+        'Every week at the absolute minimum, ideally two to three times per week. Google Business Profile rewards recency and signal freshness, so a profile with steady weekly photo uploads ranks higher in the local pack than a profile with the same total photo count uploaded all at once. AiLys ships 4 photos per month at Starter, 6 at Core, 8 at Growth, and 12 per domain at Agency.',
     },
     {
       question: 'What types of photos should I upload to GBP?',
@@ -150,7 +150,7 @@ export function Content() {
 
       <h2 id="the-monthly-cadence-we-ship-for-clients">The monthly cadence we ship for clients</h2>
       <p>
-        The AiLys cadence per tier is structured so the freshness signal stays steady all month, not bunched at the start. Starter ships 4 photos per month, roughly one per week. Core ships 8, two per week. Growth ships 12, three per week. Agency ships 12 with extra resolution and editorial-grade subject prep. The total photo count over a year matters less than the consistency.
+        The AiLys cadence per tier is structured so the freshness signal stays steady all month, not bunched at the start. Starter ships 4 photos per month, roughly one per week. Core ships 6. Growth ships 8. Agency ships 12 per domain with extra resolution and editorial-grade subject prep. The total photo count over a year matters less than the consistency.
       </p>
       <p>
         The simplest in-house cadence for owners not on a plan is a Sunday photo session. Block 30 minutes, shoot 12 to 16 photos covering the five categories, and queue them through the rest of the week. Most modern photo apps support scheduled posting. Set the schedule once and the cadence runs itself.

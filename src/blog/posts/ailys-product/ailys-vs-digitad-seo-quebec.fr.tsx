@@ -16,7 +16,7 @@ export const metaFr: BlogPostMeta = {
   title: 'AiLys vs Digitad, comparaison des agences SEO au Québec',
   metaDescription:
     "Comparaison honnête d'AiLys et Digitad pour les commerces locaux du Québec. Tarifs, AI Visibility, bilinguisme, GBP et ou chaque agence convient le mieux.",
-  tldr: "Digitad est une agence de marketing numérique montréalaise bien établie avec une surface large qui inclut le media payant, les réseaux sociaux et la stratégie de contenu. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux, avec quatre forfaits de 300 à 2 499 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Les deux servent des profils d'opérateurs différents : Digitad convient à l'opérateur qui veut un partenaire numérique complet, AiLys convient à l'opérateur qui veut du travail AI Visibility, GBP et citations livre rapidement à un coût mensuel prévisible.",
+  tldr: "Digitad est une agence de marketing numérique montréalaise bien établie avec une surface large qui inclut le media payant, les réseaux sociaux et la stratégie de contenu. AiLys est une plateforme québécoise d'AI Visibility pour les commerçants locaux, avec quatre forfaits de 300 à 2 500 dollars CAD, une livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. Les deux servent des profils d'opérateurs différents : Digitad convient à l'opérateur qui veut un partenaire numérique complet, AiLys convient à l'opérateur qui veut du travail AI Visibility, GBP et citations livre rapidement à un coût mensuel prévisible.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à Digitad pour le SEO local au Québec?',
@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que Digitad pour les entreprises québécoises?',
       answer:
-        "Les forfaits AiLys vont de 300 à 2 499 dollars CAD par mois avec des listes de livrables publiées. Les retainers Digitad sont sur devis et démarrent typiquement plus haut parce que la portée inclut le media payant, les réseaux sociaux et la stratégie de contenu en plus du SEO. Pour les opérateurs dont le besoin principal est l'AI Visibility, GBP et les citations, AiLys livre plus dans cette voie pour moins. Pour les opérateurs qui ont besoin d'un partenaire numérique complet sur plusieurs canaux, Digitad regroupe tout sous un même toit.",
+        "Les forfaits AiLys vont de 300 à 2 500 dollars CAD par mois avec des listes de livrables publiées. Les retainers Digitad sont sur devis et démarrent typiquement plus haut parce que la portée inclut le media payant, les réseaux sociaux et la stratégie de contenu en plus du SEO. Pour les opérateurs dont le besoin principal est l'AI Visibility, GBP et les citations, AiLys livre plus dans cette voie pour moins. Pour les opérateurs qui ont besoin d'un partenaire numérique complet sur plusieurs canaux, Digitad regroupe tout sous un même toit.",
     },
     {
       question: "Digitad offre-t-elle des audits AI Visibility comme AiLys?",
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: '24 heures', label: 'Audit AI Visibility gratuit AiLys' },
           { value: 'Service complet', label: 'Digitad couvre SEO, media payant, social, contenu' },
         ]}
@@ -99,14 +99,14 @@ export function ContentFr() {
 
       <h2 id="tarifs-et-portee">Tarifs et portée</h2>
       <p>
-        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et le chemin de mise a niveau est visible sur la page des forfaits.
+        AiLys publié quatre forfaits avec des listes de livrables fixes. Starter à 300 dollars CAD, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars. Chaque palier à une portée publiée, sans facturation à l'heure, et le chemin de mise a niveau est visible sur la page des forfaits.
       </p>
       <p>
         Digitad tarifie sur un modèle de retainer personnalisé. Le coût mensuel depend des canaux selectionnes (SEO, media payant, social, contenu) et du volume de travail. Les retainers démarrent typiquement au-dessus du seuil d'entrée AiLys parce que la portée est plus large. Le compromis est la couverture : Digitad livre sur plus de canaux sous un seul contrat.
       </p>
 
       <p>
-        AiLys publié quatre forfaits CAD (Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois) avec des livrables fixes pour les publications et photos GBP, les sondes de visibilité IA, les citations, les schémas, la cadence de blogue et le travail de réputation Reviuzy. La construction de sites web (Vitrine, PME, Commerce) est un module éligible par palier, amorti sur 6 mois. La politique d'annulation inclut une clause de récupération des frais de création si vous annulez avant 6 mois sur une construction de site.
+        AiLys publié quatre forfaits CAD (Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois) avec des livrables fixes pour les publications et photos GBP, les sondes de visibilité IA, les citations, les schémas, la cadence de blogue et le travail de réputation Reviuzy. La construction de sites web (Vitrine, PME, Commerce) est un module éligible par palier, amorti sur 6 mois. La politique d'annulation inclut une clause de récupération des frais de création si vous annulez avant 6 mois sur une construction de site.
       </p>
 
       <InlineCTA variant="pricing" text="Consultez la comparaison complète de 60+ fonctionnalités côte à côte sur les 4 forfaits AiLys sur la page officielle des forfaits." buttonText="Voir tous les forfaits" to="/fr/forfaits-complets" />
@@ -217,7 +217,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "Digitad est une agence numérique montréalaise a service complet couvrant SEO, media payant, social et contenu. AiLys est une plateforme spécialisée d'AI Visibility pour les commerçants locaux.",
-          'Les forfaits AiLys vont de 300 à 2 499 dollars CAD avec portée publiée. Les retainers Digitad sont sur devis pour une couverture de canaux plus large.',
+          'Les forfaits AiLys vont de 300 à 2 500 dollars CAD avec portée publiée. Les retainers Digitad sont sur devis pour une couverture de canaux plus large.',
           'AiLys mesure et cible les citations des moteurs IA directement. Digitad livre du SEO traditionnel qui soutient les citations indirectement.',
           "AiLys livre chaque livrable bilingue EN et FR-CA par défaut. Digitad par défaut livre en français avec l'anglais sur demande.",
           "Pour le media payant, le social et la stratégie de contenu sous un même toit, Digitad convient mieux. Pour l'AI Visibility, GBP et citations à un coût prévisible, AiLys livre plus vite.",

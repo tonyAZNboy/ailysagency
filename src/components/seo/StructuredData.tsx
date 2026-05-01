@@ -341,7 +341,7 @@ export const generateAiLysAutomationSchema = () => ({
   offers: {
     '@type': 'AggregateOffer',
     lowPrice: '100',
-    highPrice: '2499',
+    highPrice: '2500',
     priceCurrency: 'CAD',
     offerCount: 4,
     availability: 'https://schema.org/InStock',

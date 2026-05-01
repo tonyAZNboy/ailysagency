@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs Digitad, Quebec SEO agency comparison for local owners',
   metaDescription:
     'Honest comparison of AiLys and Digitad for Quebec local businesses. Pricing, AI Visibility, bilingual scope, GBP work, and where each agency fits best.',
-  tldr: 'Digitad is a well-established Montreal SEO agency with a broad digital marketing surface that includes paid media, social, and content strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners, with four fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. The two serve different operator profiles: Digitad fits the operator who wants a full-service digital partner, AiLys fits the operator who wants AI Visibility, GBP, and citation work shipped fast at a predictable monthly cost.',
+  tldr: 'Digitad is a well-established Montreal SEO agency with a broad digital marketing surface that includes paid media, social, and content strategy. AiLys is a Quebec-built AI Visibility platform focused on local owners, with four fixed-price tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. The two serve different operator profiles: Digitad fits the operator who wants a full-service digital partner, AiLys fits the operator who wants AI Visibility, GBP, and citation work shipped fast at a predictable monthly cost.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'digitad', 'comparison', 'quebec', 'montreal', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -37,7 +37,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Is AiLys cheaper than Digitad for Quebec businesses?',
       answer:
-        'AiLys tiers run from 300 to 2,499 dollars CAD a month with published deliverable lists. Digitad retainers are custom-quoted and typically start higher because the scope includes paid media, social, and content strategy alongside SEO. For operators whose primary need is AI Visibility, GBP, and citations, AiLys delivers more in that lane for less. For operators who need a full digital partner across multiple channels, Digitad bundles everything under one roof.',
+        'AiLys tiers run from 300 to 2,500 dollars CAD a month with published deliverable lists. Digitad retainers are custom-quoted and typically start higher because the scope includes paid media, social, and content strategy alongside SEO. For operators whose primary need is AI Visibility, GBP, and citations, AiLys delivers more in that lane for less. For operators who need a full digital partner across multiple channels, Digitad bundles everything under one roof.',
     },
     {
       question: 'Does Digitad offer AI Visibility audits like AiLys?',
@@ -82,7 +82,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: '24 hours', label: 'AiLys free AI Visibility audit' },
           { value: 'Full-service', label: 'Digitad covers SEO, paid, social, content' },
         ]}
@@ -111,14 +111,14 @@ export function Content() {
 
       <h2 id="pricing-and-scope">Pricing and scope</h2>
       <p>
-        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars. Each tier has a published scope, no hourly billing, and the upgrade path is visible on the pricing page.
+        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars. Each tier has a published scope, no hourly billing, and the upgrade path is visible on the pricing page.
       </p>
       <p>
         Digitad prices on a custom retainer model. The monthly cost depends on the channels selected (SEO, paid media, social, content) and the volume of work. Retainers typically start above the AiLys entry point because the scope is broader. The trade-off is coverage: Digitad delivers across more channels under one contract.
       </p>
 
       <p>
-        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month) with fixed deliverables on GBP posts and photos, AI Visibility probes, citations, schema, blog cadence, and Reviuzy reputation work. Website builds (Vitrine, PME, Commerce) are tier-eligible add-ons amortized over 6 months. Cancellation policy includes a creation-fee recovery clause if you cancel before 6 months on a build.
+        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars per month) with fixed deliverables on GBP posts and photos, AI Visibility probes, citations, schema, blog cadence, and Reviuzy reputation work. Website builds (Vitrine, PME, Commerce) are tier-eligible add-ons amortized over 6 months. Cancellation policy includes a creation-fee recovery clause if you cancel before 6 months on a build.
       </p>
 
       <InlineCTA variant="pricing" text="See the complete 60+ feature side-by-side comparison across all 4 AiLys plans on the official pricing page." buttonText="See full pricing" to="/forfaits-complets" />
@@ -225,7 +225,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'Digitad is a full-service Montreal digital agency covering SEO, paid media, social, and content. AiLys is a specialist AI Visibility platform for local owners.',
-          'AiLys tiers run 300 to 2,499 dollars CAD with published scope. Digitad retainers are custom-quoted for broader channel coverage.',
+          'AiLys tiers run 300 to 2,500 dollars CAD with published scope. Digitad retainers are custom-quoted for broader channel coverage.',
           'AiLys measures and targets AI engine citations directly. Digitad delivers traditional SEO that supports citations indirectly.',
           'AiLys ships every deliverable bilingually EN and FR-CA by default. Digitad defaults to French with English on request.',
           'For paid media, social, and content strategy under one roof, Digitad is the better fit. For AI Visibility, GBP, and citations at a predictable cost, AiLys ships faster.',

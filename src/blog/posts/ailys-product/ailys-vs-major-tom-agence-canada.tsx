@@ -16,7 +16,7 @@ export const meta: BlogPostMeta = {
   title: 'AiLys vs Major Tom, Quebec local specialist versus pan-Canadian digital agency',
   metaDescription:
     'Honest comparison of AiLys and Major Tom for Canadian businesses. Pricing, AI Visibility, national scope, bilingual delivery, and where each agency fits best.',
-  tldr: 'Major Tom is a pan-Canadian digital agency with offices in Vancouver and New York, offering strategy, creative, development, paid media, and SEO for mid-market and enterprise brands. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,499 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Major Tom fits brands that need a full-service digital partner with national or international reach. AiLys fits local operators who need AI Visibility, GBP, and citation work shipped fast at a predictable cost.',
+  tldr: 'Major Tom is a pan-Canadian digital agency with offices in Vancouver and New York, offering strategy, creative, development, paid media, and SEO for mid-market and enterprise brands. AiLys is a Quebec-built AI Visibility platform focused on local owners with fixed-price tiers from 300 to 2,500 dollars CAD, bilingual EN and FR-CA delivery in-house, and a 24-hour free audit. Major Tom fits brands that need a full-service digital partner with national or international reach. AiLys fits local operators who need AI Visibility, GBP, and citation work shipped fast at a predictable cost.',
   category: 'competitor-comparisons',
   tags: ['ailys vs competitors', 'major tom', 'comparison', 'canada', 'ailys-product'],
   publishedDate: '2026-04-30',
@@ -37,7 +37,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Is AiLys cheaper than Major Tom?',
       answer:
-        'AiLys tiers run from 300 to 2,499 dollars CAD a month with published deliverable lists. Major Tom retainers are custom-quoted and typically start significantly higher because the scope includes strategy, creative, development, and media alongside SEO. For local AI Visibility and GBP work, AiLys delivers more in that lane at a lower cost. For enterprise-scale digital strategy across multiple channels and markets, Major Tom delivers a scope that AiLys does not cover.',
+        'AiLys tiers run from 300 to 2,500 dollars CAD a month with published deliverable lists. Major Tom retainers are custom-quoted and typically start significantly higher because the scope includes strategy, creative, development, and media alongside SEO. For local AI Visibility and GBP work, AiLys delivers more in that lane at a lower cost. For enterprise-scale digital strategy across multiple channels and markets, Major Tom delivers a scope that AiLys does not cover.',
     },
     {
       question: 'Does Major Tom serve Quebec clients in French?',
@@ -47,7 +47,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Can AiLys replace Major Tom for a multi-location business?',
       answer:
-        'AiLys serves multi-location businesses at the Agency tier (2,499 dollars CAD a month) with multi-location dashboards, white-label reports, and per-location GBP optimization. Major Tom serves multi-location brands with a broader scope: national campaigns, web development, brand strategy, and creative production alongside local optimization. If the multi-location need is AI Visibility and GBP across locations, AiLys covers it. If the need includes national brand campaigns and creative production, Major Tom covers the broader surface.',
+        'AiLys serves multi-location businesses at the Agency tier (2,500 dollars CAD a month) with multi-location dashboards, white-label reports, and per-location GBP optimization. Major Tom serves multi-location brands with a broader scope: national campaigns, web development, brand strategy, and creative production alongside local optimization. If the multi-location need is AI Visibility and GBP across locations, AiLys covers it. If the need includes national brand campaigns and creative production, Major Tom covers the broader surface.',
     },
     {
       question: 'Which agency is better for a Toronto or Vancouver business?',
@@ -82,7 +82,7 @@ export function Content() {
 
       <StatHighlight
         stats={[
-          { value: '$300 to $2,499', label: 'AiLys monthly tiers in CAD' },
+          { value: '$300 to $2,500', label: 'AiLys monthly tiers in CAD' },
           { value: 'National', label: 'Major Tom: strategy, creative, dev, media, SEO' },
           { value: 'Local AI', label: 'AiLys: AI engine citations and GBP for local owners' },
         ]}
@@ -111,7 +111,7 @@ export function Content() {
 
       <h2 id="pricing-and-scope">Pricing and scope</h2>
       <p>
-        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars. Each tier ships a defined set of deliverables each month, no hourly billing, no scope creep.
+        AiLys publishes four tiers with fixed deliverable lists. Starter at 300 dollars CAD, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars. Each tier ships a defined set of deliverables each month, no hourly billing, no scope creep.
       </p>
       <p>
         Major Tom operates on custom retainers that reflect enterprise scope. Engagements typically start in the five-figure monthly range because the deliverable surface includes strategy, creative, development, and media management alongside SEO. The pricing is competitive for the scope offered, but the scope is an order of magnitude broader than AiLys.
@@ -222,7 +222,7 @@ export function Content() {
       <KeyTakeaway
         points={[
           'Major Tom is a pan-Canadian full-service digital agency for mid-market and enterprise brands. AiLys is a specialist AI Visibility platform for local owners.',
-          'AiLys tiers run 300 to 2,499 dollars CAD with fixed scope. Major Tom retainers are custom-quoted at enterprise scale.',
+          'AiLys tiers run 300 to 2,500 dollars CAD with fixed scope. Major Tom retainers are custom-quoted at enterprise scale.',
           'Major Tom delivers strategy, creative, development, paid media, and SEO nationally. AiLys delivers AI Visibility, GBP, and citations locally.',
           'AiLys ships every deliverable bilingually EN and FR-CA by default. Major Tom operates primarily in English from Vancouver.',
           'Match the agency to the problem: national brand building goes to Major Tom, local AI Visibility goes to AiLys.',

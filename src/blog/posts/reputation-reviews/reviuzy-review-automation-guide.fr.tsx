@@ -26,7 +26,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: "Combien coûte AiLys Automation et comment l'ajouter à mon forfait AiLys?",
       answer:
-        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 499 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques couvrant 20 pays. Les cartes NFC sont approvisionnées séparément par le client (auto-programmation à partir de tout fournisseur, ou achat du service de cartes AiLys à 100 dollars CAD à charge unique pour un ensemble de 3 cartes avec programmation incluse).",
+        "AiLys Automation coûte 100 dollars CAD par mois en module autonome. Il est inclus sans frais supplémentaires dans le palier AiLys Agency à 2 500 dollars par mois. Les clients sur Starter, Core ou Growth peuvent ajouter AiLys Automation sur la page de tarifs ou demander au stratège de l'attacher au prochain cycle. Le module inclut le tableau de bord, le flux de réponse automatique, le moteur de concours et la bibliothèque de gabarits juridiques couvrant 20 pays. Les cartes NFC sont approvisionnées séparément par le client (auto-programmation à partir de tout fournisseur, ou achat du service de cartes AiLys à 100 dollars CAD à charge unique pour un ensemble de 3 cartes avec programmation incluse).",
     },
     {
       question: "AiLys Automation opère-t-il mon concours ou est-ce moi qui l'opère?",
@@ -94,7 +94,7 @@ export function ContentFr() {
         <p>Le prix mensuel de 100 dollars couvre la trousse logicielle complète : accès au tableau de bord, suggestions de brouillon IA, flux de réponse automatique, moteur de concours, bibliothèque de gabarits juridiques couvrant 20 pays et détection d'avis bidons. Les cartes NFC sont approvisionnées séparément (auto-programmation à partir de tout fournisseur, ou achat du service de cartes AiLys à 100 dollars CAD à charge unique pour un ensemble de 3 cartes avec programmation incluse). Il n'y a pas de surcharge par avis ni par emplacement pour les commerces à un seul emplacement. Les tarifs multi-emplacements sont calculés sur la page de tarifs AiLys selon le nombre d'emplacements.</p>
       </CalloutBox>
 
-      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où AiLys Automation est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 499 dollars CAD." buttonText="Voir les forfaits" />
+      <InlineCTA variant="pricing" text="Voyez les forfaits AiLys et où AiLys Automation est inclus ou ajouté en plus, de Starter à 300 dollars à Agency à 2 500 dollars CAD." buttonText="Voir les forfaits" />
 
       <SectionDivider />
 

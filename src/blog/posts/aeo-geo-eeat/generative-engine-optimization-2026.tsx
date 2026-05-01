@@ -213,10 +213,10 @@ export function Content() {
         AiLys covers GEO across every tier, with the depth scaling by tier:
       </p>
       <ul>
-        <li>Starter (300 dollars CAD a month): GBP optimization, baseline schema markup, NAP audit on the top 5 citations, monthly AI Visibility report</li>
-        <li>Core (799 dollars): everything in Starter plus weekly GBP posts, 5 monthly citation freshness cycles, FAQ schema build, Q-A page production</li>
-        <li>Growth (1,499 dollars): everything in Core plus 10 monthly citations, 8 monthly photos, original photography sessions, Wikidata work, two AI Visibility audits a quarter, Reviuzy reputation automation</li>
-        <li>Agency (2,500 dollars): everything in Growth plus 15 monthly citations, 12 monthly photos, white-label deliverables, multi-location support, dedicated strategist, weekly reporting</li>
+        <li>Starter (300 dollars CAD a month): GBP optimization, baseline schema markup, NAP audit, 4 GBP posts/mo, 4 photos/mo, 2 citations/mo, monthly AI Visibility probe</li>
+        <li>Core (600 dollars): everything in Starter plus 6 GBP posts/mo, 6 photos/mo, 4 monthly citations, FAQ + Service + Review schema, weekly AI Visibility, sentiment analysis, bilingual content (4 unique blog topics/mo)</li>
+        <li>Growth (1,200 dollars): everything in Core plus 8 GBP posts/mo, 8 photos/mo, 6 monthly citations, HowTo + Person schema, Wikidata work, weekly AI Visibility, multi-location dashboard up to 3 locations, AI Traffic UTM tracking, Reviuzy reputation add-on available</li>
+        <li>Agency (2,500 dollars): everything in Growth plus 12 GBP posts/mo, up to 12 photos/mo per domain, 8 monthly citations per domain, all schema layers + custom JSON-LD, daily AI Visibility probes, white-label deliverables, unlimited multi-location support, dedicated senior strategist, Reviuzy bundled, Domain Shield bundled</li>
       </ul>
 
       <CalloutBox type="warning">

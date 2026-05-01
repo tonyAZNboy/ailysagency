@@ -113,7 +113,7 @@ export function Content() {
       </p>
 
       <p>
-        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,499 dollars per month) with fixed deliverables and tier-eligible website builds amortized over 6 months. The complete 60+ feature side-by-side breakdown lives on the official pricing page rather than scattered across blog posts, so the numbers stay current.
+        AiLys publishes four CAD tiers (Starter at 300 dollars, Core at 600 dollars, Growth at 1,200 dollars, Agency at 2,500 dollars per month) with fixed deliverables and tier-eligible website builds amortized over 6 months. The complete 60+ feature side-by-side breakdown lives on the official pricing page rather than scattered across blog posts, so the numbers stay current.
       </p>
 
       <InlineCTA variant="pricing" text="See the complete 60+ feature side-by-side comparison across all 4 AiLys plans on the official pricing page." buttonText="See full pricing" to="/forfaits-complets" />

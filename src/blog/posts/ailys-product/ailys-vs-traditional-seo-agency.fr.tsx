@@ -101,7 +101,7 @@ export function ContentFr() {
       </p>
 
       <p>
-        AiLys publie quatre forfaits CAD (Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois) avec des livrables fixes et des constructions de sites web éligibles par palier amorties sur 6 mois. La ventilation complète de 60+ fonctionnalités côte à côte vit sur la page officielle des forfaits plutôt que d'être éparpillée dans les articles de blogue, pour que les chiffres restent à jour.
+        AiLys publie quatre forfaits CAD (Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois) avec des livrables fixes et des constructions de sites web éligibles par palier amorties sur 6 mois. La ventilation complète de 60+ fonctionnalités côte à côte vit sur la page officielle des forfaits plutôt que d'être éparpillée dans les articles de blogue, pour que les chiffres restent à jour.
       </p>
 
       <InlineCTA variant="pricing" text="Consultez la comparaison complète de 60+ fonctionnalités côte à côte sur les 4 forfaits AiLys sur la page officielle des forfaits." buttonText="Voir tous les forfaits" to="/fr/forfaits-complets" />

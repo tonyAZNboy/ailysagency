@@ -6,7 +6,7 @@
  *  1. Starter monthly: tierBase=$300, no discount, total=$300
  *  2. Core annual -15%: tierBase=$600, discount=$90, total=$510
  *  3. Growth biennial -20%: tierBase=$1200, discount=$240, total=$960
- *  4. Agency monthly: tierBase=$2499, no discount, reviuzyAddon bundled (no charge)
+ *  4. Agency monthly: tierBase=$2500, no discount, reviuzyAddon bundled (no charge)
  *  5. Tax-incl Core monthly: total = $600 * 1.14975 = $689.85
  *  6. Reviuzy add-on on Core: subtotal = $600 + $100 = $700
  *  7. Biennial rejected on Starter (tier-locked decision #7)
@@ -65,7 +65,7 @@ function validate(body) {
 // Case 4: Agency monthly + reviuzy bundled
 {
   const calc = computeQuote({ prospectName: 'X', businessName: 'Y', email: 'a@b.c', lang: 'en', tier: 'agency', engagement: 'monthly', reviuzyAddon: true, websiteSize: 'none', taxIncluded: false });
-  assert('4. Agency reviuzyAddon bundled (no charge)', calc.tierBase === 2499 && calc.reviuzyAddonCost === 0 && calc.total === 2499, JSON.stringify(calc));
+  assert('4. Agency reviuzyAddon bundled (no charge)', calc.tierBase === 2500 && calc.reviuzyAddonCost === 0 && calc.total === 2500, JSON.stringify(calc));
 }
 // Case 5: Tax-incl Core monthly
 {

@@ -16,12 +16,12 @@ export const metaFr: BlogPostMeta = {
   title: "AiLys vs WSI, plateforme d'AI Visibility québécoise versus franchise mondiale de marketing numérique",
   metaDescription:
     "Comparaison honnête d'AiLys et WSI pour les commerces locaux canadiens. Modele de tarification, AI Visibility, réseau de consultants franchises, bilinguisme et ou chacune convient.",
-  tldr: "WSI a été fondée à Toronto en 1995 et fonctionne comme un réseau mondial de consultants dans plus de 80 pays, chaque consultant gerant son propre territoire de franchise et servant des PME locales avec SEO, media payant, social, conception web et conseil IA. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 499 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. WSI convient aux opérateurs qui veulent une relation avec un consultant local à travers une marque mondiale. AiLys convient aux opérateurs qui veulent une plateforme spécialisée bâtie au Québec avec tarification publiée.",
+  tldr: "WSI a été fondée à Toronto en 1995 et fonctionne comme un réseau mondial de consultants dans plus de 80 pays, chaque consultant gerant son propre territoire de franchise et servant des PME locales avec SEO, media payant, social, conception web et conseil IA. AiLys est une plateforme québécoise d'AI Visibility avec quatre forfaits publiés de 300 à 2 500 dollars CAD, livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. WSI convient aux opérateurs qui veulent une relation avec un consultant local à travers une marque mondiale. AiLys convient aux opérateurs qui veulent une plateforme spécialisée bâtie au Québec avec tarification publiée.",
   faqItems: [
     {
       question: 'Comment AiLys se comparé-t-elle à WSI pour les commerces locaux canadiens?',
       answer:
-        "AiLys est une plateforme d'AI Visibility bâtie au Québec avec quatre forfaits CAD publiés (300 à 2 499 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. WSI est une franchise mondiale de marketing numérique fondée à Toronto en 1995, avec des consultants operant dans plus de 80 pays qui livrent du SEO, du media payant, du social, de la conception web et du conseil IA aux PME locales. AiLys est une seule équipe avec une plateforme livrant des livrables coherents à travers les paliers. WSI est un réseau de consultants independants, chacun avec sa propre portée, tarification et specialisation.",
+        "AiLys est une plateforme d'AI Visibility bâtie au Québec avec quatre forfaits CAD publiés (300 à 2 500 dollars), livraison bilingue EN et FR-CA à l'interne et un audit gratuit en 24 heures. WSI est une franchise mondiale de marketing numérique fondée à Toronto en 1995, avec des consultants operant dans plus de 80 pays qui livrent du SEO, du media payant, du social, de la conception web et du conseil IA aux PME locales. AiLys est une seule équipe avec une plateforme livrant des livrables coherents à travers les paliers. WSI est un réseau de consultants independants, chacun avec sa propre portée, tarification et specialisation.",
     },
     {
       question: 'WSI est-elle une seule agence ou un réseau de franchises?',
@@ -36,7 +36,7 @@ export const metaFr: BlogPostMeta = {
     {
       question: 'AiLys est-elle moins chere que WSI?',
       answer:
-        "AiLys publié quatre forfaits CAD (300 à 2 499 dollars par mois) avec des listes de livrables fixes. WSI ne publié pas de tarifs standardises parce que les prix sont fixes par chaque consultant individuel. Le coût varie selon le territoire, l'expérience du consultant et la portée convenue. Pour les opérateurs qui veulent un coût mensuel transparent qu'ils peuvent comparer avant tout appel de vente, AiLys publié les chiffres. Pour les opérateurs qui valorisent une relation de consultant local et sont prets a négocier la portée et le prix par engagement, le modèle WSI convient.",
+        "AiLys publié quatre forfaits CAD (300 à 2 500 dollars par mois) avec des listes de livrables fixes. WSI ne publié pas de tarifs standardises parce que les prix sont fixes par chaque consultant individuel. Le coût varie selon le territoire, l'expérience du consultant et la portée convenue. Pour les opérateurs qui veulent un coût mensuel transparent qu'ils peuvent comparer avant tout appel de vente, AiLys publié les chiffres. Pour les opérateurs qui valorisent une relation de consultant local et sont prets a négocier la portée et le prix par engagement, le modèle WSI convient.",
     },
     {
       question: 'Comment se comparé la livraison bilingue?',
@@ -70,7 +70,7 @@ export function ContentFr() {
 
       <StatHighlight
         stats={[
-          { value: '300 à 2 499 $', label: 'Forfaits mensuels AiLys en CAD' },
+          { value: '300 à 2 500 $', label: 'Forfaits mensuels AiLys en CAD' },
           { value: '1995', label: 'WSI fondée à Toronto, Canada' },
           { value: '80+ pays', label: 'Portee mondiale du réseau de consultants WSI' },
         ]}
@@ -127,7 +127,7 @@ export function ContentFr() {
 
       <h2 id="tarification-et-coherence-de-portee">Tarification et coherence de portée</h2>
       <p>
-        AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 499 dollars par mois. Chaque opérateur au même palier livre la même portée mensuelle.
+        AiLys publié quatre forfaits CAD avec des listes de livrables fixes. Starter à 300 dollars, Core à 600 dollars, Growth à 1 200 dollars, Agency à 2 500 dollars par mois. Chaque opérateur au même palier livre la même portée mensuelle.
       </p>
       <p>
         WSI ne publié pas de tarifs standardises à l'échelle du réseau parce que les prix sont fixes par chaque consultant. Deux opérateurs dans des territoires différents peuvent payer des retainers mensuels très différents pour ce qui ressemble à un travail similaire. La flexibilite permet au consultant de faire correspondre la portée et le prix au marché local, ce qui est un vrai avantage dans certains cas. Le compromis est que la comparaison entre consultants est plus difficile, et l'opérateur a typiquement besoin d'un appel exploratoire pour apprendre ce que son consultant WSI local offre et a quel prix.
@@ -210,7 +210,7 @@ export function ContentFr() {
         translatedLabel="A retenir"
         points={[
           "WSI a été fondée à Toronto en 1995 et fonctionne comme un réseau mondial de franchises de consultants dans 80+ pays. AiLys est une plateforme d'AI Visibility bâtie au Québec avec une seule équipe et une plateforme publiée.",
-          "AiLys publié quatre forfaits CAD (300 à 2 499 dollars). Les consultants WSI fixent leurs propres prix par territoire, sans tarifs publiés standardises.",
+          "AiLys publié quatre forfaits CAD (300 à 2 500 dollars). Les consultants WSI fixent leurs propres prix par territoire, sans tarifs publiés standardises.",
           "Les consultants WSI livrent du marketing numérique a service complet (SEO, payant, social, web, conseil IA) avec une profondeur variant selon le consultant. AiLys livre une exécution AI Visibility coherente à travers chaque palier et chaque client.",
           "AiLys livre une livraison bilingue systematique EN et FR-CA sur chaque piece de contenu par défaut. La capacité bilingue WSI depend du consultant choisi.",
           "Les deux conviennent à des préférences d'opérateurs différentes. La relation consultant va à WSI. L'AI Visibility pilotee par plateforme va à AiLys.",

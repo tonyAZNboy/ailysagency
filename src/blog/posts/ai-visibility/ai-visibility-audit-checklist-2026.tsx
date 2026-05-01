@@ -172,7 +172,7 @@ export function Content() {
         Once you know the gap, you need to know why. Three diagnostic checks cover most of it. First, schema. Run your top five buyer-intent pages through Schema.org validators. Confirm LocalBusiness, FAQPage, Service, and Review schema all parse cleanly. Missing schema is the most common reason ChatGPT and Perplexity skip a brand entirely.
       </p>
       <p>
-        Second, citations. Pull your NAP citation count and compare with the competitors. If your top competitor has 80 directory citations and you have 22, the engines see a quieter signal for your brand and weight it lower. The fix is monthly citation building, which the AiLys Core tier ships at five citations per month, Growth at ten, Agency at fifteen.
+        Second, citations. Pull your NAP citation count and compare with the competitors. If your top competitor has 80 directory citations and you have 22, the engines see a quieter signal for your brand and weight it lower. The fix is monthly citation building, which AiLys ships at two per month at Starter, four at Core, six at Growth, eight at Agency (max per domain).
       </p>
       <p>
         Third, GBP. Most "missing from AI answers" diagnoses trace back to a GBP attribute that was never filled. Categories, dietary tags, payment methods, accessibility, hours of operation. Google AIO and Gemini both pull from this layer. See our <InternalLink to="/audit/gbp" title="GBP audit deep dive" description="Full GBP attribute checklist for Quebec local businesses" /> for the full attribute checklist.

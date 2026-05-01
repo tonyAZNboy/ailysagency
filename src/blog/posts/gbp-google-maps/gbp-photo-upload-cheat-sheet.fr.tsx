@@ -17,12 +17,12 @@ export const metaFr: BlogPostMeta = {
   metaDescription:
     "Un aide-mémoire pour les photos GBP destiné aux propriétaires locaux. À quelle fréquence publier, quels sujets photographier, les spécifications de fichiers et la cadence que nous appliquons aux clients.",
   tldr:
-    "Ajoutez de nouvelles photos GBP chaque semaine au minimum. AiLys livre 4, 8 ou 12 photos fraîches par mois aux forfaits Starter, Core ou Growth, et Agency. Priorisez les extérieurs, les intérieurs, l'équipe, les produits et les coulisses dans cet ordre. Géolocalisez chaque photo, donnez aux fichiers des noms descriptifs et gardez la taille sous 1 Mo.",
+    "Ajoutez de nouvelles photos GBP chaque semaine au minimum. AiLys livre 4, 6, 8 ou 12 photos fraîches par mois aux forfaits Starter, Core, Growth et Agency. Priorisez les extérieurs, les intérieurs, l'équipe, les produits et les coulisses dans cet ordre. Géolocalisez chaque photo, donnez aux fichiers des noms descriptifs et gardez la taille sous 1 Mo.",
   faqItems: [
     {
       question: "À quelle fréquence devrais-je ajouter de nouvelles photos sur ma fiche d'établissement Google?",
       answer:
-        "Chaque semaine au minimum absolu, idéalement deux à trois fois par semaine. La fiche d'établissement Google récompense la fraîcheur du signal, donc une fiche avec des dépôts hebdomadaires se classe plus haut dans le local pack qu'une fiche avec le même nombre total téléversé d'un coup. AiLys livre 4 photos par mois au forfait Starter, 8 au Core et 12 au Growth et à l'Agency.",
+        "Chaque semaine au minimum absolu, idéalement deux à trois fois par semaine. La fiche d'établissement Google récompense la fraîcheur du signal, donc une fiche avec des dépôts hebdomadaires se classe plus haut dans le local pack qu'une fiche avec le même nombre total téléversé d'un coup. AiLys livre 4 photos par mois au Starter, 6 au Core, 8 au Growth et 12 à Agency.",
     },
     {
       question: "Quels types de photos publier sur la fiche d'établissement Google?",
@@ -141,7 +141,7 @@ export function ContentFr() {
 
       <h2 id="la-cadence-mensuelle-que-nous-livrons-aux-clients">La cadence mensuelle que nous livrons aux clients</h2>
       <p>
-        La cadence AiLys par forfait est structurée pour que le signal de fraîcheur reste régulier tout le mois et non concentré au début. Starter livre 4 photos par mois, environ une par semaine. Core en livre 8, deux par semaine. Growth en livre 12, trois par semaine. Agency livre 12 avec une résolution supérieure et une préparation de sujets de qualité éditoriale. Le total annuel compte moins que la régularité.
+        La cadence AiLys par forfait est structurée pour que le signal de fraîcheur reste régulier tout le mois et non concentré au début. Starter livre 4 photos par mois, environ une par semaine. Core en livre 6. Growth en livre 8. Agency livre 12 par domaine avec une résolution supérieure et une préparation de sujets de qualité éditoriale. Le total annuel compte moins que la régularité.
       </p>
       <p>
         La cadence interne la plus simple pour les propriétaires hors forfait est une session photo du dimanche. Bloquez 30 minutes, prenez 12 à 16 photos couvrant les cinq catégories, et planifiez-les pour le reste de la semaine. La plupart des applications photo modernes supportent la publication planifiée. Réglez l'horaire une fois et la cadence se gère seule.
