@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 30, email validation shared lib smoke (37 cases)
+        # Tests functions/lib/email.ts: isValidEmail consolidates 4
+        # inline copies. Verifies regex (no @, no dot, whitespace
+        # rejection), length bounds 5..254 (RFC 5321 max + sanity floor),
+        # disposable domain rejection (case-insensitive), DISPOSABLE_DOMAINS
+        # 9-entry contract. partner-application's stricter `length >= 5`
+        # check now applied uniformly across all 4 prior call sites
+        # (closes a tiny gap where 'a@b' was passing 3/4 of them).
+        run: npx tsx scripts/smoke-email.mjs
+
       - name: Gate 29, origin allowlist shared lib smoke (21 cases)
         # Tests functions/lib/origin.ts: isAllowedOrigin helper that
         # consolidates 5 inline copies. Verifies default allowlist

@@ -4,7 +4,32 @@
 
 ---
 
-## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — 5 shared libs extracted on PR #139 (supabaseInsert + htmlEscape + crypto + origin + STATE archive)
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — 6 shared libs extracted on PR #139 (supabaseInsert + htmlEscape + crypto + origin + email + STATE archive)
+
+### Sub-phase 6 (commit 6 on PR #139): email validation shared lib + Gate 30
+
+Consolidated 4 inline copies of `isValidEmail` + the `DISPOSABLE_DOMAINS`
+Set into `functions/lib/email.ts`. 3 of the 4 copies were byte-identical;
+`partner-application` had a slightly stricter `length >= 5` lower-bound
+which is now applied uniformly. `'a@b'` was technically passing 3/4
+endpoints; that's now rejected everywhere. Strictly stricter == no
+behavioral regression at the 3 prior-permissive sites; closes a tiny gap.
+
+**Files refactored (4 inline copies removed):**
+
+- `functions/api/cofounders-apply.ts`
+- `functions/api/founding-clients-apply.ts`
+- `functions/api/newsletter-subscribe.ts`
+- `functions/api/partner-application.ts`
+
+**New smoke (Gate 30): scripts/smoke-email.mjs, 37 cases.**
+
+Asserts regex contract (no @, no dot, whitespace rejection), length
+bounds 5..254 (RFC 5321 max + sanity floor), disposable domain
+rejection (case-insensitive), 9-entry DISPOSABLE_DOMAINS contract,
+plus standalone `isDisposableEmail` helper.
+
+
 
 ### Sub-phase 5 (commit 5 on PR #139): origin allowlist shared lib + Gate 29
 

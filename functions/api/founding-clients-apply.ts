@@ -20,6 +20,7 @@ import { captureServerError } from "../lib/serverError";
 import { insertSupabaseRow } from "../lib/supabaseInsert";
 import { escapeHtml } from "../lib/htmlEscape";
 import { isAllowedOrigin } from "../lib/origin";
+import { isValidEmail } from "../lib/email";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -36,18 +37,6 @@ interface Env {
 }
 
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
-
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
 
 const ALLOWED_VERTICALS = new Set([
   "dentist",
@@ -94,15 +83,6 @@ interface ValidatedData {
   motivation: string | null;
   lang: string;
   source: string;
-}
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
 }
 
 function clip(value: unknown, max: number): string | null {
