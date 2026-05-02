@@ -26,6 +26,8 @@
 //     },
 //   )(ctx);
 
+import { jsonResponse } from './jsonResponse';
+
 interface CronEnv {
   AUDIT_PDF_RATE_LIMIT?: KVNamespace;
 }
@@ -249,15 +251,4 @@ export async function readCronHeartbeat(
   } catch {
     return null;
   }
-}
-
-function jsonResponse(payload: unknown, status: number): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-    },
-  });
 }

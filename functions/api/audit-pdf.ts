@@ -22,6 +22,7 @@ import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
 import { sha256Hex } from '../lib/crypto';
 import { isAllowedOrigin } from '../lib/origin';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -642,14 +643,3 @@ function pickLocale(lang: string, map: Record<string, string>): string {
   return map[lang] ?? map.en;
 }
 
-function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-      ...extraHeaders,
-    },
-  });
-}
