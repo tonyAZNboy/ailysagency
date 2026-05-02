@@ -8658,4 +8658,291 @@ hello@ailysagency.ca avec sujet "Wikidata".`,
       },
     },
   },
+
+  // ── F3.0: Partner Program help articles ─────────────────────────────────────
+  {
+    slug: "partner-program-overview",
+    title: "AiLys Partner Program overview",
+    excerpt:
+      "What the Partner Program is, who it is for, and how Quebec or Canadian agencies can white-label AiLys for their own clients. Application is free, kickoff happens within ten business days of acceptance.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 5,
+    body: `## What it is
+
+The AiLys Partner Program lets a marketing or web agency deliver AI Visibility services under their own brand to their existing clients. The agency keeps the client relationship. The AiLys platform handles the engine, the scoring, the citations, the GBP automation, the AI Visibility probes, and the monthly reports. The agency pays a flat seat fee plus a revenue share on every active sub-client subscription.
+
+Think of it like a private-label SaaS. Your logo on the dashboard. Your colors. Your domain (yourbrand.com or a subdomain). Your email-from on every transactional message. Your footer on every PDF. The end client sees your brand throughout. AiLys is the engine in the basement.
+
+## Who it is for
+
+Three kinds of agency thrive with the Partner Program.
+
+1. **Local-business agencies in Quebec, Ontario, or the Maritimes** with at least 5 active clients. The platform was built for the Canadian local-business market first. NAP consistency, GBP automation, bilingual EN+FR, and Quebec-specific compliance (PIPEDA, Loi 25) are native, not an afterthought.
+2. **Marketing teams whose clients ask AI questions.** If your clients have started asking how to get cited by ChatGPT or Perplexity or Google AIO, the Partner Program gives you a structured answer with monthly scoring instead of a one-time audit.
+3. **Agencies who want a recurring revenue line.** AI Visibility is the new local SEO. Recurring monthly engagement, measurable scoring, deliverables every week. Replaces the one-shot SEO audit model.
+
+If you run a fully outbound agency with no recurring service, the Partner Program is probably not the right fit. The model assumes you keep clients at least six months.
+
+## What partners receive
+
+Once accepted into the cohort, you receive:
+
+- A white-label dashboard accessible at your branded URL
+- Per-client AI Visibility scoring updated weekly
+- Monthly Industry Reports for verticals you serve
+- Branded PDF deliverables (audits, reports, monthly summaries) ready to forward
+- A revenue share on every sub-client subscription you sign
+- Priority strategist support for partner agencies (separate queue, under 24-hour response)
+- Quarterly partner office hours: a 60-minute group session covering platform updates, vertical patterns, and partner Q+A
+
+## How the application works
+
+Three stages: apply, talk, contract.
+
+1. **Apply.** Fill the form at /agencies/partner-program. We respond within five business days.
+2. **Talk.** A 60-minute call with the AiLys founders. We cover your client portfolio, your goals, your existing tooling, and your proposed pricing. We answer technical questions about the platform.
+3. **Contract.** If both sides agree the fit is good, we sign a partner agreement that month. Onboarding kickoff within ten business days.
+
+You apply once. You receive a yes or a no within roughly two weeks of the application date.
+
+## Pricing model
+
+Two components.
+
+1. **Seat fee.** A flat monthly fee that covers the white-label environment, branded surfaces, partner support, and the first batch of seats. Discussed during the call based on your portfolio size.
+2. **Revenue share.** A percentage of every active sub-client subscription. The percentage decreases as your portfolio grows. Discussed during the call.
+
+You set the price your sub-clients pay. We do not gate that. You invoice them. We invoice you for the seat fee plus the revenue share.
+
+## What stays internal
+
+The AiLys engine, the scoring formulas, the prompt structures, the vendor stack, the citation directory list, the AI engine probe sequence: none of it is disclosed to partner agencies or sub-clients. The Partner Program documentation describes outcomes (what the dashboard shows, what the reports contain, how the score moves) without revealing the methodology that produces them. This protects the moat that makes the score meaningful and reduces switching risk if a vendor changes.
+
+## Cohort cadence
+
+We open the partner cohort in waves. A wave runs roughly four months. We accept agencies on a rolling basis within a wave, then close the cohort when the integration team capacity is reached. Closed cohorts reopen the following wave.
+
+If you apply during a closed cohort, your application moves to the next wave queue and we email you when the cohort reopens.
+
+## Questions
+
+Email hello@ailysagency.ca with subject "Partner Program" or apply directly via the form at /agencies/partner-program. We respond within five business days during open cohorts.`,
+    i18n: {
+      fr: {
+        title: "Programme partenaire AiLys, vue d'ensemble",
+        excerpt:
+          "Ce qu'est le programme partenaire, a qui il s'adresse, et comment les agences du Quebec ou du Canada peuvent offrir AiLys en marque blanche a leurs propres clients. La candidature est gratuite, le demarrage se fait dans les dix jours ouvrables suivant l'acceptation.",
+        body: `## Ce que c'est
+
+Le programme partenaire AiLys permet a une agence marketing ou web de livrer des services de visibilite IA sous sa propre marque a ses clients existants. L'agence garde la relation client. La plateforme AiLys s'occupe du moteur, du score, des citations, de l'automatisation GBP, des sondes de visibilite IA et des rapports mensuels. L'agence paie des frais de siege fixes plus un partage de revenus sur chaque abonnement sous-client actif.
+
+Pensez-y comme une SaaS en marque blanche. Votre logo sur le tableau de bord. Vos couleurs. Votre domaine (votremarque.com ou un sous-domaine). Votre courriel d'envoi sur chaque message transactionnel. Votre pied de page sur chaque PDF. Le client final voit votre marque partout. AiLys est le moteur dans le sous-sol.
+
+## A qui ca s'adresse
+
+Trois types d'agences performent dans le programme.
+
+1. **Agences pour commerces locaux au Quebec, en Ontario ou dans les Maritimes** avec au moins 5 clients actifs. La plateforme a ete construite d'abord pour le marche canadien des commerces locaux. La coherence NAP, l'automatisation GBP, le bilinguisme EN+FR et la conformite Quebec (PIPEDA, Loi 25) sont natifs, pas ajoutes apres.
+2. **Equipes marketing dont les clients posent des questions IA.** Si vos clients commencent a demander comment se faire citer par ChatGPT, Perplexity ou Google AIO, le programme partenaire vous donne une reponse structuree avec un score mensuel au lieu d'un audit ponctuel.
+3. **Agences qui veulent une ligne de revenus recurrents.** La visibilite IA est le nouveau SEO local. Engagement mensuel recurrent, score mesurable, livrables chaque semaine. Remplace le modele d'audit SEO en une seule fois.
+
+Si vous gerez une agence purement sortante sans service recurrent, le programme partenaire n'est probablement pas le bon ajustement. Le modele suppose que vous gardez les clients au moins six mois.
+
+## Ce que recoivent les partenaires
+
+Une fois acceptes dans la cohorte, vous recevez :
+
+- Un tableau de bord en marque blanche accessible a votre URL de marque
+- Un score de visibilite IA par client mis a jour chaque semaine
+- Des rapports sectoriels mensuels pour les verticals que vous desservez
+- Des livrables PDF de marque (audits, rapports, resumes mensuels) prets a transferer
+- Un partage de revenus sur chaque abonnement sous-client signe
+- Un soutien strategiste prioritaire pour les agences partenaires (file separee, reponse en moins de 24 heures)
+- Des heures de bureau partenaires trimestrielles : une session de groupe de 60 minutes couvrant les mises a jour de la plateforme, les patterns par vertical et les questions/reponses partenaires
+
+## Le processus de candidature
+
+Trois etapes : postuler, discuter, contracter.
+
+1. **Postuler.** Remplissez le formulaire a /fr/agencies/partner-program. Nous repondons dans les cinq jours ouvrables.
+2. **Discuter.** Un appel de 60 minutes avec les fondateurs d'AiLys. Nous couvrons votre portefeuille de clients, vos objectifs, votre outillage existant et votre tarification proposee. Nous repondons aux questions techniques sur la plateforme.
+3. **Contracter.** Si les deux parties s'accordent sur l'ajustement, nous signons une entente partenaire dans le mois. Demarrage dans les dix jours ouvrables.
+
+Vous postulez une fois. Vous recevez un oui ou un non dans environ deux semaines suivant la date de candidature.
+
+## Modele de tarification
+
+Deux composantes.
+
+1. **Frais de siege.** Un frais mensuel fixe qui couvre l'environnement marque blanche, les surfaces de marque, le soutien partenaire et le premier lot de sieges. Discutees pendant l'appel selon la taille de votre portefeuille.
+2. **Partage de revenus.** Un pourcentage de chaque abonnement sous-client actif. Le pourcentage diminue a mesure que votre portefeuille grandit. Discute pendant l'appel.
+
+Vous fixez le prix que paient vos sous-clients. Nous ne le verrouillons pas. Vous les facturez. Nous vous facturons les frais de siege plus le partage de revenus.
+
+## Ce qui reste interne
+
+Le moteur AiLys, les formules de scoring, les structures de prompt, la stack fournisseurs, la liste des annuaires de citations, la sequence de sonde des moteurs IA : rien de cela n'est divulgue aux agences partenaires ou aux sous-clients. La documentation du programme partenaire decrit les resultats (ce que montre le tableau de bord, ce que contiennent les rapports, comment le score evolue) sans reveler la methodologie qui les produit. Cela protege le moat qui rend le score significatif et reduit le risque de bascule si un fournisseur change.
+
+## Cadence de cohorte
+
+Nous ouvrons la cohorte partenaire par vagues. Une vague dure environ quatre mois. Nous acceptons les agences au fil de l'eau dans une vague, puis fermons la cohorte quand la capacite de l'equipe d'integration est atteinte. Les cohortes fermees rouvrent a la vague suivante.
+
+Si vous postulez pendant une cohorte fermee, votre candidature passe dans la file de la prochaine vague et nous vous ecrivons quand la cohorte rouvre.
+
+## Questions
+
+Ecrivez a hello@ailysagency.ca avec le sujet "Programme partenaire" ou postulez directement via le formulaire a /fr/agencies/partner-program. Nous repondons dans les cinq jours ouvrables pendant les cohortes ouvertes.`,
+      },
+    },
+  },
+
+  {
+    slug: "how-to-apply-as-a-partner-agency",
+    title: "How to apply as a partner agency",
+    excerpt:
+      "Step-by-step guide to the partner application form, what AiLys evaluates in your application, response time, and what the kickoff call covers if you are accepted.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## Where to apply
+
+Apply at /agencies/partner-program (English) or /fr/agencies/partner-program (French). The form takes roughly five minutes to complete.
+
+## What the form asks
+
+Seven fields, all answered in plain language.
+
+1. **Agency name.** Your registered or trading name. We use this in correspondence and on the partner agreement.
+2. **Your name.** Your full name as the primary contact person.
+3. **Work email.** Your business email at your agency domain. We send the confirmation here.
+4. **City.** Where your agency is based. Quebec or Canadian addresses are weighted, though we accept applications from anywhere in North America.
+5. **Active clients (approx).** A rough count of paying clients you currently serve. Round number, not exact. The form accepts integers from 0 to 10000.
+6. **Expected referrals per year.** A rough estimate of how many of your existing or new clients you would onboard onto the AiLys platform in the first 12 months. Useful for sizing the seat fee. Round number, accepts 0 to 1000.
+7. **Brief pitch (optional).** Two or three sentences explaining why partnering with AiLys fits your agency right now. Not required, but the strongest applications usually answer this in one paragraph.
+
+## What AiLys evaluates
+
+Five signals, in order of weight.
+
+1. **Existing client portfolio.** We look for at least 5 active paying clients. Below 5, we typically suggest you build the client base first and reapply later.
+2. **Recurring service model.** We confirm your business runs on monthly retainers or recurring subscriptions, not one-shot project work. The platform model assumes month-over-month engagement.
+3. **Vertical fit.** We weight applications from agencies serving local-business verticals (dental, legal, restaurant, contractor, clinic, real estate, hotel) higher than B2B SaaS or e-commerce agencies. The platform was built for local.
+4. **Geographic fit.** Quebec, Ontario, Maritimes, then English Canada, then North America more broadly. We do not currently accept European or Asian agency applications because the local-business and bilingual constraints differ.
+5. **Communication clarity.** A clear three-sentence pitch beats a generic blanket email. We read every pitch.
+
+## Response time
+
+Five business days from application receipt. If you do not hear back within five business days, check your spam folder for a message from hello@ailysagency.ca, then write to us directly with your application date.
+
+A response is one of three outcomes:
+
+1. **Yes, schedule the call.** A calendar link to book a 60-minute kickoff call.
+2. **Maybe, with conditions.** Sometimes we ask for additional context (sample case study, client list size confirmation, vertical mix breakdown) before booking.
+3. **No, with reasoning.** We always explain why if we decline. Common reasons: client base too small, agency model misfit, geography misfit, cohort closed.
+
+## The kickoff call
+
+If accepted, the 60-minute call with the AiLys founders covers:
+
+- Platform demo focused on the partner-portal surfaces (dashboard, sub-client onboarding, branded PDFs)
+- Pricing model details: seat fee, revenue share percentages by portfolio size
+- White-label customization options: logo, colors, custom domain, email-from
+- Onboarding sequence: how to invite the first three sub-clients
+- Strategist support process and SLA tiers
+- Q+A on technical platform questions
+
+We come prepared. You come with the questions that block your decision. By the end of the call, we should both know if the fit works.
+
+## After the call
+
+Two business days after the call, we send a partner agreement draft. Once signed, kickoff happens within ten business days. Your branded environment is provisioned, your domain is configured, and your first invitation links are issued.
+
+## Common questions
+
+**Can I apply if I am still building my client base?** Yes, but we will probably suggest you wait until you reach 5 active clients before joining the cohort. Apply anyway. We can keep your application warm.
+
+**Can I apply on behalf of multiple agency entities?** Yes. Submit one application per legal entity. We can discuss group structure during the call.
+
+**Can a freelance consultant apply?** Yes if you have at least 5 active retainer clients. The form requires an agency name; use your trading name or sole proprietorship name.
+
+**What if I have specific compliance requirements (HIPAA, PIPEDA-strict, etc.)?** Mention them in the pitch. We discuss them on the call. The platform meets PIPEDA and Loi 25 by default; HIPAA partnerships require a separate addendum.
+
+## Questions before applying
+
+Email hello@ailysagency.ca with subject "Partner Program preview" and we will respond within five business days, no application required.`,
+    i18n: {
+      fr: {
+        title: "Comment postuler en tant qu'agence partenaire",
+        excerpt:
+          "Guide etape par etape du formulaire de candidature partenaire, ce qu'AiLys evalue dans votre demande, le delai de reponse, et ce que couvre l'appel de demarrage si vous etes accepte.",
+        body: `## Ou postuler
+
+Postulez a /agencies/partner-program (anglais) ou /fr/agencies/partner-program (francais). Le formulaire prend environ cinq minutes.
+
+## Ce que demande le formulaire
+
+Sept champs, tous en langage clair.
+
+1. **Nom de l'agence.** Votre denomination enregistree ou commerciale. Nous l'utilisons dans la correspondance et sur l'entente partenaire.
+2. **Votre nom.** Votre nom complet en tant que personne contact principale.
+3. **Courriel professionnel.** Votre courriel d'affaires au domaine de votre agence. Nous y envoyons la confirmation.
+4. **Ville.** Ou votre agence est basee. Les adresses du Quebec ou du Canada sont ponderees, bien que nous acceptions les candidatures de partout en Amerique du Nord.
+5. **Clients actifs (approx).** Un compte approximatif des clients payants que vous servez actuellement. Nombre rond, pas exact. Le formulaire accepte des entiers de 0 a 10000.
+6. **References attendues par an.** Une estimation approximative du nombre de vos clients existants ou nouveaux que vous embarqueriez sur la plateforme AiLys dans les 12 premiers mois. Utile pour dimensionner les frais de siege. Nombre rond, accepte 0 a 1000.
+7. **Bref pitch (optionnel).** Deux ou trois phrases expliquant pourquoi le partenariat avec AiLys convient a votre agence en ce moment. Non requis, mais les candidatures les plus fortes y repondent en un paragraphe.
+
+## Ce qu'AiLys evalue
+
+Cinq signaux, par ordre de poids.
+
+1. **Portefeuille de clients existant.** Nous cherchons au moins 5 clients payants actifs. Sous 5, nous suggerons typiquement de construire la base de clients d'abord et de repostuler plus tard.
+2. **Modele de service recurrent.** Nous confirmons que votre entreprise tourne sur des mandats mensuels ou des abonnements recurrents, pas sur du travail au projet ponctuel. Le modele de plateforme suppose un engagement de mois en mois.
+3. **Adequation vertical.** Nous ponderons les candidatures d'agences servant des verticals de commerces locaux (dentaire, juridique, restaurant, entrepreneur, clinique, immobilier, hotellerie) plus haut que les agences B2B SaaS ou e-commerce. La plateforme a ete construite pour le local.
+4. **Adequation geographique.** Quebec, Ontario, Maritimes, puis Canada anglais, puis Amerique du Nord plus largement. Nous n'acceptons pas actuellement de candidatures d'agences europeennes ou asiatiques car les contraintes commerce local et bilinguisme different.
+5. **Clarte de communication.** Un pitch clair en trois phrases bat un courriel generique. Nous lisons chaque pitch.
+
+## Delai de reponse
+
+Cinq jours ouvrables a partir de la reception de la candidature. Si vous n'avez pas de nouvelles dans les cinq jours ouvrables, verifiez votre dossier de pourriels pour un message de hello@ailysagency.ca, puis ecrivez-nous directement avec votre date de candidature.
+
+Une reponse est l'une de trois issues :
+
+1. **Oui, planifions l'appel.** Un lien de calendrier pour reserver un appel de demarrage de 60 minutes.
+2. **Peut-etre, avec conditions.** Parfois nous demandons un contexte supplementaire (etude de cas, confirmation de la taille de la liste de clients, repartition par vertical) avant de reserver.
+3. **Non, avec raison.** Nous expliquons toujours pourquoi nous declinons. Raisons courantes : base de clients trop petite, modele d'agence mal adapte, geographie mal adaptee, cohorte fermee.
+
+## L'appel de demarrage
+
+Si accepte, l'appel de 60 minutes avec les fondateurs d'AiLys couvre :
+
+- Demo de la plateforme axee sur les surfaces du portail partenaire (tableau de bord, integration sous-client, PDF de marque)
+- Details du modele de tarification : frais de siege, pourcentages de partage de revenus selon la taille du portefeuille
+- Options de personnalisation marque blanche : logo, couleurs, domaine personnalise, courriel d'envoi
+- Sequence d'integration : comment inviter les trois premiers sous-clients
+- Processus de soutien strategiste et niveaux de SLA
+- Questions/reponses sur les questions techniques de la plateforme
+
+Nous arrivons prepares. Vous arrivez avec les questions qui bloquent votre decision. A la fin de l'appel, nous savons tous deux si l'ajustement fonctionne.
+
+## Apres l'appel
+
+Deux jours ouvrables apres l'appel, nous envoyons un projet d'entente partenaire. Une fois signee, le demarrage se fait dans les dix jours ouvrables. Votre environnement de marque est provisionne, votre domaine est configure, et vos premiers liens d'invitation sont emis.
+
+## Questions courantes
+
+**Puis-je postuler si je construis encore ma base de clients ?** Oui, mais nous suggererons probablement d'attendre d'atteindre 5 clients actifs avant de rejoindre la cohorte. Postulez quand meme. Nous pouvons garder votre candidature au chaud.
+
+**Puis-je postuler au nom de plusieurs entites d'agence ?** Oui. Soumettez une candidature par entite legale. Nous pouvons discuter de la structure de groupe pendant l'appel.
+
+**Un consultant freelance peut-il postuler ?** Oui s'il a au moins 5 clients en mandat actif. Le formulaire demande un nom d'agence ; utilisez votre nom commercial ou votre nom d'entreprise individuelle.
+
+**Et si j'ai des exigences de conformite specifiques (HIPAA, PIPEDA strict, etc.) ?** Mentionnez-les dans le pitch. Nous en discutons a l'appel. La plateforme respecte PIPEDA et la Loi 25 par defaut ; les partenariats HIPAA necessitent un avenant separe.
+
+## Questions avant de postuler
+
+Ecrivez a hello@ailysagency.ca avec le sujet "Apercu programme partenaire" et nous repondrons dans les cinq jours ouvrables, sans candidature requise.`,
+      },
+    },
+  },
 ];

@@ -51,6 +51,7 @@ const PublicVerify = lazy(() => import("./pages/PublicVerify"));
 const IndustryReports = lazy(() => import("./pages/IndustryReports"));
 const IndustryReportDetail = lazy(() => import("./pages/IndustryReportDetail"));
 const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
+const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -60,6 +61,7 @@ const AdminVisitors = lazy(() => import("./pages/admin/AdminVisitors"));
 const AdminPosts = lazy(() => import("./pages/admin/AdminPosts"));
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 const AdminClients = lazy(() => import("./pages/admin/AdminClients"));
+const AdminPartnerApplications = lazy(() => import("./pages/admin/AdminPartnerApplications"));
 const AdminLifecycle = lazy(() => import("./pages/admin/AdminLifecycle"));
 const AdminChurn = lazy(() => import("./pages/admin/AdminChurn"));
 const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
@@ -191,12 +193,17 @@ const App = () => {
                 <Route path="/concierge-demo" element={<ConciergeDemo />} />
                 <Route path="/:lang/concierge-demo" element={<ConciergeDemo />} />
 
+                {/* F3.0: Partner Program waitlist (demand-validation MVP) */}
+                <Route path="/agencies/partner-program" element={<PartnerProgram />} />
+                <Route path="/:lang/agencies/partner-program" element={<PartnerProgram />} />
+
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminOverview />} />
                   <Route path="users" element={<AdminUsers />} />
                   <Route path="clients" element={<AdminClients />} />
                   <Route path="leads" element={<AdminLeads />} />
+                  <Route path="partner-applications" element={<AdminPartnerApplications />} />
                   <Route path="bookings" element={<AdminBookings />} />
                   <Route path="lifecycle" element={<AdminLifecycle />} />
                   <Route path="churn" element={<AdminChurn />} />

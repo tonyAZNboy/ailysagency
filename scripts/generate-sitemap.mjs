@@ -94,6 +94,8 @@ const MAIN_ROUTES = [
   { path: "/badge", priority: 0.85, changefreq: "monthly" },
   // Feature 5: AI Concierge demo (public preview)
   { path: "/concierge-demo", priority: 0.85, changefreq: "monthly" },
+  // F3.0: Partner Program waitlist (demand-validation MVP)
+  { path: "/agencies/partner-program", priority: 0.85, changefreq: "monthly" },
   // Bonus B: Quarterly Industry Reports (lead magnets, high backlink potential)
   { path: "/industry-reports", priority: 0.9, changefreq: "weekly" },
   { path: "/industry-reports/dentists-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },

@@ -106,6 +106,14 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 22, partner application validator + hash smoke (16 cases)
+        # F3.0 demand-validation MVP. Tests the validator + payloadHash +
+        # ipHash exported from functions/api/partner-application.ts. End-to-
+        # end edge fn behavior is verified post-deploy via live curl from
+        # the operator (Gate M1 in .planning/phase-f3-0-partner-waitlist/
+        # 03-test-matrix.md).
+        run: npx tsx scripts/smoke-partner-application.mjs
+
       - run: npm run build
 
       - name: Gate 20, bundle-shape regression guard (TDZ blank-page class)
