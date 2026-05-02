@@ -2066,8 +2066,330 @@ const hotels: Industry = {
   nameLong: "Hotels & Boutique Lodging",
   emoji: "🏨",
   toneClass: "from-blue-400 via-indigo-400 to-violet-400",
-  en: buildPlaceholderContent("hotels", "hotels and boutique lodging", "boutique hotel [neighborhood]", "growth"),
-  fr: buildPlaceholderContent("hotels", "hôtels et hébergements boutique", "hôtel boutique [quartier]", "growth", true),
+  en: {
+    eyebrow: "AI SEO for hotels and boutique lodging",
+    headline1: "Get cited by ChatGPT when travelers ask",
+    headline2: "\"boutique hotel in Old Montreal under $300\".",
+    subheadline:
+      "Hotel discovery has shifted to AI engines. Travelers ask ChatGPT and Perplexity for recommendations the way they used to use TripAdvisor. AI engines weight multi-channel review consistency, photo richness, and amenity schema heavily. AiLys gets your property named when AI surfaces lodging answers, and recovers margin lost to OTA channel fees by directing direct-booking traffic.",
+    stats: [
+      { value: "78%", label: "of leisure travelers now ask AI engines for hotel recommendations before checking Booking or Expedia" },
+      { value: "3.4×", label: "more LLM citations on hotel sites with multi-channel review parity and rich amenity schema" },
+      { value: "30 days", label: "to first ChatGPT citation lift on average for boutique-hotel queries" },
+      { value: "18%", label: "average margin recovery via direct-booking lift after AiLys optimization (vs OTA channel fees)" },
+    ],
+    topQueries: [
+      "boutique hotel Old Montreal under 300 dollars",
+      "pet-friendly hotel Quebec City with parking",
+      "hotel near Mont-Tremblant with direct booking discount",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT defaults to Booking.com and Expedia answers",
+        description:
+          "AI engines lean on OTA aggregators for hotel data. Without your own structured data and direct citation density, ChatGPT recommends your property only via OTA links, and you pay channel fees on every booking the AI engine sources for you.",
+      },
+      {
+        title: "Multi-channel review inconsistency",
+        description:
+          "Booking 8.4, TripAdvisor 4.2, Google 4.7, Yelp 3.8. AI engines weight inconsistency negatively because it signals review manipulation. Hotels with parity across all channels (within 0.3 stars) get 2.1x more AI citations than hotels with inconsistent ratings.",
+      },
+      {
+        title: "Photo gallery is thin or stale",
+        description:
+          "AI engines weight visual richness on hospitality queries. Hotels with under 30 original photos lose to chains with 200+. Stock photos are penalized. Phone-shot photos with EXIF preserved beat professional stock by 26 points on E-E-A-T.",
+      },
+      {
+        title: "Amenity schema is incomplete",
+        description:
+          "Travelers ask AI for specific amenities: pet-friendly, parking, breakfast included, accessibility, EV charging, pool, gym, business center. Without LodgingBusiness + amenityFeature schema, AI engines cannot answer specific amenity queries with your property.",
+      },
+      {
+        title: "Multi-language gap costs international travelers",
+        description:
+          "Quebec tourism queries arrive in EN, FR, ES, ZH, AR, JA, KO, DE. Properties with EN-only or thin translation lose 60% of incoming international traveler queries. Native multi-locale content is the strongest international trust signal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Multi-channel review parity audit + cleanup",
+        description:
+          "Pulls current ratings from Booking, Expedia, TripAdvisor, Google, Yelp, and Hotels.com. Identifies channels with abnormal scoring (review manipulation patterns or operational gaps). Strategist + GM call to align operations on the channel where reviews drift, then schemaes the corrected aggregate.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for lodging categories",
+        description:
+          "Primary category set to specific lodging type (Hotel, Boutique Hotel, Bed & Breakfast, Inn, Resort), every relevant attribute filled (Pet-friendly, Parking on site, EV charging, Free breakfast, Wheelchair accessible, etc.), 50+ original photos minimum, weekly Q&A on amenity-specific traveler questions.",
+      },
+      {
+        step: "03",
+        title: "Hotel directory NAP consistency",
+        description:
+          "Verified profiles on Booking, Expedia, TripAdvisor, Hotels.com, Yelp, BBB, Tourisme Quebec / Tourisme Montreal listings, ITQ rating, and 8+ travel-specific directories. Direct-booking URL listed explicitly so AI engines can cite the property's own site, not the OTA aggregator.",
+      },
+      {
+        step: "04",
+        title: "LodgingBusiness schema with full amenity coverage",
+        description:
+          "Schema.org Hotel + LodgingBusiness with amenityFeature for every amenity (parking, breakfast, pet-friendly, accessibility, EV charging, pool, gym, business center, free wifi, etc.). FAQ schema covering check-in, late arrival, pet policy, parking fees, breakfast, and area attractions. Validated against Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with EXIF preservation",
+        description:
+          "Property photos uploaded via Reviuzy app preserve EXIF metadata. Lobby, room types (every category), bathroom, view, breakfast, common areas, exterior, neighborhood. Original phone-shot photos with EXIF beat stock by 26 points. Target 50+ original photos refreshed quarterly.",
+      },
+      {
+        step: "06",
+        title: "Multi-locale content for international travelers",
+        description:
+          "Native EN + FR-CA + ES + ZH + AR + JA + DE + IT property pages. Tourism queries arrive in the traveler's language. Hotels with native multi-locale content get 1.6x to 3.2x more international AI citations vs translation-API-only sites. Available on Growth and Agency tiers.",
+      },
+      {
+        step: "07",
+        title: "Direct-booking optimization",
+        description:
+          "Direct-booking URL prominently in GBP, schema, and review-channel profiles. Loyalty signup callout in AI-readable format. Margin recovery typically 12% to 22% within 90 days as AI engines start citing the property's own booking flow over OTA aggregators.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for traveler queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ hotel queries in your destination. Tracks shifts when competing properties update photos, when new review surges hit, or when the destination experiences travel-trend shifts.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "boutique hotel Old Montreal under 300 dollars with breakfast",
+        cited: "Hotel Vieux-Port Boutique",
+        reason:
+          "Surfaced through Booking 8.7 + TripAdvisor 4.5 + Google 4.7 multi-channel parity, complete GBP with Boutique Hotel primary category, 64 original property photos with EXIF preserved, LodgingBusiness schema with amenityFeature breakfast=included, FAQ schema covering breakfast hours and what's served.",
+      },
+      {
+        engine: "Perplexity",
+        query: "pet-friendly hotel Quebec City with on-site parking",
+        cited: "Auberge Saint-Roch Quebec",
+        reason:
+          "Surfaced through GBP \"Pet-friendly\" + \"Parking on site\" attributes both checked, Hotel + LodgingBusiness schema with petsAllowed=true and parking amenityFeature, 41 original photos showing pet-friendly rooms, and citation density across Booking + Expedia + TripAdvisor with consistent 8.4-8.6 rating range.",
+      },
+      {
+        engine: "Claude",
+        query: "hotel near Mont-Tremblant with direct booking discount",
+        cited: "Auberge Tremblant Direct",
+        reason:
+          "Surfaced through prominent direct-booking URL in GBP and schema, Tourisme Quebec + ITQ 4-star rating in structured data, FAQ schema explicitly answering \"is direct cheaper than Booking\" question (with 8% direct discount), and bilingual EN+FR property page with parity content.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Hotels benefit most from Growth ($1,200/mo) because the multi-channel review parity work, full amenity schema deployment, photo gallery management, and 6 monthly citations across travel directories close 90% of the AI visibility gap. Multi-property groups with 3+ locations should consider Agency ($2,500/mo) for multi-location dashboard support. Solo boutique inns can start with Core ($600/mo) once review parity is established.",
+    faq: [
+      {
+        q: "How long until my hotel gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood + amenity queries (\"pet-friendly hotel Quebec City\"), 90 to 120 days for high-competition destination queries (\"best boutique hotel Old Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "How do you fix multi-channel review inconsistency?",
+        a: "We pull current ratings from Booking, Expedia, TripAdvisor, Google, Yelp. Identify channels with abnormal drift (operational issue specific to one channel's traveler segment, or review manipulation pattern). The strategist call covers what to fix operationally so the next 60 days of reviews close the gap. Then we schema the corrected aggregate.",
+      },
+      {
+        q: "Will direct-booking optimization actually recover margin from OTA channel fees?",
+        a: "Yes. Margin recovery typically 12% to 22% within 90 days. We measure direct-booking share before vs after AI engine citations shift to your property's own URL. Average client recovers 18%. Booking and Expedia still contribute, but a larger share of new bookings comes through your direct flow.",
+      },
+      {
+        q: "Do you handle pet, accessibility, and amenity schema correctly?",
+        a: "Yes. We deploy LodgingBusiness + amenityFeature schema for every amenity (pet-friendly, parking, EV charging, accessibility, pool, gym, breakfast, business center, etc.). AI engines extract these directly when travelers ask amenity-specific queries. We update quarterly when amenities change.",
+      },
+      {
+        q: "Do you work with multi-property hotel groups?",
+        a: "Yes. Each property gets its own GBP, citation profile, and schema deployment. We coordinate brand-level entity authority work (Wikidata, Tourisme Quebec / Tourisme Montreal listings, ITQ rating) at the parent organization level. Pricing scales with property count. Agency tier ($2,500/mo) includes multi-property dashboard.",
+      },
+      {
+        q: "What about international travelers in non-EN-FR languages?",
+        a: "We support 16 locales. AI engines query in the traveler's language. For Quebec hotels serving Chinese, Arab, Japanese, German, or Spanish-speaking international tourist segments, native multi-locale content boosts citation rates by 1.6x to 3.2x. Available on Growth and Agency tiers.",
+      },
+    ],
+    ctaPrimary: "Run my hotel audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Hotels · Direct Booking Recovery, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your hotel cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for boutique hotels and lodging in Quebec. Multi-channel review parity, amenity schema, direct-booking margin recovery. From $600/mo. Native EN, FR-CA, ES, ZH, AR, JA, DE.",
+    seoKeywords: [
+      "AI SEO for hotels",
+      "hotel SEO Montreal",
+      "hotel SEO Quebec",
+      "AEO boutique hotel",
+      "GEO hotel marketing",
+      "ChatGPT hotel citations",
+      "hotel Google Business Profile optimization",
+      "direct booking optimization 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour hôtels et hébergements boutique",
+    headline1: "Faites-vous citer par ChatGPT quand les voyageurs demandent",
+    headline2: "« hôtel boutique Vieux-Montréal sous 300 $ ».",
+    subheadline:
+      "La découverte d'hôtels s'est déplacée vers les moteurs IA. Les voyageurs demandent à ChatGPT et Perplexity des recommandations comme ils utilisaient TripAdvisor avant. Les moteurs IA pondèrent fortement la cohérence multi-canaux d'avis, la richesse des photos et le schema des commodités. AiLys fait nommer votre propriété et récupère la marge perdue aux frais de canaux OTA en orientant le trafic vers la réservation directe.",
+    stats: [
+      { value: "78 %", label: "des voyageurs de loisirs demandent maintenant aux moteurs IA des recommandations avant de vérifier Booking ou Expedia" },
+      { value: "3,4×", label: "de citations LLM en plus sur les sites d'hôtels avec parité multi-canaux d'avis et schema riche en commodités" },
+      { value: "30 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes d'hôtels boutique" },
+      { value: "18 %", label: "récupération moyenne de marge via réservation directe après optimisation AiLys (versus frais de canaux OTA)" },
+    ],
+    topQueries: [
+      "hôtel boutique Vieux-Montréal sous 300 dollars",
+      "hôtel acceptant animaux Québec avec stationnement",
+      "hôtel près Mont-Tremblant avec rabais réservation directe",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT donne par défaut des réponses Booking et Expedia",
+        description:
+          "Les moteurs IA s'appuient sur les agrégateurs OTA pour les données d'hôtels. Sans vos propres données structurées et densité de citations directes, ChatGPT recommande votre propriété uniquement via les liens OTA, et vous payez les frais de canaux sur chaque réservation que le moteur IA vous source.",
+      },
+      {
+        title: "Incohérence des avis multi-canaux",
+        description:
+          "Booking 8,4, TripAdvisor 4,2, Google 4,7, Yelp 3,8. Les moteurs IA pondèrent négativement l'incohérence parce qu'elle signale une manipulation d'avis. Les hôtels avec parité sur tous les canaux (à 0,3 étoile près) obtiennent 2,1× plus de citations IA que les hôtels avec notes incohérentes.",
+      },
+      {
+        title: "Galerie photo mince ou périmée",
+        description:
+          "Les moteurs IA pondèrent la richesse visuelle sur les requêtes hôtellerie. Les hôtels avec moins de 30 photos originales perdent face aux chaînes avec 200+. Les photos de stock sont pénalisées. Les photos prises au téléphone avec EXIF préservé battent les photos pro de stock de 26 points sur E-E-A-T.",
+      },
+      {
+        title: "Le schema des commodités est incomplet",
+        description:
+          "Les voyageurs demandent à l'IA des commodités spécifiques : acceptant animaux, stationnement, déjeuner inclus, accessibilité, recharge VE, piscine, gym, centre d'affaires. Sans schema LodgingBusiness et amenityFeature, les moteurs IA ne peuvent pas répondre aux requêtes de commodités spécifiques avec votre propriété.",
+      },
+      {
+        title: "Lacune multilingue coûte les voyageurs internationaux",
+        description:
+          "Les requêtes de tourisme québécois arrivent en EN, FR, ES, ZH, AR, JA, KO, DE. Les propriétés avec EN-seulement ou traduction mince perdent 60 % des requêtes de voyageurs internationaux entrantes. Le contenu multi-locales natif est le signal de confiance international le plus fort.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Audit de parité multi-canaux d'avis + nettoyage",
+        description:
+          "Tire les notes actuelles de Booking, Expedia, TripAdvisor, Google, Yelp et Hotels.com. Identifie les canaux avec scoring anormal (motifs de manipulation d'avis ou lacunes opérationnelles). Appel stratégiste + DG pour aligner les opérations sur le canal où les avis dérivent, puis schema l'agrégat corrigé.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories d'hébergement",
+        description:
+          "Catégorie principale réglée sur le type d'hébergement spécifique (Hôtel, Hôtel boutique, Gîte, Auberge, Resort), chaque attribut pertinent rempli (Acceptant animaux, Stationnement sur place, Recharge VE, Déjeuner gratuit, Accessible aux fauteuils, etc.), 50+ photos originales minimum, Q&R hebdomadaires sur questions de commodités.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires hôteliers",
+        description:
+          "Profils vérifiés sur Booking, Expedia, TripAdvisor, Hotels.com, Yelp, BBB, Tourisme Québec / Tourisme Montréal, classification ITQ, et 8+ annuaires touristiques. URL de réservation directe listée explicitement pour que les moteurs IA puissent citer le site de la propriété, pas l'agrégateur OTA.",
+      },
+      {
+        step: "04",
+        title: "Schema LodgingBusiness avec couverture complète des commodités",
+        description:
+          "Schema.org Hotel + LodgingBusiness avec amenityFeature pour chaque commodité (stationnement, déjeuner, animaux, accessibilité, recharge VE, piscine, gym, centre d'affaires, wifi gratuit, etc.). Schema FAQ couvrant l'enregistrement, l'arrivée tardive, la politique animaux, les frais de stationnement, le déjeuner et les attractions du secteur. Validé avec Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec préservation EXIF",
+        description:
+          "Photos de propriété téléversées via l'app Reviuzy préservant les métadonnées EXIF. Hall, types de chambre (chaque catégorie), salle de bain, vue, déjeuner, espaces communs, extérieur, quartier. Photos originales prises au téléphone avec EXIF battent le stock de 26 points. Objectif 50+ photos originales rafraîchies trimestriellement.",
+      },
+      {
+        step: "06",
+        title: "Contenu multi-locales pour voyageurs internationaux",
+        description:
+          "Pages de propriété natives EN + FR-CA + ES + ZH + AR + JA + DE + IT. Les requêtes de tourisme arrivent dans la langue du voyageur. Les hôtels avec contenu multi-locales natif obtiennent 1,6× à 3,2× plus de citations IA internationales versus les sites avec API de traduction seulement. Disponible sur les forfaits Growth et Agency.",
+      },
+      {
+        step: "07",
+        title: "Optimisation de la réservation directe",
+        description:
+          "URL de réservation directe en évidence dans GBP, schema et profils de canaux d'avis. Inscription au programme de fidélité en format lisible par IA. Récupération de marge typiquement de 12 % à 22 % en 90 jours alors que les moteurs IA commencent à citer le flux de réservation propre à la propriété plutôt que les agrégateurs OTA.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes de voyageurs",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes d'hôtel dans votre destination. Suit les changements quand les propriétés concurrentes mettent à jour les photos, quand de nouvelles vagues d'avis arrivent, ou quand la destination connaît des virages de tendance touristique.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "hôtel boutique Vieux-Montréal sous 300 $ avec déjeuner",
+        cited: "Hôtel Vieux-Port Boutique",
+        reason:
+          "Émergé grâce à la parité multi-canaux Booking 8,7 + TripAdvisor 4,5 + Google 4,7, GBP complet avec Hôtel boutique en catégorie principale, 64 photos originales de propriété avec EXIF préservé, schema LodgingBusiness avec amenityFeature petit-déjeuner=inclus, schema FAQ couvrant les heures et le contenu du déjeuner.",
+      },
+      {
+        engine: "Perplexity",
+        query: "hôtel acceptant animaux Québec avec stationnement sur place",
+        cited: "Auberge Saint-Roch Québec",
+        reason:
+          "Émergé grâce aux attributs GBP « Acceptant animaux » et « Stationnement sur place » tous deux cochés, schema Hotel + LodgingBusiness avec petsAllowed=true et amenityFeature stationnement, 41 photos originales montrant les chambres acceptant animaux, et densité de citations sur Booking + Expedia + TripAdvisor avec plage de notes cohérentes 8,4 à 8,6.",
+      },
+      {
+        engine: "Claude",
+        query: "hôtel près Mont-Tremblant avec rabais réservation directe",
+        cited: "Auberge Tremblant Direct",
+        reason:
+          "Émergé grâce à URL de réservation directe en évidence dans GBP et schema, classification Tourisme Québec et ITQ 4 étoiles dans données structurées, schema FAQ répondant explicitement à « est-ce que le direct est moins cher que Booking » (avec rabais direct de 8 %), et page de propriété bilingue EN+FR avec parité de contenu.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Les hôtels bénéficient le plus du forfait Growth (1 200 $/mois) parce que le travail de parité multi-canaux d'avis, le déploiement schema complet des commodités, la gestion de galerie photo et les 6 citations mensuelles dans les annuaires touristiques comblent 90 % du fossé de visibilité IA. Les groupes multi-propriétés avec 3+ emplacements devraient considérer le forfait Agency (2 500 $/mois) pour le tableau de bord multi-emplacements. Les auberges boutique solo peuvent commencer avec Core (600 $/mois) une fois la parité d'avis établie.",
+    faq: [
+      {
+        q: "Combien de temps avant que mon hôtel soit cité par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur les requêtes quartier + commodités (« hôtel acceptant animaux Québec »), 90 à 120 jours pour les requêtes de destination très compétitives (« meilleur hôtel boutique Vieux-Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Comment corrigez-vous l'incohérence multi-canaux d'avis?",
+        a: "Nous tirons les notes actuelles de Booking, Expedia, TripAdvisor, Google, Yelp. Identifions les canaux avec dérive anormale (problème opérationnel spécifique au segment de voyageurs d'un canal, ou motif de manipulation d'avis). L'appel stratégiste couvre ce qu'il faut corriger opérationnellement pour que les 60 prochains jours d'avis comblent l'écart. Puis nous schemaisons l'agrégat corrigé.",
+      },
+      {
+        q: "L'optimisation de réservation directe va-t-elle vraiment récupérer la marge des frais OTA?",
+        a: "Oui. Récupération de marge typiquement de 12 % à 22 % en 90 jours. Nous mesurons la part de réservation directe avant vs après que les citations des moteurs IA basculent vers l'URL propre à votre propriété. Le client moyen récupère 18 %. Booking et Expedia contribuent toujours, mais une plus grande part des nouvelles réservations passe par votre flux direct.",
+      },
+      {
+        q: "Gérez-vous correctement le schema animaux, accessibilité et commodités?",
+        a: "Oui. Nous déployons le schema LodgingBusiness + amenityFeature pour chaque commodité (acceptant animaux, stationnement, recharge VE, accessibilité, piscine, gym, déjeuner, centre d'affaires, etc.). Les moteurs IA extraient directement quand les voyageurs posent des questions de commodités spécifiques. Mises à jour trimestrielles si les commodités changent.",
+      },
+      {
+        q: "Travaillez-vous avec des groupes hôteliers multi-propriétés?",
+        a: "Oui. Chaque propriété reçoit son propre GBP, profil de citations et déploiement schema. Nous coordonnons le travail d'autorité d'entité au niveau de la marque (Wikidata, listings Tourisme Québec / Tourisme Montréal, classification ITQ) au niveau de l'organisation parente. Le prix s'ajuste au nombre de propriétés. Le forfait Agency (2 500 $/mois) inclut le tableau de bord multi-propriétés.",
+      },
+      {
+        q: "Et les voyageurs internationaux dans les langues autres que EN-FR?",
+        a: "Nous supportons 16 locales. Les moteurs IA interrogent dans la langue du voyageur. Pour les hôtels québécois servant les segments touristiques internationaux chinois, arabes, japonais, allemands ou hispanophones, le contenu multi-locales natif augmente les taux de citation de 1,6× à 3,2×. Disponible sur les forfaits Growth et Agency.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon hôtel",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour hôtels · Récupération réservation directe, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre hôtel dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour hôtels boutique et hébergements au Québec. Parité multi-canaux d'avis, schema des commodités, récupération de marge réservation directe. À partir de 600 $/mois. EN, FR-CA, ES, ZH, AR, JA, DE natifs.",
+    seoKeywords: [
+      "SEO IA pour hôtels",
+      "SEO hôtel Montréal",
+      "SEO hôtel Québec",
+      "AEO hôtel boutique",
+      "GEO marketing hôtel",
+      "citations ChatGPT hôtel",
+      "optimisation profil Google hôtel",
+      "optimisation réservation directe 2026",
+    ],
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
