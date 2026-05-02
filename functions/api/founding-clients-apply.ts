@@ -13,7 +13,9 @@
 //   - Origin allowlist + disposable-email reject
 //   - Length caps on every field
 //   - No PII echoed back; structured response only
-//   - Rate limit on IP (best-effort via KV if bound, else permissive)
+//   - Rate limit via shared lib (functions/lib/rateLimit.ts) when KV bound
+
+import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -21,6 +23,9 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string;
   RESEND_API_KEY?: string;
   FOUNDING_NOTIFY_EMAIL?: string;
+  /** Optional KV binding for rate-limit. When unbound, fails open with
+   *  audit-log entry so operator sees the missing binding. */
+  FOUNDING_CLIENTS_RATE_LIMIT?: KVNamespace;
 }
 
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
@@ -361,6 +366,41 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     request.headers.get("cf-connecting-ip") ??
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     null;
+
+  // Rate limit: 5 IP/hour + 3 identity/day. The Founding Clients Program is
+  // a low-volume cohort (10 spots total) so caps are intentionally tight.
+  // Identity bucket prevents an attacker rotating IP from flooding one
+  // applicant's email with confirmation messages.
+  if (ip) {
+    const day = new Date().toISOString().slice(0, 10);
+    const ipH = await sha256Hex(`${day}|${ip}`);
+    const idH = await sha256Hex(`founding-clients:${v.data.email}`);
+    const rl = await checkRateLimit(env.FOUNDING_CLIENTS_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: idH,
+      ipPerHour: 5,
+      identityPerDay: 3,
+      keyPrefix: "rl:founding-clients",
+    });
+    if (!rl.allowed) {
+      return new Response(
+        JSON.stringify({
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+            "Access-Control-Allow-Origin":
+              request.headers.get("origin") ?? "https://www.ailysagency.ca",
+          },
+        },
+      );
+    }
+  }
 
   // Run both deliveries in parallel. We accept the application even if one
   // delivery fails (the strategist gets the email, the admin sees the row,
