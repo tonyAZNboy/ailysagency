@@ -13,6 +13,7 @@
 import { renderEmail } from '../lib/emailTemplate';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { sendAndLog } from '../lib/emailLog';
+import { checkRateLimit, sha256Hex } from '../lib/rateLimit';
 
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
@@ -22,6 +23,9 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string;
   /** 64-char hex secret for signing one-click unsubscribe tokens. */
   NEWSLETTER_UNSUB_SECRET?: string;
+  /** Optional KV binding for rate-limit. When unbound, rate-limit fails open
+   *  with audit-log entry so operator sees the missing binding. */
+  NEWSLETTER_RATE_LIMIT?: KVNamespace;
 }
 
 const SITE_BASE_URL = 'https://www.ailysagency.ca';
@@ -168,6 +172,42 @@ export async function onRequestPost(context: {
       { error: "Please provide a valid, reachable email address." },
       { status: 400 },
     );
+  }
+
+  // Rate limit: 5 IP/hour + 3 identity/day. Identity bucket prevents an
+  // attacker rotating IP from flooding one victim's inbox with confirmation
+  // emails. Caps are conservative because newsletter signups are low-volume
+  // per honest user (most subscribe once).
+  const ip =
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    null;
+  if (ip) {
+    const day = new Date().toISOString().slice(0, 10);
+    const ipH = await sha256Hex(`${day}|${ip}`);
+    const idH = await sha256Hex(`newsletter:${email}`);
+    const rl = await checkRateLimit(env.NEWSLETTER_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: idH,
+      ipPerHour: 5,
+      identityPerDay: 3,
+      keyPrefix: "rl:newsletter",
+    });
+    if (!rl.allowed) {
+      return Response.json(
+        {
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+          },
+        },
+      );
+    }
   }
 
   const source = (body.source ?? "unknown").trim().slice(0, 64);
