@@ -2,6 +2,33 @@
 
 ---
 
+## SESSION OPEN 2026-05-02 (autopilot post-PR149) — ESLint CI gate (sub-phase 15)
+
+### Sub-phase 15: Gate 1b ESLint (zero errors enforced)
+
+deploy.yml now runs `npm run lint -- --max-warnings 21` after typecheck.
+Current baseline: 0 errors, 21 warnings. Errors block deploy; warnings
+surface in the run log but tolerated up to the threshold.
+
+Background: the 2026-05-02 parallel session (PR #141 frontend batch 2)
+introduced 31 ESLint errors that they had to fix manually before push
+to keep main green. Without a CI gate, the next session could push lint
+errors and only catch them in local IDE feedback. This gate makes errors
+a PR-blocker.
+
+Threshold mechanics:
+- 0 errors enforced (any error = exit 1)
+- 21 warnings tolerated (current baseline)
+- Decrement --max-warnings as the queue drains; flip to 0 once the hook
+  audit lands with proper browser validation (memory:
+  feedback_eslint_hooks_audit.md)
+
+Local verification:
+- `npx eslint . --max-warnings 21` exits 0 on current main HEAD
+- `npx eslint . --max-warnings 20` exits 1 (negative test confirmed)
+
+---
+
 ## SESSION OPEN 2026-05-02 (autopilot post-PR141) — PR validation workflow (sub-phase 14)
 
 Adds `pull_request: branches: [main]` trigger to deploy.yml. Gates
