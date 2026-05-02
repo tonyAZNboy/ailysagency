@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 25, server-error capture lib smoke (34 cases)
+        # Tests functions/lib/serverError.ts: captureServerError dual-channel
+        # delivery (Supabase audit_log + Resend alert), severity-based alert
+        # gating (warn never alerts, error/fatal do), message/stack truncation
+        # (500/2000 chars), PII-safety (Supabase body never contains the
+        # SERVICE_ROLE_KEY), fail-soft on network failure (the function NEVER
+        # throws even when both channels fail, so the caller's primary error
+        # path is unaffected).
+        run: npx tsx scripts/smoke-server-error.mjs
+
       - name: Gate 24, /api/system-health endpoint shape + zero-leak smoke (34 cases)
         # Tests functions/api/system-health.ts: response shape contract,
         # 200/405/204 status codes, kill-switch evaluation, KV binding
