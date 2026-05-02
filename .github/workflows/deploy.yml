@@ -108,6 +108,14 @@ jobs:
 
       - run: npm run build
 
+      - name: Gate 20, bundle-shape regression guard (TDZ blank-page class)
+        # Asserts vite manualChunks did not split react-helmet-async or
+        # react/react-dom into separate vendor chunks. PR #96 -> PR #103
+        # blank-page bug shipped silently for ~weeks because the smoke
+        # tests only validated static HTML JSON-LD. This guard catches the
+        # regression at build time. See PR #105 postmortem in STATE.md.
+        run: node scripts/smoke-bundle-shape.mjs
+
       # Sanity check: token presence + scope verification BEFORE invoking
       # wrangler-action. wrangler-action@v3 swallows wrangler stderr when
       # the auth call fails, so the run shows only "exit code 1" with no

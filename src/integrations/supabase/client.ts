@@ -15,7 +15,7 @@ const SUPABASE_URL = RAW_URL || 'https://placeholder.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = RAW_KEY || 'placeholder-key';
 
 if (!RAW_URL || !RAW_KEY) {
-  // eslint-disable-next-line no-console
+   
   console.warn(
     '[AiLys] VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY not set. Chat and audit form will not work until configured.'
   );
