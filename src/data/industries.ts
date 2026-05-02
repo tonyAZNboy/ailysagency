@@ -1420,6 +1420,188 @@ const restaurants: Industry = {
       "marketing restaurant 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para restaurantes",
+      headline1: "Sé citado por ChatGPT cuando los comensales preguntan",
+      headline2: "\"mejor [cocina] cerca de mí abierto ahora\".",
+      subheadline:
+        "Los restaurantes son el sector número 1 dentro de ChatGPT y Perplexity. Los comensales preguntan a la IA por cocina, barrio, horarios, opciones dietéticas y disponibilidad de reserva. AiLys hace que su restaurante sea nombrado primero.",
+      stats: [
+        { value: "84%", label: "de los comensales ahora usan motores de IA para descubrir restaurantes en barrios desconocidos" },
+        { value: "1,9×", label: "más citas LLM en restaurantes con frescura de reseñas constante" },
+        { value: "2 semanas", label: "para la primera mención en ChatGPT en consultas específicas del barrio" },
+        { value: "$67", label: "valor promedio del ticket por comensal proveniente de IA en Montreal" },
+      ],
+      topQueries: [
+        "mejor ramen cerca de mí abierto ahora Plateau",
+        "cena vegana Verdun reservas disponibles esta noche",
+        "restaurante romántico Vieux-Montréal menos de $100 por persona",
+      ],
+      painPoints: [
+        {
+          title: "Las categorías de GBP diluyen su especialidad",
+          description:
+            "Si su lugar de sushi está categorizado como \"Restaurante japonés\" en lugar de \"Restaurante de sushi\", los motores de IA redirigen el 40% de sus consultas específicas de sushi a otra parte. Las categorías importan más en Maps que en cualquier otro lugar.",
+        },
+        {
+          title: "Falta la entidad de barrio",
+          description:
+            "Los comensales buscan por barrio, no por ciudad. \"Mejor ramen Plateau\" extrae de señales diferentes que \"mejor ramen Montreal\". Sin menciones de barrio en el texto de reseñas y esquema areaServed, pierde tráfico hiperlocal.",
+        },
+        {
+          title: "Lagunas en atributos dietéticos",
+          description:
+            "Los motores de IA extraen información dietética de los atributos de GBP, esquema servesCuisine y texto de reseñas. Vegano, sin gluten, halal, kosher, apto para niños, apto para perros: cada atributo no rellenado mata un tipo de consulta.",
+        },
+        {
+          title: "Señales de reserva y disponibilidad",
+          description:
+            "Las consultas \"reservas disponibles esta noche\" ponderan la presencia en OpenTable, el atributo \"Reservas\" de GBP y el esquema estructurado Restaurant + AvailableMenuSection. La mayoría de restaurantes no tienen ninguno.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi restaurante",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Restaurantes · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su restaurante sea citado en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para restaurantes. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "餐厅 AI SEO",
+      headline1: "当食客询问时让 ChatGPT 引用您",
+      headline2: "「我附近现在营业的最好的 [菜系]」。",
+      subheadline:
+        "在 ChatGPT 和 Perplexity 中,餐厅是被询问最多的垂直行业第一名。食客向 AI 询问菜系、街区、营业时间、饮食适配和预订可用性。AiLys 让您的餐厅首先被点名。",
+      stats: [
+        { value: "84%", label: "的食客现在使用 AI 引擎在不熟悉的街区发现餐厅" },
+        { value: "1.9×", label: "在保持评论新鲜度的餐厅上获得更多 LLM 引用" },
+        { value: "2 周", label: "在街区特定查询上首次 ChatGPT 引用提升" },
+        { value: "$67", label: "蒙特利尔 AI 来源食客的平均消费" },
+      ],
+      topQueries: [
+        "我附近现在营业最好的拉面 Plateau",
+        "Verdun 今晚可预订的素食晚餐",
+        "Old Montreal 每人 $100 以下的浪漫餐厅",
+      ],
+      painPoints: [
+        {
+          title: "GBP 分类稀释您的专业",
+          description:
+            "如果您的寿司店被分类为「日本餐厅」而不是「寿司餐厅」,AI 引擎会将 40% 的寿司特定查询路由到其他地方。分类在地图上比其他任何地方都更重要。",
+        },
+        {
+          title: "缺少街区实体",
+          description:
+            "食客按街区而非城市搜索。「最好的拉面 Plateau」从与「最好的拉面蒙特利尔」不同的信号中提取。没有评论文本和 schema areaServed 中的街区提及,您将失去超本地流量。",
+        },
+        {
+          title: "饮食属性缺口",
+          description:
+            "AI 引擎从 GBP 属性、schema servesCuisine 和评论文本中提取饮食信息。素食、无麸质、清真、洁食、适合儿童、允许带狗:每个未填写的属性都会扼杀一种查询类型。",
+        },
+        {
+          title: "预订和可用性信号",
+          description:
+            "「今晚可预订」查询会权衡 OpenTable 存在、GBP「预订」属性和结构化 Restaurant + AvailableMenuSection schema。大多数餐厅都没有。",
+        },
+      ],
+      ctaPrimary: "运行我的餐厅审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "餐厅 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的餐厅被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为餐厅定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للمطاعم",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل الزبائن",
+      headline2: "\"أفضل [مطبخ] قريب مني مفتوح الآن\".",
+      subheadline:
+        "تعد المطاعم القطاع رقم 1 الأكثر طرحًا داخل ChatGPT و Perplexity. يسأل الزبائن الذكاء الاصطناعي عن المطبخ والحي وساعات العمل والتوافق الغذائي وتوفر الحجز. تجعل AiLys اسم مطعمك يظهر أولًا.",
+      stats: [
+        { value: "84%", label: "من الزبائن يستخدمون الآن محركات الذكاء الاصطناعي لاكتشاف المطاعم في الأحياء غير المألوفة" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المطاعم ذات سرعة المراجعات الحديثة" },
+        { value: "أسبوعان", label: "للحصول على أول ارتفاع في الاستشهاد على ChatGPT في الاستعلامات الخاصة بالحي" },
+        { value: "67 دولارًا", label: "متوسط قيمة الفاتورة لكل زبون قادم من الذكاء الاصطناعي في مونتريال" },
+      ],
+      topQueries: [
+        "أفضل رامن قريب مني مفتوح الآن Plateau",
+        "عشاء نباتي Verdun حجوزات متاحة الليلة",
+        "مطعم رومانسي Old Montreal أقل من 100 دولار للشخص",
+      ],
+      painPoints: [
+        {
+          title: "فئات GBP تخفف من تخصصك",
+          description:
+            "إذا تم تصنيف مكان السوشي الخاص بك على أنه «مطعم ياباني» بدلًا من «مطعم سوشي»، تعيد محركات الذكاء الاصطناعي توجيه 40% من استعلامات السوشي إلى أماكن أخرى. الفئات مهمة على Maps أكثر من أي مكان آخر.",
+        },
+        {
+          title: "كيان الحي مفقود",
+          description:
+            "يبحث الزبائن حسب الحي، لا حسب المدينة. «أفضل رامن Plateau» يستمد من إشارات مختلفة عن «أفضل رامن مونتريال». بدون ذكر الحي في نص المراجعات ومخطط areaServed، تخسر الحركة فائقة المحلية.",
+        },
+        {
+          title: "ثغرات في السمات الغذائية",
+          description:
+            "تستخرج محركات الذكاء الاصطناعي المعلومات الغذائية من سمات GBP ومخطط servesCuisine ونص المراجعات. نباتي، خالي من الغلوتين، حلال، كوشير، مناسب للأطفال، مناسب للكلاب: كل سمة غير معبأة تقتل نوع استعلام.",
+        },
+        {
+          title: "إشارات الحجز والتوفر",
+          description:
+            "تعتمد استعلامات «حجوزات متاحة الليلة» على الوجود في OpenTable وسمة «الحجوزات» في GBP ومخطط Restaurant + AvailableMenuSection المنظم. معظم المطاعم لا تملك أيًا منها.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مطعمي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمطاعم · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مطعمك مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمطاعم. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI ресторанов",
+      headline1: "Получайте упоминания ChatGPT, когда посетители спрашивают",
+      headline2: "«лучший [кухня] рядом со мной открыт сейчас».",
+      subheadline:
+        "Рестораны — это вертикаль №1 по количеству запросов внутри ChatGPT и Perplexity. Посетители спрашивают ИИ о кухне, районе, часах работы, диетическом соответствии и доступности бронирования. AiLys обеспечивает, чтобы ваш ресторан назвали первым.",
+      stats: [
+        { value: "84%", label: "посетителей теперь используют ИИ-движки для открытия ресторанов в незнакомых районах" },
+        { value: "1,9×", label: "больше упоминаний LLM на ресторанах со свежей скоростью отзывов" },
+        { value: "2 недели", label: "до первого подъёма упоминаний в ChatGPT по запросам, специфичным для района" },
+        { value: "67 $", label: "средний чек посетителя из ИИ в Монреале" },
+      ],
+      topQueries: [
+        "лучший рамен рядом со мной открыт сейчас Plateau",
+        "веганский ужин Verdun есть бронь сегодня",
+        "романтический ресторан Old Montreal меньше 100 $ на человека",
+      ],
+      painPoints: [
+        {
+          title: "Категории GBP размывают вашу специальность",
+          description:
+            "Если ваше суши-заведение классифицировано как «Японский ресторан» вместо «Суши-ресторан», ИИ-движки направляют 40% ваших запросов о суши в другое место. Категории важнее в Maps, чем где-либо ещё.",
+        },
+        {
+          title: "Отсутствует сущность района",
+          description:
+            "Посетители ищут по району, не по городу. «Лучший рамен Plateau» извлекается из других сигналов, чем «лучший рамен Монреаль». Без упоминания района в тексте отзывов и схемы areaServed вы теряете гиперлокальный трафик.",
+        },
+        {
+          title: "Пробелы в диетических атрибутах",
+          description:
+            "ИИ-движки извлекают диетическую информацию из атрибутов GBP, схемы servesCuisine и текста отзывов. Веганское, без глютена, халяль, кошер, подходит для детей, разрешены собаки: каждый незаполненный атрибут убивает один тип запроса.",
+        },
+        {
+          title: "Сигналы бронирования и доступности",
+          description:
+            "Запросы «бронирование доступно сегодня вечером» учитывают присутствие в OpenTable, атрибут «Бронирование» в GBP и структурированную схему Restaurant + AvailableMenuSection. У большинства ресторанов нет ничего из этого.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моего ресторана",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI ресторанов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашего ресторана в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для ресторанов. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
