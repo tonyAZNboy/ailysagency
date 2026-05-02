@@ -111,6 +111,23 @@ Pixel IDs and event names are infrastructure. Cookie banner is the only UI surfa
 
 ---
 
+## Status update 2026-05-02
+
+`scripts/audit-translations-deep.mjs` reports **0 missing keys across all 15
+non-EN locales**. The 11-key gap surfaced after the Tech Health Pack + GSC
+Indexation Audit + audit hold-back ships was closed in PR #106
+(`v0.14.5-i18n-100pct`):
+
+- ES/ZH/AR/RU received native translations.
+- DE/HI/IT/JA/KO/NL/PL/PT/TR/VI received EN placeholders per the
+  secondary-locale convention in this doc.
+
+Full content depth (industry pages, help articles, blog posts) is still
+EN-FR only for ES/ZH/AR/RU/secondary. The phase tracker below remains
+the source of truth for what content depth still needs native pass.
+
+---
+
 ## Bulk translation strategy
 
 When ready to translate, group by phase. The translation script at `scripts/audit-translations.mjs` can verify completeness. Suggested batch flow:
