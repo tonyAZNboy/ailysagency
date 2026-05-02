@@ -12,6 +12,8 @@
  * Spec: https://docs.svix.com/receiving/verifying-payloads/how-manual
  */
 
+import { constantTimeEq as constantTimeEqual } from './rateLimit';
+
 const TOLERANCE_SECONDS = 5 * 60;
 
 export type VerifyResult =
@@ -29,13 +31,6 @@ function bytesToBase64(bytes: Uint8Array): string {
   let s = '';
   for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
   return btoa(s);
-}
-
-function constantTimeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
 }
 
 export async function verifySvixSignature(

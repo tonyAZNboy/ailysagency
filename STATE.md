@@ -2,6 +2,65 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR143) — HMAC primitives shared lib (sub-phase 10)
+
+Sub-phase 10. Pure backend, zero src/ touch.
+
+### Sub-phase 10: hmac.ts shared lib + Gate 34
+
+Consolidates 7 inline HMAC primitive copies across 5 files into
+`functions/lib/hmac.ts`. Auth-critical: a subtle bug here compromises
+HMAC verification across audit-pdf downloads, service-to-service auth,
+unsubscribe tokens, and Resend webhooks.
+
+**Three primitives extracted:**
+
+- `hexToBytes(hex)` — parse hex string to Uint8Array (2 prior copies)
+- `importHmacKey(secretHex)` — build HMAC-SHA256 CryptoKey (3 copies)
+- `constantTimeEqualBytes(a, b)` — byte-array constant-time compare (2 copies)
+
+The string-variant `constantTimeEq` already lived in `rateLimit.ts`.
+Adopted at the 3 string-compare call sites (cron-process-sequences,
+svixHmac, unsubscribeToken) instead of duplicating.
+
+**Files refactored (7 inline primitive copies removed):**
+
+- `functions/lib/pdfHmac.ts` (hexToBytes + importHmacKey + ctEqual)
+- `functions/lib/serviceAuth.ts` (hexToBytes + importHmacKey + ctEqual)
+- `functions/lib/unsubscribeToken.ts` (importHmacKey + constantTimeEqual)
+- `functions/lib/svixHmac.ts` (constantTimeEqual)
+- `functions/api/cron-process-sequences.ts` (constantTimeEqual)
+
+**Hardening upgrades (defense in depth):**
+
+- `unsubscribeToken.importHmacKey` previously did NOT validate hex
+  input; would silently produce a key with wrong bytes if secret was
+  malformed (parseInt NaN coerced to 0). Shared lib throws on
+  malformed hex. Net positive: surfaces config bugs immediately.
+
+**New smoke (Gate 34): scripts/smoke-hmac.mjs, 21 cases.**
+
+Asserts hex parsing happy + error paths, CryptoKey creation with
+sign+verify usages, deterministic signing, byte-array constant-time
+compare with single-byte sensitivity at first/middle/last positions,
+empty-array handling.
+
+**Behavioral parity at integration level:**
+
+- smoke-audit-pdf-hmac 11/11 (HMAC sign/verify round-trip)
+- smoke-audit-pdf-onboarding 17/17 (service-to-service HMAC + 10-page render)
+
+Both depend on the refactored primitives. Pass = parity.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 16 existing smokes pass + new Gate 34 21/21
+- Gate 7 build: green (13.38s)
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR142) — jsonResponse shared lib (sub-phase 9)
 
 Sub-phase 9 in the backend-lib extraction series. Pure backend, zero
