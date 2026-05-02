@@ -22,7 +22,8 @@ export type IndustrySlug =
   | "hotels"
   | "nail-salons"
   | "sushi-counters"
-  | "hair-salons";
+  | "hair-salons"
+  | "gyms-studios";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -4137,6 +4138,337 @@ const hairSalons: Industry = {
   },
 };
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 11 · GYMS / STUDIOS (boutique fitness)
+   Quebec context: rapidly growing segment. Yoga (Mile End hot yoga
+   booms), Pilates (reformer studios in Westmount/Outremont), CrossFit
+   boxes (Plateau, Verdun, Brossard), boutique HIIT (downtown), martial
+   arts dojos. Class-pack pricing model ($25-40/class), trial-class
+   conversion is the funnel. AI search demand growing 3x year-over-year.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const gymsStudios: Industry = {
+  slug: "gyms-studios",
+  name: "Gyms & studios",
+  nameLong: "Boutique Gyms & Fitness Studios",
+  emoji: "🏋️",
+  toneClass: "from-emerald-400 via-teal-400 to-cyan-400",
+  en: {
+    eyebrow: "AI SEO for boutique gyms and fitness studios",
+    headline1: "Get cited by ChatGPT when locals search",
+    headline2: "\"best hot yoga studio near me with trial class\".",
+    subheadline:
+      "Boutique fitness discovery moved to AI engines faster than any other Quebec PME segment. People ask ChatGPT \"best reformer Pilates Westmount under 40 dollars\" or \"CrossFit box Plateau bilingual coach\" before walking into a single studio. AI engines weight class-schedule schema, instructor specialization, trial-class offers, and review velocity. AiLys gets your studio named when AI surfaces fitness answers and converts that to trial bookings, which convert to memberships at 35-50 percent.",
+    stats: [
+      { value: "84%", label: "of new boutique-fitness members in Greater Montreal start with an AI engine query before booking a trial class" },
+      { value: "3.2×", label: "more LLM citations on studios with full class-schedule schema (instructor, time, level, language) vs studios with PDF schedule" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for neighborhood fitness queries with trial-class offer schema" },
+      { value: "47%", label: "trial-class to monthly-membership conversion rate when AI engine sources the trial booking (vs 12% from cold paid ads)" },
+    ],
+    topQueries: [
+      "best hot yoga studio Mile End trial class under 30 dollars",
+      "CrossFit box Plateau bilingual coach beginner-friendly",
+      "reformer Pilates Westmount Saturday morning availability",
+    ],
+    painPoints: [
+      {
+        title: "Class schedule lives in a third-party app, invisible to AI engines",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. host the schedule but their data is opaque to ChatGPT and Perplexity. AI engines need the schedule mirrored as Schema.org Event entries on your site so they can answer \"is there a 6am class today?\" or \"what's the Saturday schedule?\" with your studio.",
+      },
+      {
+        title: "Instructors aren't named or specialized",
+        description:
+          "Each instructor has a following + specialty (vinyasa vs yin, beginner vs advanced reformer, Olympic lifting vs HIIT, kid-friendly martial arts). AI engines need Person schema per instructor with specialties + languages spoken. Studios that don't lose long-tail queries that value the human teacher.",
+      },
+      {
+        title: "Trial-class offer is buried under 3 clicks",
+        description:
+          "The trial-class offer is the single highest-converting CTA in this vertical (47% to membership). It needs to be in the GBP description, in Service schema with explicit price (\"Trial class $25\" or \"First class free\"), and on every page. Studios that hide it lose 60-80 percent of would-be trial bookings.",
+      },
+      {
+        title: "Review velocity dies between marathon-prep cycles",
+        description:
+          "Studios get a wave of reviews in January (resolution surge) + September (back-to-school) and silence the rest of the year. AI engines weight steady velocity over spikes. NFC tap-to-review at the front desk after every class smooths the curve.",
+      },
+      {
+        title: "Owner-instructor teaches 20 hours per week, no marketing time",
+        description:
+          "Boutique studio owners typically teach the highest-attendance classes themselves. Marketing falls to whatever scraps of time exist between classes. Posting weekly to GBP, replying to reviews, refreshing photos: none of it happens. The studio falls behind chains that have a marketing team.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for fitness category",
+        description:
+          "Primary category set to specific studio type (Yoga Studio, Pilates Studio, Gym, CrossFit Box, Martial Arts School), every relevant attribute filled (Wheelchair accessible, Online classes, Drop-in welcome, Trial class available, Languages spoken, Equipment provided, Childcare available, Showers, Parking), 50+ original photos minimum (the space, the equipment, classes in session with consent), weekly Q&A on equipment + level questions.",
+      },
+      {
+        step: "02",
+        title: "Class-schedule mirror as Schema.org Event entries",
+        description:
+          "Read your class schedule from Mindbody / Glofox / ClassPass / Acuity API daily and republish each upcoming class as a Schema.org Event entry on your site (instructor, time, duration, level, language, capacity, booking URL). AI engines now answer \"is there a 6am class\" with your studio + a direct booking link.",
+      },
+      {
+        step: "03",
+        title: "Instructor-by-instructor Person schema",
+        description:
+          "Schema.org Person entries for each instructor with their photo, specialties (vinyasa, yin, reformer, beginner, advanced, prenatal, etc.), languages spoken (FR / EN / ES / etc.), years of experience, certifications, and link to their teaching schedule. AI engines cite individual instructors for specialty queries.",
+      },
+      {
+        step: "04",
+        title: "Trial-class offer surfaced everywhere",
+        description:
+          "GBP description includes \"Trial class $25\" or \"First class free\". Service schema entry with explicit price + duration. Trial-class offer pinned on home page hero. Booking URL goes directly to trial-class signup, not the general schedule. Trial-class lift typically 2-4x within 30 days.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, PT, ZH on Growth and Agency for studios in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Studios with native multilingual content get 1.5-2.5x more trial bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Photos with EXIF + class-type tagging",
+        description:
+          "Every space + class photographed with consent (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the class type + instructor when relevant. AI engines and Google weight original photos with intact EXIF significantly higher than stock or social-media screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in member's review language with class mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the specific class or instructor when the member did. Builds individual instructor authority + signals to AI engines that the studio is responsive. Member retention correlates strongly with response language match.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for fitness queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ fitness queries in your neighborhood, tracked at studio, instructor, and class-type levels. Catches when new studios open competing, when trend hashtags surge (Wall Pilates, Mat-only Reformer, Mobility focus), or when seasonal demand spikes (January resolution surge, summer marathon prep).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best hot yoga studio Mile End trial class under 30 dollars",
+        cited: "AiLys client studio named with trial-class price $25, next 7am class today, instructor Marie",
+        reason: "Service schema with priced trial class entry, Event schema for today's class with instructor Marie, GBP attribute Trial class available, 4.9 stars across 280+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CrossFit box Plateau bilingual coach beginner-friendly",
+        cited: "AiLys client studio cited as primary recommendation with 'French and English coaching' attribute and beginner-track schedule",
+        reason: "GBP attributes filled completely (languages, beginner-friendly, drop-in welcome), Person schema for bilingual coaches, Event schema with beginner-tagged class entries, 60+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "reformer Pilates Westmount Saturday morning availability",
+        cited: "AiLys client studio surfaced in AI Overview with Saturday 8am + 9:30am open slots, online booking link",
+        reason: "Event schema with Saturday classes (open capacity exposed via API mirror), Service schema with reformer Pilates priced entry, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent boutique studios hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per studio, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Studios with 5+ instructors or multi-location operations graduate to Growth for daily AI Visibility probes + per-instructor Person schema + class-schedule mirror automation. Premium downtown studios serving international clientele often choose Agency for multilingual schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you mirror our Mindbody / Glofox schedule on our site?",
+        a: "Yes. We pull your class schedule from your booking platform's API daily and republish each upcoming class as a Schema.org Event entry on your site. AI engines can then answer specific schedule queries with your studio + a direct booking link. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 are all supported.",
+      },
+      {
+        q: "What about new instructors who join mid-month?",
+        a: "Person schema entries are added within 48 hours of you sending us their bio + photo. The full per-instructor portfolio (their specialty + class schedule + reviews tagged to them) builds over the first 30 days as they teach.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Portuguese gets Portuguese. AI engines weight language-match heavily as an authenticity signal for fitness studios serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the trial-class lift work?",
+        a: "Trial-class booking volume typically lifts 2-4x within 30 days. Three drivers: (1) trial-class price + offer surfaces in AI engine answers, (2) GBP description + Service schema make it discoverable on Google, (3) the booking URL goes directly to trial-class signup, not the general schedule that requires class selection. Trial conversion to monthly membership runs 35-50 percent in this vertical.",
+      },
+      {
+        q: "We're a martial arts dojo, does this work for us?",
+        a: "Yes. The methodology applies identically: GBP optimization, class schedule mirror, instructor Person schema, trial-class offer (often \"first class free\" in martial arts), multilingual reviews. The vertical-specific tweaks (kid-friendly attribute, parent-observation seating, equipment provided) are handled in onboarding.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and class schedule mirror build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your Event schema and review profile. Trial-class booking volume usually shows a 2-4x lift in months 1-2, membership conversion follows in months 2-3.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your studio",
+    ctaSecondary: "Free GBP audit for boutique fitness",
+    seoTitle: "AI SEO for boutique gyms + fitness studios Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for boutique gyms + fitness studios in Greater Montreal. Class-schedule schema mirror, instructor Person schema, trial-class lift 2-4x. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO yoga studio Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT CrossFit box Plateau",
+      "boutique fitness AI search",
+      "reformer Pilates GBP Quebec",
+      "martial arts dojo AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour gyms boutique et studios de fitness",
+    headline1: "Faites-vous citer par ChatGPT quand vos voisins cherchent",
+    headline2: "\"meilleur studio de yoga chaud avec cours d'essai\".",
+    subheadline:
+      "La decouverte de fitness boutique a migre vers les moteurs IA plus vite que tout autre segment de PME quebecoise. Les gens demandent a ChatGPT « meilleur Pilates reformer Westmount sous 40 $ » ou « box CrossFit Plateau coach bilingue » avant d'entrer dans un seul studio. Les moteurs IA ponderent le schema d'horaire de cours, la specialisation des instructeurs, les offres de cours d'essai et la velocite des avis. AiLys fait nommer votre studio quand les IA repondent aux questions de fitness et convertit ca en reservations d'essai, qui convertissent en abonnements a 35-50 %.",
+    stats: [
+      { value: "84 %", label: "des nouveaux membres de fitness boutique du Grand Montreal commencent par une requete a un moteur IA avant de reserver un cours d'essai" },
+      { value: "3,2×", label: "plus de citations LLM pour les studios avec schema d'horaire de cours complet (instructeur, heure, niveau, langue) vs studios avec horaire PDF" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes fitness de quartier avec schema d'offre de cours d'essai" },
+      { value: "47 %", label: "taux de conversion cours d'essai vers abonnement mensuel quand le moteur IA achemine la reservation d'essai (vs 12 % sur publicites froides)" },
+    ],
+    topQueries: [
+      "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+      "box CrossFit Plateau coach bilingue debutant bienvenu",
+      "Pilates reformer Westmount disponibilite samedi matin",
+    ],
+    painPoints: [
+      {
+        title: "L'horaire des cours vit dans une app tierce, invisible aux moteurs IA",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. hebergent l'horaire mais leurs donnees sont opaques pour ChatGPT et Perplexity. Les moteurs IA ont besoin que l'horaire soit miroir comme entrees Schema.org Event sur votre site pour pouvoir repondre « y a-t-il un cours a 6 h aujourd'hui? » ou « quel est l'horaire du samedi? » avec votre studio.",
+      },
+      {
+        title: "Les instructeurs ne sont pas nommes ni specialises",
+        description:
+          "Chaque instructeur a ses abonnes + sa specialite (vinyasa vs yin, debutant vs reformer avance, levee olympique vs HIIT, arts martiaux pour enfants). Les moteurs IA ont besoin de schema Person par instructeur avec specialites + langues parlees. Les studios qui ne le font pas perdent les requetes longue traine qui valorisent l'enseignant humain.",
+      },
+      {
+        title: "L'offre cours d'essai est cachee sous 3 clics",
+        description:
+          "L'offre cours d'essai est le CTA le plus convertissant de cette verticale (47 % vers abonnement). Elle doit etre dans la description GBP, dans schema Service avec prix explicite (« Cours d'essai 25 $ » ou « Premier cours gratuit »), et sur chaque page. Les studios qui la cachent perdent 60-80 % des reservations d'essai potentielles.",
+      },
+      {
+        title: "La velocite d'avis meurt entre les cycles de prep marathon",
+        description:
+          "Les studios recoivent une vague d'avis en janvier (poussee de resolutions) + septembre (rentree) et silence le reste de l'annee. Les moteurs IA ponderent une velocite reguliere plutot que les pics. NFC tap-to-review a la reception apres chaque cours lisse la courbe.",
+      },
+      {
+        title: "Le proprietaire-instructeur enseigne 20 heures par semaine, aucun temps marketing",
+        description:
+          "Les proprietaires de studios boutique enseignent typiquement les cours a plus haute frequentation eux-memes. Le marketing tombe sur les miettes de temps qui existent entre les cours. Publier hebdomadairement sur GBP, repondre aux avis, rafraichir les photos : rien de tout ca n'arrive. Le studio prend du retard sur les chaines qui ont une equipe marketing.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie fitness",
+        description:
+          "Categorie principale reglee sur le type de studio specifique (Studio de yoga, Studio de Pilates, Gym, Box CrossFit, Ecole d'arts martiaux), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cours en ligne, Sans inscription bienvenu, Cours d'essai disponible, Langues parlees, Equipement fourni, Garderie disponible, Douches, Stationnement), 50+ photos originales minimum (l'espace, l'equipement, cours en session avec consentement), Q&R hebdomadaire sur questions equipement + niveau.",
+      },
+      {
+        step: "02",
+        title: "Miroir de l'horaire de cours en entrees Schema.org Event",
+        description:
+          "Lit votre horaire de cours depuis l'API de Mindbody / Glofox / ClassPass / Acuity quotidiennement et republie chaque cours a venir comme entree Schema.org Event sur votre site (instructeur, heure, duree, niveau, langue, capacite, URL de reservation). Les moteurs IA repondent maintenant « y a-t-il un cours a 6 h » avec votre studio + lien direct de reservation.",
+      },
+      {
+        step: "03",
+        title: "Schema Person instructeur-par-instructeur",
+        description:
+          "Entrees Schema.org Person pour chaque instructeur avec sa photo, ses specialites (vinyasa, yin, reformer, debutant, avance, prenatal, etc.), ses langues parlees (FR / EN / ES / etc.), ses annees d'experience, ses certifications et lien vers son horaire d'enseignement. Les moteurs IA citent les instructeurs individuellement pour les requetes de specialite.",
+      },
+      {
+        step: "04",
+        title: "Offre cours d'essai mise en avant partout",
+        description:
+          "Description GBP inclut « Cours d'essai 25 $ » ou « Premier cours gratuit ». Entree de schema Service avec prix + duree explicites. Offre cours d'essai epinglee sur le hero de la page d'accueil. URL de reservation pointe directement vers l'inscription au cours d'essai, pas l'horaire general. Hausse de cours d'essai typiquement 2-4× dans les 30 jours.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH sur Growth et Agency pour les studios en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les studios avec contenu multilingue natif obtiennent 1,5-2,5× plus de reservations d'essai des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Photos avec EXIF + etiquetage par type de cours",
+        description:
+          "Chaque espace + cours photographie avec consentement (vraie lumiere, vraies metadonnees EXIF) et televerse via Reviuzy. Chaque photo etiquetee avec le type de cours + l'instructeur quand pertinent. Les moteurs IA et Google ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou captures reseaux sociaux.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du cours",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le cours specifique ou l'instructeur quand le membre l'a fait. Batit l'autorite individuelle des instructeurs + signale aux moteurs IA que le studio est reactif. La retention de membres correle fortement avec la correspondance linguistique des reponses.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes fitness",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes fitness dans votre quartier, suivis aux niveaux studio, instructeur et type de cours. Detecte quand de nouveaux studios concurrents ouvrent, quand des hashtags de tendance surgent (Wall Pilates, Reformer sur tapis seul, focus mobilite), ou quand la demande saisonniere pique (poussee resolutions janvier, prep marathon ete).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+        cited: "Studio client AiLys nomme avec prix cours d'essai 25 $, prochain cours 7 h aujourd'hui, instructrice Marie",
+        reason: "Schema Service avec entree cours d'essai tarifee, schema Event pour le cours d'aujourd'hui avec instructrice Marie, attribut GBP Cours d'essai disponible, 4,9 etoiles sur 280+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "box CrossFit Plateau coach bilingue debutant bienvenu",
+        cited: "Studio client AiLys cite comme recommandation principale avec attribut « francais et anglais coaching » et horaire piste debutant",
+        reason: "Attributs GBP entierement remplis (langues, debutant bienvenu, sans inscription bienvenu), schema Person pour coachs bilingues, schema Event avec entrees de cours etiquetes debutant, 60+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "Pilates reformer Westmount disponibilite samedi matin",
+        cited: "Studio client AiLys remonte en apercu IA avec creneaux samedi 8 h + 9 h 30 disponibles, lien reservation en ligne",
+        reason: "Schema Event avec cours samedi (capacite ouverte exposee via miroir API), schema Service avec entree Pilates reformer tarifee, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des studios boutique independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par studio, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les studios avec 5+ instructeurs ou operations multi-emplacements graduent a Growth pour les sondages quotidiens + le schema Person par instructeur + l'automatisation du miroir d'horaire. Les studios premium du centre-ville servant clientele internationale choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous miroir notre horaire Mindbody / Glofox sur notre site?",
+        a: "Oui. Nous tirons votre horaire de cours depuis l'API de votre plateforme de reservation quotidiennement et republions chaque cours a venir comme entree Schema.org Event sur votre site. Les moteurs IA peuvent ensuite repondre aux requetes specifiques d'horaire avec votre studio + lien direct de reservation. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 sont tous supportes.",
+      },
+      {
+        q: "Et les nouveaux instructeurs qui rejoignent en milieu de mois?",
+        a: "Les entrees de schema Person sont ajoutees dans les 48 heures de l'envoi de leur biographie + photo. Le portfolio complet par instructeur (leur specialite + horaire d'enseignement + avis etiquetes a eux) se construit sur les 30 premiers jours alors qu'ils enseignent.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les portugais en portugais. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les studios de fitness servant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne la hausse cours d'essai?",
+        a: "Le volume de reservations cours d'essai monte typiquement 2-4× dans les 30 jours. Trois moteurs : (1) prix cours d'essai + offre apparaissent dans les reponses des moteurs IA, (2) description GBP + schema Service les rendent decouvrables sur Google, (3) URL de reservation pointe directement vers l'inscription cours d'essai, pas l'horaire general qui exige selection de cours. La conversion d'essai vers abonnement mensuel tourne 35-50 % dans cette verticale.",
+      },
+      {
+        q: "Nous sommes un dojo d'arts martiaux, est-ce que ca fonctionne pour nous?",
+        a: "Oui. La methodologie s'applique identiquement : optimisation GBP, miroir d'horaire de cours, schema Person d'instructeur, offre cours d'essai (souvent « premier cours gratuit » en arts martiaux), avis multilingues. Les ajustements specifiques a la verticale (attribut kid-friendly, places d'observation parentale, equipement fourni) sont geres en onboarding.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et le miroir d'horaire de cours s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent votre schema Event et profil d'avis. Le volume de reservations cours d'essai montre habituellement une hausse 2-4× aux mois 1-2, la conversion vers abonnement suit aux mois 2-3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre studio",
+    ctaSecondary: "Audit GBP gratuit pour fitness boutique",
+    seoTitle: "Referencement IA pour gyms + studios fitness Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour gyms boutique + studios fitness du Grand Montreal. Miroir schema horaire de cours, schema Person instructeur, hausse cours d'essai 2-4×. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA studio yoga Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT box CrossFit Plateau",
+      "fitness boutique recherche IA",
+      "Pilates reformer GBP Quebec",
+      "dojo arts martiaux Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -4148,6 +4480,7 @@ export const industries: Industry[] = [
   nailSalons,
   sushiCounters,
   hairSalons,
+  gymsStudios,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
