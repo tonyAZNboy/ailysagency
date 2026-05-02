@@ -55,6 +55,7 @@ const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
 const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
 const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
 const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
+const PMEContest = lazy(() => import("./pages/PMEContest"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -215,6 +216,12 @@ const App = () => {
                 <Route path="/:lang/pouls-local" element={<PoulsLocal />} />
                 <Route path="/newsletter" element={<PoulsLocal />} />
                 <Route path="/:lang/newsletter" element={<PoulsLocal />} />
+
+                {/* Annual Quebec PME contest landing (waitlist mode) */}
+                <Route path="/concours-pme" element={<PMEContest />} />
+                <Route path="/:lang/concours-pme" element={<PMEContest />} />
+                <Route path="/pme-contest" element={<PMEContest />} />
+                <Route path="/:lang/pme-contest" element={<PMEContest />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>

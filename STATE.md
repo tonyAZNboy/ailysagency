@@ -2,6 +2,111 @@
 
 ---
 
+## ⚠️ MERGE COORDINATION NOTE — parallel session in flight
+
+User flagged 2026-05-02 that a parallel session is running and may
+merge. To prevent conflicts, this session has stayed away from:
+
+**Shared territory NOT touched this session:**
+- `src/providers/AuthProvider.*`
+- `src/providers/ThemeProvider.*`
+- `src/i18n/LangContext.*` (imported only, never modified)
+- `src/components/ui/*` (shadcn/ui primitives)
+- `functions/api/newsletter-subscribe.ts` (used as-is, NOT extracted to lib)
+- `functions/api/resend-webhook.ts` (untouched)
+
+**Decisions explicitly DECLINED this week (per user direction):**
+- ESLint 21 warnings audit (Hard Rule #1 requires browser test for
+  hooks; AuthProvider/ThemeProvider/LangContext/shadcn touched by
+  parallel session)
+- newsletter-subscribe + resend-webhook adoption into shared lib
+  (would force 3-4 additional options for return=representation,
+  on_conflict URL param, duplicate detection custom shapes; counts
+  as premature abstraction)
+
+**This session greenfield-only files (zero conflict risk):**
+- `src/components/audit/NapPulseEngine.tsx`
+- `src/pages/AuditNapPulse.tsx`
+- `src/design-system/**/*` (new dir tree)
+- `src/components/backgrounds/{Mesh,Aurora,Grain,Topology,LiquidBlob,Mood}Background.tsx`
+- `src/components/animation/AnimatedCounter.tsx`
+- `src/components/patterns/{MethodologyStepper,ChatMockup}.tsx` (new dir)
+- `src/pages/{ConformiteQuebec,PoulsLocal,PMEContest}.tsx`
+- `docs/design-system-inventory.md`
+
+**This session append-only modifications (low conflict risk):**
+- `src/App.tsx` (imports + routes added at end of existing groups)
+- `src/data/industries.ts` (2 new industries appended)
+- `scripts/generate-sitemap.mjs` (entries appended)
+- `STATE.md` (top-of-file session entries)
+
+**This session medium-risk modifications:**
+- `src/pages/Industry.tsx` (refactored hero gradient + stats counter +
+  methodology stepper + chat mockup citations). If the parallel session
+  also touches Industry.tsx, manual merge will be needed. The
+  refactor is structural (replaces 3 inline blocks with 3 imported
+  components) rather than line-level edits, so conflict resolution
+  should be deterministic.
+
+When the parallel session merges, run:
+1. `git fetch origin` then `git log origin/main..HEAD --oneline` to
+   see what's incoming
+2. If Industry.tsx changed in main, re-apply the 3 component
+   replacements (MoodBackground, MethodologyStepper, ChatMockup)
+   manually
+3. Re-run `npx vite build` + browser preview to verify mood gradients
+   still render
+
+---
+
+## 🏆 SESSION 2026-05-02 (Quebec PME Awards) — /concours-pme waitlist live
+
+**Shipped:** Annual contest landing page in waitlist mode. Real
+nominations open September 1, 2026. This page captures the pre-launch
+audience via NewsletterSignup with `source="pme-contest-waitlist"`.
+
+**Why:** Long-term lead generation engine. Each nomination = 1 lead
+(PME owner + contact + vertical). Each finalist amplifies on their
+networks. Local press picks up regional winners. Backlinks to
+ailysagency.ca from coverage. Brand authority compounds year-over-year.
+
+**Files:**
+- `src/pages/PMEContest.tsx` (~430 lines, EN+FR inline)
+- `src/App.tsx`: 4 new routes (/concours-pme, /:lang/concours-pme,
+  /pme-contest, /:lang/pme-contest), lazy-loaded
+- `scripts/generate-sitemap.mjs`: 1 new entry x 16 locales = 16 URLs
+
+**Page sections:**
+1. Hero with edition year + trophy mood gradient
+2. Trust pills (nominations open Sept 1, public voting, prize pool)
+3. Waitlist signup card (NewsletterSignup with source attribution)
+4. Timeline (4 milestones: Sept 1, Oct 5, Nov 30, Dec 12 gala)
+5. 8 regions list (Greater Montreal through Cote-Nord/Northern)
+6. 8 categories list (restaurant, beauty, professional services, etc.)
+7. 3 prize tiers (Grand $5K + 8 regional $1K + 8 sectoral $500)
+8. 5-bullet eligibility (Loi 25/96 compliant, REQ-registered, etc.)
+9. CTA (subscribe to be notified + sponsorship inquiry)
+
+**Mood:** luxe-editorial (AuroraBackground ivory + burgundy gold-leaf
+gradient). Suits the prestige/award positioning.
+
+**Sponsorship hook (revenue side-effect):** 16 sponsor slots (8
+regional + 8 sectoral category sponsors) at the gala + landing pages
++ press releases. Future revenue stream.
+
+**Verification:**
+- /fr/concours-pme: H1 "Concours PME Quebec / edition 2026" renders
+- 6 H2 sections render (waitlist, timeline, regions, categories,
+  prizes, eligibility)
+- Body contains "Concours PME Quebec" + "gala"
+- AuroraBackground rgb(248, 245, 241) ivory renders correctly
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~12s
+
+---
+
 ## 📰 SESSION 2026-05-02 (Newsletter "Le Pouls Local") — /pouls-local live
 
 **Shipped:** Landing page for AiLys's weekly Quebec PME newsletter
