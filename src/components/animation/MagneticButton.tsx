@@ -66,7 +66,7 @@ export function MagneticButton({
     }
   }, [disabled, onClick]);
 
-  const ElementComponent = Component as any;
+  const ElementComponent = Component as React.ElementType;
 
   return (
     <ElementComponent

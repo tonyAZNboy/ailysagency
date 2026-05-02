@@ -656,7 +656,7 @@ export function detectLanguage(): SupportedLanguage {
   }
   
   // Check browser language
-  const browserLang = navigator.language || (navigator as any).userLanguage || 'en';
+  const browserLang = navigator.language || (navigator as Navigator & { userLanguage?: string }).userLanguage || 'en';
   
   // Try exact match first
   if (languageMap[browserLang]) {

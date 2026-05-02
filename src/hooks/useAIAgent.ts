@@ -6,7 +6,7 @@ interface AgentMessage {
   id: string;
   role: 'user' | 'assistant' | 'system';
   content: string;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
   created_at: string;
 }
 
