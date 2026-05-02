@@ -2,6 +2,61 @@
 
 ---
 
+## ⚖️ SESSION 2026-05-02 (Quebec compliance page) — /conformite-quebec live
+
+**Shipped:** New positioning + SEO landing page at `/conformite-quebec`
+(EN+FR via inline T() helper). Stakes the Quebec-built moat that US
+competitors (Wix, BrightLocal, Yext) cannot match: Loi 25 (privacy),
+Loi 96 (French-first), Charte de la langue francaise. Lead-magnet style
+with cross-link to /book-call and /audit.
+
+**Why:** Per session strategy discussion, this is the one positioning
+asset that filters competitors automatically and captures high-intent
+search traffic for compliance-aware Quebec PMEs. Cheap to build (one
+page, no backend), permanent visibility moat.
+
+**Files:**
+- `src/pages/ConformiteQuebec.tsx` (~280 lines, EN+FR inline)
+- `src/App.tsx`: 4 new routes (/conformite-quebec, /:lang/conformite-quebec,
+  /quebec-compliance, /:lang/quebec-compliance), lazy-loaded
+- `scripts/generate-sitemap.mjs`: 1 new entry x 16 locales = 16 URLs
+
+**Page structure:**
+1. Header with positioning hook ("Built for Quebec law, not retrofit
+   from California")
+2. Pillar 1: Loi 25 (privacy) - explanation + 4-bullet list + how AiLys
+   delivers (4-bullet operations breakdown)
+3. Pillar 2: Loi 96 (French-first) - explanation + 4-bullet list + how
+   AiLys delivers
+4. Pillar 3: Charte de la langue francaise + OQLF context + how AiLys
+   delivers (REQ verification, trademark + descriptor handling)
+5. "Why this matters" section comparing US tool savings vs OQLF/CAI
+   penalty risk
+6. CTA: book strategy call + run free GBP audit
+7. Legal disclaimer ("not legal advice", recommend Quebec-licensed
+   lawyer for opinions)
+
+**Mood:** tech-corporate (TopologyBackground, electric blue + lime
+gradient). Suits the legal/compliance positioning context.
+
+**Verification:**
+- /fr/conformite-quebec: H1 "Concu pour la loi quebecoise, pas adapte
+  de la Californie", 5 H2 sections rendered, contains "Loi 25", "Loi
+  96", "OQLF" terms
+- TopologyBackground rgb(16, 20, 30) deep navy renders correctly
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~16s
+- Em-dash sweep clean
+- Sitemap regenerated: 16 new URLs
+
+**i18n:** EN + FR-CA via inline T() (per user constraint, translation
+quota near limit). Other locales fall back to EN at render. Logged in
+translation queue for next Tuesday after 13:00.
+
+---
+
 ## 💬 SESSION 2026-05-02 (Design System v1.2) — MethodologyStepper + ChatMockup
 
 **Shipped:** Two production-ready pattern components that transform the

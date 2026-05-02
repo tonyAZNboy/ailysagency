@@ -53,6 +53,7 @@ const IndustryReports = lazy(() => import("./pages/IndustryReports"));
 const IndustryReportDetail = lazy(() => import("./pages/IndustryReportDetail"));
 const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
 const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
+const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -201,6 +202,12 @@ const App = () => {
                 {/* F3.0: Partner Program waitlist (demand-validation MVP) */}
                 <Route path="/agencies/partner-program" element={<PartnerProgram />} />
                 <Route path="/:lang/agencies/partner-program" element={<PartnerProgram />} />
+
+                {/* Quebec compliance positioning (Loi 25 + Loi 96 + Charte) */}
+                <Route path="/conformite-quebec" element={<ConformiteQuebec />} />
+                <Route path="/:lang/conformite-quebec" element={<ConformiteQuebec />} />
+                <Route path="/quebec-compliance" element={<ConformiteQuebec />} />
+                <Route path="/:lang/quebec-compliance" element={<ConformiteQuebec />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>

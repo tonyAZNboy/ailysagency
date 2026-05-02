@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (nl)
     Generated: 2026-05-02
-    URLs: 173
+    URLs: 174
     Index priority: 13 of 16
   -->
 
@@ -123,6 +123,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/audit/nap" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/audit/nap" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/audit/nap" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/nl/conformite-quebec</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/conformite-quebec" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/nl/pricing-details</loc>
