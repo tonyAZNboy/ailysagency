@@ -31,6 +31,7 @@ import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
 import { sha256Hex } from '../lib/crypto';
 import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -79,13 +80,6 @@ interface OnboardingRequestBody {
 
 const MAX_PAYLOAD_BYTES = 16 * 1024; // 16KB; onboarding payloads are tiny
 const ALLOWED_LANGS = new Set(['en', 'fr', 'es', 'zh', 'ar', 'ru']);
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
-}
 
 interface ValidationResult {
   ok: boolean;

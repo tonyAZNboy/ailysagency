@@ -2,6 +2,51 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR140) — stringClip shared lib (sub-phase 8)
+
+Sub-phase 8 in the backend-lib extraction series. Pure backend, zero
+src/ touch, zero conflict surface with the parallel session
+(continuing on industries + footer wires).
+
+### Sub-phase 8: stringClip shared lib + Gate 32
+
+Consolidates 8 inline copies of `clip(value, max)`. 7 of the 8 used
+the trimmed variant; client-error.ts used a no-trim variant. Both
+exposed:
+
+    functions/lib/stringClip.ts:
+      clip(value, max)           // trimmed, returns null on empty
+      clipUntrimmed(value, max)  // raw slice, returns "" on ""
+
+7 endpoints import `clip`; client-error imports
+`clipUntrimmed as clip` so its local call sites stay unchanged.
+
+**Files refactored:**
+
+- functions/api/audit-pdf-onboarding.ts (clip)
+- functions/api/audit-ai-visibility-instant.ts (clip)
+- functions/api/cofounders-apply.ts (clip)
+- functions/api/founding-clients-apply.ts (clip)
+- functions/api/partner-application.ts (clip)
+- functions/api/quote-pdf.ts (clip)
+- functions/api/visibility-report-pdf.ts (clip)
+- functions/api/client-error.ts (clipUntrimmed as clip)
+
+**New smoke (Gate 32): scripts/smoke-string-clip.mjs, 25 cases.**
+
+Asserts type guard rejects non-string, length cap correct, trim
+happens BEFORE truncation, Unicode preserved, variant difference
+(clip rejects whitespace-only -> null, clipUntrimmed preserves it).
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 14 existing smokes pass + new Gate 32 25/25
+- Gate 7 build: green (21.18s)
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR139) — structuredLog shared lib (sub-phase 7)
 
 Continuing the backend-lib extraction series after PR #139 + PR #125
