@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (ko)
     Generated: 2026-05-02
-    URLs: 177
+    URLs: 178
     Index priority: 11 of 16
   -->
 
@@ -215,6 +215,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/garantie" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/garantie" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/garantie" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ko/trousse-nfc</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/trousse-nfc" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/ko/pricing-details</loc>

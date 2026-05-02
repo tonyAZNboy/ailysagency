@@ -57,6 +57,7 @@ const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
 const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
 const PMEContest = lazy(() => import("./pages/PMEContest"));
 const Garantie = lazy(() => import("./pages/Garantie"));
+const TrousseNfc = lazy(() => import("./pages/TrousseNfc"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -229,6 +230,12 @@ const App = () => {
                 <Route path="/:lang/garantie" element={<Garantie />} />
                 <Route path="/guarantee" element={<Garantie />} />
                 <Route path="/:lang/guarantee" element={<Garantie />} />
+
+                {/* NFC physical welcome kit (Reviuzy add-on / Agency bundled) */}
+                <Route path="/trousse-nfc" element={<TrousseNfc />} />
+                <Route path="/:lang/trousse-nfc" element={<TrousseNfc />} />
+                <Route path="/nfc-kit" element={<TrousseNfc />} />
+                <Route path="/:lang/nfc-kit" element={<TrousseNfc />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
