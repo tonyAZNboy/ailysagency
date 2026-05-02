@@ -165,6 +165,26 @@ H1 italic uses gold gradient (amber-300 to yellow-600).
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR146) — STATE.md size guard (sub-phase 13)
+
+### Sub-phase 13: Gate 36 (STATE.md size guard)
+
+`scripts/smoke-state-size.mjs` checks that STATE.md is under 200 KB
+(78% of the Claude Code Read tool's 256 KB limit). When tripped,
+emits a fix-it message: archive older session-close blocks to
+`docs/state-archive-<YYYY-MM>.md` and cross-link them.
+
+Background: STATE.md grew to 269 KB on 2026-05-02 and broke the
+Read tool, which killed the CLAUDE.md "START HERE: read STATE.md"
+flow for new sessions. PR #139 archived 3748 lines (269 KB → 68 KB)
+to unbreak it. This gate prevents the regression.
+
+- Hard threshold: 200 KB (forced fail)
+- Soft warning: 160 KB (visible warning, still passes)
+- Current size at gate landing: ~125 KB (under both)
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR145) — lib/README.md canonical helper index (sub-phase 12)
 
 After 11 sub-phases (PRs #139-#145) shipped 9 shared libs + regression
