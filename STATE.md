@@ -2,6 +2,113 @@
 
 ---
 
+## 🌈 SESSION 2026-05-02 (Design System v1.1) — 5 alt backgrounds + AnimatedCounter
+
+**Shipped:** Completes the visual side of the AiLys Design System v1.
+Delivers 5 mood-specific backgrounds and an animated stats counter,
+wiring both into Industry.tsx via the mood dispatcher. With this round,
+all 9 industry verticals now render with **fully distinctive visual
+personalities** (background + gradient + animated stats), no longer just
+"same template, different content".
+
+**Why:** Per user direction, continue autopilot, follow established
+rules, EN+FR only (translation quota near limit for the week).
+Visual code = zero translation impact, maximum visual ROI.
+
+**Files created (5 backgrounds + 1 dispatcher + 1 animation):**
+- `src/components/backgrounds/MeshGradientBackground.tsx` (~55 lines)
+  4-layer animated radial conic mesh, 24s drift, clean-medical mood
+- `src/components/backgrounds/AuroraBackground.tsx` (~55 lines)
+  Slow drifting aurora bands with 40px blur, 32s flow, luxe-editorial
+- `src/components/backgrounds/GrainTextureBackground.tsx` (~50 lines)
+  Static SVG noise overlay + warm cream gradient, chaleureux-artisan
+- `src/components/backgrounds/TopologyBackground.tsx` (~85 lines)
+  SVG topographic isolines pattern, 60s linear drift, tech-corporate
+- `src/components/backgrounds/LiquidBlobBackground.tsx` (~70 lines)
+  3 SVG ellipses with 40px blur, 28-36s alternate scale+translate,
+  friendly-local mood
+- `src/components/backgrounds/MoodBackground.tsx` (~70 lines)
+  Single dispatcher: takes a Mood, returns the right background with
+  mood palette HSL strings passed through. Removes per-page boilerplate.
+- `src/components/animation/AnimatedCounter.tsx` (~120 lines)
+  Counts numeric prefix from 0 to target on IntersectionObserver fire,
+  preserves prefix (\$, ×) and suffix (%, days, jours, ×), supports
+  comma decimal (FR), respects prefers-reduced-motion, ease-out cubic,
+  per-stat staggered durationMs (1400 + i*150)
+
+**Files modified:**
+- `src/pages/Industry.tsx`
+  Replaced direct `<NetworkBackground>` with `<MoodBackground mood={mood}>`
+  Stats strip values now wrapped in `<AnimatedCounter>` with mood gradient
+
+**All 5 backgrounds respect prefers-reduced-motion:**
+- 4 use CSS `animation: none` fallback when reduced motion preferred
+- 1 (Grain) is static by design
+
+**Browser verification (preview port 4175):**
+- /industries/hotels (luxe-editorial): Aurora ivory bg #F8F5F1, rose-amber italic gradient
+- /industries/restaurants (chaleureux-artisan): Grain cream bg #F7F5F2 + 1 mix-blend-overlay div, orange-rose italic
+- /industries/nail-salons (friendly-local): LiquidBlob with 3 ellipses on pastel sky #F3F9FC, pink-rose-yellow italic
+- /industries/lawyers (premium-dark): Network kept (canvas-based, complex), gold italic
+- /industries/clinics (clean-medical): Mesh gradient layer rendering, cyan italic
+- Mobile 375x812: scrollW=375, no horizontal overflow, blobs render correctly
+- Zero console errors
+
+**i18n discipline (per user constraint):**
+- Zero new i18n keys added (no schema changes)
+- Hero+stats now use mood gradient classes (pure CSS, language-agnostic)
+- AnimatedCounter parses both EN ("82%", "3.1×") and FR ("82 %", "3,4×")
+  formats from existing industry stat strings
+- audit-translations-deep stays at 0 missing across 15 non-EN locales
+
+---
+
+## 🌍 TRANSLATION QUEUE — defer until Tuesday after 13:00
+
+**Constraint logged:** Translation quota near weekly limit. The
+following items are deliverable in EN + FR-CA but should NOT be
+machine-translated to ES, ZH, AR, RU, DE, IT, PT, KO, JA, NL, PL, TR,
+HI, VI until **Tuesday next week after 13:00 local time**.
+
+When the budget refreshes, run these in order:
+
+1. **Industry pages content** for `nail-salons` and `sushi-counters`
+   (added 2026-05-02). Currently EN canonical + FR-CA full + 14
+   secondary locales fall back to EN at render. Need ES/ZH/AR/RU
+   full translations of the IndustryContent shape (eyebrow, headlines,
+   subheadline, painPoints, methodology, sampleCitations, FAQ, SEO meta).
+   Estimated: ~50 strings × 4 majors × 2 industries = ~400 strings.
+
+2. **NAP Pulse audit page** (added 2026-05-02). Currently uses inline
+   T() helper for EN+FR. To extend to ES/ZH/AR/RU, either:
+   (a) extract strings to `audit.napPulse` i18n key block, or
+   (b) keep inline pattern and accept EN fallback for non-EN/FR.
+   Recommend (a) for consistency with audit.pulse.
+   Estimated: ~50 strings × 4 majors = ~200 strings.
+
+3. **Mood theme labels** (`Mood Premium Dark`, `Mood Sombre Premium`,
+   etc.). Currently EN+FR via mood.label / mood.labelFr. Add ES, ZH,
+   AR, RU for the small badge under the eyebrow. 6 moods × 4 majors
+   = 24 strings. Lowest priority (badge is decorative).
+
+**Out-of-EN/FR translations explicitly NOT shipped this week:**
+- All Industry data new fields (nail-salons, sushi-counters)
+- AuditNapPulse page strings
+- Mood badge labels for ES/ZH/AR/RU
+
+These keys are safe in the audit-deep script because:
+- IndustryContent for nail-salons/sushi-counters lives in
+  industry.en + industry.fr; secondary locales fall back via
+  getIndustryContent's i18n override pattern (no missing-key error)
+- AuditNapPulse uses inline T() (no key schema)
+- Mood labels are component-internal, not in i18n schema
+
+When picking up next Tuesday, see this section + the 3 numbered items
+above for the queue. Verify quota refresh first via the translation
+provider's dashboard before starting.
+
+---
+
 ## 🎨 SESSION 2026-05-02 (Design System v1, Phases A+B+POC) — Mood-driven verticals
 
 **Shipped:** Foundation of "AiLys Design System v1", a unified, recyclable

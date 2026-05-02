@@ -4,10 +4,11 @@ import { ArrowRight, ArrowLeft, CheckCircle2, Sparkles, Quote } from "lucide-rea
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
-import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
+import { MoodBackground } from "@/components/backgrounds/MoodBackground";
 import { SEOHead } from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal, MagneticWrapper } from "@/components/animation";
+import { AnimatedCounter } from "@/components/animation/AnimatedCounter";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import {
@@ -183,16 +184,7 @@ export default function Industry() {
         alternateLocales={alternates}
         structuredData={structuredData}
       />
-      <NetworkBackground
-        backgroundColor="#050505"
-        nodeColor="#22D3EE"
-        lineColor="#A78BFA"
-        nodeCount={32}
-        mobileNodeCount={18}
-        connectionDistance={140}
-        mouseInfluenceRadius={220}
-        mouseInfluenceStrength={0.16}
-      />
+      <MoodBackground mood={mood} />
 
       <div className="min-h-screen overflow-x-clip">
         <Navbar />
@@ -298,10 +290,10 @@ export default function Industry() {
                       className="rounded-xl border border-border/40 bg-card/40 backdrop-blur-md p-4"
                     >
                       <div
-                        className="font-display tabular-nums leading-none mb-2 bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent"
+                        className={`font-display tabular-nums leading-none mb-2 bg-gradient-to-br ${mood.accentGradient} bg-clip-text text-transparent`}
                         style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}
                       >
-                        {stat.value}
+                        <AnimatedCounter value={stat.value} durationMs={1400 + i * 150} />
                       </div>
                       <div className="text-[11px] sm:text-xs text-muted-foreground leading-snug">
                         {stat.label}
