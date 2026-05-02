@@ -16,6 +16,8 @@
 //   1. Supabase partner_applications insert (admin dashboard visibility)
 //   2. Resend internal alert email to operator (instant ops alert)
 
+import { checkRateLimit, sha256Hex as ratelimitSha } from "../lib/rateLimit";
+
 interface Env {
   ALLOWED_ORIGINS?: string;
   SUPABASE_URL?: string;
@@ -24,6 +26,10 @@ interface Env {
   OPERATOR_NOTIFY_EMAIL?: string;
   PARTNER_APPLICATIONS_KILL_SWITCH?: string;
   PARTNER_APPLICATIONS_DRY_RUN?: string;
+  /** Optional KV binding. Bind in Cloudflare Pages → Settings → Functions →
+   *  KV bindings (variable name: PARTNER_APPLICATIONS_RATE_LIMIT). When
+   *  unbound, rate-limit fails open with audit log entry. */
+  PARTNER_APPLICATIONS_RATE_LIMIT?: KVNamespace;
 }
 
 const NOTIFY_FROM = "AiLys Partner Program <hello@ailysagency.ca>";
@@ -397,6 +403,38 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   const hash = await payloadHash(v.data);
   const ipH = await ipHash(ip);
+
+  // Rate limit BEFORE DRY_RUN so dry-run requests still surface rate-limit
+  // hits in their synthesized response. Identity bucket uses email hash so
+  // an attacker cannot rotate IP to flood one applicant's email.
+  if (ipH) {
+    const emailHash = await ratelimitSha(`partner-app:${v.data.contact_email}`);
+    const rl = await checkRateLimit(env.PARTNER_APPLICATIONS_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: emailHash,
+      ipPerHour: 10,
+      identityPerDay: 5,
+      keyPrefix: "rl:partner-app",
+    });
+    if (!rl.allowed) {
+      return new Response(
+        JSON.stringify({
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+            "Access-Control-Allow-Origin":
+              request.headers.get("origin") ?? "https://www.ailysagency.ca",
+          },
+        },
+      );
+    }
+  }
 
   // DRY_RUN: short-circuit before any external calls
   if (isDryRun(env)) {
