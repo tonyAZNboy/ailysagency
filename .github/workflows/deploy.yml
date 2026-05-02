@@ -106,6 +106,18 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 34, hmac primitives shared lib smoke (21 cases)
+        # Tests functions/lib/hmac.ts: hexToBytes, importHmacKey,
+        # constantTimeEqualBytes that consolidate 7 inline copies across
+        # 5 files (pdfHmac, serviceAuth, unsubscribeToken, svixHmac,
+        # cron-process-sequences). Auth-critical: any subtle bug here
+        # compromises HMAC verification across audit-pdf downloads,
+        # service-to-service auth, unsubscribe tokens, and Resend
+        # webhooks. Verifies hex parsing (incl. error paths), CryptoKey
+        # creation with sign+verify usages, deterministic signing, byte
+        # array constant-time compare with single-byte sensitivity.
+        run: npx tsx scripts/smoke-hmac.mjs
+
       - name: Gate 33, jsonResponse shared lib smoke (26 cases)
         # Tests functions/lib/jsonResponse.ts: secure-default JSON response
         # builder consolidating 9 inline copies (4 distinct flavors merged
