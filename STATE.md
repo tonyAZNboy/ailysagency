@@ -2,6 +2,23 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR145) — lib/README.md canonical helper index (sub-phase 12)
+
+After 11 sub-phases (PRs #139-#145) shipped 9 shared libs + regression
+guard, add a README documenting the canonical helpers as a single
+entry-point for future sessions.
+
+### Sub-phase 12: functions/lib/README.md
+
+`functions/lib/README.md` documents every shared helper:
+- Quick reference (import paths for all 9 libs + 8 domain-specific libs)
+- Lib catalogue (per-lib API surface + smoke gate reference)
+- "How to add a new shared helper" procedure (extract → smoke → guard → README)
+
+Pure docs, zero code change. CI gates unchanged.
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR144) — regression guard for shared libs (sub-phase 11)
 
 After 10 sub-phases extracted 9 shared libs (PRs #139-#144), add a
