@@ -420,6 +420,188 @@ const dentists: Industry = {
       "marketing clinique dentaire 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para clínicas dentales",
+      headline1: "Sé citado por ChatGPT cuando los pacientes preguntan",
+      headline2: "\"mejor dentista cerca de mí\".",
+      subheadline:
+        "Las búsquedas dentales son el sector salud n.º 1 dentro de ChatGPT, Perplexity, Claude y Gemini. Los nuevos pacientes preguntan a la IA qué clínica acepta su seguro, recibe nuevos pacientes y atiende emergencias. AiLys hace que su clínica sea nombrada.",
+      stats: [
+        { value: "62%", label: "de los nuevos pacientes ahora investigan dentistas a través de motores de IA antes de reservar" },
+        { value: "1,9×", label: "más citas LLM en sitios dentales con esquema FAQ" },
+        { value: "30 días", label: "para la primera mención en ChatGPT en promedio" },
+        { value: "$847", label: "valor promedio de un nuevo paciente en clínicas dentales de Quebec" },
+      ],
+      topQueries: [
+        "mejor dentista cerca de mí que recibe nuevos pacientes",
+        "dentista de urgencia abierto ahora Montreal",
+        "dentista pediátrico aceptando RAMQ ciudad de Quebec",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT envía pacientes a su competidor",
+          description:
+            "Cuando alguien pregunta a ChatGPT por un dentista en su barrio, la respuesta saca datos de Yelp, BBB, Healthgrades y Google Business Profile. Si su NAP es inconsistente entre esas fuentes, usted es invisible.",
+        },
+        {
+          title: "Las preguntas de seguro y RAMQ quedan sin respuesta",
+          description:
+            "Los pacientes preguntan a los motores de IA \"¿la clínica X acepta mi seguro?\". Si su sitio no tiene esquema FAQ que cubra los planes aceptados, los motores de IA extraen información antigua o incorrecta de directorios externos.",
+        },
+        {
+          title: "Las búsquedas de emergencia favorecen a las clínicas 24 horas",
+          description:
+            "Las consultas \"dentista de emergencia abierto ahora\" ponderan fuertemente los atributos de GBP (horarios de apertura, etiqueta de servicios de emergencia). La mayoría de las clínicas nunca rellenan estos campos y pierden el 100% del tráfico urgente.",
+        },
+        {
+          title: "El posicionamiento pediátrico y de especialidad es genérico",
+          description:
+            "Los motores de IA necesitan desambiguación de entidades: ¿es usted un dentista general, especialista pediátrico, o ambos? Sin esquema indicando serviceType, compite contra todo el mundo en lugar de dominar su nicho.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi clínica",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Dentistas · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su clínica dental sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para clínicas dentales. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "牙科诊所 AI SEO",
+      headline1: "当患者询问时让 ChatGPT 引用您",
+      headline2: "「我附近最好的牙医」。",
+      subheadline:
+        "在 ChatGPT、Perplexity、Claude 和 Gemini 中,牙科搜索是健康类目第一。新患者向 AI 询问哪家诊所接受他们的保险、接收新患者、处理急诊。AiLys 让您的诊所被点名。",
+      stats: [
+        { value: "62%", label: "的新患者现在在预约前通过 AI 引擎研究牙医" },
+        { value: "1.9×", label: "在带 FAQ schema 的牙科网站上获得更多 LLM 引用" },
+        { value: "30 天", label: "平均 ChatGPT 首次引用提升时间" },
+        { value: "$847", label: "魁北克牙科诊所新患者平均价值" },
+      ],
+      topQueries: [
+        "我附近接受新患者的最好牙医",
+        "蒙特利尔现在开门的急诊牙医",
+        "魁北克市接受 RAMQ 的儿童牙医",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 把患者送给您的竞争对手",
+          description:
+            "当有人向 ChatGPT 询问您所在街区的牙医时,答案会从 Yelp、BBB、Healthgrades 和 Google Business Profile 中提取。如果您的 NAP 在这些来源中不一致,您就是隐形的。",
+        },
+        {
+          title: "保险和 RAMQ 问题得不到回答",
+          description:
+            "患者会向 AI 引擎询问 \"X 诊所是否接受我的保险?\"。如果您的网站没有覆盖已接受计划的 FAQ schema,AI 引擎会从第三方目录中提取过时或错误的信息。",
+        },
+        {
+          title: "急诊搜索偏向 24 小时诊所",
+          description:
+            "\"现在开门的急诊牙医\" 类查询严重依赖 GBP 属性(营业时间、急诊服务标签)。大多数诊所从未填写这些字段,失去 100% 的紧急流量。",
+        },
+        {
+          title: "儿科和专科定位过于笼统",
+          description:
+            "AI 引擎需要实体消歧:您是全科牙医、儿科专家,还是两者兼有?没有指定 serviceType 的 schema 标记,您就在与所有人竞争而不是主导您的细分市场。",
+        },
+      ],
+      ctaPrimary: "运行我的牙科诊所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "牙医 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的牙科诊所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为牙科诊所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للعيادات السنية",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل المرضى",
+      headline2: "\"أفضل طبيب أسنان قريب مني\".",
+      subheadline:
+        "تعد عمليات البحث عن طب الأسنان القطاع الصحي رقم 1 داخل ChatGPT و Perplexity و Claude و Gemini. يسأل المرضى الجدد الذكاء الاصطناعي عن العيادة التي تقبل تأمينهم وتستقبل مرضى جدد وتتعامل مع الحالات الطارئة. تجعل AiLys اسم عيادتك يظهر.",
+      stats: [
+        { value: "62%", label: "من المرضى الجدد يبحثون الآن عن أطباء الأسنان عبر محركات الذكاء الاصطناعي قبل الحجز" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المواقع السنية المزودة بمخطط FAQ" },
+        { value: "30 يومًا", label: "في المتوسط للحصول على أول ارتفاع في الاستشهاد على ChatGPT" },
+        { value: "847 دولارًا", label: "متوسط قيمة المريض الجديد في العيادات السنية بكيبيك" },
+      ],
+      topQueries: [
+        "أفضل طبيب أسنان قريب مني يستقبل مرضى جدد",
+        "طبيب أسنان طوارئ مفتوح الآن مونتريال",
+        "طبيب أسنان أطفال يقبل RAMQ مدينة كيبيك",
+      ],
+      painPoints: [
+        {
+          title: "يرسل ChatGPT المرضى إلى منافسك",
+          description:
+            "عندما يسأل شخص ما ChatGPT عن طبيب أسنان في حيك، تستمد الإجابة بياناتها من Yelp و BBB و Healthgrades و Google Business Profile. إذا كان NAP الخاص بك غير متسق عبر تلك المصادر، فأنت غير مرئي.",
+        },
+        {
+          title: "أسئلة التأمين و RAMQ تبقى دون إجابة",
+          description:
+            "يسأل المرضى محركات الذكاء الاصطناعي \"هل تقبل عيادة X تأميني؟\". بدون مخطط FAQ يغطي الخطط المقبولة، تستخرج محركات الذكاء الاصطناعي معلومات قديمة أو خاطئة من أدلة خارجية.",
+        },
+        {
+          title: "تفضل عمليات البحث الطارئة العيادات التي تعمل على مدار 24 ساعة",
+          description:
+            "تعتمد استعلامات \"طبيب أسنان طوارئ مفتوح الآن\" بشكل كبير على سمات GBP (ساعات العمل، علامة خدمات الطوارئ). معظم العيادات لا تملأ هذه الحقول أبدًا وتخسر 100% من الحركة العاجلة.",
+        },
+        {
+          title: "التموضع لطب الأطفال والاختصاص عام جدًا",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى توضيح الكيانات: هل أنت طبيب أسنان عام أم اختصاصي أطفال أم كلاهما؟ بدون ترميز schema يحدد serviceType، فأنت تنافس الجميع بدلًا من السيطرة على تخصصك.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق عيادتي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي لأطباء الأسنان · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل عيادتك السنية مستشهدًا بها داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للعيادات السنية. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI стоматологических клиник",
+      headline1: "Получайте упоминания ChatGPT, когда пациенты спрашивают",
+      headline2: "«лучший стоматолог рядом со мной».",
+      subheadline:
+        "Стоматологические запросы являются вертикалью здравоохранения номер 1 в ChatGPT, Perplexity, Claude и Gemini. Новые пациенты спрашивают ИИ, какая клиника принимает их страховку, принимает новых пациентов и обслуживает экстренные случаи. AiLys обеспечивает упоминание вашей клиники.",
+      stats: [
+        { value: "62%", label: "новых пациентов теперь исследуют стоматологов через ИИ-движки перед записью" },
+        { value: "1,9×", label: "больше упоминаний LLM на стоматологических сайтах со схемой FAQ" },
+        { value: "30 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT" },
+        { value: "847 $", label: "средняя ценность нового пациента в стоматологических клиниках Квебека" },
+      ],
+      topQueries: [
+        "лучший стоматолог рядом со мной, принимающий новых пациентов",
+        "стоматолог скорой помощи открыт сейчас Монреаль",
+        "детский стоматолог, принимающий RAMQ, Квебек",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT отправляет пациентов к вашему конкуренту",
+          description:
+            "Когда кто-то спрашивает у ChatGPT стоматолога в вашем районе, ответ берётся из Yelp, BBB, Healthgrades и Google Business Profile. Если ваш NAP не согласован между этими источниками, вы невидимы.",
+        },
+        {
+          title: "Вопросы о страховке и RAMQ остаются без ответа",
+          description:
+            "Пациенты спрашивают ИИ-движки «принимает ли клиника X мою страховку?». Без схемы FAQ, охватывающей принимаемые планы, ИИ-движки извлекают старую или неправильную информацию из сторонних каталогов.",
+        },
+        {
+          title: "Экстренные поиски отдают предпочтение круглосуточным клиникам",
+          description:
+            "Запросы «стоматолог скорой помощи открыт сейчас» сильно полагаются на атрибуты GBP (часы работы, метка экстренных услуг). Большинство клиник никогда не заполняют эти поля и теряют 100% срочного трафика.",
+        },
+        {
+          title: "Позиционирование педиатрии и специальности слишком общее",
+          description:
+            "ИИ-движкам нужно различение сущностей: вы общий стоматолог, педиатр или оба? Без разметки schema, указывающей serviceType, вы конкурируете со всеми вместо доминирования в своей нише.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей клиники",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI стоматологов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей стоматологической клиники в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для стоматологических клиник. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
