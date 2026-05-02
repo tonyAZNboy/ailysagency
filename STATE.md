@@ -1,5 +1,77 @@
 # AiLys Agency — Project State
 
+---
+
+## 🚀 SESSION 2026-05-02 (Round 1a) — NAP Pulse audit triad completed
+
+**Shipped:** Free NAP (Name/Address/Phone) consistency self-assessment at
+`/audit/nap` and `/:lang/audit/nap` (also `/audit/nap-pulse`). Completes
+the audit triad alongside `/audit/gbp` (GBP Pulse) and `/audit/ai-visibility`
+(AI Visibility full report). Quebec-tuned: 25 directories audited
+including PJ.ca, Canada411, CCMM, FCEI, Tourisme Québec, sectorial
+registries (RAMQ/OACIQ/BSDQ/etc).
+
+**Why:** User strategic priority. Per discussion, the audit triad was
+already 2/3 complete (GBP Pulse + AI Visibility), missing NAP. Lead-magnet
+that captures top-of-funnel commercial intent for "audit NAP gratuit" /
+"NAP consistency check Quebec" search queries.
+
+**Pattern:** Self-contained client-side engine (NapPulseEngine.tsx) with
+inline EN/FR translations via `T()` helper, mirroring AuditAIVisibility
+pattern. No edge function (no PII collected, no server roundtrip needed).
+LocalStorage persistence so users can revisit results. Cross-sells to GBP
+Pulse + AI Visibility audits, primary CTA to /book-call.
+
+**Files:**
+- `src/components/audit/NapPulseEngine.tsx` (~470 lines)
+- `src/pages/AuditNapPulse.tsx` (~140 lines)
+- `src/App.tsx` (4 new routes: /audit/nap, /audit/nap-pulse, +2 lang variants)
+- `scripts/generate-sitemap.mjs` (1 new entry × 16 locales = 16 URLs)
+
+**Verification:**
+- `npx tsc --noEmit` clean
+- `node scripts/audit-translations-deep.mjs` 0 missing across 15 non-EN
+  locales (no schema changes)
+- Em-dash sweep clean
+- `npx vite build` success (~14s, index 817KB)
+- Bundle-shape Gate 20 9/9 PASS
+- Bundle-load Gate 21 1/1 PASS
+- Browser preview 4175 EN: rootChildren=5, h1 "Is your business / the
+  same on every map?", 5 form inputs (name/street/city/postal/phone),
+  MapPin icon, 31 buttons, zero console errors
+- Browser preview 4175 FR: h1 "Votre entreprise / est-elle la même sur
+  toutes les cartes?", FR placeholders ("ex. Clinique Dentaire Lavoie",
+  "Montréal", "(514) 555-0123")
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Sitemap regenerated: 2736 URLs across 16 languages (was 2720)
+
+**Audit triad now live:**
+1. `/audit` and `/audit/ai-visibility` — full AI Visibility report
+   (live data, ChatGPT/Perplexity/Gemini/Google AIO/Bing Copilot scoring)
+2. `/audit/gbp` — GBP Pulse (10 weighted signals, 8-question, 90 sec)
+3. `/audit/nap` — NAP Pulse (25 directories, weighted score, top-5
+   action plan, 2 min) — NEW
+
+**Next rounds queued (autopilot continues):**
+- Round 1b: `/conformite-quebec` (Loi 25/96 positioning page)
+- Round 2: Add nail-salon + sushi-comptoir industries to industries.ts
+- Round 3: Performance guarantee copy + safe terms
+- Round 4: Annual contest landing "Meilleure PME locale du Québec"
+- Round 5: Add-ons (voice AI receptionist, WhatsApp Business, NFC kit,
+  newsletter "Le Pouls Local")
+
+**Deferred to next session (out of scope this round):**
+- Help article specifically about /audit/nap free tool (existing
+  `nap-consistency` article covers the underlying topic)
+- Real NAP scraper (replaces self-assessment with live directory
+  lookups). Roadmap Phase 2; requires per-directory ToS review and
+  rate-limit infrastructure.
+- ES/ZH/AR/RU translations of NAP Pulse engine UI strings (currently
+  fall back to EN per existing AuditAIVisibility pattern)
+
+---
+
+
 > **🚨 IF WORKING ON PHASE C/11/12 OR ANY NEW FEATURE TOUCHING AUTH/DATA/CRON/ADMIN/HMAC/RLS:** invoke `/iso-gsd-delivery` BEFORE writing any code. The skill enforces GSD planning artefacts, ISO gates per commit, agent fidelity verification, gov-grade security, cost guardrails, multi-tenant isolation tests, DRY_RUN mode, locale parity, STATE.md same-commit, no-new-deps, time-box, migration reversibility, and a binary Definition of Done. CLAUDE.md hard rule #14 binds this. Skip = NOT MERGEABLE.
 
 ---

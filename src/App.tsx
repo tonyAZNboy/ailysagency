@@ -20,6 +20,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
+import AuditNapPulse from "./pages/AuditNapPulse";
 import BookCall from "./pages/BookCall";
 import PricingDetails from "./pages/PricingDetails";
 import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
@@ -122,10 +123,14 @@ const App = () => {
                 <Route path="/audit/ai-visibility" element={<AuditAIVisibility />} />
                 <Route path="/audit/gbp" element={<AuditGbpPulse />} />
                 <Route path="/audit/gbp-pulse" element={<AuditGbpPulse />} />
+                <Route path="/audit/nap" element={<AuditNapPulse />} />
+                <Route path="/audit/nap-pulse" element={<AuditNapPulse />} />
                 <Route path="/:lang/audit" element={<AuditAIVisibility />} />
                 <Route path="/:lang/audit/ai-visibility" element={<AuditAIVisibility />} />
                 <Route path="/:lang/audit/gbp" element={<AuditGbpPulse />} />
                 <Route path="/:lang/audit/gbp-pulse" element={<AuditGbpPulse />} />
+                <Route path="/:lang/audit/nap" element={<AuditNapPulse />} />
+                <Route path="/:lang/audit/nap-pulse" element={<AuditNapPulse />} />
 
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
