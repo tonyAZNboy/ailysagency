@@ -4,7 +4,64 @@
 
 ---
 
-## 🏁 SESSION CLOSE 2026-05-02 (autopilot full day) — 15 PRs, 6 tags, F3.0 + Phase 1 industries + ESLint -66% + 3 CI gates + live blank-page hotfix
+## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended-extended) — 19 PRs, 6 tags, ESLint zero-errors + 3 industries multi-locale on top of full-day session
+
+Continued the full-day autopilot run with 4 more PRs after the 15-PR
+close was filed:
+
+| PR | Type |
+|---|---|
+| #120 | ESLint ZERO errors achieved (8 → 0; total session 86 → 21 = -76%; errors 65 → 0 = -100%) |
+| #121 | content: dentists ES + ZH + AR + RU partial translations (validates i18n override pattern) |
+| #122 | content: lawyers ES + ZH + AR + RU partial translations |
+| #123 | content: restaurants ES + ZH + AR + RU partial translations |
+
+**Pattern shipped: partial-i18n industry translations.**
+The 3 deepest verticals (dentists, lawyers, restaurants) now have
+hero + stats + topQueries + painPoints + CTAs + SEO meta translated
+in ES/ZH/AR/RU. Methodology + sample citations + FAQ + recommendation
+fall back to EN — too long for partial coverage to add value, and the
+visible-on-page hero + value-prop + pain-points story is enough to
+serve non-EN-FR markets credibly.
+
+The other 4 verticals (contractors, clinics, real-estate, hotels)
+have FULL DEEP EN+FR shipped this session but no ES/ZH/AR/RU
+overrides yet. Same partial-i18n pattern can apply in follow-up
+sessions once volume justifies (currently ES/ZH/AR/RU pages fall
+back to EN content rendered at the EN hero level).
+
+**Session totals (19 PRs across the full day):**
+
+| Metric | Before session | After session |
+|---|---|---|
+| Live site state | BLANK (TDZ vendor-helmet) | Rendering correctly |
+| Initial bundle | 4.7 MB monolith | 794 KB index + lazy data chunks (-83%) |
+| i18n locale parity (UI keys) | 154 missing | 0 missing across 15 non-EN locales |
+| ESLint baseline | 86 problems (65 errors, 21 warnings) | 21 problems (0 errors, 21 warnings, -76%, errors -100%) |
+| CI gates | 18 | 22 (+ Gate 20 bundle-shape, Gate 21 bundle-load, Gate 22 partner-application) |
+| Industries with FULL DEEP content | 3/7 (dentists, lawyers, restaurants in EN+FR only) | 7/7 (added contractors, clinics, real-estate, hotels in EN+FR) |
+| Industries with ES/ZH/AR/RU partial | 0/7 | 3/7 (dentists, lawyers, restaurants) |
+| Real bugs killed | — | 1 (HelpArticle conditional hook order) |
+| Critical hotfixes | — | 1 (live blank-page restored) |
+
+**Outstanding next session (priority order):**
+1. **F3.1+ White-Label real build** — gated on F3.0 demand validation
+2. **Reviuzy F1.1 / F5.2** (cross-repo)
+3. **Industry partial-i18n for remaining 4 verticals** (contractors,
+   clinics, real-estate, hotels in ES/ZH/AR/RU; same pattern as
+   dentists/lawyers/restaurants from PRs #121-#123)
+4. **Help article translations to ES/ZH/AR/RU** (9+ articles × 4
+   majors)
+5. **Wikidata Q-number** registration (external action)
+6. **react-refresh + react-hooks/exhaustive-deps** 21 warnings
+   case-by-case audit (last lint debt)
+7. **Cookie banner + newsletter signup full 16-locale i18n** refactor
+   (currently EN/FR binary toggle; needs t.cookieBanner.* via global
+   i18n)
+
+---
+
+
 
 The longest single autopilot session of this project. 15 PRs merged
 end-to-end with full ISO-GSD discipline on the F3.0 sub-phase, real
