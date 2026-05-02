@@ -21,6 +21,7 @@
 // Backend: Google Generative Language API, gemini-2.5-pro:generateContent.
 
 import { captureServerError } from '../lib/serverError';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
@@ -99,12 +100,6 @@ interface AuditResult {
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'instant-ai-vis', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function clip(value: unknown, max: number): string | null {
@@ -353,7 +348,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
   const result = await callGemini(ctx.env, body);
   if (!result) {
     emit({ ts, action: 'anthropic_fail', ipHash: ipHash.slice(0, 8) });
-    // Capture as WARN — the endpoint gracefully degrades to FALLBACK
+    // Capture as WARN. The endpoint gracefully degrades to FALLBACK
     // content so user UX never breaks, but operator should see Gemini
     // failures for trend analysis (sustained failures indicate Gemini
     // outage, key revoked, or schema regression in the JSON response).

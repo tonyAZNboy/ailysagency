@@ -17,6 +17,10 @@
 
 import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
+import { insertSupabaseRow } from "../lib/supabaseInsert";
+import { escapeHtml } from "../lib/htmlEscape";
+import { isAllowedOrigin } from "../lib/origin";
+import { isValidEmail } from "../lib/email";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -33,18 +37,6 @@ interface Env {
 }
 
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
-
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
 
 const ALLOWED_VERTICALS = new Set([
   "dentist",
@@ -91,15 +83,6 @@ interface ValidatedData {
   motivation: string | null;
   lang: string;
   source: string;
-}
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
 }
 
 function clip(value: unknown, max: number): string | null {
@@ -168,27 +151,12 @@ function validate(body: ApplicationBody): { ok: boolean; errors: string[]; data:
   };
 }
 
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
-}
-
 async function forwardToSupabase(
   env: Env,
   data: ValidatedData,
   ip: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.log("Founding-client application (no DB):", JSON.stringify({ ...data, ip }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/landing_leads`;
-  const payload = {
+  return insertSupabaseRow(env, "landing_leads", {
     name: data.name,
     email: data.email,
     phone: data.phone,
@@ -206,38 +174,9 @@ async function forwardToSupabase(
     source: data.source,
     ip_address: ip,
     created_at: new Date().toISOString(),
-  };
-  try {
-    const resp = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: "return=minimal",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      const text = await resp.text().catch(() => "");
-      console.warn("Supabase insert failed", resp.status, text.slice(0, 300));
-      return { ok: false, error: `Supabase ${resp.status}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.warn("Supabase insert threw", (err as Error).message);
-    return { ok: false, error: (err as Error).message };
-  }
+  });
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
 
 async function sendOpsEmail(
   env: Env,

@@ -169,11 +169,7 @@ export function constantTimeEq(a: string, b: string): boolean {
   return result === 0;
 }
 
-/** SHA-256 hex digest helper. Workers and Node 22+ both have crypto.subtle. */
-export async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(buf))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
+/** SHA-256 hex digest helper. Re-exported from crypto.ts for back-compat
+ *  with existing imports (`import { sha256Hex } from "../lib/rateLimit"`).
+ *  New code should import directly from `../lib/crypto`. */
+export { sha256Hex } from "./crypto";

@@ -14,6 +14,7 @@
 
 import { verifySvixSignature } from '../lib/svixHmac';
 import { updateEmailSendByProviderId } from '../lib/emailLog';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   RESEND_WEBHOOK_SECRET?: string;
@@ -51,11 +52,6 @@ interface ResendEvent {
     click?: { link?: string } | null;
     [key: string]: unknown;
   };
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function jsonResponse(body: unknown, status = 200): Response {

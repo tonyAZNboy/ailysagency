@@ -15,6 +15,8 @@ import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { sendAndLog } from '../lib/emailLog';
 import { checkRateLimit, sha256Hex } from '../lib/rateLimit';
 import { captureServerError } from '../lib/serverError';
+import { isAllowedOrigin } from '../lib/origin';
+import { isValidEmail } from '../lib/email';
 
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
@@ -117,36 +119,6 @@ async function upsertSubscriber(env: Env, row: {
   } catch (err) {
     return { ok: false, error: (err as Error).message.slice(0, 200) };
   }
-}
-
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
-}
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true; // server-to-server or no-cors curl is OK
-  const allowed = (env.ALLOWED_ORIGINS ?? "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
 }
 
 export async function onRequestPost(context: {

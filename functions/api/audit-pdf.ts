@@ -19,6 +19,9 @@ import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
+import { escapeHtml } from '../lib/htmlEscape';
+import { sha256Hex } from '../lib/crypto';
+import { isAllowedOrigin } from '../lib/origin';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -64,12 +67,6 @@ interface PagesContext {
 
 const IP_RATE_PER_HOUR = 5;
 const EMAIL_RATE_PER_DAY = 50;
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
 
 function utcHourBucket(now: number = Date.now()): string {
   return new Date(now).toISOString().slice(0, 13); // "2026-04-28T03"
@@ -167,16 +164,6 @@ function emitAuditLog(ctx: PagesContext, entry: AuditLogEntry): void {
 }
 
 // ── Origin allowlist ────────────────────────────────────────────────────────
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get('origin');
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    'https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev')
-    .split(',')
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith('http://localhost');
-}
 
 // ── Handler ─────────────────────────────────────────────────────────────────
 
@@ -653,15 +640,6 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
 
 function pickLocale(lang: string, map: Record<string, string>): string {
   return map[lang] ?? map.en;
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 }
 
 function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {

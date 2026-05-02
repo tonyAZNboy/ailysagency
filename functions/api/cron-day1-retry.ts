@@ -198,7 +198,7 @@ async function replayOne(env: Env, entry: DlqEntry, body: OnboardingBody): Promi
     // we return false so the entry stays for explicit operator action.
     return false;
   } catch (replayErr) {
-    // Capture as warn — the cron retries up to N attempts, so single
+    // Capture as warn. The cron retries up to N attempts, so single
     // replay failures are expected. Operator gets log trail in audit_log
     // for trend analysis (e.g., R2 outage causing all replays to fail).
     await captureServerError(env, {
