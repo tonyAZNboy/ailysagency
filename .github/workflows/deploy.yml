@@ -106,6 +106,17 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 36, STATE.md size guard
+        # Background: STATE.md grew past 256 KB on 2026-05-02 and broke
+        # the Read tool's file-size limit, killing the CLAUDE.md
+        # "START HERE: read STATE.md" flow for new sessions. PR #139
+        # archived 3748 lines of historical session-close blocks to
+        # bring it back under (269 KB -> 68 KB). This gate prevents
+        # the regression: hard threshold 200 KB (78% of the 256 KB
+        # Read limit), soft warn at 160 KB. When tripped, archive
+        # older blocks to docs/state-archive-<period>.md.
+        run: node scripts/smoke-state-size.mjs
+
       - name: Gate 35, no inline duplicates of shared lib helpers
         # Regression guard. After PRs #139-#144 extracted 9 shared libs
         # into functions/lib/, this gate prevents future sessions from
