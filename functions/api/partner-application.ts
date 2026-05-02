@@ -17,6 +17,7 @@
 //   2. Resend internal alert email to operator (instant ops alert)
 
 import { checkRateLimit, sha256Hex as ratelimitSha } from "../lib/rateLimit";
+import { captureServerError } from "../lib/serverError";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -30,6 +31,9 @@ interface Env {
    *  KV bindings (variable name: PARTNER_APPLICATIONS_RATE_LIMIT). When
    *  unbound, rate-limit fails open with audit log entry. */
   PARTNER_APPLICATIONS_RATE_LIMIT?: KVNamespace;
+  /** Build commit (set by Cloudflare Pages env). Used by serverError
+   *  capture to include in alerts. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const NOTIFY_FROM = "AiLys Partner Program <hello@ailysagency.ca>";
@@ -462,6 +466,26 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   ]);
 
   if (!supaResult.ok && !emailResult.ok) {
+    // Both delivery channels failed: this is a real ops incident. Capture
+    // via the shared serverError lib so the operator gets a Resend alert
+    // immediately and the row is persisted to audit_log for triage. Best-
+    // effort; the 500 response below fires regardless of capture success.
+    await captureServerError(env, {
+      endpoint: "partner-application",
+      severity: "error",
+      err: new Error(
+        `dual delivery failure: supabase=${supaResult.error ?? "?"}, resend=${emailResult.error ?? "?"}`,
+      ),
+      requestId: hash.slice(0, 12),
+      userIpHash: ipH ?? undefined,
+      payloadHash: hash,
+      context: {
+        supabase_ok: supaResult.ok,
+        resend_ok: emailResult.ok,
+        supabase_error: supaResult.error ?? null,
+        resend_error: emailResult.error ?? null,
+      },
+    });
     return new Response(
       JSON.stringify({
         error: "Both delivery channels failed; please try again or email hello@ailysagency.ca",
