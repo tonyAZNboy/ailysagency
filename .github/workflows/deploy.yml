@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 24, /api/system-health endpoint shape + zero-leak smoke (34 cases)
+        # Tests functions/api/system-health.ts: response shape contract,
+        # 200/405/204 status codes, kill-switch evaluation, KV binding
+        # detection, ZERO secret value leaks (3 explicit assertions that
+        # the response body never contains the values of RESEND_API_KEY,
+        # SUPABASE_URL, OPERATOR_NOTIFY_EMAIL when those are set in env).
+        # Healthchecks for monitors live behind this endpoint; contract
+        # must not break.
+        run: npx tsx scripts/smoke-system-health.mjs
+
       - name: Gate 23, shared rate-limit lib smoke (18 cases)
         # Tests functions/lib/rateLimit.ts: KV-backed token bucket with
         # IP hourly + identity daily windows, fail-open on missing KV
