@@ -44,8 +44,8 @@ export function usePricing() {
 
       if (configError) throw configError;
 
-      const config: any = {};
-      configData?.forEach((row: any) => {
+      const config: Record<string, number | boolean | string | undefined> = {};
+      configData?.forEach((row: { key: string; value: string }) => {
         config[row.key] = parseInt(row.value, 10);
       });
 
@@ -58,7 +58,7 @@ export function usePricing() {
           .eq('is_active', true)
           .or('expires_at.is.null,expires_at.gt.now()');
 
-        overrides?.forEach((override: any) => {
+        overrides?.forEach((override: { override_type: string; value: { percent?: string; tier?: string; days?: string } | null }) => {
           if (override.override_type === 'discount_percent') {
             config.discount_percent = parseInt(override.value?.percent || '0', 10);
           } else if (override.override_type === 'free_access') {
@@ -99,12 +99,12 @@ export function usePricing() {
       }
 
       if (data) {
-        const planName = (data.subscription_plans as any)?.name?.toLowerCase();
+        const planName = (data.subscription_plans as { name?: string } | null)?.name?.toLowerCase();
         const validTiers = ['starter', 'pro', 'max'];
-        
+
         setSubscription({
-          tier: validTiers.includes(planName) ? planName : null,
-          status: data.status as any,
+          tier: validTiers.includes(planName ?? '') ? (planName as 'starter' | 'pro' | 'max') : null,
+          status: data.status as 'active' | 'trialing' | 'past_due' | 'canceled' | 'none',
           isTrialExpired: data.is_trial_expired || false,
           trialEnd: data.trial_end ? new Date(data.trial_end) : null,
           currentPeriodEnd: data.current_period_end ? new Date(data.current_period_end) : null,

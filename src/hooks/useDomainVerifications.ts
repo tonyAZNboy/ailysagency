@@ -16,7 +16,7 @@ export interface DomainVerification {
     record_type: string;
     host: string;
     value: string;
-    providers?: Record<string, any>;
+    providers?: Record<string, unknown>;
   };
   is_primary: boolean;
   verification_attempts: number;
@@ -130,10 +130,10 @@ export function useDomainVerifications() {
       await fetchDomains();
       await fetchLimits();
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error Adding Domain",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive",
       });
       return false;
@@ -178,10 +178,10 @@ export function useDomainVerifications() {
 
       await fetchDomains();
       return data.verified;
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Verification Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive",
       });
       return false;
@@ -217,10 +217,10 @@ export function useDomainVerifications() {
       await fetchDomains();
       await fetchLimits();
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error Removing Domain",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive",
       });
       return false;
@@ -253,10 +253,10 @@ export function useDomainVerifications() {
       });
 
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Cache Purge Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive",
       });
       return false;
@@ -281,10 +281,10 @@ export function useDomainVerifications() {
 
       await fetchDomains();
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive",
       });
       return false;
