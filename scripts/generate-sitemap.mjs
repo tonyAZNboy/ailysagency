@@ -51,6 +51,7 @@ const MAIN_ROUTES = [
   { path: "/audit/ai-visibility", priority: 0.9, changefreq: "weekly" },
   { path: "/audit/nap", priority: 0.9, changefreq: "weekly" },
   { path: "/conformite-quebec", priority: 0.85, changefreq: "monthly" },
+  { path: "/pouls-local", priority: 0.85, changefreq: "weekly" },
   { path: "/pricing-details", priority: 0.92, changefreq: "weekly" },
   { path: "/book-call", priority: 0.85, changefreq: "monthly" },
   { path: "/blog", priority: 0.85, changefreq: "daily" },

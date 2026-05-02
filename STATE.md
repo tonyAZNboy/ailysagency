@@ -2,6 +2,62 @@
 
 ---
 
+## 📰 SESSION 2026-05-02 (Newsletter "Le Pouls Local") — /pouls-local live
+
+**Shipped:** Landing page for AiLys's weekly Quebec PME newsletter
+"Le Pouls Local". Recycles existing NewsletterSignup component +
+/api/newsletter-subscribe edge function (double-opt-in, honeypot,
+rate-limit, source attribution, Loi 25 grade).
+
+**Why:** Long-term distribution channel. Weekly newsletter to 5000+
+Quebec PME owners over 18 months becomes a free distribution lever
+worth more than any paid ad spend.
+
+**Files:**
+- `src/pages/PoulsLocal.tsx` (~280 lines, EN+FR inline)
+- `src/App.tsx`: 4 new routes (/pouls-local, /:lang/pouls-local,
+  /newsletter, /:lang/newsletter), lazy-loaded
+- `scripts/generate-sitemap.mjs`: 1 new entry x 16 locales = 16 URLs
+
+**Page sections:**
+1. Hero "Le Pouls Local. Tuesday mornings."
+2. Trust pills (Tuesday 7am ET, 4-min read, 1-click unsubscribe)
+3. Inline NewsletterSignup card (existing component, source="pouls-local-landing")
+4. 3 benefits (Weekly trends, Quebec-only, Tactical not theoretical)
+5. 3 sample issues (real dates, plausible headlines, anonymized hooks)
+6. FAQ-style trust block (Free? Sell email? Bilingual choice?)
+
+**Mood:** chaleureux-artisan (warm cream + terracotta gradient,
+GrainTextureBackground). Suits the editorial/personal newsletter feel.
+
+**Recycling proof:**
+- NewsletterSignup component used as-is (zero modifications)
+- /api/newsletter-subscribe edge fn used as-is
+- MoodBackground dispatcher used as-is
+- mood.accentGradient used on icons + headline italic
+- All inline copy in EN+FR via T() helper (no i18n key changes)
+
+**Verification:**
+- /fr/pouls-local: H1 "Le Pouls Local. / Mardi matin." renders
+- 3 H2 sections render ("Ce que vous recevez chaque mardi", "3 numeros
+  recents", "Reponses rapides")
+- 1 email input rendered (NewsletterSignup form)
+- Body contains "Pouls Local" and "Mardi"
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success
+- Em-dash sweep clean
+
+**Distribution channels for this newsletter signup:**
+- /pouls-local landing (this commit)
+- Footer NewsletterSignup component (already site-wide)
+- Exit-intent modal (already implemented)
+- Audit-result page CTA (already implemented)
+- Blog post end (already implemented)
+
+---
+
 ## ⚖️ SESSION 2026-05-02 (Quebec compliance page) — /conformite-quebec live
 
 **Shipped:** New positioning + SEO landing page at `/conformite-quebec`

@@ -54,6 +54,7 @@ const IndustryReportDetail = lazy(() => import("./pages/IndustryReportDetail"));
 const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
 const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
 const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
+const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -208,6 +209,12 @@ const App = () => {
                 <Route path="/:lang/conformite-quebec" element={<ConformiteQuebec />} />
                 <Route path="/quebec-compliance" element={<ConformiteQuebec />} />
                 <Route path="/:lang/quebec-compliance" element={<ConformiteQuebec />} />
+
+                {/* Le Pouls Local newsletter landing */}
+                <Route path="/pouls-local" element={<PoulsLocal />} />
+                <Route path="/:lang/pouls-local" element={<PoulsLocal />} />
+                <Route path="/newsletter" element={<PoulsLocal />} />
+                <Route path="/:lang/newsletter" element={<PoulsLocal />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>

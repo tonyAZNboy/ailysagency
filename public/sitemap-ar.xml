@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (ar)
     Generated: 2026-05-02
-    URLs: 174
+    URLs: 175
     Index priority: 5 of 16
   -->
 
@@ -146,6 +146,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/conformite-quebec" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/conformite-quebec" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/conformite-quebec" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ar/pouls-local</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/pouls-local" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/ar/pricing-details</loc>
