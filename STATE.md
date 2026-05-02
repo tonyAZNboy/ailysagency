@@ -4,6 +4,88 @@
 
 ---
 
+## 🏁 SESSION 2026-05-02 (autopilot extended15) — F3.0 Partner Program waitlist MVP
+
+**Sub-phase shipped:** F3.0 (demand-validation MVP for white-label).
+**Why MVP not full F3:** ISO-GSD Section 3 fidelity audit caught that
+the original F3 plan assumed AiLys is multi-tenant SaaS. Reality: AiLys
+is the marketing site + operator admin; Reviuzy is the multi-tenant
+SaaS. Migrating AiLys into a meta-SaaS is 8 sessions of speculative
+architecture without a single committed partner agency. F3.0 ships
+the demand-validation surface in 1 session. Once 3+ qualified
+applications arrive, F3.1+ kicks in to build the actual white-label.
+
+**Deliverables:**
+- 5 GSD planning artefacts in `.planning/phase-f3-0-partner-waitlist/`
+- Migration `supabase/migrations/0005_partner_applications.sql`
+  (table + indexes + RLS + DOWN script)
+- Edge fn `functions/api/partner-application.ts` (validate, honeypot,
+  rate-limit pattern, idempotency via payload hash, DRY_RUN env,
+  PARTNER_APPLICATIONS_KILL_SWITCH fail-closed default, dual delivery
+  Supabase + Resend matching founding-clients-apply pattern)
+- Smoke `scripts/smoke-partner-application.mjs` 16/16 cases PASS
+- Wired Gate 22 in `.github/workflows/deploy.yml`
+- Landing `/agencies/partner-program` + `/:lang/agencies/partner-program`
+  with hero, who-it-is-for, what-partners-receive, application form
+  (8 fields including hidden honeypot), 5-Q FAQ
+- 53 i18n keys × 16 locales (EN canonical + FR-CA full + 14 secondary
+  EN-placeholder)
+- 2 help articles EN + FR-CA: partner-program-overview,
+  how-to-apply-as-a-partner-agency (per hard rule #10: refers to "the
+  AiLys platform" only, no vendor stack disclosure)
+- Admin surface `/admin/partner-applications` + nav link in
+  AdminLayout (uses generic AdminTable component)
+- Sitemap entry added (regenerates 16 locale URLs)
+
+**Verified before merge:**
+- `npx tsc --noEmit` clean
+- `node scripts/audit-translations-deep.mjs`: 0 missing across 15
+  non-EN locales
+- Em-dash sweep: 0 new matches in scoped paths
+- `npx vite build` success (~29s, index.js 794KB)
+- `node scripts/smoke-bundle-shape.mjs` 9/9 PASS
+- `node --experimental-vm-modules scripts/smoke-bundle-load.mjs` 1/1 PASS
+- `npx tsx scripts/smoke-partner-application.mjs` 16/16 PASS
+- Browser preview at port 4174:
+  - /agencies/partner-program EN: rootChildren=4, h1 "White-label
+    AiLys for your agency clients", 8 form inputs, apply CTA works
+  - /fr/agencies/partner-program FR: h1 "Marque blanche AiLys pour les
+    clients de votre agence", FR strings render
+  - 375x812 mobile: scrollW=375, no horizontal overflow
+  - 768x1024 tablet: scrollW=753, no overflow
+
+**User actions pending (env vars + Supabase project):**
+1. Create AiLys Supabase project (per STATE.md priority #6)
+2. Apply 4 prior migrations + new 0005 to provision schema
+3. Set Cloudflare Pages env vars:
+   - `PARTNER_APPLICATIONS_KILL_SWITCH=true` (enable feature)
+   - `PARTNER_APPLICATIONS_DRY_RUN=false` (live mode)
+   - `OPERATOR_NOTIFY_EMAIL=anthonyng135@gmail.com` (or alias)
+   - `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (existing if other
+     endpoints already wired; no new secret introduced)
+4. Once env vars set, live curl Gate M1 (3 happy + 3 failure modes
+   per `.planning/phase-f3-0-partner-waitlist/03-test-matrix.md`)
+
+**ISO-GSD Definition of Done — binary checklist:**
+- [x] 5 GSD artefacts committed BEFORE code
+- [x] Migration 0005 with idempotent up + down script
+- [x] Edge fn input validation + honeypot + CORS lockdown + kill
+      switch + DRY_RUN + idempotency
+- [x] Smoke 16/16 PASS, wired Gate 22 in deploy.yml
+- [x] Landing renders 375x812 + 768x1024 EN + FR
+- [x] All 16 locale files updated; audit-deep 0 missing; em-dash 0
+- [x] 2 help articles EN + FR-CA shipped
+- [x] Admin surface live at /admin/partner-applications
+- [x] Sitemap updated, STATE.md updated SAME commit
+- [x] Zero new deps (reuses Resend, Supabase client, existing
+      validators, AdminTable component)
+- [x] Time-box ~4h actual, well under 2× escape hatch (8h)
+- [ ] Live curl post-deploy (Gate M1) — pending Cloudflare env vars
+- [ ] AiLys Supabase project provisioned + migration applied —
+      pending operator action
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended14) — 5 PRs, blank-page hotfix + i18n 100% + Gates 20+21 regression guard
 
 **Final addition:** PR #109 → v0.14.7-gate21-bundle-load shipped Gate 21
