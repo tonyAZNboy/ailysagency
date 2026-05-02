@@ -1086,7 +1086,7 @@ export const en = {
     heading1: "A 60-minute call.",
     heading2: "No pitch.",
     intro: "We map your AI search position, walk through the audit results, and tell you whether AiLys is the right fit. If we are not, we send a one-page strategy doc anyway. You leave with something actionable either way.",
-    languagesLabel: "Available in 8 languages",
+    languagesLabel: "Available in 10 languages",
     inHouse: "In-house",
     partner: "Partner",
     languagesNote: "In-house means you get an AiLys team member on the call. Partner means a vetted agency partner runs the call in that language and reports back to us. Same playbook either way.",
@@ -1125,6 +1125,8 @@ export const en = {
     lang6Name: "Russian",
     lang7Name: "Ukrainian",
     lang8Name: "Serbian",
+    lang9Name: "Vietnamese",
+    lang10Name: "Italian",
   },
 
   chat: {

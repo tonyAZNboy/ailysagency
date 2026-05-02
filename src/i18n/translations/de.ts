@@ -1029,7 +1029,7 @@ export const de = {
     heading1: "Ein 60-Minuten-Gespräch.",
     heading2: "Kein Verkaufsgespräch.",
     intro: "Wir kartieren Ihre KI-Such-Position, gehen die Audit-Ergebnisse durch und sagen Ihnen, ob AiLys passt. Wenn nicht, senden wir trotzdem ein einseitiges Strategiedokument. Sie verlassen das Gespräch in jedem Fall mit etwas Umsetzbarem.",
-    languagesLabel: "Verfügbar in 8 Sprachen",
+    languagesLabel: "Verfügbar in 10 Sprachen",
     inHouse: "Im Haus",
     partner: "Partner",
     languagesNote: "Im Haus bedeutet, dass ein AiLys-Teammitglied am Gespräch teilnimmt. Partner bedeutet, dass eine geprüfte Partneragentur das Gespräch in dieser Sprache führt und uns Bericht erstattet. Gleiches Vorgehen in beiden Fällen.",
@@ -1066,6 +1066,8 @@ export const de = {
     lang6Name: "Russisch",
     lang7Name: "Ukrainisch",
     lang8Name: "Serbisch",
+    lang9Name: "Vietnamesisch",
+    lang10Name: "Italienisch",
   },
   chat: {
     teaserTitle: "Mehr Bewertungen erhalten",

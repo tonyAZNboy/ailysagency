@@ -1030,7 +1030,7 @@ export const fr = {
     heading1: "Un appel de 60 minutes.",
     heading2: "Aucun pitch.",
     intro: "On cartographie votre position dans la recherche IA, on passe à travers les résultats de l'audit, et on vous dit si AiLys est un bon fit. Si ce n'est pas le cas, on envoie quand même un document stratégique d'une page. Vous repartez avec quelque chose d'actionnable, peu importe.",
-    languagesLabel: "Disponible en 8 langues",
+    languagesLabel: "Disponible en 10 langues",
     inHouse: "À l'interne",
     partner: "Partenaire",
     languagesNote: "À l'interne signifie qu'un membre de l'équipe AiLys vous prend en charge. Partenaire veut dire qu'une agence partenaire vérifiée mène l'appel dans cette langue et nous fait le rapport. Même approche dans les deux cas.",
@@ -1067,6 +1067,8 @@ export const fr = {
     lang6Name: "Russe",
     lang7Name: "Ukrainien",
     lang8Name: "Serbe",
+    lang9Name: "Vietnamien",
+    lang10Name: "Italien",
   },
   chat: {
     teaserTitle: "Soyez cité par les IA",

@@ -1,12 +1,12 @@
 {
-  "enKeyCount": 1181,
+  "enKeyCount": 1183,
   "locales": {
     "fr": {
       "missing": [],
       "enValueCopy": [
         "pricingBuilder.techHealthPackLabel"
       ],
-      "totalKeys": 1182,
+      "totalKeys": 1184,
       "pct": "100.0"
     },
     "es": {
@@ -33,7 +33,7 @@
         "methodology.step2Title",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1182,
+      "totalKeys": 1184,
       "pct": "100.0"
     },
     "zh": {
@@ -64,7 +64,7 @@
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1182,
+      "totalKeys": 1184,
       "pct": "100.0"
     },
     "ar": {
@@ -94,7 +94,7 @@
         "methodology.step4Signal",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1182,
+      "totalKeys": 1184,
       "pct": "100.0"
     },
     "ru": {
@@ -123,7 +123,7 @@
         "methodology.step2Title",
         "bookCall.placeholderEmail"
       ],
-      "totalKeys": 1182,
+      "totalKeys": 1184,
       "pct": "100.0"
     },
     "de": {
@@ -163,7 +163,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "hi": {
@@ -206,7 +206,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "it": {
@@ -250,7 +250,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "ja": {
@@ -294,7 +294,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "ko": {
@@ -338,7 +338,7 @@
         "footerExt.gbpPulse",
         "footerExt.versionLine"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "nl": {
@@ -384,7 +384,7 @@
         "cofounders.tagLabels.ops_growth_marketing",
         "cofounders.tagLabels.ops_engineering"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "pl": {
@@ -421,7 +421,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "pt": {
@@ -462,7 +462,7 @@
         "cofounders.tagLabels.zh_taiwan",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "tr": {
@@ -502,7 +502,7 @@
         "footerExt.versionLine",
         "cofounders.tagLabels.operations_quebec"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     },
     "vi": {
@@ -545,9 +545,9 @@
         "cofounders.tagLabels.pt_brazil",
         "cofounders.tagLabels.ops_growth_marketing"
       ],
-      "totalKeys": 1181,
+      "totalKeys": 1183,
       "pct": "100.0"
     }
   },
-  "generatedAt": "2026-05-01T23:55:23.538Z"
+  "generatedAt": "2026-05-02T16:38:33.763Z"
 }

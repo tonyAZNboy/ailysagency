@@ -1030,7 +1030,7 @@ export const zh = {
     heading1: "60 分钟通话。",
     heading2: "不推销。",
     intro: "我们绘制您在 AI 搜索中的位置,逐一讲解审计结果,告诉您 AiLys 是否合适。如果不合适,我们仍然发送一页战略文档。无论如何,您都会带走可执行的内容。",
-    languagesLabel: "提供 8 种语言",
+    languagesLabel: "提供 10 种语言",
     inHouse: "内部",
     partner: "合作伙伴",
     languagesNote: "内部意味着 AiLys 团队成员负责通话。合作伙伴意味着经过审核的代理伙伴用该语言进行通话并向我们汇报。两种情况方法相同。",
@@ -1067,6 +1067,8 @@ export const zh = {
     lang6Name: "俄语",
     lang7Name: "乌克兰语",
     lang8Name: "塞尔维亚语",
+    lang9Name: "越南语",
+    lang10Name: "意大利语",
   },
   chat: {
     teaserTitle: "获得更多评价",

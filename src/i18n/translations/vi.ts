@@ -1029,7 +1029,7 @@ export const vi = {
     heading1: "Một cuộc gọi 60 phút.",
     heading2: "Không chào hàng.",
     intro: "Chúng tôi lập bản đồ vị thế tìm kiếm AI của Quý vị, đi qua kết quả kiểm tra và cho Quý vị biết AiLys có phù hợp hay không. Nếu không, chúng tôi vẫn gửi tài liệu chiến lược một trang. Quý vị rời đi với điều gì đó hành động được dù thế nào.",
-    languagesLabel: "Có sẵn bằng 8 ngôn ngữ",
+    languagesLabel: "Có sẵn bằng 10 ngôn ngữ",
     inHouse: "Tại chỗ",
     partner: "Đối tác",
     languagesNote: "Tại chỗ có nghĩa là Quý vị có một thành viên nhóm AiLys trong cuộc gọi. Đối tác có nghĩa là một agency đối tác đã được thẩm định chạy cuộc gọi bằng ngôn ngữ đó và báo cáo lại cho chúng tôi. Cùng playbook dù thế nào.",
@@ -1065,6 +1065,8 @@ export const vi = {
     lang6Name: "Tiếng Nga",
     lang7Name: "Tiếng Ukraina",
     lang8Name: "Tiếng Serbia",
+    lang9Name: "Tiếng Việt",
+    lang10Name: "Tiếng Ý",
     srSeo: "Đặt cuộc gọi chiến lược 60 phút miễn phí với AiLys Agency. Chúng tôi lập bản đồ vị thế tìm kiếm AI của Quý vị, đi qua kết quả kiểm tra và cho Quý vị biết AiLys có phù hợp hay không. Nếu không, chúng tôi vẫn gửi tài liệu chiến lược một trang. Cuộc gọi diễn ra bằng tiếng Anh, Pháp, Tây Ban Nha, Trung, Ả Rập và Nga với các thành viên nhóm tại chỗ. Tiếng Ukraina và Serbia chạy qua các agency đối tác đã được thẩm định trên cùng playbook. Cuộc gọi miễn phí, không cần thẻ tín dụng và không chào hàng. Chúng tôi trả lời trong vòng 12 giờ kể từ yêu cầu với ba lựa chọn slot. Quý vị rời đi với điều gì đó hành động được dù thế nào, dù Quý vị có ký hay không.",
   },
   chat: {

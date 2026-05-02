@@ -1030,7 +1030,7 @@ export const es = {
     heading1: "Una llamada de 60 minutos.",
     heading2: "Sin pitch.",
     intro: "Mapeamos tu posición en búsqueda IA, repasamos los resultados de la auditoría y te decimos si AiLys es el fit correcto. Si no, igual enviamos un documento estratégico de una página. Te vas con algo accionable, sea como sea.",
-    languagesLabel: "Disponible en 8 idiomas",
+    languagesLabel: "Disponible en 10 idiomas",
     inHouse: "Interno",
     partner: "Socio",
     languagesNote: "Interno significa que un miembro del equipo AiLys toma la llamada. Socio significa que una agencia socia validada conduce la llamada en ese idioma y nos reporta. Mismo método en ambos casos.",
@@ -1067,6 +1067,8 @@ export const es = {
     lang6Name: "Ruso",
     lang7Name: "Ucraniano",
     lang8Name: "Serbio",
+    lang9Name: "Vietnamita",
+    lang10Name: "Italiano",
   },
   chat: {
     teaserTitle: "Obtén más reseñas",
