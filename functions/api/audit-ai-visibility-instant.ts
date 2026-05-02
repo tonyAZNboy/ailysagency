@@ -22,6 +22,7 @@
 
 import { captureServerError } from '../lib/serverError';
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
@@ -98,9 +99,7 @@ interface AuditResult {
   cached: boolean;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'instant-ai-vis', ...line }));
-}
+const emit = makeEmit('instant-ai-vis');
 
 function clip(value: unknown, max: number): string | null {
   if (typeof value !== 'string') return null;

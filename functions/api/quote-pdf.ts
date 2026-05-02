@@ -18,6 +18,7 @@
 import { renderQuotePdf, type QuoteRenderInput, computeQuote } from '../lib/pdf/Quote';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -77,9 +78,7 @@ const ALLOWED_TIERS = new Set(['starter', 'core', 'growth', 'agency']);
 const ALLOWED_ENGAGEMENTS = new Set(['monthly', 'annual', 'biennial']);
 const ALLOWED_WEBSITE_SIZES = new Set(['none', 'vitrine', 'pme', 'commerce']);
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'quote-pdf', ...line }));
-}
+const emit = makeEmit('quote-pdf');
 
 function clip(value: unknown, max: number): string | null {
   if (typeof value !== 'string') return null;

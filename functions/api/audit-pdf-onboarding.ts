@@ -30,6 +30,7 @@ import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -60,9 +61,7 @@ const NOTIFY_FROM = 'AiLys Agency <noreply@ailysagency.ca>';
 
 // ── Hashing helpers ─────────────────────────────────────────────────────────
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'audit-pdf-onboarding', ...line }));
-}
+const emit = makeEmit('audit-pdf-onboarding');
 
 // ── Body validation ─────────────────────────────────────────────────────────
 

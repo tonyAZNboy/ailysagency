@@ -2,6 +2,51 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR139) — structuredLog shared lib (sub-phase 7)
+
+Continuing the backend-lib extraction series after PR #139 + PR #125
+both merged to main. Pure backend, zero src/ touch, zero conflict
+surface with the parallel session.
+
+### Sub-phase 7: structuredLog shared lib + Gate 31
+
+Consolidates 6 byte-equivalent inline copies of:
+
+    function emit(line: Record<string, unknown>): void {
+      console.log(JSON.stringify({ component: '<name>', ...line }));
+    }
+
+into `functions/lib/structuredLog.ts` exposing a `makeEmit(component)`
+factory. Each call site becomes a single `const emit = makeEmit('x');`
+declaration; existing `emit({...})` calls keep their shape unchanged.
+
+**Files refactored (6 inline copies removed):**
+
+- `functions/api/audit-pdf-onboarding.ts`
+- `functions/api/audit-ai-visibility-instant.ts`
+- `functions/api/client-error.ts`
+- `functions/api/audit-pdf-download/[id].ts`
+- `functions/api/quote-pdf.ts`
+- `functions/api/visibility-report-pdf.ts`
+
+**New smoke (Gate 31): scripts/smoke-structured-log.mjs, 20 cases.**
+
+Asserts: 1 console.log per emit, valid JSON output, component field
+present AND first in serialized output (matters for grep / Logpush
+prefix matching), extra fields preserved, two emitters don't
+interfere, null/undefined/numeric/boolean/nested values handled per
+JSON spec, `makeEmit` returns a function.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 14 existing smokes pass
+- Gate 7 build: green (20.00s)
+- Gate 31 (NEW) smoke-structured-log: 20/20
+
+---
+
 ## 📚 SESSION 2026-05-02 (Help articles, hard rule #10 follow-up) — 2 new
 
 **Shipped:** 2 new help-center articles (EN canonical + FR-CA full)
