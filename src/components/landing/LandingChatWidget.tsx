@@ -43,7 +43,7 @@ export function LandingChatWidget() {
   const { messages, sendMessage, isLoading, clearMessages } = useAIEngine("landing");
 
   // Show the free trial button after any AI response
-  const shouldShowLeadForm = (_result: any) => true;
+  const shouldShowLeadForm = (_result: unknown) => true;
 
   // Phase E.21 sensitivity tuning: bump 45s -> 120s and respect a
   // 7-day dismissal cooldown. Operator complaint: chat widget popping

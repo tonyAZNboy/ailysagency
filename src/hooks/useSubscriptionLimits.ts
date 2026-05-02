@@ -47,7 +47,7 @@ export function useSubscriptionLimits() {
         _tenant_id: activeTenantId
       });
 
-      const parsedData = subData as any;
+      const parsedData = subData as { subscription?: Record<string, unknown>; plan?: Record<string, unknown> } | null;
       const subscription = parsedData?.subscription;
       const plan = parsedData?.plan;
 

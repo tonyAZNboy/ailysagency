@@ -130,7 +130,7 @@ export function useKnowledgeBase() {
     },
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["knowledge-docs", activeTenantId] });
-      const successCount = data?.results?.filter((r: any) => r.success).length || 0;
+      const successCount = data?.results?.filter((r: { success?: boolean }) => r.success).length || 0;
       toast.success(`Synced ${successCount} sources`);
     },
     onError: (error) => {

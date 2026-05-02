@@ -75,7 +75,7 @@ function loadPersisted(): { businessName?: string; url?: string } {
 }
 function savePersisted(state: { businessName: string; url: string }) {
   if (typeof window === "undefined") return;
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* localStorage unavailable */ }
 }
 
 export function InstantAiVisibilityAudit() {

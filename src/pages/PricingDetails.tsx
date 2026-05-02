@@ -282,7 +282,7 @@ export default function PricingDetails() {
       ta.value = window.location.href;
       document.body.appendChild(ta);
       ta.select();
-      try { document.execCommand("copy"); setCopyStatus("copied"); setTimeout(() => setCopyStatus("idle"), 2000); } catch {}
+      try { document.execCommand("copy"); setCopyStatus("copied"); setTimeout(() => setCopyStatus("idle"), 2000); } catch { /* execCommand unsupported */ }
       document.body.removeChild(ta);
     }
   };

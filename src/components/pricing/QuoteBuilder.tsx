@@ -128,7 +128,7 @@ function loadPersisted(): PersistedState {
 
 function savePersisted(state: PersistedState) {
   if (typeof window === "undefined") return;
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* localStorage unavailable */ }
 }
 
 export function QuoteBuilder() {
