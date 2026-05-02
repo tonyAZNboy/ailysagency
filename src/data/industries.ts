@@ -21,7 +21,11 @@ export type IndustrySlug =
   | "real-estate"
   | "hotels"
   | "nail-salons"
-  | "sushi-counters";
+  | "sushi-counters"
+  | "hair-salons"
+  | "gyms-studios"
+  | "vet-clinics"
+  | "daycares";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -3805,6 +3809,1331 @@ const sushiCounters: Industry = {
   },
 };
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 10 · HAIR SALONS (general beauty: hair + spa + body care)
+   Quebec context: distinct from nail-salons. Coiffeurs / coiffeuses,
+   colorists, balayage specialists, men's barbers, spa/aesthetic treatments
+   (facials, massage, waxing). Plateau, Mile End, Westmount, Brossard,
+   Outremont clusters. Walk-in vs appointment-only mix. Premium pricing
+   tier ($85-$250 per service) requires premium digital presence.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const hairSalons: Industry = {
+  slug: "hair-salons",
+  name: "Hair salons",
+  nameLong: "Hair Salons & Beauty Spas",
+  emoji: "💇",
+  toneClass: "from-violet-400 via-fuchsia-400 to-rose-400",
+  en: {
+    eyebrow: "AI SEO for hair salons and beauty spas",
+    headline1: "Get cited by ChatGPT when clients ask",
+    headline2: "\"best balayage colorist near me\".",
+    subheadline:
+      "Hair-salon discovery in 2026 is part Instagram aesthetic, part Google Maps, part AI engine. Premium clients (paying $150-$300 per service) ask ChatGPT and Perplexity for \"best balayage Plateau\" or \"meilleur barbier Brossard\" before they book. AI engines weight portfolio depth, stylist-by-stylist specialization, review velocity, and price transparency. AiLys gets your salon named when AI surfaces beauty answers and converts that to first-time bookings at premium rates.",
+    stats: [
+      { value: "76%", label: "of new clients in premium hair-salon segment ($120+ services) check Google Maps + AI engines before booking" },
+      { value: "2.9×", label: "more LLM citations on salons with stylist-by-stylist portfolio (named, with specialty tags) vs salons with anonymous gallery" },
+      { value: "28 days", label: "to first ChatGPT citation lift on average for neighborhood salon queries with full schema" },
+      { value: "38%", label: "of premium clients filter by language (FR/EN/ES/AR) before booking, often switching salon when their language isn't listed" },
+    ],
+    topQueries: [
+      "best balayage colorist Plateau Mont-Royal under 250 dollars",
+      "men's barber Brossard speaks Vietnamese walk-in",
+      "deep conditioning treatment for textured hair Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Stylists work as a collective but the salon presents as one entity",
+        description:
+          "Each stylist has their own following, specialty (balayage, ombre, men's cuts, textured hair, color correction), and price level. AI engines need to cite individual stylists by name to answer specific queries. Most salons publish only the salon brand, losing the long-tail traffic that values the human.",
+      },
+      {
+        title: "Service menu lacks prices and durations",
+        description:
+          "Premium clients pre-screen on price. \"Balayage starting at $185\" gets cited by ChatGPT for \"balayage under 200\" queries; \"call for pricing\" doesn't. Prices on the website + structured menu schema are non-negotiable for AI Visibility in this vertical.",
+      },
+      {
+        title: "Portfolio shots are Instagram-cropped, not site-optimized",
+        description:
+          "Square crops + Instagram filters look great on social but lose context in AI engine answers. AI engines need landscape or 4:3 portfolio shots with proper alt-text + EXIF preserved. The same photos can serve both, but the salon site needs the unfiltered originals.",
+      },
+      {
+        title: "Multilingual clientele isn't reflected on the booking page",
+        description:
+          "Premium hair-salon clientele in Greater Montreal includes French, English, Spanish, Arabic, Portuguese, Vietnamese, Mandarin speakers. AI engines reward salons whose website + GBP attributes explicitly list spoken languages. Salons that don't lose 25-40 percent of bookings from international clients searching in their language.",
+      },
+      {
+        title: "Owner-stylist hybrid has zero marketing time",
+        description:
+          "When the owner is also cutting hair 35 hours per week, GBP posts get skipped, reviews go unanswered, photos pile up unposted. The salon falls behind chains that pay an agency to do it. AiLys does the publishing layer so the owner stays at the chair.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for beauty / personal care",
+        description:
+          "Primary category set to specific hair-salon type (Hair Salon, Barber Shop, Beauty Salon, Spa as appropriate, NOT generic Beauty Salon), every relevant attribute filled (Wheelchair accessible, Appointment required, Walk-ins welcome, LGBTQ+ friendly, Languages spoken, Specialty services like balayage / extensions / textured hair / men's cuts), 50+ original portfolio photos minimum, weekly Q&A on service-specific questions (balayage maintenance, color correction wait times, men's beard service availability).",
+      },
+      {
+        step: "02",
+        title: "Stylist-by-stylist Person schema",
+        description:
+          "Schema.org Person entries for each stylist with their name, photo, specialties, languages spoken, years of experience, and link to their booking slot. AI engines cite individual stylists for specialty queries (\"balayage colorist who specializes in lived-in color\"), routing premium clients directly to the right chair.",
+      },
+      {
+        step: "03",
+        title: "Service-menu schema with prices and durations",
+        description:
+          "Schema.org Service entries for every service offered: women's cut + style, men's cut, balayage, ombre, full color, root touch-up, color correction, glaze, extensions, deep conditioning, men's beard service, kids' cuts, formal updos, hair-spa treatments. Each entry includes price range, duration, and which stylists offer it. Premium clients filter on this data.",
+      },
+      {
+        step: "04",
+        title: "Tap-to-review flow at checkout",
+        description:
+          "NFC card at the reception desk + on each stylist's station. Client taps after their service, prompts a Google review in their preferred language, optionally tagged with the stylist's name. Review velocity goes from 4-8 per month to 25-50 per month. Stylist-tagged reviews build individual stylist authority that compounds.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for premium neighborhoods",
+        description:
+          "Native EN + FR-CA salon page on Starter / Core / Growth. Add ES, AR, PT, ZH, VI on Growth and Agency for salons in multilingual neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Salons with native multilingual content get 1.5-2.3x more bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Portfolio photos with EXIF + per-stylist tagging",
+        description:
+          "Every transformation photographed in the salon (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the stylist who did the work + the service category (balayage, ombre, men's cut, etc.). AI engines weight original photos with intact EXIF significantly higher than stock or Instagram screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language with stylist mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the stylist by name when the client did. Builds individual stylist authority + signals to AI engines that the salon is responsive AND the stylist is real. Most salons score zero on language-match because they reply in EN to all reviews regardless of original language.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for beauty + premium queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ beauty queries in your neighborhood, tracked at both salon level and stylist level. Catches when new colorists open competing salons, when pricing benchmarks shift, or when trend hashtags surge (Korean color, Jellyfish cuts, lived-in balayage).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best balayage colorist Plateau Mont-Royal under 250 dollars",
+        cited: "AiLys client salon named with specific colorist Sarah, price $185, 2 visits available this week",
+        reason: "Person schema for colorist Sarah with balayage specialty + Service schema with priced balayage entry, 80+ original portfolio photos refreshed monthly, 4.9 stars across 320+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "men's barber Brossard speaks Vietnamese walk-in",
+        cited: "AiLys client salon cited as primary recommendation with 'Vietnamese, French, English spoken' attribute and walk-ins-welcome flag",
+        reason: "GBP attributes filled completely (languages, walk-ins-welcome), Person schema for Vietnamese-speaking barber Tuan, 70+ Vietnamese-language reviews with Vietnamese-language replies, NAP consistent across PJ.ca + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "deep conditioning treatment for textured hair Outremont",
+        cited: "AiLys client salon surfaced in AI Overview with photo carousel showing textured-hair work, $95 service price, online booking link",
+        reason: "Service schema with priced deep-conditioning entry tagged for textured hair, 25+ portfolio photos showcasing textured-hair specialty in last 60 days, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent hair salons hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per salon, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-stylist salons (5+ chairs) often graduate to Growth for daily AI Visibility probes + per-stylist Person schema. Premium downtown salons frequently choose Agency for the multi-language schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you publish each stylist's portfolio individually?",
+        a: "Yes. Each stylist gets their own Person schema entry on your site, with their photo, specialties, languages spoken, and a portfolio gallery filtered to their work. AI engines cite individual stylists for specialty queries, which builds the stylist's personal authority and compounds over time.",
+      },
+      {
+        q: "What about stylists who leave the salon?",
+        a: "Standard contractor agreement (we provide the template) covers IP rights to portfolio photos taken at the salon. When a stylist leaves, their Person schema is removed within 48 hours and the photos remain on the salon's portfolio (under the salon's brand attribution). Your investment in the salon's authority stays with the salon.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Vietnamese gets Vietnamese. AI engines weight language-match heavily as an authenticity signal for personal-care businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the NFC tap-to-review work for a 6-chair salon?",
+        a: "We mail one NFC card per stylist station + one for the reception desk (7 total for a 6-chair salon). When a client taps at a stylist's station, the review form is pre-tagged with that stylist's name. Reviews then build individual stylist authority in the system, alongside the salon's overall rating.",
+      },
+      {
+        q: "I'm a one-chair home salon, is this still for me?",
+        a: "Yes if you're appointment-based with active GBP. Home-based hair stylists running on Instagram-only typically start with Starter ($300/mo) which covers GBP optimization, 4 posts/month, monthly NAP citations, monthly AI Visibility probes. Once your appointment book fills, graduate to Core for 6 posts/month and twice-weekly Q&A monitoring.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-28 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-90 days as the engines re-crawl your structured data, Person schema entries, and review profile. Premium-client booking volume usually shows a 20-35 percent lift in months 2-4.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your salon",
+    ctaSecondary: "Free GBP audit for hair salons",
+    seoTitle: "AI SEO for hair salons + beauty spas Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for hair salons + beauty spas in Greater Montreal. Stylist-by-stylist Person schema, multilingual reviews, premium-client capture. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO hair salon Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT balayage colorist Plateau",
+      "premium hair salon AI search",
+      "men's barber GBP Quebec",
+      "beauty spa AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour salon de coiffure et spa beaute",
+    headline1: "Faites-vous citer par ChatGPT quand vos clientes cherchent",
+    headline2: "\"meilleur coloriste balayage pres de moi\".",
+    subheadline:
+      "La decouverte d'un salon de coiffure en 2026 est en partie esthetique Instagram, en partie Google Maps, en partie moteur IA. Les clientes premium (qui paient 150-300 $ par service) demandent a ChatGPT et Perplexity « meilleur balayage Plateau » ou « meilleur barbier Brossard » avant de reserver. Les moteurs IA ponderent la profondeur du portfolio, la specialisation par coiffeur, la velocite des avis et la transparence des prix. AiLys fait nommer votre salon quand les IA repondent aux questions de beaute et convertit ca en premieres reservations a tarifs premium.",
+    stats: [
+      { value: "76 %", label: "des nouvelles clientes du segment salon premium (services 120 $+) verifient Google Maps + moteurs IA avant de reserver" },
+      { value: "2,9×", label: "plus de citations LLM pour les salons avec portfolio coiffeur-par-coiffeur (nommes, etiquettes specialite) vs salons avec galerie anonyme" },
+      { value: "28 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de salon de quartier avec schema complet" },
+      { value: "38 %", label: "des clientes premium filtrent par langue (FR/EN/ES/AR) avant de reserver, changeant souvent de salon quand leur langue n'est pas listee" },
+    ],
+    topQueries: [
+      "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+      "barbier homme Brossard parle vietnamien sans rendez-vous",
+      "traitement conditionnement profond cheveux textures Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Les coiffeurs travaillent en collectif mais le salon se presente comme une entite",
+        description:
+          "Chaque coiffeur a ses propres abonnes, sa specialite (balayage, ombre, coupes hommes, cheveux textures, correction de couleur) et son niveau de prix. Les moteurs IA doivent citer les coiffeurs individuellement par leur nom pour repondre aux requetes specifiques. La plupart des salons ne publient que la marque du salon, perdant le trafic longue traine qui valorise l'humain.",
+      },
+      {
+        title: "Le menu de services manque de prix et de durees",
+        description:
+          "Les clientes premium pre-filtrent sur le prix. « Balayage a partir de 185 $ » est cite par ChatGPT pour les requetes « balayage sous 200 »; « appelez pour les prix » ne l'est pas. Les prix sur le site + le schema de menu structure sont non-negociables pour la Visibilite IA dans cette verticale.",
+      },
+      {
+        title: "Les photos de portfolio sont recadrees Instagram, pas optimisees pour le site",
+        description:
+          "Les recadrages carres + filtres Instagram sont superbes en social mais perdent le contexte dans les reponses IA. Les moteurs IA ont besoin de photos portrait ou 4:3 avec alt-text correct + EXIF preserve. Les memes photos peuvent servir aux deux, mais le site du salon a besoin des originales non filtrees.",
+      },
+      {
+        title: "La clientele multilingue n'apparait pas sur la page de reservation",
+        description:
+          "La clientele de salon premium dans le Grand Montreal inclut francophones, anglophones, hispanophones, arabophones, lusophones, vietnamiens, mandarins. Les moteurs IA recompensent les salons dont le site + les attributs GBP listent explicitement les langues parlees. Les salons qui ne le font pas perdent 25-40 % des reservations des clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        title: "Le proprietaire-coiffeur hybride n'a aucun temps marketing",
+        description:
+          "Quand le proprietaire coupe aussi des cheveux 35 heures par semaine, les publications GBP sont sautees, les avis restent sans reponse, les photos s'accumulent sans etre publiees. Le salon prend du retard sur les chaines qui paient une agence pour le faire. AiLys gere la couche de publication pour que le proprietaire reste a la chaise.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour beaute / soins personnels",
+        description:
+          "Categorie principale reglee sur le type de salon specifique (Salon de coiffure, Salon de barbier, Salon de beaute, Spa selon le cas, PAS Salon de beaute generique), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Sur rendez-vous, Sans rendez-vous bienvenu, LGBTQ+ friendly, Langues parlees, Services specialises balayage / extensions / cheveux textures / coupes hommes), 50+ photos originales du portfolio minimum, Q&R hebdomadaire sur les questions specifiques aux services (entretien balayage, delais correction couleur, disponibilite service barbe).",
+      },
+      {
+        step: "02",
+        title: "Schema Person coiffeur-par-coiffeur",
+        description:
+          "Entrees Schema.org Person pour chaque coiffeur avec son nom, sa photo, ses specialites, ses langues parlees, ses annees d'experience et le lien vers son creneau de reservation. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite (« coloriste balayage specialiste de la couleur naturelle »), routant les clientes premium directement vers la bonne chaise.",
+      },
+      {
+        step: "03",
+        title: "Schema de menu de services avec prix et durees",
+        description:
+          "Entrees Schema.org Service pour chaque service offert : coupe + mise en plis femme, coupe homme, balayage, ombre, couleur complete, retouche racine, correction de couleur, glaze, extensions, conditionnement profond, service barbe homme, coupes enfants, chignons formels, traitements spa-cheveux. Chaque entree inclut une fourchette de prix, la duree et les coiffeurs qui l'offrent. Les clientes premium filtrent sur ces donnees.",
+      },
+      {
+        step: "04",
+        title: "Flux tap-to-review au paiement",
+        description:
+          "Carte NFC a la reception + a chaque station de coiffeur. Cliente tape apres son service, declenche un avis Google dans sa langue preferee, optionnellement etiquete avec le nom du coiffeur. La velocite d'avis passe de 4-8 par mois a 25-50 par mois. Les avis etiquetes coiffeur batissent l'autorite individuelle de chaque coiffeur qui s'accumule.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers premium",
+        description:
+          "Page de salon native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH, VI sur Growth et Agency pour les salons en quartiers multilingues (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les salons avec contenu multilingue natif obtiennent 1,5-2,3× plus de reservations des clientes internationales.",
+      },
+      {
+        step: "06",
+        title: "Photos de portfolio avec EXIF + etiquetage par coiffeur",
+        description:
+          "Chaque transformation photographiee dans le salon (vraie lumiere, vraies metadonnees EXIF) et televersee via Reviuzy. Chaque photo etiquetee avec le coiffeur qui a fait le travail + la categorie de service (balayage, ombre, coupe homme, etc.). Les moteurs IA ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou les captures Instagram.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du coiffeur",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le coiffeur par son nom quand la cliente l'a mentionne. Batit l'autorite individuelle du coiffeur + signale aux moteurs IA que le salon est reactif ET que le coiffeur est reel. La plupart des salons obtiennent zero sur la correspondance linguistique parce qu'ils repondent en EN a tous les avis peu importe la langue d'origine.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes beaute + premium",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes beaute dans votre quartier, suivis au niveau salon ET au niveau coiffeur. Detecte quand de nouveaux coloristes ouvrent des salons concurrents, quand les references de prix changent, ou quand des hashtags de tendance surgent (couleur coreenne, coupes meduse, balayage naturel).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+        cited: "Salon client AiLys nomme avec coloriste specifique Sarah, prix 185 $, 2 visites disponibles cette semaine",
+        reason: "Schema Person pour coloriste Sarah avec specialite balayage + schema Service avec entree balayage tarifee, 80+ photos originales du portfolio rafraichies mensuellement, 4,9 etoiles sur 320+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "barbier homme Brossard parle vietnamien sans rendez-vous",
+        cited: "Salon client AiLys cite comme recommandation principale avec attribut « vietnamien, francais, anglais parles » et drapeau walk-ins-welcome",
+        reason: "Attributs GBP entierement remplis (langues, sans rendez-vous), schema Person pour barbier vietnamien Tuan, 70+ avis en vietnamien avec reponses en vietnamien, NAP coherent sur PagesJaunes + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "traitement conditionnement profond cheveux textures Outremont",
+        cited: "Salon client AiLys remonte en apercu IA avec carrousel photo montrant le travail sur cheveux textures, prix service 95 $, lien reservation en ligne",
+        reason: "Schema Service avec entree conditionnement profond tarifee etiquetee pour cheveux textures, 25+ photos portfolio mettant en valeur la specialite cheveux textures dans les 60 derniers jours, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des salons de coiffure independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par salon, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les salons multi-coiffeurs (5+ chaises) graduent souvent a Growth pour les sondages quotidiens + le schema Person par coiffeur. Les salons premium du centre-ville choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous publier le portfolio de chaque coiffeur individuellement?",
+        a: "Oui. Chaque coiffeur obtient sa propre entree de schema Person sur votre site, avec sa photo, ses specialites, ses langues parlees et une galerie de portfolio filtree sur son travail. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite, ce qui batit l'autorite personnelle du coiffeur et s'accumule au fil du temps.",
+      },
+      {
+        q: "Et les coiffeurs qui quittent le salon?",
+        a: "Une entente de contracteur standard (nous fournissons le modele) couvre les droits de propriete intellectuelle aux photos de portfolio prises au salon. Quand un coiffeur quitte, son entree de schema Person est retiree dans les 48 heures et les photos restent dans le portfolio du salon (sous l'attribution de la marque du salon). Votre investissement dans l'autorite du salon reste avec le salon.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les vietnamiens en vietnamien. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les commerces de soins personnels desservant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne le NFC tap-to-review pour un salon a 6 chaises?",
+        a: "Nous postons une carte NFC par station de coiffeur + une pour la reception (7 au total pour un salon a 6 chaises). Quand une cliente tape a la station d'un coiffeur, le formulaire d'avis est pre-etiquete avec le nom de ce coiffeur. Les avis batissent ensuite l'autorite individuelle du coiffeur dans le systeme, en plus de la note globale du salon.",
+      },
+      {
+        q: "Je suis une coiffeuse a domicile sur une seule chaise, est-ce pour moi?",
+        a: "Oui si vous etes sur rendez-vous avec une fiche GBP active. Les coiffeuses a domicile fonctionnant sur Instagram-seulement debutent typiquement avec Starter (300 $/mois) qui couvre l'optimisation GBP, 4 publications par mois, citations NAP mensuelles, sondages de Visibilite IA mensuels. Une fois votre carnet de rendez-vous plein, vous graduez a Core pour 6 publications par mois et surveillance Q&R deux fois par semaine.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-28 jours alors que la galerie photo, le schema et la densite Q&R s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 30-90 jours alors que les moteurs re-crawlent vos donnees structurees, vos entrees de schema Person et votre profil d'avis. Le volume de reservations clientes premium montre habituellement une hausse de 20-35 % aux mois 2-4.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre salon",
+    ctaSecondary: "Audit GBP gratuit pour salon de coiffure",
+    seoTitle: "Referencement IA pour salon de coiffure + spa Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour salons de coiffure + spas beaute du Grand Montreal. Schema Person coiffeur-par-coiffeur, avis multilingues, capture clientele premium. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA salon de coiffure Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT coloriste balayage Plateau",
+      "salon de coiffure premium recherche IA",
+      "barbier homme GBP Quebec",
+      "spa beaute Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 11 · GYMS / STUDIOS (boutique fitness)
+   Quebec context: rapidly growing segment. Yoga (Mile End hot yoga
+   booms), Pilates (reformer studios in Westmount/Outremont), CrossFit
+   boxes (Plateau, Verdun, Brossard), boutique HIIT (downtown), martial
+   arts dojos. Class-pack pricing model ($25-40/class), trial-class
+   conversion is the funnel. AI search demand growing 3x year-over-year.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const gymsStudios: Industry = {
+  slug: "gyms-studios",
+  name: "Gyms & studios",
+  nameLong: "Boutique Gyms & Fitness Studios",
+  emoji: "🏋️",
+  toneClass: "from-emerald-400 via-teal-400 to-cyan-400",
+  en: {
+    eyebrow: "AI SEO for boutique gyms and fitness studios",
+    headline1: "Get cited by ChatGPT when locals search",
+    headline2: "\"best hot yoga studio near me with trial class\".",
+    subheadline:
+      "Boutique fitness discovery moved to AI engines faster than any other Quebec PME segment. People ask ChatGPT \"best reformer Pilates Westmount under 40 dollars\" or \"CrossFit box Plateau bilingual coach\" before walking into a single studio. AI engines weight class-schedule schema, instructor specialization, trial-class offers, and review velocity. AiLys gets your studio named when AI surfaces fitness answers and converts that to trial bookings, which convert to memberships at 35-50 percent.",
+    stats: [
+      { value: "84%", label: "of new boutique-fitness members in Greater Montreal start with an AI engine query before booking a trial class" },
+      { value: "3.2×", label: "more LLM citations on studios with full class-schedule schema (instructor, time, level, language) vs studios with PDF schedule" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for neighborhood fitness queries with trial-class offer schema" },
+      { value: "47%", label: "trial-class to monthly-membership conversion rate when AI engine sources the trial booking (vs 12% from cold paid ads)" },
+    ],
+    topQueries: [
+      "best hot yoga studio Mile End trial class under 30 dollars",
+      "CrossFit box Plateau bilingual coach beginner-friendly",
+      "reformer Pilates Westmount Saturday morning availability",
+    ],
+    painPoints: [
+      {
+        title: "Class schedule lives in a third-party app, invisible to AI engines",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. host the schedule but their data is opaque to ChatGPT and Perplexity. AI engines need the schedule mirrored as Schema.org Event entries on your site so they can answer \"is there a 6am class today?\" or \"what's the Saturday schedule?\" with your studio.",
+      },
+      {
+        title: "Instructors aren't named or specialized",
+        description:
+          "Each instructor has a following + specialty (vinyasa vs yin, beginner vs advanced reformer, Olympic lifting vs HIIT, kid-friendly martial arts). AI engines need Person schema per instructor with specialties + languages spoken. Studios that don't lose long-tail queries that value the human teacher.",
+      },
+      {
+        title: "Trial-class offer is buried under 3 clicks",
+        description:
+          "The trial-class offer is the single highest-converting CTA in this vertical (47% to membership). It needs to be in the GBP description, in Service schema with explicit price (\"Trial class $25\" or \"First class free\"), and on every page. Studios that hide it lose 60-80 percent of would-be trial bookings.",
+      },
+      {
+        title: "Review velocity dies between marathon-prep cycles",
+        description:
+          "Studios get a wave of reviews in January (resolution surge) + September (back-to-school) and silence the rest of the year. AI engines weight steady velocity over spikes. NFC tap-to-review at the front desk after every class smooths the curve.",
+      },
+      {
+        title: "Owner-instructor teaches 20 hours per week, no marketing time",
+        description:
+          "Boutique studio owners typically teach the highest-attendance classes themselves. Marketing falls to whatever scraps of time exist between classes. Posting weekly to GBP, replying to reviews, refreshing photos: none of it happens. The studio falls behind chains that have a marketing team.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for fitness category",
+        description:
+          "Primary category set to specific studio type (Yoga Studio, Pilates Studio, Gym, CrossFit Box, Martial Arts School), every relevant attribute filled (Wheelchair accessible, Online classes, Drop-in welcome, Trial class available, Languages spoken, Equipment provided, Childcare available, Showers, Parking), 50+ original photos minimum (the space, the equipment, classes in session with consent), weekly Q&A on equipment + level questions.",
+      },
+      {
+        step: "02",
+        title: "Class-schedule mirror as Schema.org Event entries",
+        description:
+          "Read your class schedule from Mindbody / Glofox / ClassPass / Acuity API daily and republish each upcoming class as a Schema.org Event entry on your site (instructor, time, duration, level, language, capacity, booking URL). AI engines now answer \"is there a 6am class\" with your studio + a direct booking link.",
+      },
+      {
+        step: "03",
+        title: "Instructor-by-instructor Person schema",
+        description:
+          "Schema.org Person entries for each instructor with their photo, specialties (vinyasa, yin, reformer, beginner, advanced, prenatal, etc.), languages spoken (FR / EN / ES / etc.), years of experience, certifications, and link to their teaching schedule. AI engines cite individual instructors for specialty queries.",
+      },
+      {
+        step: "04",
+        title: "Trial-class offer surfaced everywhere",
+        description:
+          "GBP description includes \"Trial class $25\" or \"First class free\". Service schema entry with explicit price + duration. Trial-class offer pinned on home page hero. Booking URL goes directly to trial-class signup, not the general schedule. Trial-class lift typically 2-4x within 30 days.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, PT, ZH on Growth and Agency for studios in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Studios with native multilingual content get 1.5-2.5x more trial bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Photos with EXIF + class-type tagging",
+        description:
+          "Every space + class photographed with consent (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the class type + instructor when relevant. AI engines and Google weight original photos with intact EXIF significantly higher than stock or social-media screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in member's review language with class mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the specific class or instructor when the member did. Builds individual instructor authority + signals to AI engines that the studio is responsive. Member retention correlates strongly with response language match.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for fitness queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ fitness queries in your neighborhood, tracked at studio, instructor, and class-type levels. Catches when new studios open competing, when trend hashtags surge (Wall Pilates, Mat-only Reformer, Mobility focus), or when seasonal demand spikes (January resolution surge, summer marathon prep).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best hot yoga studio Mile End trial class under 30 dollars",
+        cited: "AiLys client studio named with trial-class price $25, next 7am class today, instructor Marie",
+        reason: "Service schema with priced trial class entry, Event schema for today's class with instructor Marie, GBP attribute Trial class available, 4.9 stars across 280+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CrossFit box Plateau bilingual coach beginner-friendly",
+        cited: "AiLys client studio cited as primary recommendation with 'French and English coaching' attribute and beginner-track schedule",
+        reason: "GBP attributes filled completely (languages, beginner-friendly, drop-in welcome), Person schema for bilingual coaches, Event schema with beginner-tagged class entries, 60+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "reformer Pilates Westmount Saturday morning availability",
+        cited: "AiLys client studio surfaced in AI Overview with Saturday 8am + 9:30am open slots, online booking link",
+        reason: "Event schema with Saturday classes (open capacity exposed via API mirror), Service schema with reformer Pilates priced entry, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent boutique studios hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per studio, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Studios with 5+ instructors or multi-location operations graduate to Growth for daily AI Visibility probes + per-instructor Person schema + class-schedule mirror automation. Premium downtown studios serving international clientele often choose Agency for multilingual schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you mirror our Mindbody / Glofox schedule on our site?",
+        a: "Yes. We pull your class schedule from your booking platform's API daily and republish each upcoming class as a Schema.org Event entry on your site. AI engines can then answer specific schedule queries with your studio + a direct booking link. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 are all supported.",
+      },
+      {
+        q: "What about new instructors who join mid-month?",
+        a: "Person schema entries are added within 48 hours of you sending us their bio + photo. The full per-instructor portfolio (their specialty + class schedule + reviews tagged to them) builds over the first 30 days as they teach.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Portuguese gets Portuguese. AI engines weight language-match heavily as an authenticity signal for fitness studios serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the trial-class lift work?",
+        a: "Trial-class booking volume typically lifts 2-4x within 30 days. Three drivers: (1) trial-class price + offer surfaces in AI engine answers, (2) GBP description + Service schema make it discoverable on Google, (3) the booking URL goes directly to trial-class signup, not the general schedule that requires class selection. Trial conversion to monthly membership runs 35-50 percent in this vertical.",
+      },
+      {
+        q: "We're a martial arts dojo, does this work for us?",
+        a: "Yes. The methodology applies identically: GBP optimization, class schedule mirror, instructor Person schema, trial-class offer (often \"first class free\" in martial arts), multilingual reviews. The vertical-specific tweaks (kid-friendly attribute, parent-observation seating, equipment provided) are handled in onboarding.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and class schedule mirror build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your Event schema and review profile. Trial-class booking volume usually shows a 2-4x lift in months 1-2, membership conversion follows in months 2-3.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your studio",
+    ctaSecondary: "Free GBP audit for boutique fitness",
+    seoTitle: "AI SEO for boutique gyms + fitness studios Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for boutique gyms + fitness studios in Greater Montreal. Class-schedule schema mirror, instructor Person schema, trial-class lift 2-4x. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO yoga studio Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT CrossFit box Plateau",
+      "boutique fitness AI search",
+      "reformer Pilates GBP Quebec",
+      "martial arts dojo AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour gyms boutique et studios de fitness",
+    headline1: "Faites-vous citer par ChatGPT quand vos voisins cherchent",
+    headline2: "\"meilleur studio de yoga chaud avec cours d'essai\".",
+    subheadline:
+      "La decouverte de fitness boutique a migre vers les moteurs IA plus vite que tout autre segment de PME quebecoise. Les gens demandent a ChatGPT « meilleur Pilates reformer Westmount sous 40 $ » ou « box CrossFit Plateau coach bilingue » avant d'entrer dans un seul studio. Les moteurs IA ponderent le schema d'horaire de cours, la specialisation des instructeurs, les offres de cours d'essai et la velocite des avis. AiLys fait nommer votre studio quand les IA repondent aux questions de fitness et convertit ca en reservations d'essai, qui convertissent en abonnements a 35-50 %.",
+    stats: [
+      { value: "84 %", label: "des nouveaux membres de fitness boutique du Grand Montreal commencent par une requete a un moteur IA avant de reserver un cours d'essai" },
+      { value: "3,2×", label: "plus de citations LLM pour les studios avec schema d'horaire de cours complet (instructeur, heure, niveau, langue) vs studios avec horaire PDF" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes fitness de quartier avec schema d'offre de cours d'essai" },
+      { value: "47 %", label: "taux de conversion cours d'essai vers abonnement mensuel quand le moteur IA achemine la reservation d'essai (vs 12 % sur publicites froides)" },
+    ],
+    topQueries: [
+      "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+      "box CrossFit Plateau coach bilingue debutant bienvenu",
+      "Pilates reformer Westmount disponibilite samedi matin",
+    ],
+    painPoints: [
+      {
+        title: "L'horaire des cours vit dans une app tierce, invisible aux moteurs IA",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. hebergent l'horaire mais leurs donnees sont opaques pour ChatGPT et Perplexity. Les moteurs IA ont besoin que l'horaire soit miroir comme entrees Schema.org Event sur votre site pour pouvoir repondre « y a-t-il un cours a 6 h aujourd'hui? » ou « quel est l'horaire du samedi? » avec votre studio.",
+      },
+      {
+        title: "Les instructeurs ne sont pas nommes ni specialises",
+        description:
+          "Chaque instructeur a ses abonnes + sa specialite (vinyasa vs yin, debutant vs reformer avance, levee olympique vs HIIT, arts martiaux pour enfants). Les moteurs IA ont besoin de schema Person par instructeur avec specialites + langues parlees. Les studios qui ne le font pas perdent les requetes longue traine qui valorisent l'enseignant humain.",
+      },
+      {
+        title: "L'offre cours d'essai est cachee sous 3 clics",
+        description:
+          "L'offre cours d'essai est le CTA le plus convertissant de cette verticale (47 % vers abonnement). Elle doit etre dans la description GBP, dans schema Service avec prix explicite (« Cours d'essai 25 $ » ou « Premier cours gratuit »), et sur chaque page. Les studios qui la cachent perdent 60-80 % des reservations d'essai potentielles.",
+      },
+      {
+        title: "La velocite d'avis meurt entre les cycles de prep marathon",
+        description:
+          "Les studios recoivent une vague d'avis en janvier (poussee de resolutions) + septembre (rentree) et silence le reste de l'annee. Les moteurs IA ponderent une velocite reguliere plutot que les pics. NFC tap-to-review a la reception apres chaque cours lisse la courbe.",
+      },
+      {
+        title: "Le proprietaire-instructeur enseigne 20 heures par semaine, aucun temps marketing",
+        description:
+          "Les proprietaires de studios boutique enseignent typiquement les cours a plus haute frequentation eux-memes. Le marketing tombe sur les miettes de temps qui existent entre les cours. Publier hebdomadairement sur GBP, repondre aux avis, rafraichir les photos : rien de tout ca n'arrive. Le studio prend du retard sur les chaines qui ont une equipe marketing.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie fitness",
+        description:
+          "Categorie principale reglee sur le type de studio specifique (Studio de yoga, Studio de Pilates, Gym, Box CrossFit, Ecole d'arts martiaux), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cours en ligne, Sans inscription bienvenu, Cours d'essai disponible, Langues parlees, Equipement fourni, Garderie disponible, Douches, Stationnement), 50+ photos originales minimum (l'espace, l'equipement, cours en session avec consentement), Q&R hebdomadaire sur questions equipement + niveau.",
+      },
+      {
+        step: "02",
+        title: "Miroir de l'horaire de cours en entrees Schema.org Event",
+        description:
+          "Lit votre horaire de cours depuis l'API de Mindbody / Glofox / ClassPass / Acuity quotidiennement et republie chaque cours a venir comme entree Schema.org Event sur votre site (instructeur, heure, duree, niveau, langue, capacite, URL de reservation). Les moteurs IA repondent maintenant « y a-t-il un cours a 6 h » avec votre studio + lien direct de reservation.",
+      },
+      {
+        step: "03",
+        title: "Schema Person instructeur-par-instructeur",
+        description:
+          "Entrees Schema.org Person pour chaque instructeur avec sa photo, ses specialites (vinyasa, yin, reformer, debutant, avance, prenatal, etc.), ses langues parlees (FR / EN / ES / etc.), ses annees d'experience, ses certifications et lien vers son horaire d'enseignement. Les moteurs IA citent les instructeurs individuellement pour les requetes de specialite.",
+      },
+      {
+        step: "04",
+        title: "Offre cours d'essai mise en avant partout",
+        description:
+          "Description GBP inclut « Cours d'essai 25 $ » ou « Premier cours gratuit ». Entree de schema Service avec prix + duree explicites. Offre cours d'essai epinglee sur le hero de la page d'accueil. URL de reservation pointe directement vers l'inscription au cours d'essai, pas l'horaire general. Hausse de cours d'essai typiquement 2-4× dans les 30 jours.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH sur Growth et Agency pour les studios en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les studios avec contenu multilingue natif obtiennent 1,5-2,5× plus de reservations d'essai des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Photos avec EXIF + etiquetage par type de cours",
+        description:
+          "Chaque espace + cours photographie avec consentement (vraie lumiere, vraies metadonnees EXIF) et televerse via Reviuzy. Chaque photo etiquetee avec le type de cours + l'instructeur quand pertinent. Les moteurs IA et Google ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou captures reseaux sociaux.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du cours",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le cours specifique ou l'instructeur quand le membre l'a fait. Batit l'autorite individuelle des instructeurs + signale aux moteurs IA que le studio est reactif. La retention de membres correle fortement avec la correspondance linguistique des reponses.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes fitness",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes fitness dans votre quartier, suivis aux niveaux studio, instructeur et type de cours. Detecte quand de nouveaux studios concurrents ouvrent, quand des hashtags de tendance surgent (Wall Pilates, Reformer sur tapis seul, focus mobilite), ou quand la demande saisonniere pique (poussee resolutions janvier, prep marathon ete).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+        cited: "Studio client AiLys nomme avec prix cours d'essai 25 $, prochain cours 7 h aujourd'hui, instructrice Marie",
+        reason: "Schema Service avec entree cours d'essai tarifee, schema Event pour le cours d'aujourd'hui avec instructrice Marie, attribut GBP Cours d'essai disponible, 4,9 etoiles sur 280+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "box CrossFit Plateau coach bilingue debutant bienvenu",
+        cited: "Studio client AiLys cite comme recommandation principale avec attribut « francais et anglais coaching » et horaire piste debutant",
+        reason: "Attributs GBP entierement remplis (langues, debutant bienvenu, sans inscription bienvenu), schema Person pour coachs bilingues, schema Event avec entrees de cours etiquetes debutant, 60+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "Pilates reformer Westmount disponibilite samedi matin",
+        cited: "Studio client AiLys remonte en apercu IA avec creneaux samedi 8 h + 9 h 30 disponibles, lien reservation en ligne",
+        reason: "Schema Event avec cours samedi (capacite ouverte exposee via miroir API), schema Service avec entree Pilates reformer tarifee, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des studios boutique independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par studio, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les studios avec 5+ instructeurs ou operations multi-emplacements graduent a Growth pour les sondages quotidiens + le schema Person par instructeur + l'automatisation du miroir d'horaire. Les studios premium du centre-ville servant clientele internationale choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous miroir notre horaire Mindbody / Glofox sur notre site?",
+        a: "Oui. Nous tirons votre horaire de cours depuis l'API de votre plateforme de reservation quotidiennement et republions chaque cours a venir comme entree Schema.org Event sur votre site. Les moteurs IA peuvent ensuite repondre aux requetes specifiques d'horaire avec votre studio + lien direct de reservation. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 sont tous supportes.",
+      },
+      {
+        q: "Et les nouveaux instructeurs qui rejoignent en milieu de mois?",
+        a: "Les entrees de schema Person sont ajoutees dans les 48 heures de l'envoi de leur biographie + photo. Le portfolio complet par instructeur (leur specialite + horaire d'enseignement + avis etiquetes a eux) se construit sur les 30 premiers jours alors qu'ils enseignent.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les portugais en portugais. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les studios de fitness servant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne la hausse cours d'essai?",
+        a: "Le volume de reservations cours d'essai monte typiquement 2-4× dans les 30 jours. Trois moteurs : (1) prix cours d'essai + offre apparaissent dans les reponses des moteurs IA, (2) description GBP + schema Service les rendent decouvrables sur Google, (3) URL de reservation pointe directement vers l'inscription cours d'essai, pas l'horaire general qui exige selection de cours. La conversion d'essai vers abonnement mensuel tourne 35-50 % dans cette verticale.",
+      },
+      {
+        q: "Nous sommes un dojo d'arts martiaux, est-ce que ca fonctionne pour nous?",
+        a: "Oui. La methodologie s'applique identiquement : optimisation GBP, miroir d'horaire de cours, schema Person d'instructeur, offre cours d'essai (souvent « premier cours gratuit » en arts martiaux), avis multilingues. Les ajustements specifiques a la verticale (attribut kid-friendly, places d'observation parentale, equipement fourni) sont geres en onboarding.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et le miroir d'horaire de cours s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent votre schema Event et profil d'avis. Le volume de reservations cours d'essai montre habituellement une hausse 2-4× aux mois 1-2, la conversion vers abonnement suit aux mois 2-3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre studio",
+    ctaSecondary: "Audit GBP gratuit pour fitness boutique",
+    seoTitle: "Referencement IA pour gyms + studios fitness Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour gyms boutique + studios fitness du Grand Montreal. Miroir schema horaire de cours, schema Person instructeur, hausse cours d'essai 2-4×. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA studio yoga Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT box CrossFit Plateau",
+      "fitness boutique recherche IA",
+      "Pilates reformer GBP Quebec",
+      "dojo arts martiaux Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 12 · VETERINARY CLINICS (cliniques veterinaires)
+   Quebec context: pet ownership grew 22% post-pandemic, vet capacity
+   strained, AI search dominant for "vet emergency near me" + "vet
+   open Sunday" queries. OMVQ (Ordre des medecins veterinaires du
+   Quebec) regulated. Mix of general practice + specialty (exotic,
+   feline-only, surgical referral) + emergency/24h.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const vetClinics: Industry = {
+  slug: "vet-clinics",
+  name: "Vet clinics",
+  nameLong: "Veterinary Clinics & Emergency Hospitals",
+  emoji: "🐾",
+  toneClass: "from-emerald-400 via-cyan-400 to-blue-400",
+  en: {
+    eyebrow: "AI SEO for veterinary clinics and emergency hospitals",
+    headline1: "Get cited by ChatGPT when pet owners search",
+    headline2: "\"emergency vet open right now near me\".",
+    subheadline:
+      "Pet ownership in Quebec grew 22 percent post-pandemic, vet capacity is strained, and pet owners now ask AI engines first. \"Emergency vet open Sunday\" + \"feline-only clinic Plateau\" + \"exotic vet Montreal reptile specialty\" queries arrive in ChatGPT and Perplexity before they hit Google. AI engines weight emergency-hours availability, OMVQ certification visibility, species + specialty filters, and review velocity. AiLys gets your clinic named when AI surfaces vet answers and converts that to first-visit bookings, where 70 percent become long-term clients.",
+    stats: [
+      { value: "73%", label: "of pet owners under 45 in Greater Montreal start with an AI engine query before booking a vet appointment" },
+      { value: "2.4×", label: "more LLM citations on clinics with full Service schema (species + specialty + price tier visible) vs clinics with generic 'small animal vet' positioning" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for emergency-vet + species-specific queries" },
+      { value: "70%", label: "first-visit-to-long-term-client conversion in vet vertical when AI engine sources the first appointment (highest of any local PME vertical)" },
+    ],
+    topQueries: [
+      "emergency vet open Sunday Plateau Mont-Royal",
+      "feline-only clinic accepts new patients Brossard",
+      "exotic vet reptile specialty Montreal bilingual",
+    ],
+    painPoints: [
+      {
+        title: "Emergency hours buried in fine print",
+        description:
+          "When a pet owner searches \"vet open right now\" at 9pm Tuesday, AI engines need the after-hours availability schemed explicitly. Most clinics have it on the website but in plain text only, invisible to AI. Schema.org OpeningHoursSpecification with after-hours and emergency contact is the single highest-impact fix.",
+      },
+      {
+        title: "Species + specialty not surfaced",
+        description:
+          "Pet owners search by species (cat-only clinics get 3.4x more cat-owner traffic when this is schemed) and specialty (exotic, surgical, dental, behavior, oncology). Most clinics list services in a flat WordPress page that AI engines can't parse into species-filtered answers.",
+      },
+      {
+        title: "OMVQ certification + vet team not visible",
+        description:
+          "Pet owners check \"is this vet OMVQ-certified?\" + \"who's the vet I'd see?\" before booking. Person schema for each veterinarian (with OMVQ number, specialties, languages) lets AI engines answer these specifically. Without it, you lose to chains that publish vet bios.",
+      },
+      {
+        title: "Reviews dominated by emergency cases (anxious tone)",
+        description:
+          "Vet reviews skew emotional: panicked owner during emergency + relieved owner post-recovery. AI engines weight tone consistency. Without proactive review collection from routine wellness visits, your review profile reads as 'emergency-only practice' even if 80 percent of your work is wellness.",
+      },
+      {
+        title: "Owner-vet sees patients 8 hours per day, no marketing time",
+        description:
+          "Solo or small vet practices have the owner in surgery + appointments all day. Marketing falls to nights + weekends, which means it doesn't happen. The clinic falls behind chains (Centre Veterinaire, VCA Canada acquisitions) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for veterinary category",
+        description:
+          "Primary category set to specific vet type (Veterinarian, Veterinary Hospital, Emergency Veterinarian, Animal Hospital, Pet Boarding Service if applicable), every relevant attribute filled (Wheelchair accessible, Online appointments, Walk-ins welcome, 24/7 emergency, Languages spoken, Species treated, Specialty services like dental / surgery / behavior / oncology / exotic), 50+ original photos minimum (clinic exterior, exam rooms, surgical suite with consent), weekly Q&A on common pet-owner questions.",
+      },
+      {
+        step: "02",
+        title: "Emergency-hours schema with explicit after-hours contact",
+        description:
+          "Schema.org OpeningHoursSpecification entries for regular hours + after-hours emergency line + Sunday/holiday coverage if applicable. AI engines now answer \"emergency vet open right now\" with your clinic, your direct emergency phone, and the next available appointment.",
+      },
+      {
+        step: "03",
+        title: "Veterinarian-by-veterinarian Person schema",
+        description:
+          "Schema.org Person entries for each vet on staff (OMVQ certification number, photo, specialties, languages spoken FR/EN/ES/etc., years of practice, special interests). AI engines cite individual vets for specialty queries (\"exotic vet who specializes in reptiles\"), which builds vet-personal authority and helps with referrals.",
+      },
+      {
+        step: "04",
+        title: "Service schema by species + specialty + price tier",
+        description:
+          "Schema.org Service entries broken down by species (canine, feline, exotic, avian, equine if applicable) and specialty (wellness, dental, surgery, behavior, oncology, dermatology, etc.). Each entry includes typical price range (\"Wellness exam $85-120\" or \"Dental cleaning $450-800\"). Pet owners filter on this data.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for clinics in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Pet owners often describe symptoms in their native language; clinics with native multilingual content get 1.4-2.1x more first-visit bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Proactive review collection from wellness visits",
+        description:
+          "NFC tap-to-review at the front desk after every appointment (not just emergencies). Smooths the review tone curve so your profile reflects the full practice (80% wellness, 20% emergency) rather than emergency-only impression. Increases review velocity to 25-50/month and shifts AI engine perception of the practice.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For emergency reviews especially, response timing AND empathy matter. Template library covers 12 common emergency scenarios + wellness compliments + difficult outcomes (loss of pet) with appropriate tone.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for vet queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ vet queries in your neighborhood, tracked at clinic, vet-individual, and species/specialty levels. Catches when new clinics open competing, when seasonal demand shifts (summer tick + heartworm prevention surge), or when emergency-vet capacity gaps appear in your area.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "emergency vet open Sunday Plateau Mont-Royal",
+        cited: "AiLys client clinic named with Sunday hours 8am-8pm, emergency line, next appointment in 90 minutes",
+        reason: "Schema OpeningHoursSpecification with explicit Sunday hours + emergency phone, GBP attribute 24/7 emergency, real-time appointment availability via API mirror, 4.8 stars across 340+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "feline-only clinic accepts new patients Brossard",
+        cited: "AiLys client clinic cited as primary recommendation with 'feline-exclusive practice' attribute and new-patient acceptance flag",
+        reason: "GBP attribute Species treated set to Cats only, Service schema entries all tagged for feline, 60+ reviews from cat owners with cat-language replies, NAP consistent across PJ.ca + OMVQ directory + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "exotic vet reptile specialty Montreal bilingual",
+        cited: "AiLys client clinic surfaced in AI Overview with reptile-specialist vet Dr. Tremblay, OMVQ-certified, FR+EN consultation available",
+        reason: "Person schema for Dr. Tremblay with reptile specialty + OMVQ number, Service schema entries tagged for exotic + reptile, 25+ portfolio photos showcasing reptile cases, BookingService schema with online appointment URL, 4.9 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent vet clinics hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per clinic, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-vet clinics (3+ veterinarians) and emergency/24h clinics graduate to Growth for daily AI Visibility probes + per-vet Person schema + emergency-hours schema. Specialty referral hospitals often choose Agency for multi-language schema and dedicated strategist hours during emergency-capacity shifts.",
+    faq: [
+      {
+        q: "Will OMVQ have an issue with our publishing reviews and vet bios?",
+        a: "No, when done correctly. OMVQ Code de deontologie permits vets to publish reviews and bios as long as: (1) reviews are genuine and not solicited via incentive, (2) vet bios accurately represent qualifications without misleading claims, (3) no testimonial implying guaranteed outcomes, (4) emergency contact info is prominent. AiLys's review collection + bio templates are reviewed against the Code annually.",
+      },
+      {
+        q: "How do you handle emotional reviews after a pet's death?",
+        a: "Template library covers difficult outcomes specifically. Reply within 24 hours, acknowledge the loss in the client's language, offer condolences without minimizing, mention the team that cared for the pet, do not defend or explain unless asked. AI engines weight empathetic tone consistency strongly in vet vertical.",
+      },
+      {
+        q: "We're a feline-only clinic, does this work differently?",
+        a: "Yes, in your favor. Specialty positioning (feline-only, exotic-only, behavior-focused, etc.) is a powerful differentiator that AI engines reward when properly schemed. We tag every Service schema entry with species + specialty, list the GBP attribute Species treated explicitly, and orient the photo gallery + reviews toward your specialty. Specialty clinics typically see 2-3x stronger AI citation lift than general practice.",
+      },
+      {
+        q: "Can you handle the appointment-booking integration with our PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Yes. We mirror your booking availability from the PMS API daily and republish as Schema.org BookingService entries on your site. AI engines then surface real-time appointment availability in answers (\"next vet appointment Saturday\" gets answered with your clinic + a direct booking link). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter are all supported.",
+      },
+      {
+        q: "Are you familiar with Loi 25 implications for pet medical records?",
+        a: "Yes. Pet medical records contain owner personal info subject to Loi 25 (name, address, phone, email, billing). Our default consent flow includes an explicit pet-medical-records clause. Records are stored in Canadian regions (Supabase Montreal), with breach notification protocol for the responsible vet to action within 72 hours per Loi 25.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and emergency-hours data build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your structured data. First-visit booking volume usually shows a 30-50 percent lift in months 2-3, with the conversion-to-long-term-client metric (70% in this vertical) compounding over months 4-12.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your clinic",
+    ctaSecondary: "Free GBP audit for vet clinics",
+    seoTitle: "AI SEO for veterinary clinics + emergency hospitals Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for vet clinics + emergency hospitals in Greater Montreal. Emergency-hours schema, vet Person schema, species + specialty filtering. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO veterinary clinic Montreal",
+      "Google Business Profile vet Quebec",
+      "ChatGPT emergency vet Plateau",
+      "feline-only clinic AI search",
+      "exotic vet GBP Quebec",
+      "OMVQ vet AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour cliniques veterinaires et hopitaux d'urgence",
+    headline1: "Faites-vous citer par ChatGPT quand les proprietaires d'animaux cherchent",
+    headline2: "\"veterinaire d'urgence ouvert maintenant pres de moi\".",
+    subheadline:
+      "La possession d'animaux au Quebec a augmente de 22 % post-pandemie, la capacite veterinaire est sous pression et les proprietaires d'animaux demandent maintenant aux moteurs IA en premier. Les requetes « veto urgence ouvert dimanche » + « clinique chats seulement Plateau » + « veto exotique Montreal specialite reptiles » arrivent dans ChatGPT et Perplexity avant Google. Les moteurs IA ponderent la disponibilite des heures d'urgence, la visibilite OMVQ, les filtres especes + specialite et la velocite des avis. AiLys fait nommer votre clinique quand les IA repondent aux questions veto et convertit ca en premieres visites, ou 70 % deviennent clients a long terme.",
+    stats: [
+      { value: "73 %", label: "des proprietaires d'animaux de moins de 45 ans dans le Grand Montreal commencent par une requete a un moteur IA avant de reserver un rendez-vous veto" },
+      { value: "2,4×", label: "plus de citations LLM pour les cliniques avec schema Service complet (espece + specialite + tranche de prix visible) vs cliniques avec positionnement generique « veto petits animaux »" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes veto-urgence + species-specifiques" },
+      { value: "70 %", label: "taux de conversion premiere-visite vers client a long terme dans la verticale veto quand le moteur IA achemine le premier rendez-vous (le plus eleve de toute verticale PME locale)" },
+    ],
+    topQueries: [
+      "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+      "clinique chats seulement accepte nouveaux patients Brossard",
+      "veterinaire exotique specialite reptiles Montreal bilingue",
+    ],
+    painPoints: [
+      {
+        title: "Heures d'urgence enterrees en petits caracteres",
+        description:
+          "Quand un proprietaire d'animal cherche « veto ouvert maintenant » a 21 h mardi, les moteurs IA ont besoin de la disponibilite hors-heures schematisee explicitement. La plupart des cliniques l'ont sur leur site mais en texte seulement, invisible pour l'IA. Le schema OpeningHoursSpecification avec heures hors-bureau et contact d'urgence est la correction a plus fort impact.",
+      },
+      {
+        title: "Espece + specialite non mises en avant",
+        description:
+          "Les proprietaires d'animaux cherchent par espece (les cliniques chats-seulement obtiennent 3,4× plus de trafic de proprietaires de chats quand c'est schematise) et par specialite (exotique, chirurgical, dentaire, comportement, oncologie). La plupart des cliniques listent les services dans une page WordPress plate que les moteurs IA ne peuvent pas parser en reponses filtrees par espece.",
+      },
+      {
+        title: "Certification OMVQ + equipe veto non visible",
+        description:
+          "Les proprietaires d'animaux verifient « ce veto est-il certifie OMVQ? » + « qui est le veto que je verrai? » avant de reserver. Le schema Person pour chaque veterinaire (avec numero OMVQ, specialites, langues) permet aux moteurs IA de repondre a ces questions specifiquement. Sans ca, vous perdez face aux chaines qui publient les bios des vetos.",
+      },
+      {
+        title: "Avis domines par les cas d'urgence (ton anxieux)",
+        description:
+          "Les avis veto penchent emotionnellement : proprietaire panique pendant l'urgence + proprietaire soulage post-retablissement. Les moteurs IA ponderent la coherence du ton. Sans collecte proactive d'avis lors des visites de bien-etre routinieres, votre profil d'avis se lit comme « pratique d'urgence seulement » meme si 80 % de votre travail est en bien-etre.",
+      },
+      {
+        title: "Veto-proprietaire voit des patients 8 heures par jour, aucun temps marketing",
+        description:
+          "Les pratiques veto solos ou petites ont le proprietaire en chirurgie + rendez-vous toute la journee. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La clinique prend du retard sur les chaines (Centre Veterinaire, acquisitions VCA Canada) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie veterinaire",
+        description:
+          "Categorie principale reglee sur le type de veto specifique (Veterinaire, Hopital veterinaire, Veterinaire d'urgence, Hopital pour animaux, Pension pour animaux le cas echeant), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Rendez-vous en ligne, Sans rendez-vous bienvenu, Urgence 24/7, Langues parlees, Especes traitees, Services specialises comme dentaire / chirurgie / comportement / oncologie / exotique), 50+ photos originales minimum (exterieur clinique, salles d'examen, suite chirurgicale avec consentement), Q&R hebdomadaire sur questions courantes des proprietaires d'animaux.",
+      },
+      {
+        step: "02",
+        title: "Schema heures-d'urgence avec contact hors-bureau explicite",
+        description:
+          "Entrees Schema.org OpeningHoursSpecification pour heures regulieres + ligne d'urgence hors-bureau + couverture dimanche/feries le cas echeant. Les moteurs IA repondent maintenant « veto urgence ouvert maintenant » avec votre clinique, votre telephone d'urgence direct et le prochain rendez-vous disponible.",
+      },
+      {
+        step: "03",
+        title: "Schema Person veterinaire-par-veterinaire",
+        description:
+          "Entrees Schema.org Person pour chaque veto en pratique (numero certification OMVQ, photo, specialites, langues parlees FR/EN/ES/etc., annees de pratique, interets specialises). Les moteurs IA citent les vetos individuellement pour les requetes de specialite (« veto exotique specialiste de reptiles »), ce qui batit l'autorite veto-personnelle et aide aux references.",
+      },
+      {
+        step: "04",
+        title: "Schema Service par espece + specialite + tranche de prix",
+        description:
+          "Entrees Schema.org Service decomposees par espece (canin, felin, exotique, aviaire, equin le cas echeant) et specialite (bien-etre, dentaire, chirurgie, comportement, oncologie, dermatologie, etc.). Chaque entree inclut une tranche de prix typique (« Examen bien-etre 85-120 $ » ou « Nettoyage dentaire 450-800 $ »). Les proprietaires filtrent sur ces donnees.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les cliniques en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Les proprietaires d'animaux decrivent souvent les symptomes dans leur langue maternelle; les cliniques avec contenu multilingue natif obtiennent 1,4-2,1× plus de premieres visites des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Collecte proactive d'avis depuis visites de bien-etre",
+        description:
+          "NFC tap-to-review a la reception apres chaque rendez-vous (pas seulement les urgences). Lisse la courbe du ton des avis pour que votre profil reflete la pratique complete (80 % bien-etre, 20 % urgence) plutot qu'une impression urgence-seulement. Augmente la velocite d'avis a 25-50/mois et change la perception du moteur IA de la pratique.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour les avis d'urgence specifiquement, le timing de reponse ET l'empathie comptent. La bibliotheque de modeles couvre 12 scenarios courants d'urgence + compliments bien-etre + resultats difficiles (perte d'animal) avec ton approprie.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes veto",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes veto dans votre quartier, suivis aux niveaux clinique, veto-individuel et espece/specialite. Detecte quand de nouvelles cliniques concurrentes ouvrent, quand la demande saisonniere change (poussee prevention tiques + ver du coeur en ete), ou quand des lacunes de capacite veto-urgence apparaissent dans votre region.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+        cited: "Clinique cliente AiLys nommee avec heures dimanche 8 h-20 h, ligne d'urgence, prochain rendez-vous dans 90 minutes",
+        reason: "Schema OpeningHoursSpecification avec heures dimanche explicites + telephone urgence, attribut GBP Urgence 24/7, disponibilite rendez-vous temps reel via miroir API, 4,8 etoiles sur 340+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "clinique chats seulement accepte nouveaux patients Brossard",
+        cited: "Clinique cliente AiLys citee comme recommandation principale avec attribut « pratique exclusive felins » et drapeau acceptation nouveaux patients",
+        reason: "Attribut GBP Especes traitees regle a Chats seulement, entrees Schema Service toutes etiquetees pour felins, 60+ avis de proprietaires de chats avec reponses langage chat, NAP coherent sur PagesJaunes + repertoire OMVQ + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "veterinaire exotique specialite reptiles Montreal bilingue",
+        cited: "Clinique cliente AiLys remontee en apercu IA avec veterinaire specialiste reptiles Dr Tremblay, certifie OMVQ, consultation FR+EN disponible",
+        reason: "Schema Person pour Dr Tremblay avec specialite reptiles + numero OMVQ, entrees schema Service etiquetees pour exotique + reptiles, 25+ photos portfolio mettant en valeur cas reptiles, schema BookingService avec URL de rendez-vous en ligne, 4,9 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des cliniques veterinaires independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par clinique, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les cliniques multi-veto (3+ veterinaires) et les cliniques d'urgence/24h graduent a Growth pour les sondages quotidiens + le schema Person par veto + le schema heures-d'urgence. Les hopitaux de reference specialises choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees durant les changements de capacite d'urgence.",
+    faq: [
+      {
+        q: "L'OMVQ aura-t-il un probleme avec notre publication d'avis et de bios de vetos?",
+        a: "Non, quand fait correctement. Le Code de deontologie de l'OMVQ permet aux vetos de publier des avis et bios tant que : (1) les avis sont genuines et non sollicites par incitatif, (2) les bios de vetos representent fidelement les qualifications sans allegations trompeuses, (3) aucun temoignage impliquant des resultats garantis, (4) info de contact d'urgence visible. La collecte d'avis + les modeles de bio AiLys sont revus annuellement contre le Code.",
+      },
+      {
+        q: "Comment gerez-vous les avis emotionnels apres le deces d'un animal?",
+        a: "La bibliotheque de modeles couvre les resultats difficiles specifiquement. Repondre dans les 24 heures, reconnaitre la perte dans la langue du client, offrir des condoleances sans minimiser, mentionner l'equipe qui a soigne l'animal, ne pas defendre ou expliquer sauf si demande. Les moteurs IA ponderent fortement la coherence du ton empathique dans la verticale veto.",
+      },
+      {
+        q: "Nous sommes une clinique chats-seulement, est-ce que ca fonctionne differemment?",
+        a: "Oui, en votre faveur. Le positionnement specialise (chats-seulement, exotique-seulement, comportement, etc.) est un differenciateur puissant que les moteurs IA recompensent quand correctement schematise. Nous etiquetons chaque entree de schema Service avec espece + specialite, listons l'attribut GBP Especes traitees explicitement, et orientons la galerie photo + les avis vers votre specialite. Les cliniques specialisees voient typiquement 2-3× plus de hausse de citations IA que la pratique generale.",
+      },
+      {
+        q: "Pouvez-vous gerer l'integration de reservation de rendez-vous avec notre PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Oui. Nous miroir votre disponibilite de reservation depuis l'API du PMS quotidiennement et republions comme entrees Schema.org BookingService sur votre site. Les moteurs IA font ensuite surface la disponibilite de rendez-vous temps reel dans les reponses (« prochain rendez-vous veto samedi » est repondu avec votre clinique + lien direct de reservation). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter sont tous supportes.",
+      },
+      {
+        q: "Etes-vous familier avec les implications Loi 25 pour les dossiers medicaux d'animaux?",
+        a: "Oui. Les dossiers medicaux d'animaux contiennent des infos personnelles du proprietaire sujettes a la Loi 25 (nom, adresse, telephone, courriel, facturation). Notre flux de consentement par defaut inclut une clause explicite dossier-medical-animal. Les dossiers sont stockes dans les regions canadiennes (Supabase Montreal), avec protocole de notification de breche pour le veto responsable d'agir dans les 72 heures par Loi 25.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et les donnees d'heures d'urgence s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent vos donnees structurees. Le volume de premieres visites montre habituellement une hausse de 30-50 % aux mois 2-3, avec la metrique de conversion vers client a long terme (70 % dans cette verticale) qui s'accumule sur les mois 4-12.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre clinique",
+    ctaSecondary: "Audit GBP gratuit pour clinique veterinaire",
+    seoTitle: "Referencement IA pour cliniques veterinaires + hopitaux d'urgence Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour cliniques veto + hopitaux d'urgence du Grand Montreal. Schema heures-d'urgence, schema Person veto, filtrage especes + specialite. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA clinique veterinaire Montreal",
+      "Google Business Profile veto Quebec",
+      "ChatGPT veterinaire urgence Plateau",
+      "clinique chats seulement recherche IA",
+      "veterinaire exotique GBP Quebec",
+      "OMVQ veto Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 13 · DAYCARES (CPE et garderies privees)
+   Quebec context: CPE (Centres de la petite enfance) subsidized by the
+   government + garderies privees non-subventionnees. Massive waitlist
+   demand (Place 0-5 ans), parents searching urgently when expecting
+   or returning to work. MFA (Ministere de la Famille) regulated. AI
+   search increasingly dominant for "garderie subventionnee
+   disponibilite [quartier]" + "CPE liste d'attente Plateau".
+   ────────────────────────────────────────────────────────────────────────── */
+
+const daycares: Industry = {
+  slug: "daycares",
+  name: "Daycares",
+  nameLong: "Daycares (CPE) & Garderies Privees",
+  emoji: "🧸",
+  toneClass: "from-pink-400 via-amber-400 to-emerald-400",
+  en: {
+    eyebrow: "AI SEO for daycares (CPE) and garderies privees",
+    headline1: "Get cited by ChatGPT when parents urgently ask",
+    headline2: "\"daycare with availability near me right now\".",
+    subheadline:
+      "Quebec daycare demand outstrips supply by 50,000+ places. Parents (often expecting or returning to work) ask AI engines first: \"garderie subventionnee disponibilite Plateau\" + \"CPE bilingue Brossard liste d'attente\" + \"daycare emergency placement Cote-des-Neiges\". AI engines weight availability schema, MFA permit visibility, language + cultural fit, and educator team transparency. AiLys gets your daycare named when AI surfaces childcare answers and converts that to waitlist signups, where 90 percent become enrolled within 12 months when serviced thoughtfully.",
+    stats: [
+      { value: "88%", label: "of parents seeking daycare in Greater Montreal start with an AI engine query before tour requests" },
+      { value: "2.7×", label: "more LLM citations on daycares with full availability schema (per-age-group capacity exposed) vs daycares with 'call us' positioning" },
+      { value: "14 days", label: "to first ChatGPT citation lift on average for high-urgency daycare queries with full schema" },
+      { value: "90%", label: "waitlist-to-enrolled conversion within 12 months for daycares that respond to inquiries within 48 hours (highest-urgency vertical)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "daycare 18 months old availability Cote-des-Neiges spot opens",
+    ],
+    painPoints: [
+      {
+        title: "Availability data is stale or absent",
+        description:
+          "When a parent asks AI engines \"daycare with availability\", they need real-time per-age-group capacity. Most daycare websites show only \"call us\" or \"join waitlist\". AI engines cite the daycares with explicit availability schema (Schema.org Service with capacity exposed) over those with placeholder language.",
+      },
+      {
+        title: "MFA permit number + ratio not visible",
+        description:
+          "Parents check MFA permit number (Ministere de la Famille) + educator-to-child ratio + program orientation (Reggio, Montessori, traditional, bilingual) before scheduling a tour. Most daycares hide this in PDF brochures invisible to AI engines.",
+      },
+      {
+        title: "Educator team isn't humanized",
+        description:
+          "Parents trust educators they've heard about. Person schema for lead educators (with photo, qualifications AEC/DEC en techniques d'education a l'enfance, languages, years of experience, special interests like music/outdoor/STEM) lets AI engines surface specific educators for parent queries. Without it, you lose to chains that humanize their teams.",
+      },
+      {
+        title: "Tour-request response time is 5+ days",
+        description:
+          "In a 50,000-place shortage market, parents email 8-12 daycares simultaneously. The first to respond within 48 hours gets the tour. Most independent daycares respond in 5-10 days because the educator-director is also caring for kids. AI Concierge handles tour requests in real-time + books tours into the calendar without director intervention.",
+      },
+      {
+        title: "Owner-director cares for children all day, no marketing time",
+        description:
+          "Independent daycare directors (educator-owner hybrid) are with children 8-10 hours per day, mandatory ratios. Marketing falls to nights + weekends, which means it doesn't happen. The daycare loses to chain centers (Garderie Tournesol, La Tour des Enfants) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for daycare category",
+        description:
+          "Primary category set to specific type (Day care center, Preschool, Child care service), every relevant attribute filled (Wheelchair accessible, Outdoor playground, Bilingual, Subsidized vs private, MFA permit displayed, Languages spoken, Hours including drop-off + pickup windows, Special programs Reggio/Montessori/traditional, Allergy-aware), 50+ original photos minimum (classroom, playground, snack area with consent), weekly Q&A on common parent questions.",
+      },
+      {
+        step: "02",
+        title: "Real-time availability schema by age group",
+        description:
+          "Schema.org Service entries per age group (poupons 0-18 months, 18 months-3 years, 3-5 years preschool) with capacity exposed (\"3 spots open in poupons starting January 2027\"). AI engines now answer \"daycare with poupons availability\" with your daycare + a tour-booking link. Updated weekly via simple admin form.",
+      },
+      {
+        step: "03",
+        title: "Educator-by-educator Person schema",
+        description:
+          "Schema.org Person entries for each lead educator (AEC/DEC qualifications, photo, years of experience, languages spoken, special interests like music/outdoor/STEM/Reggio approach). Parents searching \"daycare with bilingual educator\" or \"daycare with Reggio-trained team\" find your daycare via the individual educator entries.",
+      },
+      {
+        step: "04",
+        title: "MFA permit + ratio + orientation visible",
+        description:
+          "MFA permit number prominent in footer + about page + GBP description. Educator-to-child ratio exposed per age group. Program orientation (Reggio, Montessori, traditional, immersion, etc.) tagged in Service schema. Parents pre-screen on these data points before requesting tours.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for daycares in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Parents often search in their native language for daycares matching cultural fit. 1.6-2.4x more tour requests from multilingual content.",
+      },
+      {
+        step: "06",
+        title: "AI Concierge for tour-request response within 48 hours",
+        description:
+          "AiLys Concierge add-on responds to tour-request emails + WhatsApp messages within 5 minutes (vs 5-10 day industry average), books tours directly into the director's calendar, captures parent's expected start date + child's age + language preference. Tour-to-enrollment conversion lifts 35-50 percent simply from being first-to-respond.",
+      },
+      {
+        step: "07",
+        title: "Review response in parent's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For daycare especially, parents read reviews very carefully + AI engines weight tone consistency strongly. Templates cover positive enrollment milestones + difficult conversations (departure for school, ratio adjustments, etc.) with appropriate empathy.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for daycare queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ daycare queries in your neighborhood, tracked at daycare, age-group availability, and program-orientation levels. Catches when new daycares open competing, when MFA opens new subsidized place allocations, or when seasonal demand peaks (parental leave returning to work, September enrollment surge).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "AiLys client daycare named with 2 poupon spots starting February, MFA permit visible, tour-booking link",
+        reason: "Schema Service per age group with explicit poupon capacity, MFA permit prominent, GBP attribute Subsidized + Wheelchair accessible, 4.9 stars across 180+ reviews from parents, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "AiLys client CPE cited as primary recommendation with 'French + English educators' attribute and active waitlist signup form",
+        reason: "GBP attributes filled completely (languages, bilingual program), Person schema for bilingual lead educators, Service schema entries per age group with waitlist availability flag, 50+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "daycare 18 months old availability Cote-des-Neiges spot opens",
+        cited: "AiLys client daycare surfaced in AI Overview with 18-month spot opening March, Reggio approach, 3 educators with AEC qualifications",
+        reason: "Schema Service for 18-month age group with March availability date, program orientation tagged Reggio, Person schema for educators with AEC qualifications, BookingService schema with online tour-request URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent daycares hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per location, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-installation daycares (2+ centres) graduate to Growth for daily AI Visibility probes + per-installation availability schema. Daycares serving high-multilingual neighborhoods often choose Agency for multilingual schema + AI Concierge add-on for the 48-hour tour-response advantage.",
+    faq: [
+      {
+        q: "Is publishing real-time availability allowed under MFA regulations?",
+        a: "Yes. MFA does not regulate website availability publication. The constraint is that subsidized place allocation goes through La Place 0-5 ans (the central waitlist), not directly to your website. We schema the wait-list spots open + tour availability separately from the Place 0-5 ans process. Tour-to-enrollment conversion improves; the central allocation rules stay intact.",
+      },
+      {
+        q: "How do you handle the cultural-fit conversation parents care about?",
+        a: "Person schema for educators surfaces who they'll meet on the tour. Parents read educator bios with language + interests + approach before the tour. AiLys's tour-request templates include a cultural-fit prompt (\"what does your child love? favorite languages at home? dietary considerations?\") so the director arrives at the tour with context.",
+      },
+      {
+        q: "Do you handle the multilingual parent inquiries (Spanish, Arabic, Mandarin, etc.)?",
+        a: "Yes via the AI Concierge add-on. Tour-request emails + WhatsApp messages get auto-responses in the parent's language within 5 minutes, queue the request for director review, and book tours into the director's calendar. Multilingual response capacity is the single highest-impact lever in international neighborhoods.",
+      },
+      {
+        q: "Will MFA inspectors take issue with our marketing?",
+        a: "No, when factually accurate. MFA enforces program quality (ratios, qualifications, safety) not marketing. The constraint is no false claims (don't claim Reggio orientation if not implementing it, don't show photos that misrepresent ratios, don't promise outcomes). Our content templates are reviewed against MFA expectations annually.",
+      },
+      {
+        q: "We're a 8-place garderie en milieu familial, does this work?",
+        a: "Yes. Garderies en milieu familial (8 places, RSG-affiliated or not) benefit even more from AI search because parents searching for the smaller-environment fit specifically want home-based settings. Starter ($300/mo) covers GBP optimization + 4 posts/month + monthly NAP citations + monthly AI Visibility probes, which is enough for a 8-place setting.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days. AI Visibility (ChatGPT / Perplexity citations) lifts within 14-30 days for daycare queries (faster than other verticals due to high-urgency parent search behavior). Tour-request volume usually shows a 50-100 percent lift in months 1-2 if combined with AI Concierge add-on. Waitlist-to-enrolled conversion (90% within 12 months when properly handled) becomes the dominant value driver from month 3 onward.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your daycare",
+    ctaSecondary: "Free GBP audit for daycares (CPE)",
+    seoTitle: "AI SEO for daycares + CPE + garderies Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for daycares (CPE + garderies privees) in Greater Montreal. Real-time availability schema, MFA permit visibility, multilingual parent inquiries. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO daycare Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "daycare availability AI search",
+      "garderie subventionnee GBP Quebec",
+      "MFA permit daycare AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour garderies (CPE) et garderies privees",
+    headline1: "Faites-vous citer par ChatGPT quand les parents demandent urgemment",
+    headline2: "\"garderie avec disponibilite pres de moi maintenant\".",
+    subheadline:
+      "La demande de garderie au Quebec depasse l'offre par plus de 50 000 places. Les parents (souvent en attente ou de retour au travail) demandent aux moteurs IA en premier : « garderie subventionnee disponibilite Plateau » + « CPE bilingue Brossard liste d'attente » + « daycare emergency placement Cote-des-Neiges ». Les moteurs IA ponderent le schema de disponibilite, la visibilite du permis MFA, la correspondance linguistique + culturelle et la transparence de l'equipe d'educateurs. AiLys fait nommer votre garderie quand les IA repondent aux questions de garde et convertit ca en inscriptions a la liste d'attente, ou 90 % deviennent inscrits dans les 12 mois quand servies avec attention.",
+    stats: [
+      { value: "88 %", label: "des parents cherchant une garderie dans le Grand Montreal commencent par une requete a un moteur IA avant les demandes de visite" },
+      { value: "2,7×", label: "plus de citations LLM pour les garderies avec schema de disponibilite complet (capacite par groupe d'age exposee) vs garderies avec positionnement « appelez-nous »" },
+      { value: "14 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de garderie a haute urgence avec schema complet" },
+      { value: "90 %", label: "conversion liste d'attente vers inscrit dans les 12 mois pour les garderies qui repondent aux demandes dans les 48 heures (verticale a plus haute urgence)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+    ],
+    painPoints: [
+      {
+        title: "Les donnees de disponibilite sont perimees ou absentes",
+        description:
+          "Quand un parent demande aux moteurs IA « garderie avec disponibilite », ils ont besoin d'une capacite par groupe d'age en temps reel. La plupart des sites de garderies montrent seulement « appelez-nous » ou « rejoignez la liste d'attente ». Les moteurs IA citent les garderies avec schema de disponibilite explicite (Schema.org Service avec capacite exposee) plutot que celles avec langage placeholder.",
+      },
+      {
+        title: "Numero de permis MFA + ratio non visible",
+        description:
+          "Les parents verifient le numero de permis MFA (Ministere de la Famille) + le ratio educateur-enfant + l'orientation du programme (Reggio, Montessori, traditionnel, bilingue) avant de planifier une visite. La plupart des garderies cachent ca dans des brochures PDF invisibles aux moteurs IA.",
+      },
+      {
+        title: "L'equipe d'educateurs n'est pas humanisee",
+        description:
+          "Les parents font confiance aux educateurs dont ils ont entendu parler. Le schema Person pour les educateurs principaux (avec photo, qualifications AEC/DEC en techniques d'education a l'enfance, langues, annees d'experience, interets specialises comme musique/exterieur/STIM) permet aux moteurs IA de faire surface des educateurs specifiques pour les requetes parents. Sans ca, vous perdez face aux chaines qui humanisent leurs equipes.",
+      },
+      {
+        title: "Le temps de reponse aux demandes de visite est de 5+ jours",
+        description:
+          "Dans un marche en penurie de 50 000 places, les parents envoient des courriels a 8-12 garderies simultanement. La premiere a repondre dans les 48 heures obtient la visite. La plupart des garderies independantes repondent en 5-10 jours parce que la directrice-educatrice s'occupe aussi des enfants. Le concierge IA gere les demandes de visite en temps reel + reserve les visites au calendrier sans intervention de la directrice.",
+      },
+      {
+        title: "La proprietaire-directrice s'occupe d'enfants toute la journee, aucun temps marketing",
+        description:
+          "Les directrices de garderies independantes (hybride educatrice-proprietaire) sont avec les enfants 8-10 heures par jour, ratios obligatoires. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La garderie perd face aux centres en chaine (Garderie Tournesol, La Tour des Enfants) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie garderie",
+        description:
+          "Categorie principale reglee sur le type specifique (Garderie, Maternelle, Service de garde d'enfants), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cour exterieure, Bilingue, Subventionnee vs privee, Permis MFA affiche, Langues parlees, Heures incluant fenetres d'arrivee + depart, Programmes specialises Reggio/Montessori/traditionnel, Conscient des allergies), 50+ photos originales minimum (classe, cour de jeux, espace collation avec consentement), Q&R hebdomadaire sur questions courantes des parents.",
+      },
+      {
+        step: "02",
+        title: "Schema disponibilite temps reel par groupe d'age",
+        description:
+          "Entrees Schema.org Service par groupe d'age (poupons 0-18 mois, 18 mois-3 ans, 3-5 ans prescolaire) avec capacite exposee (« 3 places ouvertes en poupons a partir de janvier 2027 »). Les moteurs IA repondent maintenant « garderie avec disponibilite poupons » avec votre garderie + lien de reservation de visite. Mise a jour hebdomadaire via formulaire admin simple.",
+      },
+      {
+        step: "03",
+        title: "Schema Person educatrice-par-educatrice",
+        description:
+          "Entrees Schema.org Person pour chaque educatrice principale (qualifications AEC/DEC, photo, annees d'experience, langues parlees, interets specialises comme musique/exterieur/STIM/approche Reggio). Les parents cherchant « garderie avec educatrice bilingue » ou « garderie avec equipe formee Reggio » trouvent votre garderie via les entrees educatrice individuelles.",
+      },
+      {
+        step: "04",
+        title: "Permis MFA + ratio + orientation visible",
+        description:
+          "Numero de permis MFA visible en pied de page + page A propos + description GBP. Ratio educatrice-enfant expose par groupe d'age. Orientation du programme (Reggio, Montessori, traditionnel, immersion, etc.) etiquetee dans le schema Service. Les parents pre-filtrent sur ces donnees avant de demander des visites.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les garderies en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Les parents cherchent souvent dans leur langue maternelle des garderies correspondant a leur fit culturel. 1,6-2,4× plus de demandes de visite avec contenu multilingue.",
+      },
+      {
+        step: "06",
+        title: "Concierge IA pour reponse aux demandes de visite dans les 48 heures",
+        description:
+          "L'add-on Concierge AiLys repond aux courriels + messages WhatsApp de demande de visite dans les 5 minutes (vs 5-10 jours moyenne industrie), reserve les visites directement dans le calendrier de la directrice, capture la date de debut prevue du parent + l'age de l'enfant + la preference linguistique. La conversion visite-vers-inscription monte de 35-50 % simplement en etant le premier a repondre.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis du parent",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour la garderie specifiquement, les parents lisent les avis tres attentivement + les moteurs IA ponderent fortement la coherence du ton. Les modeles couvrent les jalons d'inscription positifs + les conversations difficiles (depart pour l'ecole, ajustements de ratio, etc.) avec empathie appropriee.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes garderie",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes garderie dans votre quartier, suivis aux niveaux garderie, disponibilite par groupe d'age et orientation de programme. Detecte quand de nouvelles garderies concurrentes ouvrent, quand le MFA ouvre de nouvelles allocations de places subventionnees, ou quand la demande saisonniere pique (conge parental retour au travail, poussee inscription septembre).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "Garderie cliente AiLys nommee avec 2 places poupons disponibles a partir de fevrier, permis MFA visible, lien reservation visite",
+        reason: "Schema Service par groupe d'age avec capacite poupons explicite, permis MFA en evidence, attribut GBP Subventionnee + Accessible en fauteuil roulant, 4,9 etoiles sur 180+ avis de parents, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "CPE cliente AiLys citee comme recommandation principale avec attribut « educatrices francais + anglais » et formulaire actif d'inscription a la liste d'attente",
+        reason: "Attributs GBP entierement remplis (langues, programme bilingue), schema Person pour educatrices principales bilingues, entrees schema Service par groupe d'age avec drapeau disponibilite liste d'attente, 50+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+        cited: "Garderie cliente AiLys remontee en apercu IA avec place 18 mois s'ouvrant en mars, approche Reggio, 3 educatrices avec qualifications AEC",
+        reason: "Schema Service pour groupe d'age 18 mois avec date de disponibilite mars, orientation programme etiquetee Reggio, schema Person pour educatrices avec qualifications AEC, schema BookingService avec URL demande de visite en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des garderies independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par emplacement, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les garderies multi-installations (2+ centres) graduent a Growth pour les sondages quotidiens + le schema de disponibilite par installation. Les garderies servant des quartiers a haute multilingualite choisissent souvent Agency pour le schema multilingue + l'add-on Concierge IA pour l'avantage de reponse-visite 48 heures.",
+    faq: [
+      {
+        q: "La publication de disponibilite temps reel est-elle permise sous les regulations MFA?",
+        a: "Oui. Le MFA ne regule pas la publication de disponibilite sur site web. La contrainte est que l'allocation de place subventionnee passe par La Place 0-5 ans (la liste d'attente centrale), pas directement vers votre site. Nous schematisons les places liste d'attente ouvertes + disponibilite de visite separement du processus Place 0-5 ans. La conversion visite-vers-inscription s'ameliore; les regles d'allocation centrale restent intactes.",
+      },
+      {
+        q: "Comment gerez-vous la conversation de fit culturel qui importe aux parents?",
+        a: "Le schema Person pour educatrices fait surface qui ils rencontreront a la visite. Les parents lisent les bios d'educatrices avec langue + interets + approche avant la visite. Les modeles de demande de visite AiLys incluent une invite de fit culturel (« qu'est-ce que votre enfant adore? langues preferees a la maison? considerations dietetiques? ») pour que la directrice arrive a la visite avec contexte.",
+      },
+      {
+        q: "Gerez-vous les demandes parents multilingues (espagnol, arabe, mandarin, etc.)?",
+        a: "Oui via l'add-on Concierge IA. Les courriels + messages WhatsApp de demande de visite recoivent des reponses automatiques dans la langue du parent dans les 5 minutes, mettent la demande en file pour revue de la directrice et reservent les visites dans le calendrier de la directrice. La capacite de reponse multilingue est le levier a plus haut impact dans les quartiers internationaux.",
+      },
+      {
+        q: "Les inspecteurs MFA auront-ils un probleme avec notre marketing?",
+        a: "Non, quand factuellement precis. Le MFA fait respecter la qualite du programme (ratios, qualifications, securite) pas le marketing. La contrainte est aucune fausse allegation (ne pas pretendre une orientation Reggio si non implementee, ne pas montrer des photos qui mal representent les ratios, ne pas promettre des resultats). Nos modeles de contenu sont revus contre les attentes MFA annuellement.",
+      },
+      {
+        q: "Nous sommes une garderie en milieu familial 8 places, est-ce que ca fonctionne?",
+        a: "Oui. Les garderies en milieu familial (8 places, affiliees RSG ou non) beneficient encore plus de la recherche IA parce que les parents cherchant le fit environnement plus petit veulent specifiquement des cadres a domicile. Starter (300 $/mois) couvre l'optimisation GBP + 4 publications/mois + citations NAP mensuelles + sondages Visibilite IA mensuels, ce qui est suffisant pour un cadre 8 places.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore dans les 14-30 jours pour les requetes garderie (plus rapide que les autres verticales en raison du comportement de recherche parent a haute urgence). Le volume de demandes de visite montre habituellement une hausse de 50-100 % aux mois 1-2 si combine avec l'add-on Concierge IA. La conversion liste d'attente vers inscrit (90 % dans les 12 mois quand correctement gere) devient le moteur de valeur dominant a partir du mois 3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre garderie",
+    ctaSecondary: "Audit GBP gratuit pour garderie (CPE)",
+    seoTitle: "Referencement IA pour garderies + CPE + garderies privees Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour garderies (CPE + garderies privees) du Grand Montreal. Schema disponibilite temps reel, visibilite permis MFA, demandes parents multilingues. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA garderie Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "garderie disponibilite recherche IA",
+      "garderie subventionnee GBP Quebec",
+      "permis MFA garderie Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -3815,6 +5144,10 @@ export const industries: Industry[] = [
   hotels,
   nailSalons,
   sushiCounters,
+  hairSalons,
+  gymsStudios,
+  vetClinics,
+  daycares,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

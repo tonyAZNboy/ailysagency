@@ -9079,7 +9079,7 @@ Most marketing platforms (Wix, Squarespace, Yext, BrightLocal) ship a generic gl
 
 ## Loi 25 (privacy and data protection)
 
-In effect since September 2023. Quebec's strictest privacy regime, layered on top of federal PIPEDA. Applies to every business that holds personal data on Quebec residents, regardless of where the business is incorporated. Penalties up to \$25M or 4% of global revenue.
+In effect since September 2023. Quebec's strictest privacy regime, layered on top of federal PIPEDA. Applies to every business that holds personal data on Quebec residents, regardless of where the business is incorporated. Penalties up to $25M or 4% of global revenue.
 
 What AiLys delivers:
 
@@ -9111,7 +9111,7 @@ What AiLys delivers:
 
 ## Why this matters more than the cost difference
 
-A Wix subscription is \$20/month. A BrightLocal license is \$39/month. Cheap, clearly. But they ship US-default settings: English-first content, US privacy norms, no Loi 25 consent flows, no OQLF business-name verification, no FR-CA review-language matching. The first time a Loi 25 inspector calls or an OQLF complaint reaches your inbox, the savings disappear in a single legal-review meeting.
+A Wix subscription is $20/month. A BrightLocal license is $39/month. Cheap, clearly. But they ship US-default settings: English-first content, US privacy norms, no Loi 25 consent flows, no OQLF business-name verification, no FR-CA review-language matching. The first time a Loi 25 inspector calls or an OQLF complaint reaches your inbox, the savings disappear in a single legal-review meeting.
 
 AiLys costs more upfront. AiLys also stays out of the OQLF complaint queue and the CAI (Commission d'acces a l'information) inbox. That's not a feature. That's the actual product.
 
@@ -9168,7 +9168,7 @@ Ce que livre AiLys :
 
 ## Pourquoi ca compte plus que la difference de cout
 
-Un abonnement Wix coute 20 \$/mois. Une licence BrightLocal coute 39 \$/mois. Pas cher, clairement. Mais ils livrent des reglages US par defaut : contenu anglais d'abord, normes de vie privee US, pas de flux de consentement Loi 25, pas de verification du nom REQ par l'OQLF, pas de correspondance linguistique FR-CA pour les avis. La premiere fois qu'un inspecteur Loi 25 appelle ou qu'une plainte OQLF arrive dans votre boite courriel, les economies disparaissent en une seule reunion de revision juridique.
+Un abonnement Wix coute 20 $/mois. Une licence BrightLocal coute 39 $/mois. Pas cher, clairement. Mais ils livrent des reglages US par defaut : contenu anglais d'abord, normes de vie privee US, pas de flux de consentement Loi 25, pas de verification du nom REQ par l'OQLF, pas de correspondance linguistique FR-CA pour les avis. La premiere fois qu'un inspecteur Loi 25 appelle ou qu'une plainte OQLF arrive dans votre boite courriel, les economies disparaissent en une seule reunion de revision juridique.
 
 AiLys coute plus cher au depart. AiLys evite aussi la file de plaintes OQLF et la boite de la CAI (Commission d'acces a l'information). Ce n'est pas une fonctionnalite. C'est le vrai produit.
 
@@ -9182,6 +9182,596 @@ AiLys coute plus cher au depart. AiLys evite aussi la file de plaintes OQLF et l
 ## Avis de non-responsabilite
 
 Cet article est informationnel et ne constitue pas un avis juridique. AiLys Agency n'est pas un cabinet d'avocats. Pour des avis juridiques sur la Loi 25, la Loi 96 ou la Charte de la langue francaise, consultez un avocat membre du Barreau du Quebec.`,
+      },
+    },
+  },
+
+  // ─── Newsletter "Le Pouls Local" (added with /pouls-local launch) ───
+  {
+    slug: "pouls-local-newsletter",
+    title: "What you get in Le Pouls Local newsletter",
+    excerpt:
+      "Weekly Tuesday-morning newsletter for Quebec PME owners. AI search, GBP, local SEO, Loi 25/96 updates filtered through a real Quebec operator's lens. 4-minute tactical read, free, bilingual EN/FR, 1-click unsubscribe.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 3,
+    body: `## What it is
+
+Le Pouls Local is the AiLys weekly newsletter for Quebec PME owners. One issue per Tuesday morning at 7am ET. 4-minute read. Free. Bilingual (subscribe in EN or FR-CA, switch language anytime via link at the bottom of any issue).
+
+## What's in each issue
+
+Three sections every Tuesday:
+
+1. **What changed this week.** AI search algorithm shifts (ChatGPT/Perplexity/Gemini citation pattern changes), Google Business Profile feature releases, Loi 25 or Loi 96 enforcement updates, OQLF news that affects Quebec commerces.
+2. **One Quebec case study.** Anonymized. Real numbers (review velocity, AI Visibility lift, GBP score progression). What worked, what didn't, what we'd change.
+3. **One tactical move you can run this week.** Specific instructions: which GBP attribute to fill, which schema entry to add, which review to reply to first. 30 minutes of work or less.
+
+## What it's NOT
+
+- Not a sales pitch newsletter. We don't pitch tier upgrades or add-ons in the body.
+- Not a content marketing fluff piece. Every issue ends with a tactical move you can actually execute.
+- Not US blog post recycled with "and Canada too" appended. Quebec context filters every story.
+
+## Privacy
+
+Loi 25-grade consent + double-opt-in. We don't sell, rent, or share subscriber lists. Unsubscribe in one click and we permanently delete your email within 30 days. The Privacy Policy link in every issue is the canonical reference.
+
+## How to subscribe
+
+Visit /pouls-local and enter your email. You'll get a confirmation email within 1 minute (check spam if you don't see it). Click the confirmation link and you're in. First issue arrives the next Tuesday at 7am ET.
+
+## Cancellation
+
+One click on the Unsubscribe link at the bottom of any issue. Email permanently deleted within 30 days per Loi 25 right to be forgotten. You can resubscribe anytime if you change your mind.`,
+    i18n: {
+      fr: {
+        title: "Ce que vous recevez dans l'infolettre Le Pouls Local",
+        excerpt:
+          "Infolettre hebdomadaire du mardi matin pour proprietaires de PME quebecoises. Recherche IA, GBP, SEO local, mises a jour Loi 25/96 filtrees par le prisme d'un vrai operateur quebecois. Lecture tactique de 4 minutes, gratuit, bilingue EN/FR, desabonnement en 1 clic.",
+        body: `## Ce que c'est
+
+Le Pouls Local est l'infolettre hebdomadaire AiLys pour proprietaires de PME quebecoises. Un numero par mardi matin a 7 h HE. Lecture de 4 minutes. Gratuit. Bilingue (abonnez-vous en EN ou FR-CA, changez de langue en tout temps via le lien au bas de chaque numero).
+
+## Ce qu'il y a dans chaque numero
+
+Trois sections chaque mardi :
+
+1. **Ce qui a change cette semaine.** Decalages d'algorithme de recherche IA (changements de motif de citation ChatGPT/Perplexity/Gemini), sorties de fonctionnalites Google Business Profile, mises a jour d'application de la Loi 25 ou Loi 96, nouvelles OQLF qui affectent les commerces quebecois.
+2. **Une etude de cas quebecoise.** Anonymisee. Vrais chiffres (velocite d'avis, hausse Visibilite IA, progression score GBP). Ce qui a marche, ce qui n'a pas marche, ce qu'on changerait.
+3. **Une action tactique que vous pouvez faire cette semaine.** Instructions specifiques : quel attribut GBP remplir, quelle entree de schema ajouter, a quel avis repondre en premier. 30 minutes de travail ou moins.
+
+## Ce que ce n'est PAS
+
+- Pas une infolettre de pitch de vente. On ne vend pas de mise a niveau de forfait ou d'add-ons dans le corps.
+- Pas une piece marketing de contenu superflue. Chaque numero se termine par une action tactique que vous pouvez vraiment executer.
+- Pas un blogue americain recycle avec « et le Canada aussi » ajoute. Le contexte quebecois filtre chaque histoire.
+
+## Vie privee
+
+Consentement de niveau Loi 25 + double opt-in. Nous ne vendons, ne louons ni ne partageons les listes d'abonnes. Desabonnement en un clic et nous supprimons definitivement votre courriel dans les 30 jours. Le lien de la Politique de confidentialite dans chaque numero est la reference canonique.
+
+## Comment s'abonner
+
+Visitez /pouls-local et entrez votre courriel. Vous recevrez un courriel de confirmation dans la minute (verifiez les pourriels si vous ne le voyez pas). Cliquez le lien de confirmation et vous etes inscrit. Le premier numero arrive le mardi suivant a 7 h HE.
+
+## Annulation
+
+Un clic sur le lien Desabonnement au bas de chaque numero. Courriel supprime definitivement dans les 30 jours par droit a l'oubli Loi 25. Vous pouvez vous reabonner en tout temps si vous changez d'avis.`,
+      },
+    },
+  },
+
+  // ─── Quebec PME Awards contest (added with /concours-pme launch) ───
+  {
+    slug: "quebec-pme-awards-2026",
+    title: "Quebec PME Awards 2026: how to nominate, vote, and win",
+    excerpt:
+      "Annual contest honouring the best Quebec PME by region and industry. $5,000 grand prize, 17 regional + sectoral winners. Nominations open September 1, public voting October 5, gala December 12 in Montreal. Free for everyone to nominate and vote.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## What it is
+
+The Quebec PME Awards is AiLys's annual contest honouring the best small and mid-sized PME businesses across Quebec, by region and by industry. 17 regional + sectoral winners + 1 grand prize winner. Total prize pool over $15,000 cash plus 26 months of bundled AiLys services value.
+
+## Timeline
+
+- **September 1, 2026:** Nominations open (anyone can nominate, including the business owner themselves)
+- **October 5, 2026:** Public voting opens (8-week phase)
+- **November 30, 2026:** Voting closes, jury deliberation begins
+- **December 12, 2026:** Winners announced + gala in Montreal
+
+## Categories (17 + 1 = 18 winners)
+
+**8 regional winners** ($1,000 cash + 6 months Core tier free):
+- Greater Montreal
+- Quebec City + Capitale-Nationale
+- Estrie + Eastern Townships
+- Saguenay-Lac-Saint-Jean
+- Mauricie + Centre-du-Quebec
+- Outaouais
+- Bas-Saint-Laurent + Gaspesie
+- Cote-Nord + Northern regions
+
+**8 sectoral winners** ($500 cash + 3 months Starter tier free):
+- Restaurant + Hospitality
+- Health + Wellness clinic
+- Retail + Boutique
+- Trades + Services
+- Beauty + Personal care
+- Professional services
+- Hotel + Lodging
+- Real estate + Property
+
+**1 grand prize: Quebec PME of the Year** ($5,000 cash + 12 months Growth tier free + media kit + 90-day homepage feature + gala trophy).
+
+## Eligibility
+
+- Quebec-incorporated PME (REQ registered) operating at least 12 months as of September 1, 2026
+- Annual revenue under $10M CAD (small + mid-sized only)
+- Loi 25 + Loi 96 compliant (failure-to-comply complaints in past 12 months disqualify)
+- Existing AiLys clients eligible but jurors blinded to client status during deliberation
+- Anyone can submit a nomination (limit one per business)
+
+## How nominations work
+
+Visit /concours-pme starting September 1 to access the nomination form. Required fields:
+- Business name + REQ number
+- Region + sectoral category
+- Brief description of why this PME deserves recognition (200-500 words)
+- Optional: link to their website + GBP listing
+- Nominator's contact info (so we can confirm the nomination)
+
+Each business can be nominated up to 5 times by different people; we count it once but the additional nominations help signal community support to the jury.
+
+## How public voting works
+
+October 5 to November 30. Anyone with a valid email can vote (no AiLys account required). One vote per email per category per day for the duration. Public vote weight is 60% of the regional + sectoral category scoring; jury weight is 40%. Grand prize is jury-only.
+
+## Sponsorship
+
+16 sponsor slots available (8 regional + 8 sectoral category sponsors). Sponsors get logo placement on regional landing pages, mention in winner press releases, and a seat at the gala. Inquire via /book-call.`,
+    i18n: {
+      fr: {
+        title: "Concours PME Quebec 2026 : comment nominer, voter et gagner",
+        excerpt:
+          "Concours annuel honorant les meilleures PME quebecoises par region et industrie. Grand prix 5 000 $, 17 gagnants regionaux + sectoriels. Nominations le 1 septembre, vote public le 5 octobre, gala le 12 decembre a Montreal. Gratuit pour nominer et voter.",
+        body: `## Ce que c'est
+
+Le Concours PME Quebec est le concours annuel d'AiLys honorant les meilleures petites et moyennes entreprises a travers le Quebec, par region et par industrie. 17 gagnants regionaux + sectoriels + 1 gagnant du grand prix. Cagnotte totale de plus de 15 000 $ en argent plus 26 mois de valeur en services AiLys inclus.
+
+## Echeancier
+
+- **1 septembre 2026 :** Ouverture des nominations (n'importe qui peut nominer, incluant le proprietaire lui-meme)
+- **5 octobre 2026 :** Ouverture du vote public (phase de 8 semaines)
+- **30 novembre 2026 :** Fermeture du vote, deliberation du jury
+- **12 decembre 2026 :** Annonce des gagnants + gala a Montreal
+
+## Categories (17 + 1 = 18 gagnants)
+
+**8 gagnants regionaux** (1 000 $ + 6 mois Core gratuits) :
+- Grand Montreal
+- Quebec et Capitale-Nationale
+- Estrie et Cantons-de-l'Est
+- Saguenay-Lac-Saint-Jean
+- Mauricie et Centre-du-Quebec
+- Outaouais
+- Bas-Saint-Laurent et Gaspesie
+- Cote-Nord et regions nordiques
+
+**8 gagnants sectoriels** (500 $ + 3 mois Starter gratuits) :
+- Restauration et hospitalite
+- Clinique sante et bien-etre
+- Detaillant et boutique
+- Metiers et services
+- Beaute et soins personnels
+- Services professionnels
+- Hotel et hebergement
+- Immobilier
+
+**1 grand prix : PME quebecoise de l'annee** (5 000 $ + 12 mois Growth gratuits + trousse media + mise en vedette page d'accueil 90 jours + trophee gala).
+
+## Eligibilite
+
+- PME incorporee au Quebec (enregistree au REQ) operant depuis au moins 12 mois en date du 1 septembre 2026
+- Chiffre d'affaires annuel sous 10 M$ CAD (petites + moyennes seulement)
+- Conforme Loi 25 + Loi 96 (plaintes de non-conformite dans les 12 derniers mois disqualifient)
+- Clients AiLys existants eligibles mais le statut client est cache aux jures durant la deliberation
+- N'importe qui peut soumettre une nomination (limite d'une par entreprise)
+
+## Comment fonctionnent les nominations
+
+Visitez /concours-pme a partir du 1 septembre pour acceder au formulaire. Champs requis :
+- Nom de l'entreprise + numero REQ
+- Region + categorie sectorielle
+- Breve description de pourquoi cette PME merite reconnaissance (200-500 mots)
+- Optionnel : lien vers leur site web + fiche GBP
+- Coordonnees du nominateur (pour confirmer la nomination)
+
+Chaque entreprise peut etre nominee jusqu'a 5 fois par differentes personnes; nous comptons une fois mais les nominations additionnelles aident a signaler le soutien communautaire au jury.
+
+## Comment fonctionne le vote public
+
+Du 5 octobre au 30 novembre. N'importe qui avec un courriel valide peut voter (aucun compte AiLys requis). Un vote par courriel par categorie par jour pour la duree. Le poids du vote public est de 60 % du pointage des categories regionales + sectorielles; le poids du jury est de 40 %. Le grand prix est jury seulement.
+
+## Commandite
+
+16 places de commandite disponibles (8 commanditaires de categorie regionale + 8 sectorielle). Les commanditaires obtiennent leur logo sur les pages d'atterrissage regionales, mention dans les communiques des gagnants et une place au gala. Renseignez-vous via /book-call.`,
+      },
+    },
+  },
+
+  // ─── Performance guarantee (added with /garantie launch) ───
+  {
+    slug: "performance-guarantee-explained",
+    title: "Performance guarantee: what we promise + what we don't",
+    excerpt:
+      "Three conditional guarantees AiLys can actually back: GBP perfect score in 30 days, AI Visibility +20% in 90 days, 10 authentic reviews in 90 days. Each conditional on client cooperation. Free month if missed. What we explicitly DON'T guarantee + why.",
+    category: "pricing-plans",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## What we guarantee
+
+Three guarantees, each covering a metric AiLys controls (NOT a metric Google or AI engines control), each conditional on client cooperation during onboarding.
+
+### Guarantee 1: GBP optimization, perfect score in 30 days
+
+Your Google Business Profile reaches the published optimization checklist (categories, attributes, photos, posts, Q&A, NAP) within 30 days. If we don't deliver, your second month is free.
+
+**Conditions:**
+- Client provides verified GBP access in week 1
+- Client uploads at least 12 original photos in month 1 (we provide the upload form via Reviuzy)
+- Client responds to clarification questions within 5 business days
+
+**Available on:** Starter, Core, Growth, Agency.
+
+### Guarantee 2: AI Visibility +20% in 90 days
+
+Your AI Visibility score (citations across ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for your tracked queries) increases by 20% or more within 90 days. If not, month 4 is free.
+
+**Conditions:**
+- Client provides initial AI Visibility baseline within week 1
+- Client uploads photos as required (Starter 4/mo, Core 6/mo, Growth 8/mo, Agency 12/mo)
+- Client maintains active GBP (does not pause posts mid-engagement)
+
+**Available on:** Core, Growth, Agency.
+
+### Guarantee 3: 10 authentic reviews in 90 days
+
+You receive 10 or more authentic Google reviews within 90 days when you use the NFC tap-to-review flow at the point of service. If not, month 4 is free.
+
+**Conditions:**
+- Reviuzy NFC card placed at point of service in week 1
+- Front-desk staff trained to invite the tap (we provide the script in EN+FR)
+- Business serves at least 25 customers per week (lower volume waivers available)
+
+**Available on:** Reviuzy add-on or Agency tier.
+
+## What we explicitly DON'T guarantee
+
+### Top 3 organic Google ranking on specific keywords
+Google's organic algorithm is a black box. We influence it through correct schema and content, but we don't control it. No Quebec agency that promises specific rankings is being honest with you.
+
+### Number of new customers, leads, or revenue increase
+We control your discoverability. We do NOT control your conversion (your offer, pricing, sales process, customer service, store hours). Outcomes depend on factors outside marketing.
+
+### Outcomes if you cancel before the guarantee window closes
+Each guarantee runs over a defined window (30 or 90 days). Cancelling before the window closes voids the guarantee for that period. You're free to leave (no contract), but you can't claim a free month you didn't earn.
+
+## How to claim a free month
+
+1. Email anthonyng135@gmail.com (or use the Reviuzy admin) within 7 days of the guarantee window closing.
+2. We pull the audit log (GBP score history, AI Visibility report, review log) and verify whether the guarantee triggered.
+3. If yes, the next month's invoice is automatically credited. If conditions weren't met, we explain which condition failed and offer a 60-day extension to retry.
+
+## Fine print
+
+Guarantees apply to month-to-month engagements signed after May 1, 2026. Annual prepay engagements have separate terms (see your contract). The guarantee text on /garantie + this article is the canonical reference; if your contract uses different language, the more favorable text applies.`,
+    i18n: {
+      fr: {
+        title: "Garantie de performance : ce que nous promettons + ce que nous ne promettons pas",
+        excerpt:
+          "Trois garanties conditionnelles qu'AiLys peut vraiment soutenir : GBP score parfait en 30 jours, Visibilite IA +20 % en 90 jours, 10 avis authentiques en 90 jours. Chacune conditionnelle a la cooperation client. Mois gratuit si manquees. Ce qu'on ne garantit PAS + pourquoi.",
+        body: `## Ce que nous garantissons
+
+Trois garanties, chacune couvrant une metrique qu'AiLys controle (PAS une metrique que Google ou les moteurs IA controlent), chacune conditionnelle a la cooperation client durant l'onboarding.
+
+### Garantie 1 : Optimisation GBP, score parfait en 30 jours
+
+Votre fiche Google Business Profile atteint la liste d'optimisation publiee (categories, attributs, photos, publications, Q&R, NAP) dans les 30 jours. Si nous ne livrons pas, votre deuxieme mois est gratuit.
+
+**Conditions :**
+- Le client fournit l'acces verifie GBP en semaine 1
+- Le client televerse au moins 12 photos originales au mois 1 (nous fournissons le formulaire via Reviuzy)
+- Le client repond aux questions de clarification dans les 5 jours ouvrables
+
+**Disponible sur :** Starter, Core, Growth, Agency.
+
+### Garantie 2 : Visibilite IA +20 % en 90 jours
+
+Votre score Visibilite IA (citations sur ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour vos requetes suivies) augmente de 20 % ou plus dans les 90 jours. Sinon, le mois 4 est gratuit.
+
+**Conditions :**
+- Le client fournit la base de Visibilite IA initiale en semaine 1
+- Le client televerse les photos requises (Starter 4/mo, Core 6/mo, Growth 8/mo, Agency 12/mo)
+- Le client maintient son GBP actif (ne met pas en pause les publications en cours d'engagement)
+
+**Disponible sur :** Core, Growth, Agency.
+
+### Garantie 3 : 10 avis authentiques en 90 jours
+
+Vous recevez 10 avis Google authentiques ou plus dans les 90 jours lorsque vous utilisez le flux NFC tap-to-review au point de service. Sinon, le mois 4 est gratuit.
+
+**Conditions :**
+- Carte NFC Reviuzy placee au point de service en semaine 1
+- Personnel de reception forme a inviter le tap (script fourni EN+FR)
+- L'entreprise sert au moins 25 clients par semaine (derogations possibles pour volume inferieur)
+
+**Disponible sur :** Add-on Reviuzy ou forfait Agency.
+
+## Ce que nous ne garantissons PAS
+
+### Top 3 classement organique Google sur mots-cles specifiques
+L'algorithme organique de Google est une boite noire. Nous l'influencons via schema et contenu corrects, mais nous ne le controlons pas. Aucune agence quebecoise qui promet des classements specifiques n'est honnete avec vous.
+
+### Nombre de nouveaux clients, prospects ou augmentation de revenus
+Nous controlons votre decouvrabilite. Nous NE controlons PAS votre conversion (votre offre, vos prix, votre processus de vente, votre service client, vos heures d'ouverture). Les resultats dependent de facteurs hors marketing.
+
+### Resultats si vous annulez avant la fermeture de la fenetre de garantie
+Chaque garantie s'execute sur une fenetre definie (30 ou 90 jours). Annuler avant la fermeture de la fenetre annule la garantie pour cette periode. Vous etes libre de partir (aucun contrat), mais vous ne pouvez pas reclamer un mois gratuit non gagne.
+
+## Comment reclamer un mois gratuit
+
+1. Envoyez un courriel a anthonyng135@gmail.com (ou utilisez l'admin Reviuzy) dans les 7 jours suivant la fermeture de la fenetre de garantie.
+2. Nous tirons le journal d'audit (historique du score GBP, rapport Visibilite IA, journal des avis) et verifions si la garantie s'est declenchee.
+3. Si oui, la facture du mois suivant est automatiquement creditee. Si les conditions n'ont pas ete remplies, nous expliquons laquelle a echoue et offrons une prolongation de 60 jours pour reessayer.
+
+## Petits caracteres
+
+Les garanties s'appliquent aux engagements mois-a-mois signes apres le 1 mai 2026. Les engagements annuels prepayes ont des conditions distinctes (voir votre contrat). Le texte de garantie sur /garantie + cet article est la reference canonique; si votre contrat utilise un libelle different, c'est le texte le plus favorable qui s'applique.`,
+      },
+    },
+  },
+
+  // ─── NFC Welcome Kit (added with /trousse-nfc launch) ───
+  {
+    slug: "nfc-welcome-kit-explained",
+    title: "What's in the AiLys NFC Welcome Kit",
+    excerpt:
+      "Physical onboarding kit shipped to every Reviuzy add-on client. 5 NFC business cards + 2 NFC table tents + quick-start card + handwritten thank-you note. Ships within 24h of activation, FedEx-tracked, ~$20 cost per kit, bundled at no extra cost.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 3,
+    body: `## What's in the box
+
+When you activate the Reviuzy add-on (or sign up for Agency tier where it's bundled), we mail you a physical welcome kit:
+
+- **5 NFC business cards.** Premium 30mil PVC, branded with your logo + a discreet "Tap to review" prompt. Customers tap with their phone, the Google review form opens pre-filled in their language. Distribute one per staff member or keep at the counter.
+- **2 NFC table tents.** Acrylic stand 4x6 inches, double-sided. Place at hostess station, on tables, or at the front counter. Larger surface than the cards, easier for customers to spot at a glance.
+- **1 quick-start card.** Bilingual EN+FR setup instructions: how the NFC tap works, how to invite customers to tap, how to read your weekly review report in Reviuzy, what to do if a customer's phone doesn't tap (95% of phones support NFC by 2026, but the rare exception happens).
+- **1 handwritten thank-you note.** Signed by Anthony (founder). Small, but it's the part most clients mention months later. Real ink on paper, mailed from Quebec.
+
+## How tap-to-review works
+
+1. Customer finishes their service (manicure done, sushi paid, dental cleaning complete).
+2. Staff invites them: "If you enjoyed it, tap your phone here." (Script provided in EN + FR.)
+3. Customer's phone reads the NFC chip. Google review form opens immediately, pre-filled with the business name and the customer's preferred language.
+4. Customer rates 1-5 stars and (optionally) writes a short review. Submit takes 30 seconds total.
+5. Reviuzy receives the review, AI-generates a contextual reply in the customer's language, queues it for your approval (or auto-replies if you turned that on).
+
+## When you get it
+
+- **Reviuzy add-on activated:** Kit ships within 24h.
+- **Agency tier signup:** Kit shipped at signup as part of welcome bundle.
+- Tracked link emailed once it's in transit. Arrives in 5-7 business days.
+
+## Reorders
+
+First reorder per year is free. Subsequent reorders: $25 for 5 cards or 2 tents. Order via the Reviuzy admin (Settings → Welcome Kit). Ships within 48h.
+
+## Why physical mail in 2026
+
+Wix activates with an email. BrightLocal sends a PDF. Yext gives you a dashboard URL. They're all digital-only because mailing physical stuff costs money. We mail it because the package is the part of onboarding clients remember 6 months later. "Hey, that handwritten note was a nice touch" closes more renewals than any feature pitch. Cost to us: ~$20 per client (cards, tents, FedEx). Worth it.`,
+    i18n: {
+      fr: {
+        title: "Ce qu'il y a dans la trousse NFC AiLys",
+        excerpt:
+          "Trousse d'onboarding physique expediee a chaque client add-on Reviuzy. 5 cartes d'affaires NFC + 2 tents de table NFC + carte de demarrage + mot de remerciement ecrit a la main. Expedie dans les 24 h de l'activation, suivi FedEx, cout ~20 $ par trousse, inclus sans cout additionnel.",
+        body: `## Ce qu'il y a dans la boite
+
+Quand vous activez l'add-on Reviuzy (ou que vous vous inscrivez au forfait Agency ou c'est inclus), nous vous postons une trousse de bienvenue physique :
+
+- **5 cartes d'affaires NFC.** PVC premium 30mil, marquees avec votre logo + une invitation discrete « Tapez pour evaluer ». Les clients tapent avec leur telephone, le formulaire d'avis Google s'ouvre pre-rempli dans leur langue. Distribuez-en une par employe ou gardez-les au comptoir.
+- **2 tents de table NFC.** Support acrylique 4x6 pouces, recto-verso. Placez a la reception, sur les tables ou au comptoir. Plus grande surface que les cartes, plus facile a reperer en un coup d'oeil.
+- **1 carte de demarrage rapide.** Instructions bilingues EN+FR : comment fonctionne le tap NFC, comment inviter les clients a taper, comment lire votre rapport d'avis hebdomadaire dans Reviuzy, quoi faire si le telephone d'un client ne tape pas (95 % des telephones supportent NFC en 2026, mais l'exception rare arrive).
+- **1 mot de remerciement ecrit a la main.** Signe par Anthony (fondateur). Petit, mais c'est la partie que la plupart des clients mentionnent des mois plus tard. Vraie encre sur papier, postee du Quebec.
+
+## Comment fonctionne le tap-to-review
+
+1. Le client termine son service (manucure faite, sushi paye, nettoyage dentaire complete).
+2. Le personnel l'invite : « Si vous avez aime, tapez votre telephone ici. » (Script fourni EN + FR.)
+3. Le telephone du client lit la puce NFC. Le formulaire d'avis Google s'ouvre immediatement, pre-rempli avec le nom de l'entreprise et la langue preferee du client.
+4. Le client note 1-5 etoiles et (optionnellement) ecrit un court avis. La soumission prend 30 secondes au total.
+5. Reviuzy recoit l'avis, l'IA genere une reponse contextuelle dans la langue du client, la met en file pour votre approbation (ou repond automatiquement si vous l'avez active).
+
+## Quand vous le recevez
+
+- **Add-on Reviuzy active :** la trousse expedie dans les 24 h.
+- **Inscription forfait Agency :** trousse expediee au signup dans la trousse de bienvenue.
+- Lien de suivi envoye par courriel une fois en transit. Arrive en 5-7 jours ouvrables.
+
+## Recommandes
+
+Le premier recommande par annee est gratuit. Recommandes suivants : 25 $ pour 5 cartes ou 2 tents. Commandez via l'admin Reviuzy (Parametres → Trousse de bienvenue). Expedie dans les 48 h.
+
+## Pourquoi du courrier physique en 2026
+
+Wix s'active par courriel. BrightLocal envoie un PDF. Yext donne une URL de tableau de bord. Ils sont tous numeriques seulement parce qu'envoyer du materiel physique coute. Nous l'envoyons parce que le colis est la partie de l'onboarding dont les clients se souviennent 6 mois plus tard. « Ah, le mot ecrit a la main, c'etait une belle attention » ferme plus de renouvellements que n'importe quelle presentation de fonctionnalite. Cout pour nous : ~20 $ par client (cartes, tents, FedEx). Ca vaut la peine.`,
+      },
+    },
+  },
+
+  // ─── AI Receptionist add-on (added with /reception-ia launch) ───
+  {
+    slug: "ai-receptionist-explained",
+    title: "AI Receptionist: how it answers your phone 24/7",
+    excerpt:
+      "Voice AI receptionist add-on ($200/mo or bundled in Agency). Answers calls 24/7 in Quebec French + English, books appointments, detects emergencies, captures leads. 30-day refund-if-doesn't-pay-for-itself guarantee.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## What it does
+
+The AI Receptionist add-on answers your business phone 24/7 with a voice AI assistant tuned for Quebec French + English. Local commerces lose 30 to 40 percent of after-hours and lunch-break calls. Even a 10 percent capture rate at $50 average transaction is $1500 to $3000 per month per location, recovered.
+
+## 6 capabilities
+
+1. **Answers in Quebec French + English.** Native Quebec French intonation (not Parisian, not generic Canadian-English-French). Detects caller language in 2 seconds, speaks their language for the rest of the call. Switches mid-call if caller switches.
+2. **Books appointments directly into your calendar.** Synced with Google Calendar, Outlook, Calendly, or your industry-specific booking tool (Dentrix, ClinicSense, Phorest for salons, etc.). Confirms in real time, sends SMS confirmation to caller, blocks the slot in your calendar.
+3. **Detects emergencies and routes correctly.** Trained on your industry's emergency keywords ("chest pain" + "can't breathe" for clinics; "flooding" + "no heat" for plumbers/HVAC; "locked out" + "car accident" for trades). Routes to your on-call line, your manager's cell, or 911 per the protocol you set.
+4. **Captures lead info when you can't take the call.** If the caller is asking for a quote and you're with a customer, the receptionist takes their name, phone, the service they need, when they're free for a callback, and writes it to your CRM.
+5. **24/7 coverage including holidays.** Calls at 11pm, Sunday morning, December 25 are all answered. The receptionist knows your business hours and tells the caller "we open Tuesday at 9am, can I take your callback info?" instead of letting the call go to voicemail (which 60% of callers hang up on).
+6. **Records + transcribes every call.** Audio recording + full text transcript stored in Reviuzy. Searchable by date, caller phone, keyword. Loi 25 compliant: caller is informed at the start of the call that recording is in progress and consents implicitly by continuing.
+
+## What it does NOT do
+
+- Doesn't pretend to be human. Tells callers "this is the AiLys voice assistant for [Business]" at the start of every call.
+- Doesn't process payments or take credit-card numbers (sensitive data + Loi 25 risk).
+- Doesn't make sales pitches or upsell. Strictly information + booking + lead capture.
+- Doesn't replace your team. Replaces voicemail + missed calls.
+
+## Pricing + guarantee
+
+$200/month add-on (or bundled in Agency tier). 30-day satisfaction guarantee. We track every call captured + every appointment booked. If the receptionist doesn't generate at least $200 of attributable bookings or recovered leads in month 1, full refund + cancellation.
+
+## Setup
+
+Setup takes 14 to 21 business days (voice training + calendar integration + emergency keyword tuning). After setup, the receptionist goes live and you start receiving daily call summaries via email + Reviuzy admin.`,
+    i18n: {
+      fr: {
+        title: "Receptionniste IA : comment elle repond a votre telephone 24/7",
+        excerpt:
+          "Add-on de receptionniste IA vocale (200 $/mois ou inclus dans Agency). Repond aux appels 24/7 en francais quebecois + anglais, prend les rendez-vous, detecte les urgences, capture les prospects. Garantie de satisfaction 30 jours.",
+        body: `## Ce qu'elle fait
+
+L'add-on Receptionniste IA repond a votre telephone d'affaires 24/7 avec une assistante vocale IA accordee pour le francais quebecois + anglais. Les commerces locaux perdent 30 a 40 % des appels apres les heures et durant l'heure du diner. Meme un taux de capture de 10 % a 50 $ par transaction moyenne, c'est 1500 a 3000 $ par mois par emplacement, recuperes.
+
+## 6 capacites
+
+1. **Repond en francais quebecois + anglais.** Intonation francaise quebecoise native (pas parisienne, pas franco-canadienne generique). Detecte la langue de l'appelant en 2 secondes, parle dans sa langue pour le reste de l'appel. Change en cours d'appel si l'appelant change.
+2. **Prend des rendez-vous directement dans votre calendrier.** Synchronise avec Google Agenda, Outlook, Calendly ou votre outil de reservation specifique (Dentrix, ClinicSense, Phorest pour salons, etc.). Confirme en temps reel, envoie un SMS de confirmation a l'appelant, bloque le creneau dans votre calendrier.
+3. **Detecte les urgences et redirige correctement.** Entrainee aux mots-cles d'urgence de votre industrie (« douleur thoracique » + « ne respire pas » pour cliniques; « inondation » + « pas de chaleur » pour plombiers/CVC; « accident d'auto » + « barre dehors » pour metiers). Redirige vers votre ligne de garde, le cellulaire du gerant ou le 911 selon le protocole que vous etablissez.
+4. **Capture les infos de prospect quand vous ne pouvez pas prendre l'appel.** Si l'appelant demande une soumission et que vous etes avec un client, la receptionniste prend son nom, son telephone, le service qu'il veut, quand il est libre pour un rappel, et l'ecrit dans votre CRM.
+5. **Couverture 24/7 incluant les jours feries.** Les appels a 23 h, le dimanche matin, le 25 decembre sont tous repondus. La receptionniste connait vos heures d'ouverture et dit a l'appelant « on ouvre mardi a 9 h, puis-je prendre vos coordonnees pour rappel? » au lieu de laisser l'appel aller a la boite vocale (que 60 % des appelants raccrochent).
+6. **Enregistre + transcrit chaque appel.** Enregistrement audio + transcription textuelle integrale stockes dans Reviuzy. Recherchable par date, telephone de l'appelant, mot-cle. Conforme Loi 25 : l'appelant est informe au debut de l'appel que l'enregistrement est en cours et consent implicitement en poursuivant.
+
+## Ce qu'elle ne fait PAS
+
+- Ne pretend pas etre humaine. Dit aux appelants « ceci est l'assistante vocale AiLys pour [Entreprise] » au debut de chaque appel.
+- Ne traite pas les paiements ni ne prend les numeros de carte de credit (donnees sensibles + risque Loi 25).
+- Ne fait pas de promotion ou d'upsell. Strictement information + reservation + capture de prospect.
+- Ne remplace pas votre equipe. Remplace la boite vocale + les appels manques.
+
+## Tarification + garantie
+
+200 $/mois en add-on (ou inclus dans le forfait Agency). Garantie de satisfaction 30 jours. Nous suivons chaque appel capture + chaque rendez-vous reserve. Si la receptionniste ne genere pas au moins 200 $ de reservations attribuables ou de prospects recuperes au mois 1, remboursement complet + annulation.
+
+## Configuration
+
+La configuration prend 14 a 21 jours ouvrables (entrainement vocal + integration calendrier + accordage des mots-cles d'urgence). Apres la configuration, la receptionniste passe en direct et vous commencez a recevoir des resumes d'appels quotidiens par courriel + admin Reviuzy.`,
+      },
+    },
+  },
+
+  // ─── WhatsApp Business add-on (added with /whatsapp-business launch) ───
+  {
+    slug: "whatsapp-business-explained",
+    title: "WhatsApp Business integration: when it pays off",
+    excerpt:
+      "WhatsApp Business API integration for Quebec PMEs serving multilingual neighborhoods (Latino, Maghrebi, Portuguese, Indian, Lebanese). $80/mo or bundled in Agency. Multi-language auto-replies, unified inbox SMS+WA+FB+IG, Loi 25 + Meta compliant.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## When this add-on pays off
+
+Quebec PMEs whose customer base includes communities where WhatsApp is the default messaging app. If a meaningful share of your walk-ins speak Spanish, Arabic, Portuguese, Hindi, Urdu, or another WhatsApp-dominant language at home, this add-on pays for itself fast. Greater Montreal verticals where WhatsApp dominates customer messaging:
+
+- Latino restos in Cote-des-Neiges
+- Maghrebi grocery + halal butchers in St-Michel
+- Portuguese bakeries in the Plateau
+- Indian + Pakistani salons in Pierrefonds
+- Lebanese + Syrian restos in Park-Extension
+- Brossard sushi counters with Mandarin clientele
+
+Commerces serving these neighborhoods lose 15 to 30 percent of would-be inquiries because they only offer Google Forms or phone, not WhatsApp.
+
+## What's included
+
+1. **WhatsApp Business API connected to your number.** Verified business profile (green checkmark eligible). Customers can message your existing business number on WhatsApp the same way they message friends. Replies go through your team or AI assistant.
+2. **Multi-language auto-replies.** Detects the language of the incoming message (FR, EN, ES, AR, PT, ZH, VI, etc.) and replies in that language. Templates pre-built per industry.
+3. **Unified inbox across SMS + WhatsApp + Messenger + Instagram DM.** All inbound messages from every channel land in a single Reviuzy inbox. Your team replies once, the response goes back through the channel the customer used.
+4. **Group broadcasts (Loi 25 + Meta compliant).** Send appointment reminders, monthly promos, or community updates to opted-in customers in batches. WhatsApp's Business API is strict about consent.
+5. **Business-hours awareness.** After-hours messages get an automatic "we'll get back to you tomorrow at 9am" response in the customer's language. During business hours, urgent keywords (cancellation, emergency) get prioritized in the inbox.
+6. **Review request after positive WhatsApp interaction.** When a WhatsApp conversation closes positively (booking confirmed, question answered, problem resolved), the system optionally sends a Google review link 24 hours later.
+
+## Compliance baked in
+
+- Customer-initiated conversations are always free; broadcast/marketing messages require explicit Loi 25 consent recorded in the audit log.
+- Meta-approved message templates only (we handle the submission). Avoids account suspension that hits 30 percent of self-managed WhatsApp Business accounts in year 1.
+- STOP keyword in any language unsubscribes the customer + permanently removes their number within 7 days (Loi 25 right to be forgotten).
+
+## Pricing + setup
+
+$80/month add-on. Setup in 7 to 14 business days (Meta verification timeline). 30-day satisfaction guarantee. Bundled at no extra cost in the Agency tier.
+
+## What it doesn't do
+
+- Doesn't replace your phone line. WhatsApp is for text-based interactions; voice calls still come through your existing line (or the AI Receptionist add-on if subscribed).
+- Doesn't auto-send promotional messages to anyone you haven't opted in. Meta enforces this strictly; trying to bypass results in account suspension within 24 hours.
+- Doesn't post to your WhatsApp Status feed automatically (Meta API doesn't permit programmatic Status posts). You can post Status updates manually as you would today.`,
+    i18n: {
+      fr: {
+        title: "Integration WhatsApp Business : quand ca rapporte",
+        excerpt:
+          "Integration API WhatsApp Business pour PME quebecoises servant clientele multilingue (latino, maghrebine, portugaise, indienne, libanaise). 80 $/mois ou inclus dans Agency. Reponses auto multilingues, boite unifiee SMS+WA+FB+IG, conforme Loi 25 + Meta.",
+        body: `## Quand cet add-on rapporte
+
+PME quebecoises dont la clientele inclut des communautes ou WhatsApp est l'application de messagerie par defaut. Si une part significative de vos clients parlent espagnol, arabe, portugais, hindi, ourdou ou une autre langue dominee par WhatsApp a la maison, cet add-on se rentabilise rapidement. Verticales du Grand Montreal ou WhatsApp domine la messagerie client :
+
+- Restos latinos a Cote-des-Neiges
+- Epiceries maghrebines + boucheries halal a St-Michel
+- Boulangeries portugaises au Plateau
+- Salons indiens + pakistanais a Pierrefonds
+- Restos libanais + syriens a Park-Extension
+- Comptoirs sushi a Brossard avec clientele mandarine
+
+Les commerces servant ces quartiers perdent 15 a 30 % des demandes potentielles parce qu'ils n'offrent que des formulaires Google ou le telephone, pas WhatsApp.
+
+## Ce qui est inclus
+
+1. **API WhatsApp Business connectee a votre numero.** Profil d'entreprise verifie (eligible au crochet vert). Les clients peuvent envoyer un message a votre numero d'affaires existant sur WhatsApp comme ils ecrivent a des amis. Les reponses passent par votre equipe ou par l'assistant IA.
+2. **Reponses automatiques multilingues.** Detecte la langue du message entrant (FR, EN, ES, AR, PT, ZH, VI, etc.) et repond dans cette langue. Modeles preconstuits par industrie.
+3. **Boite de reception unifiee pour SMS + WhatsApp + Messenger + Instagram DM.** Tous les messages entrants de chaque canal arrivent dans une seule boite Reviuzy. Votre equipe repond une fois, la reponse retourne par le canal qu'a utilise le client.
+4. **Diffusion de groupe (conforme Loi 25 + Meta).** Envoyez des rappels de rendez-vous, des promotions mensuelles ou des mises a jour communautaires aux clients consentants par lots. L'API WhatsApp Business est stricte sur le consentement.
+5. **Conscience des heures d'ouverture.** Les messages apres heures recoivent une reponse automatique « nous reviendrons vers vous demain a 9 h » dans la langue du client. Durant les heures d'ouverture, les mots-cles urgents (annulation, urgence) sont priorises dans la boite de reception.
+6. **Demande d'avis apres une interaction WhatsApp positive.** Quand une conversation WhatsApp se termine positivement (reservation confirmee, question repondue, probleme regle), le systeme envoie optionnellement un lien d'avis Google 24 heures plus tard.
+
+## Conformite integree
+
+- Les conversations initiees par le client sont toujours gratuites; les messages de diffusion/marketing exigent un consentement explicite Loi 25 journalise.
+- Modeles de message approuves par Meta uniquement (nous gerons la soumission). Evite la suspension de compte qui touche 30 % des comptes WhatsApp Business autogeres en annee 1.
+- Mot-cle ARRET dans n'importe quelle langue desabonne le client + retire definitivement son numero dans les 7 jours (droit a l'oubli Loi 25).
+
+## Tarification + configuration
+
+80 $/mois en add-on. Configuration en 7 a 14 jours ouvrables (delai de verification Meta). Garantie de satisfaction 30 jours. Inclus sans cout additionnel dans le forfait Agency.
+
+## Ce qu'il ne fait pas
+
+- Ne remplace pas votre ligne telephonique. WhatsApp est pour les interactions textuelles; les appels vocaux passent toujours par votre ligne existante (ou l'add-on Receptionniste IA si souscrit).
+- N'envoie pas automatiquement de messages promotionnels a quiconque n'a pas consenti. Meta applique ca strictement; essayer de contourner resulte en suspension de compte dans les 24 heures.
+- Ne publie pas a votre flux WhatsApp Status automatiquement (l'API Meta ne permet pas les publications Status programmatiques). Vous pouvez publier les Status manuellement comme vous le feriez aujourd'hui.`,
       },
     },
   },

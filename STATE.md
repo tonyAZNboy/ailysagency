@@ -2,6 +2,169 @@
 
 ---
 
+## 🧸🐾🏋️ SESSION 2026-05-02 (Frontend Batch 2 cont'd) — vet-clinics + gyms-studios + daycares + portfolio variants
+
+**Shipped (extending PR #141 already-open from frontend-batch-2 branch):**
+- `vet-clinics` industry vertical (Quebec OMVQ-aware, Loi 25 pet records, ~660 lines EN+FR)
+- `gyms-studios` industry vertical (boutique fitness, Mindbody/Glofox API mirror, ~660 lines EN+FR)
+- `daycares` industry vertical (CPE + garderies privees, MFA-aware, AI Concierge tour-response, ~660 lines EN+FR)
+- 6 new portfolio samples in `portfolio-samples.ts` demonstrating
+  multi-template-per-vertical concept (3 lawyers variants, 2
+  restaurants variants, 1 dentists pediatric variant + 1 daycares
+  sample)
+
+**Industries total:** 13 verticals (was 9 after PR #125, now +4: hair-salons,
+gyms-studios, vet-clinics, daycares).
+
+**Portfolio total:** 15 samples (was 9, now +6).
+
+## 🚧 SCENARIO A QUEUED (after Tuesday 13:00 quota refresh) — Variants per vertical
+
+**User decision recorded 2026-05-02:** Scenario A (multiple
+templates per vertical via route variants) is queued for after
+Tuesday next week 13:00 (when translation quota refreshes).
+
+**What Scenario A delivers:**
+A typed `variants` field on the `Industry` interface that lets a
+vertical decline into multiple visual personalities:
+
+```ts
+interface Industry {
+  slug: IndustrySlug;
+  variants?: {
+    [variantSlug: string]: {
+      moodOverride: MoodId;
+      heroVariant: "default" | "split" | "video" | "swatch";
+      contentOverrides?: Partial<IndustryContent>;
+    };
+  };
+}
+```
+
+Routes become:
+- `/industries/dentists` (default = current behavior)
+- `/industries/dentists/familial-quebec` (variant)
+- `/industries/dentists/cosmetique-luxe` (variant)
+- `/industries/dentists/pediatrique-bilingue` (variant)
+
+**Why queued vs. shipped now:**
+- Each variant requires translated content (titles, descriptions,
+  pain-points overrides), which is translation-quota-intensive
+- Translation quota near weekly limit; user explicit constraint to
+  not touch translations to non-EN/FR languages this week
+- Tuesday next week after 13:00, quota refreshes
+
+**Where the demand was demonstrated this session:**
+- Portfolio samples now include 3 lawyer variants (Tannenbaum corp
+  litigation tech-corporate / Moreau family law premium-dark /
+  Clinique Juridique Mile End friendly-local), 2 resto variants
+  (Table Quebecoise luxe-editorial / Casse-Croute chaleureux-artisan),
+  1 dentists variant (Centre Pediatrique friendly-local for kids).
+- These prove the visual flexibility WITHOUT requiring route refactor
+  or content variants in the data file. Prospects browsing
+  /realisations see the same vertical in multiple moods.
+
+**Phasing for Scenario A delivery (3 sub-phases, post Tuesday):**
+1. **Phase A1** (1 session): Refactor `Industry.tsx` to read optional
+   `variantSlug` URL param, fall back to default when absent, add
+   variant-aware mood + content override resolution. Add
+   `variants` field to Industry interface as optional. Zero behavior
+   change for existing routes.
+2. **Phase A2** (1 session): Author 3 variants per vertical for the
+   13 existing verticals (= 39 variants). Translation work goes here
+   (EN+FR full coverage for each variant; secondary locales fall
+   back to EN per existing pattern).
+3. **Phase A3** (1 session): Update `/industries` index page to
+   show variant chips per vertical card, update `/realisations`
+   filter to allow filtering by variant, add hreflang +
+   sitemap entries for the 39 variant URLs (× 16 locales = 624 new
+   sitemap entries).
+
+**Total Scenario A effort estimate:** 3 sessions (~3-5 days) post
+Tuesday 13:00 quota refresh.
+
+---
+
+## 💇 SESSION 2026-05-02 (Frontend Batch 2) — hair-salons industry + footer wiring
+
+**Shipped (post-PR-#125-merge, on new branch claude/frontend-batch-2):**
+1. New `hair-salons` industry vertical (~660 lines content EN+FR,
+   distinct from `nail-salons`). Quebec hair salon market (Plateau,
+   Mile End, Westmount, Brossard, Outremont) with stylist-by-stylist
+   Person schema strategy + premium pricing tier focus.
+2. Footer link wiring for 10 new conversion pages shipped in PR #125
+   marathon: NAP audit, Web portfolio, Quebec compliance, Performance
+   guarantee, Le Pouls Local newsletter, Concours PME 2026, NFC kit,
+   AI Receptionist, WhatsApp Business, AiLys Verified Badge.
+
+**Why:**
+- hair-salons fills the obvious Quebec market gap (we had nail-salons
+  but missed the larger hair/spa segment)
+- Footer wiring resolves discoverability deficit: PR #125 shipped 14
+  new pages but only the route-level access existed; users had no
+  navigation path from the marketing surface
+
+**Files modified:**
+- `src/data/industries.ts`: IndustrySlug union + hairSalons const
+  (~660 lines) + array entry
+- `src/design-system/moods/vertical-defaults.ts`: hair-salons mood
+  default = premium-dark (gold-on-black, suits premium hair-salon
+  market positioning)
+- `src/components/landing/Footer.tsx`: company array extended with
+  10 new entries
+- `scripts/generate-sitemap.mjs`: hair-salons entry x 16 locales =
+  16 new URLs
+
+**Mood for hair-salons:** premium-dark (TopologyBackground swap to
+NetworkBackground per design-system fallback). Premium pricing tier
+($150-300 services) deserves the "serious + expensive" aesthetic. The
+H1 italic uses gold gradient (amber-300 to yellow-600).
+
+**Verification:**
+- /fr/industries/hair-salons: H1 "Faites-vous citer par ChatGPT
+  quand vos clientes cherchent meilleur coloriste balayage pres de
+  moi" renders
+- Mood: italic gradient `from-amber-300 via-amber-400 to-yellow-600`
+  (premium-dark gold) confirmed
+- 8 stepper items render (DS v1.2 MethodologyStepper working)
+- 3 chat mockups render (DS v1.2 ChatMockup working)
+- Body contains "balayage" (specific content marker)
+- Footer renders 10 new conversion-page links (all visible in DOM)
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~13s
+- audit-translations-deep 0 missing across 15 non-EN locales
+
+**i18n discipline (per ongoing user constraint):**
+- Zero new i18n keys (all inline T() helper EN+FR for content; data
+  file uses industry.en + industry.fr fields per existing pattern)
+- 14 secondary locales fall back to EN naturally via getIndustryContent
+- 3 pre-existing em-dashes in Russian translations of lawyers/restos
+  industries NOT touched (per user constraint: don't touch translations
+  to languages other than EN/FR this week; logged for next Tuesday
+  after 13:00 in translation queue)
+
+**Cross-session safety (parallel session on structuredLog lib + sub-phase 7):**
+- Stayed 100% in frontend territory: src/data/, src/design-system/,
+  src/components/landing/Footer.tsx, scripts/generate-sitemap.mjs
+- Zero touch on functions/lib/, functions/api/, .github/workflows/,
+  scripts/smoke-*.mjs, docs/state-archive
+- Their structuredLog lib + audit-* refactors won't conflict with
+  this PR
+
+**Next session candidates:**
+1. Add `gyms-studios` industry vertical (rapidly growing AI search
+   demand: yoga, pilates, crossfit, boutique fitness)
+2. Add `vet-clinics` industry vertical (Quebec PME density + AI
+   search opportunity for vet-emergency queries)
+3. Wire Navbar mega-menu for the same 10 new pages (currently only
+   in footer)
+4. Expand portfolio-samples.ts to 18+ samples (currently 9)
+5. Build first actual demo client site in ailys-client-sites repo
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR146) — STATE.md size guard (sub-phase 13)
 
 ### Sub-phase 13: Gate 36 (STATE.md size guard)
