@@ -1029,7 +1029,7 @@ export const pt = {
     heading1: "Uma reunião de 60 minutos.",
     heading2: "Sem venda.",
     intro: "Mapeamos sua posição na busca por IA, percorremos os resultados da auditoria e dizemos se a AiLys é a opção certa. Se não formos, enviamos um documento de estratégia de uma página de qualquer jeito. Você sai com algo acionável em qualquer caso.",
-    languagesLabel: "Disponível em 8 idiomas",
+    languagesLabel: "Disponível em 10 idiomas",
     inHouse: "In-house",
     partner: "Parceiro",
     languagesNote: "In-house significa que você fala com um membro da equipe AiLys na reunião. Parceiro significa que uma agência parceira aprovada conduz a reunião naquele idioma e nos reporta. Mesmo playbook em qualquer caso.",
@@ -1065,6 +1065,8 @@ export const pt = {
     lang6Name: "Russo",
     lang7Name: "Ucraniano",
     lang8Name: "Sérvio",
+    lang9Name: "Vietnamita",
+    lang10Name: "Italiano",
     srSeo: "Agende uma reunião de estratégia gratuita de 60 minutos com a AiLys Agency. Mapeamos sua posição na busca por IA, percorremos os resultados da auditoria e dizemos se a AiLys é a opção certa. Se não formos, enviamos um documento de estratégia de uma página de qualquer jeito. As reuniões rodam em inglês, francês, espanhol, chinês, árabe e russo com membros da equipe in-house. Ucraniano e sérvio rodam por agências parceiras aprovadas no mesmo playbook. A reunião é gratuita, sem cartão de crédito e sem venda. Respondemos em até 12 horas após a solicitação com três opções de horário. Você sai com algo acionável em qualquer caso, assine ou não.",
   },
   chat: {

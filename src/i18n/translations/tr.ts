@@ -1029,7 +1029,7 @@ export const tr = {
     heading1: "60 dakikalık bir görüşme.",
     heading2: "Satış konuşması yok.",
     intro: "Yapay zeka arama konumunuzu haritalandırır, denetim sonuçlarını birlikte gözden geçirir ve AiLys'in doğru tercih olup olmadığını söyleriz. Doğru tercih değilsek, yine de tek sayfalık bir strateji dokümanı gönderiyoruz. Her iki şekilde de elinizde uygulanabilir bir şey ile çıkarsınız.",
-    languagesLabel: "8 dilde mevcut",
+    languagesLabel: "10 dilde mevcut",
     inHouse: "Şirket içi",
     partner: "Partner",
     languagesNote: "Şirket içi, görüşmede bir AiLys ekip üyesi alacağınız anlamına gelir. Partner, bu dilde görüşmeyi yürüten ve bize geri rapor veren incelenmiş bir ajans partnerini ifade eder. Her iki şekilde de aynı oyun planı.",
@@ -1065,6 +1065,8 @@ export const tr = {
     lang6Name: "Rusça",
     lang7Name: "Ukraynaca",
     lang8Name: "Sırpça",
+    lang9Name: "Vietnamca",
+    lang10Name: "İtalyanca",
     srSeo: "AiLys Agency ile ücretsiz 60 dakikalık strateji görüşmesi rezerve edin. Yapay zeka arama konumunuzu haritalandırırız, denetim sonuçlarını birlikte gözden geçirir ve AiLys'in doğru tercih olup olmadığını söyleriz. Doğru tercih değilsek, yine de tek sayfalık bir strateji dokümanı gönderiyoruz. Görüşmeler şirket içi ekip üyeleriyle İngilizce, Fransızca, İspanyolca, Çince, Arapça ve Rusça olarak yürütülür. Ukraynaca ve Sırpça, aynı oyun planıyla incelenmiş partner ajanslar üzerinden yürütülür. Görüşme ücretsizdir, kredi kartı yoktur ve satış konuşması yapılmaz. Talepten sonra 12 saat içinde üç saat seçeneğiyle yanıtlıyoruz. İmzalasanız da imzalamasanız da elinizde uygulanabilir bir şey ile çıkarsınız.",
   },
   chat: {

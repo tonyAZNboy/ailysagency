@@ -60,7 +60,7 @@ export function PricingBuilderSection() {
     return { name: t.pricingBuilder.tierAutopilot, price: 2500 };
   }
 
-  const [pages, setPages] = useState<number>(15);
+  const [pages, setPages] = useState<number>(5);
   const [selectedServices, setSelectedServices] = useState<string[]>(["gbp", "tracking"]);
   const [extraLanguages, setExtraLanguages] = useState<Set<string>>(new Set());
   const [reviuzyAddon, setReviuzyAddon] = useState<boolean>(false);

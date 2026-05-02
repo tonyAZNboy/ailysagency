@@ -1029,7 +1029,7 @@ export const nl = {
     heading1: "Een gesprek van 60 minuten.",
     heading2: "Geen verkooppraatje.",
     intro: "We brengen uw AI-zoekpositie in kaart, lopen de auditresultaten door en vertellen u of AiLys de juiste partij is. Zo niet, dan sturen we toch een eenpaginastrategiedocument. U vertrekt hoe dan ook met iets dat u kunt toepassen.",
-    languagesLabel: "Beschikbaar in 8 talen",
+    languagesLabel: "Beschikbaar in 10 talen",
     inHouse: "In huis",
     partner: "Partner",
     languagesNote: "In huis betekent dat een AiLys-teamlid aan het gesprek deelneemt. Partner betekent dat een gescreende partneragency het gesprek in die taal voert en aan ons rapporteert. Hetzelfde draaiboek in beide gevallen.",
@@ -1065,6 +1065,8 @@ export const nl = {
     lang6Name: "Russisch",
     lang7Name: "Oekraïens",
     lang8Name: "Servisch",
+    lang9Name: "Vietnamees",
+    lang10Name: "Italiaans",
     srSeo: "Boek een gratis strategiegesprek van 60 minuten met AiLys Agency. We brengen uw AI-zoekpositie in kaart, lopen de auditresultaten door en vertellen u of AiLys de juiste partij is. Zo niet, dan sturen we toch een eenpaginastrategiedocument. Gesprekken worden gevoerd in Engels, Frans, Spaans, Chinees, Arabisch en Russisch met teamleden in huis. Oekraïens en Servisch lopen via gescreende partnerbureaus volgens hetzelfde draaiboek. Het gesprek is gratis, zonder creditcard en zonder verkooppraatje. We reageren binnen 12 uur na aanvraag met drie tijdsvakopties. U vertrekt hoe dan ook met iets dat u kunt toepassen, of u nu tekent of niet.",
   },
   chat: {

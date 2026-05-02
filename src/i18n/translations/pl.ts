@@ -1029,7 +1029,7 @@ export const pl = {
     heading1: "60-minutowa rozmowa.",
     heading2: "Bez sprzedaży.",
     intro: "Mapujemy Państwa pozycję w wyszukiwaniu AI, omawiamy wyniki audytu i mówimy, czy AiLys jest właściwym wyborem. Jeśli nie, i tak wysyłamy jednostronicowy dokument strategiczny. W każdym przypadku wychodzą Państwo z czymś, na czym można działać.",
-    languagesLabel: "Dostępne w 8 językach",
+    languagesLabel: "Dostępne w 10 językach",
     inHouse: "We własnym zakresie",
     partner: "Partner",
     languagesNote: "We własnym zakresie oznacza, że na rozmowie jest członek zespołu AiLys. Partner oznacza, że zaufana agencja partnerska prowadzi rozmowę w tym języku i raportuje nam. To samo postępowanie w każdym przypadku.",
@@ -1066,6 +1066,8 @@ export const pl = {
     lang6Name: "Rosyjski",
     lang7Name: "Ukraiński",
     lang8Name: "Serbski",
+    lang9Name: "Wietnamski",
+    lang10Name: "Włoski",
   },
   chat: {
     teaserTitle: "Zdobądź więcej opinii",

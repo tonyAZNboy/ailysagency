@@ -47,11 +47,12 @@ const ALLOWED_VERTICALS = new Set([
   "clinic",
   "real_estate",
   "hotel",
+  "nail_salon",
   "other",
 ]);
 
 const ALLOWED_TIERS = new Set(["starter", "core", "growth", "agency", "undecided"]);
-const ALLOWED_LANGS = new Set(["en", "fr", "vi"]);
+const ALLOWED_LANGS = new Set(["en", "fr", "vi", "es", "ar", "zh"]);
 
 interface ApplicationBody {
   name?: string;

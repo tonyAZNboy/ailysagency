@@ -19,12 +19,14 @@ export function BookCallSection() {
   const languages: Language[] = [
     { code: "en", name: t.bookCall.lang1Name, native: "English", type: "in-house", flag: "🇨🇦" },
     { code: "fr", name: t.bookCall.lang2Name, native: "Français", type: "in-house", flag: "⚜" },
-    { code: "es", name: t.bookCall.lang3Name, native: "Español", type: "in-house", flag: "🇪🇸" },
+    { code: "es", name: t.bookCall.lang3Name, native: "Español", type: "partner", flag: "🇪🇸" },
     { code: "zh", name: t.bookCall.lang4Name, native: "中文", type: "partner", flag: "🇨🇳" },
     { code: "ar", name: t.bookCall.lang5Name, native: "العربية", type: "partner", flag: "🇦🇪" },
     { code: "ru", name: t.bookCall.lang6Name, native: "Русский", type: "partner", flag: "🇷🇺" },
     { code: "uk", name: t.bookCall.lang7Name, native: "Українська", type: "partner", flag: "🇺🇦" },
     { code: "sr", name: t.bookCall.lang8Name, native: "Srpski", type: "partner", flag: "🇷🇸" },
+    { code: "vi", name: t.bookCall.lang9Name, native: "Tiếng Việt", type: "partner", flag: "🇻🇳" },
+    { code: "it", name: t.bookCall.lang10Name, native: "Italiano", type: "partner", flag: "🇮🇹" },
   ];
 
   return (

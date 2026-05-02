@@ -1029,7 +1029,7 @@ export const it = {
     heading1: "Una chiamata di 60 minuti.",
     heading2: "Nessuna proposta commerciale.",
     intro: "Mappiamo la sua posizione nella ricerca AI, esaminiamo i risultati dell'audit e le diciamo se AiLys è la scelta giusta. Se non lo siamo, le inviamo comunque un documento strategico di una pagina. Esce con qualcosa di azionabile in entrambi i casi.",
-    languagesLabel: "Disponibile in 8 lingue",
+    languagesLabel: "Disponibile in 10 lingue",
     inHouse: "In casa",
     partner: "Partner",
     languagesNote: "In casa significa che ha un membro del team AiLys in chiamata. Partner significa che un'agenzia partner verificata gestisce la chiamata in quella lingua e ci riferisce. Stesso playbook in entrambi i casi.",
@@ -1066,6 +1066,8 @@ export const it = {
     lang6Name: "Russo",
     lang7Name: "Ucraino",
     lang8Name: "Serbo",
+    lang9Name: "Vietnamita",
+    lang10Name: "Italiano",
   },
   chat: {
     teaserTitle: "Ottenga più recensioni",

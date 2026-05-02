@@ -65,6 +65,7 @@ const VERTICALS = [
   "clinic",
   "real_estate",
   "hotel",
+  "nail_salon",
   "other",
 ] as const;
 
@@ -126,6 +127,7 @@ const COPY = {
       clinic: "Medical clinic",
       real_estate: "Real estate",
       hotel: "Hotel",
+      nail_salon: "Nail salon",
       other: "Other",
     },
     fieldTier: "Plan you are considering",
@@ -213,6 +215,7 @@ const COPY = {
       clinic: "Clinique médicale",
       real_estate: "Immobilier",
       hotel: "Hôtel",
+      nail_salon: "Salon de manucure",
       other: "Autre",
     },
     fieldTier: "Forfait considéré",
@@ -255,7 +258,7 @@ const COPY = {
       "AiLys Agency song ngữ EN và FR-CA, được xây dựng cho doanh nghiệp địa phương trong kỷ nguyên tìm kiếm AI. 10 chủ doanh nghiệp đầu tiên ký kết được giữ giảm 50% gói dịch vụ mãi mãi. Mức giảm giá được khóa trong suốt thời hạn đăng ký. Đăng ký bên dưới chỉ trong 3 phút.",
     spotsLeft: "vị trí còn lại",
     pitchP1:
-      "AiLys Agency được thành lập năm 2026. Chúng tôi đã chạy phương pháp trên trang của chính mình và trên một nhóm khách hàng riêng nhỏ, nhưng chưa đủ khối lượng nghiên cứu trường hợp để cạnh tranh với các đại lý 5 000 USD/tháng chỉ bằng bằng chứng xã hội. Vì vậy chúng tôi làm điều trung thực: giảm giá để được tham gia sớm và triển khai nhanh.",
+      "AiLys Agency được thành lập năm 2026. Chúng tôi đã chạy phương pháp trên trang của chính mình và trên một nhóm khách hàng riêng nhỏ, nhưng chưa đủ khối lượng nghiên cứu trường hợp để cạnh tranh với các đại lý 5 000 $/tháng chỉ bằng bằng chứng xã hội. Vì vậy chúng tôi làm điều trung thực: giảm giá để được tham gia sớm và triển khai nhanh.",
     pitchP2:
       "Nếu các trích dẫn AI của bạn tăng, chúng tôi xuất bản câu chuyện của bạn có ghi nguồn. Bạn duyệt từng chữ, từng số liệu, từng tên. Bạn có thể từ chối và giữ nguyên mức giảm. Số liệu thật, ghi nguồn thật, niềm tin thật được xây dựng trong 90 ngày.",
     benefitsHeading: "Bạn nhận được gì",
@@ -300,10 +303,11 @@ const COPY = {
       clinic: "Phòng khám",
       real_estate: "Bất động sản",
       hotel: "Khách sạn",
+      nail_salon: "Tiệm nail",
       other: "Khác",
     },
     fieldTier: "Gói đang cân nhắc",
-    tierOptions: { starter: "Starter (300 USD/tháng)", core: "Core (600 USD/tháng)", growth: "Growth (1 200 USD/tháng)", agency: "Agency (2 500 USD/tháng)", undecided: "Chưa quyết, muốn trao đổi" },
+    tierOptions: { starter: "Starter (300 $ CAD/tháng)", core: "Core (600 $ CAD/tháng)", growth: "Growth (1 200 $ CAD/tháng)", agency: "Agency (2 500 $ CAD/tháng)", undecided: "Chưa quyết, muốn trao đổi" },
     fieldCurrentSeo: "Bạn đã làm SEO hoặc marketing nào cho đến nay?",
     fieldCurrentSeoPlaceholder: "Đã làm với đại lý khác, tự làm, chỉ GBP, chưa làm gì, v.v.",
     fieldMotivation: "Tại sao chương trình này, tại sao bây giờ?",
@@ -331,6 +335,270 @@ const COPY = {
     canonicalUrl: "https://www.ailysagency.ca/lien-he",
     apiLang: "vi",
   },
+  es: {
+    metaTitle: "Solicita una plaza fundadora · AiLys Agency",
+    metaDescription:
+      "Las primeras 10 empresas locales que firmen obtienen 50% de descuento en su plan AiLys de por vida, atención prioritaria, acceso directo al estratega y un caso de estudio opcional. Sin tarjeta de crédito para postular.",
+    eyebrow: "Programa de clientes fundadores",
+    headline1: "Somos nuevos.",
+    headline2: "Esa es la oferta.",
+    subheading:
+      "AiLys Agency es bilingüe EN y FR-CA, construida para empresas locales en la era de la búsqueda con IA. Los primeros 10 dueños que firmen conservan 50% de descuento en su plan para siempre. El descuento queda fijo durante toda la vigencia de la suscripción. Postula abajo en menos de 3 minutos.",
+    spotsLeft: "plazas restantes",
+    pitchP1:
+      "AiLys Agency fue fundada en 2026. Hemos aplicado la metodología en nuestro propio sitio y en una pequeña cohorte privada, pero todavía no acumulamos suficientes casos de estudio para competir solo con prueba social contra agencias de 5 000 $/mes. Por eso hacemos lo honesto: descontamos nuestro trabajo a cambio de entrar temprano y avanzar rápido.",
+    pitchP2:
+      "Si tus citaciones de IA suben, publicamos tu historia con atribución. Tú apruebas cada palabra, cada métrica, cada nombre. Puedes optar por no participar y conservar el descuento. Cifras reales, atribución real, confianza real ganada en 90 días.",
+    benefitsHeading: "Lo que recibes",
+    benefits: [
+      { icon: "sparkles", title: "50% de descuento de por vida", body: "Bloquea la mitad del precio en Starter, Core, Growth o Agency. El precio de renovación nunca sube. El descuento se mantiene durante toda la vigencia de la suscripción." },
+      { icon: "users", title: "Acceso directo al estratega", body: "El mismo estratega durante todo el contrato. Canal de Slack para consultas rápidas. Revisión estratégica mensual de 60 minutos incluida en el plan." },
+      { icon: "megaphone", title: "Caso de estudio opcional", body: "Si tus citaciones de IA suben, publicamos tu historia con derecho de aprobación total. Puedes retirarte cuando quieras y conservar el descuento." },
+      { icon: "calendar", title: "Cola de implementación prioritaria", body: "Auditoría entregada en 12 horas en lugar de 24. Despliegue de schema en la semana 1 en lugar de la 2. Construcción de citaciones desde el día 1." },
+    ],
+    pricingHeading: "Tu precio fundador, fijo para siempre",
+    pricingNote: "El precio estándar se aplica a los nuevos clientes después de que firme el cliente fundador número 10. Tu descuento queda fijo mientras conserves el plan.",
+    pricingTierLabels: { starter: "Starter", core: "Core", growth: "Growth", agency: "Agency" },
+    pricingRegular: "Estándar",
+    pricingFounding: "Fundador",
+    pricingPerMo: " $ CAD/mes",
+    pricingSavings: "ahorras",
+    termsHeading: "La letra pequeña, en lenguaje claro",
+    terms: [
+      { label: "Descuento del 50%", body: "Se aplica a tu plan (Starter, Core, Growth o Agency) durante toda la vigencia de tu suscripción. Bloqueado." },
+      { label: "Caso de estudio", body: "100% opcional. Solo publicamos con tu consentimiento por escrito y con tu derecho de aprobación sobre cada métrica, nombre y cita. Puedes retirarte cuando quieras y conservar el descuento." },
+      { label: "Si los resultados no llegan", body: "Garantía de satisfacción de 30 días. Reembolso completo si decides que AiLys no te funciona. La honestidad es el único marketing que tenemos." },
+      { label: "Por qué solo 10 plazas", body: "Tenemos un único estratega manejando directamente las cuentas fundadoras. 10 es el máximo sin bajar la calidad. Contrataremos y reabriremos el programa cuando estemos listos." },
+      { label: "Cuando el programa cierre", body: "El precio estándar se aplica a todos los nuevos clientes después de que firme el cliente fundador número 10. Tu descuento fundador queda fijo." },
+    ],
+    formTitle: "Postula a una plaza fundadora",
+    formDescription: "Cuéntanos sobre tu negocio. Revisamos las solicitudes cada semana y respondemos en 48 horas. Sin tarjeta de crédito para postular.",
+    fieldName: "Tu nombre",
+    fieldEmail: "Correo electrónico",
+    fieldPhone: "Teléfono (opcional)",
+    fieldBusinessName: "Nombre del negocio",
+    fieldWebsite: "Sitio web",
+    fieldGbpUrl: "URL de Google Business Profile (opcional)",
+    fieldGbpUrlPlaceholder: "https://maps.google.com/...",
+    fieldLocation: "Ciudad y provincia o estado",
+    fieldLocationPlaceholder: "Montreal, QC",
+    fieldVertical: "Sector",
+    verticals: {
+      dentist: "Clínica dental",
+      lawyer: "Bufete de abogados",
+      restaurant: "Restaurante",
+      contractor: "Contratista",
+      clinic: "Clínica médica",
+      real_estate: "Inmobiliaria",
+      hotel: "Hotel",
+      nail_salon: "Salón de uñas",
+      other: "Otro",
+    },
+    fieldTier: "Plan que estás considerando",
+    tierOptions: { starter: "Starter (300 $ CAD/mes)", core: "Core (600 $ CAD/mes)", growth: "Growth (1 200 $ CAD/mes)", agency: "Agency (2 500 $ CAD/mes)", undecided: "Indeciso, quiero conversar" },
+    fieldCurrentSeo: "¿Qué SEO o marketing has hecho hasta ahora?",
+    fieldCurrentSeoPlaceholder: "Trabajé con otra agencia, lo hago yo, solo GBP, nada todavía, etc.",
+    fieldMotivation: "¿Por qué este programa, por qué ahora?",
+    fieldMotivationPlaceholder: "¿Cuál es el resultado que haría que esto funcione para ti?",
+    errorName: "Por favor ingresa tu nombre (al menos 2 caracteres)",
+    errorEmail: "Por favor ingresa un correo válido",
+    errorBusinessName: "Por favor ingresa el nombre del negocio",
+    errorWebsite: "Por favor ingresa una URL válida que empiece con http",
+    submit: "Enviar solicitud",
+    submitting: "Enviando...",
+    legal: "Al enviar, aceptas nuestros términos y política de privacidad. Solo te contactaremos sobre tu solicitud.",
+    toastSuccessTitle: "Solicitud recibida",
+    toastErrorTitle: "Algo salió mal",
+    successHeading: "Gracias. Estás en la cola de revisión.",
+    successBody: "Revisamos las solicitudes de clientes fundadores cada semana y respondemos en 48 horas. Recibirás un correo de un estratega real con los próximos pasos. Sin campañas automáticas.",
+    faqHeading: "Preguntas frecuentes",
+    faqs: [
+      { q: "¿Hay alguna trampa?", a: "No. Descontamos el plan porque somos nuevos y queremos primeros casos rápido. La garantía de satisfacción de 30 días es real. El caso de estudio es opcional. El descuento queda fijo durante toda la vigencia de la suscripción." },
+      { q: "¿Necesito comprometerme con un contrato largo?", a: "No. Todos los planes AiLys son mensuales con dos semanas de aviso para cancelar. Los clientes fundadores conservan la misma flexibilidad." },
+      { q: "¿Y si no quiero que se publique un caso de estudio?", a: "Retírate. Conserva el descuento. El caso de estudio es 100% opcional y tú apruebas cada métrica, nombre y cita." },
+      { q: "¿Cómo sé que recibiré valor a mitad de precio?", a: "Mismo alcance, mismo estratega, misma cola prioritaria. La única diferencia es el precio. La garantía de 30 días te cubre si AiLys no funciona para ti." },
+      { q: "¿Y si AiLys sube los precios estándar más adelante?", a: "Tu precio fundador se mantiene en 50% sobre lo que costaba tu plan al firmar. No lo subiremos retroactivamente." },
+      { q: "¿Puedo referir otra empresa?", a: "Sí. Cada plaza fundadora es una empresa firmada. Si refieres una segunda y firma antes de que se llene la décima plaza, ambas reciben el trato fundador." },
+    ],
+    canonicalUrl: "https://www.ailysagency.ca/es/contact",
+    apiLang: "es",
+  },
+  ar: {
+    metaTitle: "تقدّم بطلب لمقعد عميل مؤسس · AiLys Agency",
+    metaDescription:
+      "أول 10 شركات محلية توقّع تحصل على خصم 50% على باقة AiLys مدى الحياة، أولوية في التنفيذ، تواصل مباشر مع الاستراتيجي، ودراسة حالة اختيارية. لا حاجة لبطاقة ائتمان للتقديم.",
+    eyebrow: "برنامج العملاء المؤسسين",
+    headline1: "نحن جدد.",
+    headline2: "هذا هو العرض.",
+    subheading:
+      "AiLys Agency وكالة ثنائية اللغة EN وFR-CA، مصممة للأعمال المحلية في عصر البحث بالذكاء الاصطناعي. أول 10 أصحاب أعمال يوقّعون يحتفظون بخصم 50% على باقتهم إلى الأبد. الخصم مثبت طوال مدة الاشتراك. قدّم طلبك أدناه في أقل من 3 دقائق.",
+    spotsLeft: "مقاعد متبقية",
+    pitchP1:
+      "تأسست AiLys Agency سنة 2026. شغّلنا المنهجية على موقعنا الخاص وعلى مجموعة عملاء صغيرة، لكن لم نراكم بعد ما يكفي من دراسات الحالة لمنافسة الوكالات بـ 5 000 $/شهر بالأدلة الاجتماعية وحدها. لذا نفعل الشيء الصادق: نخفض السعر مقابل الانضمام مبكرًا والعمل بسرعة.",
+    pitchP2:
+      "إذا ارتفعت اقتباسات الذكاء الاصطناعي لديك، ننشر قصتك مع الإسناد. أنت توافق على كل كلمة وكل رقم وكل اسم. يمكنك الانسحاب والاحتفاظ بالخصم. أرقام حقيقية، إسناد حقيقي، ثقة حقيقية تُكتسب خلال 90 يومًا.",
+    benefitsHeading: "ما تحصل عليه",
+    benefits: [
+      { icon: "sparkles", title: "خصم 50% على الباقة مدى الحياة", body: "ثبّت نصف السعر على Starter أو Core أو Growth أو Agency. سعر التجديد لا يرتفع أبدًا. الخصم يبقى طوال مدة الاشتراك." },
+      { icon: "users", title: "تواصل مباشر مع الاستراتيجي", body: "نفس الاستراتيجي خلال كامل التعاقد. قناة Slack للأسئلة السريعة. مراجعة استراتيجية شهرية بمدة 60 دقيقة ضمن الباقة." },
+      { icon: "megaphone", title: "دراسة حالة اختيارية", body: "إذا ارتفعت اقتباسات الذكاء الاصطناعي، ننشر قصتك مع حق الموافقة الكامل. يمكنك الانسحاب في أي وقت والاحتفاظ بالخصم." },
+      { icon: "calendar", title: "أولوية في طابور التنفيذ", body: "تسليم التدقيق في 12 ساعة بدلًا من 24. نشر الـ schema في الأسبوع الأول بدلًا من الثاني. بناء الاقتباسات يبدأ من اليوم الأول." },
+    ],
+    pricingHeading: "سعرك كعميل مؤسس، مثبّت إلى الأبد",
+    pricingNote: "السعر القياسي يُطبَّق على العملاء الجدد بعد توقيع العميل المؤسس العاشر. خصمك يبقى مثبتًا طالما احتفظت بالباقة.",
+    pricingTierLabels: { starter: "Starter", core: "Core", growth: "Growth", agency: "Agency" },
+    pricingRegular: "قياسي",
+    pricingFounding: "مؤسس",
+    pricingPerMo: " $ CAD/شهر",
+    pricingSavings: "توفّر",
+    termsHeading: "التفاصيل، بلغة بسيطة",
+    terms: [
+      { label: "خصم 50%", body: "يُطبَّق على باقتك (Starter أو Core أو Growth أو Agency) طوال مدة اشتراكك. مثبّت." },
+      { label: "دراسة الحالة", body: "اختيارية 100%. ننشر فقط بموافقتك الخطية وحقك بمراجعة كل رقم واسم واقتباس. يمكنك الانسحاب في أي وقت والاحتفاظ بالخصم." },
+      { label: "إذا لم تتحقق النتائج", body: "ضمان رضا 30 يومًا. استرداد كامل إذا قررت أن AiLys لا تناسبك. الصدق هو التسويق الوحيد الذي نملكه." },
+      { label: "لماذا 10 مقاعد فقط", body: "لدينا استراتيجي واحد يدير حسابات المؤسسين مباشرة. 10 هو الحد الأقصى دون انخفاض الجودة. سنوظّف ونعيد فتح البرنامج عندما نكون جاهزين." },
+      { label: "عند إغلاق البرنامج", body: "السعر القياسي يُطبَّق على جميع العملاء الجدد بعد توقيع العميل المؤسس العاشر. خصمك المؤسس يبقى مثبّتًا." },
+    ],
+    formTitle: "تقدّم لمقعد عميل مؤسس",
+    formDescription: "حدّثنا عن عملك. نراجع الطلبات أسبوعيًا ونردّ خلال 48 ساعة. لا حاجة لبطاقة ائتمان للتقديم.",
+    fieldName: "اسمك",
+    fieldEmail: "البريد الإلكتروني",
+    fieldPhone: "الهاتف (اختياري)",
+    fieldBusinessName: "اسم العمل",
+    fieldWebsite: "الموقع الإلكتروني",
+    fieldGbpUrl: "رابط Google Business Profile (اختياري)",
+    fieldGbpUrlPlaceholder: "https://maps.google.com/...",
+    fieldLocation: "المدينة والمقاطعة أو الولاية",
+    fieldLocationPlaceholder: "Montreal, QC",
+    fieldVertical: "القطاع",
+    verticals: {
+      dentist: "عيادة أسنان",
+      lawyer: "مكتب محاماة",
+      restaurant: "مطعم",
+      contractor: "مقاول",
+      clinic: "عيادة طبية",
+      real_estate: "عقارات",
+      hotel: "فندق",
+      nail_salon: "صالون أظافر",
+      other: "أخرى",
+    },
+    fieldTier: "الباقة التي تفكّر فيها",
+    tierOptions: { starter: "Starter (300 $ CAD/شهر)", core: "Core (600 $ CAD/شهر)", growth: "Growth (1 200 $ CAD/شهر)", agency: "Agency (2 500 $ CAD/شهر)", undecided: "غير محدد، أريد المناقشة" },
+    fieldCurrentSeo: "ما الذي قمت به في السيو أو التسويق حتى الآن؟",
+    fieldCurrentSeoPlaceholder: "عملت مع وكالة أخرى، أعمل بنفسي، GBP فقط، لم أبدأ بعد، إلخ.",
+    fieldMotivation: "لماذا هذا البرنامج، ولماذا الآن؟",
+    fieldMotivationPlaceholder: "ما النتيجة التي ستجعل هذا البرنامج يعمل لك؟",
+    errorName: "يرجى إدخال اسمك (حرفان على الأقل)",
+    errorEmail: "يرجى إدخال بريد إلكتروني صالح",
+    errorBusinessName: "يرجى إدخال اسم العمل",
+    errorWebsite: "يرجى إدخال رابط صالح يبدأ بـ http",
+    submit: "إرسال الطلب",
+    submitting: "جارٍ الإرسال...",
+    legal: "بالإرسال، أنت توافق على شروطنا وسياسة الخصوصية. سنتواصل معك فقط بشأن طلبك.",
+    toastSuccessTitle: "تم استلام الطلب",
+    toastErrorTitle: "حدث خطأ ما",
+    successHeading: "شكرًا. أنت في طابور المراجعة.",
+    successBody: "نراجع طلبات العملاء المؤسسين أسبوعيًا ونردّ خلال 48 ساعة. ستتلقى بريدًا إلكترونيًا من استراتيجي حقيقي يحتوي الخطوات التالية. لا توجد حملات بريد آلية.",
+    faqHeading: "الأسئلة الشائعة",
+    faqs: [
+      { q: "هل هناك أي شرط مخفي؟", a: "لا. نخفض الباقة لأننا جدد ونريد قصص نجاح أولى بسرعة. ضمان الرضا لـ 30 يومًا حقيقي. دراسة الحالة اختيارية. الخصم مثبّت طوال مدة الاشتراك." },
+      { q: "هل أحتاج إلى الالتزام بعقد طويل؟", a: "لا. كل باقات AiLys شهرية مع إشعار إلغاء قبل أسبوعين. العملاء المؤسسون يحتفظون بنفس المرونة." },
+      { q: "ماذا لو لم أرغب بنشر دراسة الحالة؟", a: "انسحب. احتفظ بالخصم. دراسة الحالة اختيارية 100% ولديك حق الموافقة على كل رقم واسم واقتباس." },
+      { q: "كيف أعرف أنني سأحصل على القيمة بنصف السعر؟", a: "نفس النطاق، نفس الاستراتيجي، نفس الطابور المُسبَق. الفرق الوحيد هو السعر. ضمان الـ 30 يومًا يحميك إذا لم تناسبك AiLys." },
+      { q: "ماذا لو رفعت AiLys أسعارها القياسية لاحقًا؟", a: "سعرك كعميل مؤسس يبقى عند 50% مما تكلفته باقتك عند التوقيع. لن نرفعه بأثر رجعي." },
+      { q: "هل يمكنني إحالة شركة أخرى؟", a: "نعم. كل مقعد مؤسس هو شركة موقّعة. إذا أحلت شركة ثانية ووقّعت قبل امتلاء المقعد العاشر، كلاهما يحصل على عرض المؤسس." },
+    ],
+    canonicalUrl: "https://www.ailysagency.ca/ar/contact",
+    apiLang: "ar",
+  },
+  zh: {
+    metaTitle: "申请创始客户席位 · AiLys Agency",
+    metaDescription:
+      "前 10 家签约的本地企业可享 AiLys 套餐 50% 终身折扣、优先交付、直接对接战略师，并可选发布案例研究。申请无需信用卡。",
+    eyebrow: "创始客户计划",
+    headline1: "我们刚起步。",
+    headline2: "这就是优惠。",
+    subheading:
+      "AiLys Agency 是 EN 与 FR-CA 双语机构，为 AI 搜索时代的本地企业打造。前 10 位签约的企业主享受套餐 50% 终身折扣。订阅期间折扣始终锁定。在下方 3 分钟内完成申请。",
+    spotsLeft: "席位剩余",
+    pitchP1:
+      "AiLys Agency 成立于 2026 年。我们已在自有站点和一小批私有客户上验证方法论，但案例量尚不足以仅凭社会证明与每月 5 000 $ 的代理同台。所以我们做诚实的事：用折扣换取早期加入与快速交付。",
+    pitchP2:
+      "如果你的 AI 引用上升，我们将带署名发布你的故事。每个字、每项指标、每个名字都由你逐项审定。你可以选择不公开，折扣仍然保留。真实的数据、真实的署名、90 天内积累的真实信任。",
+    benefitsHeading: "你将获得",
+    benefits: [
+      { icon: "sparkles", title: "套餐 50% 终身折扣", body: "在 Starter、Core、Growth 或 Agency 上锁定半价。续费价格永不上调。订阅期间折扣始终保留。" },
+      { icon: "users", title: "战略师直接对接", body: "整段合作由同一位战略师负责。Slack 频道用于快速沟通。每月 60 分钟战略复盘已包含在套餐中。" },
+      { icon: "megaphone", title: "案例研究可选发布", body: "如果 AI 引用上升，我们将在你拥有完整审定权的前提下发布故事。可随时退出，折扣仍然保留。" },
+      { icon: "calendar", title: "优先交付通道", body: "审计 12 小时内交付，而非 24 小时。Schema 部署在第 1 周完成，而非第 2 周。引用建设从第 1 天开始。" },
+    ],
+    pricingHeading: "你的创始客户价格，永久锁定",
+    pricingNote: "第 10 位创始客户签约后，标准价格适用于新客户。只要保留套餐，你的折扣始终锁定。",
+    pricingTierLabels: { starter: "Starter", core: "Core", growth: "Growth", agency: "Agency" },
+    pricingRegular: "标准",
+    pricingFounding: "创始",
+    pricingPerMo: " $ CAD/月",
+    pricingSavings: "你节省",
+    termsHeading: "细则，以平实语言呈现",
+    terms: [
+      { label: "50% 折扣", body: "适用于你的套餐（Starter、Core、Growth 或 Agency），覆盖整个订阅周期。锁定不变。" },
+      { label: "案例研究", body: "100% 自愿。仅在你书面同意且对每项指标、姓名与引述拥有审定权的前提下发布。可随时退出并保留折扣。" },
+      { label: "若结果未达预期", body: "30 天满意保证。若你认为 AiLys 不适合你，可全额退款。诚实是我们唯一的营销方式。" },
+      { label: "为什么只有 10 个席位", body: "我们由一位战略师直接管理创始账户。10 是不降低质量的最大承载。准备就绪后我们会扩员并重启该计划。" },
+      { label: "计划关闭后", body: "第 10 位创始客户签约后，标准价格适用于所有新客户。你的创始折扣保持锁定。" },
+    ],
+    formTitle: "申请创始客户席位",
+    formDescription: "告诉我们你的业务情况。我们每周审核，48 小时内回复。申请无需信用卡。",
+    fieldName: "你的姓名",
+    fieldEmail: "邮箱",
+    fieldPhone: "电话（可选）",
+    fieldBusinessName: "企业名称",
+    fieldWebsite: "网站",
+    fieldGbpUrl: "Google Business Profile 链接（可选）",
+    fieldGbpUrlPlaceholder: "https://maps.google.com/...",
+    fieldLocation: "城市与省份或州",
+    fieldLocationPlaceholder: "Montreal, QC",
+    fieldVertical: "行业",
+    verticals: {
+      dentist: "牙科诊所",
+      lawyer: "律师事务所",
+      restaurant: "餐厅",
+      contractor: "建筑承包商",
+      clinic: "医疗诊所",
+      real_estate: "房地产",
+      hotel: "酒店",
+      nail_salon: "美甲沙龙",
+      other: "其他",
+    },
+    fieldTier: "正在考虑的套餐",
+    tierOptions: { starter: "Starter (300 $ CAD/月)", core: "Core (600 $ CAD/月)", growth: "Growth (1 200 $ CAD/月)", agency: "Agency (2 500 $ CAD/月)", undecided: "未定，想先沟通" },
+    fieldCurrentSeo: "目前为止你做过哪些 SEO 或营销？",
+    fieldCurrentSeoPlaceholder: "与其他代理合作过、自己做、仅 GBP、尚未开始，等等。",
+    fieldMotivation: "为什么选择此计划，为什么是现在？",
+    fieldMotivationPlaceholder: "什么样的结果会让此计划对你有效？",
+    errorName: "请输入姓名（至少 2 个字符）",
+    errorEmail: "请输入有效邮箱",
+    errorBusinessName: "请输入企业名称",
+    errorWebsite: "请输入以 http 开头的有效网址",
+    submit: "提交申请",
+    submitting: "提交中...",
+    legal: "提交即表示你同意我们的条款与隐私政策。我们仅就你的申请与你联系。",
+    toastSuccessTitle: "申请已收到",
+    toastErrorTitle: "出错了",
+    successHeading: "感谢你。你已进入审核队列。",
+    successBody: "我们每周审核创始客户申请并在 48 小时内回复。你将收到由真实战略师发出的邮件，附带后续步骤。没有自动邮件营销。",
+    faqHeading: "常见问题",
+    faqs: [
+      { q: "是否有隐藏条件？", a: "没有。我们打折是因为机构刚起步，希望快速积累首批案例。30 天满意保证是真实的。案例研究可选。订阅期间折扣始终锁定。" },
+      { q: "需要签长期合同吗？", a: "不需要。所有 AiLys 套餐均按月签订，提前两周通知即可取消。创始客户享有同样的灵活性。" },
+      { q: "如果我不希望发布案例研究？", a: "选择不公开，保留折扣。案例研究 100% 自愿，你对每项指标、姓名与引述拥有审定权。" },
+      { q: "我怎样确认半价能获得相应价值？", a: "范围相同、战略师相同、优先通道相同。唯一的差别是价格。30 天满意保证在 AiLys 不适合你时为你兜底。" },
+      { q: "若 AiLys 后续上调标准价格？", a: "你的创始客户价格仍维持在签约时套餐价的 50%。我们不会回溯上调。" },
+      { q: "我可以推荐其他企业吗？", a: "可以。每个创始席位对应一家签约企业。如果你推荐的第二家在第 10 个席位填满前签约，两家都享受创始优惠。" },
+    ],
+    canonicalUrl: "https://www.ailysagency.ca/zh/contact",
+    apiLang: "zh",
+  },
 } as const;
 
 type CopyShape = (typeof COPY)[keyof typeof COPY];
@@ -338,6 +606,9 @@ type CopyShape = (typeof COPY)[keyof typeof COPY];
 function pickCopy(lang: string): CopyShape {
   if (lang === "fr") return COPY.fr;
   if (lang === "vi") return COPY.vi;
+  if (lang === "es") return COPY.es;
+  if (lang === "ar") return COPY.ar;
+  if (lang === "zh") return COPY.zh;
   return COPY.en;
 }
 
@@ -358,13 +629,17 @@ export default function FoundingClients() {
   // (/clients-fondateurs implies fr, /cho-chu-doanh-nghiep implies vi),
   // (3) lang context. Sync the context so the rest of the site picks it up.
   const effectiveLang = useMemo(() => {
-    // Slug overrides URL :lang prefix. Order matters: more-specific FR/VI
-    // slugs first, then EN. /contact and /contacte share a common stem so
-    // we check FR before EN.
+    // URL :lang prefix wins (e.g. /es/contact, /ar/contact, /zh/contact).
+    // Normalise to lowercase so /AR/contact still resolves correctly.
+    const normalisedUrlLang = urlLang?.toLowerCase();
+    if (normalisedUrlLang && SUPPORTED_LANGS.includes(normalisedUrlLang as SupportedLang)) {
+      return normalisedUrlLang;
+    }
+    // Localised slug fallbacks (no lang prefix). FR and VI before bare /contact
+    // because both share the "/contact" stem.
     if (pathname.includes("/contacte")) return "fr";
     if (pathname.includes("/lien-he")) return "vi";
     if (pathname.includes("/contact")) return "en";
-    if (urlLang && SUPPORTED_LANGS.includes(urlLang as SupportedLang)) return urlLang;
     return lang;
   }, [urlLang, pathname, lang]);
 
