@@ -4,6 +4,78 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended-night) — 32 PRs total, 12 engineering PRs, 100% serverError adoption across 8 endpoints + 2 crons
+
+Continued the night-session engineering work past the 27-PR close with
+5 more PRs wiring the shared `serverError` capture lib into all
+remaining candidate endpoints. Lib adoption is now COMPLETE — every
+endpoint and cron job that can fail captures structured errors into
+Supabase audit_log + fires Resend alerts on ERROR/FATAL severity.
+
+**5 more engineering PRs after the 27-PR close (#133-#137):**
+
+| PR | Endpoint | Severity | Capture points |
+|---|---|---|---|
+| #134 | audit-pdf | ERROR | render failure + R2 storage put failure |
+| #135 | chat-advisor | ERROR/WARN | Gemini network + non-2xx (5xx=ERROR, 4xx=WARN) + parse failure |
+| #136 | cron-process-sequences + cron-day1-retry | WARN | per-enrollment failure + per-replay failure |
+| #137 | audit-ai-visibility-instant | WARN | aggregate Gemini fallback path |
+
+**100% serverError adoption (8/8 candidate endpoints + 2 crons):**
+
+| Endpoint | Adopted in PR | Severity policy |
+|---|---|---|
+| partner-application | #131 | ERROR (dual-delivery failure) |
+| founding-clients-apply | #132 | ERROR (dual-delivery failure) |
+| newsletter-subscribe | #132 | WARN (welcome-email best-effort) |
+| audit-pdf | #134 | ERROR (render + R2 paths) |
+| chat-advisor | #135 | ERROR + WARN (3 Gemini paths) |
+| cron-process-sequences | #136 | WARN (per-enrollment) |
+| cron-day1-retry | #136 | WARN (per-replay) |
+| audit-ai-visibility-instant | #137 | WARN (aggregate) |
+
+Severity policy summary (consistent across all endpoints):
+- **ERROR/FATAL** = pages operator via Resend alert immediately. Used
+  for incidents where the user gets nothing usable (dual-delivery
+  failure, render failure, R2 storage failure, Gemini 5xx outage).
+- **WARN** = logs to audit_log only, no page. Used for transient or
+  graceful-fallback failures (welcome email, cron per-iteration,
+  Gemini 4xx like rate-limit, fallback-content paths). Trend analysis
+  via SQL queries against audit_log.
+
+**Operator visibility upgrade (cumulative):**
+- Before this session: 0 endpoints with structured error capture
+- After this session: 8/8 endpoints + 2/2 crons with full coverage
+- Single SQL query against audit_log can surface trends:
+
+      SELECT endpoint, severity, COUNT(*) AS n
+      FROM audit_log
+      WHERE ts > NOW() - INTERVAL '1 day'
+      GROUP BY endpoint, severity
+      ORDER BY n DESC;
+
+- Resend alert email includes build commit (CF_PAGES_COMMIT_SHA)
+  so operator can immediately tell which deploy is erroring.
+- Zero secret values in alert/audit rows — PII safety contract
+  enforced by smoke (3 explicit assertions in Gate 25).
+
+**Outstanding next session:**
+
+1. **F3.1+ White-Label real build** — gated on F3.0 demand validation
+2. **Reviuzy F1.1 / F5.2** (cross-repo)
+3. **Industry partial-i18n for remaining 4 verticals** — DEFERRED to
+   after Tuesday 2026-05-05 1pm Eastern (token quota; see
+   REMINDER-TUESDAY-1PM.md at repo root)
+4. **Help article translations to ES/ZH/AR/RU** — DEFERRED, same reason
+5. **Audit log shared lib extraction** (different pattern from
+   serverError; common audit-log pattern across endpoints not yet
+   unified — out of scope this session)
+6. **/admin/system-health UI page** — render the JSON nicely (was
+   deferred to avoid conflict with parallel session admin work)
+7. **react-refresh + react-hooks/exhaustive-deps** 21 warnings audit
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-02 (autopilot night session) — 27 PRs, 6 tags, 3 shared security/ops libs + 3 new CI Gates + parallel-session-safe engineering
 
 User signaled "no more translations or content this week, only EN/FR
