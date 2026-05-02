@@ -16,6 +16,7 @@
 import { insertSupabaseRow } from "../lib/supabaseInsert";
 import { isAllowedOrigin } from "../lib/origin";
 import { isValidEmail } from "../lib/email";
+import { clip } from "../lib/stringClip";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -85,13 +86,6 @@ interface ValidationResult {
     motivation: string | null;
     source: string;
   };
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== "string") return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
 }
 
 function validate(body: ApplicationBody): ValidationResult {

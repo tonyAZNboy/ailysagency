@@ -19,6 +19,7 @@ import { renderQuotePdf, type QuoteRenderInput, computeQuote } from '../lib/pdf/
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { sha256Hex } from '../lib/crypto';
 import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -79,13 +80,6 @@ const ALLOWED_ENGAGEMENTS = new Set(['monthly', 'annual', 'biennial']);
 const ALLOWED_WEBSITE_SIZES = new Set(['none', 'vitrine', 'pme', 'commerce']);
 
 const emit = makeEmit('quote-pdf');
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const t = value.trim();
-  if (t.length === 0) return null;
-  return t.slice(0, max);
-}
 
 interface ValidationResult {
   ok: boolean;

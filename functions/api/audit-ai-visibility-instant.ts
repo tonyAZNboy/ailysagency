@@ -23,6 +23,7 @@
 import { captureServerError } from '../lib/serverError';
 import { sha256Hex } from '../lib/crypto';
 import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
@@ -100,13 +101,6 @@ interface AuditResult {
 }
 
 const emit = makeEmit('instant-ai-vis');
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
-}
 
 interface ValidationResult {
   ok: boolean;
