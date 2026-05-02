@@ -4,6 +4,142 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-02 (autopilot night session) — 27 PRs, 6 tags, 3 shared security/ops libs + 3 new CI Gates + parallel-session-safe engineering
+
+User signaled "no more translations or content this week, only EN/FR
+or pure engineering" partway through (token-quota constraint). Pivoted
+from content/translation work to pure security + ops infrastructure.
+
+**7 engineering PRs added on top of the 19-PR multi-locale + content
+session that closed earlier in the day:**
+
+| PR | Type | Lines added |
+|---|---|---|
+| #126 | feat: shared rate-limit lib `functions/lib/rateLimit.ts` + KV-backed token bucket on /api/partner-application + Gate 23 | ~400 |
+| #127 | feat: wire shared rate-limit into /api/newsletter-subscribe + /api/founding-clients-apply | ~85 |
+| #128 | feat: `/api/system-health` public ops endpoint + Gate 24 (zero-leak smoke with 3 explicit assertions that secret values never appear in response body) | ~400 |
+| #129 | feat: cron heartbeat tracking in `withCronGuard` + system-health exposure (last_run_at, last_success_at, duration, items, errors per cron) | ~140 |
+| #130 | feat: shared server-error capture lib `functions/lib/serverError.ts` + Gate 25 (Sentry-lite for edge fns: dual-channel Supabase audit_log persist + Resend operator alert on ERROR/FATAL severity, fail-soft) | ~540 |
+| #131 | feat: wire serverError into /api/partner-application dual-delivery failure path | ~25 |
+| #132 | feat: wire serverError into /api/founding-clients-apply (ERROR severity) + /api/newsletter-subscribe welcome-email failure (WARN severity) | ~45 |
+
+**3 new shared libs created:**
+1. `functions/lib/rateLimit.ts` — KV-backed token bucket, IP hourly + identity daily windows, fail-open with audit-log on missing KV. 18-case smoke. 3 endpoints adopted (partner-application, newsletter-subscribe, founding-clients-apply).
+2. `functions/lib/serverError.ts` — Sentry-lite for Workers. captureServerError() dual-channel delivery, severity-based alert gating (warn/error/fatal), PII safety (hashes only, never plaintext IP/email/key), fail-soft (NEVER throws). 34-case smoke. 3 endpoints adopted.
+3. `functions/lib/cronGuard.ts` extended — added writeCronHeartbeat + readCronHeartbeat helpers. Auto-fires on every cron run via existing `withCronGuard` wrapper (no per-cron integration needed). 30-day TTL.
+
+**3 new CI Gates (now 22 → 25 total):**
+- Gate 23: smoke-rate-limit (18 cases)
+- Gate 24: smoke-system-health (39 cases including 3 zero-leak guarantees)
+- Gate 25: smoke-server-error (34 cases including 1 PII-safety + 3 fail-soft)
+
+**1 new public ops endpoint:**
+`/api/system-health` — uptime monitor surface, returns kill-switch states, KV binding presence, secret presence-only booleans, build version, cron heartbeats. Zero secret values ever in response body (3 explicit smoke assertions enforce this contract).
+
+**Operator visibility upgrade:**
+- Before: silent failures + console.error in Workers logs only
+- After: every error path either logs to audit_log (WARN, trend analysis) or pages via Resend (ERROR/FATAL, immediate triage). Operator dashboards can poll system-health every 60s for kill-switch + KV-binding + cron-freshness state.
+
+**Operator actions pending (not blocking; all libs fail-open/fail-soft):**
+1. Bind KV namespaces in Cloudflare Pages → Functions → KV bindings:
+   - `PARTNER_APPLICATIONS_RATE_LIMIT`
+   - `NEWSLETTER_RATE_LIMIT`
+   - `FOUNDING_CLIENTS_RATE_LIMIT`
+   - `AUDIT_PDF_RATE_LIMIT` (already used by existing audit-pdf, also stores cron heartbeats — single shared KV is fine)
+   Until bound, rate-limit fails open + cron heartbeats are not persisted.
+2. Set `OPERATOR_NOTIFY_EMAIL` env var. Until set, ERROR/FATAL alerts log to console only.
+3. Set `CF_PAGES_COMMIT_SHA` env var (Cloudflare Pages does this automatically). Used in alert emails.
+4. Provision AiLys Supabase project + apply migrations (priority #6). Until provisioned, audit_log persistence is a no-op.
+5. Wikidata Q-number registration (external action, deferred).
+
+**Outstanding next session:**
+1. **F3.1+ White-Label real build** — gated on F3.0 demand validation
+2. **Reviuzy F1.1 / F5.2** (cross-repo)
+3. **Industry partial-i18n for remaining 4 verticals** (after Tuesday 1pm per token quota)
+4. **Help article translations to ES/ZH/AR/RU** (after Tuesday 1pm)
+5. **Wire serverError into remaining endpoints** (audit-pdf, audit-request, chat-advisor, cron-process-sequences, cron-day1-retry) — mechanical adoption, ~25 lines each
+6. **/admin/system-health UI page** — render the JSON nicely (was deferred to avoid conflict with parallel session admin work)
+7. **Audit log shared lib** extraction (similar to serverError; common pattern across endpoints not yet unified)
+
+---
+
+## ⏰ DEFERRED TO TUESDAY 1PM (token-quota constraint, 2026-05-02)
+
+The following content + translation work was deferred mid-session when
+the user signaled a weekly token quota was approaching the limit. Work
+resumes after Tuesday 1pm. Pickup checklist for the next session:
+
+### Translations (priority order)
+
+1. **Phase 1 industry partial-i18n for remaining 4 verticals**
+   - Already done in PRs #121-#123 (this session): dentists, lawyers,
+     restaurants in ES + ZH + AR + RU partial (hero + stats + topQueries
+     + painPoints + CTAs + SEO meta).
+   - **Remaining:** contractors, clinics, real-estate, hotels — each needs
+     ES + ZH + AR + RU partial overrides via `i18n: { es: {...}, zh:
+     {...}, ar: {...}, ru: {...} }` field on the Industry object.
+   - Pattern reference: see `src/data/industries.ts` `dentists.i18n`
+     block (lines ~423-540) for the field shape.
+   - Estimated: ~50 strings × 4 langs × 4 verticals = ~800 strings.
+   - Methodology + sample citations + FAQ stay EN fallback (out of
+     scope per the partial-coverage convention).
+
+2. **Help article translations**
+   - Already done in PRs #105+ (FR-CA full coverage on 9+ help articles
+     including F3.0 `partner-program-overview` and `how-to-apply-as-a-
+     partner-agency`).
+   - **Remaining:** ES + ZH + AR + RU translations of:
+     - `partner-program-overview`
+     - `how-to-apply-as-a-partner-agency`
+     - `ailys-verified-badge-overview`
+     - `ailys-verified-badge-embed-howto`
+     - `ailys-verified-badge-verification-process`
+     - `ailys-industry-reports-overview`
+     - `ailys-concierge-overview`
+     - `ailys-concierge-privacy-deep-dive`
+     - `tech-health-pack-explained`
+     - `gsc-indexation-audit-explained`
+     - `wikidata-q-number-explained`
+   - Pattern: add `i18n.es`, `i18n.zh`, `i18n.ar`, `i18n.ru` blocks with
+     `title`, `excerpt`, `body` fields to each article in
+     `src/data/help-articles.ts`.
+   - Estimated: ~600 words × 4 langs × 11 articles = ~26,000 words of
+     translation work. Substantial. Plan a dedicated session.
+
+3. **Cookie banner + newsletter signup full 16-locale i18n** refactor
+   - Currently EN/FR binary toggle via `T(en, fr)` helper inline.
+   - **Remaining:** refactor to use global `t.cookieBanner.*` from i18n
+     translations, then add 16-locale strings in `src/i18n/translations/
+     *.ts` (EN + FR-CA full + 14 secondary EN-placeholder).
+
+### Content (no translation, EN+FR only ok if undertaken before Tuesday)
+
+4. **Industry pages additional verticals** (from parallel session screenshot)
+   - Round 2 mention: nail salons, sushi comptoir
+   - These require new entries in `src/data/industries.ts` AND new
+     entries in industries blog-post categories
+   - Cross-reference with parallel session before starting to avoid
+     conflicts
+
+5. **Glossary terms refactor**
+   - Current `src/data/glossary.ts` has hardcoded `shortEn/shortFr/
+     longEn/longFr` fields (binary).
+   - **Remaining:** refactor to `i18n: Partial<Record<lang, ...>>`
+     pattern matching industries, then add 5 majors translations for
+     20+ glossary terms (~100 strings × 4 langs = 400).
+
+### Reminder created (programmatic schedule)
+
+Per user request 2026-05-02, a scheduled reminder is queued for
+Tuesday 2026-05-05 at 13:00 (1pm). When that fires, the next Claude
+session should:
+1. Read this STATE.md "DEFERRED TO TUESDAY 1PM" section first
+2. Resume content + translation work in priority order (1 → 5)
+3. Cross-reference parallel-session changes before starting any
+   industries/help-article work to avoid merge conflicts
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended-extended) — 19 PRs, 6 tags, ESLint zero-errors + 3 industries multi-locale on top of full-day session
 
 Continued the full-day autopilot run with 4 more PRs after the 15-PR
