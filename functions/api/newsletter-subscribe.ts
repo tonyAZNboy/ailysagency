@@ -14,6 +14,7 @@ import { renderEmail } from '../lib/emailTemplate';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { sendAndLog } from '../lib/emailLog';
 import { checkRateLimit, sha256Hex } from '../lib/rateLimit';
+import { captureServerError } from '../lib/serverError';
 
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
@@ -26,6 +27,11 @@ interface Env {
   /** Optional KV binding for rate-limit. When unbound, rate-limit fails open
    *  with audit-log entry so operator sees the missing binding. */
   NEWSLETTER_RATE_LIMIT?: KVNamespace;
+  /** Operator notification email for server-error alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Build commit (set by Cloudflare Pages env). Included in serverError
+   *  alert emails so operator can identify which deploy is erroring. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const SITE_BASE_URL = 'https://www.ailysagency.ca';
@@ -294,8 +300,20 @@ export async function onRequestPost(context: {
         step: 0,
         subject,
       });
-    } catch {
-      // Don't fail the subscription if email delivery fails
+    } catch (welcomeErr) {
+      // Don't fail the subscription if welcome-email delivery fails, but
+      // DO capture so the operator knows. Severity=warn so it logs to
+      // audit_log without paging (newsletter welcome is best-effort).
+      await captureServerError(env, {
+        endpoint: "newsletter-subscribe",
+        severity: "warn",
+        err: welcomeErr,
+        context: {
+          stage: "welcome_email_dispatch",
+          email_hash_prefix: (await sha256Hex(`newsletter:${email}`)).slice(0, 12),
+          lang,
+        },
+      });
     }
   }
 

@@ -16,6 +16,7 @@
 //   - Rate limit via shared lib (functions/lib/rateLimit.ts) when KV bound
 
 import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
+import { captureServerError } from "../lib/serverError";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -26,6 +27,9 @@ interface Env {
   /** Optional KV binding for rate-limit. When unbound, fails open with
    *  audit-log entry so operator sees the missing binding. */
   FOUNDING_CLIENTS_RATE_LIMIT?: KVNamespace;
+  /** Build commit (set by Cloudflare Pages env). Used by serverError
+   *  capture for inclusion in operator alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
@@ -410,8 +414,27 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     sendOpsEmail(env, v.data, ip),
   ]);
 
-  // If both fail, it is a real problem. Surface a 500 so the user retries.
+  // If both fail, it is a real problem. Capture via shared serverError lib
+  // (Resend alert + audit_log persist) so the operator sees it immediately.
+  // Best-effort capture; the 500 fires regardless.
   if (!supaResult.ok && !emailResult.ok) {
+    const ipH = ip ? await sha256Hex(`${new Date().toISOString().slice(0, 10)}|${ip}`) : undefined;
+    await captureServerError(env, {
+      endpoint: "founding-clients-apply",
+      severity: "error",
+      err: new Error(
+        `dual delivery failure: supabase=${supaResult.error ?? "?"}, resend=${emailResult.error ?? "?"}`,
+      ),
+      userIpHash: ipH,
+      context: {
+        supabase_ok: supaResult.ok,
+        resend_ok: emailResult.ok,
+        supabase_error: supaResult.error ?? null,
+        resend_error: emailResult.error ?? null,
+        vertical: v.data.vertical,
+        tier: v.data.tier,
+      },
+    });
     return new Response(
       JSON.stringify({
         error: "Both delivery channels failed; please try again or email hello@ailysagency.ca",
