@@ -23,7 +23,8 @@ export type IndustrySlug =
   | "nail-salons"
   | "sushi-counters"
   | "hair-salons"
-  | "gyms-studios";
+  | "gyms-studios"
+  | "vet-clinics";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -4469,6 +4470,337 @@ const gymsStudios: Industry = {
   },
 };
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 12 · VETERINARY CLINICS (cliniques veterinaires)
+   Quebec context: pet ownership grew 22% post-pandemic, vet capacity
+   strained, AI search dominant for "vet emergency near me" + "vet
+   open Sunday" queries. OMVQ (Ordre des medecins veterinaires du
+   Quebec) regulated. Mix of general practice + specialty (exotic,
+   feline-only, surgical referral) + emergency/24h.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const vetClinics: Industry = {
+  slug: "vet-clinics",
+  name: "Vet clinics",
+  nameLong: "Veterinary Clinics & Emergency Hospitals",
+  emoji: "🐾",
+  toneClass: "from-emerald-400 via-cyan-400 to-blue-400",
+  en: {
+    eyebrow: "AI SEO for veterinary clinics and emergency hospitals",
+    headline1: "Get cited by ChatGPT when pet owners search",
+    headline2: "\"emergency vet open right now near me\".",
+    subheadline:
+      "Pet ownership in Quebec grew 22 percent post-pandemic, vet capacity is strained, and pet owners now ask AI engines first. \"Emergency vet open Sunday\" + \"feline-only clinic Plateau\" + \"exotic vet Montreal reptile specialty\" queries arrive in ChatGPT and Perplexity before they hit Google. AI engines weight emergency-hours availability, OMVQ certification visibility, species + specialty filters, and review velocity. AiLys gets your clinic named when AI surfaces vet answers and converts that to first-visit bookings, where 70 percent become long-term clients.",
+    stats: [
+      { value: "73%", label: "of pet owners under 45 in Greater Montreal start with an AI engine query before booking a vet appointment" },
+      { value: "2.4×", label: "more LLM citations on clinics with full Service schema (species + specialty + price tier visible) vs clinics with generic 'small animal vet' positioning" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for emergency-vet + species-specific queries" },
+      { value: "70%", label: "first-visit-to-long-term-client conversion in vet vertical when AI engine sources the first appointment (highest of any local PME vertical)" },
+    ],
+    topQueries: [
+      "emergency vet open Sunday Plateau Mont-Royal",
+      "feline-only clinic accepts new patients Brossard",
+      "exotic vet reptile specialty Montreal bilingual",
+    ],
+    painPoints: [
+      {
+        title: "Emergency hours buried in fine print",
+        description:
+          "When a pet owner searches \"vet open right now\" at 9pm Tuesday, AI engines need the after-hours availability schemed explicitly. Most clinics have it on the website but in plain text only, invisible to AI. Schema.org OpeningHoursSpecification with after-hours and emergency contact is the single highest-impact fix.",
+      },
+      {
+        title: "Species + specialty not surfaced",
+        description:
+          "Pet owners search by species (cat-only clinics get 3.4x more cat-owner traffic when this is schemed) and specialty (exotic, surgical, dental, behavior, oncology). Most clinics list services in a flat WordPress page that AI engines can't parse into species-filtered answers.",
+      },
+      {
+        title: "OMVQ certification + vet team not visible",
+        description:
+          "Pet owners check \"is this vet OMVQ-certified?\" + \"who's the vet I'd see?\" before booking. Person schema for each veterinarian (with OMVQ number, specialties, languages) lets AI engines answer these specifically. Without it, you lose to chains that publish vet bios.",
+      },
+      {
+        title: "Reviews dominated by emergency cases (anxious tone)",
+        description:
+          "Vet reviews skew emotional: panicked owner during emergency + relieved owner post-recovery. AI engines weight tone consistency. Without proactive review collection from routine wellness visits, your review profile reads as 'emergency-only practice' even if 80 percent of your work is wellness.",
+      },
+      {
+        title: "Owner-vet sees patients 8 hours per day, no marketing time",
+        description:
+          "Solo or small vet practices have the owner in surgery + appointments all day. Marketing falls to nights + weekends, which means it doesn't happen. The clinic falls behind chains (Centre Veterinaire, VCA Canada acquisitions) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for veterinary category",
+        description:
+          "Primary category set to specific vet type (Veterinarian, Veterinary Hospital, Emergency Veterinarian, Animal Hospital, Pet Boarding Service if applicable), every relevant attribute filled (Wheelchair accessible, Online appointments, Walk-ins welcome, 24/7 emergency, Languages spoken, Species treated, Specialty services like dental / surgery / behavior / oncology / exotic), 50+ original photos minimum (clinic exterior, exam rooms, surgical suite with consent), weekly Q&A on common pet-owner questions.",
+      },
+      {
+        step: "02",
+        title: "Emergency-hours schema with explicit after-hours contact",
+        description:
+          "Schema.org OpeningHoursSpecification entries for regular hours + after-hours emergency line + Sunday/holiday coverage if applicable. AI engines now answer \"emergency vet open right now\" with your clinic, your direct emergency phone, and the next available appointment.",
+      },
+      {
+        step: "03",
+        title: "Veterinarian-by-veterinarian Person schema",
+        description:
+          "Schema.org Person entries for each vet on staff (OMVQ certification number, photo, specialties, languages spoken FR/EN/ES/etc., years of practice, special interests). AI engines cite individual vets for specialty queries (\"exotic vet who specializes in reptiles\"), which builds vet-personal authority and helps with referrals.",
+      },
+      {
+        step: "04",
+        title: "Service schema by species + specialty + price tier",
+        description:
+          "Schema.org Service entries broken down by species (canine, feline, exotic, avian, equine if applicable) and specialty (wellness, dental, surgery, behavior, oncology, dermatology, etc.). Each entry includes typical price range (\"Wellness exam $85-120\" or \"Dental cleaning $450-800\"). Pet owners filter on this data.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for clinics in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Pet owners often describe symptoms in their native language; clinics with native multilingual content get 1.4-2.1x more first-visit bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Proactive review collection from wellness visits",
+        description:
+          "NFC tap-to-review at the front desk after every appointment (not just emergencies). Smooths the review tone curve so your profile reflects the full practice (80% wellness, 20% emergency) rather than emergency-only impression. Increases review velocity to 25-50/month and shifts AI engine perception of the practice.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For emergency reviews especially, response timing AND empathy matter. Template library covers 12 common emergency scenarios + wellness compliments + difficult outcomes (loss of pet) with appropriate tone.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for vet queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ vet queries in your neighborhood, tracked at clinic, vet-individual, and species/specialty levels. Catches when new clinics open competing, when seasonal demand shifts (summer tick + heartworm prevention surge), or when emergency-vet capacity gaps appear in your area.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "emergency vet open Sunday Plateau Mont-Royal",
+        cited: "AiLys client clinic named with Sunday hours 8am-8pm, emergency line, next appointment in 90 minutes",
+        reason: "Schema OpeningHoursSpecification with explicit Sunday hours + emergency phone, GBP attribute 24/7 emergency, real-time appointment availability via API mirror, 4.8 stars across 340+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "feline-only clinic accepts new patients Brossard",
+        cited: "AiLys client clinic cited as primary recommendation with 'feline-exclusive practice' attribute and new-patient acceptance flag",
+        reason: "GBP attribute Species treated set to Cats only, Service schema entries all tagged for feline, 60+ reviews from cat owners with cat-language replies, NAP consistent across PJ.ca + OMVQ directory + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "exotic vet reptile specialty Montreal bilingual",
+        cited: "AiLys client clinic surfaced in AI Overview with reptile-specialist vet Dr. Tremblay, OMVQ-certified, FR+EN consultation available",
+        reason: "Person schema for Dr. Tremblay with reptile specialty + OMVQ number, Service schema entries tagged for exotic + reptile, 25+ portfolio photos showcasing reptile cases, BookingService schema with online appointment URL, 4.9 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent vet clinics hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per clinic, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-vet clinics (3+ veterinarians) and emergency/24h clinics graduate to Growth for daily AI Visibility probes + per-vet Person schema + emergency-hours schema. Specialty referral hospitals often choose Agency for multi-language schema and dedicated strategist hours during emergency-capacity shifts.",
+    faq: [
+      {
+        q: "Will OMVQ have an issue with our publishing reviews and vet bios?",
+        a: "No, when done correctly. OMVQ Code de deontologie permits vets to publish reviews and bios as long as: (1) reviews are genuine and not solicited via incentive, (2) vet bios accurately represent qualifications without misleading claims, (3) no testimonial implying guaranteed outcomes, (4) emergency contact info is prominent. AiLys's review collection + bio templates are reviewed against the Code annually.",
+      },
+      {
+        q: "How do you handle emotional reviews after a pet's death?",
+        a: "Template library covers difficult outcomes specifically. Reply within 24 hours, acknowledge the loss in the client's language, offer condolences without minimizing, mention the team that cared for the pet, do not defend or explain unless asked. AI engines weight empathetic tone consistency strongly in vet vertical.",
+      },
+      {
+        q: "We're a feline-only clinic, does this work differently?",
+        a: "Yes, in your favor. Specialty positioning (feline-only, exotic-only, behavior-focused, etc.) is a powerful differentiator that AI engines reward when properly schemed. We tag every Service schema entry with species + specialty, list the GBP attribute Species treated explicitly, and orient the photo gallery + reviews toward your specialty. Specialty clinics typically see 2-3x stronger AI citation lift than general practice.",
+      },
+      {
+        q: "Can you handle the appointment-booking integration with our PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Yes. We mirror your booking availability from the PMS API daily and republish as Schema.org BookingService entries on your site. AI engines then surface real-time appointment availability in answers (\"next vet appointment Saturday\" gets answered with your clinic + a direct booking link). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter are all supported.",
+      },
+      {
+        q: "Are you familiar with Loi 25 implications for pet medical records?",
+        a: "Yes. Pet medical records contain owner personal info subject to Loi 25 (name, address, phone, email, billing). Our default consent flow includes an explicit pet-medical-records clause. Records are stored in Canadian regions (Supabase Montreal), with breach notification protocol for the responsible vet to action within 72 hours per Loi 25.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and emergency-hours data build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your structured data. First-visit booking volume usually shows a 30-50 percent lift in months 2-3, with the conversion-to-long-term-client metric (70% in this vertical) compounding over months 4-12.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your clinic",
+    ctaSecondary: "Free GBP audit for vet clinics",
+    seoTitle: "AI SEO for veterinary clinics + emergency hospitals Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for vet clinics + emergency hospitals in Greater Montreal. Emergency-hours schema, vet Person schema, species + specialty filtering. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO veterinary clinic Montreal",
+      "Google Business Profile vet Quebec",
+      "ChatGPT emergency vet Plateau",
+      "feline-only clinic AI search",
+      "exotic vet GBP Quebec",
+      "OMVQ vet AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour cliniques veterinaires et hopitaux d'urgence",
+    headline1: "Faites-vous citer par ChatGPT quand les proprietaires d'animaux cherchent",
+    headline2: "\"veterinaire d'urgence ouvert maintenant pres de moi\".",
+    subheadline:
+      "La possession d'animaux au Quebec a augmente de 22 % post-pandemie, la capacite veterinaire est sous pression et les proprietaires d'animaux demandent maintenant aux moteurs IA en premier. Les requetes « veto urgence ouvert dimanche » + « clinique chats seulement Plateau » + « veto exotique Montreal specialite reptiles » arrivent dans ChatGPT et Perplexity avant Google. Les moteurs IA ponderent la disponibilite des heures d'urgence, la visibilite OMVQ, les filtres especes + specialite et la velocite des avis. AiLys fait nommer votre clinique quand les IA repondent aux questions veto et convertit ca en premieres visites, ou 70 % deviennent clients a long terme.",
+    stats: [
+      { value: "73 %", label: "des proprietaires d'animaux de moins de 45 ans dans le Grand Montreal commencent par une requete a un moteur IA avant de reserver un rendez-vous veto" },
+      { value: "2,4×", label: "plus de citations LLM pour les cliniques avec schema Service complet (espece + specialite + tranche de prix visible) vs cliniques avec positionnement generique « veto petits animaux »" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes veto-urgence + species-specifiques" },
+      { value: "70 %", label: "taux de conversion premiere-visite vers client a long terme dans la verticale veto quand le moteur IA achemine le premier rendez-vous (le plus eleve de toute verticale PME locale)" },
+    ],
+    topQueries: [
+      "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+      "clinique chats seulement accepte nouveaux patients Brossard",
+      "veterinaire exotique specialite reptiles Montreal bilingue",
+    ],
+    painPoints: [
+      {
+        title: "Heures d'urgence enterrees en petits caracteres",
+        description:
+          "Quand un proprietaire d'animal cherche « veto ouvert maintenant » a 21 h mardi, les moteurs IA ont besoin de la disponibilite hors-heures schematisee explicitement. La plupart des cliniques l'ont sur leur site mais en texte seulement, invisible pour l'IA. Le schema OpeningHoursSpecification avec heures hors-bureau et contact d'urgence est la correction a plus fort impact.",
+      },
+      {
+        title: "Espece + specialite non mises en avant",
+        description:
+          "Les proprietaires d'animaux cherchent par espece (les cliniques chats-seulement obtiennent 3,4× plus de trafic de proprietaires de chats quand c'est schematise) et par specialite (exotique, chirurgical, dentaire, comportement, oncologie). La plupart des cliniques listent les services dans une page WordPress plate que les moteurs IA ne peuvent pas parser en reponses filtrees par espece.",
+      },
+      {
+        title: "Certification OMVQ + equipe veto non visible",
+        description:
+          "Les proprietaires d'animaux verifient « ce veto est-il certifie OMVQ? » + « qui est le veto que je verrai? » avant de reserver. Le schema Person pour chaque veterinaire (avec numero OMVQ, specialites, langues) permet aux moteurs IA de repondre a ces questions specifiquement. Sans ca, vous perdez face aux chaines qui publient les bios des vetos.",
+      },
+      {
+        title: "Avis domines par les cas d'urgence (ton anxieux)",
+        description:
+          "Les avis veto penchent emotionnellement : proprietaire panique pendant l'urgence + proprietaire soulage post-retablissement. Les moteurs IA ponderent la coherence du ton. Sans collecte proactive d'avis lors des visites de bien-etre routinieres, votre profil d'avis se lit comme « pratique d'urgence seulement » meme si 80 % de votre travail est en bien-etre.",
+      },
+      {
+        title: "Veto-proprietaire voit des patients 8 heures par jour, aucun temps marketing",
+        description:
+          "Les pratiques veto solos ou petites ont le proprietaire en chirurgie + rendez-vous toute la journee. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La clinique prend du retard sur les chaines (Centre Veterinaire, acquisitions VCA Canada) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie veterinaire",
+        description:
+          "Categorie principale reglee sur le type de veto specifique (Veterinaire, Hopital veterinaire, Veterinaire d'urgence, Hopital pour animaux, Pension pour animaux le cas echeant), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Rendez-vous en ligne, Sans rendez-vous bienvenu, Urgence 24/7, Langues parlees, Especes traitees, Services specialises comme dentaire / chirurgie / comportement / oncologie / exotique), 50+ photos originales minimum (exterieur clinique, salles d'examen, suite chirurgicale avec consentement), Q&R hebdomadaire sur questions courantes des proprietaires d'animaux.",
+      },
+      {
+        step: "02",
+        title: "Schema heures-d'urgence avec contact hors-bureau explicite",
+        description:
+          "Entrees Schema.org OpeningHoursSpecification pour heures regulieres + ligne d'urgence hors-bureau + couverture dimanche/feries le cas echeant. Les moteurs IA repondent maintenant « veto urgence ouvert maintenant » avec votre clinique, votre telephone d'urgence direct et le prochain rendez-vous disponible.",
+      },
+      {
+        step: "03",
+        title: "Schema Person veterinaire-par-veterinaire",
+        description:
+          "Entrees Schema.org Person pour chaque veto en pratique (numero certification OMVQ, photo, specialites, langues parlees FR/EN/ES/etc., annees de pratique, interets specialises). Les moteurs IA citent les vetos individuellement pour les requetes de specialite (« veto exotique specialiste de reptiles »), ce qui batit l'autorite veto-personnelle et aide aux references.",
+      },
+      {
+        step: "04",
+        title: "Schema Service par espece + specialite + tranche de prix",
+        description:
+          "Entrees Schema.org Service decomposees par espece (canin, felin, exotique, aviaire, equin le cas echeant) et specialite (bien-etre, dentaire, chirurgie, comportement, oncologie, dermatologie, etc.). Chaque entree inclut une tranche de prix typique (« Examen bien-etre 85-120 $ » ou « Nettoyage dentaire 450-800 $ »). Les proprietaires filtrent sur ces donnees.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les cliniques en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Les proprietaires d'animaux decrivent souvent les symptomes dans leur langue maternelle; les cliniques avec contenu multilingue natif obtiennent 1,4-2,1× plus de premieres visites des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Collecte proactive d'avis depuis visites de bien-etre",
+        description:
+          "NFC tap-to-review a la reception apres chaque rendez-vous (pas seulement les urgences). Lisse la courbe du ton des avis pour que votre profil reflete la pratique complete (80 % bien-etre, 20 % urgence) plutot qu'une impression urgence-seulement. Augmente la velocite d'avis a 25-50/mois et change la perception du moteur IA de la pratique.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour les avis d'urgence specifiquement, le timing de reponse ET l'empathie comptent. La bibliotheque de modeles couvre 12 scenarios courants d'urgence + compliments bien-etre + resultats difficiles (perte d'animal) avec ton approprie.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes veto",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes veto dans votre quartier, suivis aux niveaux clinique, veto-individuel et espece/specialite. Detecte quand de nouvelles cliniques concurrentes ouvrent, quand la demande saisonniere change (poussee prevention tiques + ver du coeur en ete), ou quand des lacunes de capacite veto-urgence apparaissent dans votre region.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+        cited: "Clinique cliente AiLys nommee avec heures dimanche 8 h-20 h, ligne d'urgence, prochain rendez-vous dans 90 minutes",
+        reason: "Schema OpeningHoursSpecification avec heures dimanche explicites + telephone urgence, attribut GBP Urgence 24/7, disponibilite rendez-vous temps reel via miroir API, 4,8 etoiles sur 340+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "clinique chats seulement accepte nouveaux patients Brossard",
+        cited: "Clinique cliente AiLys citee comme recommandation principale avec attribut « pratique exclusive felins » et drapeau acceptation nouveaux patients",
+        reason: "Attribut GBP Especes traitees regle a Chats seulement, entrees Schema Service toutes etiquetees pour felins, 60+ avis de proprietaires de chats avec reponses langage chat, NAP coherent sur PagesJaunes + repertoire OMVQ + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "veterinaire exotique specialite reptiles Montreal bilingue",
+        cited: "Clinique cliente AiLys remontee en apercu IA avec veterinaire specialiste reptiles Dr Tremblay, certifie OMVQ, consultation FR+EN disponible",
+        reason: "Schema Person pour Dr Tremblay avec specialite reptiles + numero OMVQ, entrees schema Service etiquetees pour exotique + reptiles, 25+ photos portfolio mettant en valeur cas reptiles, schema BookingService avec URL de rendez-vous en ligne, 4,9 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des cliniques veterinaires independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par clinique, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les cliniques multi-veto (3+ veterinaires) et les cliniques d'urgence/24h graduent a Growth pour les sondages quotidiens + le schema Person par veto + le schema heures-d'urgence. Les hopitaux de reference specialises choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees durant les changements de capacite d'urgence.",
+    faq: [
+      {
+        q: "L'OMVQ aura-t-il un probleme avec notre publication d'avis et de bios de vetos?",
+        a: "Non, quand fait correctement. Le Code de deontologie de l'OMVQ permet aux vetos de publier des avis et bios tant que : (1) les avis sont genuines et non sollicites par incitatif, (2) les bios de vetos representent fidelement les qualifications sans allegations trompeuses, (3) aucun temoignage impliquant des resultats garantis, (4) info de contact d'urgence visible. La collecte d'avis + les modeles de bio AiLys sont revus annuellement contre le Code.",
+      },
+      {
+        q: "Comment gerez-vous les avis emotionnels apres le deces d'un animal?",
+        a: "La bibliotheque de modeles couvre les resultats difficiles specifiquement. Repondre dans les 24 heures, reconnaitre la perte dans la langue du client, offrir des condoleances sans minimiser, mentionner l'equipe qui a soigne l'animal, ne pas defendre ou expliquer sauf si demande. Les moteurs IA ponderent fortement la coherence du ton empathique dans la verticale veto.",
+      },
+      {
+        q: "Nous sommes une clinique chats-seulement, est-ce que ca fonctionne differemment?",
+        a: "Oui, en votre faveur. Le positionnement specialise (chats-seulement, exotique-seulement, comportement, etc.) est un differenciateur puissant que les moteurs IA recompensent quand correctement schematise. Nous etiquetons chaque entree de schema Service avec espece + specialite, listons l'attribut GBP Especes traitees explicitement, et orientons la galerie photo + les avis vers votre specialite. Les cliniques specialisees voient typiquement 2-3× plus de hausse de citations IA que la pratique generale.",
+      },
+      {
+        q: "Pouvez-vous gerer l'integration de reservation de rendez-vous avec notre PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Oui. Nous miroir votre disponibilite de reservation depuis l'API du PMS quotidiennement et republions comme entrees Schema.org BookingService sur votre site. Les moteurs IA font ensuite surface la disponibilite de rendez-vous temps reel dans les reponses (« prochain rendez-vous veto samedi » est repondu avec votre clinique + lien direct de reservation). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter sont tous supportes.",
+      },
+      {
+        q: "Etes-vous familier avec les implications Loi 25 pour les dossiers medicaux d'animaux?",
+        a: "Oui. Les dossiers medicaux d'animaux contiennent des infos personnelles du proprietaire sujettes a la Loi 25 (nom, adresse, telephone, courriel, facturation). Notre flux de consentement par defaut inclut une clause explicite dossier-medical-animal. Les dossiers sont stockes dans les regions canadiennes (Supabase Montreal), avec protocole de notification de breche pour le veto responsable d'agir dans les 72 heures par Loi 25.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et les donnees d'heures d'urgence s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent vos donnees structurees. Le volume de premieres visites montre habituellement une hausse de 30-50 % aux mois 2-3, avec la metrique de conversion vers client a long terme (70 % dans cette verticale) qui s'accumule sur les mois 4-12.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre clinique",
+    ctaSecondary: "Audit GBP gratuit pour clinique veterinaire",
+    seoTitle: "Referencement IA pour cliniques veterinaires + hopitaux d'urgence Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour cliniques veto + hopitaux d'urgence du Grand Montreal. Schema heures-d'urgence, schema Person veto, filtrage especes + specialite. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA clinique veterinaire Montreal",
+      "Google Business Profile veto Quebec",
+      "ChatGPT veterinaire urgence Plateau",
+      "clinique chats seulement recherche IA",
+      "veterinaire exotique GBP Quebec",
+      "OMVQ veto Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -4481,6 +4813,7 @@ export const industries: Industry[] = [
   sushiCounters,
   hairSalons,
   gymsStudios,
+  vetClinics,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

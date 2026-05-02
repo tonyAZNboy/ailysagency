@@ -23,6 +23,7 @@ export const VERTICAL_DEFAULT_MOOD: Record<IndustrySlug, MoodId> = {
   "sushi-counters": "friendly-local",
   "hair-salons": "premium-dark",
   "gyms-studios": "tech-corporate",
+  "vet-clinics": "clean-medical",
 };
 
 export function getDefaultMoodForVertical(slug: IndustrySlug): MoodId {

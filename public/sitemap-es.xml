@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (es)
     Generated: 2026-05-02
-    URLs: 185
+    URLs: 186
     Index priority: 3 of 16
   -->
 
@@ -675,6 +675,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/industries/gyms-studios" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/industries/gyms-studios" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/industries/gyms-studios" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/es/industries/vet-clinics</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/industries/vet-clinics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/industries/vet-clinics" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/es/vs/sterling-sky</loc>
