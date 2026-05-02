@@ -26,7 +26,7 @@ declare global {
   }
 }
 
-let initialized = {
+const initialized = {
   gtm: false,
   meta: false,
   linkedin: false,

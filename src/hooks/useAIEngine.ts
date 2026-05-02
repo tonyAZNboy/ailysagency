@@ -183,7 +183,7 @@ export function useAIEngine(_mode: "landing" | "in_app" = "landing") {
         }
       } catch (err) {
         const isRateLimited = err instanceof Error && err.message === "rate_limited";
-        // eslint-disable-next-line no-console
+         
         console.error("[AiLys chat] error:", err);
         toast({
           title: isRateLimited ? "Slow down a bit" : "Chat unavailable",
