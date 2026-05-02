@@ -4,7 +4,43 @@
 
 ---
 
-## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert lib + STATE archive + htmlEscape lib
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert + STATE archive + htmlEscape + crypto libs (4 commits on PR #139)
+
+### Sub-phase 4 (commit 4/4 on PR #139): crypto shared lib + Gate 28
+
+Consolidated 10 byte-equivalent inline copies of `sha256Hex` (across
+8 edge fns + 2 lib files) plus 2 copies of `bytesToHex` into a single
+canonical `functions/lib/crypto.ts`. `rateLimit.ts` now re-exports
+from crypto.ts to preserve back-compat with existing
+`import { sha256Hex } from "../lib/rateLimit"` callers.
+
+**Files refactored (10 inline sha256Hex removed):**
+
+- `functions/lib/rateLimit.ts` (re-exports from crypto)
+- `functions/lib/serviceAuth.ts` (also lost local bytesToHex)
+- `functions/lib/unsubscribeToken.ts` (also lost local bytesToHex)
+- `functions/api/audit-pdf.ts`
+- `functions/api/audit-pdf-onboarding.ts`
+- `functions/api/audit-pdf-download/[id].ts`
+- `functions/api/audit-ai-visibility-instant.ts`
+- `functions/api/cron-process-sequences.ts`
+- `functions/api/visibility-report-pdf.ts`
+- `functions/api/client-error.ts`
+- `functions/api/newsletter-unsubscribe.ts`
+- `functions/api/quote-pdf.ts`
+- `functions/api/resend-webhook.ts`
+- `functions/api/partner-application.ts` (was importing rateLimit's
+  rename `sha256Hex as ratelimitSha` AND defining its own local
+  `sha256Hex`. Now imports directly from crypto, rename dropped.)
+
+**New smoke (Gate 28): scripts/smoke-crypto.mjs, 19 cases.**
+
+Verifies NIST FIPS 180-4 reference vectors for empty string and
+'abc' (covers any-input-byte-equivalence to the spec), 64-char
+lowercase hex contract for arbitrary input including UTF-8 multi-byte
++ emoji, determinism, bytesToHex contract.
+
+### Sub-phase 3 (commit 3/4 on PR #139): htmlEscape shared lib + Gate 27
 
 ### Sub-phase 3 (commit 3/3 on PR #139): htmlEscape shared lib + Gate 27
 

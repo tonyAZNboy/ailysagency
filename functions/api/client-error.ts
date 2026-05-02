@@ -19,6 +19,8 @@
 // - Fail-closed: missing CLIENT_ERROR_ENABLED env -> 204 (silent drop, not
 //   503, to avoid surfacing endpoint health to attackers).
 
+import { sha256Hex } from '../lib/crypto';
+
 interface Env {
   AUDIT_PDF_RATE_LIMIT?: KVNamespace;
   CLIENT_ERROR_ENABLED?: string;
@@ -73,12 +75,6 @@ interface AuditLogEntry {
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'client-error', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function clip(value: unknown, max: number): string | null {

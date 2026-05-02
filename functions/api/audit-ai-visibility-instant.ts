@@ -21,6 +21,7 @@
 // Backend: Google Generative Language API, gemini-2.5-pro:generateContent.
 
 import { captureServerError } from '../lib/serverError';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
@@ -99,12 +100,6 @@ interface AuditResult {
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'instant-ai-vis', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function clip(value: unknown, max: number): string | null {

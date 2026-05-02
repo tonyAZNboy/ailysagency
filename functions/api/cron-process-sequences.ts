@@ -16,6 +16,7 @@ import { sendAndLog } from '../lib/emailLog';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { captureServerError } from '../lib/serverError';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   RESEND_API_KEY?: string;
@@ -88,11 +89,6 @@ function jsonResponse(body: unknown, status = 200): Response {
     status,
     headers: { 'Content-Type': 'application/json' },
   });
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function logAudit(component: string, fields: Record<string, unknown>): void {

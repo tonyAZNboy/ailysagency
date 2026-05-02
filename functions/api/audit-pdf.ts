@@ -20,6 +20,7 @@ import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -65,12 +66,6 @@ interface PagesContext {
 
 const IP_RATE_PER_HOUR = 5;
 const EMAIL_RATE_PER_DAY = 50;
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
 
 function utcHourBucket(now: number = Date.now()): string {
   return new Date(now).toISOString().slice(0, 13); // "2026-04-28T03"

@@ -29,6 +29,7 @@ import { buildOnboardingPdfRequest, OnboardingInput } from '../../src/lib/onboar
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -58,12 +59,6 @@ const IDEMPOTENCY_TTL_SECONDS = 7 * 24 * 60 * 60; // 7 days
 const NOTIFY_FROM = 'AiLys Agency <noreply@ailysagency.ca>';
 
 // ── Hashing helpers ─────────────────────────────────────────────────────────
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'audit-pdf-onboarding', ...line }));

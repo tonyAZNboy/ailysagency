@@ -16,10 +16,11 @@
 //   1. Supabase partner_applications insert (admin dashboard visibility)
 //   2. Resend internal alert email to operator (instant ops alert)
 
-import { checkRateLimit, sha256Hex as ratelimitSha } from "../lib/rateLimit";
+import { checkRateLimit } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
 import { insertSupabaseRow } from "../lib/supabaseInsert";
 import { escapeHtml } from "../lib/htmlEscape";
+import { sha256Hex } from "../lib/crypto";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -199,13 +200,6 @@ function isAllowedOrigin(request: Request, env: Env): boolean {
   return allowed.includes(origin) || origin.startsWith("http://localhost");
 }
 
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(buf))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
 
 export async function payloadHash(data: ValidatedData): Promise<string> {
   return sha256Hex(`${data.agency_name}|${data.contact_email}|${data.pitch ?? ""}`);
@@ -384,7 +378,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   // hits in their synthesized response. Identity bucket uses email hash so
   // an attacker cannot rotate IP to flood one applicant's email.
   if (ipH) {
-    const emailHash = await ratelimitSha(`partner-app:${v.data.contact_email}`);
+    const emailHash = await sha256Hex(`partner-app:${v.data.contact_email}`);
     const rl = await checkRateLimit(env.PARTNER_APPLICATIONS_RATE_LIMIT, {
       ipHash: ipH,
       identityHash: emailHash,

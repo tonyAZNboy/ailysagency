@@ -26,6 +26,8 @@
 // - Caller allowlist: prevents misuse if secret leaks (though secret leak
 //   would still be game-over; the allowlist is defense in depth)
 
+import { sha256Hex, bytesToHex } from './crypto';
+
 const ALG = { name: 'HMAC', hash: 'SHA-256' } as const;
 const REPLAY_WINDOW_SECONDS = 300; // +/- 5 minutes
 
@@ -53,10 +55,6 @@ function hexToBytes(hex: string): Uint8Array {
   return out;
 }
 
-function bytesToHex(bytes: Uint8Array): string {
-  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
 function ctEqual(a: Uint8Array, b: Uint8Array): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
@@ -67,12 +65,6 @@ function ctEqual(a: Uint8Array, b: Uint8Array): boolean {
 async function importHmacKey(secretHex: string): Promise<CryptoKey> {
   const keyBytes = hexToBytes(secretHex);
   return crypto.subtle.importKey('raw', keyBytes, ALG, false, ['sign', 'verify']);
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return bytesToHex(new Uint8Array(buf));
 }
 
 /**

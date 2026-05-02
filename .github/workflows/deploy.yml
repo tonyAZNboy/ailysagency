@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 28, crypto shared lib smoke (19 cases)
+        # Tests functions/lib/crypto.ts: sha256Hex (canonical, replaces 10
+        # inline copies across edge fns + libs) + bytesToHex helper.
+        # Verifies NIST FIPS 180-4 reference vectors for empty string and
+        # 'abc', 64-char lowercase hex output for arbitrary input including
+        # UTF-8 multi-byte and emoji, determinism, and bytesToHex contract
+        # (matches sha256Hex output when fed the digest bytes, lowercase,
+        # 2 hex chars per byte with leading-zero pad).
+        run: npx tsx scripts/smoke-crypto.mjs
+
       - name: Gate 27, html-escape shared lib smoke (20 cases)
         # Tests functions/lib/htmlEscape.ts: shared escapeHtml helper
         # extracted from 6 byte-identical inline copies. Verifies the

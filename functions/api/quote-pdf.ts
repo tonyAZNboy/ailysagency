@@ -17,6 +17,7 @@
 
 import { renderQuotePdf, type QuoteRenderInput, computeQuote } from '../lib/pdf/Quote';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -78,12 +79,6 @@ const ALLOWED_WEBSITE_SIZES = new Set(['none', 'vitrine', 'pme', 'commerce']);
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'quote-pdf', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function clip(value: unknown, max: number): string | null {
