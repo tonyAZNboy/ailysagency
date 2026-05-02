@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (zh)
     Generated: 2026-05-02
-    URLs: 176
+    URLs: 177
     Index priority: 4 of 16
   -->
 
@@ -192,6 +192,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/concours-pme" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/concours-pme" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/concours-pme" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/zh/garantie</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/garantie" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/garantie" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/garantie" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/garantie" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/garantie" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/garantie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/garantie" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/garantie" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/garantie" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/garantie" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/garantie" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/garantie" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/garantie" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/garantie" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/garantie" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/garantie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/garantie" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/zh/pricing-details</loc>

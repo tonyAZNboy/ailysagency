@@ -2,6 +2,73 @@
 
 ---
 
+## 🛡️ SESSION 2026-05-02 (Performance Guarantee) — /garantie live
+
+**Shipped:** Risk-reversed conversion tool. 3 conditional guarantees
+that AiLys CAN actually back (because they cover metrics we control,
+not metrics Google controls). Each guarantee is conditional on
+client cooperation during onboarding.
+
+**Per session strategy** (the bankruptcy concern discussed earlier):
+guarantees are designed to NEVER trigger a refund unless we
+underperformed AND client cooperated. Safe for AiLys, double-converts
+for prospects.
+
+**Files:**
+- `src/pages/Garantie.tsx` (~330 lines, EN+FR inline)
+- `src/App.tsx`: 4 new routes (/garantie, /:lang/garantie, /guarantee,
+  /:lang/guarantee), lazy-loaded
+- `scripts/generate-sitemap.mjs`: 1 new entry x 16 locales = 16 URLs
+
+**3 GUARANTEES (each with conditions + tier eligibility):**
+
+1. **GBP optimization perfect score in 30 days OR month 2 free**
+   - Conditions: GBP access in week 1, 12+ photos uploaded month 1,
+     responds to clarifications within 5 business days
+   - Tiers: All (Starter, Core, Growth, Agency)
+   - Why safe: we control 100% of GBP optimization controls
+
+2. **AI Visibility +20% in 90 days OR month 4 free**
+   - Conditions: baseline established week 1, photo quota met,
+     active GBP maintained
+   - Tiers: Core, Growth, Agency
+   - Why safe: AI Visibility responds directly to GBP + reviews +
+     citations + schema, all of which we control
+
+3. **10 authentic reviews in 90 days OR month 4 free**
+   - Conditions: NFC card placed at point of service week 1, staff
+     trained, 25+ customers/week (waivers possible)
+   - Tiers: Reviuzy add-on or Agency
+   - Why safe: NFC achieves 35-50% capture rate at 25-40
+     weekly customers
+
+**EXPLICITLY NOT GUARANTEED (the honesty section):**
+- Top 3 organic Google ranking on specific keywords (Google black box)
+- Number of leads, customers, revenue (depends on client's offer +
+  pricing + sales process, outside marketing scope)
+- Outcomes if client cancels before guarantee window closes
+
+**Mood:** clean-medical (precision, trust, contractual feel,
+MeshGradientBackground cyan/green).
+
+**How to claim section:** 3-step process documented (email within 7
+days of window closing, audit log review, automatic credit on next
+invoice OR explanation + 60-day extension to retry).
+
+**Verification:**
+- /fr/garantie: H1 "Trois garanties / Mois gratuit si on manque"
+  renders
+- 3 H2 sections render (What we guarantee, What we don't guarantee,
+  How to claim)
+- Body contains "garantie" + "GBP" terms
+- MeshGradientBackground rgb(248, 250, 251) light mesh renders
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~22s
+
+---
+
 ## ⚠️ MERGE COORDINATION NOTE — parallel session in flight
 
 User flagged 2026-05-02 that a parallel session is running and may

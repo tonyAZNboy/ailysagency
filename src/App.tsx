@@ -56,6 +56,7 @@ const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
 const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
 const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
 const PMEContest = lazy(() => import("./pages/PMEContest"));
+const Garantie = lazy(() => import("./pages/Garantie"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -222,6 +223,12 @@ const App = () => {
                 <Route path="/:lang/concours-pme" element={<PMEContest />} />
                 <Route path="/pme-contest" element={<PMEContest />} />
                 <Route path="/:lang/pme-contest" element={<PMEContest />} />
+
+                {/* Performance guarantee positioning */}
+                <Route path="/garantie" element={<Garantie />} />
+                <Route path="/:lang/garantie" element={<Garantie />} />
+                <Route path="/guarantee" element={<Garantie />} />
+                <Route path="/:lang/guarantee" element={<Garantie />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
