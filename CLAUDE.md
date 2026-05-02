@@ -89,6 +89,7 @@ Before declaring any task complete:
    - `node scripts/smoke-bundle-shape.mjs` (9 cases, bundle-shape regression guard for the PR #96 -> PR #103 TDZ blank-page class. Requires `npx vite build` to have run.)
    - `node --experimental-vm-modules scripts/smoke-bundle-load.mjs` (1 case, complement to bundle-shape. Actually evaluates entry chunk + preloaded vendors in node:vm sandbox with stubbed DOM globals. Catches generic TDZ/ReferenceError/circular-init at module load. Verified to throw on the PR #96 broken config and pass on the safe data-only config.)
    - `npx tsx scripts/smoke-rate-limit.mjs` (18 cases, shared rate-limit lib at functions/lib/rateLimit.ts. KV-backed token bucket with IP hourly + identity daily windows, fail-open on missing KV binding, key prefix isolation. Use `import { checkRateLimit, sha256Hex } from "../lib/rateLimit"` in any new edge fn that needs rate limiting.)
+   - `npx tsx scripts/smoke-system-health.mjs` (34 cases, /api/system-health endpoint shape contract + zero-leak guarantee on secret values. Healthcheck endpoint for uptime monitors; reports kill-switch states, KV binding presence, secret presence-only booleans, build version. Public ops surface, never returns secret values.)
    - As new features ship, add their smoke tests here AND wire into `.github/workflows/deploy.yml`.
 6. Open the affected page(s) in the browser preview
 7. Click the affected control / submit the affected form / verify the affected output
