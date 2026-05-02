@@ -4,7 +4,26 @@
 
 ---
 
-## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended14) — 3 PRs, blank-page hotfix + i18n 100% + Gate 20 regression guard
+## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended14) — 5 PRs, blank-page hotfix + i18n 100% + Gates 20+21 regression guard
+
+**Final addition:** PR #109 → v0.14.7-gate21-bundle-load shipped Gate 21
+as defense-in-depth complement to Gate 20. Where Gate 20 catches KNOWN
+forbidden chunk names by regex (instant), Gate 21 actually evaluates
+the entry chunk + preloaded vendors in node:vm with stubbed DOM globals
+(catches generic TDZ/ReferenceError/circular-init that the forbidden
+list cannot predict). Verified to throw the EXACT user-facing error
+(\`ReferenceError: Cannot access 'O' before initialization\`) when the
+PR #96 broken config is applied, and pass on the safe data-only config.
+~5s runtime, no new deps.
+
+Together: 4 layered guards prevent the v0.14.4 blank-page class:
+- Gate 20: forbidden chunk names (instant regex)
+- Gate 21: ESM module-init in node:vm (~5s sandbox eval)
+- smoke-jsonld: post-deploy production HTML JSON-LD parse
+- Future Playwright headless smoke: optional, would add functional
+  rendering coverage (h1 visible, rootChildren > 0)
+
+
 
 **3 PRs shipped, 3 tags, 1 critical live hotfix:**
 
