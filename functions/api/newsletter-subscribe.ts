@@ -13,6 +13,10 @@
 import { renderEmail } from '../lib/emailTemplate';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { sendAndLog } from '../lib/emailLog';
+import { checkRateLimit, sha256Hex } from '../lib/rateLimit';
+import { captureServerError } from '../lib/serverError';
+import { isAllowedOrigin } from '../lib/origin';
+import { isValidEmail } from '../lib/email';
 
 interface Env {
   NEWSLETTER_DB?: { exec: (q: string) => Promise<unknown> };
@@ -22,6 +26,14 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string;
   /** 64-char hex secret for signing one-click unsubscribe tokens. */
   NEWSLETTER_UNSUB_SECRET?: string;
+  /** Optional KV binding for rate-limit. When unbound, rate-limit fails open
+   *  with audit-log entry so operator sees the missing binding. */
+  NEWSLETTER_RATE_LIMIT?: KVNamespace;
+  /** Operator notification email for server-error alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Build commit (set by Cloudflare Pages env). Included in serverError
+   *  alert emails so operator can identify which deploy is erroring. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const SITE_BASE_URL = 'https://www.ailysagency.ca';
@@ -109,36 +121,6 @@ async function upsertSubscriber(env: Env, row: {
   }
 }
 
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
-}
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true; // server-to-server or no-cors curl is OK
-  const allowed = (env.ALLOWED_ORIGINS ?? "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
-}
-
 export async function onRequestPost(context: {
   request: Request;
   env: Env;
@@ -168,6 +150,42 @@ export async function onRequestPost(context: {
       { error: "Please provide a valid, reachable email address." },
       { status: 400 },
     );
+  }
+
+  // Rate limit: 5 IP/hour + 3 identity/day. Identity bucket prevents an
+  // attacker rotating IP from flooding one victim's inbox with confirmation
+  // emails. Caps are conservative because newsletter signups are low-volume
+  // per honest user (most subscribe once).
+  const ip =
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    null;
+  if (ip) {
+    const day = new Date().toISOString().slice(0, 10);
+    const ipH = await sha256Hex(`${day}|${ip}`);
+    const idH = await sha256Hex(`newsletter:${email}`);
+    const rl = await checkRateLimit(env.NEWSLETTER_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: idH,
+      ipPerHour: 5,
+      identityPerDay: 3,
+      keyPrefix: "rl:newsletter",
+    });
+    if (!rl.allowed) {
+      return Response.json(
+        {
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+          },
+        },
+      );
+    }
   }
 
   const source = (body.source ?? "unknown").trim().slice(0, 64);
@@ -254,8 +272,20 @@ export async function onRequestPost(context: {
         step: 0,
         subject,
       });
-    } catch {
-      // Don't fail the subscription if email delivery fails
+    } catch (welcomeErr) {
+      // Don't fail the subscription if welcome-email delivery fails, but
+      // DO capture so the operator knows. Severity=warn so it logs to
+      // audit_log without paging (newsletter welcome is best-effort).
+      await captureServerError(env, {
+        endpoint: "newsletter-subscribe",
+        severity: "warn",
+        err: welcomeErr,
+        context: {
+          stage: "welcome_email_dispatch",
+          email_hash_prefix: (await sha256Hex(`newsletter:${email}`)).slice(0, 12),
+          lang,
+        },
+      });
     }
   }
 

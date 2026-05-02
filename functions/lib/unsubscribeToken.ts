@@ -12,6 +12,8 @@
  * double-binding prevents token reuse for a different email.
  */
 
+import { sha256Hex, bytesToHex } from './crypto';
+
 const TOKEN_TTL_SECONDS = 365 * 24 * 60 * 60; // 1 year
 
 async function importHmacKey(secretHex: string): Promise<CryptoKey> {
@@ -26,15 +28,6 @@ async function importHmacKey(secretHex: string): Promise<CryptoKey> {
     false,
     ['sign'],
   );
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function bytesToHex(bytes: Uint8Array): string {
-  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 function constantTimeEqual(a: string, b: string): boolean {

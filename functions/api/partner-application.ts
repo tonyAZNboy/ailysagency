@@ -16,6 +16,14 @@
 //   1. Supabase partner_applications insert (admin dashboard visibility)
 //   2. Resend internal alert email to operator (instant ops alert)
 
+import { checkRateLimit } from "../lib/rateLimit";
+import { captureServerError } from "../lib/serverError";
+import { insertSupabaseRow } from "../lib/supabaseInsert";
+import { escapeHtml } from "../lib/htmlEscape";
+import { sha256Hex } from "../lib/crypto";
+import { isAllowedOrigin } from "../lib/origin";
+import { isValidEmail } from "../lib/email";
+
 interface Env {
   ALLOWED_ORIGINS?: string;
   SUPABASE_URL?: string;
@@ -24,21 +32,16 @@ interface Env {
   OPERATOR_NOTIFY_EMAIL?: string;
   PARTNER_APPLICATIONS_KILL_SWITCH?: string;
   PARTNER_APPLICATIONS_DRY_RUN?: string;
+  /** Optional KV binding. Bind in Cloudflare Pages → Settings → Functions →
+   *  KV bindings (variable name: PARTNER_APPLICATIONS_RATE_LIMIT). When
+   *  unbound, rate-limit fails open with audit log entry. */
+  PARTNER_APPLICATIONS_RATE_LIMIT?: KVNamespace;
+  /** Build commit (set by Cloudflare Pages env). Used by serverError
+   *  capture to include in alerts. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const NOTIFY_FROM = "AiLys Partner Program <hello@ailysagency.ca>";
-
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
 
 const ALLOWED_LANGS = new Set(["en", "fr"]);
 
@@ -67,15 +70,6 @@ interface ValidatedData {
   pitch: string | null;
   source: string;
   visitor_session_id: string | null;
-}
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254 || email.length < 5) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
 }
 
 function clip(value: unknown, max: number): string | null {
@@ -177,23 +171,6 @@ export function validate(body: ApplicationBody): ValidationResult {
   };
 }
 
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(buf))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
 
 export async function payloadHash(data: ValidatedData): Promise<string> {
   return sha256Hex(`${data.agency_name}|${data.contact_email}|${data.pitch ?? ""}`);
@@ -212,47 +189,17 @@ async function forwardToSupabase(
   hash: string,
   ipHashValue: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.log("Partner application (no DB):", JSON.stringify({ ...data, payload_hash: hash, ip_hash: ipHashValue }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/partner_applications`;
-  const payload = {
-    ...data,
-    payload_hash: hash,
-    ip_hash: ipHashValue,
-    created_at: new Date().toISOString(),
-  };
-  try {
-    const resp = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: "return=minimal,resolution=ignore-duplicates",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok && resp.status !== 409) {
-      const text = await resp.text().catch(() => "");
-      console.warn("Partner-app Supabase insert failed", resp.status, text.slice(0, 300));
-      return { ok: false, error: `Supabase ${resp.status}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.warn("Partner-app Supabase insert threw", (err as Error).message);
-    return { ok: false, error: (err as Error).message };
-  }
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+  return insertSupabaseRow(
+    env,
+    "partner_applications",
+    {
+      ...data,
+      payload_hash: hash,
+      ip_hash: ipHashValue,
+      created_at: new Date().toISOString(),
+    },
+    { ignoreDuplicates: true },
+  );
 }
 
 async function sendOpsEmail(env: Env, data: ValidatedData): Promise<{ ok: boolean; error?: string }> {
@@ -398,6 +345,38 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const hash = await payloadHash(v.data);
   const ipH = await ipHash(ip);
 
+  // Rate limit BEFORE DRY_RUN so dry-run requests still surface rate-limit
+  // hits in their synthesized response. Identity bucket uses email hash so
+  // an attacker cannot rotate IP to flood one applicant's email.
+  if (ipH) {
+    const emailHash = await sha256Hex(`partner-app:${v.data.contact_email}`);
+    const rl = await checkRateLimit(env.PARTNER_APPLICATIONS_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: emailHash,
+      ipPerHour: 10,
+      identityPerDay: 5,
+      keyPrefix: "rl:partner-app",
+    });
+    if (!rl.allowed) {
+      return new Response(
+        JSON.stringify({
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+            "Access-Control-Allow-Origin":
+              request.headers.get("origin") ?? "https://www.ailysagency.ca",
+          },
+        },
+      );
+    }
+  }
+
   // DRY_RUN: short-circuit before any external calls
   if (isDryRun(env)) {
     return new Response(
@@ -424,6 +403,26 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   ]);
 
   if (!supaResult.ok && !emailResult.ok) {
+    // Both delivery channels failed: this is a real ops incident. Capture
+    // via the shared serverError lib so the operator gets a Resend alert
+    // immediately and the row is persisted to audit_log for triage. Best-
+    // effort; the 500 response below fires regardless of capture success.
+    await captureServerError(env, {
+      endpoint: "partner-application",
+      severity: "error",
+      err: new Error(
+        `dual delivery failure: supabase=${supaResult.error ?? "?"}, resend=${emailResult.error ?? "?"}`,
+      ),
+      requestId: hash.slice(0, 12),
+      userIpHash: ipH ?? undefined,
+      payloadHash: hash,
+      context: {
+        supabase_ok: supaResult.ok,
+        resend_ok: emailResult.ok,
+        supabase_error: supaResult.error ?? null,
+        resend_error: emailResult.error ?? null,
+      },
+    });
     return new Response(
       JSON.stringify({
         error: "Both delivery channels failed; please try again or email hello@ailysagency.ca",

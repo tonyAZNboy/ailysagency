@@ -20,9 +20,9 @@ Each industry has its own content object with ~50 strings. EN and FR are populat
 
 | Industry slug | EN | FR | ES | ZH | AR | RU | DE/HI/IT/JA/KO/NL/PL/PT/TR/VI |
 |---|---|---|---|---|---|---|---|
-| dentists       | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| lawyers        | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| restaurants    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| dentists       | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial (hero+stats+pain+CTA+SEO) | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
+| lawyers        | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
+| restaurants    | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
 | contractors    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | clinics        | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | real-estate    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |

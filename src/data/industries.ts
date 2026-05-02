@@ -422,6 +422,188 @@ const dentists: Industry = {
       "marketing clinique dentaire 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para clínicas dentales",
+      headline1: "Sé citado por ChatGPT cuando los pacientes preguntan",
+      headline2: "\"mejor dentista cerca de mí\".",
+      subheadline:
+        "Las búsquedas dentales son el sector salud n.º 1 dentro de ChatGPT, Perplexity, Claude y Gemini. Los nuevos pacientes preguntan a la IA qué clínica acepta su seguro, recibe nuevos pacientes y atiende emergencias. AiLys hace que su clínica sea nombrada.",
+      stats: [
+        { value: "62%", label: "de los nuevos pacientes ahora investigan dentistas a través de motores de IA antes de reservar" },
+        { value: "1,9×", label: "más citas LLM en sitios dentales con esquema FAQ" },
+        { value: "30 días", label: "para la primera mención en ChatGPT en promedio" },
+        { value: "$847", label: "valor promedio de un nuevo paciente en clínicas dentales de Quebec" },
+      ],
+      topQueries: [
+        "mejor dentista cerca de mí que recibe nuevos pacientes",
+        "dentista de urgencia abierto ahora Montreal",
+        "dentista pediátrico aceptando RAMQ ciudad de Quebec",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT envía pacientes a su competidor",
+          description:
+            "Cuando alguien pregunta a ChatGPT por un dentista en su barrio, la respuesta saca datos de Yelp, BBB, Healthgrades y Google Business Profile. Si su NAP es inconsistente entre esas fuentes, usted es invisible.",
+        },
+        {
+          title: "Las preguntas de seguro y RAMQ quedan sin respuesta",
+          description:
+            "Los pacientes preguntan a los motores de IA \"¿la clínica X acepta mi seguro?\". Si su sitio no tiene esquema FAQ que cubra los planes aceptados, los motores de IA extraen información antigua o incorrecta de directorios externos.",
+        },
+        {
+          title: "Las búsquedas de emergencia favorecen a las clínicas 24 horas",
+          description:
+            "Las consultas \"dentista de emergencia abierto ahora\" ponderan fuertemente los atributos de GBP (horarios de apertura, etiqueta de servicios de emergencia). La mayoría de las clínicas nunca rellenan estos campos y pierden el 100% del tráfico urgente.",
+        },
+        {
+          title: "El posicionamiento pediátrico y de especialidad es genérico",
+          description:
+            "Los motores de IA necesitan desambiguación de entidades: ¿es usted un dentista general, especialista pediátrico, o ambos? Sin esquema indicando serviceType, compite contra todo el mundo en lugar de dominar su nicho.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi clínica",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Dentistas · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su clínica dental sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para clínicas dentales. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "牙科诊所 AI SEO",
+      headline1: "当患者询问时让 ChatGPT 引用您",
+      headline2: "「我附近最好的牙医」。",
+      subheadline:
+        "在 ChatGPT、Perplexity、Claude 和 Gemini 中,牙科搜索是健康类目第一。新患者向 AI 询问哪家诊所接受他们的保险、接收新患者、处理急诊。AiLys 让您的诊所被点名。",
+      stats: [
+        { value: "62%", label: "的新患者现在在预约前通过 AI 引擎研究牙医" },
+        { value: "1.9×", label: "在带 FAQ schema 的牙科网站上获得更多 LLM 引用" },
+        { value: "30 天", label: "平均 ChatGPT 首次引用提升时间" },
+        { value: "$847", label: "魁北克牙科诊所新患者平均价值" },
+      ],
+      topQueries: [
+        "我附近接受新患者的最好牙医",
+        "蒙特利尔现在开门的急诊牙医",
+        "魁北克市接受 RAMQ 的儿童牙医",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 把患者送给您的竞争对手",
+          description:
+            "当有人向 ChatGPT 询问您所在街区的牙医时,答案会从 Yelp、BBB、Healthgrades 和 Google Business Profile 中提取。如果您的 NAP 在这些来源中不一致,您就是隐形的。",
+        },
+        {
+          title: "保险和 RAMQ 问题得不到回答",
+          description:
+            "患者会向 AI 引擎询问 \"X 诊所是否接受我的保险?\"。如果您的网站没有覆盖已接受计划的 FAQ schema,AI 引擎会从第三方目录中提取过时或错误的信息。",
+        },
+        {
+          title: "急诊搜索偏向 24 小时诊所",
+          description:
+            "\"现在开门的急诊牙医\" 类查询严重依赖 GBP 属性(营业时间、急诊服务标签)。大多数诊所从未填写这些字段,失去 100% 的紧急流量。",
+        },
+        {
+          title: "儿科和专科定位过于笼统",
+          description:
+            "AI 引擎需要实体消歧:您是全科牙医、儿科专家,还是两者兼有?没有指定 serviceType 的 schema 标记,您就在与所有人竞争而不是主导您的细分市场。",
+        },
+      ],
+      ctaPrimary: "运行我的牙科诊所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "牙医 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的牙科诊所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为牙科诊所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للعيادات السنية",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل المرضى",
+      headline2: "\"أفضل طبيب أسنان قريب مني\".",
+      subheadline:
+        "تعد عمليات البحث عن طب الأسنان القطاع الصحي رقم 1 داخل ChatGPT و Perplexity و Claude و Gemini. يسأل المرضى الجدد الذكاء الاصطناعي عن العيادة التي تقبل تأمينهم وتستقبل مرضى جدد وتتعامل مع الحالات الطارئة. تجعل AiLys اسم عيادتك يظهر.",
+      stats: [
+        { value: "62%", label: "من المرضى الجدد يبحثون الآن عن أطباء الأسنان عبر محركات الذكاء الاصطناعي قبل الحجز" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المواقع السنية المزودة بمخطط FAQ" },
+        { value: "30 يومًا", label: "في المتوسط للحصول على أول ارتفاع في الاستشهاد على ChatGPT" },
+        { value: "847 دولارًا", label: "متوسط قيمة المريض الجديد في العيادات السنية بكيبيك" },
+      ],
+      topQueries: [
+        "أفضل طبيب أسنان قريب مني يستقبل مرضى جدد",
+        "طبيب أسنان طوارئ مفتوح الآن مونتريال",
+        "طبيب أسنان أطفال يقبل RAMQ مدينة كيبيك",
+      ],
+      painPoints: [
+        {
+          title: "يرسل ChatGPT المرضى إلى منافسك",
+          description:
+            "عندما يسأل شخص ما ChatGPT عن طبيب أسنان في حيك، تستمد الإجابة بياناتها من Yelp و BBB و Healthgrades و Google Business Profile. إذا كان NAP الخاص بك غير متسق عبر تلك المصادر، فأنت غير مرئي.",
+        },
+        {
+          title: "أسئلة التأمين و RAMQ تبقى دون إجابة",
+          description:
+            "يسأل المرضى محركات الذكاء الاصطناعي \"هل تقبل عيادة X تأميني؟\". بدون مخطط FAQ يغطي الخطط المقبولة، تستخرج محركات الذكاء الاصطناعي معلومات قديمة أو خاطئة من أدلة خارجية.",
+        },
+        {
+          title: "تفضل عمليات البحث الطارئة العيادات التي تعمل على مدار 24 ساعة",
+          description:
+            "تعتمد استعلامات \"طبيب أسنان طوارئ مفتوح الآن\" بشكل كبير على سمات GBP (ساعات العمل، علامة خدمات الطوارئ). معظم العيادات لا تملأ هذه الحقول أبدًا وتخسر 100% من الحركة العاجلة.",
+        },
+        {
+          title: "التموضع لطب الأطفال والاختصاص عام جدًا",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى توضيح الكيانات: هل أنت طبيب أسنان عام أم اختصاصي أطفال أم كلاهما؟ بدون ترميز schema يحدد serviceType، فأنت تنافس الجميع بدلًا من السيطرة على تخصصك.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق عيادتي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي لأطباء الأسنان · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل عيادتك السنية مستشهدًا بها داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للعيادات السنية. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI стоматологических клиник",
+      headline1: "Получайте упоминания ChatGPT, когда пациенты спрашивают",
+      headline2: "«лучший стоматолог рядом со мной».",
+      subheadline:
+        "Стоматологические запросы являются вертикалью здравоохранения номер 1 в ChatGPT, Perplexity, Claude и Gemini. Новые пациенты спрашивают ИИ, какая клиника принимает их страховку, принимает новых пациентов и обслуживает экстренные случаи. AiLys обеспечивает упоминание вашей клиники.",
+      stats: [
+        { value: "62%", label: "новых пациентов теперь исследуют стоматологов через ИИ-движки перед записью" },
+        { value: "1,9×", label: "больше упоминаний LLM на стоматологических сайтах со схемой FAQ" },
+        { value: "30 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT" },
+        { value: "847 $", label: "средняя ценность нового пациента в стоматологических клиниках Квебека" },
+      ],
+      topQueries: [
+        "лучший стоматолог рядом со мной, принимающий новых пациентов",
+        "стоматолог скорой помощи открыт сейчас Монреаль",
+        "детский стоматолог, принимающий RAMQ, Квебек",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT отправляет пациентов к вашему конкуренту",
+          description:
+            "Когда кто-то спрашивает у ChatGPT стоматолога в вашем районе, ответ берётся из Yelp, BBB, Healthgrades и Google Business Profile. Если ваш NAP не согласован между этими источниками, вы невидимы.",
+        },
+        {
+          title: "Вопросы о страховке и RAMQ остаются без ответа",
+          description:
+            "Пациенты спрашивают ИИ-движки «принимает ли клиника X мою страховку?». Без схемы FAQ, охватывающей принимаемые планы, ИИ-движки извлекают старую или неправильную информацию из сторонних каталогов.",
+        },
+        {
+          title: "Экстренные поиски отдают предпочтение круглосуточным клиникам",
+          description:
+            "Запросы «стоматолог скорой помощи открыт сейчас» сильно полагаются на атрибуты GBP (часы работы, метка экстренных услуг). Большинство клиник никогда не заполняют эти поля и теряют 100% срочного трафика.",
+        },
+        {
+          title: "Позиционирование педиатрии и специальности слишком общее",
+          description:
+            "ИИ-движкам нужно различение сущностей: вы общий стоматолог, педиатр или оба? Без разметки schema, указывающей serviceType, вы конкурируете со всеми вместо доминирования в своей нише.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей клиники",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI стоматологов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей стоматологической клиники в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для стоматологических клиник. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -740,6 +922,188 @@ const lawyers: Industry = {
       "marketing juridique 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para bufetes de abogados",
+      headline1: "Sé citado por ChatGPT cuando los prospectos preguntan",
+      headline2: "\"mejor abogado para [mi caso]\".",
+      subheadline:
+        "Las búsquedas legales reciben el escrutinio E-E-A-T más alto en los motores de IA. Las credenciales del colegio de abogados, los resultados de casos y el contenido autoritativo deciden quién es nombrado. AiLys posiciona su firma correctamente.",
+      stats: [
+        { value: "73%", label: "de los clientes ahora investigan abogados a través de motores de IA antes de contactar a uno" },
+        { value: "$3.400", label: "valor promedio de por vida por cliente proveniente de IA (derecho de familia en Quebec)" },
+        { value: "60 días", label: "en promedio para la primera mención en ChatGPT para consultas legales" },
+        { value: "8×", label: "más citas LLM en firmas con autoría acreditada y esquema de resultados de casos" },
+      ],
+      topQueries: [
+        "abogado de derecho de familia aceptando nuevos clientes Montreal",
+        "abogado DUI consulta gratuita ciudad de Quebec",
+        "abogado de inmigración hispanohablante Laval",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT cita firmas tier 1 por defecto",
+          description:
+            "Cuando se le pregunta por un abogado en su especialidad, ChatGPT prefiere por defecto a las grandes firmas con entradas Wikidata sólidas, presencia en colegios de abogados y citas densas. Las firmas más pequeñas son invisibles sin trabajo explícito de autoridad de entidad.",
+        },
+        {
+          title: "Falta la desambiguación de especialidad",
+          description:
+            "Los motores de IA necesitan saber si usted hace derecho de familia, penal, migratorio o corporativo. Sin esquema LegalService con practiceArea declarado, compite contra todos los abogados de su ciudad.",
+        },
+        {
+          title: "Las consultas de \"consulta gratuita\" se pierden",
+          description:
+            "\"Consulta gratuita\" es una de las consultas con mayor intención. Los motores de IA buscan esquema FAQ explícito, atributos GBP y páginas de aterrizaje dedicadas. La mayoría de las firmas no tienen ninguno.",
+        },
+        {
+          title: "Posicionamiento de práctica bilingüe",
+          description:
+            "En Quebec, \"abogado anglófono\" y \"English-speaking lawyer\" son búsquedas distintas que extraen de fuentes diferentes. Sin esquema bilingüe y Wikidata en doble idioma, pierde la mitad de su mercado potencial.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi firma",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Abogados · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su firma de abogados sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para firmas legales en Quebec. Desde $600/mes. Bilingüe EN y FR-CA.",
+    },
+    zh: {
+      eyebrow: "律师事务所 AI SEO",
+      headline1: "当潜在客户询问时让 ChatGPT 引用您",
+      headline2: "「我的案子需要的最佳律师」。",
+      subheadline:
+        "在 AI 引擎中,法律搜索受到最高的 E-E-A-T 审查。律师协会资质、案件结果和权威内容决定谁被点名。AiLys 正确定位您的律所。",
+      stats: [
+        { value: "73%", label: "的客户在联系律师之前通过 AI 引擎进行研究" },
+        { value: "$3,400", label: "AI 来源客户的平均终身价值(魁北克家庭法)" },
+        { value: "60 天", label: "法律查询平均 ChatGPT 首次引用提升时间" },
+        { value: "8×", label: "在具有认证作者身份和案件结果 schema 的律所上获得更多 LLM 引用" },
+      ],
+      topQueries: [
+        "蒙特利尔接受新客户的家庭法律师",
+        "魁北克市免费咨询的 DUI 律师",
+        "拉瓦尔会说西班牙语的移民律师",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 默认引用一线律所",
+          description:
+            "当被问及您专业领域的律师时,ChatGPT 默认选择具有强大 Wikidata 条目、律师协会存在感和密集引用的大型律所。没有明确的实体权威工作,小型律所是隐形的。",
+        },
+        {
+          title: "缺少专业领域消歧",
+          description:
+            "AI 引擎需要知道您从事家庭、刑事、移民还是公司法。没有声明 practiceArea 的 LegalService schema,您就在与城市里的每位律师竞争,而不是主导您的专业领域。",
+        },
+        {
+          title: "「免费咨询」查询被遗失",
+          description:
+            "\"免费咨询\" 是意图最强的查询之一。AI 引擎寻找明确的 FAQ schema、GBP 属性和专用着陆页。大多数律所什么都没有。",
+        },
+        {
+          title: "双语执业定位",
+          description:
+            "在魁北克,「avocat anglophone」和 \"English-speaking lawyer\" 是从不同来源提取的不同搜索。没有双语 schema 和双语 Wikidata,您将失去一半的潜在市场。",
+        },
+      ],
+      ctaPrimary: "运行我的律所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "律师 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的律所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为魁北克律所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $600 起。EN 和 FR-CA 双语。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي لمكاتب المحاماة",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل العملاء المحتملون",
+      headline2: "\"أفضل محامٍ لقضيتي\".",
+      subheadline:
+        "تتلقى عمليات البحث القانونية أعلى تدقيق E-E-A-T داخل محركات الذكاء الاصطناعي. تحدد مؤهلات نقابة المحامين ونتائج القضايا والمحتوى الموثوق من يتم ذكر اسمه. تضع AiLys مكتبك في الموقع الصحيح.",
+      stats: [
+        { value: "73%", label: "من العملاء يبحثون الآن عن محامين عبر محركات الذكاء الاصطناعي قبل الاتصال بأحد" },
+        { value: "3,400 دولار", label: "متوسط القيمة الدائمة للعميل القادم من الذكاء الاصطناعي (قانون الأسرة في كيبيك)" },
+        { value: "60 يومًا", label: "متوسط الفترة للحصول على أول ارتفاع في الاستشهاد على ChatGPT للاستعلامات القانونية" },
+        { value: "8×", label: "استشهادات LLM أكثر على المكاتب ذات التأليف المعتمد ومخطط نتائج القضايا" },
+      ],
+      topQueries: [
+        "محامي قانون الأسرة يقبل عملاء جدد مونتريال",
+        "محامي قيادة تحت تأثير الكحول استشارة مجانية مدينة كيبيك",
+        "محامي هجرة يتحدث الإسبانية لافال",
+      ],
+      painPoints: [
+        {
+          title: "يستشهد ChatGPT بمكاتب الفئة الأولى افتراضيًا",
+          description:
+            "عند سؤاله عن محامٍ في تخصصك، يستشهد ChatGPT افتراضيًا بالمكاتب الكبيرة ذات الإدخالات القوية في Wikidata والوجود في نقابة المحامين والاستشهادات الكثيفة. المكاتب الأصغر غير مرئية دون عمل صريح على سلطة الكيان.",
+        },
+        {
+          title: "غياب توضيح التخصص",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى معرفة ما إذا كنت تمارس قانون الأسرة أو الجنائي أو الهجرة أو الشركات. بدون مخطط LegalService مع practiceArea المعلن، فأنت تنافس كل محامٍ في مدينتك بدلًا من السيطرة على تخصصك.",
+        },
+        {
+          title: "استعلامات «الاستشارة المجانية» تضيع",
+          description:
+            "«الاستشارة المجانية» من أعلى الاستعلامات في النية. تبحث محركات الذكاء الاصطناعي عن مخطط FAQ صريح وسمات GBP وصفحات هبوط مخصصة. معظم المكاتب لا تملك أيًا منها.",
+        },
+        {
+          title: "تموضع الممارسة ثنائية اللغة",
+          description:
+            "في كيبيك، «محامٍ ناطق بالإنجليزية» و \"avocat anglophone\" بحثان مختلفان يستمدان من مصادر مختلفة. بدون مخطط ثنائي اللغة و Wikidata بلغتين، تفقد نصف سوقك المحتمل.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مكتبي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمحامين · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مكتبك للمحاماة مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمكاتب القانونية في كيبيك. ابتداءً من 600 دولار/شهر. ثنائي اللغة EN و FR-CA.",
+    },
+    ru: {
+      eyebrow: "SEO для AI юридических фирм",
+      headline1: "Получайте упоминания ChatGPT, когда потенциальные клиенты спрашивают",
+      headline2: "«лучший адвокат для [моего дела]».",
+      subheadline:
+        "Юридические запросы получают самую высокую проверку E-E-A-T в ИИ-движках. Полномочия коллегии адвокатов, результаты дел и авторитетный контент решают, кого назовут. AiLys позиционирует вашу фирму правильно.",
+      stats: [
+        { value: "73%", label: "клиентов теперь исследуют адвокатов через ИИ-движки перед обращением к одному" },
+        { value: "3 400 $", label: "средняя пожизненная ценность клиента из ИИ (семейное право в Квебеке)" },
+        { value: "60 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT для юридических запросов" },
+        { value: "8×", label: "больше упоминаний LLM на фирмах с подтверждённым авторством и схемой результатов дел" },
+      ],
+      topQueries: [
+        "адвокат по семейному праву, принимающий новых клиентов Монреаль",
+        "адвокат по DUI бесплатная консультация Квебек",
+        "адвокат по иммиграции, говорящий на испанском, Лаваль",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT по умолчанию упоминает фирмы первого уровня",
+          description:
+            "Когда спрашивают об адвокате в вашей специальности, ChatGPT по умолчанию упоминает крупные фирмы с сильными записями в Wikidata, присутствием в коллегии адвокатов и плотными цитированиями. Меньшие фирмы невидимы без явной работы над авторитетом сущности.",
+        },
+        {
+          title: "Отсутствует уточнение специализации",
+          description:
+            "ИИ-движкам нужно знать, занимаетесь ли вы семейным, уголовным, иммиграционным или корпоративным правом. Без схемы LegalService с указанной practiceArea вы конкурируете со всеми адвокатами вашего города вместо доминирования в специальности.",
+        },
+        {
+          title: "Запросы «бесплатная консультация» теряются",
+          description:
+            "«Бесплатная консультация» — один из запросов с самой высокой намеренностью. ИИ-движки ищут явную схему FAQ, атрибуты GBP и выделенные посадочные страницы. У большинства фирм нет ни одного из них.",
+        },
+        {
+          title: "Позиционирование двуязычной практики",
+          description:
+            "В Квебеке «англоязычный адвокат» и \"avocat anglophone\" — это разные поиски, которые извлекаются из разных источников. Без двуязычной схемы и двуязычного Wikidata вы теряете половину потенциального рынка.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей фирмы",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI адвокатов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей юридической фирмы в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для юридических фирм в Квебеке. От 600 $/мес. На двух языках EN и FR-CA.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -1057,6 +1421,188 @@ const restaurants: Industry = {
       "profil Google restaurant",
       "marketing restaurant 2026",
     ],
+  },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para restaurantes",
+      headline1: "Sé citado por ChatGPT cuando los comensales preguntan",
+      headline2: "\"mejor [cocina] cerca de mí abierto ahora\".",
+      subheadline:
+        "Los restaurantes son el sector número 1 dentro de ChatGPT y Perplexity. Los comensales preguntan a la IA por cocina, barrio, horarios, opciones dietéticas y disponibilidad de reserva. AiLys hace que su restaurante sea nombrado primero.",
+      stats: [
+        { value: "84%", label: "de los comensales ahora usan motores de IA para descubrir restaurantes en barrios desconocidos" },
+        { value: "1,9×", label: "más citas LLM en restaurantes con frescura de reseñas constante" },
+        { value: "2 semanas", label: "para la primera mención en ChatGPT en consultas específicas del barrio" },
+        { value: "$67", label: "valor promedio del ticket por comensal proveniente de IA en Montreal" },
+      ],
+      topQueries: [
+        "mejor ramen cerca de mí abierto ahora Plateau",
+        "cena vegana Verdun reservas disponibles esta noche",
+        "restaurante romántico Vieux-Montréal menos de $100 por persona",
+      ],
+      painPoints: [
+        {
+          title: "Las categorías de GBP diluyen su especialidad",
+          description:
+            "Si su lugar de sushi está categorizado como \"Restaurante japonés\" en lugar de \"Restaurante de sushi\", los motores de IA redirigen el 40% de sus consultas específicas de sushi a otra parte. Las categorías importan más en Maps que en cualquier otro lugar.",
+        },
+        {
+          title: "Falta la entidad de barrio",
+          description:
+            "Los comensales buscan por barrio, no por ciudad. \"Mejor ramen Plateau\" extrae de señales diferentes que \"mejor ramen Montreal\". Sin menciones de barrio en el texto de reseñas y esquema areaServed, pierde tráfico hiperlocal.",
+        },
+        {
+          title: "Lagunas en atributos dietéticos",
+          description:
+            "Los motores de IA extraen información dietética de los atributos de GBP, esquema servesCuisine y texto de reseñas. Vegano, sin gluten, halal, kosher, apto para niños, apto para perros: cada atributo no rellenado mata un tipo de consulta.",
+        },
+        {
+          title: "Señales de reserva y disponibilidad",
+          description:
+            "Las consultas \"reservas disponibles esta noche\" ponderan la presencia en OpenTable, el atributo \"Reservas\" de GBP y el esquema estructurado Restaurant + AvailableMenuSection. La mayoría de restaurantes no tienen ninguno.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi restaurante",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Restaurantes · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su restaurante sea citado en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para restaurantes. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "餐厅 AI SEO",
+      headline1: "当食客询问时让 ChatGPT 引用您",
+      headline2: "「我附近现在营业的最好的 [菜系]」。",
+      subheadline:
+        "在 ChatGPT 和 Perplexity 中,餐厅是被询问最多的垂直行业第一名。食客向 AI 询问菜系、街区、营业时间、饮食适配和预订可用性。AiLys 让您的餐厅首先被点名。",
+      stats: [
+        { value: "84%", label: "的食客现在使用 AI 引擎在不熟悉的街区发现餐厅" },
+        { value: "1.9×", label: "在保持评论新鲜度的餐厅上获得更多 LLM 引用" },
+        { value: "2 周", label: "在街区特定查询上首次 ChatGPT 引用提升" },
+        { value: "$67", label: "蒙特利尔 AI 来源食客的平均消费" },
+      ],
+      topQueries: [
+        "我附近现在营业最好的拉面 Plateau",
+        "Verdun 今晚可预订的素食晚餐",
+        "Old Montreal 每人 $100 以下的浪漫餐厅",
+      ],
+      painPoints: [
+        {
+          title: "GBP 分类稀释您的专业",
+          description:
+            "如果您的寿司店被分类为「日本餐厅」而不是「寿司餐厅」,AI 引擎会将 40% 的寿司特定查询路由到其他地方。分类在地图上比其他任何地方都更重要。",
+        },
+        {
+          title: "缺少街区实体",
+          description:
+            "食客按街区而非城市搜索。「最好的拉面 Plateau」从与「最好的拉面蒙特利尔」不同的信号中提取。没有评论文本和 schema areaServed 中的街区提及,您将失去超本地流量。",
+        },
+        {
+          title: "饮食属性缺口",
+          description:
+            "AI 引擎从 GBP 属性、schema servesCuisine 和评论文本中提取饮食信息。素食、无麸质、清真、洁食、适合儿童、允许带狗:每个未填写的属性都会扼杀一种查询类型。",
+        },
+        {
+          title: "预订和可用性信号",
+          description:
+            "「今晚可预订」查询会权衡 OpenTable 存在、GBP「预订」属性和结构化 Restaurant + AvailableMenuSection schema。大多数餐厅都没有。",
+        },
+      ],
+      ctaPrimary: "运行我的餐厅审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "餐厅 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的餐厅被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为餐厅定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للمطاعم",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل الزبائن",
+      headline2: "\"أفضل [مطبخ] قريب مني مفتوح الآن\".",
+      subheadline:
+        "تعد المطاعم القطاع رقم 1 الأكثر طرحًا داخل ChatGPT و Perplexity. يسأل الزبائن الذكاء الاصطناعي عن المطبخ والحي وساعات العمل والتوافق الغذائي وتوفر الحجز. تجعل AiLys اسم مطعمك يظهر أولًا.",
+      stats: [
+        { value: "84%", label: "من الزبائن يستخدمون الآن محركات الذكاء الاصطناعي لاكتشاف المطاعم في الأحياء غير المألوفة" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المطاعم ذات سرعة المراجعات الحديثة" },
+        { value: "أسبوعان", label: "للحصول على أول ارتفاع في الاستشهاد على ChatGPT في الاستعلامات الخاصة بالحي" },
+        { value: "67 دولارًا", label: "متوسط قيمة الفاتورة لكل زبون قادم من الذكاء الاصطناعي في مونتريال" },
+      ],
+      topQueries: [
+        "أفضل رامن قريب مني مفتوح الآن Plateau",
+        "عشاء نباتي Verdun حجوزات متاحة الليلة",
+        "مطعم رومانسي Old Montreal أقل من 100 دولار للشخص",
+      ],
+      painPoints: [
+        {
+          title: "فئات GBP تخفف من تخصصك",
+          description:
+            "إذا تم تصنيف مكان السوشي الخاص بك على أنه «مطعم ياباني» بدلًا من «مطعم سوشي»، تعيد محركات الذكاء الاصطناعي توجيه 40% من استعلامات السوشي إلى أماكن أخرى. الفئات مهمة على Maps أكثر من أي مكان آخر.",
+        },
+        {
+          title: "كيان الحي مفقود",
+          description:
+            "يبحث الزبائن حسب الحي، لا حسب المدينة. «أفضل رامن Plateau» يستمد من إشارات مختلفة عن «أفضل رامن مونتريال». بدون ذكر الحي في نص المراجعات ومخطط areaServed، تخسر الحركة فائقة المحلية.",
+        },
+        {
+          title: "ثغرات في السمات الغذائية",
+          description:
+            "تستخرج محركات الذكاء الاصطناعي المعلومات الغذائية من سمات GBP ومخطط servesCuisine ونص المراجعات. نباتي، خالي من الغلوتين، حلال، كوشير، مناسب للأطفال، مناسب للكلاب: كل سمة غير معبأة تقتل نوع استعلام.",
+        },
+        {
+          title: "إشارات الحجز والتوفر",
+          description:
+            "تعتمد استعلامات «حجوزات متاحة الليلة» على الوجود في OpenTable وسمة «الحجوزات» في GBP ومخطط Restaurant + AvailableMenuSection المنظم. معظم المطاعم لا تملك أيًا منها.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مطعمي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمطاعم · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مطعمك مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمطاعم. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI ресторанов",
+      headline1: "Получайте упоминания ChatGPT, когда посетители спрашивают",
+      headline2: "«лучший [кухня] рядом со мной открыт сейчас».",
+      subheadline:
+        "Рестораны — это вертикаль №1 по количеству запросов внутри ChatGPT и Perplexity. Посетители спрашивают ИИ о кухне, районе, часах работы, диетическом соответствии и доступности бронирования. AiLys обеспечивает, чтобы ваш ресторан назвали первым.",
+      stats: [
+        { value: "84%", label: "посетителей теперь используют ИИ-движки для открытия ресторанов в незнакомых районах" },
+        { value: "1,9×", label: "больше упоминаний LLM на ресторанах со свежей скоростью отзывов" },
+        { value: "2 недели", label: "до первого подъёма упоминаний в ChatGPT по запросам, специфичным для района" },
+        { value: "67 $", label: "средний чек посетителя из ИИ в Монреале" },
+      ],
+      topQueries: [
+        "лучший рамен рядом со мной открыт сейчас Plateau",
+        "веганский ужин Verdun есть бронь сегодня",
+        "романтический ресторан Old Montreal меньше 100 $ на человека",
+      ],
+      painPoints: [
+        {
+          title: "Категории GBP размывают вашу специальность",
+          description:
+            "Если ваше суши-заведение классифицировано как «Японский ресторан» вместо «Суши-ресторан», ИИ-движки направляют 40% ваших запросов о суши в другое место. Категории важнее в Maps, чем где-либо ещё.",
+        },
+        {
+          title: "Отсутствует сущность района",
+          description:
+            "Посетители ищут по району, не по городу. «Лучший рамен Plateau» извлекается из других сигналов, чем «лучший рамен Монреаль». Без упоминания района в тексте отзывов и схемы areaServed вы теряете гиперлокальный трафик.",
+        },
+        {
+          title: "Пробелы в диетических атрибутах",
+          description:
+            "ИИ-движки извлекают диетическую информацию из атрибутов GBP, схемы servesCuisine и текста отзывов. Веганское, без глютена, халяль, кошер, подходит для детей, разрешены собаки: каждый незаполненный атрибут убивает один тип запроса.",
+        },
+        {
+          title: "Сигналы бронирования и доступности",
+          description:
+            "Запросы «бронирование доступно сегодня вечером» учитывают присутствие в OpenTable, атрибут «Бронирование» в GBP и структурированную схему Restaurant + AvailableMenuSection. У большинства ресторанов нет ничего из этого.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моего ресторана",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI ресторанов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашего ресторана в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для ресторанов. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
   },
 };
 

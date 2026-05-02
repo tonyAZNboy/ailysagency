@@ -16,6 +16,7 @@
 import { renderVisibilityReportPdf, type VisibilityReportRenderInput } from '../lib/pdf/VisibilityReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
+import { sha256Hex } from '../lib/crypto';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -63,12 +64,6 @@ interface RequestBody {
 
 function emit(line: Record<string, unknown>): void {
   console.log(JSON.stringify({ component: 'visibility-report-pdf', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 interface ValidationResult {

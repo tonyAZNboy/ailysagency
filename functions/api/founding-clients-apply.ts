@@ -13,7 +13,14 @@
 //   - Origin allowlist + disposable-email reject
 //   - Length caps on every field
 //   - No PII echoed back; structured response only
-//   - Rate limit on IP (best-effort via KV if bound, else permissive)
+//   - Rate limit via shared lib (functions/lib/rateLimit.ts) when KV bound
+
+import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
+import { captureServerError } from "../lib/serverError";
+import { insertSupabaseRow } from "../lib/supabaseInsert";
+import { escapeHtml } from "../lib/htmlEscape";
+import { isAllowedOrigin } from "../lib/origin";
+import { isValidEmail } from "../lib/email";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -21,21 +28,15 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string;
   RESEND_API_KEY?: string;
   FOUNDING_NOTIFY_EMAIL?: string;
+  /** Optional KV binding for rate-limit. When unbound, fails open with
+   *  audit-log entry so operator sees the missing binding. */
+  FOUNDING_CLIENTS_RATE_LIMIT?: KVNamespace;
+  /** Build commit (set by Cloudflare Pages env). Used by serverError
+   *  capture for inclusion in operator alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 const NOTIFY_FROM = "AiLys Founding Clients <hello@ailysagency.ca>";
-
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "tempmail.com",
-  "guerrillamail.com",
-  "throwawaymail.com",
-  "yopmail.com",
-  "10minutemail.com",
-  "trashmail.com",
-  "fakeinbox.com",
-  "getnada.com",
-]);
 
 const ALLOWED_VERTICALS = new Set([
   "dentist",
@@ -82,15 +83,6 @@ interface ValidatedData {
   motivation: string | null;
   lang: string;
   source: string;
-}
-
-function isValidEmail(email: string): boolean {
-  if (!email || email.length > 254) return false;
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) return false;
-  const domain = email.split("@")[1]?.toLowerCase();
-  if (!domain || DISPOSABLE_DOMAINS.has(domain)) return false;
-  return true;
 }
 
 function clip(value: unknown, max: number): string | null {
@@ -159,27 +151,12 @@ function validate(body: ApplicationBody): { ok: boolean; errors: string[]; data:
   };
 }
 
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
-}
-
 async function forwardToSupabase(
   env: Env,
   data: ValidatedData,
   ip: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.log("Founding-client application (no DB):", JSON.stringify({ ...data, ip }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/landing_leads`;
-  const payload = {
+  return insertSupabaseRow(env, "landing_leads", {
     name: data.name,
     email: data.email,
     phone: data.phone,
@@ -197,38 +174,9 @@ async function forwardToSupabase(
     source: data.source,
     ip_address: ip,
     created_at: new Date().toISOString(),
-  };
-  try {
-    const resp = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: "return=minimal",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      const text = await resp.text().catch(() => "");
-      console.warn("Supabase insert failed", resp.status, text.slice(0, 300));
-      return { ok: false, error: `Supabase ${resp.status}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.warn("Supabase insert threw", (err as Error).message);
-    return { ok: false, error: (err as Error).message };
-  }
+  });
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
 
 async function sendOpsEmail(
   env: Env,
@@ -362,6 +310,41 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     null;
 
+  // Rate limit: 5 IP/hour + 3 identity/day. The Founding Clients Program is
+  // a low-volume cohort (10 spots total) so caps are intentionally tight.
+  // Identity bucket prevents an attacker rotating IP from flooding one
+  // applicant's email with confirmation messages.
+  if (ip) {
+    const day = new Date().toISOString().slice(0, 10);
+    const ipH = await sha256Hex(`${day}|${ip}`);
+    const idH = await sha256Hex(`founding-clients:${v.data.email}`);
+    const rl = await checkRateLimit(env.FOUNDING_CLIENTS_RATE_LIMIT, {
+      ipHash: ipH,
+      identityHash: idH,
+      ipPerHour: 5,
+      identityPerDay: 3,
+      keyPrefix: "rl:founding-clients",
+    });
+    if (!rl.allowed) {
+      return new Response(
+        JSON.stringify({
+          error: "rate_limited",
+          reason: rl.reason,
+          retry_after_minutes: rl.reason === "ip_per_hour" ? 60 : 60 * 24,
+        }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": String(rl.reason === "ip_per_hour" ? 3600 : 86400),
+            "Access-Control-Allow-Origin":
+              request.headers.get("origin") ?? "https://www.ailysagency.ca",
+          },
+        },
+      );
+    }
+  }
+
   // Run both deliveries in parallel. We accept the application even if one
   // delivery fails (the strategist gets the email, the admin sees the row,
   // and either alone is enough to act).
@@ -370,8 +353,27 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     sendOpsEmail(env, v.data, ip),
   ]);
 
-  // If both fail, it is a real problem. Surface a 500 so the user retries.
+  // If both fail, it is a real problem. Capture via shared serverError lib
+  // (Resend alert + audit_log persist) so the operator sees it immediately.
+  // Best-effort capture; the 500 fires regardless.
   if (!supaResult.ok && !emailResult.ok) {
+    const ipH = ip ? await sha256Hex(`${new Date().toISOString().slice(0, 10)}|${ip}`) : undefined;
+    await captureServerError(env, {
+      endpoint: "founding-clients-apply",
+      severity: "error",
+      err: new Error(
+        `dual delivery failure: supabase=${supaResult.error ?? "?"}, resend=${emailResult.error ?? "?"}`,
+      ),
+      userIpHash: ipH,
+      context: {
+        supabase_ok: supaResult.ok,
+        resend_ok: emailResult.ok,
+        supabase_error: supaResult.error ?? null,
+        resend_error: emailResult.error ?? null,
+        vertical: v.data.vertical,
+        tier: v.data.tier,
+      },
+    });
     return new Response(
       JSON.stringify({
         error: "Both delivery channels failed; please try again or email hello@ailysagency.ca",
