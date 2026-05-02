@@ -9079,7 +9079,7 @@ Most marketing platforms (Wix, Squarespace, Yext, BrightLocal) ship a generic gl
 
 ## Loi 25 (privacy and data protection)
 
-In effect since September 2023. Quebec's strictest privacy regime, layered on top of federal PIPEDA. Applies to every business that holds personal data on Quebec residents, regardless of where the business is incorporated. Penalties up to \$25M or 4% of global revenue.
+In effect since September 2023. Quebec's strictest privacy regime, layered on top of federal PIPEDA. Applies to every business that holds personal data on Quebec residents, regardless of where the business is incorporated. Penalties up to $25M or 4% of global revenue.
 
 What AiLys delivers:
 
@@ -9111,7 +9111,7 @@ What AiLys delivers:
 
 ## Why this matters more than the cost difference
 
-A Wix subscription is \$20/month. A BrightLocal license is \$39/month. Cheap, clearly. But they ship US-default settings: English-first content, US privacy norms, no Loi 25 consent flows, no OQLF business-name verification, no FR-CA review-language matching. The first time a Loi 25 inspector calls or an OQLF complaint reaches your inbox, the savings disappear in a single legal-review meeting.
+A Wix subscription is $20/month. A BrightLocal license is $39/month. Cheap, clearly. But they ship US-default settings: English-first content, US privacy norms, no Loi 25 consent flows, no OQLF business-name verification, no FR-CA review-language matching. The first time a Loi 25 inspector calls or an OQLF complaint reaches your inbox, the savings disappear in a single legal-review meeting.
 
 AiLys costs more upfront. AiLys also stays out of the OQLF complaint queue and the CAI (Commission d'acces a l'information) inbox. That's not a feature. That's the actual product.
 
@@ -9168,7 +9168,7 @@ Ce que livre AiLys :
 
 ## Pourquoi ca compte plus que la difference de cout
 
-Un abonnement Wix coute 20 \$/mois. Une licence BrightLocal coute 39 \$/mois. Pas cher, clairement. Mais ils livrent des reglages US par defaut : contenu anglais d'abord, normes de vie privee US, pas de flux de consentement Loi 25, pas de verification du nom REQ par l'OQLF, pas de correspondance linguistique FR-CA pour les avis. La premiere fois qu'un inspecteur Loi 25 appelle ou qu'une plainte OQLF arrive dans votre boite courriel, les economies disparaissent en une seule reunion de revision juridique.
+Un abonnement Wix coute 20 $/mois. Une licence BrightLocal coute 39 $/mois. Pas cher, clairement. Mais ils livrent des reglages US par defaut : contenu anglais d'abord, normes de vie privee US, pas de flux de consentement Loi 25, pas de verification du nom REQ par l'OQLF, pas de correspondance linguistique FR-CA pour les avis. La premiere fois qu'un inspecteur Loi 25 appelle ou qu'une plainte OQLF arrive dans votre boite courriel, les economies disparaissent en une seule reunion de revision juridique.
 
 AiLys coute plus cher au depart. AiLys evite aussi la file de plaintes OQLF et la boite de la CAI (Commission d'acces a l'information). Ce n'est pas une fonctionnalite. C'est le vrai produit.
 
@@ -9267,13 +9267,13 @@ Un clic sur le lien Desabonnement au bas de chaque numero. Courriel supprime def
     slug: "quebec-pme-awards-2026",
     title: "Quebec PME Awards 2026: how to nominate, vote, and win",
     excerpt:
-      "Annual contest honouring the best Quebec PME by region and industry. \$5,000 grand prize, 17 regional + sectoral winners. Nominations open September 1, public voting October 5, gala December 12 in Montreal. Free for everyone to nominate and vote.",
+      "Annual contest honouring the best Quebec PME by region and industry. $5,000 grand prize, 17 regional + sectoral winners. Nominations open September 1, public voting October 5, gala December 12 in Montreal. Free for everyone to nominate and vote.",
     category: "getting-started",
     updatedAt: "2026-05-02",
     readingTimeMin: 4,
     body: `## What it is
 
-The Quebec PME Awards is AiLys's annual contest honouring the best small and mid-sized PME businesses across Quebec, by region and by industry. 17 regional + sectoral winners + 1 grand prize winner. Total prize pool over \$15,000 cash plus 26 months of bundled AiLys services value.
+The Quebec PME Awards is AiLys's annual contest honouring the best small and mid-sized PME businesses across Quebec, by region and by industry. 17 regional + sectoral winners + 1 grand prize winner. Total prize pool over $15,000 cash plus 26 months of bundled AiLys services value.
 
 ## Timeline
 
@@ -9339,7 +9339,7 @@ October 5 to November 30. Anyone with a valid email can vote (no AiLys account r
           "Concours annuel honorant les meilleures PME quebecoises par region et industrie. Grand prix 5 000 $, 17 gagnants regionaux + sectoriels. Nominations le 1 septembre, vote public le 5 octobre, gala le 12 decembre a Montreal. Gratuit pour nominer et voter.",
         body: `## Ce que c'est
 
-Le Concours PME Quebec est le concours annuel d'AiLys honorant les meilleures petites et moyennes entreprises a travers le Quebec, par region et par industrie. 17 gagnants regionaux + sectoriels + 1 gagnant du grand prix. Cagnotte totale de plus de 15 000 \$ en argent plus 26 mois de valeur en services AiLys inclus.
+Le Concours PME Quebec est le concours annuel d'AiLys honorant les meilleures petites et moyennes entreprises a travers le Quebec, par region et par industrie. 17 gagnants regionaux + sectoriels + 1 gagnant du grand prix. Cagnotte totale de plus de 15 000 $ en argent plus 26 mois de valeur en services AiLys inclus.
 
 ## Echeancier
 
@@ -9360,7 +9360,7 @@ Le Concours PME Quebec est le concours annuel d'AiLys honorant les meilleures pe
 - Bas-Saint-Laurent et Gaspesie
 - Cote-Nord et regions nordiques
 
-**8 gagnants sectoriels** (500 \$ + 3 mois Starter gratuits) :
+**8 gagnants sectoriels** (500 $ + 3 mois Starter gratuits) :
 - Restauration et hospitalite
 - Clinique sante et bien-etre
 - Detaillant et boutique
@@ -9370,7 +9370,7 @@ Le Concours PME Quebec est le concours annuel d'AiLys honorant les meilleures pe
 - Hotel et hebergement
 - Immobilier
 
-**1 grand prix : PME quebecoise de l'annee** (5 000 \$ + 12 mois Growth gratuits + trousse media + mise en vedette page d'accueil 90 jours + trophee gala).
+**1 grand prix : PME quebecoise de l'annee** (5 000 $ + 12 mois Growth gratuits + trousse media + mise en vedette page d'accueil 90 jours + trophee gala).
 
 ## Eligibilite
 
@@ -9539,7 +9539,7 @@ Les garanties s'appliquent aux engagements mois-a-mois signes apres le 1 mai 202
     slug: "nfc-welcome-kit-explained",
     title: "What's in the AiLys NFC Welcome Kit",
     excerpt:
-      "Physical onboarding kit shipped to every Reviuzy add-on client. 5 NFC business cards + 2 NFC table tents + quick-start card + handwritten thank-you note. Ships within 24h of activation, FedEx-tracked, ~\$20 cost per kit, bundled at no extra cost.",
+      "Physical onboarding kit shipped to every Reviuzy add-on client. 5 NFC business cards + 2 NFC table tents + quick-start card + handwritten thank-you note. Ships within 24h of activation, FedEx-tracked, ~$20 cost per kit, bundled at no extra cost.",
     category: "getting-started",
     updatedAt: "2026-05-02",
     readingTimeMin: 3,
@@ -9568,16 +9568,16 @@ When you activate the Reviuzy add-on (or sign up for Agency tier where it's bund
 
 ## Reorders
 
-First reorder per year is free. Subsequent reorders: \$25 for 5 cards or 2 tents. Order via the Reviuzy admin (Settings → Welcome Kit). Ships within 48h.
+First reorder per year is free. Subsequent reorders: $25 for 5 cards or 2 tents. Order via the Reviuzy admin (Settings → Welcome Kit). Ships within 48h.
 
 ## Why physical mail in 2026
 
-Wix activates with an email. BrightLocal sends a PDF. Yext gives you a dashboard URL. They're all digital-only because mailing physical stuff costs money. We mail it because the package is the part of onboarding clients remember 6 months later. "Hey, that handwritten note was a nice touch" closes more renewals than any feature pitch. Cost to us: ~\$20 per client (cards, tents, FedEx). Worth it.`,
+Wix activates with an email. BrightLocal sends a PDF. Yext gives you a dashboard URL. They're all digital-only because mailing physical stuff costs money. We mail it because the package is the part of onboarding clients remember 6 months later. "Hey, that handwritten note was a nice touch" closes more renewals than any feature pitch. Cost to us: ~$20 per client (cards, tents, FedEx). Worth it.`,
     i18n: {
       fr: {
         title: "Ce qu'il y a dans la trousse NFC AiLys",
         excerpt:
-          "Trousse d'onboarding physique expediee a chaque client add-on Reviuzy. 5 cartes d'affaires NFC + 2 tents de table NFC + carte de demarrage + mot de remerciement ecrit a la main. Expedie dans les 24 h de l'activation, suivi FedEx, cout ~20 \$ par trousse, inclus sans cout additionnel.",
+          "Trousse d'onboarding physique expediee a chaque client add-on Reviuzy. 5 cartes d'affaires NFC + 2 tents de table NFC + carte de demarrage + mot de remerciement ecrit a la main. Expedie dans les 24 h de l'activation, suivi FedEx, cout ~20 $ par trousse, inclus sans cout additionnel.",
         body: `## Ce qu'il y a dans la boite
 
 Quand vous activez l'add-on Reviuzy (ou que vous vous inscrivez au forfait Agency ou c'est inclus), nous vous postons une trousse de bienvenue physique :
@@ -9603,11 +9603,11 @@ Quand vous activez l'add-on Reviuzy (ou que vous vous inscrivez au forfait Agenc
 
 ## Recommandes
 
-Le premier recommande par annee est gratuit. Recommandes suivants : 25 \$ pour 5 cartes ou 2 tents. Commandez via l'admin Reviuzy (Parametres → Trousse de bienvenue). Expedie dans les 48 h.
+Le premier recommande par annee est gratuit. Recommandes suivants : 25 $ pour 5 cartes ou 2 tents. Commandez via l'admin Reviuzy (Parametres → Trousse de bienvenue). Expedie dans les 48 h.
 
 ## Pourquoi du courrier physique en 2026
 
-Wix s'active par courriel. BrightLocal envoie un PDF. Yext donne une URL de tableau de bord. Ils sont tous numeriques seulement parce qu'envoyer du materiel physique coute. Nous l'envoyons parce que le colis est la partie de l'onboarding dont les clients se souviennent 6 mois plus tard. « Ah, le mot ecrit a la main, c'etait une belle attention » ferme plus de renouvellements que n'importe quelle presentation de fonctionnalite. Cout pour nous : ~20 \$ par client (cartes, tents, FedEx). Ca vaut la peine.`,
+Wix s'active par courriel. BrightLocal envoie un PDF. Yext donne une URL de tableau de bord. Ils sont tous numeriques seulement parce qu'envoyer du materiel physique coute. Nous l'envoyons parce que le colis est la partie de l'onboarding dont les clients se souviennent 6 mois plus tard. « Ah, le mot ecrit a la main, c'etait une belle attention » ferme plus de renouvellements que n'importe quelle presentation de fonctionnalite. Cout pour nous : ~20 $ par client (cartes, tents, FedEx). Ca vaut la peine.`,
       },
     },
   },
@@ -9617,13 +9617,13 @@ Wix s'active par courriel. BrightLocal envoie un PDF. Yext donne une URL de tabl
     slug: "ai-receptionist-explained",
     title: "AI Receptionist: how it answers your phone 24/7",
     excerpt:
-      "Voice AI receptionist add-on (\$200/mo or bundled in Agency). Answers calls 24/7 in Quebec French + English, books appointments, detects emergencies, captures leads. 30-day refund-if-doesn't-pay-for-itself guarantee.",
+      "Voice AI receptionist add-on ($200/mo or bundled in Agency). Answers calls 24/7 in Quebec French + English, books appointments, detects emergencies, captures leads. 30-day refund-if-doesn't-pay-for-itself guarantee.",
     category: "getting-started",
     updatedAt: "2026-05-02",
     readingTimeMin: 4,
     body: `## What it does
 
-The AI Receptionist add-on answers your business phone 24/7 with a voice AI assistant tuned for Quebec French + English. Local commerces lose 30 to 40 percent of after-hours and lunch-break calls. Even a 10 percent capture rate at \$50 average transaction is \$1500 to \$3000 per month per location, recovered.
+The AI Receptionist add-on answers your business phone 24/7 with a voice AI assistant tuned for Quebec French + English. Local commerces lose 30 to 40 percent of after-hours and lunch-break calls. Even a 10 percent capture rate at $50 average transaction is $1500 to $3000 per month per location, recovered.
 
 ## 6 capabilities
 
@@ -9643,7 +9643,7 @@ The AI Receptionist add-on answers your business phone 24/7 with a voice AI assi
 
 ## Pricing + guarantee
 
-\$200/month add-on (or bundled in Agency tier). 30-day satisfaction guarantee. We track every call captured + every appointment booked. If the receptionist doesn't generate at least \$200 of attributable bookings or recovered leads in month 1, full refund + cancellation.
+$200/month add-on (or bundled in Agency tier). 30-day satisfaction guarantee. We track every call captured + every appointment booked. If the receptionist doesn't generate at least $200 of attributable bookings or recovered leads in month 1, full refund + cancellation.
 
 ## Setup
 
@@ -9652,10 +9652,10 @@ Setup takes 14 to 21 business days (voice training + calendar integration + emer
       fr: {
         title: "Receptionniste IA : comment elle repond a votre telephone 24/7",
         excerpt:
-          "Add-on de receptionniste IA vocale (200 \$/mois ou inclus dans Agency). Repond aux appels 24/7 en francais quebecois + anglais, prend les rendez-vous, detecte les urgences, capture les prospects. Garantie de satisfaction 30 jours.",
+          "Add-on de receptionniste IA vocale (200 $/mois ou inclus dans Agency). Repond aux appels 24/7 en francais quebecois + anglais, prend les rendez-vous, detecte les urgences, capture les prospects. Garantie de satisfaction 30 jours.",
         body: `## Ce qu'elle fait
 
-L'add-on Receptionniste IA repond a votre telephone d'affaires 24/7 avec une assistante vocale IA accordee pour le francais quebecois + anglais. Les commerces locaux perdent 30 a 40 % des appels apres les heures et durant l'heure du diner. Meme un taux de capture de 10 % a 50 \$ par transaction moyenne, c'est 1500 a 3000 \$ par mois par emplacement, recuperes.
+L'add-on Receptionniste IA repond a votre telephone d'affaires 24/7 avec une assistante vocale IA accordee pour le francais quebecois + anglais. Les commerces locaux perdent 30 a 40 % des appels apres les heures et durant l'heure du diner. Meme un taux de capture de 10 % a 50 $ par transaction moyenne, c'est 1500 a 3000 $ par mois par emplacement, recuperes.
 
 ## 6 capacites
 
@@ -9675,7 +9675,7 @@ L'add-on Receptionniste IA repond a votre telephone d'affaires 24/7 avec une ass
 
 ## Tarification + garantie
 
-200 \$/mois en add-on (ou inclus dans le forfait Agency). Garantie de satisfaction 30 jours. Nous suivons chaque appel capture + chaque rendez-vous reserve. Si la receptionniste ne genere pas au moins 200 \$ de reservations attribuables ou de prospects recuperes au mois 1, remboursement complet + annulation.
+200 $/mois en add-on (ou inclus dans le forfait Agency). Garantie de satisfaction 30 jours. Nous suivons chaque appel capture + chaque rendez-vous reserve. Si la receptionniste ne genere pas au moins 200 $ de reservations attribuables ou de prospects recuperes au mois 1, remboursement complet + annulation.
 
 ## Configuration
 
@@ -9689,7 +9689,7 @@ La configuration prend 14 a 21 jours ouvrables (entrainement vocal + integration
     slug: "whatsapp-business-explained",
     title: "WhatsApp Business integration: when it pays off",
     excerpt:
-      "WhatsApp Business API integration for Quebec PMEs serving multilingual neighborhoods (Latino, Maghrebi, Portuguese, Indian, Lebanese). \$80/mo or bundled in Agency. Multi-language auto-replies, unified inbox SMS+WA+FB+IG, Loi 25 + Meta compliant.",
+      "WhatsApp Business API integration for Quebec PMEs serving multilingual neighborhoods (Latino, Maghrebi, Portuguese, Indian, Lebanese). $80/mo or bundled in Agency. Multi-language auto-replies, unified inbox SMS+WA+FB+IG, Loi 25 + Meta compliant.",
     category: "getting-started",
     updatedAt: "2026-05-02",
     readingTimeMin: 4,
@@ -9723,7 +9723,7 @@ Commerces serving these neighborhoods lose 15 to 30 percent of would-be inquirie
 
 ## Pricing + setup
 
-\$80/month add-on. Setup in 7 to 14 business days (Meta verification timeline). 30-day satisfaction guarantee. Bundled at no extra cost in the Agency tier.
+$80/month add-on. Setup in 7 to 14 business days (Meta verification timeline). 30-day satisfaction guarantee. Bundled at no extra cost in the Agency tier.
 
 ## What it doesn't do
 
@@ -9734,7 +9734,7 @@ Commerces serving these neighborhoods lose 15 to 30 percent of would-be inquirie
       fr: {
         title: "Integration WhatsApp Business : quand ca rapporte",
         excerpt:
-          "Integration API WhatsApp Business pour PME quebecoises servant clientele multilingue (latino, maghrebine, portugaise, indienne, libanaise). 80 \$/mois ou inclus dans Agency. Reponses auto multilingues, boite unifiee SMS+WA+FB+IG, conforme Loi 25 + Meta.",
+          "Integration API WhatsApp Business pour PME quebecoises servant clientele multilingue (latino, maghrebine, portugaise, indienne, libanaise). 80 $/mois ou inclus dans Agency. Reponses auto multilingues, boite unifiee SMS+WA+FB+IG, conforme Loi 25 + Meta.",
         body: `## Quand cet add-on rapporte
 
 PME quebecoises dont la clientele inclut des communautes ou WhatsApp est l'application de messagerie par defaut. Si une part significative de vos clients parlent espagnol, arabe, portugais, hindi, ourdou ou une autre langue dominee par WhatsApp a la maison, cet add-on se rentabilise rapidement. Verticales du Grand Montreal ou WhatsApp domine la messagerie client :
@@ -9765,7 +9765,7 @@ Les commerces servant ces quartiers perdent 15 a 30 % des demandes potentielles 
 
 ## Tarification + configuration
 
-80 \$/mois en add-on. Configuration en 7 a 14 jours ouvrables (delai de verification Meta). Garantie de satisfaction 30 jours. Inclus sans cout additionnel dans le forfait Agency.
+80 $/mois en add-on. Configuration en 7 a 14 jours ouvrables (delai de verification Meta). Garantie de satisfaction 30 jours. Inclus sans cout additionnel dans le forfait Agency.
 
 ## Ce qu'il ne fait pas
 
