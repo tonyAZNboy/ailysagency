@@ -2,6 +2,101 @@
 
 ---
 
+## 🎨 SESSION 2026-05-02 (Design System v1, Phases A+B+POC) — Mood-driven verticals
+
+**Shipped:** Foundation of "AiLys Design System v1", a unified, recyclable
+design system that converts existing site code into a long-term shared
+package architecture (in-tree first, externalizable later). Includes 6
+production-ready mood themes, vertical-default mapping, design token
+re-exports, and a working proof-of-concept that wires per-vertical mood
+gradients into Industry.tsx.
+
+**Why:** User asked for "extreme long-term solution + excellent UI design
++ recycle existing code". This sets the stage for both (a) the upcoming
+ailys-client-sites portfolio repo and (b) visual differentiation between
+9 industry verticals on the marketing site itself.
+
+**Architecture decision:** "Extract in-tree first, externalize later".
+Phase A creates `src/design-system/` directory with re-exports from
+existing locations. Existing imports continue to work. Future Phase C
+moves the directory into a real npm package without breaking changes.
+
+**Files created:**
+- `docs/design-system-inventory.md` (~600 lines) , complete audit of
+  existing design assets with recyclability score (~70% as-is) and
+  3-phase migration plan
+- `src/design-system/README.md` , workspace charter
+- `src/design-system/index.ts` , public surface exports
+- `src/design-system/tokens/index.ts` , typed JS surface for color,
+  typography, radius, liquid-glass, motion tokens
+- `src/design-system/moods/types.ts` , Mood type + supporting types
+- `src/design-system/moods/premium-dark.ts` , brushed gold on near-black
+  (lawyers, real-estate, dental specialists)
+- `src/design-system/moods/clean-medical.ts` , medical cyan + healthy
+  green on white (dentists, clinics)
+- `src/design-system/moods/chaleureux-artisan.ts` , terracotta on cream
+  (restaurants, contractors)
+- `src/design-system/moods/tech-corporate.ts` , electric blue + lime
+  on navy (B2B services)
+- `src/design-system/moods/luxe-editorial.ts` , burgundy + gold-leaf
+  on ivory (hotels, luxury real-estate)
+- `src/design-system/moods/friendly-local.ts` , coral + sunny yellow
+  on pastel sky (nail-salons, sushi-counters)
+- `src/design-system/moods/vertical-defaults.ts` , typed mapping
+  IndustrySlug -> MoodId (TypeScript enforces completeness)
+- `src/design-system/moods/index.ts` , public mood API
+
+**Files modified (POC):**
+- `src/pages/Industry.tsx` , imports getMood + getDefaultMoodForVertical,
+  uses mood.accentGradient on hero italic + eyebrow badge, adds mood
+  badge under eyebrow showing mood label (per-locale)
+
+**Verification:**
+- `npx tsc --noEmit` clean
+- Em-dash sweep on src/design-system/ clean (post sed pass)
+- `npx vite build` success ~14s, index 817KB unchanged
+- Browser preview /industries/lawyers: hero italic uses
+  `from-amber-300 via-amber-400 to-yellow-600` (premium-dark gold)
+- Browser preview /industries/nail-salons: hero italic uses
+  `from-pink-400 via-rose-400 to-yellow-400` (friendly-local rose)
+- Browser preview /industries/clinics: hero italic uses
+  `from-cyan-400 via-teal-400 to-emerald-400` (clean-medical cyan)
+- Mood badge renders per-locale ("Premium Dark mood" / "Mood Sombre Premium")
+- Mobile 375x812: no horizontal overflow on any tested vertical
+- Zero console errors
+
+**What this proves:**
+1. Mood system is wired end-to-end from typed config → React component
+2. Tailwind JIT correctly picks up mood class names from .ts files
+3. Per-vertical visual differentiation is achievable with minimal code
+4. The architecture supports the eventual extraction to ailys-client-sites
+
+**Recyclability score (per docs/design-system-inventory.md):**
+- 100% reusable: 49 shadcn/ui primitives, 11 token sets, 1 background,
+  3 layouts (Navbar/Footer/ChatWidget)
+- Need adaptation: 7 of 21 landing patterns (mood-awareness)
+- Missing: 5 alt backgrounds (Mesh, Aurora, Grain, Topology, Liquid),
+  9 vertical illustrations, 3 new patterns (Stepper, ChatMockup,
+  AnimatedCounter)
+
+**Next steps queued (in priority order, with effort estimates):**
+1. Apply mood NetworkBackground colors per mood (~2h)
+2. Build 5 alt mood-specific backgrounds (~1 day)
+3. Build StepperInteractive + ChatMockup + AnimatedCounter (~6-8h)
+4. Source 9 vertical illustrations via Midjourney + SVG cleanup (~2-3 days async)
+5. Refactor remaining 7 landing patterns for mood-awareness (~6-8h)
+6. Extract `src/design-system/` → `packages/design-system/` and
+   initialize ailys-client-sites repo (~2-3 days)
+7. Build first sample client site using the system (~2-3 days)
+
+**Deferred (separate workstreams):**
+- Performance guarantee copy + admin
+- Annual contest landing
+- Add-ons (voice AI receptionist, WhatsApp Business, NFC kit, newsletter)
+- Loi 25/96 conformite-quebec page
+
+---
+
 ## 🚀 SESSION 2026-05-02 (Round 1a) — NAP Pulse audit triad completed
 
 **Shipped:** Free NAP (Name/Address/Phone) consistency self-assessment at

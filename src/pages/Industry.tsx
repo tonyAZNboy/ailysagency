@@ -16,6 +16,7 @@ import {
   industries,
   type RecommendedTier,
 } from "@/data/industries";
+import { getDefaultMoodForVertical, getMood } from "@/design-system/moods";
 import { industryReports } from "@/data/industry-reports";
 import { FileText } from "lucide-react";
 
@@ -89,6 +90,8 @@ export default function Industry() {
   }
 
   const c = getIndustryContent(industry, lang);
+  const moodId = getDefaultMoodForVertical(industry.slug);
+  const mood = getMood(moodId);
   const baseUrl = "https://www.ailysagency.ca";
   const canonical =
     lang === "en"
@@ -215,9 +218,16 @@ export default function Industry() {
                     {industry.emoji}
                   </span>
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-gradient-to-r ${industry.toneClass}`}
+                    className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-gradient-to-r ${mood.accentGradient}`}
                   >
                     {c.eyebrow}
+                  </span>
+                  <span
+                    className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80 border border-border/40 bg-background/40 backdrop-blur-sm"
+                    title={lang === "fr" ? mood.descriptionFr : mood.description}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${mood.accentGradient}`} aria-hidden="true" />
+                    {lang === "fr" ? `Mood ${mood.labelFr}` : `${mood.label} mood`}
                   </span>
                 </div>
               </ScrollReveal>
@@ -229,7 +239,7 @@ export default function Industry() {
                   style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
                 >
                   {c.headline1}{" "}
-                  <span className="italic bg-gradient-to-r from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent">
+                  <span className={`italic bg-gradient-to-r ${mood.accentGradient} bg-clip-text text-transparent`}>
                     {c.headline2}
                   </span>
                 </h1>
