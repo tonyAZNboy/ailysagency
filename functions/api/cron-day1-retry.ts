@@ -27,6 +27,7 @@ import { withCronGuard, CronRunSummary } from '../lib/cronGuard';
 import { buildOnboardingPdfRequest } from '../../src/lib/onboardingAuditPayload';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
+import { captureServerError } from '../lib/serverError';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -34,6 +35,13 @@ interface Env {
   AUDIT_PDF_HMAC_SECRET?: string;
   AILYS_SERVICE_SHARED_SECRET?: string;
   RESEND_API_KEY?: string;
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Supabase persistence for serverError audit_log rows. */
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 interface KVNamespace {
@@ -189,7 +197,21 @@ async function replayOne(env: Env, entry: DlqEntry, body: OnboardingBody): Promi
     // success only if the operator surfaces the URL out-of-band. For now
     // we return false so the entry stays for explicit operator action.
     return false;
-  } catch {
+  } catch (replayErr) {
+    // Capture as warn — the cron retries up to N attempts, so single
+    // replay failures are expected. Operator gets log trail in audit_log
+    // for trend analysis (e.g., R2 outage causing all replays to fail).
+    await captureServerError(env, {
+      endpoint: 'cron-day1-retry',
+      severity: 'warn',
+      err: replayErr,
+      context: {
+        stage: 'replay_one',
+        tenant_id: body.tenantId ?? null,
+        attempts: entry.attempts,
+        original_reason: entry.reason.slice(0, 100),
+      },
+    });
     return false;
   }
 }
