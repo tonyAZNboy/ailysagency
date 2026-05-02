@@ -60,6 +60,7 @@ const Garantie = lazy(() => import("./pages/Garantie"));
 const TrousseNfc = lazy(() => import("./pages/TrousseNfc"));
 const ReceptionIA = lazy(() => import("./pages/ReceptionIA"));
 const WhatsAppBusiness = lazy(() => import("./pages/WhatsAppBusiness"));
+const Realisations = lazy(() => import("./pages/Realisations"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -248,6 +249,12 @@ const App = () => {
                 {/* WhatsApp Business integration add-on */}
                 <Route path="/whatsapp-business" element={<WhatsAppBusiness />} />
                 <Route path="/:lang/whatsapp-business" element={<WhatsAppBusiness />} />
+
+                {/* Web design portfolio (samples catalog) */}
+                <Route path="/realisations" element={<Realisations />} />
+                <Route path="/:lang/realisations" element={<Realisations />} />
+                <Route path="/portfolio" element={<Realisations />} />
+                <Route path="/:lang/portfolio" element={<Realisations />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>

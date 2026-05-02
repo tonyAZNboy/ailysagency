@@ -57,6 +57,7 @@ const MAIN_ROUTES = [
   { path: "/trousse-nfc", priority: 0.8, changefreq: "monthly" },
   { path: "/reception-ia", priority: 0.85, changefreq: "monthly" },
   { path: "/whatsapp-business", priority: 0.85, changefreq: "monthly" },
+  { path: "/realisations", priority: 0.9, changefreq: "monthly" },
   { path: "/pricing-details", priority: 0.92, changefreq: "weekly" },
   { path: "/book-call", priority: 0.85, changefreq: "monthly" },
   { path: "/blog", priority: 0.85, changefreq: "daily" },

@@ -2,6 +2,75 @@
 
 ---
 
+## 🎨 SESSION 2026-05-02 (Portfolio scaffold) — /realisations live
+
+**Shipped:** Web-design portfolio catalog page. 9 demo client sites
+(fictional Quebec PMEs) covering all 9 industry verticals across all
+6 design moods, in 4 tier depths (Starter 5 pages, Core 10, Growth
+20, Agency multi-site). Currently in "Coming soon" mode (demoUrl=null
+on all samples) until each demo ships at <slug>.demo.ailysagency.ca.
+
+**Why:** Per session-1 strategy discussion, the actual demos are what
+sell web design (not the marketing pages). This /realisations page is
+the discovery surface that prospects browse to find their archetype.
+Once each sample ships, the card auto-flips from "Bientot/Coming
+soon" to "View live demo".
+
+**Files:**
+- `src/data/portfolio-samples.ts` (~140 lines, 9 samples)
+- `src/pages/Realisations.tsx` (~340 lines, EN+FR inline)
+- `src/App.tsx`: 4 new routes (/realisations, /:lang/realisations,
+  /portfolio, /:lang/portfolio), lazy-loaded
+- `scripts/generate-sitemap.mjs`: 1 new entry x 16 locales = 16 URLs
+
+**9 portfolio samples (planned launch June-September 2026):**
+
+| Sample | Vertical | Mood | Tier | Launch |
+|---|---|---|---|---|
+| Clinique Dentaire Lavoie (Sherbrooke) | dentists | clean-medical | core | 2026-06 |
+| Moreau & Associes Droit Familial (Mtl) | lawyers | premium-dark | growth | 2026-06 |
+| Tanaka Sushi Comptoir (CDN) | sushi-counters | friendly-local | starter | 2026-06 |
+| Salon Orchidee (Brossard) | nail-salons | friendly-local | core | 2026-07 |
+| Chez Chef Bernard (Vieux-Quebec) | restaurants | chaleureux-artisan | growth | 2026-07 |
+| Auberge du Cap-Tourmente | hotels | luxe-editorial | agency | 2026-08 |
+| Plomberie Lemay 24/7 (Laval) | contractors | chaleureux-artisan | growth | 2026-08 |
+| Tremblay Courtier (Tremblant) | real-estate | luxe-editorial | growth | 2026-09 |
+| Physio Mobile Lavallee (Mauricie) | clinics | clean-medical | core | 2026-09 |
+
+**Page features:**
+- 3 filter dropdowns (vertical, mood, tier)
+- Live filter result count + reset button
+- 9 sample cards with mood-gradient header strips
+- Per-card: emoji vertical, mood badge, name, city, tier, pitch,
+  status (Coming soon + planned launch OR Live demo link)
+- "Why one system, six personalities?" explanatory section
+- CTA to book strategy call + see pricing
+
+**Mood for catalog page itself:** chaleureux-artisan (warm cream
+gradient, suits "browse our work" feel). Each sample card uses its
+own per-sample mood gradient as its visual signature.
+
+**Verification:**
+- /fr/realisations: H1 "Meme systeme. / Personnalite differente."
+  renders
+- 9 article cards rendered
+- 3 select dropdowns rendered (vertical, mood, tier filters)
+- 9 "Bientot" coming-soon badges (all samples in pre-launch state)
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~24s
+
+**Next sessions queued:**
+- Build the actual `ailys-client-sites` repo (per design-system
+  inventory phase C)
+- Build first sample (Tanaka Sushi Comptoir, simplest archetype) as
+  proof of concept on the new repo
+- Set demoUrl on portfolio-samples.ts as each sample ships
+- The page auto-flips from "Bientot" to "View live demo"
+
+---
+
 ## 📞💬 SESSION 2026-05-02 (Add-ons batch 2) — /reception-ia + /whatsapp-business
 
 **Shipped:** 2 add-on landing pages, both greenfield, both no conflict
