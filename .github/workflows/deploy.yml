@@ -116,6 +116,17 @@ jobs:
         # regression at build time. See PR #105 postmortem in STATE.md.
         run: node scripts/smoke-bundle-shape.mjs
 
+      - name: Gate 21, bundle module-load runtime guard (TDZ + circular init)
+        # Complement to Gate 20. Where bundle-shape catches KNOWN forbidden
+        # chunk names, bundle-load actually evaluates the entry chunk + all
+        # preloaded vendor chunks in a node:vm sandbox with stubbed DOM
+        # globals. Catches generic module-init failures (TDZ,
+        # ReferenceError, SyntaxError, circular eval) that the forbidden-
+        # name list cannot predict. Verified against the broken PR #96
+        # config: throws "Cannot access 'O' before initialization" with
+        # exit 1, vs. exit 0 on the safe data-only config.
+        run: node --experimental-vm-modules scripts/smoke-bundle-load.mjs
+
       # Sanity check: token presence + scope verification BEFORE invoking
       # wrangler-action. wrangler-action@v3 swallows wrangler stderr when
       # the auth call fails, so the run shows only "exit code 1" with no

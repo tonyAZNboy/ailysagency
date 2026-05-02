@@ -87,6 +87,7 @@ Before declaring any task complete:
    - `npx tsx scripts/smoke-audit-pdf-onboarding.mjs` (17 cases, service-to-service HMAC + Day-1 payload synthesis + 10-page render)
    - `npx tsx scripts/smoke-cron-guard.mjs` (13 cases, kill switch + concurrency lock + audit log emission)
    - `node scripts/smoke-bundle-shape.mjs` (9 cases, bundle-shape regression guard for the PR #96 -> PR #103 TDZ blank-page class. Requires `npx vite build` to have run.)
+   - `node --experimental-vm-modules scripts/smoke-bundle-load.mjs` (1 case, complement to bundle-shape. Actually evaluates entry chunk + preloaded vendors in node:vm sandbox with stubbed DOM globals. Catches generic TDZ/ReferenceError/circular-init at module load. Verified to throw on the PR #96 broken config and pass on the safe data-only config.)
    - As new features ship, add their smoke tests here AND wire into `.github/workflows/deploy.yml`.
 6. Open the affected page(s) in the browser preview
 7. Click the affected control / submit the affected form / verify the affected output
