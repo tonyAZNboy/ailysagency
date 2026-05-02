@@ -2,7 +2,26 @@
 
 ---
 
-## 🧸🐾🏋️ SESSION 2026-05-02 (Frontend Batch 2 cont'd) — vet-clinics + gyms-studios + daycares + portfolio variants
+## SESSION OPEN 2026-05-02 (autopilot post-PR141) — PR validation workflow (sub-phase 14)
+
+Adds `pull_request: branches: [main]` trigger to deploy.yml. Gates
+1-36 now run on every PR before merge instead of only post-merge.
+Cloudflare-specific deploy steps (Verify token, Deploy to Pages,
+Wait for propagation, Gate 19 post-deploy JSON-LD) gated with
+`if: github.event_name == 'push'` so PRs run gates without needing
+CLOUDFLARE_API_TOKEN or triggering an actual deploy.
+
+Background: PR #146 shipped a README with em-dashes that broke Gate 4
+on main, which blocked the deploy until hotfix PR #148. Cloudflare's
+Workers Build is the only check currently running on PRs; it does not
+enforce Gate 4 or the lib smokes. Adding gates as PR checks catches
+this kind of regression at PR-open time instead of post-merge.
+
+YAML syntax verified locally with js-yaml. Em-dash sweep PASS.
+
+---
+
+## SESSION 2026-05-02 (Frontend Batch 2 cont'd) — vet-clinics + gyms-studios + daycares + portfolio variants
 
 **Shipped (extending PR #141 already-open from frontend-batch-2 branch):**
 - `vet-clinics` industry vertical (Quebec OMVQ-aware, Loi 25 pet records, ~660 lines EN+FR)
