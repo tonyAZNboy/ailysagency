@@ -17,6 +17,7 @@
 
 import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
+import { insertSupabaseRow } from "../lib/supabaseInsert";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -183,12 +184,7 @@ async function forwardToSupabase(
   data: ValidatedData,
   ip: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.log("Founding-client application (no DB):", JSON.stringify({ ...data, ip }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/landing_leads`;
-  const payload = {
+  return insertSupabaseRow(env, "landing_leads", {
     name: data.name,
     email: data.email,
     phone: data.phone,
@@ -206,28 +202,7 @@ async function forwardToSupabase(
     source: data.source,
     ip_address: ip,
     created_at: new Date().toISOString(),
-  };
-  try {
-    const resp = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: "return=minimal",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      const text = await resp.text().catch(() => "");
-      console.warn("Supabase insert failed", resp.status, text.slice(0, 300));
-      return { ok: false, error: `Supabase ${resp.status}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.warn("Supabase insert threw", (err as Error).message);
-    return { ok: false, error: (err as Error).message };
-  }
+  });
 }
 
 function escapeHtml(s: string): string {

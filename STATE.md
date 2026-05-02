@@ -4,6 +4,123 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert lib extraction
+
+GSD-driven sub-phase to extract the duplicated `forwardToSupabase`
+helper across three lead-capture endpoints (`partner-application`,
+`founding-clients-apply`, `cofounders-apply`) into a single shared
+`functions/lib/supabaseInsert.ts`. Pure-engineering refactor with
+zero user-facing behavior change, zero new translations, zero
+template-touching, zero conflict surface with the parallel session
+working on website templates + admin UI.
+
+**Why this work now:** STATE.md outstanding item #5 ("Audit log shared
+lib extraction"). The duplicated pattern at three call sites was
+identical to 95%, slated to grow to 4-5 sites with Phase F4 follow-up
+form + Phase F3.1 White-Label portal. Extracting before more copies
+land prevents drift and centralizes secret-leak hardening (the
+previous inline helpers each had their own `console.warn(text.slice(0,
+300))` that could leak the SUPABASE_SERVICE_ROLE_KEY if Supabase
+echoed it in a 4xx response body).
+
+**Files:**
+
+| Path | Type | Lines |
+|---|---|---|
+| `.planning/phase-supabase-insert-lib/00-objectives.md` | new (GSD) | ~80 |
+| `.planning/phase-supabase-insert-lib/01-threat-model.md` | new (GSD) | ~95 |
+| `.planning/phase-supabase-insert-lib/02-sub-phases.md` | new (GSD) | ~85 |
+| `.planning/phase-supabase-insert-lib/03-test-matrix.md` | new (GSD) | ~50 |
+| `.planning/phase-supabase-insert-lib/04-rollback-plan.md` | new (GSD) | ~60 |
+| `functions/lib/supabaseInsert.ts` | new lib | ~165 |
+| `scripts/smoke-supabase-insert.mjs` | new smoke (40 cases, 20 internal) | ~340 |
+| `functions/api/partner-application.ts` | refactor (-37, +14) | net -23 |
+| `functions/api/founding-clients-apply.ts` | refactor (-50, +21) | net -29 |
+| `functions/api/cofounders-apply.ts` | refactor (-43, +17) | net -26 |
+| `.github/workflows/deploy.yml` | +Gate 26 | +10 |
+| `functions/api/audit-ai-visibility-instant.ts` | em-dash fix | +1/-1 |
+| `functions/api/cron-day1-retry.ts` | em-dash fix | +1/-1 |
+
+**Gates passed locally:**
+
+- Gate 1 typecheck: clean
+- Gate 2 audit-translations-deep: 0 missing across 15 non-EN locales
+- Gate 3 audit-blog-translations: 59/59 posts pass
+- Gate 4 em-dash sweep (CI scope): 0 matches outside chat-advisor exception
+- Gate 5 existing smokes:
+  - smoke-rate-limit: 18/18
+  - smoke-system-health: 39/39
+  - smoke-server-error: 34/34
+  - smoke-audit-pdf-validation: 16/16
+  - smoke-audit-pdf-render: 9/9
+  - smoke-audit-pdf-hmac: 11/11
+  - smoke-audit-pdf-onboarding: 17/17
+  - smoke-cron-guard: 13/13
+  - smoke-bundle-shape: 9/9
+  - smoke-bundle-load: 1/1
+- Gate 7 build: green (22.29s, no bundle bloat)
+- Gate 26 (NEW) smoke-supabase-insert: 40/40 (15 contract cases + 5 extra
+  + 20 internal helper cases)
+
+**Behavioral parity preserved:**
+
+- Same fail-open semantics on missing SUPABASE_URL or
+  SUPABASE_SERVICE_ROLE_KEY (logs payload to console, returns ok:true).
+  Reason: AiLys Supabase project not yet provisioned (operator action
+  pending #4 from prior session); forms must continue feeling
+  successful to the user; ops pulls leads from Workers logs until the
+  table is ready.
+- Same 409 ignore-duplicates handling on partner-application
+  (idempotent re-submission of the same agency).
+- Same `Prefer: return=minimal` baseline on all three call sites.
+- Same `{ ok, error? }` return shape at all three call sites.
+- Wrapping function name (`forwardToSupabase`) preserved for in-file
+  readability; only the body changed.
+
+**Hardening upgrade (defense in depth):**
+
+- SERVICE_ROLE_KEY redaction in any error-message text. Previously,
+  inline helpers logged `text.slice(0, 300)` directly via console.warn,
+  which would leak the key to Workers logs if Supabase echoed the
+  apikey in a 4xx body. The shared lib runs every error-message string
+  through `redact(input, secret)` which substitutes `[REDACTED]` for
+  any direct match AND for the first 16 chars of the JWT prefix.
+  Asserted by smoke C11 (3 sub-assertions: no full key, no JWT prefix,
+  marker present).
+- Error message bounded to ≤ 256 chars. Previously, a 4xx body
+  containing `text.slice(0, 300)` could be appended to the error
+  string with no ceiling on the wrapped Error message. The shared lib
+  enforces a 256-char cap with ellipsis. Asserted by smoke C12.
+- Row argument immutability: lib does NOT mutate the caller's row
+  object. Asserted by smoke C14.
+
+**Pre-existing em-dash fixes (out-of-band cleanup):**
+
+Two em-dashes were lurking in `functions/api/audit-ai-visibility-
+instant.ts:356` and `cron-day1-retry.ts:201` from the prior night
+session. The deploy.yml Gate 4 strict regex would have failed on them
+when this PR's diff lands. Fixed inline (replaced with periods) to
+unblock the merge. These were code comments, no user-visible impact.
+
+**No new operator actions:**
+
+This is a refactor. The same env vars (SUPABASE_URL,
+SUPABASE_SERVICE_ROLE_KEY) are required by the same code paths.
+Operator actions from the prior session (KV bindings, OPERATOR_NOTIFY_
+EMAIL, AiLys Supabase provisioning, Wikidata Q-number) carry over
+unchanged.
+
+**Outstanding next session (unchanged from prior close):**
+
+1. F3.1+ White-Label real build (gated on F3.0 demand validation)
+2. Reviuzy F1.1 / F5.2 (cross-repo)
+3. Industry partial-i18n for remaining 4 verticals (after Tuesday)
+4. Help article translations to ES/ZH/AR/RU (after Tuesday)
+5. /admin/system-health UI page (still deferred for parallel session)
+6. react-refresh + react-hooks/exhaustive-deps 21 warnings audit
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended-night) — 32 PRs total, 12 engineering PRs, 100% serverError adoption across 8 endpoints + 2 crons
 
 Continued the night-session engineering work past the 27-PR close with

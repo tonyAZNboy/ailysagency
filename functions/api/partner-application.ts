@@ -18,6 +18,7 @@
 
 import { checkRateLimit, sha256Hex as ratelimitSha } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
+import { insertSupabaseRow } from "../lib/supabaseInsert";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -222,38 +223,17 @@ async function forwardToSupabase(
   hash: string,
   ipHashValue: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.log("Partner application (no DB):", JSON.stringify({ ...data, payload_hash: hash, ip_hash: ipHashValue }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/partner_applications`;
-  const payload = {
-    ...data,
-    payload_hash: hash,
-    ip_hash: ipHashValue,
-    created_at: new Date().toISOString(),
-  };
-  try {
-    const resp = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: "return=minimal,resolution=ignore-duplicates",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok && resp.status !== 409) {
-      const text = await resp.text().catch(() => "");
-      console.warn("Partner-app Supabase insert failed", resp.status, text.slice(0, 300));
-      return { ok: false, error: `Supabase ${resp.status}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.warn("Partner-app Supabase insert threw", (err as Error).message);
-    return { ok: false, error: (err as Error).message };
-  }
+  return insertSupabaseRow(
+    env,
+    "partner_applications",
+    {
+      ...data,
+      payload_hash: hash,
+      ip_hash: ipHashValue,
+      created_at: new Date().toISOString(),
+    },
+    { ignoreDuplicates: true },
+  );
 }
 
 function escapeHtml(s: string): string {

@@ -353,7 +353,7 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
   const result = await callGemini(ctx.env, body);
   if (!result) {
     emit({ ts, action: 'anthropic_fail', ipHash: ipHash.slice(0, 8) });
-    // Capture as WARN — the endpoint gracefully degrades to FALLBACK
+    // Capture as WARN. The endpoint gracefully degrades to FALLBACK
     // content so user UX never breaks, but operator should see Gemini
     // failures for trend analysis (sustained failures indicate Gemini
     // outage, key revoked, or schema regression in the JSON response).

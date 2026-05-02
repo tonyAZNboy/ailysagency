@@ -13,6 +13,8 @@
 //   - No PII echoed back; structured response only
 //   - Forwards to Supabase landing_leads or to a dedicated table when ready
 
+import { insertSupabaseRow } from "../lib/supabaseInsert";
+
 interface Env {
   ALLOWED_ORIGINS?: string;
   SUPABASE_URL?: string;
@@ -181,46 +183,23 @@ async function forwardToSupabase(
   data: ValidationResult["data"],
   ip: string | null,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    // No Supabase configured yet (AiLys' own Supabase project not
-    // provisioned). Log and return ok so the form still feels successful
-    // to the candidate; ops will pull leads from the Cloudflare Functions
-    // log until the table is ready.
-    console.log("Cofounder application (no DB):", JSON.stringify({ ...data, ip }));
-    return { ok: true };
-  }
-  const url = `${env.SUPABASE_URL}/rest/v1/landing_leads`;
-  const resp = await fetch(url, {
-    method: "POST",
-    headers: {
-      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
+  return insertSupabaseRow(env, "landing_leads", {
+    email: data.email,
+    name: data.name,
+    phone: data.phone,
+    source: data.source,
+    lang: data.lang,
+    status: "new",
+    metadata: {
+      kind: "cofounder_application",
+      community: data.community,
+      linkedin: data.linkedin,
+      interests: data.interests,
+      missingCommunities: data.missingCommunities,
+      motivation: data.motivation,
+      ip,
     },
-    body: JSON.stringify({
-      email: data.email,
-      name: data.name,
-      phone: data.phone,
-      source: data.source,
-      lang: data.lang,
-      status: "new",
-      metadata: {
-        kind: "cofounder_application",
-        community: data.community,
-        linkedin: data.linkedin,
-        interests: data.interests,
-        missingCommunities: data.missingCommunities,
-        motivation: data.motivation,
-        ip,
-      },
-    }),
   });
-  if (!resp.ok) {
-    const text = await resp.text();
-    return { ok: false, error: `${resp.status}: ${text.slice(0, 256)}` };
-  }
-  return { ok: true };
 }
 
 export async function onRequestPost(context: {
