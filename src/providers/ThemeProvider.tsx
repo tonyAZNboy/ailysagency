@@ -37,7 +37,9 @@ function applyTheme(theme: Theme) {
   
   root.classList.toggle("dark", isDark);
   
-  window.getComputedStyle(root).opacity;
+  // Read computed style to force a reflow before removing the transition-suppressing
+  // <style> tag. Reading any property triggers layout recompute synchronously.
+  void window.getComputedStyle(root).opacity;
   document.head.removeChild(style);
 }
 

@@ -67,7 +67,8 @@ function loadMetaPixel(): void {
   ((f: any, b: any, e: any, v: any) => {
     if (f.fbq) return;
     const n: any = function (...args: unknown[]) {
-      n.callMethod ? n.callMethod.apply(n, args) : n.queue.push(args);
+      if (n.callMethod) n.callMethod(...args);
+      else n.queue.push(args);
     };
     if (!f._fbq) f._fbq = n;
     n.push = n;

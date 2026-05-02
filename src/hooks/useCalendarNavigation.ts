@@ -133,13 +133,14 @@ export function useCalendarNavigation({
           moveSelection("down");
           break;
         case "Enter":
-        case " ":
+        case " ": {
           e.preventDefault();
           const selectedDay = getSelectedDay();
           if (selectedDay && onDayAction) {
             onDayAction(selectedDay);
           }
           break;
+        }
         case "PageUp":
           e.preventDefault();
           goToPreviousWeek();
