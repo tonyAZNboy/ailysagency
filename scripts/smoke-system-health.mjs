@@ -169,10 +169,47 @@ async function callGet(env) {
 {
   const r = await callGet({});
   const json = await r.json();
-  const required = ["ok", "timestamp", "build", "features", "secrets", "kvBindings"];
+  const required = ["ok", "timestamp", "build", "features", "secrets", "kvBindings", "cronHeartbeats"];
   for (const k of required) {
     assert(`required field "${k}" present`, json[k] !== undefined);
   }
+}
+
+// 17. cronHeartbeats null when KV unbound (legitimate fresh-deploy state)
+{
+  const r = await callGet({});
+  const json = await r.json();
+  assert("cronHeartbeats.process-sequences null when KV unbound", json.cronHeartbeats["process-sequences"] === null);
+  assert("cronHeartbeats.day1-retry null when KV unbound", json.cronHeartbeats["day1-retry"] === null);
+}
+
+// 18. cronHeartbeats reports heartbeat shape when KV bound + record exists
+{
+  const heartbeat = {
+    last_run_at: "2026-05-02T15:00:00.000Z",
+    last_success_at: "2026-05-02T15:00:00.000Z",
+    last_duration_ms: 1234,
+    last_items_processed: 5,
+    last_successes: 5,
+    last_failures: 0,
+  };
+  const kv = {
+    async get(key) {
+      if (key === "cron:process-sequences:heartbeat") return JSON.stringify(heartbeat);
+      return null;
+    },
+    async put() {},
+  };
+  const r = await callGet({ AUDIT_PDF_RATE_LIMIT: kv });
+  const json = await r.json();
+  assert(
+    "cronHeartbeats.process-sequences populated from KV record",
+    json.cronHeartbeats["process-sequences"]?.last_success_at === "2026-05-02T15:00:00.000Z",
+  );
+  assert(
+    "cronHeartbeats.day1-retry null (no record)",
+    json.cronHeartbeats["day1-retry"] === null,
+  );
 }
 
 // Summary
