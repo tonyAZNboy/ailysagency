@@ -28,7 +28,7 @@ export function useTenants() {
         .from("user_memberships")
         .select("tenant_id, role");
       if (error) throw error;
-      return (data as any) || [];
+      return (data as unknown as Membership[]) || [];
     },
     staleTime: 60_000,
   });
@@ -41,7 +41,7 @@ export function useTenants() {
         .select("id, name, industry")
         .order("created_at", { ascending: true });
       if (error) throw error;
-      return (data as any) || [];
+      return (data as unknown as Tenant[]) || [];
     },
     staleTime: 60_000,
   });

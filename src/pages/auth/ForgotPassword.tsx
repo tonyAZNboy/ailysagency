@@ -27,10 +27,10 @@ export default function ForgotPassword() {
       });
       if (error) throw error;
       setSent(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       toast({
         title: "Failed to send reset email",
-        description: err.message || "Please try again.",
+        description: (err instanceof Error ? err.message : null) || "Please try again.",
         variant: "destructive",
       });
     } finally {

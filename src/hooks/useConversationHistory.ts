@@ -20,7 +20,7 @@ interface AgentMessage {
   id: string;
   role: 'user' | 'assistant' | 'system';
   content: string;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
   created_at: string;
 }
 
@@ -165,7 +165,7 @@ export const useConversationHistory = () => {
     try {
       const { error } = await supabase
         .from('agent_conversations')
-        .update({ settings: settings as any, updated_at: new Date().toISOString() })
+        .update({ settings: settings as never, updated_at: new Date().toISOString() })
         .eq('id', conversationId);
 
       if (error) throw error;
