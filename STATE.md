@@ -2,6 +2,89 @@
 
 ---
 
+## 🧸🐾🏋️ SESSION 2026-05-02 (Frontend Batch 2 cont'd) — vet-clinics + gyms-studios + daycares + portfolio variants
+
+**Shipped (extending PR #141 already-open from frontend-batch-2 branch):**
+- `vet-clinics` industry vertical (Quebec OMVQ-aware, Loi 25 pet records, ~660 lines EN+FR)
+- `gyms-studios` industry vertical (boutique fitness, Mindbody/Glofox API mirror, ~660 lines EN+FR)
+- `daycares` industry vertical (CPE + garderies privees, MFA-aware, AI Concierge tour-response, ~660 lines EN+FR)
+- 6 new portfolio samples in `portfolio-samples.ts` demonstrating
+  multi-template-per-vertical concept (3 lawyers variants, 2
+  restaurants variants, 1 dentists pediatric variant + 1 daycares
+  sample)
+
+**Industries total:** 13 verticals (was 9 after PR #125, now +4: hair-salons,
+gyms-studios, vet-clinics, daycares).
+
+**Portfolio total:** 15 samples (was 9, now +6).
+
+## 🚧 SCENARIO A QUEUED (after Tuesday 13:00 quota refresh) — Variants per vertical
+
+**User decision recorded 2026-05-02:** Scenario A (multiple
+templates per vertical via route variants) is queued for after
+Tuesday next week 13:00 (when translation quota refreshes).
+
+**What Scenario A delivers:**
+A typed `variants` field on the `Industry` interface that lets a
+vertical decline into multiple visual personalities:
+
+```ts
+interface Industry {
+  slug: IndustrySlug;
+  variants?: {
+    [variantSlug: string]: {
+      moodOverride: MoodId;
+      heroVariant: "default" | "split" | "video" | "swatch";
+      contentOverrides?: Partial<IndustryContent>;
+    };
+  };
+}
+```
+
+Routes become:
+- `/industries/dentists` (default = current behavior)
+- `/industries/dentists/familial-quebec` (variant)
+- `/industries/dentists/cosmetique-luxe` (variant)
+- `/industries/dentists/pediatrique-bilingue` (variant)
+
+**Why queued vs. shipped now:**
+- Each variant requires translated content (titles, descriptions,
+  pain-points overrides), which is translation-quota-intensive
+- Translation quota near weekly limit; user explicit constraint to
+  not touch translations to non-EN/FR languages this week
+- Tuesday next week after 13:00, quota refreshes
+
+**Where the demand was demonstrated this session:**
+- Portfolio samples now include 3 lawyer variants (Tannenbaum corp
+  litigation tech-corporate / Moreau family law premium-dark /
+  Clinique Juridique Mile End friendly-local), 2 resto variants
+  (Table Quebecoise luxe-editorial / Casse-Croute chaleureux-artisan),
+  1 dentists variant (Centre Pediatrique friendly-local for kids).
+- These prove the visual flexibility WITHOUT requiring route refactor
+  or content variants in the data file. Prospects browsing
+  /realisations see the same vertical in multiple moods.
+
+**Phasing for Scenario A delivery (3 sub-phases, post Tuesday):**
+1. **Phase A1** (1 session): Refactor `Industry.tsx` to read optional
+   `variantSlug` URL param, fall back to default when absent, add
+   variant-aware mood + content override resolution. Add
+   `variants` field to Industry interface as optional. Zero behavior
+   change for existing routes.
+2. **Phase A2** (1 session): Author 3 variants per vertical for the
+   13 existing verticals (= 39 variants). Translation work goes here
+   (EN+FR full coverage for each variant; secondary locales fall
+   back to EN per existing pattern).
+3. **Phase A3** (1 session): Update `/industries` index page to
+   show variant chips per vertical card, update `/realisations`
+   filter to allow filtering by variant, add hreflang +
+   sitemap entries for the 39 variant URLs (× 16 locales = 624 new
+   sitemap entries).
+
+**Total Scenario A effort estimate:** 3 sessions (~3-5 days) post
+Tuesday 13:00 quota refresh.
+
+---
+
 ## 💇 SESSION 2026-05-02 (Frontend Batch 2) — hair-salons industry + footer wiring
 
 **Shipped (post-PR-#125-merge, on new branch claude/frontend-batch-2):**

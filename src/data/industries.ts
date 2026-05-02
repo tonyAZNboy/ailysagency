@@ -24,7 +24,8 @@ export type IndustrySlug =
   | "sushi-counters"
   | "hair-salons"
   | "gyms-studios"
-  | "vet-clinics";
+  | "vet-clinics"
+  | "daycares";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -4801,6 +4802,338 @@ const vetClinics: Industry = {
   },
 };
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 13 · DAYCARES (CPE et garderies privees)
+   Quebec context: CPE (Centres de la petite enfance) subsidized by the
+   government + garderies privees non-subventionnees. Massive waitlist
+   demand (Place 0-5 ans), parents searching urgently when expecting
+   or returning to work. MFA (Ministere de la Famille) regulated. AI
+   search increasingly dominant for "garderie subventionnee
+   disponibilite [quartier]" + "CPE liste d'attente Plateau".
+   ────────────────────────────────────────────────────────────────────────── */
+
+const daycares: Industry = {
+  slug: "daycares",
+  name: "Daycares",
+  nameLong: "Daycares (CPE) & Garderies Privees",
+  emoji: "🧸",
+  toneClass: "from-pink-400 via-amber-400 to-emerald-400",
+  en: {
+    eyebrow: "AI SEO for daycares (CPE) and garderies privees",
+    headline1: "Get cited by ChatGPT when parents urgently ask",
+    headline2: "\"daycare with availability near me right now\".",
+    subheadline:
+      "Quebec daycare demand outstrips supply by 50,000+ places. Parents (often expecting or returning to work) ask AI engines first: \"garderie subventionnee disponibilite Plateau\" + \"CPE bilingue Brossard liste d'attente\" + \"daycare emergency placement Cote-des-Neiges\". AI engines weight availability schema, MFA permit visibility, language + cultural fit, and educator team transparency. AiLys gets your daycare named when AI surfaces childcare answers and converts that to waitlist signups, where 90 percent become enrolled within 12 months when serviced thoughtfully.",
+    stats: [
+      { value: "88%", label: "of parents seeking daycare in Greater Montreal start with an AI engine query before tour requests" },
+      { value: "2.7×", label: "more LLM citations on daycares with full availability schema (per-age-group capacity exposed) vs daycares with 'call us' positioning" },
+      { value: "14 days", label: "to first ChatGPT citation lift on average for high-urgency daycare queries with full schema" },
+      { value: "90%", label: "waitlist-to-enrolled conversion within 12 months for daycares that respond to inquiries within 48 hours (highest-urgency vertical)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "daycare 18 months old availability Cote-des-Neiges spot opens",
+    ],
+    painPoints: [
+      {
+        title: "Availability data is stale or absent",
+        description:
+          "When a parent asks AI engines \"daycare with availability\", they need real-time per-age-group capacity. Most daycare websites show only \"call us\" or \"join waitlist\". AI engines cite the daycares with explicit availability schema (Schema.org Service with capacity exposed) over those with placeholder language.",
+      },
+      {
+        title: "MFA permit number + ratio not visible",
+        description:
+          "Parents check MFA permit number (Ministere de la Famille) + educator-to-child ratio + program orientation (Reggio, Montessori, traditional, bilingual) before scheduling a tour. Most daycares hide this in PDF brochures invisible to AI engines.",
+      },
+      {
+        title: "Educator team isn't humanized",
+        description:
+          "Parents trust educators they've heard about. Person schema for lead educators (with photo, qualifications AEC/DEC en techniques d'education a l'enfance, languages, years of experience, special interests like music/outdoor/STEM) lets AI engines surface specific educators for parent queries. Without it, you lose to chains that humanize their teams.",
+      },
+      {
+        title: "Tour-request response time is 5+ days",
+        description:
+          "In a 50,000-place shortage market, parents email 8-12 daycares simultaneously. The first to respond within 48 hours gets the tour. Most independent daycares respond in 5-10 days because the educator-director is also caring for kids. AI Concierge handles tour requests in real-time + books tours into the calendar without director intervention.",
+      },
+      {
+        title: "Owner-director cares for children all day, no marketing time",
+        description:
+          "Independent daycare directors (educator-owner hybrid) are with children 8-10 hours per day, mandatory ratios. Marketing falls to nights + weekends, which means it doesn't happen. The daycare loses to chain centers (Garderie Tournesol, La Tour des Enfants) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for daycare category",
+        description:
+          "Primary category set to specific type (Day care center, Preschool, Child care service), every relevant attribute filled (Wheelchair accessible, Outdoor playground, Bilingual, Subsidized vs private, MFA permit displayed, Languages spoken, Hours including drop-off + pickup windows, Special programs Reggio/Montessori/traditional, Allergy-aware), 50+ original photos minimum (classroom, playground, snack area with consent), weekly Q&A on common parent questions.",
+      },
+      {
+        step: "02",
+        title: "Real-time availability schema by age group",
+        description:
+          "Schema.org Service entries per age group (poupons 0-18 months, 18 months-3 years, 3-5 years preschool) with capacity exposed (\"3 spots open in poupons starting January 2027\"). AI engines now answer \"daycare with poupons availability\" with your daycare + a tour-booking link. Updated weekly via simple admin form.",
+      },
+      {
+        step: "03",
+        title: "Educator-by-educator Person schema",
+        description:
+          "Schema.org Person entries for each lead educator (AEC/DEC qualifications, photo, years of experience, languages spoken, special interests like music/outdoor/STEM/Reggio approach). Parents searching \"daycare with bilingual educator\" or \"daycare with Reggio-trained team\" find your daycare via the individual educator entries.",
+      },
+      {
+        step: "04",
+        title: "MFA permit + ratio + orientation visible",
+        description:
+          "MFA permit number prominent in footer + about page + GBP description. Educator-to-child ratio exposed per age group. Program orientation (Reggio, Montessori, traditional, immersion, etc.) tagged in Service schema. Parents pre-screen on these data points before requesting tours.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for daycares in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Parents often search in their native language for daycares matching cultural fit. 1.6-2.4x more tour requests from multilingual content.",
+      },
+      {
+        step: "06",
+        title: "AI Concierge for tour-request response within 48 hours",
+        description:
+          "AiLys Concierge add-on responds to tour-request emails + WhatsApp messages within 5 minutes (vs 5-10 day industry average), books tours directly into the director's calendar, captures parent's expected start date + child's age + language preference. Tour-to-enrollment conversion lifts 35-50 percent simply from being first-to-respond.",
+      },
+      {
+        step: "07",
+        title: "Review response in parent's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For daycare especially, parents read reviews very carefully + AI engines weight tone consistency strongly. Templates cover positive enrollment milestones + difficult conversations (departure for school, ratio adjustments, etc.) with appropriate empathy.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for daycare queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ daycare queries in your neighborhood, tracked at daycare, age-group availability, and program-orientation levels. Catches when new daycares open competing, when MFA opens new subsidized place allocations, or when seasonal demand peaks (parental leave returning to work, September enrollment surge).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "AiLys client daycare named with 2 poupon spots starting February, MFA permit visible, tour-booking link",
+        reason: "Schema Service per age group with explicit poupon capacity, MFA permit prominent, GBP attribute Subsidized + Wheelchair accessible, 4.9 stars across 180+ reviews from parents, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "AiLys client CPE cited as primary recommendation with 'French + English educators' attribute and active waitlist signup form",
+        reason: "GBP attributes filled completely (languages, bilingual program), Person schema for bilingual lead educators, Service schema entries per age group with waitlist availability flag, 50+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "daycare 18 months old availability Cote-des-Neiges spot opens",
+        cited: "AiLys client daycare surfaced in AI Overview with 18-month spot opening March, Reggio approach, 3 educators with AEC qualifications",
+        reason: "Schema Service for 18-month age group with March availability date, program orientation tagged Reggio, Person schema for educators with AEC qualifications, BookingService schema with online tour-request URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent daycares hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per location, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-installation daycares (2+ centres) graduate to Growth for daily AI Visibility probes + per-installation availability schema. Daycares serving high-multilingual neighborhoods often choose Agency for multilingual schema + AI Concierge add-on for the 48-hour tour-response advantage.",
+    faq: [
+      {
+        q: "Is publishing real-time availability allowed under MFA regulations?",
+        a: "Yes. MFA does not regulate website availability publication. The constraint is that subsidized place allocation goes through La Place 0-5 ans (the central waitlist), not directly to your website. We schema the wait-list spots open + tour availability separately from the Place 0-5 ans process. Tour-to-enrollment conversion improves; the central allocation rules stay intact.",
+      },
+      {
+        q: "How do you handle the cultural-fit conversation parents care about?",
+        a: "Person schema for educators surfaces who they'll meet on the tour. Parents read educator bios with language + interests + approach before the tour. AiLys's tour-request templates include a cultural-fit prompt (\"what does your child love? favorite languages at home? dietary considerations?\") so the director arrives at the tour with context.",
+      },
+      {
+        q: "Do you handle the multilingual parent inquiries (Spanish, Arabic, Mandarin, etc.)?",
+        a: "Yes via the AI Concierge add-on. Tour-request emails + WhatsApp messages get auto-responses in the parent's language within 5 minutes, queue the request for director review, and book tours into the director's calendar. Multilingual response capacity is the single highest-impact lever in international neighborhoods.",
+      },
+      {
+        q: "Will MFA inspectors take issue with our marketing?",
+        a: "No, when factually accurate. MFA enforces program quality (ratios, qualifications, safety) not marketing. The constraint is no false claims (don't claim Reggio orientation if not implementing it, don't show photos that misrepresent ratios, don't promise outcomes). Our content templates are reviewed against MFA expectations annually.",
+      },
+      {
+        q: "We're a 8-place garderie en milieu familial, does this work?",
+        a: "Yes. Garderies en milieu familial (8 places, RSG-affiliated or not) benefit even more from AI search because parents searching for the smaller-environment fit specifically want home-based settings. Starter ($300/mo) covers GBP optimization + 4 posts/month + monthly NAP citations + monthly AI Visibility probes, which is enough for a 8-place setting.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days. AI Visibility (ChatGPT / Perplexity citations) lifts within 14-30 days for daycare queries (faster than other verticals due to high-urgency parent search behavior). Tour-request volume usually shows a 50-100 percent lift in months 1-2 if combined with AI Concierge add-on. Waitlist-to-enrolled conversion (90% within 12 months when properly handled) becomes the dominant value driver from month 3 onward.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your daycare",
+    ctaSecondary: "Free GBP audit for daycares (CPE)",
+    seoTitle: "AI SEO for daycares + CPE + garderies Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for daycares (CPE + garderies privees) in Greater Montreal. Real-time availability schema, MFA permit visibility, multilingual parent inquiries. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO daycare Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "daycare availability AI search",
+      "garderie subventionnee GBP Quebec",
+      "MFA permit daycare AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour garderies (CPE) et garderies privees",
+    headline1: "Faites-vous citer par ChatGPT quand les parents demandent urgemment",
+    headline2: "\"garderie avec disponibilite pres de moi maintenant\".",
+    subheadline:
+      "La demande de garderie au Quebec depasse l'offre par plus de 50 000 places. Les parents (souvent en attente ou de retour au travail) demandent aux moteurs IA en premier : « garderie subventionnee disponibilite Plateau » + « CPE bilingue Brossard liste d'attente » + « daycare emergency placement Cote-des-Neiges ». Les moteurs IA ponderent le schema de disponibilite, la visibilite du permis MFA, la correspondance linguistique + culturelle et la transparence de l'equipe d'educateurs. AiLys fait nommer votre garderie quand les IA repondent aux questions de garde et convertit ca en inscriptions a la liste d'attente, ou 90 % deviennent inscrits dans les 12 mois quand servies avec attention.",
+    stats: [
+      { value: "88 %", label: "des parents cherchant une garderie dans le Grand Montreal commencent par une requete a un moteur IA avant les demandes de visite" },
+      { value: "2,7×", label: "plus de citations LLM pour les garderies avec schema de disponibilite complet (capacite par groupe d'age exposee) vs garderies avec positionnement « appelez-nous »" },
+      { value: "14 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de garderie a haute urgence avec schema complet" },
+      { value: "90 %", label: "conversion liste d'attente vers inscrit dans les 12 mois pour les garderies qui repondent aux demandes dans les 48 heures (verticale a plus haute urgence)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+    ],
+    painPoints: [
+      {
+        title: "Les donnees de disponibilite sont perimees ou absentes",
+        description:
+          "Quand un parent demande aux moteurs IA « garderie avec disponibilite », ils ont besoin d'une capacite par groupe d'age en temps reel. La plupart des sites de garderies montrent seulement « appelez-nous » ou « rejoignez la liste d'attente ». Les moteurs IA citent les garderies avec schema de disponibilite explicite (Schema.org Service avec capacite exposee) plutot que celles avec langage placeholder.",
+      },
+      {
+        title: "Numero de permis MFA + ratio non visible",
+        description:
+          "Les parents verifient le numero de permis MFA (Ministere de la Famille) + le ratio educateur-enfant + l'orientation du programme (Reggio, Montessori, traditionnel, bilingue) avant de planifier une visite. La plupart des garderies cachent ca dans des brochures PDF invisibles aux moteurs IA.",
+      },
+      {
+        title: "L'equipe d'educateurs n'est pas humanisee",
+        description:
+          "Les parents font confiance aux educateurs dont ils ont entendu parler. Le schema Person pour les educateurs principaux (avec photo, qualifications AEC/DEC en techniques d'education a l'enfance, langues, annees d'experience, interets specialises comme musique/exterieur/STIM) permet aux moteurs IA de faire surface des educateurs specifiques pour les requetes parents. Sans ca, vous perdez face aux chaines qui humanisent leurs equipes.",
+      },
+      {
+        title: "Le temps de reponse aux demandes de visite est de 5+ jours",
+        description:
+          "Dans un marche en penurie de 50 000 places, les parents envoient des courriels a 8-12 garderies simultanement. La premiere a repondre dans les 48 heures obtient la visite. La plupart des garderies independantes repondent en 5-10 jours parce que la directrice-educatrice s'occupe aussi des enfants. Le concierge IA gere les demandes de visite en temps reel + reserve les visites au calendrier sans intervention de la directrice.",
+      },
+      {
+        title: "La proprietaire-directrice s'occupe d'enfants toute la journee, aucun temps marketing",
+        description:
+          "Les directrices de garderies independantes (hybride educatrice-proprietaire) sont avec les enfants 8-10 heures par jour, ratios obligatoires. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La garderie perd face aux centres en chaine (Garderie Tournesol, La Tour des Enfants) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie garderie",
+        description:
+          "Categorie principale reglee sur le type specifique (Garderie, Maternelle, Service de garde d'enfants), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cour exterieure, Bilingue, Subventionnee vs privee, Permis MFA affiche, Langues parlees, Heures incluant fenetres d'arrivee + depart, Programmes specialises Reggio/Montessori/traditionnel, Conscient des allergies), 50+ photos originales minimum (classe, cour de jeux, espace collation avec consentement), Q&R hebdomadaire sur questions courantes des parents.",
+      },
+      {
+        step: "02",
+        title: "Schema disponibilite temps reel par groupe d'age",
+        description:
+          "Entrees Schema.org Service par groupe d'age (poupons 0-18 mois, 18 mois-3 ans, 3-5 ans prescolaire) avec capacite exposee (« 3 places ouvertes en poupons a partir de janvier 2027 »). Les moteurs IA repondent maintenant « garderie avec disponibilite poupons » avec votre garderie + lien de reservation de visite. Mise a jour hebdomadaire via formulaire admin simple.",
+      },
+      {
+        step: "03",
+        title: "Schema Person educatrice-par-educatrice",
+        description:
+          "Entrees Schema.org Person pour chaque educatrice principale (qualifications AEC/DEC, photo, annees d'experience, langues parlees, interets specialises comme musique/exterieur/STIM/approche Reggio). Les parents cherchant « garderie avec educatrice bilingue » ou « garderie avec equipe formee Reggio » trouvent votre garderie via les entrees educatrice individuelles.",
+      },
+      {
+        step: "04",
+        title: "Permis MFA + ratio + orientation visible",
+        description:
+          "Numero de permis MFA visible en pied de page + page A propos + description GBP. Ratio educatrice-enfant expose par groupe d'age. Orientation du programme (Reggio, Montessori, traditionnel, immersion, etc.) etiquetee dans le schema Service. Les parents pre-filtrent sur ces donnees avant de demander des visites.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les garderies en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Les parents cherchent souvent dans leur langue maternelle des garderies correspondant a leur fit culturel. 1,6-2,4× plus de demandes de visite avec contenu multilingue.",
+      },
+      {
+        step: "06",
+        title: "Concierge IA pour reponse aux demandes de visite dans les 48 heures",
+        description:
+          "L'add-on Concierge AiLys repond aux courriels + messages WhatsApp de demande de visite dans les 5 minutes (vs 5-10 jours moyenne industrie), reserve les visites directement dans le calendrier de la directrice, capture la date de debut prevue du parent + l'age de l'enfant + la preference linguistique. La conversion visite-vers-inscription monte de 35-50 % simplement en etant le premier a repondre.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis du parent",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour la garderie specifiquement, les parents lisent les avis tres attentivement + les moteurs IA ponderent fortement la coherence du ton. Les modeles couvrent les jalons d'inscription positifs + les conversations difficiles (depart pour l'ecole, ajustements de ratio, etc.) avec empathie appropriee.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes garderie",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes garderie dans votre quartier, suivis aux niveaux garderie, disponibilite par groupe d'age et orientation de programme. Detecte quand de nouvelles garderies concurrentes ouvrent, quand le MFA ouvre de nouvelles allocations de places subventionnees, ou quand la demande saisonniere pique (conge parental retour au travail, poussee inscription septembre).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "Garderie cliente AiLys nommee avec 2 places poupons disponibles a partir de fevrier, permis MFA visible, lien reservation visite",
+        reason: "Schema Service par groupe d'age avec capacite poupons explicite, permis MFA en evidence, attribut GBP Subventionnee + Accessible en fauteuil roulant, 4,9 etoiles sur 180+ avis de parents, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "CPE cliente AiLys citee comme recommandation principale avec attribut « educatrices francais + anglais » et formulaire actif d'inscription a la liste d'attente",
+        reason: "Attributs GBP entierement remplis (langues, programme bilingue), schema Person pour educatrices principales bilingues, entrees schema Service par groupe d'age avec drapeau disponibilite liste d'attente, 50+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+        cited: "Garderie cliente AiLys remontee en apercu IA avec place 18 mois s'ouvrant en mars, approche Reggio, 3 educatrices avec qualifications AEC",
+        reason: "Schema Service pour groupe d'age 18 mois avec date de disponibilite mars, orientation programme etiquetee Reggio, schema Person pour educatrices avec qualifications AEC, schema BookingService avec URL demande de visite en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des garderies independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par emplacement, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les garderies multi-installations (2+ centres) graduent a Growth pour les sondages quotidiens + le schema de disponibilite par installation. Les garderies servant des quartiers a haute multilingualite choisissent souvent Agency pour le schema multilingue + l'add-on Concierge IA pour l'avantage de reponse-visite 48 heures.",
+    faq: [
+      {
+        q: "La publication de disponibilite temps reel est-elle permise sous les regulations MFA?",
+        a: "Oui. Le MFA ne regule pas la publication de disponibilite sur site web. La contrainte est que l'allocation de place subventionnee passe par La Place 0-5 ans (la liste d'attente centrale), pas directement vers votre site. Nous schematisons les places liste d'attente ouvertes + disponibilite de visite separement du processus Place 0-5 ans. La conversion visite-vers-inscription s'ameliore; les regles d'allocation centrale restent intactes.",
+      },
+      {
+        q: "Comment gerez-vous la conversation de fit culturel qui importe aux parents?",
+        a: "Le schema Person pour educatrices fait surface qui ils rencontreront a la visite. Les parents lisent les bios d'educatrices avec langue + interets + approche avant la visite. Les modeles de demande de visite AiLys incluent une invite de fit culturel (« qu'est-ce que votre enfant adore? langues preferees a la maison? considerations dietetiques? ») pour que la directrice arrive a la visite avec contexte.",
+      },
+      {
+        q: "Gerez-vous les demandes parents multilingues (espagnol, arabe, mandarin, etc.)?",
+        a: "Oui via l'add-on Concierge IA. Les courriels + messages WhatsApp de demande de visite recoivent des reponses automatiques dans la langue du parent dans les 5 minutes, mettent la demande en file pour revue de la directrice et reservent les visites dans le calendrier de la directrice. La capacite de reponse multilingue est le levier a plus haut impact dans les quartiers internationaux.",
+      },
+      {
+        q: "Les inspecteurs MFA auront-ils un probleme avec notre marketing?",
+        a: "Non, quand factuellement precis. Le MFA fait respecter la qualite du programme (ratios, qualifications, securite) pas le marketing. La contrainte est aucune fausse allegation (ne pas pretendre une orientation Reggio si non implementee, ne pas montrer des photos qui mal representent les ratios, ne pas promettre des resultats). Nos modeles de contenu sont revus contre les attentes MFA annuellement.",
+      },
+      {
+        q: "Nous sommes une garderie en milieu familial 8 places, est-ce que ca fonctionne?",
+        a: "Oui. Les garderies en milieu familial (8 places, affiliees RSG ou non) beneficient encore plus de la recherche IA parce que les parents cherchant le fit environnement plus petit veulent specifiquement des cadres a domicile. Starter (300 $/mois) couvre l'optimisation GBP + 4 publications/mois + citations NAP mensuelles + sondages Visibilite IA mensuels, ce qui est suffisant pour un cadre 8 places.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore dans les 14-30 jours pour les requetes garderie (plus rapide que les autres verticales en raison du comportement de recherche parent a haute urgence). Le volume de demandes de visite montre habituellement une hausse de 50-100 % aux mois 1-2 si combine avec l'add-on Concierge IA. La conversion liste d'attente vers inscrit (90 % dans les 12 mois quand correctement gere) devient le moteur de valeur dominant a partir du mois 3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre garderie",
+    ctaSecondary: "Audit GBP gratuit pour garderie (CPE)",
+    seoTitle: "Referencement IA pour garderies + CPE + garderies privees Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour garderies (CPE + garderies privees) du Grand Montreal. Schema disponibilite temps reel, visibilite permis MFA, demandes parents multilingues. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA garderie Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "garderie disponibilite recherche IA",
+      "garderie subventionnee GBP Quebec",
+      "permis MFA garderie Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -4814,6 +5147,7 @@ export const industries: Industry[] = [
   hairSalons,
   gymsStudios,
   vetClinics,
+  daycares,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

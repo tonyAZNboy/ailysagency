@@ -162,6 +162,103 @@ export const portfolioSamples: PortfolioSample[] = [
     demoUrl: null,
     plannedLaunch: "2026-09",
   },
+
+  /* Variants showing multi-template-per-vertical flexibility.
+     Same vertical (lawyers, restaurants, dentists) but different mood
+     + different sub-segment positioning. Demonstrates that a single
+     vertical can decline into multiple visual personalities depending
+     on the sub-segment (luxury vs accessible vs B2B-tech), which is the
+     underlying premise of the future Scenario A (variants per vertical
+     with route-level support). For now these live as separate samples
+     in the portfolio so prospects can see the flexibility at /realisations.
+     Future Scenario A will turn this into actual route variants:
+       /industries/lawyers/[variant-slug]
+     Tracked in STATE.md as queued for after Tuesday 13:00. */
+
+  {
+    slug: "tannenbaum-litige-corpo",
+    nameEn: "Tannenbaum & Co Corporate Litigation",
+    nameFr: "Tannenbaum & Co Litige Corporatif",
+    vertical: "lawyers",
+    mood: "tech-corporate",
+    tier: "agency",
+    cityEn: "Downtown Montreal",
+    cityFr: "Centre-ville Montreal",
+    pitchEn: "B2B-focused corporate litigation boutique, 14 lawyers, multi-jurisdiction. Variant of the lawyers vertical with tech-corporate mood for B2B clientele.",
+    pitchFr: "Boutique de litige corporatif B2B, 14 avocats, multi-juridictions. Variante de la verticale avocats avec mood tech-corporate pour clientele B2B.",
+    demoUrl: null,
+    plannedLaunch: "2026-10",
+  },
+  {
+    slug: "clinique-juridique-mile-end",
+    nameEn: "Clinique Juridique Mile End",
+    nameFr: "Clinique Juridique Mile End",
+    vertical: "lawyers",
+    mood: "friendly-local",
+    tier: "starter",
+    cityEn: "Mile End, Montreal",
+    cityFr: "Mile End, Montreal",
+    pitchEn: "Accessible community-law clinic. Family law + tenant rights + small claims. Variant of the lawyers vertical with friendly-local mood for accessibility-first positioning.",
+    pitchFr: "Clinique juridique communautaire accessible. Droit familial + droits des locataires + petites creances. Variante de la verticale avocats avec mood friendly-local pour positionnement accessibilite.",
+    demoUrl: null,
+    plannedLaunch: "2026-10",
+  },
+  {
+    slug: "table-quebecoise-lac-st-jean",
+    nameEn: "La Table Quebecoise du Lac-St-Jean",
+    nameFr: "La Table Quebecoise du Lac-St-Jean",
+    vertical: "restaurants",
+    mood: "luxe-editorial",
+    tier: "growth",
+    cityEn: "Lac-Saint-Jean",
+    cityFr: "Lac-Saint-Jean",
+    pitchEn: "Fine-dining destination resto with 90-min tasting menu. Multi-locale for international foodie tourism. Variant of the restaurants vertical with luxe-editorial mood for fine-dining positioning.",
+    pitchFr: "Resto destination fine-dining avec menu degustation 90 min. Multilangue pour tourisme gastronomique international. Variante de la verticale restaurants avec mood luxe-editorial.",
+    demoUrl: null,
+    plannedLaunch: "2026-11",
+  },
+  {
+    slug: "casse-croute-frites-laval",
+    nameEn: "Casse-Croute Bistro de Laval",
+    nameFr: "Casse-Croute Bistro de Laval",
+    vertical: "restaurants",
+    mood: "chaleureux-artisan",
+    tier: "starter",
+    cityEn: "Laval",
+    cityFr: "Laval",
+    pitchEn: "Family casse-croute, 32-year history, poutine + smoked-meat + fish-and-chips. Variant of the restaurants vertical with chaleureux-artisan mood for casual-Quebec positioning.",
+    pitchFr: "Casse-croute familial, 32 ans d'histoire, poutine + smoked-meat + fish-and-chips. Variante de la verticale restaurants avec mood chaleureux-artisan pour positionnement casual-Quebec.",
+    demoUrl: null,
+    plannedLaunch: "2026-11",
+  },
+  {
+    slug: "centre-pediatrique-laval",
+    nameEn: "Centre Pediatrique Laval",
+    nameFr: "Centre Pediatrique Laval",
+    vertical: "dentists",
+    mood: "friendly-local",
+    tier: "growth",
+    cityEn: "Laval",
+    cityFr: "Laval",
+    pitchEn: "Pediatric-only dental practice. Sedation dentistry + kid-anxiety specialty. Variant of the dentists vertical with friendly-local mood for child-friendly positioning.",
+    pitchFr: "Pratique dentaire pediatrique exclusive. Dentisterie de sedation + specialite anxiete enfants. Variante de la verticale dentistes avec mood friendly-local pour positionnement enfants.",
+    demoUrl: null,
+    plannedLaunch: "2026-12",
+  },
+  {
+    slug: "cpe-arc-en-ciel-brossard",
+    nameEn: "CPE Arc-en-Ciel Brossard",
+    nameFr: "CPE Arc-en-Ciel Brossard",
+    vertical: "daycares",
+    mood: "friendly-local",
+    tier: "core",
+    cityEn: "Brossard",
+    cityFr: "Brossard",
+    pitchEn: "Trilingual subsidized daycare (FR/EN/ZH), Reggio approach, 80-place CPE. Sample for the new daycares vertical demonstrating multilingual + program-orientation schema.",
+    pitchFr: "CPE subventionne trilingue (FR/EN/ZH), approche Reggio, 80 places. Sample pour la nouvelle verticale daycares demontrant schema multilingue + orientation programme.",
+    demoUrl: null,
+    plannedLaunch: "2026-12",
+  },
 ];
 
 export function getPortfolioSample(slug: string): PortfolioSample | undefined {
