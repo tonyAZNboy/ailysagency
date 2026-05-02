@@ -15,6 +15,7 @@ import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
 import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { verifyServiceRequest } from '../lib/serviceAuth';
+import { captureServerError } from '../lib/serverError';
 
 interface Env {
   RESEND_API_KEY?: string;
@@ -25,6 +26,10 @@ interface Env {
   /** Static bearer token for cron-job.org / Upstash QStash (less secure than HMAC but works with services that can't sign dynamically). 64-char random hex. */
   CRON_PROCESS_SEQUENCES_TOKEN?: string;
   CRON_PROCESS_SEQUENCES_KILL_SWITCH?: string;
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 function constantTimeEqual(a: string, b: string): boolean {
@@ -343,11 +348,28 @@ export const onRequest = async (ctx: PagesContext): Promise<Response> => {
       summary.errors++;
       const reason = `unhandled: ${(err as Error).message.slice(0, 80)}`;
       summary.reasons[reason] = (summary.reasons[reason] ?? 0) + 1;
+      const emailHash = await sha256Hex(enr.email).catch(() => '');
       logAudit('cron-process-sequences', {
         action: 'process_threw',
-        emailHash: await sha256Hex(enr.email).catch(() => ''),
+        emailHash,
         sequence_id: enr.sequence_id,
         reason,
+      });
+      // Capture each per-enrollment failure with severity=warn. Cron
+      // continues processing remaining enrollments (one bad row should
+      // not block the batch). Operator gets log trail in audit_log
+      // for trend analysis but no Resend page (cron is a 5-min loop;
+      // a few warns per run are normal for transient API errors).
+      await captureServerError(env, {
+        endpoint: 'cron-process-sequences',
+        severity: 'warn',
+        err,
+        context: {
+          stage: 'process_one',
+          sequence_id: enr.sequence_id,
+          email_hash_prefix: emailHash.slice(0, 12),
+          current_step: enr.current_step,
+        },
       });
     }
   }
