@@ -4,6 +4,100 @@
 
 ---
 
+## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended14) — 3 PRs, blank-page hotfix + i18n 100% + Gate 20 regression guard
+
+**3 PRs shipped, 3 tags, 1 critical live hotfix:**
+
+1. **PR #105 → v0.14.4-perf-data-chunk-split** (CRITICAL HOTFIX)
+   - Live www.ailysagency.ca was silently shipping a blank page since
+     v0.14.3 because PR #103 re-introduced the broken manualChunks via
+     squash merge (re-baking PR #96's commits into history). PR #100's
+     revert never propagated. smoke-jsonld passed because it validates
+     only static HTML JSON-LD, not React mount.
+   - Root cause: `ReferenceError: Cannot access 'O' before initialization`
+     at vendor-helmet chunk. Splitting react-helmet-async into a chunk
+     separate from react/react-dom triggers TDZ on a hoisted re-exported
+     React binding (rollup hoists `var O` cross-chunk, references it
+     before React module finishes evaluating in its own chunk).
+   - Fix: data-only manualChunks. Splits `/src/i18n/translations/` +
+     `/src/blog/posts/*.fr.tsx` + `/src/blog/posts/* EN`. All node_modules
+     stay in default index chunk. Bundle: index 794KB / 221KB gzipped
+     (vs 4.7MB old monolith, 83% smaller). React + helmet co-located, no
+     TDZ.
+   - Verified before merge in `vite preview` on port 4174: rootChildren>0
+     on /, /fr, /forfaits-complets, /badge.
+
+2. **PR #106 → v0.14.5-i18n-100pct**
+   - Closed the audit-translations-deep gap (was 154 missing, now 0).
+   - 11 keys × 14 non-EN locales:
+     - audit.results.planHoldBackTitle / planHoldBackBody / planHoldBackCta
+     - services.statusInDevelopment / statusInDevelopmentTitle / tier1Feat8
+     - pricingBuilder.fromPrefix / techHealthPackLabel / techHealthPackDesc
+       / gscIndexationLabel / gscIndexationDesc
+   - ES/ZH/AR/RU full native translations.
+   - DE/HI/IT/JA/KO/NL/PL/PT/TR/VI: EN placeholder per
+     i18n-translation-queue Phase 1 secondary-locale convention.
+   - Tooling: `scripts/fill-missing-i18n-keys.mjs` (idempotent inserter
+     anchored on stable preceding-key lines).
+
+3. **PR #107 → v0.14.6-gate20-bundle-shape**
+   - New CI Gate 20 + smoke script preventing the PR #96 → PR #103 class.
+   - `scripts/smoke-bundle-shape.mjs` (9 cases): forbids vendor-helmet-*,
+     vendor-react-*, vendor-router-* chunks; asserts entry < 1.5MB;
+     asserts lazy data chunks present (i18n + blog-posts EN/FR).
+   - Wired in `.github/workflows/deploy.yml` post-build, pre-deploy.
+     Failure blocks deploy. ~50ms runtime, no new deps.
+   - Documented in CLAUDE.md test cadence step 5.
+   - Sweep: 3 minor `eslint --fix` autofixes (let → const, removed
+     unnecessary eslint-disable comments). Lint count 89 → 86 problems.
+
+**Postmortem lesson:**
+The fact that v0.14.3 was claimed "shipped" with all gates green while
+the LIVE site was actually blank is a CI gap. smoke-jsonld checks only
+static HTML; it cannot catch React-mount failures in an SPA. Gate 20
+fills that exact gap at the bundle-shape level (zero browser-runtime
+cost). A future Playwright headless test would add functional coverage
+but is not strictly necessary now.
+
+**Final gates at close:**
+- TypeScript: clean
+- Blog audit: 59/59
+- Em-dash sweep: clean (1 baseline allowlisted in chat-advisor.ts:277)
+- audit-translations-deep: 100% on all 15 non-EN locales
+- smoke-bundle-shape: 9/9 in CI
+- smoke-jsonld: passes against live www
+- ESLint: 86 problems baseline (65 errors, 21 warnings) — 52 are
+  `@typescript-eslint/no-explicit-any`, requires per-file type work
+- Live www.ailysagency.ca: React mounts (verified via dynamic import of
+  index-BHnm54v7.js from external context, returned exported keys cleanly)
+
+**Outstanding next session (priority order):**
+1. **Reviuzy F1.1** Deep Site Audit DB schema + RLS + smoke (cross-repo,
+   Reviuzy SaaS) per `.planning/feature-1-deep-site-audit/02-sub-phases.md`
+2. **Reviuzy F5.2** Concierge backend (Anthropic Claude tool-calling +
+   RAG over pgvector) (cross-repo, Reviuzy SaaS) per
+   `.planning/feature-5-ai-concierge/02-sub-phases.md`
+3. **AiLys Wikidata Q-number** registration (external action — go to
+   wikidata.org, register entity AiLys Agency with 9-property package)
+   then plug into Organization sameAs in `index.html` JSON-LD
+4. **ES/ZH/AR/RU full page translations** of new help articles (9+):
+   ailys-verified-badge-overview, ailys-verified-badge-embed-howto,
+   ailys-verified-badge-verification-process, ailys-industry-reports-overview,
+   ailys-concierge-overview, ailys-concierge-privacy-deep-dive,
+   tech-health-pack-explained, gsc-indexation-audit-explained,
+   wikidata-q-number-explained
+5. **Apply 4 Supabase migrations** to dedicated AiLys Supabase project +
+   reconcile missing tables (parallel session backlog)
+6. **Cloudflare env vars** VITE_SUPABASE_URL, VITE_SUPABASE_PUBLISHABLE_KEY
+   (activates auth + admin) ; AILYS_SERVICE_SHARED_SECRET +
+   REVIUZY_CONCIERGE_URL (activates `/api/concierge-chat` after Reviuzy F5.2)
+7. **ESLint baseline cleanup** (86 issues — 52 `no-explicit-any`
+   require per-file type definitions)
+8. **Optional: Playwright headless smoke** on top of Gate 20 if blank-page
+   class needs functional coverage on top of bundle-shape coverage
+
+---
+
 ## 🏁 SESSION 2026-05-01 (autopilot continuation) — Performance retry FIXED + root cause documented
 
 **Critical finding:** STATE.md at v0.14.3 close claimed PR #100 reverted the
