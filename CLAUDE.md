@@ -2,7 +2,11 @@
 
 ## START HERE — every new session
 
-**Before doing anything else, read `STATE.md`.** It has the current state of work, what shipped at the last tag, what's deferred, the Cloudflare env-var checklist, and a numbered pickup checklist. Do not start work without reading it. After reading, briefly summarize what's outstanding back to the user so they know you're synced.
+**Before doing anything else:**
+1. **If `REMINDER-TUESDAY-1PM.md` exists at repo root, read it FIRST.** It documents content + translation work deferred to Tuesday 2026-05-05 1pm Eastern (token-quota constraint from 2026-05-02 session). The file has a priority queue + a checklist + auto-delete instructions once the queue is empty.
+2. **Read `STATE.md`.** Current state of work, what shipped at the last tag, what's deferred, the Cloudflare env-var checklist, numbered pickup checklist. Do not start work without reading it.
+
+After reading, briefly summarize what's outstanding back to the user so they know you're synced.
 
 Also reference (linked from STATE.md):
 - `docs/audit-engine-roadmap.md` — Phase B-D enhancement plan with effort estimates
