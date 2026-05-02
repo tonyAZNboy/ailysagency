@@ -94,7 +94,7 @@ export function drawCitationMatrixPage(b: Builder, req: AuditPdfRequest) {
   const pct = total === 0 ? 0 : Math.round((cited / total) * 100);
   b.drawWrapped({
     text: isFr
-      ? `Tu es cité dans ${cited} des ${total} cellules (${pct} %). Le plan d\'action ordonne les correctifs selon les moteurs les plus susceptibles de basculer du rouge au vert pour ton secteur.`
+      ? `Tu es cité dans ${cited} des ${total} cellules (${pct} %). Le plan d'action ordonne les correctifs selon les moteurs les plus susceptibles de basculer du rouge au vert pour ton secteur.`
       : `You are cited in ${cited} of ${total} cells (${pct}%). The action plan ranks fixes by which engines are most likely to flip from red to green for your vertical.`,
     size: FONT_SIZE.body,
     color: COLOR.inkSoft,

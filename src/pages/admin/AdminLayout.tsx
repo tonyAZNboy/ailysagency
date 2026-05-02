@@ -14,6 +14,7 @@ import {
   Mail,
   TrendingDown,
   Target,
+  Handshake,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { AiLysLogo } from "@/components/brand/AiLysLogo";
@@ -107,6 +108,7 @@ export default function AdminLayout() {
     { to: "/admin/users", icon: Users, label: "Users", group: "People" },
     { to: "/admin/clients", icon: UserCheck, label: "Clients", group: "People" },
     { to: "/admin/leads", icon: Target, label: "Audit leads", group: "People" },
+    { to: "/admin/partner-applications", icon: Handshake, label: "Partner apps", group: "People" },
     { to: "/admin/bookings", icon: CalendarCheck, label: "Bookings", group: "People" },
     { to: "/admin/lifecycle", icon: Mail, label: "Lifecycle", group: "Email" },
     { to: "/admin/churn", icon: TrendingDown, label: "Churn", group: "Email" },

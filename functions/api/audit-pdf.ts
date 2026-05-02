@@ -17,7 +17,12 @@ import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
 import { renderAuditPdf } from '../lib/pdf/AuditReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
+import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
+import { escapeHtml } from '../lib/htmlEscape';
+import { sha256Hex } from '../lib/crypto';
+import { isAllowedOrigin } from '../lib/origin';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -26,6 +31,13 @@ interface Env {
   AUDIT_PDF_HMAC_SECRET?: string; // env var, 64-byte random
   RESEND_API_KEY?: string;
   PDF_EXPORT_KILL_SWITCH?: string; // optional override, "false" disables endpoint
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Supabase persistence target for serverError audit_log rows. */
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 interface KVNamespace {
@@ -56,12 +68,6 @@ interface PagesContext {
 
 const IP_RATE_PER_HOUR = 5;
 const EMAIL_RATE_PER_DAY = 50;
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
 
 function utcHourBucket(now: number = Date.now()): string {
   return new Date(now).toISOString().slice(0, 13); // "2026-04-28T03"
@@ -159,16 +165,6 @@ function emitAuditLog(ctx: PagesContext, entry: AuditLogEntry): void {
 }
 
 // ── Origin allowlist ────────────────────────────────────────────────────────
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get('origin');
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    'https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev')
-    .split(',')
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith('http://localhost');
-}
 
 // ── Handler ─────────────────────────────────────────────────────────────────
 
@@ -297,6 +293,21 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
       reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
       latencyMs: Date.now() - start,
     });
+    // PDF render failure is a real ops incident (renderer changes, malformed
+    // input that bypassed validation, etc.). Page operator immediately.
+    await captureServerError(ctx.env, {
+      endpoint: 'audit-pdf',
+      severity: 'error',
+      err,
+      requestId: payloadHash.slice(0, 12),
+      userIpHash: ipHash,
+      payloadHash,
+      context: {
+        stage: 'render',
+        latency_ms: Date.now() - start,
+        vertical: data.vertical ?? null,
+      },
+    });
     return jsonResponse({ error: 'render_failed' }, 500);
   }
 
@@ -329,6 +340,22 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
         payloadHash,
         reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
         latencyMs: Date.now() - start,
+      });
+      // R2 storage failure is critical: the PDF was rendered but cannot
+      // be persisted, so the user gets nothing. Page operator.
+      await captureServerError(ctx.env, {
+        endpoint: 'audit-pdf',
+        severity: 'error',
+        err,
+        requestId: payloadHash.slice(0, 12),
+        userIpHash: ipHash,
+        payloadHash,
+        context: {
+          stage: 'r2_put',
+          object_id: objectId,
+          pdf_bytes: pdfBytes.byteLength,
+          latency_ms: Date.now() - start,
+        },
       });
       return jsonResponse({ error: 'storage_failed' }, 500);
     }
@@ -616,23 +643,3 @@ function pickLocale(lang: string, map: Record<string, string>): string {
   return map[lang] ?? map.en;
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-      ...extraHeaders,
-    },
-  });
-}

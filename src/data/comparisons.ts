@@ -604,4 +604,3 @@ export function getComparisonContent(comparison: Comparison, lang: string): Comp
   }
   return comparison.en;
 }
-""

@@ -47,7 +47,7 @@ export function TextReveal({
         }));
     }
   }, [children, mode]);
-  const ElementComponent = Component as any;
+  const ElementComponent = Component as React.ElementType;
   // Outer wrapper must stay `inline` (not inline-block) so each per-word
   // inline-block child can break to the next line on narrow viewports.
   // inline-block on the outer wrapper sizes the box to fit ALL children on

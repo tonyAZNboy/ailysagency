@@ -14,6 +14,8 @@
 //   6. Audit-log every attempt (success and failure)
 
 import { verifyDownload } from '../../lib/pdfHmac';
+import { sha256Hex } from '../../lib/crypto';
+import { makeEmit } from '../../lib/structuredLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -34,15 +36,7 @@ interface PagesContext {
   params: { id?: string };
 }
 
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'audit-pdf-download', ...line }));
-}
+const emit = makeEmit('audit-pdf-download');
 
 export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) => {
   const start = Date.now();

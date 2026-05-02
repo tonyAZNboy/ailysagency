@@ -19,6 +19,10 @@
 // - Fail-closed: missing CLIENT_ERROR_ENABLED env -> 204 (silent drop, not
 //   503, to avoid surfacing endpoint health to attackers).
 
+import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
+import { clipUntrimmed as clip } from '../lib/stringClip';
+
 interface Env {
   AUDIT_PDF_RATE_LIMIT?: KVNamespace;
   CLIENT_ERROR_ENABLED?: string;
@@ -71,20 +75,7 @@ interface AuditLogEntry {
   reason?: string;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'client-error', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  return value.slice(0, max);
-}
+const emit = makeEmit('client-error');
 
 function clampInt(n: unknown, min: number, max: number): number | null {
   if (typeof n !== 'number' || !Number.isFinite(n)) return null;

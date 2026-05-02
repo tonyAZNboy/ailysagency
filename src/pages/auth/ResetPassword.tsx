@@ -51,8 +51,8 @@ export default function ResetPassword() {
       setDone(true);
       toast({ title: "Password updated!", description: "You can now sign in with your new password." });
       setTimeout(() => navigate("/auth/login"), 2000);
-    } catch (err: any) {
-      toast({ title: "Failed to update password", description: err.message, variant: "destructive" });
+    } catch (err: unknown) {
+      toast({ title: "Failed to update password", description: err instanceof Error ? err.message : "Please try again.", variant: "destructive" });
     } finally {
       setLoading(false);
     }

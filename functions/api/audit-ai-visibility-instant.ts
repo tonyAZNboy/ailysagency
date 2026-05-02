@@ -20,11 +20,25 @@
 //
 // Backend: Google Generative Language API, gemini-2.5-pro:generateContent.
 
+import { captureServerError } from '../lib/serverError';
+import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
+
 interface Env {
   AI_VIS_INSTANT_CACHE?: KVNamespace;
   AUDIT_PDF_RATE_LIMIT?: KVNamespace; // reused for rate limit + audit log ring buffer
   GEMINI_API_KEY?: string;
   INSTANT_AI_VIS_ENABLED?: string;
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Supabase persistence for serverError audit_log rows. */
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** Resend API key for alert dispatch. */
+  RESEND_API_KEY?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 interface KVNamespace {
@@ -86,22 +100,7 @@ interface AuditResult {
   cached: boolean;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'instant-ai-vis', ...line }));
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
-}
+const emit = makeEmit('instant-ai-vis');
 
 interface ValidationResult {
   ok: boolean;
@@ -342,6 +341,20 @@ export const onRequestPost = async (ctx: PagesContext): Promise<Response> => {
   const result = await callGemini(ctx.env, body);
   if (!result) {
     emit({ ts, action: 'anthropic_fail', ipHash: ipHash.slice(0, 8) });
+    // Capture as WARN. The endpoint gracefully degrades to FALLBACK
+    // content so user UX never breaks, but operator should see Gemini
+    // failures for trend analysis (sustained failures indicate Gemini
+    // outage, key revoked, or schema regression in the JSON response).
+    await captureServerError(ctx.env, {
+      endpoint: 'audit-ai-visibility-instant',
+      severity: 'warn',
+      err: new Error('callGemini returned null (network/parse/validation failure)'),
+      context: {
+        stage: 'gemini_call_aggregate',
+        lang: body.lang,
+        cache_key_prefix: cacheKey.slice(0, 8),
+      },
+    });
     return new Response(JSON.stringify({ ...FALLBACK[body.lang], cached: false }), {
       status: 200, headers: { 'content-type': 'application/json' },
     });

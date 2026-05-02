@@ -20,16 +20,23 @@ Each industry has its own content object with ~50 strings. EN and FR are populat
 
 | Industry slug | EN | FR | ES | ZH | AR | RU | DE/HI/IT/JA/KO/NL/PL/PT/TR/VI |
 |---|---|---|---|---|---|---|---|
-| dentists       | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| lawyers        | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| restaurants    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| contractors    | ✓ light (placeholder builder) | ✓ light (placeholder builder) | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| clinics        | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| real-estate    | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| hotels         | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| dentists       | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial (hero+stats+pain+CTA+SEO) | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
+| lawyers        | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
+| restaurants    | ✓ FULL DEEP | ✓ FULL DEEP | ✓ partial | ✓ partial | ✓ partial | ✓ partial | ~ EN fallback |
+| contractors    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| clinics        | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| real-estate    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| hotels         | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 
 ### Action items
-1. **Promote contractors / clinics / real-estate / hotels to FULL DEEP content** in EN + FR (replace `buildPlaceholderContent` calls). Each needs:
+1. ✅ **DONE 2026-05-02:** All 7 industries are now FULL DEEP in EN + FR
+   (PR #115 contractors, #116 clinics, #117 real-estate, #118 hotels).
+   Each has 4-6 vertical-specific pain points, 8-step methodology, 3
+   sample citations, 5-6 industry-tuned FAQ Q+A pairs, 4 stats with
+   real numbers. Quebec terminology native throughout. ~~Each needs:~~
+
+   ~~Original action item below for historical reference:~~
+1. ~~**Promote contractors / clinics / real-estate / hotels to FULL DEEP content** in EN + FR (replace `buildPlaceholderContent` calls). Each needs:~~
    - 4-6 vertical-specific pain points with full descriptions (currently 4 generic ones)
    - 3 sample LLM citations (currently empty `[]`)
    - 5-6 industry-tuned FAQ Q+A pairs (currently 3 generic ones)

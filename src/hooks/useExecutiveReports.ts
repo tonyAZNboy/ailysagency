@@ -7,7 +7,7 @@ interface ExecutiveReport {
   id: string;
   report_type: string;
   content: string;
-  data_snapshot: any;
+  data_snapshot: Record<string, unknown>;
   generated_by: string;
   created_at: string;
 }
@@ -30,7 +30,7 @@ export function useExecutiveReports() {
         .order("created_at", { ascending: false })
         .limit(12);
       if (error) throw error;
-      setReports((data as any) || []);
+      setReports((data as unknown as ExecutiveReport[]) || []);
     } catch (e) {
       console.error("Failed to fetch reports:", e);
     } finally {
@@ -53,8 +53,12 @@ export function useExecutiveReports() {
       toast({ title: "Report Generated", description: "Your executive report is ready." });
       await fetchReports();
       return data.report;
-    } catch (e: any) {
-      toast({ title: "Error", description: e.message || "Failed to generate report", variant: "destructive" });
+    } catch (e: unknown) {
+      toast({
+        title: "Error",
+        description: e instanceof Error ? e.message : "Failed to generate report",
+        variant: "destructive",
+      });
     } finally {
       setIsGenerating(false);
     }

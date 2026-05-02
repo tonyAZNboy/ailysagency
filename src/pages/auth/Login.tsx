@@ -18,7 +18,7 @@ export default function Login() {
   const location = useLocation();
   const { toast } = useToast();
 
-  const from = (location.state as any)?.from?.pathname || "/dashboard";
+  const from = (location.state as { from?: { pathname?: string } } | null)?.from?.pathname || "/dashboard";
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,12 +43,12 @@ export default function Login() {
         },
       });
       if (error) throw error;
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Google sign-in error", err);
       setLoading(false);
       toast({
         title: "Google sign-in failed",
-        description: err?.message || "Unknown error",
+        description: err instanceof Error ? err.message : "Unknown error",
         variant: "destructive",
       });
     }

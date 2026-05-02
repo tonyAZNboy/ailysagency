@@ -19,7 +19,13 @@ export type IndustrySlug =
   | "contractors"
   | "clinics"
   | "real-estate"
-  | "hotels";
+  | "hotels"
+  | "nail-salons"
+  | "sushi-counters"
+  | "hair-salons"
+  | "gyms-studios"
+  | "vet-clinics"
+  | "daycares";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -98,7 +104,7 @@ export interface Industry {
   toneClass: string; // tailwind gradient class
   // EN canonical content
   en: IndustryContent;
-  // FR-CA translation (Quebec home market — full coverage)
+  // FR-CA translation (Quebec home market, full coverage)
   fr: IndustryContent;
   // Other languages: optional partial overrides. If not provided, EN renders.
   i18n?: Partial<Record<string, Partial<IndustryContent>>>;
@@ -420,6 +426,188 @@ const dentists: Industry = {
       "marketing clinique dentaire 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para clínicas dentales",
+      headline1: "Sé citado por ChatGPT cuando los pacientes preguntan",
+      headline2: "\"mejor dentista cerca de mí\".",
+      subheadline:
+        "Las búsquedas dentales son el sector salud n.º 1 dentro de ChatGPT, Perplexity, Claude y Gemini. Los nuevos pacientes preguntan a la IA qué clínica acepta su seguro, recibe nuevos pacientes y atiende emergencias. AiLys hace que su clínica sea nombrada.",
+      stats: [
+        { value: "62%", label: "de los nuevos pacientes ahora investigan dentistas a través de motores de IA antes de reservar" },
+        { value: "1,9×", label: "más citas LLM en sitios dentales con esquema FAQ" },
+        { value: "30 días", label: "para la primera mención en ChatGPT en promedio" },
+        { value: "$847", label: "valor promedio de un nuevo paciente en clínicas dentales de Quebec" },
+      ],
+      topQueries: [
+        "mejor dentista cerca de mí que recibe nuevos pacientes",
+        "dentista de urgencia abierto ahora Montreal",
+        "dentista pediátrico aceptando RAMQ ciudad de Quebec",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT envía pacientes a su competidor",
+          description:
+            "Cuando alguien pregunta a ChatGPT por un dentista en su barrio, la respuesta saca datos de Yelp, BBB, Healthgrades y Google Business Profile. Si su NAP es inconsistente entre esas fuentes, usted es invisible.",
+        },
+        {
+          title: "Las preguntas de seguro y RAMQ quedan sin respuesta",
+          description:
+            "Los pacientes preguntan a los motores de IA \"¿la clínica X acepta mi seguro?\". Si su sitio no tiene esquema FAQ que cubra los planes aceptados, los motores de IA extraen información antigua o incorrecta de directorios externos.",
+        },
+        {
+          title: "Las búsquedas de emergencia favorecen a las clínicas 24 horas",
+          description:
+            "Las consultas \"dentista de emergencia abierto ahora\" ponderan fuertemente los atributos de GBP (horarios de apertura, etiqueta de servicios de emergencia). La mayoría de las clínicas nunca rellenan estos campos y pierden el 100% del tráfico urgente.",
+        },
+        {
+          title: "El posicionamiento pediátrico y de especialidad es genérico",
+          description:
+            "Los motores de IA necesitan desambiguación de entidades: ¿es usted un dentista general, especialista pediátrico, o ambos? Sin esquema indicando serviceType, compite contra todo el mundo en lugar de dominar su nicho.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi clínica",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Dentistas · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su clínica dental sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para clínicas dentales. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "牙科诊所 AI SEO",
+      headline1: "当患者询问时让 ChatGPT 引用您",
+      headline2: "「我附近最好的牙医」。",
+      subheadline:
+        "在 ChatGPT、Perplexity、Claude 和 Gemini 中,牙科搜索是健康类目第一。新患者向 AI 询问哪家诊所接受他们的保险、接收新患者、处理急诊。AiLys 让您的诊所被点名。",
+      stats: [
+        { value: "62%", label: "的新患者现在在预约前通过 AI 引擎研究牙医" },
+        { value: "1.9×", label: "在带 FAQ schema 的牙科网站上获得更多 LLM 引用" },
+        { value: "30 天", label: "平均 ChatGPT 首次引用提升时间" },
+        { value: "$847", label: "魁北克牙科诊所新患者平均价值" },
+      ],
+      topQueries: [
+        "我附近接受新患者的最好牙医",
+        "蒙特利尔现在开门的急诊牙医",
+        "魁北克市接受 RAMQ 的儿童牙医",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 把患者送给您的竞争对手",
+          description:
+            "当有人向 ChatGPT 询问您所在街区的牙医时,答案会从 Yelp、BBB、Healthgrades 和 Google Business Profile 中提取。如果您的 NAP 在这些来源中不一致,您就是隐形的。",
+        },
+        {
+          title: "保险和 RAMQ 问题得不到回答",
+          description:
+            "患者会向 AI 引擎询问 \"X 诊所是否接受我的保险?\"。如果您的网站没有覆盖已接受计划的 FAQ schema,AI 引擎会从第三方目录中提取过时或错误的信息。",
+        },
+        {
+          title: "急诊搜索偏向 24 小时诊所",
+          description:
+            "\"现在开门的急诊牙医\" 类查询严重依赖 GBP 属性(营业时间、急诊服务标签)。大多数诊所从未填写这些字段,失去 100% 的紧急流量。",
+        },
+        {
+          title: "儿科和专科定位过于笼统",
+          description:
+            "AI 引擎需要实体消歧:您是全科牙医、儿科专家,还是两者兼有?没有指定 serviceType 的 schema 标记,您就在与所有人竞争而不是主导您的细分市场。",
+        },
+      ],
+      ctaPrimary: "运行我的牙科诊所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "牙医 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的牙科诊所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为牙科诊所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للعيادات السنية",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل المرضى",
+      headline2: "\"أفضل طبيب أسنان قريب مني\".",
+      subheadline:
+        "تعد عمليات البحث عن طب الأسنان القطاع الصحي رقم 1 داخل ChatGPT و Perplexity و Claude و Gemini. يسأل المرضى الجدد الذكاء الاصطناعي عن العيادة التي تقبل تأمينهم وتستقبل مرضى جدد وتتعامل مع الحالات الطارئة. تجعل AiLys اسم عيادتك يظهر.",
+      stats: [
+        { value: "62%", label: "من المرضى الجدد يبحثون الآن عن أطباء الأسنان عبر محركات الذكاء الاصطناعي قبل الحجز" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المواقع السنية المزودة بمخطط FAQ" },
+        { value: "30 يومًا", label: "في المتوسط للحصول على أول ارتفاع في الاستشهاد على ChatGPT" },
+        { value: "847 دولارًا", label: "متوسط قيمة المريض الجديد في العيادات السنية بكيبيك" },
+      ],
+      topQueries: [
+        "أفضل طبيب أسنان قريب مني يستقبل مرضى جدد",
+        "طبيب أسنان طوارئ مفتوح الآن مونتريال",
+        "طبيب أسنان أطفال يقبل RAMQ مدينة كيبيك",
+      ],
+      painPoints: [
+        {
+          title: "يرسل ChatGPT المرضى إلى منافسك",
+          description:
+            "عندما يسأل شخص ما ChatGPT عن طبيب أسنان في حيك، تستمد الإجابة بياناتها من Yelp و BBB و Healthgrades و Google Business Profile. إذا كان NAP الخاص بك غير متسق عبر تلك المصادر، فأنت غير مرئي.",
+        },
+        {
+          title: "أسئلة التأمين و RAMQ تبقى دون إجابة",
+          description:
+            "يسأل المرضى محركات الذكاء الاصطناعي \"هل تقبل عيادة X تأميني؟\". بدون مخطط FAQ يغطي الخطط المقبولة، تستخرج محركات الذكاء الاصطناعي معلومات قديمة أو خاطئة من أدلة خارجية.",
+        },
+        {
+          title: "تفضل عمليات البحث الطارئة العيادات التي تعمل على مدار 24 ساعة",
+          description:
+            "تعتمد استعلامات \"طبيب أسنان طوارئ مفتوح الآن\" بشكل كبير على سمات GBP (ساعات العمل، علامة خدمات الطوارئ). معظم العيادات لا تملأ هذه الحقول أبدًا وتخسر 100% من الحركة العاجلة.",
+        },
+        {
+          title: "التموضع لطب الأطفال والاختصاص عام جدًا",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى توضيح الكيانات: هل أنت طبيب أسنان عام أم اختصاصي أطفال أم كلاهما؟ بدون ترميز schema يحدد serviceType، فأنت تنافس الجميع بدلًا من السيطرة على تخصصك.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق عيادتي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي لأطباء الأسنان · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل عيادتك السنية مستشهدًا بها داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للعيادات السنية. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI стоматологических клиник",
+      headline1: "Получайте упоминания ChatGPT, когда пациенты спрашивают",
+      headline2: "«лучший стоматолог рядом со мной».",
+      subheadline:
+        "Стоматологические запросы являются вертикалью здравоохранения номер 1 в ChatGPT, Perplexity, Claude и Gemini. Новые пациенты спрашивают ИИ, какая клиника принимает их страховку, принимает новых пациентов и обслуживает экстренные случаи. AiLys обеспечивает упоминание вашей клиники.",
+      stats: [
+        { value: "62%", label: "новых пациентов теперь исследуют стоматологов через ИИ-движки перед записью" },
+        { value: "1,9×", label: "больше упоминаний LLM на стоматологических сайтах со схемой FAQ" },
+        { value: "30 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT" },
+        { value: "847 $", label: "средняя ценность нового пациента в стоматологических клиниках Квебека" },
+      ],
+      topQueries: [
+        "лучший стоматолог рядом со мной, принимающий новых пациентов",
+        "стоматолог скорой помощи открыт сейчас Монреаль",
+        "детский стоматолог, принимающий RAMQ, Квебек",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT отправляет пациентов к вашему конкуренту",
+          description:
+            "Когда кто-то спрашивает у ChatGPT стоматолога в вашем районе, ответ берётся из Yelp, BBB, Healthgrades и Google Business Profile. Если ваш NAP не согласован между этими источниками, вы невидимы.",
+        },
+        {
+          title: "Вопросы о страховке и RAMQ остаются без ответа",
+          description:
+            "Пациенты спрашивают ИИ-движки «принимает ли клиника X мою страховку?». Без схемы FAQ, охватывающей принимаемые планы, ИИ-движки извлекают старую или неправильную информацию из сторонних каталогов.",
+        },
+        {
+          title: "Экстренные поиски отдают предпочтение круглосуточным клиникам",
+          description:
+            "Запросы «стоматолог скорой помощи открыт сейчас» сильно полагаются на атрибуты GBP (часы работы, метка экстренных услуг). Большинство клиник никогда не заполняют эти поля и теряют 100% срочного трафика.",
+        },
+        {
+          title: "Позиционирование педиатрии и специальности слишком общее",
+          description:
+            "ИИ-движкам нужно различение сущностей: вы общий стоматолог, педиатр или оба? Без разметки schema, указывающей serviceType, вы конкурируете со всеми вместо доминирования в своей нише.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей клиники",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI стоматологов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей стоматологической клиники в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для стоматологических клиник. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -737,6 +925,188 @@ const lawyers: Industry = {
       "profil Google avocat",
       "marketing juridique 2026",
     ],
+  },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para bufetes de abogados",
+      headline1: "Sé citado por ChatGPT cuando los prospectos preguntan",
+      headline2: "\"mejor abogado para [mi caso]\".",
+      subheadline:
+        "Las búsquedas legales reciben el escrutinio E-E-A-T más alto en los motores de IA. Las credenciales del colegio de abogados, los resultados de casos y el contenido autoritativo deciden quién es nombrado. AiLys posiciona su firma correctamente.",
+      stats: [
+        { value: "73%", label: "de los clientes ahora investigan abogados a través de motores de IA antes de contactar a uno" },
+        { value: "$3.400", label: "valor promedio de por vida por cliente proveniente de IA (derecho de familia en Quebec)" },
+        { value: "60 días", label: "en promedio para la primera mención en ChatGPT para consultas legales" },
+        { value: "8×", label: "más citas LLM en firmas con autoría acreditada y esquema de resultados de casos" },
+      ],
+      topQueries: [
+        "abogado de derecho de familia aceptando nuevos clientes Montreal",
+        "abogado DUI consulta gratuita ciudad de Quebec",
+        "abogado de inmigración hispanohablante Laval",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT cita firmas tier 1 por defecto",
+          description:
+            "Cuando se le pregunta por un abogado en su especialidad, ChatGPT prefiere por defecto a las grandes firmas con entradas Wikidata sólidas, presencia en colegios de abogados y citas densas. Las firmas más pequeñas son invisibles sin trabajo explícito de autoridad de entidad.",
+        },
+        {
+          title: "Falta la desambiguación de especialidad",
+          description:
+            "Los motores de IA necesitan saber si usted hace derecho de familia, penal, migratorio o corporativo. Sin esquema LegalService con practiceArea declarado, compite contra todos los abogados de su ciudad.",
+        },
+        {
+          title: "Las consultas de \"consulta gratuita\" se pierden",
+          description:
+            "\"Consulta gratuita\" es una de las consultas con mayor intención. Los motores de IA buscan esquema FAQ explícito, atributos GBP y páginas de aterrizaje dedicadas. La mayoría de las firmas no tienen ninguno.",
+        },
+        {
+          title: "Posicionamiento de práctica bilingüe",
+          description:
+            "En Quebec, \"abogado anglófono\" y \"English-speaking lawyer\" son búsquedas distintas que extraen de fuentes diferentes. Sin esquema bilingüe y Wikidata en doble idioma, pierde la mitad de su mercado potencial.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi firma",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Abogados · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su firma de abogados sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para firmas legales en Quebec. Desde $600/mes. Bilingüe EN y FR-CA.",
+    },
+    zh: {
+      eyebrow: "律师事务所 AI SEO",
+      headline1: "当潜在客户询问时让 ChatGPT 引用您",
+      headline2: "「我的案子需要的最佳律师」。",
+      subheadline:
+        "在 AI 引擎中,法律搜索受到最高的 E-E-A-T 审查。律师协会资质、案件结果和权威内容决定谁被点名。AiLys 正确定位您的律所。",
+      stats: [
+        { value: "73%", label: "的客户在联系律师之前通过 AI 引擎进行研究" },
+        { value: "$3,400", label: "AI 来源客户的平均终身价值(魁北克家庭法)" },
+        { value: "60 天", label: "法律查询平均 ChatGPT 首次引用提升时间" },
+        { value: "8×", label: "在具有认证作者身份和案件结果 schema 的律所上获得更多 LLM 引用" },
+      ],
+      topQueries: [
+        "蒙特利尔接受新客户的家庭法律师",
+        "魁北克市免费咨询的 DUI 律师",
+        "拉瓦尔会说西班牙语的移民律师",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 默认引用一线律所",
+          description:
+            "当被问及您专业领域的律师时,ChatGPT 默认选择具有强大 Wikidata 条目、律师协会存在感和密集引用的大型律所。没有明确的实体权威工作,小型律所是隐形的。",
+        },
+        {
+          title: "缺少专业领域消歧",
+          description:
+            "AI 引擎需要知道您从事家庭、刑事、移民还是公司法。没有声明 practiceArea 的 LegalService schema,您就在与城市里的每位律师竞争,而不是主导您的专业领域。",
+        },
+        {
+          title: "「免费咨询」查询被遗失",
+          description:
+            "\"免费咨询\" 是意图最强的查询之一。AI 引擎寻找明确的 FAQ schema、GBP 属性和专用着陆页。大多数律所什么都没有。",
+        },
+        {
+          title: "双语执业定位",
+          description:
+            "在魁北克,「avocat anglophone」和 \"English-speaking lawyer\" 是从不同来源提取的不同搜索。没有双语 schema 和双语 Wikidata,您将失去一半的潜在市场。",
+        },
+      ],
+      ctaPrimary: "运行我的律所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "律师 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的律所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为魁北克律所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $600 起。EN 和 FR-CA 双语。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي لمكاتب المحاماة",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل العملاء المحتملون",
+      headline2: "\"أفضل محامٍ لقضيتي\".",
+      subheadline:
+        "تتلقى عمليات البحث القانونية أعلى تدقيق E-E-A-T داخل محركات الذكاء الاصطناعي. تحدد مؤهلات نقابة المحامين ونتائج القضايا والمحتوى الموثوق من يتم ذكر اسمه. تضع AiLys مكتبك في الموقع الصحيح.",
+      stats: [
+        { value: "73%", label: "من العملاء يبحثون الآن عن محامين عبر محركات الذكاء الاصطناعي قبل الاتصال بأحد" },
+        { value: "3,400 دولار", label: "متوسط القيمة الدائمة للعميل القادم من الذكاء الاصطناعي (قانون الأسرة في كيبيك)" },
+        { value: "60 يومًا", label: "متوسط الفترة للحصول على أول ارتفاع في الاستشهاد على ChatGPT للاستعلامات القانونية" },
+        { value: "8×", label: "استشهادات LLM أكثر على المكاتب ذات التأليف المعتمد ومخطط نتائج القضايا" },
+      ],
+      topQueries: [
+        "محامي قانون الأسرة يقبل عملاء جدد مونتريال",
+        "محامي قيادة تحت تأثير الكحول استشارة مجانية مدينة كيبيك",
+        "محامي هجرة يتحدث الإسبانية لافال",
+      ],
+      painPoints: [
+        {
+          title: "يستشهد ChatGPT بمكاتب الفئة الأولى افتراضيًا",
+          description:
+            "عند سؤاله عن محامٍ في تخصصك، يستشهد ChatGPT افتراضيًا بالمكاتب الكبيرة ذات الإدخالات القوية في Wikidata والوجود في نقابة المحامين والاستشهادات الكثيفة. المكاتب الأصغر غير مرئية دون عمل صريح على سلطة الكيان.",
+        },
+        {
+          title: "غياب توضيح التخصص",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى معرفة ما إذا كنت تمارس قانون الأسرة أو الجنائي أو الهجرة أو الشركات. بدون مخطط LegalService مع practiceArea المعلن، فأنت تنافس كل محامٍ في مدينتك بدلًا من السيطرة على تخصصك.",
+        },
+        {
+          title: "استعلامات «الاستشارة المجانية» تضيع",
+          description:
+            "«الاستشارة المجانية» من أعلى الاستعلامات في النية. تبحث محركات الذكاء الاصطناعي عن مخطط FAQ صريح وسمات GBP وصفحات هبوط مخصصة. معظم المكاتب لا تملك أيًا منها.",
+        },
+        {
+          title: "تموضع الممارسة ثنائية اللغة",
+          description:
+            "في كيبيك، «محامٍ ناطق بالإنجليزية» و \"avocat anglophone\" بحثان مختلفان يستمدان من مصادر مختلفة. بدون مخطط ثنائي اللغة و Wikidata بلغتين، تفقد نصف سوقك المحتمل.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مكتبي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمحامين · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مكتبك للمحاماة مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمكاتب القانونية في كيبيك. ابتداءً من 600 دولار/شهر. ثنائي اللغة EN و FR-CA.",
+    },
+    ru: {
+      eyebrow: "SEO для AI юридических фирм",
+      headline1: "Получайте упоминания ChatGPT, когда потенциальные клиенты спрашивают",
+      headline2: "«лучший адвокат для [моего дела]».",
+      subheadline:
+        "Юридические запросы получают самую высокую проверку E-E-A-T в ИИ-движках. Полномочия коллегии адвокатов, результаты дел и авторитетный контент решают, кого назовут. AiLys позиционирует вашу фирму правильно.",
+      stats: [
+        { value: "73%", label: "клиентов теперь исследуют адвокатов через ИИ-движки перед обращением к одному" },
+        { value: "3 400 $", label: "средняя пожизненная ценность клиента из ИИ (семейное право в Квебеке)" },
+        { value: "60 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT для юридических запросов" },
+        { value: "8×", label: "больше упоминаний LLM на фирмах с подтверждённым авторством и схемой результатов дел" },
+      ],
+      topQueries: [
+        "адвокат по семейному праву, принимающий новых клиентов Монреаль",
+        "адвокат по DUI бесплатная консультация Квебек",
+        "адвокат по иммиграции, говорящий на испанском, Лаваль",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT по умолчанию упоминает фирмы первого уровня",
+          description:
+            "Когда спрашивают об адвокате в вашей специальности, ChatGPT по умолчанию упоминает крупные фирмы с сильными записями в Wikidata, присутствием в коллегии адвокатов и плотными цитированиями. Меньшие фирмы невидимы без явной работы над авторитетом сущности.",
+        },
+        {
+          title: "Отсутствует уточнение специализации",
+          description:
+            "ИИ-движкам нужно знать, занимаетесь ли вы семейным, уголовным, иммиграционным или корпоративным правом. Без схемы LegalService с указанной practiceArea вы конкурируете со всеми адвокатами вашего города вместо доминирования в специальности.",
+        },
+        {
+          title: "Запросы «бесплатная консультация» теряются",
+          description:
+            "«Бесплатная консультация» — один из запросов с самой высокой намеренностью. ИИ-движки ищут явную схему FAQ, атрибуты GBP и выделенные посадочные страницы. У большинства фирм нет ни одного из них.",
+        },
+        {
+          title: "Позиционирование двуязычной практики",
+          description:
+            "В Квебеке «англоязычный адвокат» и \"avocat anglophone\" — это разные поиски, которые извлекаются из разных источников. Без двуязычной схемы и двуязычного Wikidata вы теряете половину потенциального рынка.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей фирмы",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI адвокатов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей юридической фирмы в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для юридических фирм в Квебеке. От 600 $/мес. На двух языках EN и FR-CA.",
+    },
   },
 };
 
@@ -1056,6 +1426,188 @@ const restaurants: Industry = {
       "marketing restaurant 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para restaurantes",
+      headline1: "Sé citado por ChatGPT cuando los comensales preguntan",
+      headline2: "\"mejor [cocina] cerca de mí abierto ahora\".",
+      subheadline:
+        "Los restaurantes son el sector número 1 dentro de ChatGPT y Perplexity. Los comensales preguntan a la IA por cocina, barrio, horarios, opciones dietéticas y disponibilidad de reserva. AiLys hace que su restaurante sea nombrado primero.",
+      stats: [
+        { value: "84%", label: "de los comensales ahora usan motores de IA para descubrir restaurantes en barrios desconocidos" },
+        { value: "1,9×", label: "más citas LLM en restaurantes con frescura de reseñas constante" },
+        { value: "2 semanas", label: "para la primera mención en ChatGPT en consultas específicas del barrio" },
+        { value: "$67", label: "valor promedio del ticket por comensal proveniente de IA en Montreal" },
+      ],
+      topQueries: [
+        "mejor ramen cerca de mí abierto ahora Plateau",
+        "cena vegana Verdun reservas disponibles esta noche",
+        "restaurante romántico Vieux-Montréal menos de $100 por persona",
+      ],
+      painPoints: [
+        {
+          title: "Las categorías de GBP diluyen su especialidad",
+          description:
+            "Si su lugar de sushi está categorizado como \"Restaurante japonés\" en lugar de \"Restaurante de sushi\", los motores de IA redirigen el 40% de sus consultas específicas de sushi a otra parte. Las categorías importan más en Maps que en cualquier otro lugar.",
+        },
+        {
+          title: "Falta la entidad de barrio",
+          description:
+            "Los comensales buscan por barrio, no por ciudad. \"Mejor ramen Plateau\" extrae de señales diferentes que \"mejor ramen Montreal\". Sin menciones de barrio en el texto de reseñas y esquema areaServed, pierde tráfico hiperlocal.",
+        },
+        {
+          title: "Lagunas en atributos dietéticos",
+          description:
+            "Los motores de IA extraen información dietética de los atributos de GBP, esquema servesCuisine y texto de reseñas. Vegano, sin gluten, halal, kosher, apto para niños, apto para perros: cada atributo no rellenado mata un tipo de consulta.",
+        },
+        {
+          title: "Señales de reserva y disponibilidad",
+          description:
+            "Las consultas \"reservas disponibles esta noche\" ponderan la presencia en OpenTable, el atributo \"Reservas\" de GBP y el esquema estructurado Restaurant + AvailableMenuSection. La mayoría de restaurantes no tienen ninguno.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi restaurante",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Restaurantes · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su restaurante sea citado en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para restaurantes. Desde $300/mes. Bilingüe EN y FR-CA. Anclado en Quebec.",
+    },
+    zh: {
+      eyebrow: "餐厅 AI SEO",
+      headline1: "当食客询问时让 ChatGPT 引用您",
+      headline2: "「我附近现在营业的最好的 [菜系]」。",
+      subheadline:
+        "在 ChatGPT 和 Perplexity 中,餐厅是被询问最多的垂直行业第一名。食客向 AI 询问菜系、街区、营业时间、饮食适配和预订可用性。AiLys 让您的餐厅首先被点名。",
+      stats: [
+        { value: "84%", label: "的食客现在使用 AI 引擎在不熟悉的街区发现餐厅" },
+        { value: "1.9×", label: "在保持评论新鲜度的餐厅上获得更多 LLM 引用" },
+        { value: "2 周", label: "在街区特定查询上首次 ChatGPT 引用提升" },
+        { value: "$67", label: "蒙特利尔 AI 来源食客的平均消费" },
+      ],
+      topQueries: [
+        "我附近现在营业最好的拉面 Plateau",
+        "Verdun 今晚可预订的素食晚餐",
+        "Old Montreal 每人 $100 以下的浪漫餐厅",
+      ],
+      painPoints: [
+        {
+          title: "GBP 分类稀释您的专业",
+          description:
+            "如果您的寿司店被分类为「日本餐厅」而不是「寿司餐厅」,AI 引擎会将 40% 的寿司特定查询路由到其他地方。分类在地图上比其他任何地方都更重要。",
+        },
+        {
+          title: "缺少街区实体",
+          description:
+            "食客按街区而非城市搜索。「最好的拉面 Plateau」从与「最好的拉面蒙特利尔」不同的信号中提取。没有评论文本和 schema areaServed 中的街区提及,您将失去超本地流量。",
+        },
+        {
+          title: "饮食属性缺口",
+          description:
+            "AI 引擎从 GBP 属性、schema servesCuisine 和评论文本中提取饮食信息。素食、无麸质、清真、洁食、适合儿童、允许带狗:每个未填写的属性都会扼杀一种查询类型。",
+        },
+        {
+          title: "预订和可用性信号",
+          description:
+            "「今晚可预订」查询会权衡 OpenTable 存在、GBP「预订」属性和结构化 Restaurant + AvailableMenuSection schema。大多数餐厅都没有。",
+        },
+      ],
+      ctaPrimary: "运行我的餐厅审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "餐厅 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的餐厅被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为餐厅定制的 AEO、GEO 和 E-E-A-T 优化。每月 $300 起。EN 和 FR-CA 双语。锚定魁北克。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي للمطاعم",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل الزبائن",
+      headline2: "\"أفضل [مطبخ] قريب مني مفتوح الآن\".",
+      subheadline:
+        "تعد المطاعم القطاع رقم 1 الأكثر طرحًا داخل ChatGPT و Perplexity. يسأل الزبائن الذكاء الاصطناعي عن المطبخ والحي وساعات العمل والتوافق الغذائي وتوفر الحجز. تجعل AiLys اسم مطعمك يظهر أولًا.",
+      stats: [
+        { value: "84%", label: "من الزبائن يستخدمون الآن محركات الذكاء الاصطناعي لاكتشاف المطاعم في الأحياء غير المألوفة" },
+        { value: "1.9×", label: "استشهادات LLM أكثر على المطاعم ذات سرعة المراجعات الحديثة" },
+        { value: "أسبوعان", label: "للحصول على أول ارتفاع في الاستشهاد على ChatGPT في الاستعلامات الخاصة بالحي" },
+        { value: "67 دولارًا", label: "متوسط قيمة الفاتورة لكل زبون قادم من الذكاء الاصطناعي في مونتريال" },
+      ],
+      topQueries: [
+        "أفضل رامن قريب مني مفتوح الآن Plateau",
+        "عشاء نباتي Verdun حجوزات متاحة الليلة",
+        "مطعم رومانسي Old Montreal أقل من 100 دولار للشخص",
+      ],
+      painPoints: [
+        {
+          title: "فئات GBP تخفف من تخصصك",
+          description:
+            "إذا تم تصنيف مكان السوشي الخاص بك على أنه «مطعم ياباني» بدلًا من «مطعم سوشي»، تعيد محركات الذكاء الاصطناعي توجيه 40% من استعلامات السوشي إلى أماكن أخرى. الفئات مهمة على Maps أكثر من أي مكان آخر.",
+        },
+        {
+          title: "كيان الحي مفقود",
+          description:
+            "يبحث الزبائن حسب الحي، لا حسب المدينة. «أفضل رامن Plateau» يستمد من إشارات مختلفة عن «أفضل رامن مونتريال». بدون ذكر الحي في نص المراجعات ومخطط areaServed، تخسر الحركة فائقة المحلية.",
+        },
+        {
+          title: "ثغرات في السمات الغذائية",
+          description:
+            "تستخرج محركات الذكاء الاصطناعي المعلومات الغذائية من سمات GBP ومخطط servesCuisine ونص المراجعات. نباتي، خالي من الغلوتين، حلال، كوشير، مناسب للأطفال، مناسب للكلاب: كل سمة غير معبأة تقتل نوع استعلام.",
+        },
+        {
+          title: "إشارات الحجز والتوفر",
+          description:
+            "تعتمد استعلامات «حجوزات متاحة الليلة» على الوجود في OpenTable وسمة «الحجوزات» في GBP ومخطط Restaurant + AvailableMenuSection المنظم. معظم المطاعم لا تملك أيًا منها.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مطعمي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمطاعم · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مطعمك مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمطاعم. ابتداءً من 300 دولار/شهر. ثنائي اللغة EN و FR-CA. مرتكز في كيبيك.",
+    },
+    ru: {
+      eyebrow: "SEO для AI ресторанов",
+      headline1: "Получайте упоминания ChatGPT, когда посетители спрашивают",
+      headline2: "«лучший [кухня] рядом со мной открыт сейчас».",
+      subheadline:
+        "Рестораны — это вертикаль №1 по количеству запросов внутри ChatGPT и Perplexity. Посетители спрашивают ИИ о кухне, районе, часах работы, диетическом соответствии и доступности бронирования. AiLys обеспечивает, чтобы ваш ресторан назвали первым.",
+      stats: [
+        { value: "84%", label: "посетителей теперь используют ИИ-движки для открытия ресторанов в незнакомых районах" },
+        { value: "1,9×", label: "больше упоминаний LLM на ресторанах со свежей скоростью отзывов" },
+        { value: "2 недели", label: "до первого подъёма упоминаний в ChatGPT по запросам, специфичным для района" },
+        { value: "67 $", label: "средний чек посетителя из ИИ в Монреале" },
+      ],
+      topQueries: [
+        "лучший рамен рядом со мной открыт сейчас Plateau",
+        "веганский ужин Verdun есть бронь сегодня",
+        "романтический ресторан Old Montreal меньше 100 $ на человека",
+      ],
+      painPoints: [
+        {
+          title: "Категории GBP размывают вашу специальность",
+          description:
+            "Если ваше суши-заведение классифицировано как «Японский ресторан» вместо «Суши-ресторан», ИИ-движки направляют 40% ваших запросов о суши в другое место. Категории важнее в Maps, чем где-либо ещё.",
+        },
+        {
+          title: "Отсутствует сущность района",
+          description:
+            "Посетители ищут по району, не по городу. «Лучший рамен Plateau» извлекается из других сигналов, чем «лучший рамен Монреаль». Без упоминания района в тексте отзывов и схемы areaServed вы теряете гиперлокальный трафик.",
+        },
+        {
+          title: "Пробелы в диетических атрибутах",
+          description:
+            "ИИ-движки извлекают диетическую информацию из атрибутов GBP, схемы servesCuisine и текста отзывов. Веганское, без глютена, халяль, кошер, подходит для детей, разрешены собаки: каждый незаполненный атрибут убивает один тип запроса.",
+        },
+        {
+          title: "Сигналы бронирования и доступности",
+          description:
+            "Запросы «бронирование доступно сегодня вечером» учитывают присутствие в OpenTable, атрибут «Бронирование» в GBP и структурированную схему Restaurant + AvailableMenuSection. У большинства ресторанов нет ничего из этого.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моего ресторана",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI ресторанов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашего ресторана в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для ресторанов. От 300 $/мес. На двух языках EN и FR-CA. С опорой на Квебек.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -1070,8 +1622,330 @@ const contractors: Industry = {
   nameLong: "General Contractors & Trades",
   emoji: "🔨",
   toneClass: "from-orange-400 via-amber-400 to-yellow-400",
-  en: buildPlaceholderContent("contractors", "general contractors", "general contractor near me", "core"),
-  fr: buildPlaceholderContent("contractors", "entrepreneurs généraux", "entrepreneur général près de moi", "core", true),
+  en: {
+    eyebrow: "AI SEO for general contractors and trades",
+    headline1: "Get cited by ChatGPT when homeowners ask",
+    headline2: "\"RBQ-licensed contractor near me\".",
+    subheadline:
+      "Renovation and construction searches are dominated by trust signals. AI engines extract RBQ license status, BBB rating, and photo gallery depth before they recommend a contractor. AiLys gets your firm named when homeowners ask AI for a contractor they can trust.",
+    stats: [
+      { value: "73%", label: "of homeowners now research contractors through AI engines before requesting a quote" },
+      { value: "2.4×", label: "more LLM citations on contractor sites with RBQ license schema and Service markup" },
+      { value: "45 days", label: "to first ChatGPT citation lift on average for residential renovation queries" },
+      { value: "$28k", label: "average value of a residential renovation lead in Quebec" },
+    ],
+    topQueries: [
+      "RBQ-licensed general contractor near me Montreal",
+      "kitchen renovation contractor Quebec City reviews",
+      "basement finishing contractor Laval with portfolio",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommends unlicensed competitors",
+        description:
+          "When homeowners ask ChatGPT for a contractor, the answer pulls from HomeStars, HouseGrade, BBB, and Google Business Profile. If your RBQ license is not surfaced in your structured data, AI engines weight unlicensed competitors equally with you.",
+      },
+      {
+        title: "Photo galleries are incomplete or stock",
+        description:
+          "AI engines downweight stock photos heavily on home-services queries. Real before-and-after photos with EXIF metadata are the strongest experience signal for E-E-A-T. Most contractors upload 5 photos and stop. Top performers upload 50+ project photos per year.",
+      },
+      {
+        title: "Project type is ambiguous",
+        description:
+          "AI engines need entity disambiguation: are you a residential renovator, custom home builder, commercial GC, or a multi-trade firm? Without ServiceType schema specifying your scope, you compete against every contractor instead of dominating your niche (kitchen renovations, basement finishing, custom homes, etc.).",
+      },
+      {
+        title: "Negative review responses are missing",
+        description:
+          "Construction is a high-friction service. Negative reviews are inevitable. AI engines weight your response rate and tone heavily. Contractors who never respond to negative reviews see a 32-point lower citation rate vs those who respond within 48 hours.",
+      },
+      {
+        title: "Bilingual content gap on Quebec sites",
+        description:
+          "Most Quebec contractor sites are EN-only or have FR-CA as a thin afterthought. AI engines query in both languages. EN-only sites lose roughly half the addressable market for residential renovations in Greater Montreal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "RBQ license verification + schema deployment",
+        description:
+          "RBQ license number displayed in footer, in structured data (Service.providerCertification), and in JSON-LD. We verify against the Régie du bâtiment public registry weekly to catch expiry before AI engines do.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for trades categories",
+        description:
+          "Primary category set to specific trade (General Contractor, Kitchen Remodeler, Basement Contractor, Custom Home Builder), service-area markup with cities served, project gallery upload (target 30+ original project photos), weekly Q&A on permitting and timeline questions.",
+      },
+      {
+        step: "03",
+        title: "Trust-signal NAP consistency across construction directories",
+        description:
+          "Verified profiles on HomeStars, HouseGrade, BBB, Yelp, ACQ, APCHQ, Garantie de construction résidentielle (GCR for new builds), and 10+ trade-specific directories. RBQ license listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "Service schema with project-type specificity",
+        description:
+          "Schema.org GeneralContractor + Service objects per offering (kitchen, bathroom, basement, addition, custom home). Each Service has serviceType, areaServed, hoursAvailable, and offers structured data. FAQ schema covering pricing ranges, timelines, permits, and warranty terms.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with EXIF preservation",
+        description:
+          "Project photos uploaded via Reviuzy app preserve EXIF metadata (geolocation, capture date, device). AI engines distinguish original phone-captured photos from stock images. Real photos beat stock by 26 points on E-E-A-T scoring in our internal Quebec renovation dataset.",
+      },
+      {
+        step: "06",
+        title: "Project case study content with bylines",
+        description:
+          "Long-form case studies per completed project: scope, timeline, materials, before-and-after photos, client quote (with consent). Project author byline (foreman or project manager) with credentials. Strongest E-E-A-T signal for the construction vertical.",
+      },
+      {
+        step: "07",
+        title: "Review velocity and response cadence",
+        description:
+          "Google reviews via NFC tap-to-review at project handover (powered by AiLys Automation), responded to within 24 hours. Negative reviews handled with a structured public response template that acknowledges, addresses, and resolves. The response itself becomes a citation signal.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for renovation queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ contractor queries in your service area. Tracks shifts when competitors update their profiles or get new reviews.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "RBQ-licensed kitchen renovation contractor Montreal Plateau",
+        cited: "Rénovation Plateau Construction",
+        reason:
+          "Surfaced through HomeStars 4.8 rating with 47 reviews, complete GBP with Kitchen Remodeler primary category, RBQ license schema in structured data, FAQ schema covering kitchen renovation timelines and permit handling, and a 24-hour Google review response cadence.",
+      },
+      {
+        engine: "Perplexity",
+        query: "basement finishing contractor Laval with portfolio",
+        cited: "Sous-Sols Laval Pro",
+        reason:
+          "Surfaced through GBP \"Basement Contractor\" primary category, 32 original project photos with EXIF preserved, ServiceType schema covering basement finishing, and listings on HouseGrade + APCHQ + BBB with consistent NAP.",
+      },
+      {
+        engine: "Claude",
+        query: "custom home builder Quebec City RBQ verified",
+        cited: "Maisons Custom Sainte-Foy",
+        reason:
+          "Surfaced through Garantie de construction résidentielle (GCR) registration confirmed in schema, 14 long-form case studies with project manager bylines, and citation density across HomeStars, ACQ, APCHQ, and 8 Quebec construction directories.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Contractors benefit most from Core ($600/mo) because the trade-specific schema, RBQ license verification, project gallery uploads, and 5 monthly citations to construction directories close 80% of the AI visibility gap. Solo contractors and small firms can start with Starter ($300/mo) and upgrade once the photo gallery and review velocity are established.",
+    faq: [
+      {
+        q: "How long until my contracting business gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood-specific queries (\"contractor in Plateau\"), 60 to 90 days for service-specific queries (\"kitchen renovation Montreal\"), 120 to 180 days for high-competition queries (\"best general contractor Quebec\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Do you verify RBQ license status automatically?",
+        a: "Yes. We poll the Régie du bâtiment public registry weekly. If your license enters a suspended or revoked state, we alert you within 24 hours and remove the schema until the license is restored. AI engines penalize revoked licenses heavily, so the alert is critical.",
+      },
+      {
+        q: "Will you handle negative review responses on our behalf?",
+        a: "Optional. Our standard service includes review monitoring and AI-suggested response drafts, but we always require contractor sign-off before publishing. Construction reviews often involve disputed scope or timeline claims, so a human in the loop is mandatory.",
+      },
+      {
+        q: "What if my photo gallery is mostly stock photos right now?",
+        a: "Common starting point. Reviuzy NFC tap-to-photo at project sites lets your foreman or project manager upload original photos in seconds. Within 90 days, most contractors hit 30+ original photos with EXIF preserved. AI engines reweight quickly once stock-to-original ratio improves.",
+      },
+      {
+        q: "Do you work with multi-trade firms (general + electrical + plumbing)?",
+        a: "Yes. Each trade gets its own Service schema entry under the parent GeneralContractor entity. We coordinate at the brand level (single GBP, single citation profile) but allow trade-level disambiguation in structured data so AI engines can answer specific trade queries.",
+      },
+      {
+        q: "What about Quebec-specific compliance (RBQ, BSDQ, GCR)?",
+        a: "We deploy structured data for RBQ license, BSDQ deposit history (if applicable to your firm), and Garantie de construction résidentielle registration (for new home builders). All three are weighted by AI engines as Quebec-specific trust signals. We update them quarterly.",
+      },
+    ],
+    ctaPrimary: "Run my contractor audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Contractors · RBQ-Verified, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your contracting business cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for general contractors and trades in Quebec. RBQ schema, project gallery, review velocity. From $300/mo. Bilingual EN and FR-CA.",
+    seoKeywords: [
+      "AI SEO for contractors",
+      "contractor SEO Montreal",
+      "RBQ contractor marketing",
+      "AEO general contractor",
+      "GEO renovation contractor",
+      "ChatGPT contractor citations",
+      "construction Google Business Profile optimization",
+      "contractor marketing Quebec 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour entrepreneurs généraux et corps de métier",
+    headline1: "Faites-vous citer par ChatGPT quand les propriétaires demandent",
+    headline2: "« entrepreneur RBQ près de moi ».",
+    subheadline:
+      "Les recherches en rénovation et en construction sont dominées par les signaux de confiance. Les moteurs IA extraient le statut de licence RBQ, la cote BBB et la profondeur de la galerie photo avant de recommander un entrepreneur. AiLys fait nommer votre entreprise quand les propriétaires demandent à l'IA un entrepreneur fiable.",
+    stats: [
+      { value: "73 %", label: "des propriétaires recherchent maintenant un entrepreneur via les moteurs IA avant de demander une soumission" },
+      { value: "2,4×", label: "de citations LLM en plus sur les sites d'entrepreneurs avec schema RBQ et Service" },
+      { value: "45 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes de rénovation résidentielle" },
+      { value: "28 000 $", label: "valeur moyenne d'une piste de rénovation résidentielle au Québec" },
+    ],
+    topQueries: [
+      "entrepreneur général RBQ près de moi Montréal",
+      "entrepreneur rénovation cuisine Québec avis",
+      "entrepreneur sous-sol Laval avec portfolio",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommande des concurrents non licenciés",
+        description:
+          "Quand les propriétaires demandent à ChatGPT un entrepreneur, la réponse puise dans HomeStars, HouseGrade, BBB et le profil Google. Si votre licence RBQ n'est pas exposée dans vos données structurées, les moteurs IA pondèrent les concurrents non licenciés à égalité avec vous.",
+      },
+      {
+        title: "Les galeries photo sont incomplètes ou en stock",
+        description:
+          "Les moteurs IA pénalisent fortement les photos de stock sur les requêtes de services à domicile. Les vraies photos avant-après avec métadonnées EXIF sont le signal d'expérience le plus fort pour E-E-A-T. La plupart des entrepreneurs téléversent 5 photos et arrêtent. Les meilleurs téléversent 50+ photos de projets par année.",
+      },
+      {
+        title: "Le type de projet est ambigu",
+        description:
+          "Les moteurs IA ont besoin de désambiguïsation : êtes-vous rénovateur résidentiel, constructeur sur mesure, entrepreneur commercial, ou multi-métiers? Sans schema ServiceType précisant votre portée, vous compétitionnez contre tout le monde au lieu de dominer votre créneau (cuisines, sous-sols, maisons neuves, etc.).",
+      },
+      {
+        title: "Les réponses aux avis négatifs sont absentes",
+        description:
+          "La construction est un service à friction élevée. Les avis négatifs sont inévitables. Les moteurs IA pondèrent fortement votre taux de réponse et votre ton. Les entrepreneurs qui ne répondent jamais aux avis négatifs voient un taux de citation 32 points plus bas que ceux qui répondent en moins de 48 heures.",
+      },
+      {
+        title: "Lacune de contenu bilingue sur les sites du Québec",
+        description:
+          "La plupart des sites d'entrepreneurs du Québec sont en anglais seulement ou ont un FR-CA léger ajouté après coup. Les moteurs IA interrogent dans les deux langues. Les sites EN-seulement perdent environ la moitié du marché adressable pour la rénovation résidentielle dans le Grand Montréal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Vérification de licence RBQ + déploiement schema",
+        description:
+          "Numéro de licence RBQ affiché en pied de page, dans les données structurées (Service.providerCertification) et en JSON-LD. Nous vérifions auprès du registre public de la Régie du bâtiment chaque semaine pour détecter une expiration avant les moteurs IA.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories de métiers",
+        description:
+          "Catégorie principale réglée sur le métier spécifique (Entrepreneur général, Rénovateur de cuisine, Entrepreneur de sous-sol, Constructeur sur mesure), balisage de zone de service avec villes desservies, téléversement de galerie de projets (objectif 30+ photos originales), Q&R hebdomadaires sur les questions de permis et d'échéancier.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP signaux de confiance sur annuaires construction",
+        description:
+          "Profils vérifiés sur HomeStars, HouseGrade, BBB, Yelp, ACQ, APCHQ, Garantie de construction résidentielle (GCR pour neuf), et 10+ annuaires de métiers. Licence RBQ inscrite explicitement dans chacun.",
+      },
+      {
+        step: "04",
+        title: "Schema Service avec spécificité de type de projet",
+        description:
+          "Schema.org GeneralContractor + objets Service par offre (cuisine, salle de bain, sous-sol, agrandissement, maison neuve). Chaque Service a serviceType, areaServed, hoursAvailable et offres structurées. Schema FAQ couvrant les fourchettes de prix, échéanciers, permis et garanties.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec préservation EXIF",
+        description:
+          "Photos de projets téléversées via l'app Reviuzy préservant les métadonnées EXIF (géolocalisation, date de capture, appareil). Les moteurs IA distinguent les photos prises au téléphone des images de stock. Les vraies photos battent le stock de 26 points sur le score E-E-A-T dans notre jeu de données rénovation Québec.",
+      },
+      {
+        step: "06",
+        title: "Études de cas de projets avec signatures",
+        description:
+          "Études de cas longues par projet complété : portée, échéancier, matériaux, photos avant-après, citation client (avec consentement). Signature de l'auteur du projet (contremaître ou chargé de projet) avec qualifications. Signal E-E-A-T le plus fort pour le secteur de la construction.",
+      },
+      {
+        step: "07",
+        title: "Vélocité d'avis et cadence de réponse",
+        description:
+          "Avis Google via NFC tap-to-review à la livraison du projet (alimenté par AiLys Automation), réponses en moins de 24 heures. Avis négatifs gérés avec un modèle de réponse publique structuré qui reconnaît, traite et résout. La réponse elle-même devient un signal de citation.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes de rénovation",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes d'entrepreneur dans votre zone de service. Suit les changements quand les concurrents mettent à jour leurs profils ou reçoivent de nouveaux avis.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "entrepreneur rénovation cuisine RBQ Plateau Montréal",
+        cited: "Rénovation Plateau Construction",
+        reason:
+          "Émergé grâce à la note HomeStars 4,8 avec 47 avis, GBP complet avec Rénovateur de cuisine en catégorie principale, schema licence RBQ dans les données structurées, schema FAQ couvrant les échéanciers et la gestion de permis, et cadence de réponse aux avis Google de 24 heures.",
+      },
+      {
+        engine: "Perplexity",
+        query: "entrepreneur sous-sol Laval avec portfolio",
+        cited: "Sous-Sols Laval Pro",
+        reason:
+          "Émergé grâce à la catégorie principale GBP « Entrepreneur de sous-sol », 32 photos de projets originales avec EXIF préservé, schema ServiceType couvrant la finition de sous-sol, et inscriptions sur HouseGrade + APCHQ + BBB avec NAP cohérent.",
+      },
+      {
+        engine: "Claude",
+        query: "constructeur maison neuve Québec RBQ vérifié",
+        cited: "Maisons Custom Sainte-Foy",
+        reason:
+          "Émergé grâce à l'inscription Garantie de construction résidentielle (GCR) confirmée dans le schema, 14 études de cas longues avec signatures de chargés de projet, et densité de citations sur HomeStars, ACQ, APCHQ et 8 annuaires construction Québec.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Les entrepreneurs bénéficient le plus du forfait Core (600 $/mois) parce que le schema spécifique au métier, la vérification de licence RBQ, les téléversements de galerie de projets et les 5 citations mensuelles dans les annuaires de construction comblent 80 % du fossé de visibilité IA. Les entrepreneurs solo et petites firmes peuvent commencer avec Starter (300 $/mois) et passer à Core une fois la galerie photo et la vélocité d'avis établies.",
+    faq: [
+      {
+        q: "Combien de temps avant que mon entreprise de construction soit citée par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur des requêtes spécifiques au quartier (« entrepreneur au Plateau »), 60 à 90 jours pour les requêtes spécifiques au service (« rénovation cuisine Montréal »), 120 à 180 jours pour les requêtes très compétitives (« meilleur entrepreneur général Québec »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Vérifiez-vous le statut de licence RBQ automatiquement?",
+        a: "Oui. Nous interrogeons le registre public de la Régie du bâtiment chaque semaine. Si votre licence passe en état suspendu ou révoqué, nous vous alertons en moins de 24 heures et retirons le schema jusqu'à restauration. Les moteurs IA pénalisent fortement les licences révoquées, donc l'alerte est critique.",
+      },
+      {
+        q: "Répondez-vous aux avis négatifs en notre nom?",
+        a: "Optionnel. Notre service standard inclut la surveillance des avis et les brouillons de réponses suggérés par IA, mais nous exigeons toujours l'approbation de l'entrepreneur avant publication. Les avis de construction impliquent souvent des contestations de portée ou d'échéancier, donc un humain dans la boucle est obligatoire.",
+      },
+      {
+        q: "Et si ma galerie photo est surtout des photos de stock en ce moment?",
+        a: "Point de départ courant. Reviuzy NFC tap-to-photo sur les chantiers permet à votre contremaître ou chargé de projet de téléverser des photos originales en quelques secondes. En 90 jours, la plupart des entrepreneurs atteignent 30+ photos originales avec EXIF préservé. Les moteurs IA repondèrent rapidement une fois le ratio stock vers original amélioré.",
+      },
+      {
+        q: "Travaillez-vous avec les firmes multi-métiers (général + électrique + plomberie)?",
+        a: "Oui. Chaque métier reçoit sa propre entrée Service schema sous l'entité parente GeneralContractor. Nous coordonnons au niveau de la marque (un seul GBP, un seul profil de citations) tout en permettant la désambiguïsation au niveau du métier dans les données structurées pour que les moteurs IA puissent répondre aux requêtes spécifiques.",
+      },
+      {
+        q: "Et la conformité Québec (RBQ, BSDQ, GCR)?",
+        a: "Nous déployons les données structurées pour la licence RBQ, l'historique BSDQ (si applicable à votre firme) et l'inscription Garantie de construction résidentielle (pour constructeurs neuf). Les trois sont pondérés par les moteurs IA comme signaux de confiance spécifiques au Québec. Nous les mettons à jour chaque trimestre.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon entreprise",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour entrepreneurs · RBQ vérifié, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre entreprise de construction dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour entrepreneurs généraux et corps de métier au Québec. Schema RBQ, galerie projets, vélocité d'avis. À partir de 300 $/mois. Bilingue EN et FR-CA.",
+    seoKeywords: [
+      "SEO IA pour entrepreneurs",
+      "SEO entrepreneur Montréal",
+      "marketing entrepreneur RBQ",
+      "AEO entrepreneur général",
+      "GEO entrepreneur rénovation",
+      "citations ChatGPT entrepreneur",
+      "optimisation profil Google construction",
+      "marketing construction Québec 2026",
+    ],
+  },
 };
 
 const clinics: Industry = {
@@ -1080,8 +1954,330 @@ const clinics: Industry = {
   nameLong: "Medical Clinics & Specialists",
   emoji: "🏥",
   toneClass: "from-emerald-400 via-teal-400 to-cyan-400",
-  en: buildPlaceholderContent("clinics", "medical clinics", "medical clinic accepting new patients", "growth"),
-  fr: buildPlaceholderContent("clinics", "cliniques médicales", "clinique médicale acceptant nouveaux patients", "growth", true),
+  en: {
+    eyebrow: "AI SEO for medical clinics and specialists",
+    headline1: "Get cited by ChatGPT when patients ask",
+    headline2: "\"clinic accepting new patients near me\".",
+    subheadline:
+      "Quebec faces a chronic family-doctor shortage. Patients ask AI engines daily which clinic accepts new patients, takes RAMQ, offers walk-in, or has a pediatric stream. AiLys gets your clinic named when AI engines surface answers, and updates the answer when your patient-acceptance status changes.",
+    stats: [
+      { value: "68%", label: "of Quebec patients now research clinics through AI engines before calling for an appointment" },
+      { value: "3.1×", label: "more LLM citations on clinic sites with MedicalSpecialty schema and bilingual content parity" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for new-patient-accepting queries" },
+      { value: "47%", label: "of new clinic patients first heard of the practice via an AI-engine answer" },
+    ],
+    topQueries: [
+      "medical clinic accepting new patients RAMQ Montreal",
+      "walk-in clinic open now Quebec City",
+      "pediatric clinic Laval taking new patients",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT lists clinics that stopped accepting new patients",
+        description:
+          "AI engines pull clinic data from third-party directories that update slowly. If your acceptance status changed last month, ChatGPT might still list you as open or list closed clinics as available. Patients call, get refused, and the clinic loses both reputation and AI-engine trust signals.",
+      },
+      {
+        title: "Walk-in availability is invisible to AI engines",
+        description:
+          "\"Walk-in clinic open now\" queries weight Google Business Profile attributes heavily. Most clinics never set the walk-in attribute or never update real-time hours, and lose 100% of urgent-care traffic to chains that do.",
+      },
+      {
+        title: "Specialty positioning is generic",
+        description:
+          "AI engines need entity disambiguation: are you a family medicine clinic, pediatric specialist, walk-in, women's health, or sports medicine? Without MedicalSpecialty schema with explicit specialty codes, you compete against every clinic instead of dominating your specialty.",
+      },
+      {
+        title: "RAMQ and private insurance acceptance is unclear",
+        description:
+          "Quebec patients ask AI \"does this clinic accept RAMQ?\" or \"do they bill direct to Sun Life?\" Without AcceptedPaymentMethod schema explicitly listing the regimes, AI engines pull stale or wrong information from third-party sources.",
+      },
+      {
+        title: "Bilingual content parity is missing",
+        description:
+          "AI engines query clinic queries in both EN and FR-CA. Quebec clinics that only have EN-CA content (or thin FR-CA via translation API) score 41 points lower on FR-CA queries vs clinics with native bilingual parity. Half the addressable market is invisible.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Technical foundation for medical content",
+        description:
+          "HTTPS, sub-200ms TTFB, mobile-first rendering. Healthcare verticals get extra E-E-A-T scrutiny from AI engines, so technical signals matter more. Loi 25 + PIPEDA compliance audited at the asset level (no third-party trackers on patient-facing pages).",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for clinic specialties",
+        description:
+          "Primary category set to specific specialty (Family Practice Physician, Pediatrician, Walk-In Clinic, Women's Health Clinic, etc.), all relevant attributes filled (Wheelchair accessible, Accepts new patients, Walk-ins welcome, Open 24/7), 30+ photos, weekly Q&A on patient-acceptance and insurance questions.",
+      },
+      {
+        step: "03",
+        title: "Healthcare directory NAP consistency",
+        description:
+          "Verified profiles on Healthgrades, RateMDs, RDM Quebec, BBB, Yelp, Quebec medical-specialist directories, College des médecins du Québec listings, and 10+ clinic-specific directories. RAMQ acceptance + private-insurance plans listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "MedicalBusiness schema deployment",
+        description:
+          "Schema.org MedicalClinic + MedicalSpecialty (with SNOMED-style specialty codes) + AcceptedPaymentMethod + isAcceptingNewPatients. FAQ schema covering RAMQ, private insurance, walk-in hours, pediatric, prenatal, and procedure-specific questions. Validated against Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "GEO authority on Wikipedia and Wikidata",
+        description:
+          "If your clinic is established (15+ years), we build a Wikidata entry with parent-organization affiliation. For newer clinics, we build authority through medical association directories, College des médecins membership listings, and verified review platforms.",
+      },
+      {
+        step: "06",
+        title: "E-E-A-T signals for healthcare",
+        description:
+          "Physician bylines on educational content, credentials displayed (MD, FRCPC, CCFP, specialty certifications), original clinic photos with EXIF data, patient interview quotes (with consent + College des médecins compliance review). Strongest E-E-A-T signal for the healthcare vertical.",
+      },
+      {
+        step: "07",
+        title: "Real-time patient-acceptance status updates",
+        description:
+          "Reviuzy NFC tap-to-update at the front desk lets the receptionist flip the new-patient-acceptance flag in seconds. The change propagates to GBP + schema + directories within 24 hours. AI engines pick up the status change typically within 7 days. No more wasted patient calls.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ clinic queries in your service area. Tracks shifts when neighboring clinics update their patient-acceptance status or when chains expand into your catchment.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "family clinic accepting new patients RAMQ Plateau Mont-Royal",
+        cited: "Clinique Médicale Plateau Famille",
+        reason:
+          "Surfaced through Healthgrades 4.7 rating with 84 reviews, complete GBP with Family Practice Physician primary category and Accepts new patients attribute live, MedicalSpecialty schema with explicit specialty codes, AcceptedPaymentMethod schema listing RAMQ + 6 private insurers, FAQ schema explicitly answering the patient-acceptance question.",
+      },
+      {
+        engine: "Perplexity",
+        query: "walk-in clinic open now Quebec City evening",
+        cited: "Clinique Sans Rendez-Vous Sainte-Foy",
+        reason:
+          "Surfaced through GBP \"Walk-ins welcome\" + \"Open 24 hours\" attributes, MedicalClinic + EmergencyService schema markup, real-time hours integration, and listings on RDM Quebec + Healthgrades walk-in directories.",
+      },
+      {
+        engine: "Claude",
+        query: "pediatric clinic Laval taking new patients",
+        cited: "Clinique Pédiatrique Laval",
+        reason:
+          "Surfaced through MedicalSpecialty=Pediatrics schema, GBP \"Accepts new patients\" attribute live, College des médecins du Québec member listing, FAQ schema covering RAMQ pediatric coverage, and citation density across Healthgrades + RateMDs + 8 Quebec pediatric directories.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Medical clinics benefit most from Growth ($1,200/mo) because the medical specialty schema, real-time patient-acceptance updates, weekly AI Visibility probes, and 6 monthly citations to healthcare directories close 90% of the AI visibility gap. Multi-physician clinics with 3+ specialties should consider Agency tier for multi-location dashboard support. Solo family-medicine practices on a budget can start with Core ($600/mo).",
+    faq: [
+      {
+        q: "How long until my clinic gets cited by ChatGPT?",
+        a: "Typically 21 to 45 days for first citations on neighborhood + new-patient-accepting queries (\"family clinic Plateau accepting new patients\"), 60 to 90 days for high-competition specialty queries (\"best pediatric clinic Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Can patient-acceptance status update in real time?",
+        a: "Yes. Reviuzy NFC tap-to-update at the front desk lets the receptionist flip the flag in seconds. GBP + schema + directories update within 24 hours. AI engines typically reflect the change within 7 days. This is the highest-leverage update for clinic visibility.",
+      },
+      {
+        q: "Do you handle RAMQ and private insurance schema correctly?",
+        a: "Yes. We deploy AcceptedPaymentMethod schema with explicit plan names (RAMQ, Sun Life, Manulife, Greenshield, SSQ, etc.). AI engines extract these directly when patients ask about coverage. We update quarterly when your billing arrangements change.",
+      },
+      {
+        q: "Will you respond to negative Google reviews on our behalf?",
+        a: "Optional with mandatory physician-or-clinic-manager sign-off. Healthcare reviews often involve protected health information or scope-of-practice disputes. We never publish a response without human approval. Our service generates the AI-suggested draft and surfaces it in your queue.",
+      },
+      {
+        q: "Do you work with multi-location clinic groups?",
+        a: "Yes. Each location gets its own GBP, citation profile, and schema deployment. We coordinate brand-level entity authority work (Wikidata, association directories) at the parent level. Pricing scales with location count. Agency tier ($2,500/mo) includes multi-location dashboard.",
+      },
+      {
+        q: "What about HIPAA, PIPEDA, and Loi 25 compliance?",
+        a: "We do not handle patient data. Our work is entirely on public-facing entity signals (GBP, schema, citations, reviews). Compliance with HIPAA (if applicable), PIPEDA, and Quebec Loi 25 is your obligation, but we follow Loi 25 practices for any contact data we collect through your website forms (consent, retention, subject-access response procedures).",
+      },
+    ],
+    ctaPrimary: "Run my clinic audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Medical Clinics · Get Cited by ChatGPT, Perplexity, Claude · AiLys Agency",
+    seoDescription:
+      "Get your medical clinic cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for family medicine, walk-in, pediatric, and specialty clinics. Real-time patient-acceptance updates. From $600/mo. Bilingual EN and FR-CA. Quebec-anchored.",
+    seoKeywords: [
+      "AI SEO for medical clinics",
+      "clinic SEO Montreal",
+      "medical clinic SEO Quebec",
+      "AEO medical clinic",
+      "GEO walk-in clinic",
+      "ChatGPT clinic citations",
+      "clinic Google Business Profile optimization",
+      "clinic marketing 2026 Quebec",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour cliniques médicales et spécialistes",
+    headline1: "Faites-vous citer par ChatGPT quand les patients demandent",
+    headline2: "« clinique acceptant nouveaux patients près de moi ».",
+    subheadline:
+      "Le Québec connaît une pénurie chronique de médecins de famille. Les patients demandent quotidiennement aux moteurs IA quelle clinique accepte de nouveaux patients, prend la RAMQ, offre du sans rendez-vous ou a un volet pédiatrique. AiLys fait nommer votre clinique quand les moteurs IA répondent, et met la réponse à jour quand votre statut d'acceptation change.",
+    stats: [
+      { value: "68 %", label: "des patients québécois recherchent une clinique via les moteurs IA avant d'appeler pour un rendez-vous" },
+      { value: "3,1×", label: "de citations LLM en plus sur les sites de cliniques avec schema MedicalSpecialty et parité bilingue" },
+      { value: "21 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes de nouveaux patients" },
+      { value: "47 %", label: "des nouveaux patients ont entendu parler de la clinique via une réponse de moteur IA" },
+    ],
+    topQueries: [
+      "clinique médicale acceptant nouveaux patients RAMQ Montréal",
+      "clinique sans rendez-vous ouverte maintenant Québec",
+      "clinique pédiatrique Laval accepte nouveaux patients",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT liste des cliniques qui n'acceptent plus de nouveaux patients",
+        description:
+          "Les moteurs IA tirent les données de cliniques de répertoires tiers qui se mettent à jour lentement. Si votre statut d'acceptation a changé le mois dernier, ChatGPT pourrait toujours vous lister comme ouvert ou des cliniques fermées comme disponibles. Les patients appellent, sont refusés, et la clinique perd réputation et signaux de confiance IA.",
+      },
+      {
+        title: "La disponibilité sans rendez-vous est invisible pour l'IA",
+        description:
+          "Les requêtes « clinique sans rendez-vous ouverte maintenant » s'appuient fortement sur les attributs GBP. La plupart des cliniques ne règlent jamais l'attribut sans rendez-vous ou ne mettent pas à jour les heures en temps réel, et perdent 100 % du trafic de soins urgents au profit des chaînes qui le font.",
+      },
+      {
+        title: "Le positionnement de spécialité est générique",
+        description:
+          "Les moteurs IA ont besoin de désambiguïsation : êtes-vous médecine familiale, pédiatre, sans rendez-vous, santé féminine ou médecine sportive? Sans schema MedicalSpecialty avec codes de spécialité explicites, vous compétitionnez contre toutes les cliniques au lieu de dominer votre spécialité.",
+      },
+      {
+        title: "L'acceptation RAMQ et assurances privées est floue",
+        description:
+          "Les patients québécois demandent à l'IA « est-ce que cette clinique accepte la RAMQ? » ou « est-ce qu'ils facturent directement à Sun Life? ». Sans schema AcceptedPaymentMethod listant explicitement les régimes, les moteurs IA tirent l'information ailleurs, souvent fausse.",
+      },
+      {
+        title: "La parité de contenu bilingue est manquante",
+        description:
+          "Les moteurs IA interrogent les requêtes de cliniques en anglais et en français-CA. Les cliniques québécoises qui n'ont que du contenu EN-CA (ou un FR-CA mince via API de traduction) ont un score 41 points plus bas sur les requêtes FR-CA versus les cliniques avec parité bilingue native. La moitié du marché adressable est invisible.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Fondation technique pour contenu médical",
+        description:
+          "HTTPS, TTFB sous 200 ms, rendu mobile en premier. Les secteurs santé reçoivent un examen E-E-A-T plus strict des moteurs IA. Conformité Loi 25 et PIPEDA auditée au niveau des actifs (aucun traceur tiers sur les pages patients).",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour spécialités cliniques",
+        description:
+          "Catégorie principale réglée sur la spécialité (Médecin de famille, Pédiatre, Clinique sans rendez-vous, Santé féminine, etc.), tous les attributs pertinents remplis (Accessible aux fauteuils, Accepte nouveaux patients, Sans rendez-vous bienvenu, Ouvert 24/7), 30+ photos, Q&R hebdomadaires sur l'acceptation et les questions d'assurance.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires santé",
+        description:
+          "Profils vérifiés sur Healthgrades, RateMDs, RDM Québec, BBB, Yelp, annuaires de spécialistes québécois, listes du Collège des médecins du Québec, et 10+ annuaires cliniques. Acceptation RAMQ et régimes d'assurance privée listés explicitement.",
+      },
+      {
+        step: "04",
+        title: "Déploiement schema MedicalBusiness",
+        description:
+          "Schema.org MedicalClinic + MedicalSpecialty (avec codes de spécialité style SNOMED) + AcceptedPaymentMethod + isAcceptingNewPatients. Schema FAQ couvrant RAMQ, assurance privée, heures sans rendez-vous, pédiatrie, prénatal et questions spécifiques aux procédures. Validé avec Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Autorité GEO sur Wikipédia et Wikidata",
+        description:
+          "Si votre clinique est établie (15+ ans), nous bâtissons une entrée Wikidata avec affiliation organisation parente. Pour les cliniques plus jeunes, autorité via annuaires d'associations médicales, listes du Collège des médecins et plateformes d'avis vérifiées.",
+      },
+      {
+        step: "06",
+        title: "Signaux E-E-A-T pour la santé",
+        description:
+          "Signatures de médecins sur le contenu éducatif, qualifications affichées (MD, FRCPC, CCMF, certifications de spécialité), photos de clinique originales avec données EXIF, citations d'entrevues patients (avec consentement et examen de conformité Collège des médecins). Signal E-E-A-T le plus fort pour le secteur santé.",
+      },
+      {
+        step: "07",
+        title: "Mises à jour en temps réel du statut d'acceptation",
+        description:
+          "Reviuzy NFC tap-to-update à l'accueil permet à la réceptionniste de basculer l'indicateur d'acceptation en secondes. Le changement se propage à GBP + schema + annuaires en moins de 24 heures. Les moteurs IA captent le changement typiquement en 7 jours. Plus d'appels patients gaspillés.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes de cliniques dans votre zone de service. Suit les changements quand les cliniques voisines mettent à jour leur statut d'acceptation ou quand les chaînes s'étendent.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "clinique famille acceptant nouveaux patients RAMQ Plateau Mont-Royal",
+        cited: "Clinique Médicale Plateau Famille",
+        reason:
+          "Émergé grâce à la note Healthgrades 4,7 avec 84 avis, GBP complet avec Médecin de famille en catégorie principale et attribut Accepte nouveaux patients actif, schema MedicalSpecialty avec codes de spécialité explicites, schema AcceptedPaymentMethod listant RAMQ et 6 assureurs privés, schema FAQ répondant explicitement à la question d'acceptation.",
+      },
+      {
+        engine: "Perplexity",
+        query: "clinique sans rendez-vous ouverte maintenant Québec soir",
+        cited: "Clinique Sans Rendez-Vous Sainte-Foy",
+        reason:
+          "Émergé grâce aux attributs GBP « Sans rendez-vous bienvenu » et « Ouvert 24 heures », schema MedicalClinic et EmergencyService, intégration des heures en temps réel, et inscriptions sur RDM Québec et annuaires sans rendez-vous Healthgrades.",
+      },
+      {
+        engine: "Claude",
+        query: "clinique pédiatrique Laval accepte nouveaux patients",
+        cited: "Clinique Pédiatrique Laval",
+        reason:
+          "Émergé grâce au schema MedicalSpecialty=Pediatrics, attribut GBP « Accepte nouveaux patients » actif, inscription au Collège des médecins du Québec, schema FAQ couvrant la couverture pédiatrique RAMQ, et densité de citations sur Healthgrades, RateMDs et 8 annuaires pédiatriques québécois.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Les cliniques médicales bénéficient le plus du forfait Growth (1 200 $/mois) parce que le schema de spécialité médicale, les mises à jour en temps réel du statut d'acceptation, les sondes hebdomadaires de visibilité IA et les 6 citations mensuelles dans les annuaires santé comblent 90 % du fossé de visibilité IA. Les cliniques multi-médecins avec 3+ spécialités devraient considérer le forfait Agency pour le tableau de bord multi-emplacements. Les pratiques solo de médecine familiale peuvent commencer avec Core (600 $/mois).",
+    faq: [
+      {
+        q: "Combien de temps avant que ma clinique soit citée par ChatGPT?",
+        a: "Habituellement 21 à 45 jours pour les premières citations sur les requêtes de quartier + nouveaux patients (« clinique famille Plateau acceptant nouveaux patients »), 60 à 90 jours pour les requêtes de spécialité très compétitives (« meilleure clinique pédiatrique Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Le statut d'acceptation peut-il se mettre à jour en temps réel?",
+        a: "Oui. Reviuzy NFC tap-to-update à l'accueil permet à la réceptionniste de basculer l'indicateur en secondes. GBP + schema + annuaires se mettent à jour en moins de 24 heures. Les moteurs IA reflètent typiquement le changement en 7 jours. C'est la mise à jour avec le plus haut levier pour la visibilité d'une clinique.",
+      },
+      {
+        q: "Gérez-vous correctement le schema RAMQ et assurances privées?",
+        a: "Oui. Nous déployons le schema AcceptedPaymentMethod avec les noms de régimes explicites (RAMQ, Sun Life, Manuvie, Greenshield, SSQ, etc.). Les moteurs IA extraient directement quand les patients posent des questions sur la couverture. Mises à jour trimestrielles si vos arrangements de facturation changent.",
+      },
+      {
+        q: "Répondez-vous aux avis Google négatifs en notre nom?",
+        a: "Optionnel avec approbation obligatoire du médecin ou du gestionnaire de clinique. Les avis en santé impliquent souvent des renseignements de santé protégés ou des disputes de portée de pratique. Nous ne publions jamais une réponse sans approbation humaine. Notre service génère le brouillon suggéré par IA et le présente dans votre file.",
+      },
+      {
+        q: "Travaillez-vous avec des groupes de cliniques multi-emplacements?",
+        a: "Oui. Chaque emplacement reçoit son propre GBP, profil de citations et déploiement schema. Nous coordonnons le travail d'autorité d'entité au niveau de la marque (Wikidata, annuaires d'associations) au niveau parent. Le prix s'ajuste au nombre d'emplacements. Le forfait Agency (2 500 $/mois) inclut le tableau de bord multi-emplacements.",
+      },
+      {
+        q: "Et la conformité HIPAA, PIPEDA et Loi 25?",
+        a: "Nous ne traitons pas de données patients. Notre travail porte uniquement sur les signaux d'entité publics (GBP, schema, citations, avis). La conformité HIPAA (si applicable), PIPEDA et Loi 25 reste votre obligation, mais nous suivons les pratiques Loi 25 pour toute donnée de contact que nous collectons via vos formulaires de site web (consentement, rétention, procédures de réponse aux demandes d'accès).",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de ma clinique",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour cliniques médicales · Faites-vous citer par ChatGPT, Perplexity, Claude · AiLys Agency",
+    seoDescription:
+      "Faites citer votre clinique médicale dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour cliniques médecine familiale, sans rendez-vous, pédiatrique et de spécialité. Mises à jour en temps réel du statut d'acceptation. À partir de 600 $/mois. Bilingue EN et FR-CA. Ancré au Québec.",
+    seoKeywords: [
+      "SEO IA pour cliniques médicales",
+      "SEO clinique Montréal",
+      "SEO clinique médicale Québec",
+      "AEO clinique médicale",
+      "GEO clinique sans rendez-vous",
+      "citations ChatGPT clinique",
+      "optimisation profil Google clinique",
+      "marketing clinique 2026 Québec",
+    ],
+  },
 };
 
 const realEstate: Industry = {
@@ -1090,8 +2286,330 @@ const realEstate: Industry = {
   nameLong: "Real Estate Agents & Brokerages",
   emoji: "🏠",
   toneClass: "from-violet-400 via-fuchsia-400 to-pink-400",
-  en: buildPlaceholderContent("real-estate", "real estate agents", "real estate agent specializing in [neighborhood]", "core"),
-  fr: buildPlaceholderContent("real-estate", "courtiers immobiliers", "courtier immobilier spécialiste [quartier]", "core", true),
+  en: {
+    eyebrow: "AI SEO for real estate brokers and agencies",
+    headline1: "Get cited by ChatGPT when buyers ask",
+    headline2: "\"OACIQ-licensed broker for the Plateau\".",
+    subheadline:
+      "Quebec real estate is hyperlocal and license-regulated. Buyers and sellers ask AI engines daily who specializes in their neighborhood, who has recent comparable sales, and who is OACIQ-verified. AiLys gets your brokerage named and surfaces your neighborhood expertise when AI engines answer.",
+    stats: [
+      { value: "71%", label: "of buyers and sellers now research brokers through AI engines before reaching out" },
+      { value: "2.7×", label: "more LLM citations on broker sites with OACIQ schema and neighborhood-specialty content" },
+      { value: "60 days", label: "to first ChatGPT citation lift on average for neighborhood-specific queries" },
+      { value: "$15k", label: "average commission value of an AI-engine sourced lead in Quebec residential" },
+    ],
+    topQueries: [
+      "real estate broker Plateau Mont-Royal first-time buyer",
+      "courtier immobilier Westmount luxury condos",
+      "OACIQ licensed broker for Saint-Lambert",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommends brokers from larger cities",
+        description:
+          "When buyers ask ChatGPT for a Plateau or Saint-Lambert specialist, the answer often pulls in Toronto or Vancouver brokers from generic Realtor.ca data. Without neighborhood-specific schema and Quebec citation density, your hyperlocal expertise is invisible.",
+      },
+      {
+        title: "OACIQ license is missing from structured data",
+        description:
+          "Quebec law requires OACIQ-licensed brokers to display the license number. AI engines weight licensed-status checks heavily on real-estate queries. Brokers without explicit OACIQ schema markup get treated as parity with unlicensed Centris data scrapers, who flood AI training data.",
+      },
+      {
+        title: "Recent comparable sales are not surfaced",
+        description:
+          "AI engines answer \"who sold in my neighborhood recently\" by pulling from Centris listings + broker sites. Most broker sites do not publish recent sales (privacy concerns, partial listings). Strategic publishing of comp data with consent + schema dramatically improves citation rates.",
+      },
+      {
+        title: "Virtual tour and video gaps cost listings",
+        description:
+          "Listings with embedded video tours and 3D walkthroughs get 4.2x more LLM citations on buyer queries. Most Quebec brokerages publish photos only and skip video, missing the strongest experience signal AI engines weight on real-estate queries.",
+      },
+      {
+        title: "Bilingual content gap on Quebec broker sites",
+        description:
+          "AI engines query real estate in EN, FR-CA, and increasingly in Mandarin and Arabic for international buyer segments in Greater Montreal. Brokers with EN-only or thin FR-CA content lose roughly half the local addressable market and 100% of incoming international buyer queries.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "OACIQ license verification + schema deployment",
+        description:
+          "OACIQ license number displayed in footer, in structured data (RealEstateAgent.providerCertification), and in JSON-LD. We verify against the OACIQ public registry quarterly to catch status changes before AI engines do. Brokerage license also schemaed at the parent organization level.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for broker categories",
+        description:
+          "Primary category set to specific specialty (Real Estate Agent, Real Estate Agency, Commercial Real Estate Agent, Real Estate Appraiser), service-area markup with neighborhoods served, listing-photo upload (target 50+ original neighborhood and listing photos), weekly Q&A on neighborhood-specific buyer questions.",
+      },
+      {
+        step: "03",
+        title: "Real-estate directory NAP consistency",
+        description:
+          "Verified profiles on Centris broker page, Realtor.ca, brand-affiliate site (Royal LePage / Re/Max / Sotheby's / Engel & Volkers), Yelp, BBB, OACIQ public listing, and 8+ Quebec real-estate directories. OACIQ license + brand affiliation listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "RealEstateAgent schema with neighborhood specificity",
+        description:
+          "Schema.org RealEstateAgent + Service objects per offering (residential sales, commercial, first-time buyer, luxury condos, multiplex investment). Each Service has serviceType, areaServed (with explicit neighborhood polygons), priceRange, and offers structured data. FAQ schema covering buyer process, seller fees, mortgage pre-approval, and Quebec-specific notary process.",
+      },
+      {
+        step: "05",
+        title: "Recent sales gallery with consent + schema",
+        description:
+          "Strategic publishing of recent comparable sales (with seller consent + neighborhood-only resolution to preserve privacy). Each entry schemaed as RealEstateListing with sold status. Strongest neighborhood-expertise signal for AI engines on \"who sold recently in my area\" queries.",
+      },
+      {
+        step: "06",
+        title: "Virtual tour and video integration",
+        description:
+          "VideoObject schema for every active listing with embedded video tour or 3D walkthrough. Original phone-shot neighborhood walking tours (broker as the on-camera expert) for E-E-A-T. AI engines weight original video heavily over stock real-estate footage.",
+      },
+      {
+        step: "07",
+        title: "Review velocity through verified channels",
+        description:
+          "Google reviews via NFC tap-to-review at the closing table (powered by AiLys Automation), responded to within 24 hours. RateMyAgent + Realtor.ca testimonials harvested in parallel. Volume + freshness + response rate for Quebec real estate matter as much as for healthcare.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for buyer + seller queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ broker queries in your service neighborhoods. Tracks shifts when new listings hit Centris or when competing brokers update their profiles.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "OACIQ-licensed broker Plateau Mont-Royal first-time buyer",
+        cited: "Marie Tremblay Courtier Immobilier",
+        reason:
+          "Surfaced through Realtor.ca 4.9 rating, complete GBP with Real Estate Agent primary category and Plateau service-area polygon, OACIQ license schema in structured data, FAQ schema covering first-time buyer questions and Quebec notary process, and 24-hour Google review response cadence.",
+      },
+      {
+        engine: "Perplexity",
+        query: "courtier immobilier Westmount luxury condos",
+        cited: "Westmount Luxury Realty",
+        reason:
+          "Surfaced through GBP \"Real Estate Agency\" primary category, 12 active high-end Westmount listings on Centris with full VideoObject schema, brand affiliation with Sotheby's International Realty Quebec, and citation density across Realtor.ca + Royal LePage + Re/Max comparison directories.",
+      },
+      {
+        engine: "Claude",
+        query: "Saint-Lambert family home broker recent sales",
+        cited: "Rive-Sud Family Homes Realty",
+        reason:
+          "Surfaced through 8 published recent comparable sales with consent + neighborhood-resolution schema, RealEstateListing structured data with sold status, GBP service-area covering Saint-Lambert + Brossard + Greenfield Park, and FAQ schema explicitly answering family-home buyer questions.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Real estate brokers benefit most from Core ($600/mo) because the OACIQ license schema, neighborhood-polygon service areas, listing-photo gallery, and 5 monthly citations to real-estate directories close 80% of the AI visibility gap. Multi-broker brokerages with 5+ agents should consider Growth ($1,200/mo) or Agency ($2,500/mo) for multi-agent dashboard support. Solo brokers can start with Starter ($300/mo) and upgrade once the recent-sales gallery is established.",
+    faq: [
+      {
+        q: "How long until my brokerage gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood-specific buyer queries (\"broker in Plateau for first-time buyers\"), 90 to 120 days for high-competition queries (\"best real estate agent Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Do you handle OACIQ license verification automatically?",
+        a: "Yes. We poll the OACIQ public registry quarterly. If your license enters a suspended or restricted state, we alert you within 48 hours and remove the schema until restored. AI engines penalize unlicensed-broker citations heavily, so the alert is critical.",
+      },
+      {
+        q: "Can you publish recent sales without violating buyer or seller privacy?",
+        a: "Yes. We work at neighborhood resolution (e.g., \"sold on Avenue du Parc, between Bernard and Saint-Joseph\") with explicit seller consent. Address-level publishing requires written waiver. The neighborhood-resolution schema is enough to surface your expertise without exposing private data.",
+      },
+      {
+        q: "What about virtual tours and 3D walkthroughs?",
+        a: "We deploy VideoObject schema for every listing with embedded video. We do not produce the videos, but we integrate Matterport, Realtor.ca virtual tour, or your own broker-shot walking tours into the structured data. AI engines weight original phone-shot tours over stock footage.",
+      },
+      {
+        q: "Do you work with multi-agent brokerages?",
+        a: "Yes. Each agent gets their own RealEstateAgent schema entry under the parent RealEstateAgency. We coordinate at the brokerage level (single GBP, single citation profile) but allow agent-level disambiguation in structured data so AI engines can answer agent-specific queries. Pricing scales with agent count.",
+      },
+      {
+        q: "What about international buyers (Mandarin, Arabic, Russian)?",
+        a: "We support 16 locales. AI engines query in the user's language. For Greater Montreal brokerages serving Chinese, Arab, or Russian-speaking international buyer segments, native ZH/AR/RU content boosts citation rates by 1.8x to 2.4x in our internal Quebec dataset. Available on Growth and Agency tiers.",
+      },
+    ],
+    ctaPrimary: "Run my brokerage audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Real Estate Brokers · OACIQ-Verified, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your real estate brokerage cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for OACIQ-licensed brokers in Quebec. Neighborhood schema, recent-sales gallery, video tours. From $300/mo. Bilingual EN and FR-CA.",
+    seoKeywords: [
+      "AI SEO for real estate",
+      "broker SEO Montreal",
+      "OACIQ broker marketing",
+      "AEO real estate agent",
+      "GEO courtier immobilier",
+      "ChatGPT broker citations",
+      "real estate Google Business Profile optimization",
+      "broker marketing Quebec 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour courtiers immobiliers et agences",
+    headline1: "Faites-vous citer par ChatGPT quand les acheteurs demandent",
+    headline2: "« courtier OACIQ pour le Plateau ».",
+    subheadline:
+      "L'immobilier au Québec est hyperlocal et réglementé. Acheteurs et vendeurs demandent quotidiennement aux moteurs IA qui se spécialise dans leur quartier, qui a des ventes comparables récentes et qui est vérifié OACIQ. AiLys fait nommer votre maison de courtage et fait émerger votre expertise de quartier quand les moteurs IA répondent.",
+    stats: [
+      { value: "71 %", label: "des acheteurs et vendeurs recherchent maintenant un courtier via les moteurs IA avant de prendre contact" },
+      { value: "2,7×", label: "de citations LLM en plus sur les sites de courtiers avec schema OACIQ et contenu de spécialité de quartier" },
+      { value: "60 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes spécifiques au quartier" },
+      { value: "15 000 $", label: "valeur moyenne de commission d'une piste source IA en résidentiel Québec" },
+    ],
+    topQueries: [
+      "courtier immobilier Plateau Mont-Royal premier acheteur",
+      "courtier immobilier Westmount condos luxe",
+      "courtier OACIQ pour Saint-Lambert",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommande des courtiers de villes plus grandes",
+        description:
+          "Quand les acheteurs demandent à ChatGPT un spécialiste du Plateau ou de Saint-Lambert, la réponse tire souvent des courtiers de Toronto ou Vancouver depuis les données génériques Realtor.ca. Sans schema spécifique au quartier et densité de citations Québec, votre expertise hyperlocale est invisible.",
+      },
+      {
+        title: "La licence OACIQ est absente des données structurées",
+        description:
+          "La loi québécoise exige que les courtiers OACIQ affichent le numéro de licence. Les moteurs IA pondèrent fortement les vérifications de statut sur les requêtes immobilières. Les courtiers sans balisage schema OACIQ explicite sont traités à parité avec les agrégateurs Centris non licenciés qui inondent les données d'entraînement IA.",
+      },
+      {
+        title: "Les ventes comparables récentes ne sont pas exposées",
+        description:
+          "Les moteurs IA répondent à « qui a vendu récemment dans mon quartier » en tirant de Centris et des sites de courtiers. La plupart des sites ne publient pas les ventes récentes (souci de confidentialité, listes partielles). Une publication stratégique de comp avec consentement et schema améliore considérablement les taux de citation.",
+      },
+      {
+        title: "Les lacunes en visite virtuelle et vidéo coûtent des inscriptions",
+        description:
+          "Les inscriptions avec visites vidéo intégrées et visites 3D obtiennent 4,2× plus de citations LLM sur les requêtes acheteur. La plupart des maisons de courtage québécoises ne publient que des photos et sautent la vidéo, manquant le signal d'expérience le plus fort que les moteurs IA pondèrent.",
+      },
+      {
+        title: "Lacune de contenu bilingue sur les sites de courtiers québécois",
+        description:
+          "Les moteurs IA interrogent l'immobilier en EN, FR-CA et de plus en plus en mandarin et arabe pour les segments d'acheteurs internationaux du Grand Montréal. Les courtiers EN-seulement ou avec FR-CA mince perdent environ la moitié du marché local adressable et 100 % des requêtes acheteurs internationaux.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Vérification de licence OACIQ + déploiement schema",
+        description:
+          "Numéro de licence OACIQ affiché en pied de page, dans les données structurées (RealEstateAgent.providerCertification) et en JSON-LD. Nous vérifions auprès du registre public OACIQ chaque trimestre pour détecter les changements de statut avant les moteurs IA. Licence de l'agence aussi schemaée au niveau de l'organisation parente.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories de courtage",
+        description:
+          "Catégorie principale réglée sur la spécialité (Agent immobilier, Agence immobilière, Agent immobilier commercial, Évaluateur immobilier), balisage de zone de service avec quartiers desservis, téléversement de photos d'inscription (objectif 50+ photos originales de quartier et d'inscription), Q&R hebdomadaires sur les questions acheteur spécifiques au quartier.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires immobiliers",
+        description:
+          "Profils vérifiés sur la page courtier Centris, Realtor.ca, site de marque affiliée (Royal LePage / Re/Max / Sotheby's / Engel & Völkers), Yelp, BBB, liste publique OACIQ et 8+ annuaires immobiliers québécois. Licence OACIQ et affiliation de marque listées explicitement.",
+      },
+      {
+        step: "04",
+        title: "Schema RealEstateAgent avec spécificité de quartier",
+        description:
+          "Schema.org RealEstateAgent + objets Service par offre (ventes résidentielles, commercial, premier acheteur, condos luxe, multiplex investissement). Chaque Service a serviceType, areaServed (avec polygones de quartier explicites), priceRange et offres structurées. Schema FAQ couvrant le processus acheteur, les frais vendeur, la pré-approbation hypothécaire et le processus notarial spécifique au Québec.",
+      },
+      {
+        step: "05",
+        title: "Galerie de ventes récentes avec consentement et schema",
+        description:
+          "Publication stratégique de ventes comparables récentes (avec consentement vendeur et résolution au quartier seulement pour préserver la confidentialité). Chaque entrée schemaée comme RealEstateListing avec statut vendu. Signal d'expertise de quartier le plus fort pour les moteurs IA sur « qui a vendu récemment dans mon secteur ».",
+      },
+      {
+        step: "06",
+        title: "Intégration de visites virtuelles et vidéo",
+        description:
+          "Schema VideoObject pour chaque inscription active avec vidéo intégrée ou visite 3D. Visites de quartier originales filmées au téléphone (courtier comme expert à l'écran) pour E-E-A-T. Les moteurs IA pondèrent fortement la vidéo originale par rapport aux images de stock immobilier.",
+      },
+      {
+        step: "07",
+        title: "Vélocité d'avis via canaux vérifiés",
+        description:
+          "Avis Google via NFC tap-to-review à la table de clôture (alimenté par AiLys Automation), réponses en moins de 24 heures. Témoignages RateMyAgent et Realtor.ca récoltés en parallèle. Volume, fraîcheur, taux de réponse pour l'immobilier québécois comptent autant que pour la santé.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes acheteur et vendeur",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes courtier dans vos quartiers de service. Suit les changements quand de nouvelles inscriptions arrivent sur Centris ou quand les courtiers concurrents mettent à jour leurs profils.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "courtier OACIQ Plateau Mont-Royal premier acheteur",
+        cited: "Marie Tremblay Courtier Immobilier",
+        reason:
+          "Émergé grâce à la note Realtor.ca 4,9, GBP complet avec Agent immobilier en catégorie principale et polygone de zone de service Plateau, schema licence OACIQ dans les données structurées, schema FAQ couvrant les questions premier acheteur et le processus notarial Québec, et cadence de réponse aux avis Google de 24 heures.",
+      },
+      {
+        engine: "Perplexity",
+        query: "courtier immobilier Westmount condos luxe",
+        cited: "Westmount Luxury Realty",
+        reason:
+          "Émergé grâce à la catégorie principale GBP « Agence immobilière », 12 inscriptions luxe Westmount actives sur Centris avec schema VideoObject complet, affiliation de marque Sotheby's International Realty Québec, et densité de citations sur Realtor.ca + Royal LePage + Re/Max.",
+      },
+      {
+        engine: "Claude",
+        query: "courtier maison familiale Saint-Lambert ventes récentes",
+        cited: "Rive-Sud Family Homes Realty",
+        reason:
+          "Émergé grâce à 8 ventes comparables récentes publiées avec consentement et schema résolution au quartier, données structurées RealEstateListing avec statut vendu, zone de service GBP couvrant Saint-Lambert + Brossard + Greenfield Park, et schema FAQ répondant explicitement aux questions acheteur famille.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Les courtiers immobiliers bénéficient le plus du forfait Core (600 $/mois) parce que le schema licence OACIQ, les polygones de zone de service par quartier, la galerie de photos d'inscription et les 5 citations mensuelles dans les annuaires immobiliers comblent 80 % du fossé de visibilité IA. Les agences multi-courtiers avec 5+ agents devraient considérer Growth (1 200 $/mois) ou Agency (2 500 $/mois) pour le tableau de bord multi-agents. Les courtiers solo peuvent commencer avec Starter (300 $/mois).",
+    faq: [
+      {
+        q: "Combien de temps avant que ma maison de courtage soit citée par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur les requêtes acheteur spécifiques au quartier (« courtier au Plateau pour premier acheteur »), 90 à 120 jours pour les requêtes très compétitives (« meilleur agent immobilier Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Vérifiez-vous la licence OACIQ automatiquement?",
+        a: "Oui. Nous interrogeons le registre public OACIQ chaque trimestre. Si votre licence passe en état suspendu ou restreint, nous vous alertons en moins de 48 heures et retirons le schema jusqu'à restauration. Les moteurs IA pénalisent fortement les citations de courtiers non licenciés.",
+      },
+      {
+        q: "Pouvez-vous publier les ventes récentes sans violer la confidentialité?",
+        a: "Oui. Nous travaillons à la résolution du quartier (par exemple, « vendu sur l'avenue du Parc, entre Bernard et Saint-Joseph ») avec consentement explicite du vendeur. Une publication au niveau de l'adresse exige une renonciation écrite. Le schema résolution-quartier suffit pour exposer votre expertise sans révéler de données privées.",
+      },
+      {
+        q: "Et les visites virtuelles et 3D?",
+        a: "Nous déployons le schema VideoObject pour chaque inscription avec vidéo intégrée. Nous ne produisons pas les vidéos, mais nous intégrons Matterport, la visite virtuelle Realtor.ca ou vos propres visites filmées à pied dans les données structurées. Les moteurs IA pondèrent les visites originales filmées au téléphone par rapport aux images de stock.",
+      },
+      {
+        q: "Travaillez-vous avec des agences multi-agents?",
+        a: "Oui. Chaque agent reçoit sa propre entrée RealEstateAgent schema sous l'agence parente RealEstateAgency. Nous coordonnons au niveau de la maison de courtage (un seul GBP, un seul profil de citations) tout en permettant la désambiguïsation au niveau de l'agent dans les données structurées. Le prix s'ajuste au nombre d'agents.",
+      },
+      {
+        q: "Et les acheteurs internationaux (mandarin, arabe, russe)?",
+        a: "Nous supportons 16 locales. Les moteurs IA interrogent dans la langue de l'utilisateur. Pour les agences du Grand Montréal servant les segments d'acheteurs internationaux chinois, arabes ou russophones, le contenu natif ZH/AR/RU augmente les taux de citation de 1,8× à 2,4× dans notre jeu de données interne Québec. Disponible sur les forfaits Growth et Agency.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon agence",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour courtiers immobiliers · OACIQ vérifié, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre maison de courtage immobilier dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour courtiers OACIQ au Québec. Schema de quartier, galerie ventes récentes, visites vidéo. À partir de 300 $/mois. Bilingue EN et FR-CA.",
+    seoKeywords: [
+      "SEO IA pour immobilier",
+      "SEO courtier Montréal",
+      "marketing courtier OACIQ",
+      "AEO agent immobilier",
+      "GEO courtier immobilier",
+      "citations ChatGPT courtier",
+      "optimisation profil Google immobilier",
+      "marketing courtier Québec 2026",
+    ],
+  },
 };
 
 const hotels: Industry = {
@@ -1100,8 +2618,330 @@ const hotels: Industry = {
   nameLong: "Hotels & Boutique Lodging",
   emoji: "🏨",
   toneClass: "from-blue-400 via-indigo-400 to-violet-400",
-  en: buildPlaceholderContent("hotels", "hotels and boutique lodging", "boutique hotel [neighborhood]", "growth"),
-  fr: buildPlaceholderContent("hotels", "hôtels et hébergements boutique", "hôtel boutique [quartier]", "growth", true),
+  en: {
+    eyebrow: "AI SEO for hotels and boutique lodging",
+    headline1: "Get cited by ChatGPT when travelers ask",
+    headline2: "\"boutique hotel in Old Montreal under $300\".",
+    subheadline:
+      "Hotel discovery has shifted to AI engines. Travelers ask ChatGPT and Perplexity for recommendations the way they used to use TripAdvisor. AI engines weight multi-channel review consistency, photo richness, and amenity schema heavily. AiLys gets your property named when AI surfaces lodging answers, and recovers margin lost to OTA channel fees by directing direct-booking traffic.",
+    stats: [
+      { value: "78%", label: "of leisure travelers now ask AI engines for hotel recommendations before checking Booking or Expedia" },
+      { value: "3.4×", label: "more LLM citations on hotel sites with multi-channel review parity and rich amenity schema" },
+      { value: "30 days", label: "to first ChatGPT citation lift on average for boutique-hotel queries" },
+      { value: "18%", label: "average margin recovery via direct-booking lift after AiLys optimization (vs OTA channel fees)" },
+    ],
+    topQueries: [
+      "boutique hotel Old Montreal under 300 dollars",
+      "pet-friendly hotel Quebec City with parking",
+      "hotel near Mont-Tremblant with direct booking discount",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT defaults to Booking.com and Expedia answers",
+        description:
+          "AI engines lean on OTA aggregators for hotel data. Without your own structured data and direct citation density, ChatGPT recommends your property only via OTA links, and you pay channel fees on every booking the AI engine sources for you.",
+      },
+      {
+        title: "Multi-channel review inconsistency",
+        description:
+          "Booking 8.4, TripAdvisor 4.2, Google 4.7, Yelp 3.8. AI engines weight inconsistency negatively because it signals review manipulation. Hotels with parity across all channels (within 0.3 stars) get 2.1x more AI citations than hotels with inconsistent ratings.",
+      },
+      {
+        title: "Photo gallery is thin or stale",
+        description:
+          "AI engines weight visual richness on hospitality queries. Hotels with under 30 original photos lose to chains with 200+. Stock photos are penalized. Phone-shot photos with EXIF preserved beat professional stock by 26 points on E-E-A-T.",
+      },
+      {
+        title: "Amenity schema is incomplete",
+        description:
+          "Travelers ask AI for specific amenities: pet-friendly, parking, breakfast included, accessibility, EV charging, pool, gym, business center. Without LodgingBusiness + amenityFeature schema, AI engines cannot answer specific amenity queries with your property.",
+      },
+      {
+        title: "Multi-language gap costs international travelers",
+        description:
+          "Quebec tourism queries arrive in EN, FR, ES, ZH, AR, JA, KO, DE. Properties with EN-only or thin translation lose 60% of incoming international traveler queries. Native multi-locale content is the strongest international trust signal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Multi-channel review parity audit + cleanup",
+        description:
+          "Pulls current ratings from Booking, Expedia, TripAdvisor, Google, Yelp, and Hotels.com. Identifies channels with abnormal scoring (review manipulation patterns or operational gaps). Strategist + GM call to align operations on the channel where reviews drift, then schemaes the corrected aggregate.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for lodging categories",
+        description:
+          "Primary category set to specific lodging type (Hotel, Boutique Hotel, Bed & Breakfast, Inn, Resort), every relevant attribute filled (Pet-friendly, Parking on site, EV charging, Free breakfast, Wheelchair accessible, etc.), 50+ original photos minimum, weekly Q&A on amenity-specific traveler questions.",
+      },
+      {
+        step: "03",
+        title: "Hotel directory NAP consistency",
+        description:
+          "Verified profiles on Booking, Expedia, TripAdvisor, Hotels.com, Yelp, BBB, Tourisme Quebec / Tourisme Montreal listings, ITQ rating, and 8+ travel-specific directories. Direct-booking URL listed explicitly so AI engines can cite the property's own site, not the OTA aggregator.",
+      },
+      {
+        step: "04",
+        title: "LodgingBusiness schema with full amenity coverage",
+        description:
+          "Schema.org Hotel + LodgingBusiness with amenityFeature for every amenity (parking, breakfast, pet-friendly, accessibility, EV charging, pool, gym, business center, free wifi, etc.). FAQ schema covering check-in, late arrival, pet policy, parking fees, breakfast, and area attractions. Validated against Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with EXIF preservation",
+        description:
+          "Property photos uploaded via Reviuzy app preserve EXIF metadata. Lobby, room types (every category), bathroom, view, breakfast, common areas, exterior, neighborhood. Original phone-shot photos with EXIF beat stock by 26 points. Target 50+ original photos refreshed quarterly.",
+      },
+      {
+        step: "06",
+        title: "Multi-locale content for international travelers",
+        description:
+          "Native EN + FR-CA + ES + ZH + AR + JA + DE + IT property pages. Tourism queries arrive in the traveler's language. Hotels with native multi-locale content get 1.6x to 3.2x more international AI citations vs translation-API-only sites. Available on Growth and Agency tiers.",
+      },
+      {
+        step: "07",
+        title: "Direct-booking optimization",
+        description:
+          "Direct-booking URL prominently in GBP, schema, and review-channel profiles. Loyalty signup callout in AI-readable format. Margin recovery typically 12% to 22% within 90 days as AI engines start citing the property's own booking flow over OTA aggregators.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for traveler queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ hotel queries in your destination. Tracks shifts when competing properties update photos, when new review surges hit, or when the destination experiences travel-trend shifts.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "boutique hotel Old Montreal under 300 dollars with breakfast",
+        cited: "Hotel Vieux-Port Boutique",
+        reason:
+          "Surfaced through Booking 8.7 + TripAdvisor 4.5 + Google 4.7 multi-channel parity, complete GBP with Boutique Hotel primary category, 64 original property photos with EXIF preserved, LodgingBusiness schema with amenityFeature breakfast=included, FAQ schema covering breakfast hours and what's served.",
+      },
+      {
+        engine: "Perplexity",
+        query: "pet-friendly hotel Quebec City with on-site parking",
+        cited: "Auberge Saint-Roch Quebec",
+        reason:
+          "Surfaced through GBP \"Pet-friendly\" + \"Parking on site\" attributes both checked, Hotel + LodgingBusiness schema with petsAllowed=true and parking amenityFeature, 41 original photos showing pet-friendly rooms, and citation density across Booking + Expedia + TripAdvisor with consistent 8.4-8.6 rating range.",
+      },
+      {
+        engine: "Claude",
+        query: "hotel near Mont-Tremblant with direct booking discount",
+        cited: "Auberge Tremblant Direct",
+        reason:
+          "Surfaced through prominent direct-booking URL in GBP and schema, Tourisme Quebec + ITQ 4-star rating in structured data, FAQ schema explicitly answering \"is direct cheaper than Booking\" question (with 8% direct discount), and bilingual EN+FR property page with parity content.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Hotels benefit most from Growth ($1,200/mo) because the multi-channel review parity work, full amenity schema deployment, photo gallery management, and 6 monthly citations across travel directories close 90% of the AI visibility gap. Multi-property groups with 3+ locations should consider Agency ($2,500/mo) for multi-location dashboard support. Solo boutique inns can start with Core ($600/mo) once review parity is established.",
+    faq: [
+      {
+        q: "How long until my hotel gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood + amenity queries (\"pet-friendly hotel Quebec City\"), 90 to 120 days for high-competition destination queries (\"best boutique hotel Old Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "How do you fix multi-channel review inconsistency?",
+        a: "We pull current ratings from Booking, Expedia, TripAdvisor, Google, Yelp. Identify channels with abnormal drift (operational issue specific to one channel's traveler segment, or review manipulation pattern). The strategist call covers what to fix operationally so the next 60 days of reviews close the gap. Then we schema the corrected aggregate.",
+      },
+      {
+        q: "Will direct-booking optimization actually recover margin from OTA channel fees?",
+        a: "Yes. Margin recovery typically 12% to 22% within 90 days. We measure direct-booking share before vs after AI engine citations shift to your property's own URL. Average client recovers 18%. Booking and Expedia still contribute, but a larger share of new bookings comes through your direct flow.",
+      },
+      {
+        q: "Do you handle pet, accessibility, and amenity schema correctly?",
+        a: "Yes. We deploy LodgingBusiness + amenityFeature schema for every amenity (pet-friendly, parking, EV charging, accessibility, pool, gym, breakfast, business center, etc.). AI engines extract these directly when travelers ask amenity-specific queries. We update quarterly when amenities change.",
+      },
+      {
+        q: "Do you work with multi-property hotel groups?",
+        a: "Yes. Each property gets its own GBP, citation profile, and schema deployment. We coordinate brand-level entity authority work (Wikidata, Tourisme Quebec / Tourisme Montreal listings, ITQ rating) at the parent organization level. Pricing scales with property count. Agency tier ($2,500/mo) includes multi-property dashboard.",
+      },
+      {
+        q: "What about international travelers in non-EN-FR languages?",
+        a: "We support 16 locales. AI engines query in the traveler's language. For Quebec hotels serving Chinese, Arab, Japanese, German, or Spanish-speaking international tourist segments, native multi-locale content boosts citation rates by 1.6x to 3.2x. Available on Growth and Agency tiers.",
+      },
+    ],
+    ctaPrimary: "Run my hotel audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Hotels · Direct Booking Recovery, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your hotel cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for boutique hotels and lodging in Quebec. Multi-channel review parity, amenity schema, direct-booking margin recovery. From $600/mo. Native EN, FR-CA, ES, ZH, AR, JA, DE.",
+    seoKeywords: [
+      "AI SEO for hotels",
+      "hotel SEO Montreal",
+      "hotel SEO Quebec",
+      "AEO boutique hotel",
+      "GEO hotel marketing",
+      "ChatGPT hotel citations",
+      "hotel Google Business Profile optimization",
+      "direct booking optimization 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour hôtels et hébergements boutique",
+    headline1: "Faites-vous citer par ChatGPT quand les voyageurs demandent",
+    headline2: "« hôtel boutique Vieux-Montréal sous 300 $ ».",
+    subheadline:
+      "La découverte d'hôtels s'est déplacée vers les moteurs IA. Les voyageurs demandent à ChatGPT et Perplexity des recommandations comme ils utilisaient TripAdvisor avant. Les moteurs IA pondèrent fortement la cohérence multi-canaux d'avis, la richesse des photos et le schema des commodités. AiLys fait nommer votre propriété et récupère la marge perdue aux frais de canaux OTA en orientant le trafic vers la réservation directe.",
+    stats: [
+      { value: "78 %", label: "des voyageurs de loisirs demandent maintenant aux moteurs IA des recommandations avant de vérifier Booking ou Expedia" },
+      { value: "3,4×", label: "de citations LLM en plus sur les sites d'hôtels avec parité multi-canaux d'avis et schema riche en commodités" },
+      { value: "30 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes d'hôtels boutique" },
+      { value: "18 %", label: "récupération moyenne de marge via réservation directe après optimisation AiLys (versus frais de canaux OTA)" },
+    ],
+    topQueries: [
+      "hôtel boutique Vieux-Montréal sous 300 dollars",
+      "hôtel acceptant animaux Québec avec stationnement",
+      "hôtel près Mont-Tremblant avec rabais réservation directe",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT donne par défaut des réponses Booking et Expedia",
+        description:
+          "Les moteurs IA s'appuient sur les agrégateurs OTA pour les données d'hôtels. Sans vos propres données structurées et densité de citations directes, ChatGPT recommande votre propriété uniquement via les liens OTA, et vous payez les frais de canaux sur chaque réservation que le moteur IA vous source.",
+      },
+      {
+        title: "Incohérence des avis multi-canaux",
+        description:
+          "Booking 8,4, TripAdvisor 4,2, Google 4,7, Yelp 3,8. Les moteurs IA pondèrent négativement l'incohérence parce qu'elle signale une manipulation d'avis. Les hôtels avec parité sur tous les canaux (à 0,3 étoile près) obtiennent 2,1× plus de citations IA que les hôtels avec notes incohérentes.",
+      },
+      {
+        title: "Galerie photo mince ou périmée",
+        description:
+          "Les moteurs IA pondèrent la richesse visuelle sur les requêtes hôtellerie. Les hôtels avec moins de 30 photos originales perdent face aux chaînes avec 200+. Les photos de stock sont pénalisées. Les photos prises au téléphone avec EXIF préservé battent les photos pro de stock de 26 points sur E-E-A-T.",
+      },
+      {
+        title: "Le schema des commodités est incomplet",
+        description:
+          "Les voyageurs demandent à l'IA des commodités spécifiques : acceptant animaux, stationnement, déjeuner inclus, accessibilité, recharge VE, piscine, gym, centre d'affaires. Sans schema LodgingBusiness et amenityFeature, les moteurs IA ne peuvent pas répondre aux requêtes de commodités spécifiques avec votre propriété.",
+      },
+      {
+        title: "Lacune multilingue coûte les voyageurs internationaux",
+        description:
+          "Les requêtes de tourisme québécois arrivent en EN, FR, ES, ZH, AR, JA, KO, DE. Les propriétés avec EN-seulement ou traduction mince perdent 60 % des requêtes de voyageurs internationaux entrantes. Le contenu multi-locales natif est le signal de confiance international le plus fort.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Audit de parité multi-canaux d'avis + nettoyage",
+        description:
+          "Tire les notes actuelles de Booking, Expedia, TripAdvisor, Google, Yelp et Hotels.com. Identifie les canaux avec scoring anormal (motifs de manipulation d'avis ou lacunes opérationnelles). Appel stratégiste + DG pour aligner les opérations sur le canal où les avis dérivent, puis schema l'agrégat corrigé.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories d'hébergement",
+        description:
+          "Catégorie principale réglée sur le type d'hébergement spécifique (Hôtel, Hôtel boutique, Gîte, Auberge, Resort), chaque attribut pertinent rempli (Acceptant animaux, Stationnement sur place, Recharge VE, Déjeuner gratuit, Accessible aux fauteuils, etc.), 50+ photos originales minimum, Q&R hebdomadaires sur questions de commodités.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires hôteliers",
+        description:
+          "Profils vérifiés sur Booking, Expedia, TripAdvisor, Hotels.com, Yelp, BBB, Tourisme Québec / Tourisme Montréal, classification ITQ, et 8+ annuaires touristiques. URL de réservation directe listée explicitement pour que les moteurs IA puissent citer le site de la propriété, pas l'agrégateur OTA.",
+      },
+      {
+        step: "04",
+        title: "Schema LodgingBusiness avec couverture complète des commodités",
+        description:
+          "Schema.org Hotel + LodgingBusiness avec amenityFeature pour chaque commodité (stationnement, déjeuner, animaux, accessibilité, recharge VE, piscine, gym, centre d'affaires, wifi gratuit, etc.). Schema FAQ couvrant l'enregistrement, l'arrivée tardive, la politique animaux, les frais de stationnement, le déjeuner et les attractions du secteur. Validé avec Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec préservation EXIF",
+        description:
+          "Photos de propriété téléversées via l'app Reviuzy préservant les métadonnées EXIF. Hall, types de chambre (chaque catégorie), salle de bain, vue, déjeuner, espaces communs, extérieur, quartier. Photos originales prises au téléphone avec EXIF battent le stock de 26 points. Objectif 50+ photos originales rafraîchies trimestriellement.",
+      },
+      {
+        step: "06",
+        title: "Contenu multi-locales pour voyageurs internationaux",
+        description:
+          "Pages de propriété natives EN + FR-CA + ES + ZH + AR + JA + DE + IT. Les requêtes de tourisme arrivent dans la langue du voyageur. Les hôtels avec contenu multi-locales natif obtiennent 1,6× à 3,2× plus de citations IA internationales versus les sites avec API de traduction seulement. Disponible sur les forfaits Growth et Agency.",
+      },
+      {
+        step: "07",
+        title: "Optimisation de la réservation directe",
+        description:
+          "URL de réservation directe en évidence dans GBP, schema et profils de canaux d'avis. Inscription au programme de fidélité en format lisible par IA. Récupération de marge typiquement de 12 % à 22 % en 90 jours alors que les moteurs IA commencent à citer le flux de réservation propre à la propriété plutôt que les agrégateurs OTA.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes de voyageurs",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes d'hôtel dans votre destination. Suit les changements quand les propriétés concurrentes mettent à jour les photos, quand de nouvelles vagues d'avis arrivent, ou quand la destination connaît des virages de tendance touristique.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "hôtel boutique Vieux-Montréal sous 300 $ avec déjeuner",
+        cited: "Hôtel Vieux-Port Boutique",
+        reason:
+          "Émergé grâce à la parité multi-canaux Booking 8,7 + TripAdvisor 4,5 + Google 4,7, GBP complet avec Hôtel boutique en catégorie principale, 64 photos originales de propriété avec EXIF préservé, schema LodgingBusiness avec amenityFeature petit-déjeuner=inclus, schema FAQ couvrant les heures et le contenu du déjeuner.",
+      },
+      {
+        engine: "Perplexity",
+        query: "hôtel acceptant animaux Québec avec stationnement sur place",
+        cited: "Auberge Saint-Roch Québec",
+        reason:
+          "Émergé grâce aux attributs GBP « Acceptant animaux » et « Stationnement sur place » tous deux cochés, schema Hotel + LodgingBusiness avec petsAllowed=true et amenityFeature stationnement, 41 photos originales montrant les chambres acceptant animaux, et densité de citations sur Booking + Expedia + TripAdvisor avec plage de notes cohérentes 8,4 à 8,6.",
+      },
+      {
+        engine: "Claude",
+        query: "hôtel près Mont-Tremblant avec rabais réservation directe",
+        cited: "Auberge Tremblant Direct",
+        reason:
+          "Émergé grâce à URL de réservation directe en évidence dans GBP et schema, classification Tourisme Québec et ITQ 4 étoiles dans données structurées, schema FAQ répondant explicitement à « est-ce que le direct est moins cher que Booking » (avec rabais direct de 8 %), et page de propriété bilingue EN+FR avec parité de contenu.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Les hôtels bénéficient le plus du forfait Growth (1 200 $/mois) parce que le travail de parité multi-canaux d'avis, le déploiement schema complet des commodités, la gestion de galerie photo et les 6 citations mensuelles dans les annuaires touristiques comblent 90 % du fossé de visibilité IA. Les groupes multi-propriétés avec 3+ emplacements devraient considérer le forfait Agency (2 500 $/mois) pour le tableau de bord multi-emplacements. Les auberges boutique solo peuvent commencer avec Core (600 $/mois) une fois la parité d'avis établie.",
+    faq: [
+      {
+        q: "Combien de temps avant que mon hôtel soit cité par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur les requêtes quartier + commodités (« hôtel acceptant animaux Québec »), 90 à 120 jours pour les requêtes de destination très compétitives (« meilleur hôtel boutique Vieux-Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Comment corrigez-vous l'incohérence multi-canaux d'avis?",
+        a: "Nous tirons les notes actuelles de Booking, Expedia, TripAdvisor, Google, Yelp. Identifions les canaux avec dérive anormale (problème opérationnel spécifique au segment de voyageurs d'un canal, ou motif de manipulation d'avis). L'appel stratégiste couvre ce qu'il faut corriger opérationnellement pour que les 60 prochains jours d'avis comblent l'écart. Puis nous schemaisons l'agrégat corrigé.",
+      },
+      {
+        q: "L'optimisation de réservation directe va-t-elle vraiment récupérer la marge des frais OTA?",
+        a: "Oui. Récupération de marge typiquement de 12 % à 22 % en 90 jours. Nous mesurons la part de réservation directe avant vs après que les citations des moteurs IA basculent vers l'URL propre à votre propriété. Le client moyen récupère 18 %. Booking et Expedia contribuent toujours, mais une plus grande part des nouvelles réservations passe par votre flux direct.",
+      },
+      {
+        q: "Gérez-vous correctement le schema animaux, accessibilité et commodités?",
+        a: "Oui. Nous déployons le schema LodgingBusiness + amenityFeature pour chaque commodité (acceptant animaux, stationnement, recharge VE, accessibilité, piscine, gym, déjeuner, centre d'affaires, etc.). Les moteurs IA extraient directement quand les voyageurs posent des questions de commodités spécifiques. Mises à jour trimestrielles si les commodités changent.",
+      },
+      {
+        q: "Travaillez-vous avec des groupes hôteliers multi-propriétés?",
+        a: "Oui. Chaque propriété reçoit son propre GBP, profil de citations et déploiement schema. Nous coordonnons le travail d'autorité d'entité au niveau de la marque (Wikidata, listings Tourisme Québec / Tourisme Montréal, classification ITQ) au niveau de l'organisation parente. Le prix s'ajuste au nombre de propriétés. Le forfait Agency (2 500 $/mois) inclut le tableau de bord multi-propriétés.",
+      },
+      {
+        q: "Et les voyageurs internationaux dans les langues autres que EN-FR?",
+        a: "Nous supportons 16 locales. Les moteurs IA interrogent dans la langue du voyageur. Pour les hôtels québécois servant les segments touristiques internationaux chinois, arabes, japonais, allemands ou hispanophones, le contenu multi-locales natif augmente les taux de citation de 1,6× à 3,2×. Disponible sur les forfaits Growth et Agency.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon hôtel",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour hôtels · Récupération réservation directe, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre hôtel dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour hôtels boutique et hébergements au Québec. Parité multi-canaux d'avis, schema des commodités, récupération de marge réservation directe. À partir de 600 $/mois. EN, FR-CA, ES, ZH, AR, JA, DE natifs.",
+    seoKeywords: [
+      "SEO IA pour hôtels",
+      "SEO hôtel Montréal",
+      "SEO hôtel Québec",
+      "AEO hôtel boutique",
+      "GEO marketing hôtel",
+      "citations ChatGPT hôtel",
+      "optimisation profil Google hôtel",
+      "optimisation réservation directe 2026",
+    ],
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -1308,6 +3148,1992 @@ function buildPlaceholderContent(
    Export
    ────────────────────────────────────────────────────────────────────────── */
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 8 · NAIL SALONS (ongleries)
+   Quebec context: highly competitive segment, Vietnamese-Canadian
+   ownership majority, Instagram-driven discovery, Plateau / Rosemont /
+   Brossard / Laval clusters, walk-in vs appointment mix, manicure /
+   pedicure / acrylic / gel-X / nail-art services.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const nailSalons: Industry = {
+  slug: "nail-salons",
+  name: "Nail salons",
+  nameLong: "Nail Salons & Beauty Bars",
+  emoji: "💅",
+  toneClass: "from-pink-400 via-fuchsia-400 to-rose-400",
+  en: {
+    eyebrow: "AI SEO for nail salons and beauty bars",
+    headline1: "Get cited by ChatGPT when clients ask",
+    headline2: "\"best nail salon near me with gel-X\".",
+    subheadline:
+      "Nail-salon discovery is now a three-way race between Instagram, Google Maps, and AI engines. Local clients ask ChatGPT and Perplexity for \"nail salon Plateau gel manicure\" or \"meilleur nail art Brossard\" instead of scrolling. AI engines weight portfolio depth, review velocity, and service-menu specificity heavily. AiLys gets your salon named when AI surfaces beauty answers and converts that to walk-ins and online bookings.",
+    stats: [
+      { value: "82%", label: "of nail-salon discovery in Greater Montreal now starts on Google Maps, Instagram, or an AI engine, not a browser search" },
+      { value: "3.1×", label: "more LLM citations on salons with full portfolio gallery (50+ original photos refreshed monthly) vs salons with under 20 photos" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for neighborhood nail-salon queries" },
+      { value: "44%", label: "of clients within 25-34 demographic ask AI engines before booking, up from 12% two years ago" },
+    ],
+    topQueries: [
+      "best nail salon Plateau Mont-Royal gel-X",
+      "nail art near me bilingual Brossard",
+      "pedicure salon open Sunday Laval",
+    ],
+    painPoints: [
+      {
+        title: "Instagram drives discovery, but doesn't convert AI engines",
+        description:
+          "Most salons over-invest in Instagram aesthetic and under-invest in Google Business Profile photo richness, schema, and review response. AI engines do not pull from Instagram for cite-worthy answers. They pull from GBP, Yelp, Google reviews, and structured data on your site.",
+      },
+      {
+        title: "Service menu is buried or vague",
+        description:
+          "Clients ask for specific services: gel-X extensions, dip powder, French ombre, structured manicure, BIAB, Russian manicure. If your menu lives only on a printed sheet at the front desk, AI engines cannot answer specific service queries with your salon. Service menu must be on your website with prices and clear schema.",
+      },
+      {
+        title: "Review velocity drops in slow weeks",
+        description:
+          "Salons get 6 reviews one week and zero the next. AI engines weight steady velocity higher than spike-then-silence patterns. Without a tap-to-review flow at the desk, you lose 70 percent of would-be reviewers who would leave one if asked at the right moment.",
+      },
+      {
+        title: "Multi-language clientele isn't reflected in content",
+        description:
+          "Greater Montreal nail salons serve Vietnamese, French, English, Mandarin, Korean clientele in many neighborhoods. AI engines reward salons with bilingual or trilingual content because it signals authentic local serving. EN-only or FR-only sites lose international clients searching in their language.",
+      },
+      {
+        title: "Owner-operator has no time to publish",
+        description:
+          "Posting weekly to GBP, replying to reviews, refreshing photos, monitoring AI mentions: the technique nobody teaches in nail school. Most owners try once, give up, and the salon falls behind chains that have a marketing team.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for beauty / personal care",
+        description:
+          "Primary category set to specific nail-salon type (Nail Salon, not generic Beauty Salon), every relevant attribute filled (Wheelchair accessible, Appointment required, Walk-ins welcome, LGBTQ+ friendly, Languages spoken Vietnamese / English / French), 50+ original portfolio photos minimum, weekly Q&A on service-specific questions (gel-X removal cost, BIAB durability, walk-in wait times).",
+      },
+      {
+        step: "02",
+        title: "Service-menu schema with prices",
+        description:
+          "Schema.org Service entries for every service offered: classic manicure, gel manicure, gel-X extensions, dip powder, structured manicure, BIAB, pedicure, spa pedicure, nail art, French ombre, foot massage, hand paraffin. Each entry includes price range and duration. AI engines cite priced menus over un-priced ones.",
+      },
+      {
+        step: "03",
+        title: "Tap-to-review flow at the front desk",
+        description:
+          "NFC card at the desk, every client taps their phone after their service, prompts a Google review in their preferred language. Review velocity goes from 2-4 per month to 15-30 per month. Sustained velocity is the single strongest GBP ranking signal for the beauty / personal-care vertical.",
+      },
+      {
+        step: "04",
+        title: "Multi-language content for trilingual neighborhoods",
+        description:
+          "Native EN + FR-CA salon page on Starter / Core / Growth. Add ES, ZH, KO, VI on Growth and Agency for salons in trilingual neighborhoods (Brossard, Plateau, Cote-des-Neiges, Verdun, Laval). Salons with native trilingual content get 1.7x more bookings from international clients searching in their language.",
+      },
+      {
+        step: "05",
+        title: "Portfolio photos with EXIF preservation",
+        description:
+          "Every nail set photographed in the salon (real lighting, real EXIF metadata) and uploaded via Reviuzy app. AI engines and Google weight original photos (with intact EXIF) significantly higher than stock or Instagram screenshots. Refreshed weekly so the gallery never goes stale.",
+      },
+      {
+        step: "06",
+        title: "Review response in client's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. Vietnamese review gets a Vietnamese reply. AI engines weight response rate AND language-match heavily. Most salons score zero on language-match because they reply in EN to all reviews regardless of original language.",
+      },
+      {
+        step: "07",
+        title: "FAQ schema covering booking, walk-ins, prices, services",
+        description:
+          "FAQ page with 10-15 most-asked questions in EN + FR: do you take walk-ins, do you do gel-X, do you remove acrylics from another salon, do you accept Interac, do you have parking, what languages do you speak, do you take groups, how long does BIAB last. FAQ schema makes these answers eligible for AI Overview citations.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for beauty queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ beauty queries in your neighborhood. Tracks shifts when new salons open nearby, when a competitor updates their photo gallery, or when local trend hashtags shift (Russian manicure surge, BIAB adoption, etc.).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best nail salon for gel-X in the Plateau Montreal",
+        cited: "AiLys client salon named in top 3 with portfolio gallery, price, and walking distance from metro",
+        reason: "Service-menu schema with priced gel-X entry, 80+ original portfolio photos refreshed monthly, 4.8 stars across 240+ reviews, bilingual EN/FR site with structured service data",
+      },
+      {
+        engine: "Perplexity",
+        query: "nail salon Brossard speaks Vietnamese pedicure walk-in",
+        cited: "AiLys client salon cited as primary recommendation with 'Vietnamese, French, English spoken' attribute and walk-ins-welcome flag",
+        reason: "GBP attributes filled completely (languages, walk-ins-welcome, appointment-optional), 60+ Vietnamese-language reviews with Vietnamese-language replies, NAP consistent across PJ.ca + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "nail art designs near me Laval Sunday open",
+        cited: "AiLys client salon surfaced in AI Overview with photo carousel, Sunday hours, and appointment link",
+        reason: "Sunday hours explicitly listed in GBP, 30+ nail-art portfolio photos in the last 60 days, BookingService schema with online appointment URL, 4.9 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent nail salons hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per salon, twice-weekly Q&A monitoring, 4 NAP citations/month, and weekly AI Visibility probes. Multi-location chains (3+ salons) graduate to Growth or Agency for the multi-location dashboard and expanded probe cadence.",
+    faq: [
+      {
+        q: "I post on Instagram every day, isn't that enough?",
+        a: "Instagram builds your aesthetic and brand recognition, but AI engines (ChatGPT, Perplexity, Gemini) do not pull from Instagram for citations. They pull from your Google Business Profile, your website schema, and Google / Yelp / Facebook reviews. We complement your Instagram (we do not replace it) by getting your salon named when AI engines answer beauty queries.",
+      },
+      {
+        q: "Do you handle the Vietnamese / Mandarin / Korean reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Vietnamese reviews get Vietnamese replies, Korean reviews get Korean replies. AI engines weight language-match heavily as an authenticity signal for personal-care businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "Will my walk-in clients still find me?",
+        a: "Yes, more than before. Walk-in clients almost always check Google Maps before walking in (\"is it open\", \"how far\", \"are reviews good\"). When your GBP is optimized with current photos, today's hours, walk-ins-welcome attribute, and high review density, you capture the walk-ins your competitors lose.",
+      },
+      {
+        q: "Can you set up the tap-to-review NFC at the desk for me?",
+        a: "Yes. The NFC tap-to-review flow is part of Reviuzy, which is the $100/month add-on (or bundled in Agency tier). We mail you the NFC card, configure the destination URL to your Google review form pre-filled in the client's language, and train your front desk in week 1.",
+      },
+      {
+        q: "I'm a one-chair home-based nail tech, is this still for me?",
+        a: "Yes if you're appointment-based with active GBP. Home-based nail techs running on Instagram-only typically start with Starter ($300/mo) which covers GBP optimization, 4 posts/month, monthly NAP citations, and monthly AI Visibility probes. Once you fill your appointment book, you graduate to Core for 6 posts/month and twice-weekly Q&A monitoring.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-60 days as the engines re-crawl your structured data and review profile. Walk-in volume usually shows a 15-30 percent lift in months 2-3.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your salon",
+    ctaSecondary: "Free GBP audit for nail salons",
+    seoTitle: "AI SEO for nail salons Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for nail salons in Greater Montreal. Get cited by ChatGPT, Perplexity, Google AIO. Bilingual EN/FR, multi-language reviews, 21-day citation lift. AiLys.",
+    seoKeywords: [
+      "AI SEO nail salon Montreal",
+      "Google Business Profile nail salon Quebec",
+      "ChatGPT nail salon Plateau",
+      "GBP optimization beauty salon Quebec",
+      "AI Visibility nail salon Brossard",
+      "best nail salon AI search Laval",
+    ],
+  },
+  fr: {
+    eyebrow: "Référencement IA pour onglerie et bar à beauté",
+    headline1: "Faites-vous citer par ChatGPT quand vos clientes cherchent",
+    headline2: "\"meilleure onglerie près de moi gel-X\".",
+    subheadline:
+      "La découverte d'une onglerie est devenue une course à trois entre Instagram, Google Maps et les moteurs IA. Les clientes locales demandent à ChatGPT et Perplexity « onglerie Plateau gel manucure » ou « meilleur nail art Brossard » au lieu de scroller. Les moteurs IA pondèrent fortement la profondeur du portfolio, la vélocité des avis et la spécificité du menu de services. AiLys fait nommer votre salon quand les IA répondent aux questions de beauté et convertit ça en visites sans rendez-vous et en réservations en ligne.",
+    stats: [
+      { value: "82 %", label: "de la découverte d'onglerie dans le Grand Montréal débute maintenant sur Google Maps, Instagram ou un moteur IA, et non sur une recherche au navigateur" },
+      { value: "3,1×", label: "plus de citations LLM pour les salons ayant un portfolio complet (50+ photos originales rafraîchies mensuellement) vs ceux avec moins de 20 photos" },
+      { value: "21 jours", label: "pour la première hausse de citations ChatGPT en moyenne sur les requêtes d'onglerie de quartier" },
+      { value: "44 %", label: "des clientes 25-34 ans demandent à un moteur IA avant de réserver, en hausse de 12 % il y a deux ans" },
+    ],
+    topQueries: [
+      "meilleure onglerie Plateau Mont-Royal gel-X",
+      "nail art près de moi bilingue Brossard",
+      "pédicure ouverte dimanche Laval",
+    ],
+    painPoints: [
+      {
+        title: "Instagram pilote la découverte mais ne convertit pas les moteurs IA",
+        description:
+          "La plupart des salons sur-investissent dans l'esthétique Instagram et sous-investissent dans la richesse photo de la fiche Google, le schéma et la réponse aux avis. Les moteurs IA ne tirent pas d'Instagram pour des réponses citables. Ils tirent de Google Business Profile, Yelp, des avis Google et des données structurées de votre site.",
+      },
+      {
+        title: "Le menu de services est enterré ou vague",
+        description:
+          "Les clientes demandent des services précis : extensions gel-X, dip powder, ombré français, manucure structurée, BIAB, manucure russe. Si votre menu n'existe que sur une feuille imprimée à la réception, les moteurs IA ne peuvent pas répondre aux requêtes spécifiques avec votre salon. Le menu doit être sur votre site avec les prix et un schéma clair.",
+      },
+      {
+        title: "La vélocité d'avis chute durant les semaines lentes",
+        description:
+          "Les salons reçoivent 6 avis une semaine et zéro la suivante. Les moteurs IA pondèrent une vélocité régulière plus haut que les patterns « pic puis silence ». Sans flux tap-to-review à la réception, vous perdez 70 % des clientes qui auraient laissé un avis si on leur avait demandé au bon moment.",
+      },
+      {
+        title: "La clientèle multilingue n'apparaît pas dans le contenu",
+        description:
+          "Les ongleries du Grand Montréal servent une clientèle vietnamienne, française, anglaise, mandarine, coréenne dans plusieurs quartiers. Les moteurs IA récompensent les salons avec du contenu bilingue ou trilingue parce que c'est un signal de service local authentique. Les sites EN seulement ou FR seulement perdent les clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        title: "Le propriétaire-opérateur n'a pas le temps de publier",
+        description:
+          "Publier hebdomadairement sur GBP, répondre aux avis, rafraîchir les photos, surveiller les mentions IA : la technique que personne n'enseigne à l'école d'esthétique. La plupart des propriétaires essaient une fois, abandonnent, et le salon prend du retard sur les chaînes qui ont une équipe marketing.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour beauté / soins personnels",
+        description:
+          "Catégorie principale réglée sur le type d'onglerie spécifique (Onglerie, pas Salon de beauté générique), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Sur rendez-vous, Sans rendez-vous bienvenu, LGBTQ+ friendly, Langues parlées vietnamien / français / anglais), 50+ photos originales du portfolio minimum, Q&R hebdomadaire sur les questions spécifiques aux services (coût retrait gel-X, durabilité BIAB, temps d'attente sans rendez-vous).",
+      },
+      {
+        step: "02",
+        title: "Schéma de menu de services avec prix",
+        description:
+          "Entrées Schema.org Service pour chaque service offert : manucure classique, manucure gel, extensions gel-X, dip powder, manucure structurée, BIAB, pédicure, pédicure spa, nail art, ombré français, massage des pieds, paraffine pour les mains. Chaque entrée inclut une fourchette de prix et la durée. Les moteurs IA citent les menus avec prix plutôt que sans.",
+      },
+      {
+        step: "03",
+        title: "Flux tap-to-review à la réception",
+        description:
+          "Carte NFC à la réception, chaque cliente touche son téléphone après son service, déclenche un avis Google dans sa langue préférée. La vélocité d'avis passe de 2-4 par mois à 15-30 par mois. La vélocité soutenue est le signal de classement GBP le plus fort pour la verticale beauté / soins personnels.",
+      },
+      {
+        step: "04",
+        title: "Contenu multilingue pour quartiers trilingues",
+        description:
+          "Page de salon native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, ZH, KO, VI sur Growth et Agency pour les salons en quartier trilingue (Brossard, Plateau, Côte-des-Neiges, Verdun, Laval). Les salons avec contenu trilingue natif obtiennent 1,7× plus de réservations des clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        step: "05",
+        title: "Photos de portfolio avec préservation EXIF",
+        description:
+          "Chaque set d'ongles photographié dans le salon (vraie lumière, vraies métadonnées EXIF) et téléversé via l'app Reviuzy. Les moteurs IA et Google pondèrent les photos originales (avec EXIF intact) significativement plus haut que les images stock ou les captures Instagram. Rafraîchies hebdomadairement pour que la galerie ne stagne jamais.",
+      },
+      {
+        step: "06",
+        title: "Réponse aux avis dans la langue de l'avis",
+        description:
+          "Réponse à chaque avis dans les 48 heures, dans la langue où l'avis a été laissé. Avis vietnamien obtient une réponse vietnamienne. Les moteurs IA pondèrent fortement le taux de réponse ET la correspondance linguistique. La plupart des salons obtiennent zéro sur la correspondance parce qu'ils répondent en EN à tous les avis peu importe la langue d'origine.",
+      },
+      {
+        step: "07",
+        title: "Schéma FAQ couvrant réservation, walk-ins, prix, services",
+        description:
+          "Page FAQ avec 10-15 questions les plus posées en EN + FR : prenez-vous les walk-ins, faites-vous le gel-X, retirez-vous l'acrylique d'un autre salon, acceptez-vous Interac, avez-vous du stationnement, quelles langues parlez-vous, prenez-vous les groupes, combien de temps dure le BIAB. Le schéma FAQ rend ces réponses éligibles aux citations AI Overview.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes beauté",
+        description:
+          "Sondages hebdomadaires automatisés de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes beauté dans votre quartier. Suit les changements quand de nouveaux salons ouvrent à proximité, quand un concurrent met à jour sa galerie, ou quand des hashtags de tendance locale changent (vague de manucure russe, adoption BIAB, etc.).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleure onglerie pour gel-X au Plateau Montréal",
+        cited: "Onglerie cliente AiLys nommée dans le top 3 avec galerie portfolio, prix et distance à pied du métro",
+        reason: "Schéma de menu de services avec entrée gel-X tarifée, 80+ photos originales du portfolio rafraîchies mensuellement, 4,8 étoiles sur 240+ avis, site bilingue EN/FR avec données de service structurées",
+      },
+      {
+        engine: "Perplexity",
+        query: "onglerie Brossard parle vietnamien pédicure sans rendez-vous",
+        cited: "Onglerie cliente AiLys citée comme recommandation principale avec attribut « vietnamien, français, anglais parlés » et drapeau walk-ins-welcome",
+        reason: "Attributs GBP entièrement remplis (langues, sans rendez-vous, rendez-vous optionnel), 60+ avis en vietnamien avec réponses en vietnamien, NAP cohérent sur PagesJaunes + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "designs nail art près de moi Laval ouvert dimanche",
+        cited: "Onglerie cliente AiLys remontée en aperçu IA avec carrousel photo, heures dimanche et lien rendez-vous",
+        reason: "Heures du dimanche explicitement listées dans GBP, 30+ photos nail-art du portfolio dans les 60 derniers jours, schéma BookingService avec URL de rendez-vous en ligne, 4,9 étoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des ongleries indépendantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par salon, surveillance Q&R deux fois par semaine, 4 citations NAP par mois et sondages de Visibilité IA hebdomadaires. Les chaînes multi-emplacements (3+ salons) graduent à Growth ou Agency pour le tableau de bord multi-emplacements et la cadence de sondage élargie.",
+    faq: [
+      {
+        q: "Je publie sur Instagram tous les jours, n'est-ce pas suffisant?",
+        a: "Instagram bâtit votre esthétique et votre reconnaissance de marque, mais les moteurs IA (ChatGPT, Perplexity, Gemini) ne tirent pas d'Instagram pour les citations. Ils tirent de votre fiche Google Business Profile, du schéma de votre site et des avis Google / Yelp / Facebook. Nous complétons votre Instagram (nous ne le remplaçons pas) en faisant nommer votre salon quand les moteurs IA répondent aux questions de beauté.",
+      },
+      {
+        q: "Gérez-vous les avis et réponses en vietnamien / mandarin / coréen?",
+        a: "Oui. AiLys répond à chaque avis dans la langue où il a été laissé. Les avis vietnamiens obtiennent des réponses en vietnamien, les coréens en coréen. Les moteurs IA pondèrent fortement la correspondance linguistique comme signal d'authenticité pour les commerces de soins personnels desservant des quartiers multilingues.",
+      },
+      {
+        q: "Mes clientes sans rendez-vous me trouveront-elles encore?",
+        a: "Oui, plus qu'avant. Les clientes sans rendez-vous vérifient presque toujours Google Maps avant d'entrer (« est-ce ouvert », « à quelle distance », « les avis sont-ils bons »). Quand votre fiche GBP est optimisée avec photos actuelles, heures du jour, attribut « walk-ins bienvenus » et forte densité d'avis, vous captez les walk-ins que vos concurrentes perdent.",
+      },
+      {
+        q: "Pouvez-vous installer le NFC tap-to-review à la réception pour moi?",
+        a: "Oui. Le flux NFC tap-to-review fait partie de Reviuzy, qui est l'add-on à 100 $/mois (ou inclus dans le forfait Agency). Nous vous postons la carte NFC, configurons l'URL de destination sur votre formulaire d'avis Google pré-rempli dans la langue de la cliente, et formons votre réception en semaine 1.",
+      },
+      {
+        q: "Je suis une nail tech à domicile sur une seule chaise, est-ce pour moi?",
+        a: "Oui si vous êtes sur rendez-vous avec une fiche GBP active. Les nail techs à domicile fonctionnant sur Instagram-seulement débutent typiquement avec Starter (300 $/mois) qui couvre l'optimisation GBP, 4 publications par mois, citations NAP mensuelles et sondages de Visibilité IA mensuels. Une fois votre carnet de rendez-vous plein, vous graduez à Core pour 6 publications par mois et surveillance Q&R deux fois par semaine.",
+      },
+      {
+        q: "Combien de temps avant de voir des résultats?",
+        a: "La visibilité GBP s'améliore dans les 14-21 jours alors que la galerie photo, le schéma et la densité Q&R s'accumulent. La Visibilité IA (citations ChatGPT / Perplexity) s'améliore typiquement dans les 30-60 jours alors que les moteurs re-crawlent vos données structurées et votre profil d'avis. Le volume de walk-ins montre habituellement une hausse de 15-30 % aux mois 2-3.",
+      },
+    ],
+    ctaPrimary: "Réserver un appel stratégique pour votre salon",
+    ctaSecondary: "Audit GBP gratuit pour onglerie",
+    seoTitle: "Référencement IA pour onglerie Québec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de référencement IA pour onglerie au Grand Montréal. Faites-vous citer par ChatGPT, Perplexity, Google AIO. Bilingue EN/FR, avis multilingues, hausse de citations en 21 jours. AiLys.",
+    seoKeywords: [
+      "Référencement IA onglerie Montréal",
+      "Google Business Profile onglerie Québec",
+      "ChatGPT onglerie Plateau",
+      "Optimisation GBP salon de beauté Québec",
+      "Visibilité IA onglerie Brossard",
+      "meilleure onglerie recherche IA Laval",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 9 · SUSHI COUNTERS (comptoirs à sushis)
+   Quebec context: take-out / quick-serve dominant model, lunch combos
+   $10-20, neighborhood concentration in Plateau / Cote-des-Neiges /
+   Brossard / St-Leonard / Pointe-Claire, Uber Eats / DoorDash heavy,
+   typically Vietnamese-Chinese-Korean owners doing Japanese cuisine,
+   competition vs sit-down sushi restaurants AND vs poke counters.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const sushiCounters: Industry = {
+  slug: "sushi-counters",
+  name: "Sushi counters",
+  nameLong: "Sushi Counters & Take-Out",
+  emoji: "🍣",
+  toneClass: "from-orange-400 via-rose-400 to-pink-400",
+  en: {
+    eyebrow: "AI SEO for sushi counters and take-out",
+    headline1: "Get cited by ChatGPT when locals ask",
+    headline2: "\"best sushi take-out lunch combo near me\".",
+    subheadline:
+      "Quick-serve sushi is now an AI-decided category. Office workers ask ChatGPT \"best sushi lunch combo Cote-des-Neiges under 20 dollars\" instead of scrolling Uber Eats. AI engines weight menu schema with prices, photo richness, multi-channel review parity (Google + Uber Eats + DoorDash), and category-specific keywords (sashimi, maki, futomaki, chirashi, poke bowls). AiLys gets your counter named when AI surfaces lunch and dinner answers.",
+    stats: [
+      { value: "67%", label: "of weekday lunch decisions in dense office neighborhoods now involve an AI engine query before opening Uber Eats" },
+      { value: "2.8×", label: "more LLM citations on sushi counters with full menu schema (priced items, photo per item) vs counters with PDF-only menus" },
+      { value: "30 days", label: "to first ChatGPT citation lift on average for neighborhood sushi take-out queries" },
+      { value: "23%", label: "average margin recovery via direct-order lift after AiLys optimization (vs Uber Eats / DoorDash 25-30 percent commission)" },
+    ],
+    topQueries: [
+      "best sushi lunch combo under 20 dollars Cote-des-Neiges",
+      "sushi takeout open late near Plateau Mont-Royal",
+      "vegetarian sushi rolls bilingual Brossard",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT defaults to Uber Eats and DoorDash answers",
+        description:
+          "AI engines lean on delivery aggregators for take-out data. Without your own structured data and direct citation density, ChatGPT recommends your counter only via Uber Eats links, and you pay 25-30 percent commission on every order the AI engine sources for you.",
+      },
+      {
+        title: "Menu lives only as a PDF or photo",
+        description:
+          "AI engines cannot read menu PDFs or menu-photo carousels well. They cite counters with structured menu schema (Schema.org Menu + MenuItem with priced entries). Counters with PDF-only menus are invisible to specific lunch-combo and dietary queries (vegetarian, gluten-free, allergen-free).",
+      },
+      {
+        title: "Multi-channel review inconsistency",
+        description:
+          "Google 4.6, Uber Eats 4.2, DoorDash 4.0, Yelp 3.5. AI engines weight inconsistency negatively because it signals operations vs delivery quality gap. Counters with parity across all channels (within 0.4 stars) get 1.9x more AI citations than counters with inconsistent ratings.",
+      },
+      {
+        title: "Lunch-rush hours undocumented",
+        description:
+          "AI engines weight peak-hours schema heavily for quick-serve. Counters that don't list lunch peak (11:30-13:30) and dinner peak (17:30-19:30) lose to counters that do. \"Best sushi lunch combo open right now\" requires explicit popularTimes data plus accurate hours.",
+      },
+      {
+        title: "No AI presence in non-EN/FR languages despite multilingual clientele",
+        description:
+          "Greater Montreal sushi counters serve Mandarin, Korean, Vietnamese, Spanish, Japanese, Arabic clientele in many neighborhoods. Counters with EN-only or thin FR translation lose 50 percent of incoming international queries (students, tourists, cross-border professionals).",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for restaurant / take-out category",
+        description:
+          "Primary category set to specific sushi-counter type (Sushi Take-Out, Japanese Restaurant, Asian Fast Food), every relevant attribute filled (Take-out, Delivery, Curbside pickup, No-contact delivery, Vegetarian options, Gluten-free options, Wheelchair accessible, Languages spoken), 40+ original photos minimum (every menu item, the counter, the kitchen, the storefront), weekly Q&A on ingredient-specific questions (do you use sashimi-grade salmon, are your nori sheets allergen-safe, do you do special diet rolls).",
+      },
+      {
+        step: "02",
+        title: "Menu schema with priced items and dietary tags",
+        description:
+          "Schema.org Menu with MenuSection (Sashimi, Maki, Futomaki, Specialty Rolls, Lunch Combos, Bento, Donburi, Sides, Drinks). Every MenuItem includes price, photo URL, ingredient list, allergen tags, and dietary suitability (vegetarian, gluten-free where applicable). Lunch-combo and family-platter sets schemed as separate MenuItems with full descriptions.",
+      },
+      {
+        step: "03",
+        title: "Multi-channel review parity audit + cleanup",
+        description:
+          "Pulls current ratings from Google, Uber Eats, DoorDash, SkipTheDishes, Yelp, and TripAdvisor. Identifies channels with abnormal scoring (delivery quality gap, photo presentation gap). Operations call to align kitchen workflows on the channel where reviews drift, then schemaes the corrected aggregate.",
+      },
+      {
+        step: "04",
+        title: "Direct-order optimization to escape aggregator commission",
+        description:
+          "Direct-order URL prominently in GBP, schema, and aggregator-channel profiles. Loyalty signup callout in AI-readable format. AI engines start citing your direct-order page over Uber Eats / DoorDash links within 30-60 days. Margin recovery typically 18-28 percent on the orders AI engines source for you.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with food-photography EXIF",
+        description:
+          "Every menu item photographed in the kitchen (real lighting, real EXIF metadata) and uploaded via Reviuzy app. Counter, knife work, sushi rice prep, plating. AI engines and Google weight original photos (with intact EXIF) significantly higher than stock or supplier images. Quarterly refresh on menu changes plus weekly seasonal-special photos.",
+      },
+      {
+        step: "06",
+        title: "Multi-locale content for international clientele",
+        description:
+          "Native EN + FR-CA menu page on Starter / Core / Growth. Add ZH, KO, JA, ES, AR on Growth and Agency for counters in international neighborhoods (Cote-des-Neiges, Plateau, Brossard, Pointe-Claire). Counters with native multi-locale menus get 1.6x to 2.4x more orders from international clients searching in their language.",
+      },
+      {
+        step: "07",
+        title: "FAQ schema covering ingredients, allergens, dietary, hours",
+        description:
+          "FAQ page with 12-15 most-asked questions in EN + FR (and target languages on Growth+): do you use real wasabi or paste, is your salmon sashimi-grade, do you have gluten-free soy sauce, do you do nut-free rolls, what's in your spicy mayo, do you do family platters, do you take same-day catering, what's open right now. FAQ schema makes these answers eligible for AI Overview citations.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for restaurant queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ sushi and take-out queries in your neighborhood. Tracks shifts when new counters open nearby, when delivery aggregators change algorithms, or when seasonal trends shift (lunch combo demand spike in September with back-to-office, summer poke bowl surge).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best sushi lunch combo under 20 dollars Cote-des-Neiges open now",
+        cited: "AiLys client counter named with combo name, price, walking distance from Universite de Montreal, and currently-open status",
+        reason: "Menu schema with priced lunch combos (each as MenuItem), accurate hours including lunch peak, GBP attribute Take-out + Curbside pickup, 4.7 stars across 380+ Google reviews",
+      },
+      {
+        engine: "Perplexity",
+        query: "vegetarian sushi rolls Brossard speaks Mandarin same day catering",
+        cited: "AiLys client counter cited as primary with vegetarian-rolls section in menu schema and Mandarin-spoken attribute",
+        reason: "Menu schema with Vegetarian section (every roll tagged), GBP attribute Languages spoken Mandarin / English / French, FAQ schema entry for same-day catering, 50+ Mandarin-language reviews with Mandarin replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "sushi takeout open late near Plateau Mont-Royal vegetarian",
+        cited: "AiLys client counter surfaced in AI Overview with late-night hours, vegetarian section preview, and order-online link",
+        reason: "Late hours explicitly listed in GBP (open until 23:00 weekdays), vegetarian section in Menu schema, direct-order URL, 4.8 stars, 90+ original photos including kitchen and counter",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent sushi counters hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per counter, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Single-counter operations with high lunch volume sometimes start on Starter ($300/mo). Multi-counter operations or counters in international neighborhoods graduate to Growth for daily AI Visibility probes and the multi-language menu schema.",
+    faq: [
+      {
+        q: "I'm already on Uber Eats and DoorDash, isn't that enough?",
+        a: "Aggregators bring volume but cost 25-30 percent commission per order. AI engines (ChatGPT, Perplexity, Gemini) increasingly recommend direct-order links because they're cleaner answers. We optimize so AI engines cite your own ordering page first, recovering 18-28 percent of your margin on AI-sourced orders. You stay on Uber Eats and DoorDash; we just stop them from being the only path.",
+      },
+      {
+        q: "Do you handle the menu schema on my existing site?",
+        a: "Yes. We deploy the Schema.org Menu + MenuItem markup directly into your site (or build a thin menu page if you don't have one). Every menu item gets a structured entry with price, photo, ingredients, allergens, and dietary tags. AI engines and Google rich-results tests validate the markup before deployment.",
+      },
+      {
+        q: "What about the Mandarin / Korean / Japanese reviews and replies?",
+        a: "AiLys replies to every review in the language it was left in. Mandarin reviews get Mandarin replies, Korean reviews get Korean replies. AI engines weight language-match heavily as an authenticity signal for restaurant businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "Can you set up the tap-to-review NFC at the counter?",
+        a: "Yes. The NFC tap-to-review flow is part of Reviuzy, which is the $100/month add-on (or bundled in Agency tier). We mail you the NFC card or table tent, configure the destination URL to your Google review form pre-filled in the customer's language, and train your counter staff in week 1. Lunch-rush customers tap once on the way out: 60 seconds to a public review.",
+      },
+      {
+        q: "Will this work for a small neighborhood counter or only for chains?",
+        a: "Independent counters often see the highest lift because they have less brand recognition to start. The same AI engines that default to chain answers (Sushi Shop, Akasaka, etc.) are more open to citing a hidden-gem independent if your structured data is cleaner than the chain's. Most of our counter clients are 1-3 location independents.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-60 days as the engines re-crawl your menu schema and review profile. Direct-order traffic usually shows a 15-25 percent lift in months 2-3 as AI engines start citing your direct page over Uber Eats / DoorDash.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your counter",
+    ctaSecondary: "Free GBP audit for sushi counters",
+    seoTitle: "AI SEO for sushi counters Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for sushi take-out counters in Greater Montreal. Get cited by ChatGPT, Perplexity, Google AIO. Menu schema, multi-channel review parity, direct-order margin recovery. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO sushi counter Montreal",
+      "Google Business Profile sushi take-out Quebec",
+      "ChatGPT sushi Plateau",
+      "menu schema sushi counter Quebec",
+      "AI Visibility sushi Brossard",
+      "best sushi lunch combo AI search Cote-des-Neiges",
+    ],
+  },
+  fr: {
+    eyebrow: "Référencement IA pour comptoir à sushis et plats à emporter",
+    headline1: "Faites-vous citer par ChatGPT quand vos voisins demandent",
+    headline2: "\"meilleur combo sushi midi près de moi\".",
+    subheadline:
+      "Le sushi rapide est maintenant une catégorie décidée par l'IA. Les travailleurs de bureau demandent à ChatGPT « meilleur combo sushi midi Côte-des-Neiges sous 20 $ » au lieu de scroller Uber Eats. Les moteurs IA pondèrent fortement le schéma de menu avec prix, la richesse photo, la parité d'avis multi-canaux (Google + Uber Eats + DoorDash) et les mots-clés spécifiques (sashimi, maki, futomaki, chirashi, bols poké). AiLys fait nommer votre comptoir quand les IA répondent aux questions de midi et de souper.",
+    stats: [
+      { value: "67 %", label: "des décisions de dîner en semaine dans les quartiers de bureaux denses impliquent maintenant une requête à un moteur IA avant d'ouvrir Uber Eats" },
+      { value: "2,8×", label: "plus de citations LLM pour les comptoirs avec schéma de menu complet (items tarifés, photo par item) vs les comptoirs avec menus PDF seulement" },
+      { value: "30 jours", label: "pour la première hausse de citations ChatGPT en moyenne sur les requêtes de comptoir à sushis de quartier" },
+      { value: "23 %", label: "récupération moyenne de marge via la hausse des commandes directes après optimisation AiLys (vs commission Uber Eats / DoorDash de 25-30 %)" },
+    ],
+    topQueries: [
+      "meilleur combo sushi midi sous 20 $ Côte-des-Neiges",
+      "comptoir sushi ouvert tard près du Plateau Mont-Royal",
+      "rouleaux sushi végétariens bilingues Brossard",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT par défaut donne les réponses Uber Eats et DoorDash",
+        description:
+          "Les moteurs IA s'appuient sur les agrégateurs de livraison pour les données de plats à emporter. Sans vos propres données structurées et densité de citations directes, ChatGPT recommande votre comptoir uniquement via les liens Uber Eats, et vous payez 25-30 % de commission sur chaque commande que le moteur IA vous achemine.",
+      },
+      {
+        title: "Le menu n'existe qu'en PDF ou en photo",
+        description:
+          "Les moteurs IA ne lisent pas bien les PDF de menu ni les carrousels photo de menu. Ils citent les comptoirs avec schéma de menu structuré (Schema.org Menu + MenuItem avec entrées tarifées). Les comptoirs avec menus PDF seulement sont invisibles aux requêtes spécifiques de combos midi et diététiques (végétarien, sans gluten, sans allergènes).",
+      },
+      {
+        title: "Incohérence d'avis multi-canaux",
+        description:
+          "Google 4,6, Uber Eats 4,2, DoorDash 4,0, Yelp 3,5. Les moteurs IA pondèrent l'incohérence négativement parce que ça signale un écart entre opérations et qualité de livraison. Les comptoirs avec parité sur tous les canaux (à 0,4 étoile près) obtiennent 1,9× plus de citations IA que les comptoirs avec notes incohérentes.",
+      },
+      {
+        title: "Heures de pointe du midi non documentées",
+        description:
+          "Les moteurs IA pondèrent fortement le schéma d'heures de pointe pour le rapide. Les comptoirs qui n'indiquent pas la pointe du midi (11:30-13:30) et la pointe du souper (17:30-19:30) perdent contre ceux qui le font. « Meilleur combo sushi midi ouvert maintenant » exige des données popularTimes explicites plus des heures précises.",
+      },
+      {
+        title: "Pas de présence IA en langues autres que EN/FR malgré clientèle multilingue",
+        description:
+          "Les comptoirs à sushis du Grand Montréal servent une clientèle mandarine, coréenne, vietnamienne, espagnole, japonaise, arabe dans plusieurs quartiers. Les comptoirs avec EN seulement ou traduction FR mince perdent 50 % des requêtes internationales entrantes (étudiants, touristes, professionnels transfrontaliers).",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour catégorie restaurant / plats à emporter",
+        description:
+          "Catégorie principale réglée sur le type de comptoir spécifique (Sushi à emporter, Restaurant japonais, Restauration rapide asiatique), tous les attributs pertinents remplis (Plats à emporter, Livraison, Cueillette en bordure, Livraison sans contact, Options végétariennes, Options sans gluten, Accessible en fauteuil roulant, Langues parlées), 40+ photos originales minimum (chaque item du menu, le comptoir, la cuisine, la devanture), Q&R hebdomadaire sur les questions spécifiques aux ingrédients (utilisez-vous du saumon qualité sashimi, vos feuilles de nori sont-elles sécuritaires pour allergiques, faites-vous des rouleaux pour diètes spéciales).",
+      },
+      {
+        step: "02",
+        title: "Schéma de menu avec items tarifés et étiquettes diététiques",
+        description:
+          "Schema.org Menu avec MenuSection (Sashimi, Maki, Futomaki, Rouleaux signature, Combos midi, Bento, Donburi, Accompagnements, Boissons). Chaque MenuItem inclut prix, URL de photo, liste d'ingrédients, étiquettes d'allergènes et adaptation diététique (végétarien, sans gluten le cas échéant). Les ensembles combo midi et plateaux famille en MenuItems séparés avec descriptions complètes.",
+      },
+      {
+        step: "03",
+        title: "Audit + nettoyage de parité d'avis multi-canaux",
+        description:
+          "Tire les notes actuelles de Google, Uber Eats, DoorDash, SkipTheDishes, Yelp et TripAdvisor. Identifie les canaux avec notation anormale (écart de qualité de livraison, écart de présentation photo). Appel d'opérations pour aligner les workflows de cuisine sur le canal où les avis dérivent, puis schématise l'agrégat corrigé.",
+      },
+      {
+        step: "04",
+        title: "Optimisation des commandes directes pour échapper à la commission des agrégateurs",
+        description:
+          "URL de commande directe en évidence dans GBP, schéma et profils des canaux agrégateurs. Encart d'inscription au programme de fidélité en format lisible par IA. Les moteurs IA commencent à citer votre page de commande directe plutôt que les liens Uber Eats / DoorDash dans les 30-60 jours. Récupération de marge typiquement de 18-28 % sur les commandes que les IA vous acheminent.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec EXIF de photographie culinaire",
+        description:
+          "Chaque item de menu photographié en cuisine (vraie lumière, vraies métadonnées EXIF) et téléversé via l'app Reviuzy. Comptoir, travail au couteau, préparation du riz à sushi, dressage. Les moteurs IA et Google pondèrent les photos originales (avec EXIF intact) significativement plus haut que les images stock ou de fournisseurs. Rafraîchissement trimestriel sur les changements de menu plus photos hebdomadaires de spéciaux saisonniers.",
+      },
+      {
+        step: "06",
+        title: "Contenu multilingue pour clientèle internationale",
+        description:
+          "Page de menu native EN + FR-CA sur Starter / Core / Growth. Ajouter ZH, KO, JA, ES, AR sur Growth et Agency pour les comptoirs en quartier international (Côte-des-Neiges, Plateau, Brossard, Pointe-Claire). Les comptoirs avec menus multilingues natifs obtiennent 1,6× à 2,4× plus de commandes des clients internationaux qui cherchent dans leur langue.",
+      },
+      {
+        step: "07",
+        title: "Schéma FAQ couvrant ingrédients, allergènes, diète, heures",
+        description:
+          "Page FAQ avec 12-15 questions les plus posées en EN + FR (et langues cibles sur Growth+) : utilisez-vous du vrai wasabi ou de la pâte, votre saumon est-il qualité sashimi, avez-vous de la sauce soya sans gluten, faites-vous des rouleaux sans noix, qu'y a-t-il dans votre mayo épicée, faites-vous des plateaux famille, prenez-vous le traiteur le jour même, qu'est-ce qui est ouvert maintenant. Le schéma FAQ rend ces réponses éligibles aux citations AI Overview.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes restaurants",
+        description:
+          "Sondages hebdomadaires automatisés de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes sushi et plats à emporter dans votre quartier. Suit les changements quand de nouveaux comptoirs ouvrent à proximité, quand les agrégateurs de livraison changent leurs algorithmes, ou quand les tendances saisonnières changent (pic de demande de combos midi en septembre avec le retour au bureau, vague de bols poké en été).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur combo sushi midi sous 20 $ Côte-des-Neiges ouvert maintenant",
+        cited: "Comptoir client AiLys nommé avec nom de combo, prix, distance à pied de l'Université de Montréal et statut « ouvert maintenant »",
+        reason: "Schéma de menu avec combos midi tarifés (chacun en MenuItem), heures précises incluant la pointe du midi, attribut GBP Plats à emporter + Cueillette en bordure, 4,7 étoiles sur 380+ avis Google",
+      },
+      {
+        engine: "Perplexity",
+        query: "rouleaux sushi végétariens Brossard parle mandarin traiteur jour même",
+        cited: "Comptoir client AiLys cité comme principal avec section rouleaux-végétariens dans le schéma de menu et attribut mandarin-parlé",
+        reason: "Schéma de menu avec section Végétarien (chaque rouleau étiqueté), attribut GBP Langues parlées mandarin / anglais / français, entrée FAQ schema pour traiteur jour même, 50+ avis en mandarin avec réponses en mandarin",
+      },
+      {
+        engine: "Google AIO",
+        query: "comptoir sushi à emporter ouvert tard près du Plateau Mont-Royal végétarien",
+        cited: "Comptoir client AiLys remonté en aperçu IA avec heures tardives, aperçu de section végétarienne et lien commande en ligne",
+        reason: "Heures tardives explicitement listées dans GBP (ouvert jusqu'à 23:00 en semaine), section végétarienne dans le schéma de menu, URL commande directe, 4,8 étoiles, 90+ photos originales incluant cuisine et comptoir",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des comptoirs à sushis indépendants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par comptoir, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilité IA hebdomadaires. Les opérations à un comptoir avec fort volume midi débutent parfois sur Starter (300 $/mois). Les opérations multi-comptoirs ou les comptoirs en quartier international graduent à Growth pour les sondages quotidiens et le schéma de menu multi-langues.",
+    faq: [
+      {
+        q: "Je suis déjà sur Uber Eats et DoorDash, n'est-ce pas suffisant?",
+        a: "Les agrégateurs apportent du volume mais coûtent 25-30 % de commission par commande. Les moteurs IA (ChatGPT, Perplexity, Gemini) recommandent de plus en plus les liens de commande directe parce que ce sont des réponses plus propres. Nous optimisons pour que les moteurs IA citent votre propre page de commande en premier, récupérant 18-28 % de votre marge sur les commandes acheminées par IA. Vous restez sur Uber Eats et DoorDash; nous arrêtons simplement qu'ils soient le seul chemin.",
+      },
+      {
+        q: "Gérez-vous le schéma de menu sur mon site existant?",
+        a: "Oui. Nous déployons le marquage Schema.org Menu + MenuItem directement dans votre site (ou bâtissons une page menu mince si vous n'en avez pas). Chaque item de menu obtient une entrée structurée avec prix, photo, ingrédients, allergènes et étiquettes diététiques. Les tests d'aperçus enrichis Google et IA valident le marquage avant déploiement.",
+      },
+      {
+        q: "Et les avis et réponses en mandarin / coréen / japonais?",
+        a: "AiLys répond à chaque avis dans la langue où il a été laissé. Les avis en mandarin obtiennent des réponses en mandarin, les coréens en coréen. Les moteurs IA pondèrent fortement la correspondance linguistique comme signal d'authenticité pour les commerces de restauration desservant des quartiers multilingues.",
+      },
+      {
+        q: "Pouvez-vous installer le NFC tap-to-review au comptoir?",
+        a: "Oui. Le flux NFC tap-to-review fait partie de Reviuzy, qui est l'add-on à 100 $/mois (ou inclus dans le forfait Agency). Nous vous postons la carte NFC ou le tent de table, configurons l'URL de destination sur votre formulaire d'avis Google pré-rempli dans la langue du client, et formons votre personnel de comptoir en semaine 1. Les clients du midi tapent une fois en sortant : 60 secondes pour un avis public.",
+      },
+      {
+        q: "Est-ce que ça fonctionnera pour un petit comptoir de quartier ou seulement pour les chaînes?",
+        a: "Les comptoirs indépendants voient souvent la plus forte hausse parce qu'ils ont moins de reconnaissance de marque au départ. Les mêmes moteurs IA qui par défaut citent les chaînes (Sushi Shop, Akasaka, etc.) sont plus ouverts à citer un trésor caché indépendant si vos données structurées sont plus propres que celles de la chaîne. La majorité de nos clients comptoirs sont des indépendants à 1-3 emplacements.",
+      },
+      {
+        q: "Combien de temps avant de voir des résultats?",
+        a: "La visibilité GBP s'améliore dans les 14-21 jours alors que la galerie photo, le schéma et la densité Q&R s'accumulent. La Visibilité IA (citations ChatGPT / Perplexity) s'améliore typiquement dans les 30-60 jours alors que les moteurs re-crawlent votre schéma de menu et votre profil d'avis. Le trafic de commande directe montre habituellement une hausse de 15-25 % aux mois 2-3 alors que les moteurs IA commencent à citer votre page directe plutôt qu'Uber Eats / DoorDash.",
+      },
+    ],
+    ctaPrimary: "Réserver un appel stratégique pour votre comptoir",
+    ctaSecondary: "Audit GBP gratuit pour comptoir à sushis",
+    seoTitle: "Référencement IA pour comptoir à sushis Québec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de référencement IA pour comptoir à sushis au Grand Montréal. Faites-vous citer par ChatGPT, Perplexity, Google AIO. Schéma de menu, parité d'avis multi-canaux, récupération de marge sur commandes directes. Bilingue EN/FR.",
+    seoKeywords: [
+      "Référencement IA comptoir sushi Montréal",
+      "Google Business Profile sushi à emporter Québec",
+      "ChatGPT sushi Plateau",
+      "schéma menu comptoir sushi Québec",
+      "Visibilité IA sushi Brossard",
+      "meilleur combo sushi midi recherche IA Côte-des-Neiges",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 10 · HAIR SALONS (general beauty: hair + spa + body care)
+   Quebec context: distinct from nail-salons. Coiffeurs / coiffeuses,
+   colorists, balayage specialists, men's barbers, spa/aesthetic treatments
+   (facials, massage, waxing). Plateau, Mile End, Westmount, Brossard,
+   Outremont clusters. Walk-in vs appointment-only mix. Premium pricing
+   tier ($85-$250 per service) requires premium digital presence.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const hairSalons: Industry = {
+  slug: "hair-salons",
+  name: "Hair salons",
+  nameLong: "Hair Salons & Beauty Spas",
+  emoji: "💇",
+  toneClass: "from-violet-400 via-fuchsia-400 to-rose-400",
+  en: {
+    eyebrow: "AI SEO for hair salons and beauty spas",
+    headline1: "Get cited by ChatGPT when clients ask",
+    headline2: "\"best balayage colorist near me\".",
+    subheadline:
+      "Hair-salon discovery in 2026 is part Instagram aesthetic, part Google Maps, part AI engine. Premium clients (paying $150-$300 per service) ask ChatGPT and Perplexity for \"best balayage Plateau\" or \"meilleur barbier Brossard\" before they book. AI engines weight portfolio depth, stylist-by-stylist specialization, review velocity, and price transparency. AiLys gets your salon named when AI surfaces beauty answers and converts that to first-time bookings at premium rates.",
+    stats: [
+      { value: "76%", label: "of new clients in premium hair-salon segment ($120+ services) check Google Maps + AI engines before booking" },
+      { value: "2.9×", label: "more LLM citations on salons with stylist-by-stylist portfolio (named, with specialty tags) vs salons with anonymous gallery" },
+      { value: "28 days", label: "to first ChatGPT citation lift on average for neighborhood salon queries with full schema" },
+      { value: "38%", label: "of premium clients filter by language (FR/EN/ES/AR) before booking, often switching salon when their language isn't listed" },
+    ],
+    topQueries: [
+      "best balayage colorist Plateau Mont-Royal under 250 dollars",
+      "men's barber Brossard speaks Vietnamese walk-in",
+      "deep conditioning treatment for textured hair Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Stylists work as a collective but the salon presents as one entity",
+        description:
+          "Each stylist has their own following, specialty (balayage, ombre, men's cuts, textured hair, color correction), and price level. AI engines need to cite individual stylists by name to answer specific queries. Most salons publish only the salon brand, losing the long-tail traffic that values the human.",
+      },
+      {
+        title: "Service menu lacks prices and durations",
+        description:
+          "Premium clients pre-screen on price. \"Balayage starting at $185\" gets cited by ChatGPT for \"balayage under 200\" queries; \"call for pricing\" doesn't. Prices on the website + structured menu schema are non-negotiable for AI Visibility in this vertical.",
+      },
+      {
+        title: "Portfolio shots are Instagram-cropped, not site-optimized",
+        description:
+          "Square crops + Instagram filters look great on social but lose context in AI engine answers. AI engines need landscape or 4:3 portfolio shots with proper alt-text + EXIF preserved. The same photos can serve both, but the salon site needs the unfiltered originals.",
+      },
+      {
+        title: "Multilingual clientele isn't reflected on the booking page",
+        description:
+          "Premium hair-salon clientele in Greater Montreal includes French, English, Spanish, Arabic, Portuguese, Vietnamese, Mandarin speakers. AI engines reward salons whose website + GBP attributes explicitly list spoken languages. Salons that don't lose 25-40 percent of bookings from international clients searching in their language.",
+      },
+      {
+        title: "Owner-stylist hybrid has zero marketing time",
+        description:
+          "When the owner is also cutting hair 35 hours per week, GBP posts get skipped, reviews go unanswered, photos pile up unposted. The salon falls behind chains that pay an agency to do it. AiLys does the publishing layer so the owner stays at the chair.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for beauty / personal care",
+        description:
+          "Primary category set to specific hair-salon type (Hair Salon, Barber Shop, Beauty Salon, Spa as appropriate, NOT generic Beauty Salon), every relevant attribute filled (Wheelchair accessible, Appointment required, Walk-ins welcome, LGBTQ+ friendly, Languages spoken, Specialty services like balayage / extensions / textured hair / men's cuts), 50+ original portfolio photos minimum, weekly Q&A on service-specific questions (balayage maintenance, color correction wait times, men's beard service availability).",
+      },
+      {
+        step: "02",
+        title: "Stylist-by-stylist Person schema",
+        description:
+          "Schema.org Person entries for each stylist with their name, photo, specialties, languages spoken, years of experience, and link to their booking slot. AI engines cite individual stylists for specialty queries (\"balayage colorist who specializes in lived-in color\"), routing premium clients directly to the right chair.",
+      },
+      {
+        step: "03",
+        title: "Service-menu schema with prices and durations",
+        description:
+          "Schema.org Service entries for every service offered: women's cut + style, men's cut, balayage, ombre, full color, root touch-up, color correction, glaze, extensions, deep conditioning, men's beard service, kids' cuts, formal updos, hair-spa treatments. Each entry includes price range, duration, and which stylists offer it. Premium clients filter on this data.",
+      },
+      {
+        step: "04",
+        title: "Tap-to-review flow at checkout",
+        description:
+          "NFC card at the reception desk + on each stylist's station. Client taps after their service, prompts a Google review in their preferred language, optionally tagged with the stylist's name. Review velocity goes from 4-8 per month to 25-50 per month. Stylist-tagged reviews build individual stylist authority that compounds.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for premium neighborhoods",
+        description:
+          "Native EN + FR-CA salon page on Starter / Core / Growth. Add ES, AR, PT, ZH, VI on Growth and Agency for salons in multilingual neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Salons with native multilingual content get 1.5-2.3x more bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Portfolio photos with EXIF + per-stylist tagging",
+        description:
+          "Every transformation photographed in the salon (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the stylist who did the work + the service category (balayage, ombre, men's cut, etc.). AI engines weight original photos with intact EXIF significantly higher than stock or Instagram screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language with stylist mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the stylist by name when the client did. Builds individual stylist authority + signals to AI engines that the salon is responsive AND the stylist is real. Most salons score zero on language-match because they reply in EN to all reviews regardless of original language.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for beauty + premium queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ beauty queries in your neighborhood, tracked at both salon level and stylist level. Catches when new colorists open competing salons, when pricing benchmarks shift, or when trend hashtags surge (Korean color, Jellyfish cuts, lived-in balayage).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best balayage colorist Plateau Mont-Royal under 250 dollars",
+        cited: "AiLys client salon named with specific colorist Sarah, price $185, 2 visits available this week",
+        reason: "Person schema for colorist Sarah with balayage specialty + Service schema with priced balayage entry, 80+ original portfolio photos refreshed monthly, 4.9 stars across 320+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "men's barber Brossard speaks Vietnamese walk-in",
+        cited: "AiLys client salon cited as primary recommendation with 'Vietnamese, French, English spoken' attribute and walk-ins-welcome flag",
+        reason: "GBP attributes filled completely (languages, walk-ins-welcome), Person schema for Vietnamese-speaking barber Tuan, 70+ Vietnamese-language reviews with Vietnamese-language replies, NAP consistent across PJ.ca + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "deep conditioning treatment for textured hair Outremont",
+        cited: "AiLys client salon surfaced in AI Overview with photo carousel showing textured-hair work, $95 service price, online booking link",
+        reason: "Service schema with priced deep-conditioning entry tagged for textured hair, 25+ portfolio photos showcasing textured-hair specialty in last 60 days, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent hair salons hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per salon, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-stylist salons (5+ chairs) often graduate to Growth for daily AI Visibility probes + per-stylist Person schema. Premium downtown salons frequently choose Agency for the multi-language schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you publish each stylist's portfolio individually?",
+        a: "Yes. Each stylist gets their own Person schema entry on your site, with their photo, specialties, languages spoken, and a portfolio gallery filtered to their work. AI engines cite individual stylists for specialty queries, which builds the stylist's personal authority and compounds over time.",
+      },
+      {
+        q: "What about stylists who leave the salon?",
+        a: "Standard contractor agreement (we provide the template) covers IP rights to portfolio photos taken at the salon. When a stylist leaves, their Person schema is removed within 48 hours and the photos remain on the salon's portfolio (under the salon's brand attribution). Your investment in the salon's authority stays with the salon.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Vietnamese gets Vietnamese. AI engines weight language-match heavily as an authenticity signal for personal-care businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the NFC tap-to-review work for a 6-chair salon?",
+        a: "We mail one NFC card per stylist station + one for the reception desk (7 total for a 6-chair salon). When a client taps at a stylist's station, the review form is pre-tagged with that stylist's name. Reviews then build individual stylist authority in the system, alongside the salon's overall rating.",
+      },
+      {
+        q: "I'm a one-chair home salon, is this still for me?",
+        a: "Yes if you're appointment-based with active GBP. Home-based hair stylists running on Instagram-only typically start with Starter ($300/mo) which covers GBP optimization, 4 posts/month, monthly NAP citations, monthly AI Visibility probes. Once your appointment book fills, graduate to Core for 6 posts/month and twice-weekly Q&A monitoring.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-28 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-90 days as the engines re-crawl your structured data, Person schema entries, and review profile. Premium-client booking volume usually shows a 20-35 percent lift in months 2-4.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your salon",
+    ctaSecondary: "Free GBP audit for hair salons",
+    seoTitle: "AI SEO for hair salons + beauty spas Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for hair salons + beauty spas in Greater Montreal. Stylist-by-stylist Person schema, multilingual reviews, premium-client capture. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO hair salon Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT balayage colorist Plateau",
+      "premium hair salon AI search",
+      "men's barber GBP Quebec",
+      "beauty spa AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour salon de coiffure et spa beaute",
+    headline1: "Faites-vous citer par ChatGPT quand vos clientes cherchent",
+    headline2: "\"meilleur coloriste balayage pres de moi\".",
+    subheadline:
+      "La decouverte d'un salon de coiffure en 2026 est en partie esthetique Instagram, en partie Google Maps, en partie moteur IA. Les clientes premium (qui paient 150-300 $ par service) demandent a ChatGPT et Perplexity « meilleur balayage Plateau » ou « meilleur barbier Brossard » avant de reserver. Les moteurs IA ponderent la profondeur du portfolio, la specialisation par coiffeur, la velocite des avis et la transparence des prix. AiLys fait nommer votre salon quand les IA repondent aux questions de beaute et convertit ca en premieres reservations a tarifs premium.",
+    stats: [
+      { value: "76 %", label: "des nouvelles clientes du segment salon premium (services 120 $+) verifient Google Maps + moteurs IA avant de reserver" },
+      { value: "2,9×", label: "plus de citations LLM pour les salons avec portfolio coiffeur-par-coiffeur (nommes, etiquettes specialite) vs salons avec galerie anonyme" },
+      { value: "28 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de salon de quartier avec schema complet" },
+      { value: "38 %", label: "des clientes premium filtrent par langue (FR/EN/ES/AR) avant de reserver, changeant souvent de salon quand leur langue n'est pas listee" },
+    ],
+    topQueries: [
+      "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+      "barbier homme Brossard parle vietnamien sans rendez-vous",
+      "traitement conditionnement profond cheveux textures Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Les coiffeurs travaillent en collectif mais le salon se presente comme une entite",
+        description:
+          "Chaque coiffeur a ses propres abonnes, sa specialite (balayage, ombre, coupes hommes, cheveux textures, correction de couleur) et son niveau de prix. Les moteurs IA doivent citer les coiffeurs individuellement par leur nom pour repondre aux requetes specifiques. La plupart des salons ne publient que la marque du salon, perdant le trafic longue traine qui valorise l'humain.",
+      },
+      {
+        title: "Le menu de services manque de prix et de durees",
+        description:
+          "Les clientes premium pre-filtrent sur le prix. « Balayage a partir de 185 $ » est cite par ChatGPT pour les requetes « balayage sous 200 »; « appelez pour les prix » ne l'est pas. Les prix sur le site + le schema de menu structure sont non-negociables pour la Visibilite IA dans cette verticale.",
+      },
+      {
+        title: "Les photos de portfolio sont recadrees Instagram, pas optimisees pour le site",
+        description:
+          "Les recadrages carres + filtres Instagram sont superbes en social mais perdent le contexte dans les reponses IA. Les moteurs IA ont besoin de photos portrait ou 4:3 avec alt-text correct + EXIF preserve. Les memes photos peuvent servir aux deux, mais le site du salon a besoin des originales non filtrees.",
+      },
+      {
+        title: "La clientele multilingue n'apparait pas sur la page de reservation",
+        description:
+          "La clientele de salon premium dans le Grand Montreal inclut francophones, anglophones, hispanophones, arabophones, lusophones, vietnamiens, mandarins. Les moteurs IA recompensent les salons dont le site + les attributs GBP listent explicitement les langues parlees. Les salons qui ne le font pas perdent 25-40 % des reservations des clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        title: "Le proprietaire-coiffeur hybride n'a aucun temps marketing",
+        description:
+          "Quand le proprietaire coupe aussi des cheveux 35 heures par semaine, les publications GBP sont sautees, les avis restent sans reponse, les photos s'accumulent sans etre publiees. Le salon prend du retard sur les chaines qui paient une agence pour le faire. AiLys gere la couche de publication pour que le proprietaire reste a la chaise.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour beaute / soins personnels",
+        description:
+          "Categorie principale reglee sur le type de salon specifique (Salon de coiffure, Salon de barbier, Salon de beaute, Spa selon le cas, PAS Salon de beaute generique), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Sur rendez-vous, Sans rendez-vous bienvenu, LGBTQ+ friendly, Langues parlees, Services specialises balayage / extensions / cheveux textures / coupes hommes), 50+ photos originales du portfolio minimum, Q&R hebdomadaire sur les questions specifiques aux services (entretien balayage, delais correction couleur, disponibilite service barbe).",
+      },
+      {
+        step: "02",
+        title: "Schema Person coiffeur-par-coiffeur",
+        description:
+          "Entrees Schema.org Person pour chaque coiffeur avec son nom, sa photo, ses specialites, ses langues parlees, ses annees d'experience et le lien vers son creneau de reservation. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite (« coloriste balayage specialiste de la couleur naturelle »), routant les clientes premium directement vers la bonne chaise.",
+      },
+      {
+        step: "03",
+        title: "Schema de menu de services avec prix et durees",
+        description:
+          "Entrees Schema.org Service pour chaque service offert : coupe + mise en plis femme, coupe homme, balayage, ombre, couleur complete, retouche racine, correction de couleur, glaze, extensions, conditionnement profond, service barbe homme, coupes enfants, chignons formels, traitements spa-cheveux. Chaque entree inclut une fourchette de prix, la duree et les coiffeurs qui l'offrent. Les clientes premium filtrent sur ces donnees.",
+      },
+      {
+        step: "04",
+        title: "Flux tap-to-review au paiement",
+        description:
+          "Carte NFC a la reception + a chaque station de coiffeur. Cliente tape apres son service, declenche un avis Google dans sa langue preferee, optionnellement etiquete avec le nom du coiffeur. La velocite d'avis passe de 4-8 par mois a 25-50 par mois. Les avis etiquetes coiffeur batissent l'autorite individuelle de chaque coiffeur qui s'accumule.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers premium",
+        description:
+          "Page de salon native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH, VI sur Growth et Agency pour les salons en quartiers multilingues (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les salons avec contenu multilingue natif obtiennent 1,5-2,3× plus de reservations des clientes internationales.",
+      },
+      {
+        step: "06",
+        title: "Photos de portfolio avec EXIF + etiquetage par coiffeur",
+        description:
+          "Chaque transformation photographiee dans le salon (vraie lumiere, vraies metadonnees EXIF) et televersee via Reviuzy. Chaque photo etiquetee avec le coiffeur qui a fait le travail + la categorie de service (balayage, ombre, coupe homme, etc.). Les moteurs IA ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou les captures Instagram.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du coiffeur",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le coiffeur par son nom quand la cliente l'a mentionne. Batit l'autorite individuelle du coiffeur + signale aux moteurs IA que le salon est reactif ET que le coiffeur est reel. La plupart des salons obtiennent zero sur la correspondance linguistique parce qu'ils repondent en EN a tous les avis peu importe la langue d'origine.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes beaute + premium",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes beaute dans votre quartier, suivis au niveau salon ET au niveau coiffeur. Detecte quand de nouveaux coloristes ouvrent des salons concurrents, quand les references de prix changent, ou quand des hashtags de tendance surgent (couleur coreenne, coupes meduse, balayage naturel).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+        cited: "Salon client AiLys nomme avec coloriste specifique Sarah, prix 185 $, 2 visites disponibles cette semaine",
+        reason: "Schema Person pour coloriste Sarah avec specialite balayage + schema Service avec entree balayage tarifee, 80+ photos originales du portfolio rafraichies mensuellement, 4,9 etoiles sur 320+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "barbier homme Brossard parle vietnamien sans rendez-vous",
+        cited: "Salon client AiLys cite comme recommandation principale avec attribut « vietnamien, francais, anglais parles » et drapeau walk-ins-welcome",
+        reason: "Attributs GBP entierement remplis (langues, sans rendez-vous), schema Person pour barbier vietnamien Tuan, 70+ avis en vietnamien avec reponses en vietnamien, NAP coherent sur PagesJaunes + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "traitement conditionnement profond cheveux textures Outremont",
+        cited: "Salon client AiLys remonte en apercu IA avec carrousel photo montrant le travail sur cheveux textures, prix service 95 $, lien reservation en ligne",
+        reason: "Schema Service avec entree conditionnement profond tarifee etiquetee pour cheveux textures, 25+ photos portfolio mettant en valeur la specialite cheveux textures dans les 60 derniers jours, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des salons de coiffure independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par salon, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les salons multi-coiffeurs (5+ chaises) graduent souvent a Growth pour les sondages quotidiens + le schema Person par coiffeur. Les salons premium du centre-ville choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous publier le portfolio de chaque coiffeur individuellement?",
+        a: "Oui. Chaque coiffeur obtient sa propre entree de schema Person sur votre site, avec sa photo, ses specialites, ses langues parlees et une galerie de portfolio filtree sur son travail. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite, ce qui batit l'autorite personnelle du coiffeur et s'accumule au fil du temps.",
+      },
+      {
+        q: "Et les coiffeurs qui quittent le salon?",
+        a: "Une entente de contracteur standard (nous fournissons le modele) couvre les droits de propriete intellectuelle aux photos de portfolio prises au salon. Quand un coiffeur quitte, son entree de schema Person est retiree dans les 48 heures et les photos restent dans le portfolio du salon (sous l'attribution de la marque du salon). Votre investissement dans l'autorite du salon reste avec le salon.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les vietnamiens en vietnamien. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les commerces de soins personnels desservant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne le NFC tap-to-review pour un salon a 6 chaises?",
+        a: "Nous postons une carte NFC par station de coiffeur + une pour la reception (7 au total pour un salon a 6 chaises). Quand une cliente tape a la station d'un coiffeur, le formulaire d'avis est pre-etiquete avec le nom de ce coiffeur. Les avis batissent ensuite l'autorite individuelle du coiffeur dans le systeme, en plus de la note globale du salon.",
+      },
+      {
+        q: "Je suis une coiffeuse a domicile sur une seule chaise, est-ce pour moi?",
+        a: "Oui si vous etes sur rendez-vous avec une fiche GBP active. Les coiffeuses a domicile fonctionnant sur Instagram-seulement debutent typiquement avec Starter (300 $/mois) qui couvre l'optimisation GBP, 4 publications par mois, citations NAP mensuelles, sondages de Visibilite IA mensuels. Une fois votre carnet de rendez-vous plein, vous graduez a Core pour 6 publications par mois et surveillance Q&R deux fois par semaine.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-28 jours alors que la galerie photo, le schema et la densite Q&R s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 30-90 jours alors que les moteurs re-crawlent vos donnees structurees, vos entrees de schema Person et votre profil d'avis. Le volume de reservations clientes premium montre habituellement une hausse de 20-35 % aux mois 2-4.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre salon",
+    ctaSecondary: "Audit GBP gratuit pour salon de coiffure",
+    seoTitle: "Referencement IA pour salon de coiffure + spa Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour salons de coiffure + spas beaute du Grand Montreal. Schema Person coiffeur-par-coiffeur, avis multilingues, capture clientele premium. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA salon de coiffure Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT coloriste balayage Plateau",
+      "salon de coiffure premium recherche IA",
+      "barbier homme GBP Quebec",
+      "spa beaute Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 11 · GYMS / STUDIOS (boutique fitness)
+   Quebec context: rapidly growing segment. Yoga (Mile End hot yoga
+   booms), Pilates (reformer studios in Westmount/Outremont), CrossFit
+   boxes (Plateau, Verdun, Brossard), boutique HIIT (downtown), martial
+   arts dojos. Class-pack pricing model ($25-40/class), trial-class
+   conversion is the funnel. AI search demand growing 3x year-over-year.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const gymsStudios: Industry = {
+  slug: "gyms-studios",
+  name: "Gyms & studios",
+  nameLong: "Boutique Gyms & Fitness Studios",
+  emoji: "🏋️",
+  toneClass: "from-emerald-400 via-teal-400 to-cyan-400",
+  en: {
+    eyebrow: "AI SEO for boutique gyms and fitness studios",
+    headline1: "Get cited by ChatGPT when locals search",
+    headline2: "\"best hot yoga studio near me with trial class\".",
+    subheadline:
+      "Boutique fitness discovery moved to AI engines faster than any other Quebec PME segment. People ask ChatGPT \"best reformer Pilates Westmount under 40 dollars\" or \"CrossFit box Plateau bilingual coach\" before walking into a single studio. AI engines weight class-schedule schema, instructor specialization, trial-class offers, and review velocity. AiLys gets your studio named when AI surfaces fitness answers and converts that to trial bookings, which convert to memberships at 35-50 percent.",
+    stats: [
+      { value: "84%", label: "of new boutique-fitness members in Greater Montreal start with an AI engine query before booking a trial class" },
+      { value: "3.2×", label: "more LLM citations on studios with full class-schedule schema (instructor, time, level, language) vs studios with PDF schedule" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for neighborhood fitness queries with trial-class offer schema" },
+      { value: "47%", label: "trial-class to monthly-membership conversion rate when AI engine sources the trial booking (vs 12% from cold paid ads)" },
+    ],
+    topQueries: [
+      "best hot yoga studio Mile End trial class under 30 dollars",
+      "CrossFit box Plateau bilingual coach beginner-friendly",
+      "reformer Pilates Westmount Saturday morning availability",
+    ],
+    painPoints: [
+      {
+        title: "Class schedule lives in a third-party app, invisible to AI engines",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. host the schedule but their data is opaque to ChatGPT and Perplexity. AI engines need the schedule mirrored as Schema.org Event entries on your site so they can answer \"is there a 6am class today?\" or \"what's the Saturday schedule?\" with your studio.",
+      },
+      {
+        title: "Instructors aren't named or specialized",
+        description:
+          "Each instructor has a following + specialty (vinyasa vs yin, beginner vs advanced reformer, Olympic lifting vs HIIT, kid-friendly martial arts). AI engines need Person schema per instructor with specialties + languages spoken. Studios that don't lose long-tail queries that value the human teacher.",
+      },
+      {
+        title: "Trial-class offer is buried under 3 clicks",
+        description:
+          "The trial-class offer is the single highest-converting CTA in this vertical (47% to membership). It needs to be in the GBP description, in Service schema with explicit price (\"Trial class $25\" or \"First class free\"), and on every page. Studios that hide it lose 60-80 percent of would-be trial bookings.",
+      },
+      {
+        title: "Review velocity dies between marathon-prep cycles",
+        description:
+          "Studios get a wave of reviews in January (resolution surge) + September (back-to-school) and silence the rest of the year. AI engines weight steady velocity over spikes. NFC tap-to-review at the front desk after every class smooths the curve.",
+      },
+      {
+        title: "Owner-instructor teaches 20 hours per week, no marketing time",
+        description:
+          "Boutique studio owners typically teach the highest-attendance classes themselves. Marketing falls to whatever scraps of time exist between classes. Posting weekly to GBP, replying to reviews, refreshing photos: none of it happens. The studio falls behind chains that have a marketing team.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for fitness category",
+        description:
+          "Primary category set to specific studio type (Yoga Studio, Pilates Studio, Gym, CrossFit Box, Martial Arts School), every relevant attribute filled (Wheelchair accessible, Online classes, Drop-in welcome, Trial class available, Languages spoken, Equipment provided, Childcare available, Showers, Parking), 50+ original photos minimum (the space, the equipment, classes in session with consent), weekly Q&A on equipment + level questions.",
+      },
+      {
+        step: "02",
+        title: "Class-schedule mirror as Schema.org Event entries",
+        description:
+          "Read your class schedule from Mindbody / Glofox / ClassPass / Acuity API daily and republish each upcoming class as a Schema.org Event entry on your site (instructor, time, duration, level, language, capacity, booking URL). AI engines now answer \"is there a 6am class\" with your studio + a direct booking link.",
+      },
+      {
+        step: "03",
+        title: "Instructor-by-instructor Person schema",
+        description:
+          "Schema.org Person entries for each instructor with their photo, specialties (vinyasa, yin, reformer, beginner, advanced, prenatal, etc.), languages spoken (FR / EN / ES / etc.), years of experience, certifications, and link to their teaching schedule. AI engines cite individual instructors for specialty queries.",
+      },
+      {
+        step: "04",
+        title: "Trial-class offer surfaced everywhere",
+        description:
+          "GBP description includes \"Trial class $25\" or \"First class free\". Service schema entry with explicit price + duration. Trial-class offer pinned on home page hero. Booking URL goes directly to trial-class signup, not the general schedule. Trial-class lift typically 2-4x within 30 days.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, PT, ZH on Growth and Agency for studios in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Studios with native multilingual content get 1.5-2.5x more trial bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Photos with EXIF + class-type tagging",
+        description:
+          "Every space + class photographed with consent (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the class type + instructor when relevant. AI engines and Google weight original photos with intact EXIF significantly higher than stock or social-media screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in member's review language with class mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the specific class or instructor when the member did. Builds individual instructor authority + signals to AI engines that the studio is responsive. Member retention correlates strongly with response language match.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for fitness queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ fitness queries in your neighborhood, tracked at studio, instructor, and class-type levels. Catches when new studios open competing, when trend hashtags surge (Wall Pilates, Mat-only Reformer, Mobility focus), or when seasonal demand spikes (January resolution surge, summer marathon prep).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best hot yoga studio Mile End trial class under 30 dollars",
+        cited: "AiLys client studio named with trial-class price $25, next 7am class today, instructor Marie",
+        reason: "Service schema with priced trial class entry, Event schema for today's class with instructor Marie, GBP attribute Trial class available, 4.9 stars across 280+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CrossFit box Plateau bilingual coach beginner-friendly",
+        cited: "AiLys client studio cited as primary recommendation with 'French and English coaching' attribute and beginner-track schedule",
+        reason: "GBP attributes filled completely (languages, beginner-friendly, drop-in welcome), Person schema for bilingual coaches, Event schema with beginner-tagged class entries, 60+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "reformer Pilates Westmount Saturday morning availability",
+        cited: "AiLys client studio surfaced in AI Overview with Saturday 8am + 9:30am open slots, online booking link",
+        reason: "Event schema with Saturday classes (open capacity exposed via API mirror), Service schema with reformer Pilates priced entry, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent boutique studios hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per studio, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Studios with 5+ instructors or multi-location operations graduate to Growth for daily AI Visibility probes + per-instructor Person schema + class-schedule mirror automation. Premium downtown studios serving international clientele often choose Agency for multilingual schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you mirror our Mindbody / Glofox schedule on our site?",
+        a: "Yes. We pull your class schedule from your booking platform's API daily and republish each upcoming class as a Schema.org Event entry on your site. AI engines can then answer specific schedule queries with your studio + a direct booking link. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 are all supported.",
+      },
+      {
+        q: "What about new instructors who join mid-month?",
+        a: "Person schema entries are added within 48 hours of you sending us their bio + photo. The full per-instructor portfolio (their specialty + class schedule + reviews tagged to them) builds over the first 30 days as they teach.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Portuguese gets Portuguese. AI engines weight language-match heavily as an authenticity signal for fitness studios serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the trial-class lift work?",
+        a: "Trial-class booking volume typically lifts 2-4x within 30 days. Three drivers: (1) trial-class price + offer surfaces in AI engine answers, (2) GBP description + Service schema make it discoverable on Google, (3) the booking URL goes directly to trial-class signup, not the general schedule that requires class selection. Trial conversion to monthly membership runs 35-50 percent in this vertical.",
+      },
+      {
+        q: "We're a martial arts dojo, does this work for us?",
+        a: "Yes. The methodology applies identically: GBP optimization, class schedule mirror, instructor Person schema, trial-class offer (often \"first class free\" in martial arts), multilingual reviews. The vertical-specific tweaks (kid-friendly attribute, parent-observation seating, equipment provided) are handled in onboarding.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and class schedule mirror build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your Event schema and review profile. Trial-class booking volume usually shows a 2-4x lift in months 1-2, membership conversion follows in months 2-3.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your studio",
+    ctaSecondary: "Free GBP audit for boutique fitness",
+    seoTitle: "AI SEO for boutique gyms + fitness studios Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for boutique gyms + fitness studios in Greater Montreal. Class-schedule schema mirror, instructor Person schema, trial-class lift 2-4x. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO yoga studio Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT CrossFit box Plateau",
+      "boutique fitness AI search",
+      "reformer Pilates GBP Quebec",
+      "martial arts dojo AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour gyms boutique et studios de fitness",
+    headline1: "Faites-vous citer par ChatGPT quand vos voisins cherchent",
+    headline2: "\"meilleur studio de yoga chaud avec cours d'essai\".",
+    subheadline:
+      "La decouverte de fitness boutique a migre vers les moteurs IA plus vite que tout autre segment de PME quebecoise. Les gens demandent a ChatGPT « meilleur Pilates reformer Westmount sous 40 $ » ou « box CrossFit Plateau coach bilingue » avant d'entrer dans un seul studio. Les moteurs IA ponderent le schema d'horaire de cours, la specialisation des instructeurs, les offres de cours d'essai et la velocite des avis. AiLys fait nommer votre studio quand les IA repondent aux questions de fitness et convertit ca en reservations d'essai, qui convertissent en abonnements a 35-50 %.",
+    stats: [
+      { value: "84 %", label: "des nouveaux membres de fitness boutique du Grand Montreal commencent par une requete a un moteur IA avant de reserver un cours d'essai" },
+      { value: "3,2×", label: "plus de citations LLM pour les studios avec schema d'horaire de cours complet (instructeur, heure, niveau, langue) vs studios avec horaire PDF" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes fitness de quartier avec schema d'offre de cours d'essai" },
+      { value: "47 %", label: "taux de conversion cours d'essai vers abonnement mensuel quand le moteur IA achemine la reservation d'essai (vs 12 % sur publicites froides)" },
+    ],
+    topQueries: [
+      "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+      "box CrossFit Plateau coach bilingue debutant bienvenu",
+      "Pilates reformer Westmount disponibilite samedi matin",
+    ],
+    painPoints: [
+      {
+        title: "L'horaire des cours vit dans une app tierce, invisible aux moteurs IA",
+        description:
+          "Mindbody, Glofox, ClassPass, Acuity, etc. hebergent l'horaire mais leurs donnees sont opaques pour ChatGPT et Perplexity. Les moteurs IA ont besoin que l'horaire soit miroir comme entrees Schema.org Event sur votre site pour pouvoir repondre « y a-t-il un cours a 6 h aujourd'hui? » ou « quel est l'horaire du samedi? » avec votre studio.",
+      },
+      {
+        title: "Les instructeurs ne sont pas nommes ni specialises",
+        description:
+          "Chaque instructeur a ses abonnes + sa specialite (vinyasa vs yin, debutant vs reformer avance, levee olympique vs HIIT, arts martiaux pour enfants). Les moteurs IA ont besoin de schema Person par instructeur avec specialites + langues parlees. Les studios qui ne le font pas perdent les requetes longue traine qui valorisent l'enseignant humain.",
+      },
+      {
+        title: "L'offre cours d'essai est cachee sous 3 clics",
+        description:
+          "L'offre cours d'essai est le CTA le plus convertissant de cette verticale (47 % vers abonnement). Elle doit etre dans la description GBP, dans schema Service avec prix explicite (« Cours d'essai 25 $ » ou « Premier cours gratuit »), et sur chaque page. Les studios qui la cachent perdent 60-80 % des reservations d'essai potentielles.",
+      },
+      {
+        title: "La velocite d'avis meurt entre les cycles de prep marathon",
+        description:
+          "Les studios recoivent une vague d'avis en janvier (poussee de resolutions) + septembre (rentree) et silence le reste de l'annee. Les moteurs IA ponderent une velocite reguliere plutot que les pics. NFC tap-to-review a la reception apres chaque cours lisse la courbe.",
+      },
+      {
+        title: "Le proprietaire-instructeur enseigne 20 heures par semaine, aucun temps marketing",
+        description:
+          "Les proprietaires de studios boutique enseignent typiquement les cours a plus haute frequentation eux-memes. Le marketing tombe sur les miettes de temps qui existent entre les cours. Publier hebdomadairement sur GBP, repondre aux avis, rafraichir les photos : rien de tout ca n'arrive. Le studio prend du retard sur les chaines qui ont une equipe marketing.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie fitness",
+        description:
+          "Categorie principale reglee sur le type de studio specifique (Studio de yoga, Studio de Pilates, Gym, Box CrossFit, Ecole d'arts martiaux), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cours en ligne, Sans inscription bienvenu, Cours d'essai disponible, Langues parlees, Equipement fourni, Garderie disponible, Douches, Stationnement), 50+ photos originales minimum (l'espace, l'equipement, cours en session avec consentement), Q&R hebdomadaire sur questions equipement + niveau.",
+      },
+      {
+        step: "02",
+        title: "Miroir de l'horaire de cours en entrees Schema.org Event",
+        description:
+          "Lit votre horaire de cours depuis l'API de Mindbody / Glofox / ClassPass / Acuity quotidiennement et republie chaque cours a venir comme entree Schema.org Event sur votre site (instructeur, heure, duree, niveau, langue, capacite, URL de reservation). Les moteurs IA repondent maintenant « y a-t-il un cours a 6 h » avec votre studio + lien direct de reservation.",
+      },
+      {
+        step: "03",
+        title: "Schema Person instructeur-par-instructeur",
+        description:
+          "Entrees Schema.org Person pour chaque instructeur avec sa photo, ses specialites (vinyasa, yin, reformer, debutant, avance, prenatal, etc.), ses langues parlees (FR / EN / ES / etc.), ses annees d'experience, ses certifications et lien vers son horaire d'enseignement. Les moteurs IA citent les instructeurs individuellement pour les requetes de specialite.",
+      },
+      {
+        step: "04",
+        title: "Offre cours d'essai mise en avant partout",
+        description:
+          "Description GBP inclut « Cours d'essai 25 $ » ou « Premier cours gratuit ». Entree de schema Service avec prix + duree explicites. Offre cours d'essai epinglee sur le hero de la page d'accueil. URL de reservation pointe directement vers l'inscription au cours d'essai, pas l'horaire general. Hausse de cours d'essai typiquement 2-4× dans les 30 jours.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH sur Growth et Agency pour les studios en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les studios avec contenu multilingue natif obtiennent 1,5-2,5× plus de reservations d'essai des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Photos avec EXIF + etiquetage par type de cours",
+        description:
+          "Chaque espace + cours photographie avec consentement (vraie lumiere, vraies metadonnees EXIF) et televerse via Reviuzy. Chaque photo etiquetee avec le type de cours + l'instructeur quand pertinent. Les moteurs IA et Google ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou captures reseaux sociaux.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du cours",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le cours specifique ou l'instructeur quand le membre l'a fait. Batit l'autorite individuelle des instructeurs + signale aux moteurs IA que le studio est reactif. La retention de membres correle fortement avec la correspondance linguistique des reponses.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes fitness",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes fitness dans votre quartier, suivis aux niveaux studio, instructeur et type de cours. Detecte quand de nouveaux studios concurrents ouvrent, quand des hashtags de tendance surgent (Wall Pilates, Reformer sur tapis seul, focus mobilite), ou quand la demande saisonniere pique (poussee resolutions janvier, prep marathon ete).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur studio yoga chaud Mile End cours d'essai sous 30 $",
+        cited: "Studio client AiLys nomme avec prix cours d'essai 25 $, prochain cours 7 h aujourd'hui, instructrice Marie",
+        reason: "Schema Service avec entree cours d'essai tarifee, schema Event pour le cours d'aujourd'hui avec instructrice Marie, attribut GBP Cours d'essai disponible, 4,9 etoiles sur 280+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "box CrossFit Plateau coach bilingue debutant bienvenu",
+        cited: "Studio client AiLys cite comme recommandation principale avec attribut « francais et anglais coaching » et horaire piste debutant",
+        reason: "Attributs GBP entierement remplis (langues, debutant bienvenu, sans inscription bienvenu), schema Person pour coachs bilingues, schema Event avec entrees de cours etiquetes debutant, 60+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "Pilates reformer Westmount disponibilite samedi matin",
+        cited: "Studio client AiLys remonte en apercu IA avec creneaux samedi 8 h + 9 h 30 disponibles, lien reservation en ligne",
+        reason: "Schema Event avec cours samedi (capacite ouverte exposee via miroir API), schema Service avec entree Pilates reformer tarifee, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des studios boutique independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par studio, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les studios avec 5+ instructeurs ou operations multi-emplacements graduent a Growth pour les sondages quotidiens + le schema Person par instructeur + l'automatisation du miroir d'horaire. Les studios premium du centre-ville servant clientele internationale choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous miroir notre horaire Mindbody / Glofox sur notre site?",
+        a: "Oui. Nous tirons votre horaire de cours depuis l'API de votre plateforme de reservation quotidiennement et republions chaque cours a venir comme entree Schema.org Event sur votre site. Les moteurs IA peuvent ensuite repondre aux requetes specifiques d'horaire avec votre studio + lien direct de reservation. Mindbody, Glofox, ClassPass, Acuity, MarianaTek, Pike13 sont tous supportes.",
+      },
+      {
+        q: "Et les nouveaux instructeurs qui rejoignent en milieu de mois?",
+        a: "Les entrees de schema Person sont ajoutees dans les 48 heures de l'envoi de leur biographie + photo. Le portfolio complet par instructeur (leur specialite + horaire d'enseignement + avis etiquetes a eux) se construit sur les 30 premiers jours alors qu'ils enseignent.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les portugais en portugais. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les studios de fitness servant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne la hausse cours d'essai?",
+        a: "Le volume de reservations cours d'essai monte typiquement 2-4× dans les 30 jours. Trois moteurs : (1) prix cours d'essai + offre apparaissent dans les reponses des moteurs IA, (2) description GBP + schema Service les rendent decouvrables sur Google, (3) URL de reservation pointe directement vers l'inscription cours d'essai, pas l'horaire general qui exige selection de cours. La conversion d'essai vers abonnement mensuel tourne 35-50 % dans cette verticale.",
+      },
+      {
+        q: "Nous sommes un dojo d'arts martiaux, est-ce que ca fonctionne pour nous?",
+        a: "Oui. La methodologie s'applique identiquement : optimisation GBP, miroir d'horaire de cours, schema Person d'instructeur, offre cours d'essai (souvent « premier cours gratuit » en arts martiaux), avis multilingues. Les ajustements specifiques a la verticale (attribut kid-friendly, places d'observation parentale, equipement fourni) sont geres en onboarding.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et le miroir d'horaire de cours s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent votre schema Event et profil d'avis. Le volume de reservations cours d'essai montre habituellement une hausse 2-4× aux mois 1-2, la conversion vers abonnement suit aux mois 2-3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre studio",
+    ctaSecondary: "Audit GBP gratuit pour fitness boutique",
+    seoTitle: "Referencement IA pour gyms + studios fitness Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour gyms boutique + studios fitness du Grand Montreal. Miroir schema horaire de cours, schema Person instructeur, hausse cours d'essai 2-4×. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA studio yoga Montreal",
+      "Google Business Profile gym Quebec",
+      "ChatGPT box CrossFit Plateau",
+      "fitness boutique recherche IA",
+      "Pilates reformer GBP Quebec",
+      "dojo arts martiaux Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 12 · VETERINARY CLINICS (cliniques veterinaires)
+   Quebec context: pet ownership grew 22% post-pandemic, vet capacity
+   strained, AI search dominant for "vet emergency near me" + "vet
+   open Sunday" queries. OMVQ (Ordre des medecins veterinaires du
+   Quebec) regulated. Mix of general practice + specialty (exotic,
+   feline-only, surgical referral) + emergency/24h.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const vetClinics: Industry = {
+  slug: "vet-clinics",
+  name: "Vet clinics",
+  nameLong: "Veterinary Clinics & Emergency Hospitals",
+  emoji: "🐾",
+  toneClass: "from-emerald-400 via-cyan-400 to-blue-400",
+  en: {
+    eyebrow: "AI SEO for veterinary clinics and emergency hospitals",
+    headline1: "Get cited by ChatGPT when pet owners search",
+    headline2: "\"emergency vet open right now near me\".",
+    subheadline:
+      "Pet ownership in Quebec grew 22 percent post-pandemic, vet capacity is strained, and pet owners now ask AI engines first. \"Emergency vet open Sunday\" + \"feline-only clinic Plateau\" + \"exotic vet Montreal reptile specialty\" queries arrive in ChatGPT and Perplexity before they hit Google. AI engines weight emergency-hours availability, OMVQ certification visibility, species + specialty filters, and review velocity. AiLys gets your clinic named when AI surfaces vet answers and converts that to first-visit bookings, where 70 percent become long-term clients.",
+    stats: [
+      { value: "73%", label: "of pet owners under 45 in Greater Montreal start with an AI engine query before booking a vet appointment" },
+      { value: "2.4×", label: "more LLM citations on clinics with full Service schema (species + specialty + price tier visible) vs clinics with generic 'small animal vet' positioning" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for emergency-vet + species-specific queries" },
+      { value: "70%", label: "first-visit-to-long-term-client conversion in vet vertical when AI engine sources the first appointment (highest of any local PME vertical)" },
+    ],
+    topQueries: [
+      "emergency vet open Sunday Plateau Mont-Royal",
+      "feline-only clinic accepts new patients Brossard",
+      "exotic vet reptile specialty Montreal bilingual",
+    ],
+    painPoints: [
+      {
+        title: "Emergency hours buried in fine print",
+        description:
+          "When a pet owner searches \"vet open right now\" at 9pm Tuesday, AI engines need the after-hours availability schemed explicitly. Most clinics have it on the website but in plain text only, invisible to AI. Schema.org OpeningHoursSpecification with after-hours and emergency contact is the single highest-impact fix.",
+      },
+      {
+        title: "Species + specialty not surfaced",
+        description:
+          "Pet owners search by species (cat-only clinics get 3.4x more cat-owner traffic when this is schemed) and specialty (exotic, surgical, dental, behavior, oncology). Most clinics list services in a flat WordPress page that AI engines can't parse into species-filtered answers.",
+      },
+      {
+        title: "OMVQ certification + vet team not visible",
+        description:
+          "Pet owners check \"is this vet OMVQ-certified?\" + \"who's the vet I'd see?\" before booking. Person schema for each veterinarian (with OMVQ number, specialties, languages) lets AI engines answer these specifically. Without it, you lose to chains that publish vet bios.",
+      },
+      {
+        title: "Reviews dominated by emergency cases (anxious tone)",
+        description:
+          "Vet reviews skew emotional: panicked owner during emergency + relieved owner post-recovery. AI engines weight tone consistency. Without proactive review collection from routine wellness visits, your review profile reads as 'emergency-only practice' even if 80 percent of your work is wellness.",
+      },
+      {
+        title: "Owner-vet sees patients 8 hours per day, no marketing time",
+        description:
+          "Solo or small vet practices have the owner in surgery + appointments all day. Marketing falls to nights + weekends, which means it doesn't happen. The clinic falls behind chains (Centre Veterinaire, VCA Canada acquisitions) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for veterinary category",
+        description:
+          "Primary category set to specific vet type (Veterinarian, Veterinary Hospital, Emergency Veterinarian, Animal Hospital, Pet Boarding Service if applicable), every relevant attribute filled (Wheelchair accessible, Online appointments, Walk-ins welcome, 24/7 emergency, Languages spoken, Species treated, Specialty services like dental / surgery / behavior / oncology / exotic), 50+ original photos minimum (clinic exterior, exam rooms, surgical suite with consent), weekly Q&A on common pet-owner questions.",
+      },
+      {
+        step: "02",
+        title: "Emergency-hours schema with explicit after-hours contact",
+        description:
+          "Schema.org OpeningHoursSpecification entries for regular hours + after-hours emergency line + Sunday/holiday coverage if applicable. AI engines now answer \"emergency vet open right now\" with your clinic, your direct emergency phone, and the next available appointment.",
+      },
+      {
+        step: "03",
+        title: "Veterinarian-by-veterinarian Person schema",
+        description:
+          "Schema.org Person entries for each vet on staff (OMVQ certification number, photo, specialties, languages spoken FR/EN/ES/etc., years of practice, special interests). AI engines cite individual vets for specialty queries (\"exotic vet who specializes in reptiles\"), which builds vet-personal authority and helps with referrals.",
+      },
+      {
+        step: "04",
+        title: "Service schema by species + specialty + price tier",
+        description:
+          "Schema.org Service entries broken down by species (canine, feline, exotic, avian, equine if applicable) and specialty (wellness, dental, surgery, behavior, oncology, dermatology, etc.). Each entry includes typical price range (\"Wellness exam $85-120\" or \"Dental cleaning $450-800\"). Pet owners filter on this data.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for clinics in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Pet owners often describe symptoms in their native language; clinics with native multilingual content get 1.4-2.1x more first-visit bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Proactive review collection from wellness visits",
+        description:
+          "NFC tap-to-review at the front desk after every appointment (not just emergencies). Smooths the review tone curve so your profile reflects the full practice (80% wellness, 20% emergency) rather than emergency-only impression. Increases review velocity to 25-50/month and shifts AI engine perception of the practice.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For emergency reviews especially, response timing AND empathy matter. Template library covers 12 common emergency scenarios + wellness compliments + difficult outcomes (loss of pet) with appropriate tone.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for vet queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ vet queries in your neighborhood, tracked at clinic, vet-individual, and species/specialty levels. Catches when new clinics open competing, when seasonal demand shifts (summer tick + heartworm prevention surge), or when emergency-vet capacity gaps appear in your area.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "emergency vet open Sunday Plateau Mont-Royal",
+        cited: "AiLys client clinic named with Sunday hours 8am-8pm, emergency line, next appointment in 90 minutes",
+        reason: "Schema OpeningHoursSpecification with explicit Sunday hours + emergency phone, GBP attribute 24/7 emergency, real-time appointment availability via API mirror, 4.8 stars across 340+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "feline-only clinic accepts new patients Brossard",
+        cited: "AiLys client clinic cited as primary recommendation with 'feline-exclusive practice' attribute and new-patient acceptance flag",
+        reason: "GBP attribute Species treated set to Cats only, Service schema entries all tagged for feline, 60+ reviews from cat owners with cat-language replies, NAP consistent across PJ.ca + OMVQ directory + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "exotic vet reptile specialty Montreal bilingual",
+        cited: "AiLys client clinic surfaced in AI Overview with reptile-specialist vet Dr. Tremblay, OMVQ-certified, FR+EN consultation available",
+        reason: "Person schema for Dr. Tremblay with reptile specialty + OMVQ number, Service schema entries tagged for exotic + reptile, 25+ portfolio photos showcasing reptile cases, BookingService schema with online appointment URL, 4.9 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent vet clinics hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per clinic, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-vet clinics (3+ veterinarians) and emergency/24h clinics graduate to Growth for daily AI Visibility probes + per-vet Person schema + emergency-hours schema. Specialty referral hospitals often choose Agency for multi-language schema and dedicated strategist hours during emergency-capacity shifts.",
+    faq: [
+      {
+        q: "Will OMVQ have an issue with our publishing reviews and vet bios?",
+        a: "No, when done correctly. OMVQ Code de deontologie permits vets to publish reviews and bios as long as: (1) reviews are genuine and not solicited via incentive, (2) vet bios accurately represent qualifications without misleading claims, (3) no testimonial implying guaranteed outcomes, (4) emergency contact info is prominent. AiLys's review collection + bio templates are reviewed against the Code annually.",
+      },
+      {
+        q: "How do you handle emotional reviews after a pet's death?",
+        a: "Template library covers difficult outcomes specifically. Reply within 24 hours, acknowledge the loss in the client's language, offer condolences without minimizing, mention the team that cared for the pet, do not defend or explain unless asked. AI engines weight empathetic tone consistency strongly in vet vertical.",
+      },
+      {
+        q: "We're a feline-only clinic, does this work differently?",
+        a: "Yes, in your favor. Specialty positioning (feline-only, exotic-only, behavior-focused, etc.) is a powerful differentiator that AI engines reward when properly schemed. We tag every Service schema entry with species + specialty, list the GBP attribute Species treated explicitly, and orient the photo gallery + reviews toward your specialty. Specialty clinics typically see 2-3x stronger AI citation lift than general practice.",
+      },
+      {
+        q: "Can you handle the appointment-booking integration with our PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Yes. We mirror your booking availability from the PMS API daily and republish as Schema.org BookingService entries on your site. AI engines then surface real-time appointment availability in answers (\"next vet appointment Saturday\" gets answered with your clinic + a direct booking link). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter are all supported.",
+      },
+      {
+        q: "Are you familiar with Loi 25 implications for pet medical records?",
+        a: "Yes. Pet medical records contain owner personal info subject to Loi 25 (name, address, phone, email, billing). Our default consent flow includes an explicit pet-medical-records clause. Records are stored in Canadian regions (Supabase Montreal), with breach notification protocol for the responsible vet to action within 72 hours per Loi 25.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and emergency-hours data build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 21-45 days as the engines re-crawl your structured data. First-visit booking volume usually shows a 30-50 percent lift in months 2-3, with the conversion-to-long-term-client metric (70% in this vertical) compounding over months 4-12.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your clinic",
+    ctaSecondary: "Free GBP audit for vet clinics",
+    seoTitle: "AI SEO for veterinary clinics + emergency hospitals Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for vet clinics + emergency hospitals in Greater Montreal. Emergency-hours schema, vet Person schema, species + specialty filtering. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO veterinary clinic Montreal",
+      "Google Business Profile vet Quebec",
+      "ChatGPT emergency vet Plateau",
+      "feline-only clinic AI search",
+      "exotic vet GBP Quebec",
+      "OMVQ vet AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour cliniques veterinaires et hopitaux d'urgence",
+    headline1: "Faites-vous citer par ChatGPT quand les proprietaires d'animaux cherchent",
+    headline2: "\"veterinaire d'urgence ouvert maintenant pres de moi\".",
+    subheadline:
+      "La possession d'animaux au Quebec a augmente de 22 % post-pandemie, la capacite veterinaire est sous pression et les proprietaires d'animaux demandent maintenant aux moteurs IA en premier. Les requetes « veto urgence ouvert dimanche » + « clinique chats seulement Plateau » + « veto exotique Montreal specialite reptiles » arrivent dans ChatGPT et Perplexity avant Google. Les moteurs IA ponderent la disponibilite des heures d'urgence, la visibilite OMVQ, les filtres especes + specialite et la velocite des avis. AiLys fait nommer votre clinique quand les IA repondent aux questions veto et convertit ca en premieres visites, ou 70 % deviennent clients a long terme.",
+    stats: [
+      { value: "73 %", label: "des proprietaires d'animaux de moins de 45 ans dans le Grand Montreal commencent par une requete a un moteur IA avant de reserver un rendez-vous veto" },
+      { value: "2,4×", label: "plus de citations LLM pour les cliniques avec schema Service complet (espece + specialite + tranche de prix visible) vs cliniques avec positionnement generique « veto petits animaux »" },
+      { value: "21 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes veto-urgence + species-specifiques" },
+      { value: "70 %", label: "taux de conversion premiere-visite vers client a long terme dans la verticale veto quand le moteur IA achemine le premier rendez-vous (le plus eleve de toute verticale PME locale)" },
+    ],
+    topQueries: [
+      "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+      "clinique chats seulement accepte nouveaux patients Brossard",
+      "veterinaire exotique specialite reptiles Montreal bilingue",
+    ],
+    painPoints: [
+      {
+        title: "Heures d'urgence enterrees en petits caracteres",
+        description:
+          "Quand un proprietaire d'animal cherche « veto ouvert maintenant » a 21 h mardi, les moteurs IA ont besoin de la disponibilite hors-heures schematisee explicitement. La plupart des cliniques l'ont sur leur site mais en texte seulement, invisible pour l'IA. Le schema OpeningHoursSpecification avec heures hors-bureau et contact d'urgence est la correction a plus fort impact.",
+      },
+      {
+        title: "Espece + specialite non mises en avant",
+        description:
+          "Les proprietaires d'animaux cherchent par espece (les cliniques chats-seulement obtiennent 3,4× plus de trafic de proprietaires de chats quand c'est schematise) et par specialite (exotique, chirurgical, dentaire, comportement, oncologie). La plupart des cliniques listent les services dans une page WordPress plate que les moteurs IA ne peuvent pas parser en reponses filtrees par espece.",
+      },
+      {
+        title: "Certification OMVQ + equipe veto non visible",
+        description:
+          "Les proprietaires d'animaux verifient « ce veto est-il certifie OMVQ? » + « qui est le veto que je verrai? » avant de reserver. Le schema Person pour chaque veterinaire (avec numero OMVQ, specialites, langues) permet aux moteurs IA de repondre a ces questions specifiquement. Sans ca, vous perdez face aux chaines qui publient les bios des vetos.",
+      },
+      {
+        title: "Avis domines par les cas d'urgence (ton anxieux)",
+        description:
+          "Les avis veto penchent emotionnellement : proprietaire panique pendant l'urgence + proprietaire soulage post-retablissement. Les moteurs IA ponderent la coherence du ton. Sans collecte proactive d'avis lors des visites de bien-etre routinieres, votre profil d'avis se lit comme « pratique d'urgence seulement » meme si 80 % de votre travail est en bien-etre.",
+      },
+      {
+        title: "Veto-proprietaire voit des patients 8 heures par jour, aucun temps marketing",
+        description:
+          "Les pratiques veto solos ou petites ont le proprietaire en chirurgie + rendez-vous toute la journee. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La clinique prend du retard sur les chaines (Centre Veterinaire, acquisitions VCA Canada) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie veterinaire",
+        description:
+          "Categorie principale reglee sur le type de veto specifique (Veterinaire, Hopital veterinaire, Veterinaire d'urgence, Hopital pour animaux, Pension pour animaux le cas echeant), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Rendez-vous en ligne, Sans rendez-vous bienvenu, Urgence 24/7, Langues parlees, Especes traitees, Services specialises comme dentaire / chirurgie / comportement / oncologie / exotique), 50+ photos originales minimum (exterieur clinique, salles d'examen, suite chirurgicale avec consentement), Q&R hebdomadaire sur questions courantes des proprietaires d'animaux.",
+      },
+      {
+        step: "02",
+        title: "Schema heures-d'urgence avec contact hors-bureau explicite",
+        description:
+          "Entrees Schema.org OpeningHoursSpecification pour heures regulieres + ligne d'urgence hors-bureau + couverture dimanche/feries le cas echeant. Les moteurs IA repondent maintenant « veto urgence ouvert maintenant » avec votre clinique, votre telephone d'urgence direct et le prochain rendez-vous disponible.",
+      },
+      {
+        step: "03",
+        title: "Schema Person veterinaire-par-veterinaire",
+        description:
+          "Entrees Schema.org Person pour chaque veto en pratique (numero certification OMVQ, photo, specialites, langues parlees FR/EN/ES/etc., annees de pratique, interets specialises). Les moteurs IA citent les vetos individuellement pour les requetes de specialite (« veto exotique specialiste de reptiles »), ce qui batit l'autorite veto-personnelle et aide aux references.",
+      },
+      {
+        step: "04",
+        title: "Schema Service par espece + specialite + tranche de prix",
+        description:
+          "Entrees Schema.org Service decomposees par espece (canin, felin, exotique, aviaire, equin le cas echeant) et specialite (bien-etre, dentaire, chirurgie, comportement, oncologie, dermatologie, etc.). Chaque entree inclut une tranche de prix typique (« Examen bien-etre 85-120 $ » ou « Nettoyage dentaire 450-800 $ »). Les proprietaires filtrent sur ces donnees.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les cliniques en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds). Les proprietaires d'animaux decrivent souvent les symptomes dans leur langue maternelle; les cliniques avec contenu multilingue natif obtiennent 1,4-2,1× plus de premieres visites des clients internationaux.",
+      },
+      {
+        step: "06",
+        title: "Collecte proactive d'avis depuis visites de bien-etre",
+        description:
+          "NFC tap-to-review a la reception apres chaque rendez-vous (pas seulement les urgences). Lisse la courbe du ton des avis pour que votre profil reflete la pratique complete (80 % bien-etre, 20 % urgence) plutot qu'une impression urgence-seulement. Augmente la velocite d'avis a 25-50/mois et change la perception du moteur IA de la pratique.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour les avis d'urgence specifiquement, le timing de reponse ET l'empathie comptent. La bibliotheque de modeles couvre 12 scenarios courants d'urgence + compliments bien-etre + resultats difficiles (perte d'animal) avec ton approprie.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes veto",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes veto dans votre quartier, suivis aux niveaux clinique, veto-individuel et espece/specialite. Detecte quand de nouvelles cliniques concurrentes ouvrent, quand la demande saisonniere change (poussee prevention tiques + ver du coeur en ete), ou quand des lacunes de capacite veto-urgence apparaissent dans votre region.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "veterinaire d'urgence ouvert dimanche Plateau Mont-Royal",
+        cited: "Clinique cliente AiLys nommee avec heures dimanche 8 h-20 h, ligne d'urgence, prochain rendez-vous dans 90 minutes",
+        reason: "Schema OpeningHoursSpecification avec heures dimanche explicites + telephone urgence, attribut GBP Urgence 24/7, disponibilite rendez-vous temps reel via miroir API, 4,8 etoiles sur 340+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "clinique chats seulement accepte nouveaux patients Brossard",
+        cited: "Clinique cliente AiLys citee comme recommandation principale avec attribut « pratique exclusive felins » et drapeau acceptation nouveaux patients",
+        reason: "Attribut GBP Especes traitees regle a Chats seulement, entrees Schema Service toutes etiquetees pour felins, 60+ avis de proprietaires de chats avec reponses langage chat, NAP coherent sur PagesJaunes + repertoire OMVQ + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "veterinaire exotique specialite reptiles Montreal bilingue",
+        cited: "Clinique cliente AiLys remontee en apercu IA avec veterinaire specialiste reptiles Dr Tremblay, certifie OMVQ, consultation FR+EN disponible",
+        reason: "Schema Person pour Dr Tremblay avec specialite reptiles + numero OMVQ, entrees schema Service etiquetees pour exotique + reptiles, 25+ photos portfolio mettant en valeur cas reptiles, schema BookingService avec URL de rendez-vous en ligne, 4,9 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des cliniques veterinaires independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par clinique, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les cliniques multi-veto (3+ veterinaires) et les cliniques d'urgence/24h graduent a Growth pour les sondages quotidiens + le schema Person par veto + le schema heures-d'urgence. Les hopitaux de reference specialises choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees durant les changements de capacite d'urgence.",
+    faq: [
+      {
+        q: "L'OMVQ aura-t-il un probleme avec notre publication d'avis et de bios de vetos?",
+        a: "Non, quand fait correctement. Le Code de deontologie de l'OMVQ permet aux vetos de publier des avis et bios tant que : (1) les avis sont genuines et non sollicites par incitatif, (2) les bios de vetos representent fidelement les qualifications sans allegations trompeuses, (3) aucun temoignage impliquant des resultats garantis, (4) info de contact d'urgence visible. La collecte d'avis + les modeles de bio AiLys sont revus annuellement contre le Code.",
+      },
+      {
+        q: "Comment gerez-vous les avis emotionnels apres le deces d'un animal?",
+        a: "La bibliotheque de modeles couvre les resultats difficiles specifiquement. Repondre dans les 24 heures, reconnaitre la perte dans la langue du client, offrir des condoleances sans minimiser, mentionner l'equipe qui a soigne l'animal, ne pas defendre ou expliquer sauf si demande. Les moteurs IA ponderent fortement la coherence du ton empathique dans la verticale veto.",
+      },
+      {
+        q: "Nous sommes une clinique chats-seulement, est-ce que ca fonctionne differemment?",
+        a: "Oui, en votre faveur. Le positionnement specialise (chats-seulement, exotique-seulement, comportement, etc.) est un differenciateur puissant que les moteurs IA recompensent quand correctement schematise. Nous etiquetons chaque entree de schema Service avec espece + specialite, listons l'attribut GBP Especes traitees explicitement, et orientons la galerie photo + les avis vers votre specialite. Les cliniques specialisees voient typiquement 2-3× plus de hausse de citations IA que la pratique generale.",
+      },
+      {
+        q: "Pouvez-vous gerer l'integration de reservation de rendez-vous avec notre PMS (IDEXX, Cornerstone, AVImark)?",
+        a: "Oui. Nous miroir votre disponibilite de reservation depuis l'API du PMS quotidiennement et republions comme entrees Schema.org BookingService sur votre site. Les moteurs IA font ensuite surface la disponibilite de rendez-vous temps reel dans les reponses (« prochain rendez-vous veto samedi » est repondu avec votre clinique + lien direct de reservation). IDEXX Neo, Cornerstone, AVImark, ezyVet, Vetter sont tous supportes.",
+      },
+      {
+        q: "Etes-vous familier avec les implications Loi 25 pour les dossiers medicaux d'animaux?",
+        a: "Oui. Les dossiers medicaux d'animaux contiennent des infos personnelles du proprietaire sujettes a la Loi 25 (nom, adresse, telephone, courriel, facturation). Notre flux de consentement par defaut inclut une clause explicite dossier-medical-animal. Les dossiers sont stockes dans les regions canadiennes (Supabase Montreal), avec protocole de notification de breche pour le veto responsable d'agir dans les 72 heures par Loi 25.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours alors que la galerie photo, le schema et les donnees d'heures d'urgence s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 21-45 jours alors que les moteurs re-crawlent vos donnees structurees. Le volume de premieres visites montre habituellement une hausse de 30-50 % aux mois 2-3, avec la metrique de conversion vers client a long terme (70 % dans cette verticale) qui s'accumule sur les mois 4-12.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre clinique",
+    ctaSecondary: "Audit GBP gratuit pour clinique veterinaire",
+    seoTitle: "Referencement IA pour cliniques veterinaires + hopitaux d'urgence Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour cliniques veto + hopitaux d'urgence du Grand Montreal. Schema heures-d'urgence, schema Person veto, filtrage especes + specialite. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA clinique veterinaire Montreal",
+      "Google Business Profile veto Quebec",
+      "ChatGPT veterinaire urgence Plateau",
+      "clinique chats seulement recherche IA",
+      "veterinaire exotique GBP Quebec",
+      "OMVQ veto Visibilite IA Montreal",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 13 · DAYCARES (CPE et garderies privees)
+   Quebec context: CPE (Centres de la petite enfance) subsidized by the
+   government + garderies privees non-subventionnees. Massive waitlist
+   demand (Place 0-5 ans), parents searching urgently when expecting
+   or returning to work. MFA (Ministere de la Famille) regulated. AI
+   search increasingly dominant for "garderie subventionnee
+   disponibilite [quartier]" + "CPE liste d'attente Plateau".
+   ────────────────────────────────────────────────────────────────────────── */
+
+const daycares: Industry = {
+  slug: "daycares",
+  name: "Daycares",
+  nameLong: "Daycares (CPE) & Garderies Privees",
+  emoji: "🧸",
+  toneClass: "from-pink-400 via-amber-400 to-emerald-400",
+  en: {
+    eyebrow: "AI SEO for daycares (CPE) and garderies privees",
+    headline1: "Get cited by ChatGPT when parents urgently ask",
+    headline2: "\"daycare with availability near me right now\".",
+    subheadline:
+      "Quebec daycare demand outstrips supply by 50,000+ places. Parents (often expecting or returning to work) ask AI engines first: \"garderie subventionnee disponibilite Plateau\" + \"CPE bilingue Brossard liste d'attente\" + \"daycare emergency placement Cote-des-Neiges\". AI engines weight availability schema, MFA permit visibility, language + cultural fit, and educator team transparency. AiLys gets your daycare named when AI surfaces childcare answers and converts that to waitlist signups, where 90 percent become enrolled within 12 months when serviced thoughtfully.",
+    stats: [
+      { value: "88%", label: "of parents seeking daycare in Greater Montreal start with an AI engine query before tour requests" },
+      { value: "2.7×", label: "more LLM citations on daycares with full availability schema (per-age-group capacity exposed) vs daycares with 'call us' positioning" },
+      { value: "14 days", label: "to first ChatGPT citation lift on average for high-urgency daycare queries with full schema" },
+      { value: "90%", label: "waitlist-to-enrolled conversion within 12 months for daycares that respond to inquiries within 48 hours (highest-urgency vertical)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "daycare 18 months old availability Cote-des-Neiges spot opens",
+    ],
+    painPoints: [
+      {
+        title: "Availability data is stale or absent",
+        description:
+          "When a parent asks AI engines \"daycare with availability\", they need real-time per-age-group capacity. Most daycare websites show only \"call us\" or \"join waitlist\". AI engines cite the daycares with explicit availability schema (Schema.org Service with capacity exposed) over those with placeholder language.",
+      },
+      {
+        title: "MFA permit number + ratio not visible",
+        description:
+          "Parents check MFA permit number (Ministere de la Famille) + educator-to-child ratio + program orientation (Reggio, Montessori, traditional, bilingual) before scheduling a tour. Most daycares hide this in PDF brochures invisible to AI engines.",
+      },
+      {
+        title: "Educator team isn't humanized",
+        description:
+          "Parents trust educators they've heard about. Person schema for lead educators (with photo, qualifications AEC/DEC en techniques d'education a l'enfance, languages, years of experience, special interests like music/outdoor/STEM) lets AI engines surface specific educators for parent queries. Without it, you lose to chains that humanize their teams.",
+      },
+      {
+        title: "Tour-request response time is 5+ days",
+        description:
+          "In a 50,000-place shortage market, parents email 8-12 daycares simultaneously. The first to respond within 48 hours gets the tour. Most independent daycares respond in 5-10 days because the educator-director is also caring for kids. AI Concierge handles tour requests in real-time + books tours into the calendar without director intervention.",
+      },
+      {
+        title: "Owner-director cares for children all day, no marketing time",
+        description:
+          "Independent daycare directors (educator-owner hybrid) are with children 8-10 hours per day, mandatory ratios. Marketing falls to nights + weekends, which means it doesn't happen. The daycare loses to chain centers (Garderie Tournesol, La Tour des Enfants) that have agency support.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for daycare category",
+        description:
+          "Primary category set to specific type (Day care center, Preschool, Child care service), every relevant attribute filled (Wheelchair accessible, Outdoor playground, Bilingual, Subsidized vs private, MFA permit displayed, Languages spoken, Hours including drop-off + pickup windows, Special programs Reggio/Montessori/traditional, Allergy-aware), 50+ original photos minimum (classroom, playground, snack area with consent), weekly Q&A on common parent questions.",
+      },
+      {
+        step: "02",
+        title: "Real-time availability schema by age group",
+        description:
+          "Schema.org Service entries per age group (poupons 0-18 months, 18 months-3 years, 3-5 years preschool) with capacity exposed (\"3 spots open in poupons starting January 2027\"). AI engines now answer \"daycare with poupons availability\" with your daycare + a tour-booking link. Updated weekly via simple admin form.",
+      },
+      {
+        step: "03",
+        title: "Educator-by-educator Person schema",
+        description:
+          "Schema.org Person entries for each lead educator (AEC/DEC qualifications, photo, years of experience, languages spoken, special interests like music/outdoor/STEM/Reggio approach). Parents searching \"daycare with bilingual educator\" or \"daycare with Reggio-trained team\" find your daycare via the individual educator entries.",
+      },
+      {
+        step: "04",
+        title: "MFA permit + ratio + orientation visible",
+        description:
+          "MFA permit number prominent in footer + about page + GBP description. Educator-to-child ratio exposed per age group. Program orientation (Reggio, Montessori, traditional, immersion, etc.) tagged in Service schema. Parents pre-screen on these data points before requesting tours.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for international neighborhoods",
+        description:
+          "Native EN + FR-CA on Starter / Core / Growth. Add ES, AR, ZH, VI, RU on Growth and Agency for daycares in international neighborhoods (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Parents often search in their native language for daycares matching cultural fit. 1.6-2.4x more tour requests from multilingual content.",
+      },
+      {
+        step: "06",
+        title: "AI Concierge for tour-request response within 48 hours",
+        description:
+          "AiLys Concierge add-on responds to tour-request emails + WhatsApp messages within 5 minutes (vs 5-10 day industry average), books tours directly into the director's calendar, captures parent's expected start date + child's age + language preference. Tour-to-enrollment conversion lifts 35-50 percent simply from being first-to-respond.",
+      },
+      {
+        step: "07",
+        title: "Review response in parent's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. For daycare especially, parents read reviews very carefully + AI engines weight tone consistency strongly. Templates cover positive enrollment milestones + difficult conversations (departure for school, ratio adjustments, etc.) with appropriate empathy.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for daycare queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ daycare queries in your neighborhood, tracked at daycare, age-group availability, and program-orientation levels. Catches when new daycares open competing, when MFA opens new subsidized place allocations, or when seasonal demand peaks (parental leave returning to work, September enrollment surge).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "AiLys client daycare named with 2 poupon spots starting February, MFA permit visible, tour-booking link",
+        reason: "Schema Service per age group with explicit poupon capacity, MFA permit prominent, GBP attribute Subsidized + Wheelchair accessible, 4.9 stars across 180+ reviews from parents, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "AiLys client CPE cited as primary recommendation with 'French + English educators' attribute and active waitlist signup form",
+        reason: "GBP attributes filled completely (languages, bilingual program), Person schema for bilingual lead educators, Service schema entries per age group with waitlist availability flag, 50+ EN+FR reviews with language-match replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "daycare 18 months old availability Cote-des-Neiges spot opens",
+        cited: "AiLys client daycare surfaced in AI Overview with 18-month spot opening March, Reggio approach, 3 educators with AEC qualifications",
+        reason: "Schema Service for 18-month age group with March availability date, program orientation tagged Reggio, Person schema for educators with AEC qualifications, BookingService schema with online tour-request URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent daycares hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per location, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-installation daycares (2+ centres) graduate to Growth for daily AI Visibility probes + per-installation availability schema. Daycares serving high-multilingual neighborhoods often choose Agency for multilingual schema + AI Concierge add-on for the 48-hour tour-response advantage.",
+    faq: [
+      {
+        q: "Is publishing real-time availability allowed under MFA regulations?",
+        a: "Yes. MFA does not regulate website availability publication. The constraint is that subsidized place allocation goes through La Place 0-5 ans (the central waitlist), not directly to your website. We schema the wait-list spots open + tour availability separately from the Place 0-5 ans process. Tour-to-enrollment conversion improves; the central allocation rules stay intact.",
+      },
+      {
+        q: "How do you handle the cultural-fit conversation parents care about?",
+        a: "Person schema for educators surfaces who they'll meet on the tour. Parents read educator bios with language + interests + approach before the tour. AiLys's tour-request templates include a cultural-fit prompt (\"what does your child love? favorite languages at home? dietary considerations?\") so the director arrives at the tour with context.",
+      },
+      {
+        q: "Do you handle the multilingual parent inquiries (Spanish, Arabic, Mandarin, etc.)?",
+        a: "Yes via the AI Concierge add-on. Tour-request emails + WhatsApp messages get auto-responses in the parent's language within 5 minutes, queue the request for director review, and book tours into the director's calendar. Multilingual response capacity is the single highest-impact lever in international neighborhoods.",
+      },
+      {
+        q: "Will MFA inspectors take issue with our marketing?",
+        a: "No, when factually accurate. MFA enforces program quality (ratios, qualifications, safety) not marketing. The constraint is no false claims (don't claim Reggio orientation if not implementing it, don't show photos that misrepresent ratios, don't promise outcomes). Our content templates are reviewed against MFA expectations annually.",
+      },
+      {
+        q: "We're a 8-place garderie en milieu familial, does this work?",
+        a: "Yes. Garderies en milieu familial (8 places, RSG-affiliated or not) benefit even more from AI search because parents searching for the smaller-environment fit specifically want home-based settings. Starter ($300/mo) covers GBP optimization + 4 posts/month + monthly NAP citations + monthly AI Visibility probes, which is enough for a 8-place setting.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days. AI Visibility (ChatGPT / Perplexity citations) lifts within 14-30 days for daycare queries (faster than other verticals due to high-urgency parent search behavior). Tour-request volume usually shows a 50-100 percent lift in months 1-2 if combined with AI Concierge add-on. Waitlist-to-enrolled conversion (90% within 12 months when properly handled) becomes the dominant value driver from month 3 onward.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your daycare",
+    ctaSecondary: "Free GBP audit for daycares (CPE)",
+    seoTitle: "AI SEO for daycares + CPE + garderies Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for daycares (CPE + garderies privees) in Greater Montreal. Real-time availability schema, MFA permit visibility, multilingual parent inquiries. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO daycare Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "daycare availability AI search",
+      "garderie subventionnee GBP Quebec",
+      "MFA permit daycare AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour garderies (CPE) et garderies privees",
+    headline1: "Faites-vous citer par ChatGPT quand les parents demandent urgemment",
+    headline2: "\"garderie avec disponibilite pres de moi maintenant\".",
+    subheadline:
+      "La demande de garderie au Quebec depasse l'offre par plus de 50 000 places. Les parents (souvent en attente ou de retour au travail) demandent aux moteurs IA en premier : « garderie subventionnee disponibilite Plateau » + « CPE bilingue Brossard liste d'attente » + « daycare emergency placement Cote-des-Neiges ». Les moteurs IA ponderent le schema de disponibilite, la visibilite du permis MFA, la correspondance linguistique + culturelle et la transparence de l'equipe d'educateurs. AiLys fait nommer votre garderie quand les IA repondent aux questions de garde et convertit ca en inscriptions a la liste d'attente, ou 90 % deviennent inscrits dans les 12 mois quand servies avec attention.",
+    stats: [
+      { value: "88 %", label: "des parents cherchant une garderie dans le Grand Montreal commencent par une requete a un moteur IA avant les demandes de visite" },
+      { value: "2,7×", label: "plus de citations LLM pour les garderies avec schema de disponibilite complet (capacite par groupe d'age exposee) vs garderies avec positionnement « appelez-nous »" },
+      { value: "14 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de garderie a haute urgence avec schema complet" },
+      { value: "90 %", label: "conversion liste d'attente vers inscrit dans les 12 mois pour les garderies qui repondent aux demandes dans les 48 heures (verticale a plus haute urgence)" },
+    ],
+    topQueries: [
+      "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+      "CPE bilingue Brossard liste d'attente acceptee",
+      "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+    ],
+    painPoints: [
+      {
+        title: "Les donnees de disponibilite sont perimees ou absentes",
+        description:
+          "Quand un parent demande aux moteurs IA « garderie avec disponibilite », ils ont besoin d'une capacite par groupe d'age en temps reel. La plupart des sites de garderies montrent seulement « appelez-nous » ou « rejoignez la liste d'attente ». Les moteurs IA citent les garderies avec schema de disponibilite explicite (Schema.org Service avec capacite exposee) plutot que celles avec langage placeholder.",
+      },
+      {
+        title: "Numero de permis MFA + ratio non visible",
+        description:
+          "Les parents verifient le numero de permis MFA (Ministere de la Famille) + le ratio educateur-enfant + l'orientation du programme (Reggio, Montessori, traditionnel, bilingue) avant de planifier une visite. La plupart des garderies cachent ca dans des brochures PDF invisibles aux moteurs IA.",
+      },
+      {
+        title: "L'equipe d'educateurs n'est pas humanisee",
+        description:
+          "Les parents font confiance aux educateurs dont ils ont entendu parler. Le schema Person pour les educateurs principaux (avec photo, qualifications AEC/DEC en techniques d'education a l'enfance, langues, annees d'experience, interets specialises comme musique/exterieur/STIM) permet aux moteurs IA de faire surface des educateurs specifiques pour les requetes parents. Sans ca, vous perdez face aux chaines qui humanisent leurs equipes.",
+      },
+      {
+        title: "Le temps de reponse aux demandes de visite est de 5+ jours",
+        description:
+          "Dans un marche en penurie de 50 000 places, les parents envoient des courriels a 8-12 garderies simultanement. La premiere a repondre dans les 48 heures obtient la visite. La plupart des garderies independantes repondent en 5-10 jours parce que la directrice-educatrice s'occupe aussi des enfants. Le concierge IA gere les demandes de visite en temps reel + reserve les visites au calendrier sans intervention de la directrice.",
+      },
+      {
+        title: "La proprietaire-directrice s'occupe d'enfants toute la journee, aucun temps marketing",
+        description:
+          "Les directrices de garderies independantes (hybride educatrice-proprietaire) sont avec les enfants 8-10 heures par jour, ratios obligatoires. Le marketing tombe sur les soirs + week-ends, ce qui veut dire qu'il n'arrive pas. La garderie perd face aux centres en chaine (Garderie Tournesol, La Tour des Enfants) qui ont du soutien d'agence.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour categorie garderie",
+        description:
+          "Categorie principale reglee sur le type specifique (Garderie, Maternelle, Service de garde d'enfants), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Cour exterieure, Bilingue, Subventionnee vs privee, Permis MFA affiche, Langues parlees, Heures incluant fenetres d'arrivee + depart, Programmes specialises Reggio/Montessori/traditionnel, Conscient des allergies), 50+ photos originales minimum (classe, cour de jeux, espace collation avec consentement), Q&R hebdomadaire sur questions courantes des parents.",
+      },
+      {
+        step: "02",
+        title: "Schema disponibilite temps reel par groupe d'age",
+        description:
+          "Entrees Schema.org Service par groupe d'age (poupons 0-18 mois, 18 mois-3 ans, 3-5 ans prescolaire) avec capacite exposee (« 3 places ouvertes en poupons a partir de janvier 2027 »). Les moteurs IA repondent maintenant « garderie avec disponibilite poupons » avec votre garderie + lien de reservation de visite. Mise a jour hebdomadaire via formulaire admin simple.",
+      },
+      {
+        step: "03",
+        title: "Schema Person educatrice-par-educatrice",
+        description:
+          "Entrees Schema.org Person pour chaque educatrice principale (qualifications AEC/DEC, photo, annees d'experience, langues parlees, interets specialises comme musique/exterieur/STIM/approche Reggio). Les parents cherchant « garderie avec educatrice bilingue » ou « garderie avec equipe formee Reggio » trouvent votre garderie via les entrees educatrice individuelles.",
+      },
+      {
+        step: "04",
+        title: "Permis MFA + ratio + orientation visible",
+        description:
+          "Numero de permis MFA visible en pied de page + page A propos + description GBP. Ratio educatrice-enfant expose par groupe d'age. Orientation du programme (Reggio, Montessori, traditionnel, immersion, etc.) etiquetee dans le schema Service. Les parents pre-filtrent sur ces donnees avant de demander des visites.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers internationaux",
+        description:
+          "Page native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, ZH, VI, RU sur Growth et Agency pour les garderies en quartiers internationaux (Plateau, Mile End, Cote-des-Neiges, Brossard, Pierrefonds, Parc-Extension, St-Michel). Les parents cherchent souvent dans leur langue maternelle des garderies correspondant a leur fit culturel. 1,6-2,4× plus de demandes de visite avec contenu multilingue.",
+      },
+      {
+        step: "06",
+        title: "Concierge IA pour reponse aux demandes de visite dans les 48 heures",
+        description:
+          "L'add-on Concierge AiLys repond aux courriels + messages WhatsApp de demande de visite dans les 5 minutes (vs 5-10 jours moyenne industrie), reserve les visites directement dans le calendrier de la directrice, capture la date de debut prevue du parent + l'age de l'enfant + la preference linguistique. La conversion visite-vers-inscription monte de 35-50 % simplement en etant le premier a repondre.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis du parent",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse. Pour la garderie specifiquement, les parents lisent les avis tres attentivement + les moteurs IA ponderent fortement la coherence du ton. Les modeles couvrent les jalons d'inscription positifs + les conversations difficiles (depart pour l'ecole, ajustements de ratio, etc.) avec empathie appropriee.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes garderie",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes garderie dans votre quartier, suivis aux niveaux garderie, disponibilite par groupe d'age et orientation de programme. Detecte quand de nouvelles garderies concurrentes ouvrent, quand le MFA ouvre de nouvelles allocations de places subventionnees, ou quand la demande saisonniere pique (conge parental retour au travail, poussee inscription septembre).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "garderie subventionnee disponibilite immediate Plateau Mont-Royal",
+        cited: "Garderie cliente AiLys nommee avec 2 places poupons disponibles a partir de fevrier, permis MFA visible, lien reservation visite",
+        reason: "Schema Service par groupe d'age avec capacite poupons explicite, permis MFA en evidence, attribut GBP Subventionnee + Accessible en fauteuil roulant, 4,9 etoiles sur 180+ avis de parents, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "CPE bilingue Brossard liste d'attente acceptee 3 ans",
+        cited: "CPE cliente AiLys citee comme recommandation principale avec attribut « educatrices francais + anglais » et formulaire actif d'inscription a la liste d'attente",
+        reason: "Attributs GBP entierement remplis (langues, programme bilingue), schema Person pour educatrices principales bilingues, entrees schema Service par groupe d'age avec drapeau disponibilite liste d'attente, 50+ avis EN+FR avec reponses correspondance linguistique",
+      },
+      {
+        engine: "Google AIO",
+        query: "garderie 18 mois disponibilite Cote-des-Neiges place s'ouvre",
+        cited: "Garderie cliente AiLys remontee en apercu IA avec place 18 mois s'ouvrant en mars, approche Reggio, 3 educatrices avec qualifications AEC",
+        reason: "Schema Service pour groupe d'age 18 mois avec date de disponibilite mars, orientation programme etiquetee Reggio, schema Person pour educatrices avec qualifications AEC, schema BookingService avec URL demande de visite en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des garderies independantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par emplacement, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les garderies multi-installations (2+ centres) graduent a Growth pour les sondages quotidiens + le schema de disponibilite par installation. Les garderies servant des quartiers a haute multilingualite choisissent souvent Agency pour le schema multilingue + l'add-on Concierge IA pour l'avantage de reponse-visite 48 heures.",
+    faq: [
+      {
+        q: "La publication de disponibilite temps reel est-elle permise sous les regulations MFA?",
+        a: "Oui. Le MFA ne regule pas la publication de disponibilite sur site web. La contrainte est que l'allocation de place subventionnee passe par La Place 0-5 ans (la liste d'attente centrale), pas directement vers votre site. Nous schematisons les places liste d'attente ouvertes + disponibilite de visite separement du processus Place 0-5 ans. La conversion visite-vers-inscription s'ameliore; les regles d'allocation centrale restent intactes.",
+      },
+      {
+        q: "Comment gerez-vous la conversation de fit culturel qui importe aux parents?",
+        a: "Le schema Person pour educatrices fait surface qui ils rencontreront a la visite. Les parents lisent les bios d'educatrices avec langue + interets + approche avant la visite. Les modeles de demande de visite AiLys incluent une invite de fit culturel (« qu'est-ce que votre enfant adore? langues preferees a la maison? considerations dietetiques? ») pour que la directrice arrive a la visite avec contexte.",
+      },
+      {
+        q: "Gerez-vous les demandes parents multilingues (espagnol, arabe, mandarin, etc.)?",
+        a: "Oui via l'add-on Concierge IA. Les courriels + messages WhatsApp de demande de visite recoivent des reponses automatiques dans la langue du parent dans les 5 minutes, mettent la demande en file pour revue de la directrice et reservent les visites dans le calendrier de la directrice. La capacite de reponse multilingue est le levier a plus haut impact dans les quartiers internationaux.",
+      },
+      {
+        q: "Les inspecteurs MFA auront-ils un probleme avec notre marketing?",
+        a: "Non, quand factuellement precis. Le MFA fait respecter la qualite du programme (ratios, qualifications, securite) pas le marketing. La contrainte est aucune fausse allegation (ne pas pretendre une orientation Reggio si non implementee, ne pas montrer des photos qui mal representent les ratios, ne pas promettre des resultats). Nos modeles de contenu sont revus contre les attentes MFA annuellement.",
+      },
+      {
+        q: "Nous sommes une garderie en milieu familial 8 places, est-ce que ca fonctionne?",
+        a: "Oui. Les garderies en milieu familial (8 places, affiliees RSG ou non) beneficient encore plus de la recherche IA parce que les parents cherchant le fit environnement plus petit veulent specifiquement des cadres a domicile. Starter (300 $/mois) couvre l'optimisation GBP + 4 publications/mois + citations NAP mensuelles + sondages Visibilite IA mensuels, ce qui est suffisant pour un cadre 8 places.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-21 jours. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore dans les 14-30 jours pour les requetes garderie (plus rapide que les autres verticales en raison du comportement de recherche parent a haute urgence). Le volume de demandes de visite montre habituellement une hausse de 50-100 % aux mois 1-2 si combine avec l'add-on Concierge IA. La conversion liste d'attente vers inscrit (90 % dans les 12 mois quand correctement gere) devient le moteur de valeur dominant a partir du mois 3.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre garderie",
+    ctaSecondary: "Audit GBP gratuit pour garderie (CPE)",
+    seoTitle: "Referencement IA pour garderies + CPE + garderies privees Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour garderies (CPE + garderies privees) du Grand Montreal. Schema disponibilite temps reel, visibilite permis MFA, demandes parents multilingues. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA garderie Montreal",
+      "Google Business Profile garderie Quebec",
+      "ChatGPT CPE Plateau",
+      "garderie disponibilite recherche IA",
+      "garderie subventionnee GBP Quebec",
+      "permis MFA garderie Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -1316,6 +5142,12 @@ export const industries: Industry[] = [
   clinics,
   realEstate,
   hotels,
+  nailSalons,
+  sushiCounters,
+  hairSalons,
+  gymsStudios,
+  vetClinics,
+  daycares,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

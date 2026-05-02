@@ -12,37 +12,11 @@
  * double-binding prevents token reuse for a different email.
  */
 
+import { sha256Hex, bytesToHex } from './crypto';
+import { importHmacKey } from './hmac';
+import { constantTimeEq as constantTimeEqual } from './rateLimit';
+
 const TOKEN_TTL_SECONDS = 365 * 24 * 60 * 60; // 1 year
-
-async function importHmacKey(secretHex: string): Promise<CryptoKey> {
-  const bytes = new Uint8Array(secretHex.length / 2);
-  for (let i = 0; i < bytes.length; i++) {
-    bytes[i] = parseInt(secretHex.slice(i * 2, i * 2 + 2), 16);
-  }
-  return crypto.subtle.importKey(
-    'raw',
-    bytes,
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['sign'],
-  );
-}
-
-async function sha256Hex(input: string): Promise<string> {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function bytesToHex(bytes: Uint8Array): string {
-  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function constantTimeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
-}
 
 export interface SignOptions {
   email: string;

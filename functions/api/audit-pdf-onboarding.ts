@@ -28,6 +28,11 @@ import { verifyServiceRequest } from '../lib/serviceAuth';
 import { buildOnboardingPdfRequest, OnboardingInput } from '../../src/lib/onboardingAuditPayload';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
+import { escapeHtml } from '../lib/htmlEscape';
+import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -58,15 +63,7 @@ const NOTIFY_FROM = 'AiLys Agency <noreply@ailysagency.ca>';
 
 // ── Hashing helpers ─────────────────────────────────────────────────────────
 
-async function sha256Hex(input: string): Promise<string> {
-  const data = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'audit-pdf-onboarding', ...line }));
-}
+const emit = makeEmit('audit-pdf-onboarding');
 
 // ── Body validation ─────────────────────────────────────────────────────────
 
@@ -84,13 +81,6 @@ interface OnboardingRequestBody {
 
 const MAX_PAYLOAD_BYTES = 16 * 1024; // 16KB; onboarding payloads are tiny
 const ALLOWED_LANGS = new Set(['en', 'fr', 'es', 'zh', 'ar', 'ru']);
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
-}
 
 interface ValidationResult {
   ok: boolean;
@@ -288,15 +278,6 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
   return { ok: true };
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
 // ── Handler ─────────────────────────────────────────────────────────────────
 
 export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) => {
@@ -463,13 +444,3 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   }, 202);
 };
 
-function jsonResponse(payload: unknown, status: number): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-    },
-  });
-}

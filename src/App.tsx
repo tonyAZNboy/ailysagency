@@ -20,6 +20,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AuditAIVisibility from "./pages/AuditAIVisibility";
 import AuditGbpPulse from "./pages/AuditGbpPulse";
+import AuditNapPulse from "./pages/AuditNapPulse";
 import BookCall from "./pages/BookCall";
 import PricingDetails from "./pages/PricingDetails";
 import AiVisibilityScoreTool from "./pages/AiVisibilityScoreTool";
@@ -51,6 +52,15 @@ const PublicVerify = lazy(() => import("./pages/PublicVerify"));
 const IndustryReports = lazy(() => import("./pages/IndustryReports"));
 const IndustryReportDetail = lazy(() => import("./pages/IndustryReportDetail"));
 const ConciergeDemo = lazy(() => import("./pages/ConciergeDemo"));
+const PartnerProgram = lazy(() => import("./pages/PartnerProgram"));
+const ConformiteQuebec = lazy(() => import("./pages/ConformiteQuebec"));
+const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
+const PMEContest = lazy(() => import("./pages/PMEContest"));
+const Garantie = lazy(() => import("./pages/Garantie"));
+const TrousseNfc = lazy(() => import("./pages/TrousseNfc"));
+const ReceptionIA = lazy(() => import("./pages/ReceptionIA"));
+const WhatsAppBusiness = lazy(() => import("./pages/WhatsAppBusiness"));
+const Realisations = lazy(() => import("./pages/Realisations"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -60,6 +70,7 @@ const AdminVisitors = lazy(() => import("./pages/admin/AdminVisitors"));
 const AdminPosts = lazy(() => import("./pages/admin/AdminPosts"));
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 const AdminClients = lazy(() => import("./pages/admin/AdminClients"));
+const AdminPartnerApplications = lazy(() => import("./pages/admin/AdminPartnerApplications"));
 const AdminLifecycle = lazy(() => import("./pages/admin/AdminLifecycle"));
 const AdminChurn = lazy(() => import("./pages/admin/AdminChurn"));
 const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
@@ -120,10 +131,14 @@ const App = () => {
                 <Route path="/audit/ai-visibility" element={<AuditAIVisibility />} />
                 <Route path="/audit/gbp" element={<AuditGbpPulse />} />
                 <Route path="/audit/gbp-pulse" element={<AuditGbpPulse />} />
+                <Route path="/audit/nap" element={<AuditNapPulse />} />
+                <Route path="/audit/nap-pulse" element={<AuditNapPulse />} />
                 <Route path="/:lang/audit" element={<AuditAIVisibility />} />
                 <Route path="/:lang/audit/ai-visibility" element={<AuditAIVisibility />} />
                 <Route path="/:lang/audit/gbp" element={<AuditGbpPulse />} />
                 <Route path="/:lang/audit/gbp-pulse" element={<AuditGbpPulse />} />
+                <Route path="/:lang/audit/nap" element={<AuditNapPulse />} />
+                <Route path="/:lang/audit/nap-pulse" element={<AuditNapPulse />} />
 
                 {/* Strategy call booking */}
                 <Route path="/book-call" element={<BookCall />} />
@@ -191,12 +206,63 @@ const App = () => {
                 <Route path="/concierge-demo" element={<ConciergeDemo />} />
                 <Route path="/:lang/concierge-demo" element={<ConciergeDemo />} />
 
+                {/* F3.0: Partner Program waitlist (demand-validation MVP) */}
+                <Route path="/agencies/partner-program" element={<PartnerProgram />} />
+                <Route path="/:lang/agencies/partner-program" element={<PartnerProgram />} />
+
+                {/* Quebec compliance positioning (Loi 25 + Loi 96 + Charte) */}
+                <Route path="/conformite-quebec" element={<ConformiteQuebec />} />
+                <Route path="/:lang/conformite-quebec" element={<ConformiteQuebec />} />
+                <Route path="/quebec-compliance" element={<ConformiteQuebec />} />
+                <Route path="/:lang/quebec-compliance" element={<ConformiteQuebec />} />
+
+                {/* Le Pouls Local newsletter landing */}
+                <Route path="/pouls-local" element={<PoulsLocal />} />
+                <Route path="/:lang/pouls-local" element={<PoulsLocal />} />
+                <Route path="/newsletter" element={<PoulsLocal />} />
+                <Route path="/:lang/newsletter" element={<PoulsLocal />} />
+
+                {/* Annual Quebec PME contest landing (waitlist mode) */}
+                <Route path="/concours-pme" element={<PMEContest />} />
+                <Route path="/:lang/concours-pme" element={<PMEContest />} />
+                <Route path="/pme-contest" element={<PMEContest />} />
+                <Route path="/:lang/pme-contest" element={<PMEContest />} />
+
+                {/* Performance guarantee positioning */}
+                <Route path="/garantie" element={<Garantie />} />
+                <Route path="/:lang/garantie" element={<Garantie />} />
+                <Route path="/guarantee" element={<Garantie />} />
+                <Route path="/:lang/guarantee" element={<Garantie />} />
+
+                {/* NFC physical welcome kit (Reviuzy add-on / Agency bundled) */}
+                <Route path="/trousse-nfc" element={<TrousseNfc />} />
+                <Route path="/:lang/trousse-nfc" element={<TrousseNfc />} />
+                <Route path="/nfc-kit" element={<TrousseNfc />} />
+                <Route path="/:lang/nfc-kit" element={<TrousseNfc />} />
+
+                {/* Voice AI Receptionist add-on */}
+                <Route path="/reception-ia" element={<ReceptionIA />} />
+                <Route path="/:lang/reception-ia" element={<ReceptionIA />} />
+                <Route path="/ai-receptionist" element={<ReceptionIA />} />
+                <Route path="/:lang/ai-receptionist" element={<ReceptionIA />} />
+
+                {/* WhatsApp Business integration add-on */}
+                <Route path="/whatsapp-business" element={<WhatsAppBusiness />} />
+                <Route path="/:lang/whatsapp-business" element={<WhatsAppBusiness />} />
+
+                {/* Web design portfolio (samples catalog) */}
+                <Route path="/realisations" element={<Realisations />} />
+                <Route path="/:lang/realisations" element={<Realisations />} />
+                <Route path="/portfolio" element={<Realisations />} />
+                <Route path="/:lang/portfolio" element={<Realisations />} />
+
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminOverview />} />
                   <Route path="users" element={<AdminUsers />} />
                   <Route path="clients" element={<AdminClients />} />
                   <Route path="leads" element={<AdminLeads />} />
+                  <Route path="partner-applications" element={<AdminPartnerApplications />} />
                   <Route path="bookings" element={<AdminBookings />} />
                   <Route path="lifecycle" element={<AdminLifecycle />} />
                   <Route path="churn" element={<AdminChurn />} />

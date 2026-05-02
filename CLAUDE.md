@@ -2,7 +2,11 @@
 
 ## START HERE — every new session
 
-**Before doing anything else, read `STATE.md`.** It has the current state of work, what shipped at the last tag, what's deferred, the Cloudflare env-var checklist, and a numbered pickup checklist. Do not start work without reading it. After reading, briefly summarize what's outstanding back to the user so they know you're synced.
+**Before doing anything else:**
+1. **If `REMINDER-TUESDAY-1PM.md` exists at repo root, read it FIRST.** It documents content + translation work deferred to Tuesday 2026-05-05 1pm Eastern (token-quota constraint from 2026-05-02 session). The file has a priority queue + a checklist + auto-delete instructions once the queue is empty.
+2. **Read `STATE.md`.** Current state of work, what shipped at the last tag, what's deferred, the Cloudflare env-var checklist, numbered pickup checklist. Do not start work without reading it.
+
+After reading, briefly summarize what's outstanding back to the user so they know you're synced.
 
 Also reference (linked from STATE.md):
 - `docs/audit-engine-roadmap.md` — Phase B-D enhancement plan with effort estimates
@@ -88,6 +92,9 @@ Before declaring any task complete:
    - `npx tsx scripts/smoke-cron-guard.mjs` (13 cases, kill switch + concurrency lock + audit log emission)
    - `node scripts/smoke-bundle-shape.mjs` (9 cases, bundle-shape regression guard for the PR #96 -> PR #103 TDZ blank-page class. Requires `npx vite build` to have run.)
    - `node --experimental-vm-modules scripts/smoke-bundle-load.mjs` (1 case, complement to bundle-shape. Actually evaluates entry chunk + preloaded vendors in node:vm sandbox with stubbed DOM globals. Catches generic TDZ/ReferenceError/circular-init at module load. Verified to throw on the PR #96 broken config and pass on the safe data-only config.)
+   - `npx tsx scripts/smoke-rate-limit.mjs` (18 cases, shared rate-limit lib at functions/lib/rateLimit.ts. KV-backed token bucket with IP hourly + identity daily windows, fail-open on missing KV binding, key prefix isolation. Use `import { checkRateLimit, sha256Hex } from "../lib/rateLimit"` in any new edge fn that needs rate limiting.)
+   - `npx tsx scripts/smoke-system-health.mjs` (39 cases, /api/system-health endpoint shape contract + zero-leak guarantee on secret values + cron heartbeat exposure. Healthcheck endpoint for uptime monitors; reports kill-switch states, KV binding presence, secret presence-only booleans, build version, cron last-success timestamps. Public ops surface, never returns secret values.)
+   - `npx tsx scripts/smoke-server-error.mjs` (34 cases, shared server-error capture lib at functions/lib/serverError.ts. Dual-channel delivery: Supabase audit_log persist + Resend operator alert on ERROR/FATAL severity. Use `import { captureServerError } from "../lib/serverError"` + call from any edge fn catch block. Fail-soft: NEVER throws even when both channels fail.)
    - As new features ship, add their smoke tests here AND wire into `.github/workflows/deploy.yml`.
 6. Open the affected page(s) in the browser preview
 7. Click the affected control / submit the affected form / verify the affected output

@@ -26,6 +26,8 @@
 //     },
 //   )(ctx);
 
+import { jsonResponse } from './jsonResponse';
+
 interface CronEnv {
   AUDIT_PDF_RATE_LIMIT?: KVNamespace;
 }
@@ -152,12 +154,32 @@ export function withCronGuard<Ctx extends { env: CronEnv }>(
         failures: summary.failures,
         notes: summary.notes,
       });
+      // Heartbeat: write last-run + last-success timestamps to KV so the
+      // /api/system-health endpoint can surface "when did each cron last
+      // succeed?" for ops dashboards. Best-effort: skip silently if KV
+      // missing or write fails (cron success path must not depend on KV
+      // heartbeat write succeeding).
+      await writeCronHeartbeat(ctx.env, cronId, {
+        last_run_at: new Date().toISOString(),
+        last_success_at: new Date().toISOString(),
+        last_duration_ms: duration_ms,
+        last_items_processed: summary.items_processed,
+        last_successes: summary.successes,
+        last_failures: summary.failures,
+      });
       const result: CronGuardResult = { status: 'ran', summary, duration_ms, cron_id: cronId };
       return jsonResponse(result, 200);
     } catch (err) {
       const duration_ms = Date.now() - startedAt;
       const error = err instanceof Error ? err.message.slice(0, 200) : 'unknown';
       emitAudit({ ts, cron_id: cronId, status: 'errored', duration_ms, error });
+      // Heartbeat the failure so ops can see "last attempted" even when
+      // the run errored. last_success_at is intentionally NOT updated.
+      await writeCronHeartbeat(ctx.env, cronId, {
+        last_run_at: new Date().toISOString(),
+        last_error: error,
+        last_duration_ms: duration_ms,
+      });
       const result: CronGuardResult = { status: 'errored', error, duration_ms, cron_id: cronId };
       return jsonResponse(result, 500);
     } finally {
@@ -166,13 +188,67 @@ export function withCronGuard<Ctx extends { env: CronEnv }>(
   };
 }
 
-function jsonResponse(payload: unknown, status: number): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-    },
-  });
+/** Heartbeat record persisted per cron run for ops visibility. */
+export interface CronHeartbeat {
+  last_run_at: string;          // ISO timestamp of most recent run attempt
+  last_success_at?: string;     // ISO timestamp of most recent SUCCESSFUL run
+  last_duration_ms?: number;
+  last_items_processed?: number;
+  last_successes?: number;
+  last_failures?: number;
+  last_error?: string;          // populated only when most recent run errored
+}
+
+/**
+ * Write/merge a heartbeat record for a cron job. Best-effort. Reads the
+ * previous record so last_success_at is preserved across error runs.
+ *
+ * KV key: `cron:<id>:heartbeat`. TTL: 30 days. The 30-day window is long
+ * enough to detect stuck cron crons (cron-job.org outages, etc.) without
+ * cluttering KV with infinite history.
+ */
+async function writeCronHeartbeat(
+  env: CronEnv,
+  cronId: string,
+  partial: CronHeartbeat,
+): Promise<void> {
+  if (!env.AUDIT_PDF_RATE_LIMIT) return;
+  const key = `cron:${cronId}:heartbeat`;
+  try {
+    const prevRaw = await env.AUDIT_PDF_RATE_LIMIT.get(key);
+    const prev: Partial<CronHeartbeat> = prevRaw ? JSON.parse(prevRaw) : {};
+    const merged: CronHeartbeat = {
+      last_run_at: partial.last_run_at,
+      last_success_at: partial.last_success_at ?? prev.last_success_at,
+      last_duration_ms: partial.last_duration_ms ?? prev.last_duration_ms,
+      last_items_processed: partial.last_items_processed ?? prev.last_items_processed,
+      last_successes: partial.last_successes ?? prev.last_successes,
+      last_failures: partial.last_failures ?? prev.last_failures,
+      last_error: partial.last_error,
+    };
+    await env.AUDIT_PDF_RATE_LIMIT.put(key, JSON.stringify(merged), {
+      expirationTtl: 60 * 60 * 24 * 30,
+    });
+  } catch {
+    // Best-effort. Cron success must not depend on heartbeat KV write.
+  }
+}
+
+/**
+ * Read the heartbeat for a cron. Returns null when KV unbound, no record
+ * exists yet, or read fails. Used by /api/system-health to surface
+ * cron freshness in ops dashboards.
+ */
+export async function readCronHeartbeat(
+  env: CronEnv,
+  cronId: string,
+): Promise<CronHeartbeat | null> {
+  if (!env.AUDIT_PDF_RATE_LIMIT) return null;
+  try {
+    const raw = await env.AUDIT_PDF_RATE_LIMIT.get(`cron:${cronId}:heartbeat`);
+    if (!raw) return null;
+    return JSON.parse(raw) as CronHeartbeat;
+  } catch {
+    return null;
+  }
 }

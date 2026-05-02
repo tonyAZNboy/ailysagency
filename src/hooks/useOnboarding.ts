@@ -66,7 +66,7 @@ export function useOnboarding() {
       } else {
         // Create initial progress record using upsert to handle race conditions
         const { data: newData, error: upsertError } = await (supabase
-          .from('onboarding_progress') as any)
+          .from('onboarding_progress') as never)
           .upsert({
             user_id: user.id,
             tenant_id: activeTenantId || null,

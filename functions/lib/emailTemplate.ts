@@ -11,6 +11,8 @@
  * Quebec footer per CASL conformity.
  */
 
+import { escapeHtml } from './htmlEscape';
+
 export type EmailLang = 'en' | 'fr' | 'es' | 'zh' | 'ar' | 'ru';
 
 export interface EmailRenderOptions {
@@ -49,14 +51,6 @@ const BRAND = {
 
 const DOMAIN = 'www.ailysagency.ca';
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
 
 const SIGNATURES: Record<EmailLang, string> = {
   en: 'The AiLys team',

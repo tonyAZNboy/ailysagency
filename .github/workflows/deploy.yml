@@ -1,11 +1,21 @@
 name: Deploy to Cloudflare Pages
 
 # Auto-deploy on every push to main + manual trigger fallback.
+# Also runs as a PR check (gates only, no deploy) so regressions
+# are caught BEFORE merge instead of after (PR #146 em-dash
+# regression in functions/lib/README.md broke the deploy on main
+# until hotfix PR #148, because gates only ran post-merge).
+# The Cloudflare-specific deploy steps are gated with
+# `if: github.event_name == 'push'` so PRs run gates without
+# triggering a Pages deploy or needing CLOUDFLARE_API_TOKEN.
+#
 # Requires repo secret CLOUDFLARE_API_TOKEN with scope:
 #   Account > Cloudflare Pages > Edit  +  Account > Account Settings > Read
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -35,6 +45,17 @@ jobs:
 
       - name: Gate 1, TypeScript typecheck
         run: npx tsc --noEmit
+
+      - name: Gate 1b, ESLint (zero-errors enforced; warnings tolerated)
+        # Current baseline: 0 errors, 21 warnings (react-refresh/only-export-
+        # components on shadcn/ui boilerplate + react-hooks/exhaustive-deps
+        # on 7 hooks pending browser-preview-validated cleanup, see memory
+        # `feedback_eslint_hooks_audit.md`). The 31 errors fixed by the
+        # 2026-05-02 parallel session would have blocked CI here. Warnings
+        # surface in the run log but do not block deploy. To tighten:
+        # decrement --max-warnings as the queue drains; flip to 0 once the
+        # hook audit lands with proper browser validation.
+        run: npm run lint -- --max-warnings 21
 
       - name: Gate 2, i18n deep audit (UI keys, warn-only)
         # Pre-existing translation queue debt (28 missing keys across 15
@@ -106,6 +127,156 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 36, STATE.md size guard
+        # Background: STATE.md grew past 256 KB on 2026-05-02 and broke
+        # the Read tool's file-size limit, killing the CLAUDE.md
+        # "START HERE: read STATE.md" flow for new sessions. PR #139
+        # archived 3748 lines of historical session-close blocks to
+        # bring it back under (269 KB -> 68 KB). This gate prevents
+        # the regression: hard threshold 200 KB (78% of the 256 KB
+        # Read limit), soft warn at 160 KB. When tripped, archive
+        # older blocks to docs/state-archive-<period>.md.
+        run: node scripts/smoke-state-size.mjs
+
+      - name: Gate 35, no inline duplicates of shared lib helpers
+        # Regression guard. After PRs #139-#144 extracted 9 shared libs
+        # into functions/lib/, this gate prevents future sessions from
+        # re-introducing inline copies of any of the 15 helpers under
+        # the same name. Maps each forbidden name to its canonical lib
+        # file; greps every functions/**/*.ts EXCEPT the canonical owner
+        # for `function <name>` declarations. Any match fails the gate
+        # with a hint pointing to the correct import.
+        run: node scripts/smoke-no-inline-duplicates.mjs
+
+      - name: Gate 34, hmac primitives shared lib smoke (21 cases)
+        # Tests functions/lib/hmac.ts: hexToBytes, importHmacKey,
+        # constantTimeEqualBytes that consolidate 7 inline copies across
+        # 5 files (pdfHmac, serviceAuth, unsubscribeToken, svixHmac,
+        # cron-process-sequences). Auth-critical: any subtle bug here
+        # compromises HMAC verification across audit-pdf downloads,
+        # service-to-service auth, unsubscribe tokens, and Resend
+        # webhooks. Verifies hex parsing (incl. error paths), CryptoKey
+        # creation with sign+verify usages, deterministic signing, byte
+        # array constant-time compare with single-byte sensitivity.
+        run: npx tsx scripts/smoke-hmac.mjs
+
+      - name: Gate 33, jsonResponse shared lib smoke (26 cases)
+        # Tests functions/lib/jsonResponse.ts: secure-default JSON response
+        # builder consolidating 9 inline copies (4 distinct flavors merged
+        # to one). Defaults: Content-Type application/json, X-Content-Type-
+        # Options nosniff, Cache-Control no-store. extraHeaders param adds
+        # or overrides defaults. Verifies status preservation across full
+        # range, body serialization (object/array/null/error), no
+        # cross-call header leakage. The unification is strictly net-
+        # positive on security: 6 prior call sites gain nosniff +/or
+        # no-store with no behavioral regression.
+        run: npx tsx scripts/smoke-json-response.mjs
+
+      - name: Gate 32, string-clip shared lib smoke (25 cases)
+        # Tests functions/lib/stringClip.ts: clip (trimmed, returns null
+        # on empty) + clipUntrimmed (raw slice, preserves whitespace,
+        # returns "" on ""). Consolidates 8 inline copies. Asserts the
+        # variant difference (clip rejects whitespace-only -> null,
+        # clipUntrimmed preserves it), type guard rejects non-string,
+        # length cap correct, trim happens BEFORE truncation, Unicode
+        # preserved.
+        run: npx tsx scripts/smoke-string-clip.mjs
+
+      - name: Gate 31, structured-log shared lib smoke (20 cases)
+        # Tests functions/lib/structuredLog.ts: makeEmit factory that
+        # consolidates 6 inline emit copies. Verifies one console.log
+        # call per emit, valid JSON output, component field present
+        # AND first in serialized output (matters for grep / Logpush
+        # prefix matching), extra fields preserved, two emitters don't
+        # interfere, null/undefined/numeric/boolean/nested values
+        # handled correctly per JSON spec.
+        run: npx tsx scripts/smoke-structured-log.mjs
+
+      - name: Gate 30, email validation shared lib smoke (37 cases)
+        # Tests functions/lib/email.ts: isValidEmail consolidates 4
+        # inline copies. Verifies regex (no @, no dot, whitespace
+        # rejection), length bounds 5..254 (RFC 5321 max + sanity floor),
+        # disposable domain rejection (case-insensitive), DISPOSABLE_DOMAINS
+        # 9-entry contract. partner-application's stricter `length >= 5`
+        # check now applied uniformly across all 4 prior call sites
+        # (closes a tiny gap where 'a@b' was passing 3/4 of them).
+        run: npx tsx scripts/smoke-email.mjs
+
+      - name: Gate 29, origin allowlist shared lib smoke (21 cases)
+        # Tests functions/lib/origin.ts: isAllowedOrigin helper that
+        # consolidates 5 inline copies. Verifies default allowlist
+        # contains the 3 canonical AiLys domains, rejects attacker
+        # subdomains (e.g. evil.ailysagency.ca), rejects http:// variant
+        # of canonical (only https), permits any port on http://localhost
+        # for dev shells, custom ALLOWED_ORIGINS env override fully
+        # replaces default, trailing-whitespace tolerance in env list.
+        run: npx tsx scripts/smoke-origin.mjs
+
+      - name: Gate 28, crypto shared lib smoke (19 cases)
+        # Tests functions/lib/crypto.ts: sha256Hex (canonical, replaces 10
+        # inline copies across edge fns + libs) + bytesToHex helper.
+        # Verifies NIST FIPS 180-4 reference vectors for empty string and
+        # 'abc', 64-char lowercase hex output for arbitrary input including
+        # UTF-8 multi-byte and emoji, determinism, and bytesToHex contract
+        # (matches sha256Hex output when fed the digest bytes, lowercase,
+        # 2 hex chars per byte with leading-zero pad).
+        run: npx tsx scripts/smoke-crypto.mjs
+
+      - name: Gate 27, html-escape shared lib smoke (20 cases)
+        # Tests functions/lib/htmlEscape.ts: shared escapeHtml helper
+        # extracted from 6 byte-identical inline copies. Verifies the
+        # 5-char escape contract (& < > " '), null/undefined tolerance,
+        # non-string coercion, ordering invariant (& escaped first so
+        # entities are not double-corrupted), XSS payload neutralization,
+        # and explicit non-idempotency (double-escape produces a distinct
+        # output, callers must escape exactly once at the boundary).
+        run: npx tsx scripts/smoke-html-escape.mjs
+
+      - name: Gate 26, supabase-insert shared lib smoke (40 cases)
+        # Tests functions/lib/supabaseInsert.ts: shared Supabase REST POST
+        # helper extracted from partner-application + founding-clients-apply
+        # + cofounders-apply. Verifies fail-open on missing env vars,
+        # 200/201 success, 409 ignore-duplicates option, 4xx/5xx return
+        # ok:false with bounded error, network throw never propagates,
+        # SERVICE_ROLE_KEY redacted from any echoed response body, Prefer
+        # header values, row argument immutability.
+        run: npx tsx scripts/smoke-supabase-insert.mjs
+
+      - name: Gate 25, server-error capture lib smoke (34 cases)
+        # Tests functions/lib/serverError.ts: captureServerError dual-channel
+        # delivery (Supabase audit_log + Resend alert), severity-based alert
+        # gating (warn never alerts, error/fatal do), message/stack truncation
+        # (500/2000 chars), PII-safety (Supabase body never contains the
+        # SERVICE_ROLE_KEY), fail-soft on network failure (the function NEVER
+        # throws even when both channels fail, so the caller's primary error
+        # path is unaffected).
+        run: npx tsx scripts/smoke-server-error.mjs
+
+      - name: Gate 24, /api/system-health endpoint shape + zero-leak smoke (34 cases)
+        # Tests functions/api/system-health.ts: response shape contract,
+        # 200/405/204 status codes, kill-switch evaluation, KV binding
+        # detection, ZERO secret value leaks (3 explicit assertions that
+        # the response body never contains the values of RESEND_API_KEY,
+        # SUPABASE_URL, OPERATOR_NOTIFY_EMAIL when those are set in env).
+        # Healthchecks for monitors live behind this endpoint; contract
+        # must not break.
+        run: npx tsx scripts/smoke-system-health.mjs
+
+      - name: Gate 23, shared rate-limit lib smoke (18 cases)
+        # Tests functions/lib/rateLimit.ts: KV-backed token bucket with
+        # IP hourly + identity daily windows, fail-open on missing KV
+        # binding, key prefix isolation, sha256Hex + constantTimeEq
+        # helpers. Pure-function tests with in-memory KV mock; no network.
+        run: npx tsx scripts/smoke-rate-limit.mjs
+
+      - name: Gate 22, partner application validator + hash smoke (16 cases)
+        # F3.0 demand-validation MVP. Tests the validator + payloadHash +
+        # ipHash exported from functions/api/partner-application.ts. End-to-
+        # end edge fn behavior is verified post-deploy via live curl from
+        # the operator (Gate M1 in .planning/phase-f3-0-partner-waitlist/
+        # 03-test-matrix.md).
+        run: npx tsx scripts/smoke-partner-application.mjs
+
       - run: npm run build
 
       - name: Gate 20, bundle-shape regression guard (TDZ blank-page class)
@@ -133,6 +304,7 @@ jobs:
       # actionable signal. This step calls /user/tokens/verify so we see
       # the real Cloudflare error message in the run log.
       - name: Verify Cloudflare API token
+        if: github.event_name == 'push'
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
@@ -162,6 +334,7 @@ jobs:
           echo "Token has Pages access on the right account."
 
       - name: Deploy to Cloudflare Pages
+        if: github.event_name == 'push'
         id: cf-deploy
         uses: cloudflare/wrangler-action@v3
         with:
@@ -179,7 +352,9 @@ jobs:
       # run log immediately so the operator can re-deploy from a previous
       # commit via the dashboard.
       - name: Wait for Cloudflare edge propagation
+        if: github.event_name == 'push'
         run: sleep 60
       - name: Gate 19, post-deploy JSON-LD smoke (production)
+        if: github.event_name == 'push'
         run: node scripts/smoke-jsonld.mjs
         continue-on-error: true

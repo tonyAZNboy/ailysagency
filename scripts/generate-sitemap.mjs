@@ -49,6 +49,15 @@ const MAIN_ROUTES = [
   { path: "/audit", priority: 0.95, changefreq: "weekly" },
   { path: "/audit/gbp", priority: 0.95, changefreq: "weekly" },
   { path: "/audit/ai-visibility", priority: 0.9, changefreq: "weekly" },
+  { path: "/audit/nap", priority: 0.9, changefreq: "weekly" },
+  { path: "/conformite-quebec", priority: 0.85, changefreq: "monthly" },
+  { path: "/pouls-local", priority: 0.85, changefreq: "weekly" },
+  { path: "/concours-pme", priority: 0.85, changefreq: "monthly" },
+  { path: "/garantie", priority: 0.85, changefreq: "monthly" },
+  { path: "/trousse-nfc", priority: 0.8, changefreq: "monthly" },
+  { path: "/reception-ia", priority: 0.85, changefreq: "monthly" },
+  { path: "/whatsapp-business", priority: 0.85, changefreq: "monthly" },
+  { path: "/realisations", priority: 0.9, changefreq: "monthly" },
   { path: "/pricing-details", priority: 0.92, changefreq: "weekly" },
   { path: "/book-call", priority: 0.85, changefreq: "monthly" },
   { path: "/blog", priority: 0.85, changefreq: "daily" },
@@ -62,6 +71,12 @@ const MAIN_ROUTES = [
   { path: "/industries/clinics", priority: 0.8, changefreq: "weekly" },
   { path: "/industries/real-estate", priority: 0.8, changefreq: "weekly" },
   { path: "/industries/hotels", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/nail-salons", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/sushi-counters", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/hair-salons", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/gyms-studios", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/vet-clinics", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/daycares", priority: 0.8, changefreq: "weekly" },
   // Comparisons (bottom-funnel competitor traffic)
   { path: "/vs/sterling-sky", priority: 0.85, changefreq: "monthly" },
   { path: "/vs/brightlocal", priority: 0.85, changefreq: "monthly" },
@@ -94,6 +109,8 @@ const MAIN_ROUTES = [
   { path: "/badge", priority: 0.85, changefreq: "monthly" },
   // Feature 5: AI Concierge demo (public preview)
   { path: "/concierge-demo", priority: 0.85, changefreq: "monthly" },
+  // F3.0: Partner Program waitlist (demand-validation MVP)
+  { path: "/agencies/partner-program", priority: 0.85, changefreq: "monthly" },
   // Bonus B: Quarterly Industry Reports (lead magnets, high backlink potential)
   { path: "/industry-reports", priority: 0.9, changefreq: "weekly" },
   { path: "/industry-reports/dentists-quebec-q1-2026", priority: 0.85, changefreq: "monthly" },

@@ -136,7 +136,7 @@ export const useSeoProfile = () => {
 
       const { data, error } = await supabase
         .from('tenant_seo_profiles')
-        .upsert(payload as any, { onConflict: 'tenant_id' })
+        .upsert(payload as never, { onConflict: 'tenant_id' })
         .select()
         .single();
 

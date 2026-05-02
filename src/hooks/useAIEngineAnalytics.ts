@@ -49,7 +49,7 @@ async function fetchAIEngineAnalytics(tenantId: string | null, isGlobal: boolean
   let confidenceCount = 0;
 
   messages.forEach(m => {
-    const data = m.event_data as any;
+    const data = m.event_data as { intent?: string; sentiment?: string; confidence?: number } | null;
     if (data?.intent) intentBreakdown[data.intent] = (intentBreakdown[data.intent] || 0) + 1;
     if (data?.sentiment) sentimentBreakdown[data.sentiment] = (sentimentBreakdown[data.sentiment] || 0) + 1;
     if (m.visitor_session_id) sessionSet.add(m.visitor_session_id);
@@ -68,13 +68,13 @@ async function fetchAIEngineAnalytics(tenantId: string | null, isGlobal: boolean
   });
 
   // Upgrade tiers from tenant_upgrade_scores
-  let tierQuery = supabase.from('tenant_upgrade_scores' as any).select('tier');
+  let tierQuery = supabase.from('tenant_upgrade_scores' as never).select('tier');
   if (!isGlobal && tenantId) {
     tierQuery = tierQuery.eq('tenant_id', tenantId);
   }
   const { data: tierData } = await tierQuery;
   const tiers = { low: 0, medium: 0, high: 0 };
-  (tierData || []).forEach((t: any) => {
+  (tierData || []).forEach((t: { tier?: string }) => {
     if (t.tier === 'low') tiers.low++;
     else if (t.tier === 'medium') tiers.medium++;
     else if (t.tier === 'high') tiers.high++;

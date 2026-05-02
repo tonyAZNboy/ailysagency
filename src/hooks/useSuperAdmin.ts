@@ -21,7 +21,7 @@ interface Tenant {
   tenant_overrides: {
     id: string;
     override_type: string;
-    value: any;
+    value: Record<string, unknown> | string | number | boolean | null;
     reason: string | null;
     expires_at: string | null;
     is_active: boolean;
@@ -133,7 +133,7 @@ export function useSuperAdmin() {
   const addOverride = async (
     tenantId: string,
     overrideType: 'discount_percent' | 'free_access' | 'custom_price' | 'extended_trial',
-    value: any,
+    value: Record<string, unknown> | string | number | boolean | null,
     reason?: string,
     expiresAt?: string
   ) => {
