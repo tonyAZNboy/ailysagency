@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 35, no inline duplicates of shared lib helpers
+        # Regression guard. After PRs #139-#144 extracted 9 shared libs
+        # into functions/lib/, this gate prevents future sessions from
+        # re-introducing inline copies of any of the 15 helpers under
+        # the same name. Maps each forbidden name to its canonical lib
+        # file; greps every functions/**/*.ts EXCEPT the canonical owner
+        # for `function <name>` declarations. Any match fails the gate
+        # with a hint pointing to the correct import.
+        run: node scripts/smoke-no-inline-duplicates.mjs
+
       - name: Gate 34, hmac primitives shared lib smoke (21 cases)
         # Tests functions/lib/hmac.ts: hexToBytes, importHmacKey,
         # constantTimeEqualBytes that consolidate 7 inline copies across

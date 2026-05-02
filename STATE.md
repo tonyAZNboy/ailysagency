@@ -2,6 +2,52 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR144) — regression guard for shared libs (sub-phase 11)
+
+After 10 sub-phases extracted 9 shared libs (PRs #139-#144), add a
+regression guard that prevents future sessions from re-introducing
+inline copies of the consolidated helpers.
+
+### Sub-phase 11: Gate 35 (no-inline-duplicates regression guard)
+
+`scripts/smoke-no-inline-duplicates.mjs` walks every
+`functions/**/*.ts` file and greps for top-level
+`function <name>` declarations of any of 15 forbidden names. Maps
+each name to its canonical lib file; the canonical owner is the only
+allowed declaration site. Any match outside fails the gate with a
+hint pointing to the correct import.
+
+**Forbidden names (15) and their canonical owners:**
+
+- `escapeHtml` → `functions/lib/htmlEscape.ts`
+- `clip`, `clipUntrimmed` → `functions/lib/stringClip.ts`
+- `isValidEmail`, `isDisposableEmail` → `functions/lib/email.ts`
+- `isAllowedOrigin` → `functions/lib/origin.ts`
+- `sha256Hex`, `bytesToHex` → `functions/lib/crypto.ts`
+- `hexToBytes`, `importHmacKey`, `constantTimeEqualBytes` → `functions/lib/hmac.ts`
+- `jsonResponse` → `functions/lib/jsonResponse.ts`
+- `makeEmit`, `emit` → `functions/lib/structuredLog.ts`
+- `insertSupabaseRow` → `functions/lib/supabaseInsert.ts`
+
+**Tested both ways (positive + negative):**
+
+- Default state: 1/1 PASS, 64 files scanned, no duplicates.
+- Negative test: planted `function escapeHtml` in
+  `functions/api/_test/dup.ts` → EXIT 1 with helpful error pointing
+  to the correct import.
+
+**Adding a new entry:** ship the extraction PR first, then add the
+`{ name, canonical, lib }` tuple in the same commit. Comment in the
+script body documents the procedure.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- Gate 35 (NEW) smoke-no-inline-duplicates: PASS
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR143) — HMAC primitives shared lib (sub-phase 10)
 
 Sub-phase 10. Pure backend, zero src/ touch.
