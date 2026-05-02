@@ -28,6 +28,7 @@ import { verifyServiceRequest } from '../lib/serviceAuth';
 import { buildOnboardingPdfRequest, OnboardingInput } from '../../src/lib/onboardingAuditPayload';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { sendAndLog } from '../lib/emailLog';
+import { escapeHtml } from '../lib/htmlEscape';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -286,15 +287,6 @@ async function sendOnboardingEmail(env: Env, body: OnboardingRequestBody, downlo
   });
   if (result.error) return { ok: false, error: result.error };
   return { ok: true };
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 }
 
 // ── Handler ─────────────────────────────────────────────────────────────────

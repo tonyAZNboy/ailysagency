@@ -19,6 +19,7 @@ import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
 import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
+import { escapeHtml } from '../lib/htmlEscape';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -653,15 +654,6 @@ async function sendDownloadEmail(env: Env, data: AuditPdfRequest, downloadUrl: s
 
 function pickLocale(lang: string, map: Record<string, string>): string {
   return map[lang] ?? map.en;
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 }
 
 function jsonResponse(payload: unknown, status: number, extraHeaders: Record<string, string> = {}): Response {

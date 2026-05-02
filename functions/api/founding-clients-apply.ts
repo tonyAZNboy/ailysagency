@@ -18,6 +18,7 @@
 import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
 import { insertSupabaseRow } from "../lib/supabaseInsert";
+import { escapeHtml } from "../lib/htmlEscape";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -205,14 +206,6 @@ async function forwardToSupabase(
   });
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
 
 async function sendOpsEmail(
   env: Env,

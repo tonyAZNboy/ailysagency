@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 27, html-escape shared lib smoke (20 cases)
+        # Tests functions/lib/htmlEscape.ts: shared escapeHtml helper
+        # extracted from 6 byte-identical inline copies. Verifies the
+        # 5-char escape contract (& < > " '), null/undefined tolerance,
+        # non-string coercion, ordering invariant (& escaped first so
+        # entities are not double-corrupted), XSS payload neutralization,
+        # and explicit non-idempotency (double-escape produces a distinct
+        # output, callers must escape exactly once at the boundary).
+        run: npx tsx scripts/smoke-html-escape.mjs
+
       - name: Gate 26, supabase-insert shared lib smoke (40 cases)
         # Tests functions/lib/supabaseInsert.ts: shared Supabase REST POST
         # helper extracted from partner-application + founding-clients-apply

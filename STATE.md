@@ -4,7 +4,72 @@
 
 ---
 
-## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert lib extraction
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert lib + STATE archive + htmlEscape lib
+
+### Sub-phase 3 (commit 3/3 on PR #139): htmlEscape shared lib + Gate 27
+
+Extracted 6 byte-identical copies of `escapeHtml` (all 5-char HTML entity
+escaping with the same ordering) into `functions/lib/htmlEscape.ts`.
+Shipped on the same PR #139 branch since the parallel session works
+on a different branch (PR #125, `claude/infallible-maxwell-8c845a`)
+in `src/` only, so the backend extraction has zero conflict surface.
+
+**Files:**
+
+| Path | Type |
+|---|---|
+| `functions/lib/htmlEscape.ts` | new lib (~50 LOC including JSDoc) |
+| `scripts/smoke-html-escape.mjs` | new smoke (20 cases) |
+| `.github/workflows/deploy.yml` | +Gate 27 |
+| `functions/lib/serverError.ts` | -8 inline LOC, +1 import |
+| `functions/lib/emailTemplate.ts` | -8 inline LOC, +1 import |
+| `functions/api/audit-pdf.ts` | -8 inline LOC, +1 import |
+| `functions/api/audit-pdf-onboarding.ts` | -8 inline LOC, +1 import |
+| `functions/api/partner-application.ts` | -8 inline LOC, +1 import |
+| `functions/api/founding-clients-apply.ts` | -8 inline LOC, +1 import |
+
+Net LOC: ~6 × -7 inline = -42 LOC at call sites + new lib ~50 + new
+smoke ~140 = +148 net. Worthwhile because:
+
+1. The 6 copies could drift independently if someone edits one to
+   add a new entity (e.g., backtick) without the others. One canonical
+   helper + one smoke = uniform behavior across the surface.
+2. Hardening upgrades vs. inline copies:
+   - `null`/`undefined` tolerated (returns `""` instead of throwing).
+   - Non-string coerced to string (`escapeHtml(count)` works without
+     forcing every caller to `String()` first).
+3. Smoke asserts the canonical contract (5 chars, ordering, XSS
+   payload neutralization, double-escape NOT idempotent by design).
+
+**Gates passed locally (after sub-phase 3):**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0 matches
+- Gate 5 existing smokes: ALL 11 pass (rate-limit 18, system-health 39,
+  server-error 34, supabase-insert 40, audit-pdf-validation 16,
+  audit-pdf-render 9, audit-pdf-hmac 11, audit-pdf-onboarding 17,
+  cron-guard 13, bundle-shape 9, bundle-load 1)
+- Gate 7 build: green (14.99s)
+- Gate 27 (NEW) smoke-html-escape: **20/20**
+
+**Memories saved (for future sessions):**
+
+- `feedback_eslint_hooks_audit.md`: 21 ESLint warnings can't be
+  cleared blind in autopilot; needs browser preview + parallel-session
+  ack before merge.
+- `feedback_supabase_lib_adoption_scope.md`: don't force
+  newsletter-subscribe / resend-webhook / cron PATCH calls into
+  supabaseInsert lib (premature abstraction).
+
+### Sub-phase 2 (commit 2/3 on PR #139): STATE.md archive
+
+STATE.md grew past 256KB which broke the Read tool limit. Moved 25
+historical session-close blocks (~3748 lines) from STATE.md to
+`docs/state-archive-2026-04-to-05.md`. STATE.md size: 269KB -> 68KB.
+
+### Sub-phase 1 (commit 1/3 on PR #139): supabase insert lib
+
+
 
 GSD-driven sub-phase to extract the duplicated `forwardToSupabase`
 helper across three lead-capture endpoints (`partner-application`,

@@ -1,3 +1,5 @@
+import { escapeHtml } from "./htmlEscape";
+
 // Server-side error capture for Cloudflare Pages Functions.
 //
 // Mirrors the existing /api/client-error frontend capture pattern but
@@ -186,15 +188,6 @@ async function alertOperator(env: ServerErrorEnv, row: AuditLogRow): Promise<boo
   } catch {
     return false;
   }
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 }
 
 /**
