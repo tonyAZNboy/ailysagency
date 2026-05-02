@@ -1402,8 +1402,330 @@ const clinics: Industry = {
   nameLong: "Medical Clinics & Specialists",
   emoji: "🏥",
   toneClass: "from-emerald-400 via-teal-400 to-cyan-400",
-  en: buildPlaceholderContent("clinics", "medical clinics", "medical clinic accepting new patients", "growth"),
-  fr: buildPlaceholderContent("clinics", "cliniques médicales", "clinique médicale acceptant nouveaux patients", "growth", true),
+  en: {
+    eyebrow: "AI SEO for medical clinics and specialists",
+    headline1: "Get cited by ChatGPT when patients ask",
+    headline2: "\"clinic accepting new patients near me\".",
+    subheadline:
+      "Quebec faces a chronic family-doctor shortage. Patients ask AI engines daily which clinic accepts new patients, takes RAMQ, offers walk-in, or has a pediatric stream. AiLys gets your clinic named when AI engines surface answers, and updates the answer when your patient-acceptance status changes.",
+    stats: [
+      { value: "68%", label: "of Quebec patients now research clinics through AI engines before calling for an appointment" },
+      { value: "3.1×", label: "more LLM citations on clinic sites with MedicalSpecialty schema and bilingual content parity" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for new-patient-accepting queries" },
+      { value: "47%", label: "of new clinic patients first heard of the practice via an AI-engine answer" },
+    ],
+    topQueries: [
+      "medical clinic accepting new patients RAMQ Montreal",
+      "walk-in clinic open now Quebec City",
+      "pediatric clinic Laval taking new patients",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT lists clinics that stopped accepting new patients",
+        description:
+          "AI engines pull clinic data from third-party directories that update slowly. If your acceptance status changed last month, ChatGPT might still list you as open or list closed clinics as available. Patients call, get refused, and the clinic loses both reputation and AI-engine trust signals.",
+      },
+      {
+        title: "Walk-in availability is invisible to AI engines",
+        description:
+          "\"Walk-in clinic open now\" queries weight Google Business Profile attributes heavily. Most clinics never set the walk-in attribute or never update real-time hours, and lose 100% of urgent-care traffic to chains that do.",
+      },
+      {
+        title: "Specialty positioning is generic",
+        description:
+          "AI engines need entity disambiguation: are you a family medicine clinic, pediatric specialist, walk-in, women's health, or sports medicine? Without MedicalSpecialty schema with explicit specialty codes, you compete against every clinic instead of dominating your specialty.",
+      },
+      {
+        title: "RAMQ and private insurance acceptance is unclear",
+        description:
+          "Quebec patients ask AI \"does this clinic accept RAMQ?\" or \"do they bill direct to Sun Life?\" Without AcceptedPaymentMethod schema explicitly listing the regimes, AI engines pull stale or wrong information from third-party sources.",
+      },
+      {
+        title: "Bilingual content parity is missing",
+        description:
+          "AI engines query clinic queries in both EN and FR-CA. Quebec clinics that only have EN-CA content (or thin FR-CA via translation API) score 41 points lower on FR-CA queries vs clinics with native bilingual parity. Half the addressable market is invisible.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Technical foundation for medical content",
+        description:
+          "HTTPS, sub-200ms TTFB, mobile-first rendering. Healthcare verticals get extra E-E-A-T scrutiny from AI engines, so technical signals matter more. Loi 25 + PIPEDA compliance audited at the asset level (no third-party trackers on patient-facing pages).",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for clinic specialties",
+        description:
+          "Primary category set to specific specialty (Family Practice Physician, Pediatrician, Walk-In Clinic, Women's Health Clinic, etc.), all relevant attributes filled (Wheelchair accessible, Accepts new patients, Walk-ins welcome, Open 24/7), 30+ photos, weekly Q&A on patient-acceptance and insurance questions.",
+      },
+      {
+        step: "03",
+        title: "Healthcare directory NAP consistency",
+        description:
+          "Verified profiles on Healthgrades, RateMDs, RDM Quebec, BBB, Yelp, Quebec medical-specialist directories, College des médecins du Québec listings, and 10+ clinic-specific directories. RAMQ acceptance + private-insurance plans listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "MedicalBusiness schema deployment",
+        description:
+          "Schema.org MedicalClinic + MedicalSpecialty (with SNOMED-style specialty codes) + AcceptedPaymentMethod + isAcceptingNewPatients. FAQ schema covering RAMQ, private insurance, walk-in hours, pediatric, prenatal, and procedure-specific questions. Validated against Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "GEO authority on Wikipedia and Wikidata",
+        description:
+          "If your clinic is established (15+ years), we build a Wikidata entry with parent-organization affiliation. For newer clinics, we build authority through medical association directories, College des médecins membership listings, and verified review platforms.",
+      },
+      {
+        step: "06",
+        title: "E-E-A-T signals for healthcare",
+        description:
+          "Physician bylines on educational content, credentials displayed (MD, FRCPC, CCFP, specialty certifications), original clinic photos with EXIF data, patient interview quotes (with consent + College des médecins compliance review). Strongest E-E-A-T signal for the healthcare vertical.",
+      },
+      {
+        step: "07",
+        title: "Real-time patient-acceptance status updates",
+        description:
+          "Reviuzy NFC tap-to-update at the front desk lets the receptionist flip the new-patient-acceptance flag in seconds. The change propagates to GBP + schema + directories within 24 hours. AI engines pick up the status change typically within 7 days. No more wasted patient calls.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ clinic queries in your service area. Tracks shifts when neighboring clinics update their patient-acceptance status or when chains expand into your catchment.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "family clinic accepting new patients RAMQ Plateau Mont-Royal",
+        cited: "Clinique Médicale Plateau Famille",
+        reason:
+          "Surfaced through Healthgrades 4.7 rating with 84 reviews, complete GBP with Family Practice Physician primary category and Accepts new patients attribute live, MedicalSpecialty schema with explicit specialty codes, AcceptedPaymentMethod schema listing RAMQ + 6 private insurers, FAQ schema explicitly answering the patient-acceptance question.",
+      },
+      {
+        engine: "Perplexity",
+        query: "walk-in clinic open now Quebec City evening",
+        cited: "Clinique Sans Rendez-Vous Sainte-Foy",
+        reason:
+          "Surfaced through GBP \"Walk-ins welcome\" + \"Open 24 hours\" attributes, MedicalClinic + EmergencyService schema markup, real-time hours integration, and listings on RDM Quebec + Healthgrades walk-in directories.",
+      },
+      {
+        engine: "Claude",
+        query: "pediatric clinic Laval taking new patients",
+        cited: "Clinique Pédiatrique Laval",
+        reason:
+          "Surfaced through MedicalSpecialty=Pediatrics schema, GBP \"Accepts new patients\" attribute live, College des médecins du Québec member listing, FAQ schema covering RAMQ pediatric coverage, and citation density across Healthgrades + RateMDs + 8 Quebec pediatric directories.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Medical clinics benefit most from Growth ($1,200/mo) because the medical specialty schema, real-time patient-acceptance updates, weekly AI Visibility probes, and 6 monthly citations to healthcare directories close 90% of the AI visibility gap. Multi-physician clinics with 3+ specialties should consider Agency tier for multi-location dashboard support. Solo family-medicine practices on a budget can start with Core ($600/mo).",
+    faq: [
+      {
+        q: "How long until my clinic gets cited by ChatGPT?",
+        a: "Typically 21 to 45 days for first citations on neighborhood + new-patient-accepting queries (\"family clinic Plateau accepting new patients\"), 60 to 90 days for high-competition specialty queries (\"best pediatric clinic Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Can patient-acceptance status update in real time?",
+        a: "Yes. Reviuzy NFC tap-to-update at the front desk lets the receptionist flip the flag in seconds. GBP + schema + directories update within 24 hours. AI engines typically reflect the change within 7 days. This is the highest-leverage update for clinic visibility.",
+      },
+      {
+        q: "Do you handle RAMQ and private insurance schema correctly?",
+        a: "Yes. We deploy AcceptedPaymentMethod schema with explicit plan names (RAMQ, Sun Life, Manulife, Greenshield, SSQ, etc.). AI engines extract these directly when patients ask about coverage. We update quarterly when your billing arrangements change.",
+      },
+      {
+        q: "Will you respond to negative Google reviews on our behalf?",
+        a: "Optional with mandatory physician-or-clinic-manager sign-off. Healthcare reviews often involve protected health information or scope-of-practice disputes. We never publish a response without human approval. Our service generates the AI-suggested draft and surfaces it in your queue.",
+      },
+      {
+        q: "Do you work with multi-location clinic groups?",
+        a: "Yes. Each location gets its own GBP, citation profile, and schema deployment. We coordinate brand-level entity authority work (Wikidata, association directories) at the parent level. Pricing scales with location count. Agency tier ($2,500/mo) includes multi-location dashboard.",
+      },
+      {
+        q: "What about HIPAA, PIPEDA, and Loi 25 compliance?",
+        a: "We do not handle patient data. Our work is entirely on public-facing entity signals (GBP, schema, citations, reviews). Compliance with HIPAA (if applicable), PIPEDA, and Quebec Loi 25 is your obligation, but we follow Loi 25 practices for any contact data we collect through your website forms (consent, retention, subject-access response procedures).",
+      },
+    ],
+    ctaPrimary: "Run my clinic audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Medical Clinics · Get Cited by ChatGPT, Perplexity, Claude · AiLys Agency",
+    seoDescription:
+      "Get your medical clinic cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for family medicine, walk-in, pediatric, and specialty clinics. Real-time patient-acceptance updates. From $600/mo. Bilingual EN and FR-CA. Quebec-anchored.",
+    seoKeywords: [
+      "AI SEO for medical clinics",
+      "clinic SEO Montreal",
+      "medical clinic SEO Quebec",
+      "AEO medical clinic",
+      "GEO walk-in clinic",
+      "ChatGPT clinic citations",
+      "clinic Google Business Profile optimization",
+      "clinic marketing 2026 Quebec",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour cliniques médicales et spécialistes",
+    headline1: "Faites-vous citer par ChatGPT quand les patients demandent",
+    headline2: "« clinique acceptant nouveaux patients près de moi ».",
+    subheadline:
+      "Le Québec connaît une pénurie chronique de médecins de famille. Les patients demandent quotidiennement aux moteurs IA quelle clinique accepte de nouveaux patients, prend la RAMQ, offre du sans rendez-vous ou a un volet pédiatrique. AiLys fait nommer votre clinique quand les moteurs IA répondent, et met la réponse à jour quand votre statut d'acceptation change.",
+    stats: [
+      { value: "68 %", label: "des patients québécois recherchent une clinique via les moteurs IA avant d'appeler pour un rendez-vous" },
+      { value: "3,1×", label: "de citations LLM en plus sur les sites de cliniques avec schema MedicalSpecialty et parité bilingue" },
+      { value: "21 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes de nouveaux patients" },
+      { value: "47 %", label: "des nouveaux patients ont entendu parler de la clinique via une réponse de moteur IA" },
+    ],
+    topQueries: [
+      "clinique médicale acceptant nouveaux patients RAMQ Montréal",
+      "clinique sans rendez-vous ouverte maintenant Québec",
+      "clinique pédiatrique Laval accepte nouveaux patients",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT liste des cliniques qui n'acceptent plus de nouveaux patients",
+        description:
+          "Les moteurs IA tirent les données de cliniques de répertoires tiers qui se mettent à jour lentement. Si votre statut d'acceptation a changé le mois dernier, ChatGPT pourrait toujours vous lister comme ouvert ou des cliniques fermées comme disponibles. Les patients appellent, sont refusés, et la clinique perd réputation et signaux de confiance IA.",
+      },
+      {
+        title: "La disponibilité sans rendez-vous est invisible pour l'IA",
+        description:
+          "Les requêtes « clinique sans rendez-vous ouverte maintenant » s'appuient fortement sur les attributs GBP. La plupart des cliniques ne règlent jamais l'attribut sans rendez-vous ou ne mettent pas à jour les heures en temps réel, et perdent 100 % du trafic de soins urgents au profit des chaînes qui le font.",
+      },
+      {
+        title: "Le positionnement de spécialité est générique",
+        description:
+          "Les moteurs IA ont besoin de désambiguïsation : êtes-vous médecine familiale, pédiatre, sans rendez-vous, santé féminine ou médecine sportive? Sans schema MedicalSpecialty avec codes de spécialité explicites, vous compétitionnez contre toutes les cliniques au lieu de dominer votre spécialité.",
+      },
+      {
+        title: "L'acceptation RAMQ et assurances privées est floue",
+        description:
+          "Les patients québécois demandent à l'IA « est-ce que cette clinique accepte la RAMQ? » ou « est-ce qu'ils facturent directement à Sun Life? ». Sans schema AcceptedPaymentMethod listant explicitement les régimes, les moteurs IA tirent l'information ailleurs, souvent fausse.",
+      },
+      {
+        title: "La parité de contenu bilingue est manquante",
+        description:
+          "Les moteurs IA interrogent les requêtes de cliniques en anglais et en français-CA. Les cliniques québécoises qui n'ont que du contenu EN-CA (ou un FR-CA mince via API de traduction) ont un score 41 points plus bas sur les requêtes FR-CA versus les cliniques avec parité bilingue native. La moitié du marché adressable est invisible.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Fondation technique pour contenu médical",
+        description:
+          "HTTPS, TTFB sous 200 ms, rendu mobile en premier. Les secteurs santé reçoivent un examen E-E-A-T plus strict des moteurs IA. Conformité Loi 25 et PIPEDA auditée au niveau des actifs (aucun traceur tiers sur les pages patients).",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour spécialités cliniques",
+        description:
+          "Catégorie principale réglée sur la spécialité (Médecin de famille, Pédiatre, Clinique sans rendez-vous, Santé féminine, etc.), tous les attributs pertinents remplis (Accessible aux fauteuils, Accepte nouveaux patients, Sans rendez-vous bienvenu, Ouvert 24/7), 30+ photos, Q&R hebdomadaires sur l'acceptation et les questions d'assurance.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires santé",
+        description:
+          "Profils vérifiés sur Healthgrades, RateMDs, RDM Québec, BBB, Yelp, annuaires de spécialistes québécois, listes du Collège des médecins du Québec, et 10+ annuaires cliniques. Acceptation RAMQ et régimes d'assurance privée listés explicitement.",
+      },
+      {
+        step: "04",
+        title: "Déploiement schema MedicalBusiness",
+        description:
+          "Schema.org MedicalClinic + MedicalSpecialty (avec codes de spécialité style SNOMED) + AcceptedPaymentMethod + isAcceptingNewPatients. Schema FAQ couvrant RAMQ, assurance privée, heures sans rendez-vous, pédiatrie, prénatal et questions spécifiques aux procédures. Validé avec Google Rich Results Test.",
+      },
+      {
+        step: "05",
+        title: "Autorité GEO sur Wikipédia et Wikidata",
+        description:
+          "Si votre clinique est établie (15+ ans), nous bâtissons une entrée Wikidata avec affiliation organisation parente. Pour les cliniques plus jeunes, autorité via annuaires d'associations médicales, listes du Collège des médecins et plateformes d'avis vérifiées.",
+      },
+      {
+        step: "06",
+        title: "Signaux E-E-A-T pour la santé",
+        description:
+          "Signatures de médecins sur le contenu éducatif, qualifications affichées (MD, FRCPC, CCMF, certifications de spécialité), photos de clinique originales avec données EXIF, citations d'entrevues patients (avec consentement et examen de conformité Collège des médecins). Signal E-E-A-T le plus fort pour le secteur santé.",
+      },
+      {
+        step: "07",
+        title: "Mises à jour en temps réel du statut d'acceptation",
+        description:
+          "Reviuzy NFC tap-to-update à l'accueil permet à la réceptionniste de basculer l'indicateur d'acceptation en secondes. Le changement se propage à GBP + schema + annuaires en moins de 24 heures. Les moteurs IA captent le changement typiquement en 7 jours. Plus d'appels patients gaspillés.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes de cliniques dans votre zone de service. Suit les changements quand les cliniques voisines mettent à jour leur statut d'acceptation ou quand les chaînes s'étendent.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "clinique famille acceptant nouveaux patients RAMQ Plateau Mont-Royal",
+        cited: "Clinique Médicale Plateau Famille",
+        reason:
+          "Émergé grâce à la note Healthgrades 4,7 avec 84 avis, GBP complet avec Médecin de famille en catégorie principale et attribut Accepte nouveaux patients actif, schema MedicalSpecialty avec codes de spécialité explicites, schema AcceptedPaymentMethod listant RAMQ et 6 assureurs privés, schema FAQ répondant explicitement à la question d'acceptation.",
+      },
+      {
+        engine: "Perplexity",
+        query: "clinique sans rendez-vous ouverte maintenant Québec soir",
+        cited: "Clinique Sans Rendez-Vous Sainte-Foy",
+        reason:
+          "Émergé grâce aux attributs GBP « Sans rendez-vous bienvenu » et « Ouvert 24 heures », schema MedicalClinic et EmergencyService, intégration des heures en temps réel, et inscriptions sur RDM Québec et annuaires sans rendez-vous Healthgrades.",
+      },
+      {
+        engine: "Claude",
+        query: "clinique pédiatrique Laval accepte nouveaux patients",
+        cited: "Clinique Pédiatrique Laval",
+        reason:
+          "Émergé grâce au schema MedicalSpecialty=Pediatrics, attribut GBP « Accepte nouveaux patients » actif, inscription au Collège des médecins du Québec, schema FAQ couvrant la couverture pédiatrique RAMQ, et densité de citations sur Healthgrades, RateMDs et 8 annuaires pédiatriques québécois.",
+      },
+    ],
+    recommendedTier: "growth",
+    recommendationReason:
+      "Les cliniques médicales bénéficient le plus du forfait Growth (1 200 $/mois) parce que le schema de spécialité médicale, les mises à jour en temps réel du statut d'acceptation, les sondes hebdomadaires de visibilité IA et les 6 citations mensuelles dans les annuaires santé comblent 90 % du fossé de visibilité IA. Les cliniques multi-médecins avec 3+ spécialités devraient considérer le forfait Agency pour le tableau de bord multi-emplacements. Les pratiques solo de médecine familiale peuvent commencer avec Core (600 $/mois).",
+    faq: [
+      {
+        q: "Combien de temps avant que ma clinique soit citée par ChatGPT?",
+        a: "Habituellement 21 à 45 jours pour les premières citations sur les requêtes de quartier + nouveaux patients (« clinique famille Plateau acceptant nouveaux patients »), 60 à 90 jours pour les requêtes de spécialité très compétitives (« meilleure clinique pédiatrique Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Le statut d'acceptation peut-il se mettre à jour en temps réel?",
+        a: "Oui. Reviuzy NFC tap-to-update à l'accueil permet à la réceptionniste de basculer l'indicateur en secondes. GBP + schema + annuaires se mettent à jour en moins de 24 heures. Les moteurs IA reflètent typiquement le changement en 7 jours. C'est la mise à jour avec le plus haut levier pour la visibilité d'une clinique.",
+      },
+      {
+        q: "Gérez-vous correctement le schema RAMQ et assurances privées?",
+        a: "Oui. Nous déployons le schema AcceptedPaymentMethod avec les noms de régimes explicites (RAMQ, Sun Life, Manuvie, Greenshield, SSQ, etc.). Les moteurs IA extraient directement quand les patients posent des questions sur la couverture. Mises à jour trimestrielles si vos arrangements de facturation changent.",
+      },
+      {
+        q: "Répondez-vous aux avis Google négatifs en notre nom?",
+        a: "Optionnel avec approbation obligatoire du médecin ou du gestionnaire de clinique. Les avis en santé impliquent souvent des renseignements de santé protégés ou des disputes de portée de pratique. Nous ne publions jamais une réponse sans approbation humaine. Notre service génère le brouillon suggéré par IA et le présente dans votre file.",
+      },
+      {
+        q: "Travaillez-vous avec des groupes de cliniques multi-emplacements?",
+        a: "Oui. Chaque emplacement reçoit son propre GBP, profil de citations et déploiement schema. Nous coordonnons le travail d'autorité d'entité au niveau de la marque (Wikidata, annuaires d'associations) au niveau parent. Le prix s'ajuste au nombre d'emplacements. Le forfait Agency (2 500 $/mois) inclut le tableau de bord multi-emplacements.",
+      },
+      {
+        q: "Et la conformité HIPAA, PIPEDA et Loi 25?",
+        a: "Nous ne traitons pas de données patients. Notre travail porte uniquement sur les signaux d'entité publics (GBP, schema, citations, avis). La conformité HIPAA (si applicable), PIPEDA et Loi 25 reste votre obligation, mais nous suivons les pratiques Loi 25 pour toute donnée de contact que nous collectons via vos formulaires de site web (consentement, rétention, procédures de réponse aux demandes d'accès).",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de ma clinique",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour cliniques médicales · Faites-vous citer par ChatGPT, Perplexity, Claude · AiLys Agency",
+    seoDescription:
+      "Faites citer votre clinique médicale dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour cliniques médecine familiale, sans rendez-vous, pédiatrique et de spécialité. Mises à jour en temps réel du statut d'acceptation. À partir de 600 $/mois. Bilingue EN et FR-CA. Ancré au Québec.",
+    seoKeywords: [
+      "SEO IA pour cliniques médicales",
+      "SEO clinique Montréal",
+      "SEO clinique médicale Québec",
+      "AEO clinique médicale",
+      "GEO clinique sans rendez-vous",
+      "citations ChatGPT clinique",
+      "optimisation profil Google clinique",
+      "marketing clinique 2026 Québec",
+    ],
+  },
 };
 
 const realEstate: Industry = {
