@@ -4,10 +4,13 @@ import { ArrowRight, ArrowLeft, CheckCircle2, Sparkles, Quote } from "lucide-rea
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { LandingChatWidget } from "@/components/landing/LandingChatWidget";
-import { NetworkBackground } from "@/components/backgrounds/NetworkBackground";
+import { MoodBackground } from "@/components/backgrounds/MoodBackground";
 import { SEOHead } from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal, MagneticWrapper } from "@/components/animation";
+import { AnimatedCounter } from "@/components/animation/AnimatedCounter";
+import { MethodologyStepper } from "@/components/patterns/MethodologyStepper";
+import { ChatMockup } from "@/components/patterns/ChatMockup";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import {
@@ -16,6 +19,7 @@ import {
   industries,
   type RecommendedTier,
 } from "@/data/industries";
+import { getDefaultMoodForVertical, getMood } from "@/design-system/moods";
 import { industryReports } from "@/data/industry-reports";
 import { FileText } from "lucide-react";
 
@@ -89,6 +93,8 @@ export default function Industry() {
   }
 
   const c = getIndustryContent(industry, lang);
+  const moodId = getDefaultMoodForVertical(industry.slug);
+  const mood = getMood(moodId);
   const baseUrl = "https://www.ailysagency.ca";
   const canonical =
     lang === "en"
@@ -180,16 +186,7 @@ export default function Industry() {
         alternateLocales={alternates}
         structuredData={structuredData}
       />
-      <NetworkBackground
-        backgroundColor="#050505"
-        nodeColor="#22D3EE"
-        lineColor="#A78BFA"
-        nodeCount={32}
-        mobileNodeCount={18}
-        connectionDistance={140}
-        mouseInfluenceRadius={220}
-        mouseInfluenceStrength={0.16}
-      />
+      <MoodBackground mood={mood} />
 
       <div className="min-h-screen overflow-x-clip">
         <Navbar />
@@ -215,9 +212,16 @@ export default function Industry() {
                     {industry.emoji}
                   </span>
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-gradient-to-r ${industry.toneClass}`}
+                    className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.22em] font-semibold text-white bg-gradient-to-r ${mood.accentGradient}`}
                   >
                     {c.eyebrow}
+                  </span>
+                  <span
+                    className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-[0.18em] text-muted-foreground/80 border border-border/40 bg-background/40 backdrop-blur-sm"
+                    title={lang === "fr" ? mood.descriptionFr : mood.description}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${mood.accentGradient}`} aria-hidden="true" />
+                    {lang === "fr" ? `Mood ${mood.labelFr}` : `${mood.label} mood`}
                   </span>
                 </div>
               </ScrollReveal>
@@ -229,7 +233,7 @@ export default function Industry() {
                   style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
                 >
                   {c.headline1}{" "}
-                  <span className="italic bg-gradient-to-r from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent">
+                  <span className={`italic bg-gradient-to-r ${mood.accentGradient} bg-clip-text text-transparent`}>
                     {c.headline2}
                   </span>
                 </h1>
@@ -288,10 +292,10 @@ export default function Industry() {
                       className="rounded-xl border border-border/40 bg-card/40 backdrop-blur-md p-4"
                     >
                       <div
-                        className="font-display tabular-nums leading-none mb-2 bg-gradient-to-br from-cyan-300 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent"
+                        className={`font-display tabular-nums leading-none mb-2 bg-gradient-to-br ${mood.accentGradient} bg-clip-text text-transparent`}
                         style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}
                       >
-                        {stat.value}
+                        <AnimatedCounter value={stat.value} durationMs={1400 + i * 150} />
                       </div>
                       <div className="text-[11px] sm:text-xs text-muted-foreground leading-snug">
                         {stat.label}
@@ -393,30 +397,7 @@ export default function Industry() {
                   <span className="italic">to cited.</span>
                 </h2>
               </ScrollReveal>
-              <ol className="space-y-4">
-                {c.methodology.map((step, i) => (
-                  <ScrollReveal
-                    key={i}
-                    variant="fade-up"
-                    delay={50 + i * 50}
-                    duration={500}
-                  >
-                    <li className="grid grid-cols-[60px_1fr] gap-5 sm:gap-6 p-5 sm:p-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-md">
-                      <span className="font-mono text-sm tabular-nums text-primary/80 pt-1">
-                        {step.step}
-                      </span>
-                      <div>
-                        <h3 className="font-display text-xl sm:text-2xl mb-2 leading-tight">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </li>
-                  </ScrollReveal>
-                ))}
-              </ol>
+              <MethodologyStepper steps={c.methodology} mood={mood} />
             </div>
           </section>
 
@@ -447,20 +428,7 @@ export default function Industry() {
                       delay={100 + i * 100}
                       duration={600}
                     >
-                      <div className="rounded-xl border border-primary/30 bg-gradient-to-br from-primary/[0.06] via-secondary/[0.04] to-accent/[0.06] backdrop-blur-md p-5 h-full flex flex-col">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary mb-3">
-                          {s.engine}
-                        </div>
-                        <p className="text-sm italic text-foreground/85 leading-snug mb-4">
-                          "{s.query}"
-                        </p>
-                        <div className="text-base font-semibold text-foreground mb-3">
-                          → {s.cited}
-                        </div>
-                        <p className="text-xs text-muted-foreground/85 leading-relaxed mt-auto">
-                          {s.reason}
-                        </p>
-                      </div>
+                      <ChatMockup citation={s} mood={mood} />
                     </ScrollReveal>
                   ))}
                 </div>

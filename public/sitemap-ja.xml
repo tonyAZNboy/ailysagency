@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (ja)
     Generated: 2026-05-02
-    URLs: 170
+    URLs: 181
     Index priority: 10 of 16
   -->
 
@@ -100,6 +100,213 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/audit/ai-visibility" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/audit/ai-visibility" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/audit/ai-visibility" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/audit/nap</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/audit/nap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/audit/nap" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/conformite-quebec</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/conformite-quebec" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/conformite-quebec" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/pouls-local</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/pouls-local" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/pouls-local" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/concours-pme</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/concours-pme" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/concours-pme" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/garantie</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/garantie" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/garantie" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/garantie" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/garantie" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/garantie" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/garantie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/garantie" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/garantie" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/garantie" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/garantie" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/garantie" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/garantie" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/garantie" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/garantie" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/garantie" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/garantie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/garantie" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/trousse-nfc</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/trousse-nfc" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/trousse-nfc" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/reception-ia</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/reception-ia" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/whatsapp-business</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/whatsapp-business" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/realisations</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/realisations" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/realisations" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/realisations" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/realisations" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/realisations" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/realisations" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/realisations" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/realisations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/realisations" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/realisations" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/realisations" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/realisations" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/realisations" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/realisations" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/realisations" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/realisations" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/realisations" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/ja/pricing-details</loc>
@@ -376,6 +583,52 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/industries/hotels" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/industries/hotels" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/industries/hotels" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/industries/nail-salons</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/industries/nail-salons" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/industries/nail-salons" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/ja/industries/sushi-counters</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/industries/sushi-counters" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/industries/sushi-counters" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/ja/vs/sterling-sky</loc>

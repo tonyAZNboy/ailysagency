@@ -19,7 +19,9 @@ export type IndustrySlug =
   | "contractors"
   | "clinics"
   | "real-estate"
-  | "hotels";
+  | "hotels"
+  | "nail-salons"
+  | "sushi-counters";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -98,7 +100,7 @@ export interface Industry {
   toneClass: string; // tailwind gradient class
   // EN canonical content
   en: IndustryContent;
-  // FR-CA translation (Quebec home market — full coverage)
+  // FR-CA translation (Quebec home market, full coverage)
   fr: IndustryContent;
   // Other languages: optional partial overrides. If not provided, EN renders.
   i18n?: Partial<Record<string, Partial<IndustryContent>>>;
@@ -3142,6 +3144,667 @@ function buildPlaceholderContent(
    Export
    ────────────────────────────────────────────────────────────────────────── */
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 8 · NAIL SALONS (ongleries)
+   Quebec context: highly competitive segment, Vietnamese-Canadian
+   ownership majority, Instagram-driven discovery, Plateau / Rosemont /
+   Brossard / Laval clusters, walk-in vs appointment mix, manicure /
+   pedicure / acrylic / gel-X / nail-art services.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const nailSalons: Industry = {
+  slug: "nail-salons",
+  name: "Nail salons",
+  nameLong: "Nail Salons & Beauty Bars",
+  emoji: "💅",
+  toneClass: "from-pink-400 via-fuchsia-400 to-rose-400",
+  en: {
+    eyebrow: "AI SEO for nail salons and beauty bars",
+    headline1: "Get cited by ChatGPT when clients ask",
+    headline2: "\"best nail salon near me with gel-X\".",
+    subheadline:
+      "Nail-salon discovery is now a three-way race between Instagram, Google Maps, and AI engines. Local clients ask ChatGPT and Perplexity for \"nail salon Plateau gel manicure\" or \"meilleur nail art Brossard\" instead of scrolling. AI engines weight portfolio depth, review velocity, and service-menu specificity heavily. AiLys gets your salon named when AI surfaces beauty answers and converts that to walk-ins and online bookings.",
+    stats: [
+      { value: "82%", label: "of nail-salon discovery in Greater Montreal now starts on Google Maps, Instagram, or an AI engine, not a browser search" },
+      { value: "3.1×", label: "more LLM citations on salons with full portfolio gallery (50+ original photos refreshed monthly) vs salons with under 20 photos" },
+      { value: "21 days", label: "to first ChatGPT citation lift on average for neighborhood nail-salon queries" },
+      { value: "44%", label: "of clients within 25-34 demographic ask AI engines before booking, up from 12% two years ago" },
+    ],
+    topQueries: [
+      "best nail salon Plateau Mont-Royal gel-X",
+      "nail art near me bilingual Brossard",
+      "pedicure salon open Sunday Laval",
+    ],
+    painPoints: [
+      {
+        title: "Instagram drives discovery, but doesn't convert AI engines",
+        description:
+          "Most salons over-invest in Instagram aesthetic and under-invest in Google Business Profile photo richness, schema, and review response. AI engines do not pull from Instagram for cite-worthy answers. They pull from GBP, Yelp, Google reviews, and structured data on your site.",
+      },
+      {
+        title: "Service menu is buried or vague",
+        description:
+          "Clients ask for specific services: gel-X extensions, dip powder, French ombre, structured manicure, BIAB, Russian manicure. If your menu lives only on a printed sheet at the front desk, AI engines cannot answer specific service queries with your salon. Service menu must be on your website with prices and clear schema.",
+      },
+      {
+        title: "Review velocity drops in slow weeks",
+        description:
+          "Salons get 6 reviews one week and zero the next. AI engines weight steady velocity higher than spike-then-silence patterns. Without a tap-to-review flow at the desk, you lose 70 percent of would-be reviewers who would leave one if asked at the right moment.",
+      },
+      {
+        title: "Multi-language clientele isn't reflected in content",
+        description:
+          "Greater Montreal nail salons serve Vietnamese, French, English, Mandarin, Korean clientele in many neighborhoods. AI engines reward salons with bilingual or trilingual content because it signals authentic local serving. EN-only or FR-only sites lose international clients searching in their language.",
+      },
+      {
+        title: "Owner-operator has no time to publish",
+        description:
+          "Posting weekly to GBP, replying to reviews, refreshing photos, monitoring AI mentions: the technique nobody teaches in nail school. Most owners try once, give up, and the salon falls behind chains that have a marketing team.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for beauty / personal care",
+        description:
+          "Primary category set to specific nail-salon type (Nail Salon, not generic Beauty Salon), every relevant attribute filled (Wheelchair accessible, Appointment required, Walk-ins welcome, LGBTQ+ friendly, Languages spoken Vietnamese / English / French), 50+ original portfolio photos minimum, weekly Q&A on service-specific questions (gel-X removal cost, BIAB durability, walk-in wait times).",
+      },
+      {
+        step: "02",
+        title: "Service-menu schema with prices",
+        description:
+          "Schema.org Service entries for every service offered: classic manicure, gel manicure, gel-X extensions, dip powder, structured manicure, BIAB, pedicure, spa pedicure, nail art, French ombre, foot massage, hand paraffin. Each entry includes price range and duration. AI engines cite priced menus over un-priced ones.",
+      },
+      {
+        step: "03",
+        title: "Tap-to-review flow at the front desk",
+        description:
+          "NFC card at the desk, every client taps their phone after their service, prompts a Google review in their preferred language. Review velocity goes from 2-4 per month to 15-30 per month. Sustained velocity is the single strongest GBP ranking signal for the beauty / personal-care vertical.",
+      },
+      {
+        step: "04",
+        title: "Multi-language content for trilingual neighborhoods",
+        description:
+          "Native EN + FR-CA salon page on Starter / Core / Growth. Add ES, ZH, KO, VI on Growth and Agency for salons in trilingual neighborhoods (Brossard, Plateau, Cote-des-Neiges, Verdun, Laval). Salons with native trilingual content get 1.7x more bookings from international clients searching in their language.",
+      },
+      {
+        step: "05",
+        title: "Portfolio photos with EXIF preservation",
+        description:
+          "Every nail set photographed in the salon (real lighting, real EXIF metadata) and uploaded via Reviuzy app. AI engines and Google weight original photos (with intact EXIF) significantly higher than stock or Instagram screenshots. Refreshed weekly so the gallery never goes stale.",
+      },
+      {
+        step: "06",
+        title: "Review response in client's review language",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in. Vietnamese review gets a Vietnamese reply. AI engines weight response rate AND language-match heavily. Most salons score zero on language-match because they reply in EN to all reviews regardless of original language.",
+      },
+      {
+        step: "07",
+        title: "FAQ schema covering booking, walk-ins, prices, services",
+        description:
+          "FAQ page with 10-15 most-asked questions in EN + FR: do you take walk-ins, do you do gel-X, do you remove acrylics from another salon, do you accept Interac, do you have parking, what languages do you speak, do you take groups, how long does BIAB last. FAQ schema makes these answers eligible for AI Overview citations.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for beauty queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ beauty queries in your neighborhood. Tracks shifts when new salons open nearby, when a competitor updates their photo gallery, or when local trend hashtags shift (Russian manicure surge, BIAB adoption, etc.).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best nail salon for gel-X in the Plateau Montreal",
+        cited: "AiLys client salon named in top 3 with portfolio gallery, price, and walking distance from metro",
+        reason: "Service-menu schema with priced gel-X entry, 80+ original portfolio photos refreshed monthly, 4.8 stars across 240+ reviews, bilingual EN/FR site with structured service data",
+      },
+      {
+        engine: "Perplexity",
+        query: "nail salon Brossard speaks Vietnamese pedicure walk-in",
+        cited: "AiLys client salon cited as primary recommendation with 'Vietnamese, French, English spoken' attribute and walk-ins-welcome flag",
+        reason: "GBP attributes filled completely (languages, walk-ins-welcome, appointment-optional), 60+ Vietnamese-language reviews with Vietnamese-language replies, NAP consistent across PJ.ca + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "nail art designs near me Laval Sunday open",
+        cited: "AiLys client salon surfaced in AI Overview with photo carousel, Sunday hours, and appointment link",
+        reason: "Sunday hours explicitly listed in GBP, 30+ nail-art portfolio photos in the last 60 days, BookingService schema with online appointment URL, 4.9 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent nail salons hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per salon, twice-weekly Q&A monitoring, 4 NAP citations/month, and weekly AI Visibility probes. Multi-location chains (3+ salons) graduate to Growth or Agency for the multi-location dashboard and expanded probe cadence.",
+    faq: [
+      {
+        q: "I post on Instagram every day, isn't that enough?",
+        a: "Instagram builds your aesthetic and brand recognition, but AI engines (ChatGPT, Perplexity, Gemini) do not pull from Instagram for citations. They pull from your Google Business Profile, your website schema, and Google / Yelp / Facebook reviews. We complement your Instagram (we do not replace it) by getting your salon named when AI engines answer beauty queries.",
+      },
+      {
+        q: "Do you handle the Vietnamese / Mandarin / Korean reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Vietnamese reviews get Vietnamese replies, Korean reviews get Korean replies. AI engines weight language-match heavily as an authenticity signal for personal-care businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "Will my walk-in clients still find me?",
+        a: "Yes, more than before. Walk-in clients almost always check Google Maps before walking in (\"is it open\", \"how far\", \"are reviews good\"). When your GBP is optimized with current photos, today's hours, walk-ins-welcome attribute, and high review density, you capture the walk-ins your competitors lose.",
+      },
+      {
+        q: "Can you set up the tap-to-review NFC at the desk for me?",
+        a: "Yes. The NFC tap-to-review flow is part of Reviuzy, which is the $100/month add-on (or bundled in Agency tier). We mail you the NFC card, configure the destination URL to your Google review form pre-filled in the client's language, and train your front desk in week 1.",
+      },
+      {
+        q: "I'm a one-chair home-based nail tech, is this still for me?",
+        a: "Yes if you're appointment-based with active GBP. Home-based nail techs running on Instagram-only typically start with Starter ($300/mo) which covers GBP optimization, 4 posts/month, monthly NAP citations, and monthly AI Visibility probes. Once you fill your appointment book, you graduate to Core for 6 posts/month and twice-weekly Q&A monitoring.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-60 days as the engines re-crawl your structured data and review profile. Walk-in volume usually shows a 15-30 percent lift in months 2-3.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your salon",
+    ctaSecondary: "Free GBP audit for nail salons",
+    seoTitle: "AI SEO for nail salons Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for nail salons in Greater Montreal. Get cited by ChatGPT, Perplexity, Google AIO. Bilingual EN/FR, multi-language reviews, 21-day citation lift. AiLys.",
+    seoKeywords: [
+      "AI SEO nail salon Montreal",
+      "Google Business Profile nail salon Quebec",
+      "ChatGPT nail salon Plateau",
+      "GBP optimization beauty salon Quebec",
+      "AI Visibility nail salon Brossard",
+      "best nail salon AI search Laval",
+    ],
+  },
+  fr: {
+    eyebrow: "Référencement IA pour onglerie et bar à beauté",
+    headline1: "Faites-vous citer par ChatGPT quand vos clientes cherchent",
+    headline2: "\"meilleure onglerie près de moi gel-X\".",
+    subheadline:
+      "La découverte d'une onglerie est devenue une course à trois entre Instagram, Google Maps et les moteurs IA. Les clientes locales demandent à ChatGPT et Perplexity « onglerie Plateau gel manucure » ou « meilleur nail art Brossard » au lieu de scroller. Les moteurs IA pondèrent fortement la profondeur du portfolio, la vélocité des avis et la spécificité du menu de services. AiLys fait nommer votre salon quand les IA répondent aux questions de beauté et convertit ça en visites sans rendez-vous et en réservations en ligne.",
+    stats: [
+      { value: "82 %", label: "de la découverte d'onglerie dans le Grand Montréal débute maintenant sur Google Maps, Instagram ou un moteur IA, et non sur une recherche au navigateur" },
+      { value: "3,1×", label: "plus de citations LLM pour les salons ayant un portfolio complet (50+ photos originales rafraîchies mensuellement) vs ceux avec moins de 20 photos" },
+      { value: "21 jours", label: "pour la première hausse de citations ChatGPT en moyenne sur les requêtes d'onglerie de quartier" },
+      { value: "44 %", label: "des clientes 25-34 ans demandent à un moteur IA avant de réserver, en hausse de 12 % il y a deux ans" },
+    ],
+    topQueries: [
+      "meilleure onglerie Plateau Mont-Royal gel-X",
+      "nail art près de moi bilingue Brossard",
+      "pédicure ouverte dimanche Laval",
+    ],
+    painPoints: [
+      {
+        title: "Instagram pilote la découverte mais ne convertit pas les moteurs IA",
+        description:
+          "La plupart des salons sur-investissent dans l'esthétique Instagram et sous-investissent dans la richesse photo de la fiche Google, le schéma et la réponse aux avis. Les moteurs IA ne tirent pas d'Instagram pour des réponses citables. Ils tirent de Google Business Profile, Yelp, des avis Google et des données structurées de votre site.",
+      },
+      {
+        title: "Le menu de services est enterré ou vague",
+        description:
+          "Les clientes demandent des services précis : extensions gel-X, dip powder, ombré français, manucure structurée, BIAB, manucure russe. Si votre menu n'existe que sur une feuille imprimée à la réception, les moteurs IA ne peuvent pas répondre aux requêtes spécifiques avec votre salon. Le menu doit être sur votre site avec les prix et un schéma clair.",
+      },
+      {
+        title: "La vélocité d'avis chute durant les semaines lentes",
+        description:
+          "Les salons reçoivent 6 avis une semaine et zéro la suivante. Les moteurs IA pondèrent une vélocité régulière plus haut que les patterns « pic puis silence ». Sans flux tap-to-review à la réception, vous perdez 70 % des clientes qui auraient laissé un avis si on leur avait demandé au bon moment.",
+      },
+      {
+        title: "La clientèle multilingue n'apparaît pas dans le contenu",
+        description:
+          "Les ongleries du Grand Montréal servent une clientèle vietnamienne, française, anglaise, mandarine, coréenne dans plusieurs quartiers. Les moteurs IA récompensent les salons avec du contenu bilingue ou trilingue parce que c'est un signal de service local authentique. Les sites EN seulement ou FR seulement perdent les clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        title: "Le propriétaire-opérateur n'a pas le temps de publier",
+        description:
+          "Publier hebdomadairement sur GBP, répondre aux avis, rafraîchir les photos, surveiller les mentions IA : la technique que personne n'enseigne à l'école d'esthétique. La plupart des propriétaires essaient une fois, abandonnent, et le salon prend du retard sur les chaînes qui ont une équipe marketing.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour beauté / soins personnels",
+        description:
+          "Catégorie principale réglée sur le type d'onglerie spécifique (Onglerie, pas Salon de beauté générique), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Sur rendez-vous, Sans rendez-vous bienvenu, LGBTQ+ friendly, Langues parlées vietnamien / français / anglais), 50+ photos originales du portfolio minimum, Q&R hebdomadaire sur les questions spécifiques aux services (coût retrait gel-X, durabilité BIAB, temps d'attente sans rendez-vous).",
+      },
+      {
+        step: "02",
+        title: "Schéma de menu de services avec prix",
+        description:
+          "Entrées Schema.org Service pour chaque service offert : manucure classique, manucure gel, extensions gel-X, dip powder, manucure structurée, BIAB, pédicure, pédicure spa, nail art, ombré français, massage des pieds, paraffine pour les mains. Chaque entrée inclut une fourchette de prix et la durée. Les moteurs IA citent les menus avec prix plutôt que sans.",
+      },
+      {
+        step: "03",
+        title: "Flux tap-to-review à la réception",
+        description:
+          "Carte NFC à la réception, chaque cliente touche son téléphone après son service, déclenche un avis Google dans sa langue préférée. La vélocité d'avis passe de 2-4 par mois à 15-30 par mois. La vélocité soutenue est le signal de classement GBP le plus fort pour la verticale beauté / soins personnels.",
+      },
+      {
+        step: "04",
+        title: "Contenu multilingue pour quartiers trilingues",
+        description:
+          "Page de salon native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, ZH, KO, VI sur Growth et Agency pour les salons en quartier trilingue (Brossard, Plateau, Côte-des-Neiges, Verdun, Laval). Les salons avec contenu trilingue natif obtiennent 1,7× plus de réservations des clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        step: "05",
+        title: "Photos de portfolio avec préservation EXIF",
+        description:
+          "Chaque set d'ongles photographié dans le salon (vraie lumière, vraies métadonnées EXIF) et téléversé via l'app Reviuzy. Les moteurs IA et Google pondèrent les photos originales (avec EXIF intact) significativement plus haut que les images stock ou les captures Instagram. Rafraîchies hebdomadairement pour que la galerie ne stagne jamais.",
+      },
+      {
+        step: "06",
+        title: "Réponse aux avis dans la langue de l'avis",
+        description:
+          "Réponse à chaque avis dans les 48 heures, dans la langue où l'avis a été laissé. Avis vietnamien obtient une réponse vietnamienne. Les moteurs IA pondèrent fortement le taux de réponse ET la correspondance linguistique. La plupart des salons obtiennent zéro sur la correspondance parce qu'ils répondent en EN à tous les avis peu importe la langue d'origine.",
+      },
+      {
+        step: "07",
+        title: "Schéma FAQ couvrant réservation, walk-ins, prix, services",
+        description:
+          "Page FAQ avec 10-15 questions les plus posées en EN + FR : prenez-vous les walk-ins, faites-vous le gel-X, retirez-vous l'acrylique d'un autre salon, acceptez-vous Interac, avez-vous du stationnement, quelles langues parlez-vous, prenez-vous les groupes, combien de temps dure le BIAB. Le schéma FAQ rend ces réponses éligibles aux citations AI Overview.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes beauté",
+        description:
+          "Sondages hebdomadaires automatisés de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes beauté dans votre quartier. Suit les changements quand de nouveaux salons ouvrent à proximité, quand un concurrent met à jour sa galerie, ou quand des hashtags de tendance locale changent (vague de manucure russe, adoption BIAB, etc.).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleure onglerie pour gel-X au Plateau Montréal",
+        cited: "Onglerie cliente AiLys nommée dans le top 3 avec galerie portfolio, prix et distance à pied du métro",
+        reason: "Schéma de menu de services avec entrée gel-X tarifée, 80+ photos originales du portfolio rafraîchies mensuellement, 4,8 étoiles sur 240+ avis, site bilingue EN/FR avec données de service structurées",
+      },
+      {
+        engine: "Perplexity",
+        query: "onglerie Brossard parle vietnamien pédicure sans rendez-vous",
+        cited: "Onglerie cliente AiLys citée comme recommandation principale avec attribut « vietnamien, français, anglais parlés » et drapeau walk-ins-welcome",
+        reason: "Attributs GBP entièrement remplis (langues, sans rendez-vous, rendez-vous optionnel), 60+ avis en vietnamien avec réponses en vietnamien, NAP cohérent sur PagesJaunes + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "designs nail art près de moi Laval ouvert dimanche",
+        cited: "Onglerie cliente AiLys remontée en aperçu IA avec carrousel photo, heures dimanche et lien rendez-vous",
+        reason: "Heures du dimanche explicitement listées dans GBP, 30+ photos nail-art du portfolio dans les 60 derniers jours, schéma BookingService avec URL de rendez-vous en ligne, 4,9 étoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des ongleries indépendantes trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par salon, surveillance Q&R deux fois par semaine, 4 citations NAP par mois et sondages de Visibilité IA hebdomadaires. Les chaînes multi-emplacements (3+ salons) graduent à Growth ou Agency pour le tableau de bord multi-emplacements et la cadence de sondage élargie.",
+    faq: [
+      {
+        q: "Je publie sur Instagram tous les jours, n'est-ce pas suffisant?",
+        a: "Instagram bâtit votre esthétique et votre reconnaissance de marque, mais les moteurs IA (ChatGPT, Perplexity, Gemini) ne tirent pas d'Instagram pour les citations. Ils tirent de votre fiche Google Business Profile, du schéma de votre site et des avis Google / Yelp / Facebook. Nous complétons votre Instagram (nous ne le remplaçons pas) en faisant nommer votre salon quand les moteurs IA répondent aux questions de beauté.",
+      },
+      {
+        q: "Gérez-vous les avis et réponses en vietnamien / mandarin / coréen?",
+        a: "Oui. AiLys répond à chaque avis dans la langue où il a été laissé. Les avis vietnamiens obtiennent des réponses en vietnamien, les coréens en coréen. Les moteurs IA pondèrent fortement la correspondance linguistique comme signal d'authenticité pour les commerces de soins personnels desservant des quartiers multilingues.",
+      },
+      {
+        q: "Mes clientes sans rendez-vous me trouveront-elles encore?",
+        a: "Oui, plus qu'avant. Les clientes sans rendez-vous vérifient presque toujours Google Maps avant d'entrer (« est-ce ouvert », « à quelle distance », « les avis sont-ils bons »). Quand votre fiche GBP est optimisée avec photos actuelles, heures du jour, attribut « walk-ins bienvenus » et forte densité d'avis, vous captez les walk-ins que vos concurrentes perdent.",
+      },
+      {
+        q: "Pouvez-vous installer le NFC tap-to-review à la réception pour moi?",
+        a: "Oui. Le flux NFC tap-to-review fait partie de Reviuzy, qui est l'add-on à 100 $/mois (ou inclus dans le forfait Agency). Nous vous postons la carte NFC, configurons l'URL de destination sur votre formulaire d'avis Google pré-rempli dans la langue de la cliente, et formons votre réception en semaine 1.",
+      },
+      {
+        q: "Je suis une nail tech à domicile sur une seule chaise, est-ce pour moi?",
+        a: "Oui si vous êtes sur rendez-vous avec une fiche GBP active. Les nail techs à domicile fonctionnant sur Instagram-seulement débutent typiquement avec Starter (300 $/mois) qui couvre l'optimisation GBP, 4 publications par mois, citations NAP mensuelles et sondages de Visibilité IA mensuels. Une fois votre carnet de rendez-vous plein, vous graduez à Core pour 6 publications par mois et surveillance Q&R deux fois par semaine.",
+      },
+      {
+        q: "Combien de temps avant de voir des résultats?",
+        a: "La visibilité GBP s'améliore dans les 14-21 jours alors que la galerie photo, le schéma et la densité Q&R s'accumulent. La Visibilité IA (citations ChatGPT / Perplexity) s'améliore typiquement dans les 30-60 jours alors que les moteurs re-crawlent vos données structurées et votre profil d'avis. Le volume de walk-ins montre habituellement une hausse de 15-30 % aux mois 2-3.",
+      },
+    ],
+    ctaPrimary: "Réserver un appel stratégique pour votre salon",
+    ctaSecondary: "Audit GBP gratuit pour onglerie",
+    seoTitle: "Référencement IA pour onglerie Québec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de référencement IA pour onglerie au Grand Montréal. Faites-vous citer par ChatGPT, Perplexity, Google AIO. Bilingue EN/FR, avis multilingues, hausse de citations en 21 jours. AiLys.",
+    seoKeywords: [
+      "Référencement IA onglerie Montréal",
+      "Google Business Profile onglerie Québec",
+      "ChatGPT onglerie Plateau",
+      "Optimisation GBP salon de beauté Québec",
+      "Visibilité IA onglerie Brossard",
+      "meilleure onglerie recherche IA Laval",
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 9 · SUSHI COUNTERS (comptoirs à sushis)
+   Quebec context: take-out / quick-serve dominant model, lunch combos
+   $10-20, neighborhood concentration in Plateau / Cote-des-Neiges /
+   Brossard / St-Leonard / Pointe-Claire, Uber Eats / DoorDash heavy,
+   typically Vietnamese-Chinese-Korean owners doing Japanese cuisine,
+   competition vs sit-down sushi restaurants AND vs poke counters.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const sushiCounters: Industry = {
+  slug: "sushi-counters",
+  name: "Sushi counters",
+  nameLong: "Sushi Counters & Take-Out",
+  emoji: "🍣",
+  toneClass: "from-orange-400 via-rose-400 to-pink-400",
+  en: {
+    eyebrow: "AI SEO for sushi counters and take-out",
+    headline1: "Get cited by ChatGPT when locals ask",
+    headline2: "\"best sushi take-out lunch combo near me\".",
+    subheadline:
+      "Quick-serve sushi is now an AI-decided category. Office workers ask ChatGPT \"best sushi lunch combo Cote-des-Neiges under 20 dollars\" instead of scrolling Uber Eats. AI engines weight menu schema with prices, photo richness, multi-channel review parity (Google + Uber Eats + DoorDash), and category-specific keywords (sashimi, maki, futomaki, chirashi, poke bowls). AiLys gets your counter named when AI surfaces lunch and dinner answers.",
+    stats: [
+      { value: "67%", label: "of weekday lunch decisions in dense office neighborhoods now involve an AI engine query before opening Uber Eats" },
+      { value: "2.8×", label: "more LLM citations on sushi counters with full menu schema (priced items, photo per item) vs counters with PDF-only menus" },
+      { value: "30 days", label: "to first ChatGPT citation lift on average for neighborhood sushi take-out queries" },
+      { value: "23%", label: "average margin recovery via direct-order lift after AiLys optimization (vs Uber Eats / DoorDash 25-30 percent commission)" },
+    ],
+    topQueries: [
+      "best sushi lunch combo under 20 dollars Cote-des-Neiges",
+      "sushi takeout open late near Plateau Mont-Royal",
+      "vegetarian sushi rolls bilingual Brossard",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT defaults to Uber Eats and DoorDash answers",
+        description:
+          "AI engines lean on delivery aggregators for take-out data. Without your own structured data and direct citation density, ChatGPT recommends your counter only via Uber Eats links, and you pay 25-30 percent commission on every order the AI engine sources for you.",
+      },
+      {
+        title: "Menu lives only as a PDF or photo",
+        description:
+          "AI engines cannot read menu PDFs or menu-photo carousels well. They cite counters with structured menu schema (Schema.org Menu + MenuItem with priced entries). Counters with PDF-only menus are invisible to specific lunch-combo and dietary queries (vegetarian, gluten-free, allergen-free).",
+      },
+      {
+        title: "Multi-channel review inconsistency",
+        description:
+          "Google 4.6, Uber Eats 4.2, DoorDash 4.0, Yelp 3.5. AI engines weight inconsistency negatively because it signals operations vs delivery quality gap. Counters with parity across all channels (within 0.4 stars) get 1.9x more AI citations than counters with inconsistent ratings.",
+      },
+      {
+        title: "Lunch-rush hours undocumented",
+        description:
+          "AI engines weight peak-hours schema heavily for quick-serve. Counters that don't list lunch peak (11:30-13:30) and dinner peak (17:30-19:30) lose to counters that do. \"Best sushi lunch combo open right now\" requires explicit popularTimes data plus accurate hours.",
+      },
+      {
+        title: "No AI presence in non-EN/FR languages despite multilingual clientele",
+        description:
+          "Greater Montreal sushi counters serve Mandarin, Korean, Vietnamese, Spanish, Japanese, Arabic clientele in many neighborhoods. Counters with EN-only or thin FR translation lose 50 percent of incoming international queries (students, tourists, cross-border professionals).",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for restaurant / take-out category",
+        description:
+          "Primary category set to specific sushi-counter type (Sushi Take-Out, Japanese Restaurant, Asian Fast Food), every relevant attribute filled (Take-out, Delivery, Curbside pickup, No-contact delivery, Vegetarian options, Gluten-free options, Wheelchair accessible, Languages spoken), 40+ original photos minimum (every menu item, the counter, the kitchen, the storefront), weekly Q&A on ingredient-specific questions (do you use sashimi-grade salmon, are your nori sheets allergen-safe, do you do special diet rolls).",
+      },
+      {
+        step: "02",
+        title: "Menu schema with priced items and dietary tags",
+        description:
+          "Schema.org Menu with MenuSection (Sashimi, Maki, Futomaki, Specialty Rolls, Lunch Combos, Bento, Donburi, Sides, Drinks). Every MenuItem includes price, photo URL, ingredient list, allergen tags, and dietary suitability (vegetarian, gluten-free where applicable). Lunch-combo and family-platter sets schemed as separate MenuItems with full descriptions.",
+      },
+      {
+        step: "03",
+        title: "Multi-channel review parity audit + cleanup",
+        description:
+          "Pulls current ratings from Google, Uber Eats, DoorDash, SkipTheDishes, Yelp, and TripAdvisor. Identifies channels with abnormal scoring (delivery quality gap, photo presentation gap). Operations call to align kitchen workflows on the channel where reviews drift, then schemaes the corrected aggregate.",
+      },
+      {
+        step: "04",
+        title: "Direct-order optimization to escape aggregator commission",
+        description:
+          "Direct-order URL prominently in GBP, schema, and aggregator-channel profiles. Loyalty signup callout in AI-readable format. AI engines start citing your direct-order page over Uber Eats / DoorDash links within 30-60 days. Margin recovery typically 18-28 percent on the orders AI engines source for you.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with food-photography EXIF",
+        description:
+          "Every menu item photographed in the kitchen (real lighting, real EXIF metadata) and uploaded via Reviuzy app. Counter, knife work, sushi rice prep, plating. AI engines and Google weight original photos (with intact EXIF) significantly higher than stock or supplier images. Quarterly refresh on menu changes plus weekly seasonal-special photos.",
+      },
+      {
+        step: "06",
+        title: "Multi-locale content for international clientele",
+        description:
+          "Native EN + FR-CA menu page on Starter / Core / Growth. Add ZH, KO, JA, ES, AR on Growth and Agency for counters in international neighborhoods (Cote-des-Neiges, Plateau, Brossard, Pointe-Claire). Counters with native multi-locale menus get 1.6x to 2.4x more orders from international clients searching in their language.",
+      },
+      {
+        step: "07",
+        title: "FAQ schema covering ingredients, allergens, dietary, hours",
+        description:
+          "FAQ page with 12-15 most-asked questions in EN + FR (and target languages on Growth+): do you use real wasabi or paste, is your salmon sashimi-grade, do you have gluten-free soy sauce, do you do nut-free rolls, what's in your spicy mayo, do you do family platters, do you take same-day catering, what's open right now. FAQ schema makes these answers eligible for AI Overview citations.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for restaurant queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ sushi and take-out queries in your neighborhood. Tracks shifts when new counters open nearby, when delivery aggregators change algorithms, or when seasonal trends shift (lunch combo demand spike in September with back-to-office, summer poke bowl surge).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best sushi lunch combo under 20 dollars Cote-des-Neiges open now",
+        cited: "AiLys client counter named with combo name, price, walking distance from Universite de Montreal, and currently-open status",
+        reason: "Menu schema with priced lunch combos (each as MenuItem), accurate hours including lunch peak, GBP attribute Take-out + Curbside pickup, 4.7 stars across 380+ Google reviews",
+      },
+      {
+        engine: "Perplexity",
+        query: "vegetarian sushi rolls Brossard speaks Mandarin same day catering",
+        cited: "AiLys client counter cited as primary with vegetarian-rolls section in menu schema and Mandarin-spoken attribute",
+        reason: "Menu schema with Vegetarian section (every roll tagged), GBP attribute Languages spoken Mandarin / English / French, FAQ schema entry for same-day catering, 50+ Mandarin-language reviews with Mandarin replies",
+      },
+      {
+        engine: "Google AIO",
+        query: "sushi takeout open late near Plateau Mont-Royal vegetarian",
+        cited: "AiLys client counter surfaced in AI Overview with late-night hours, vegetarian section preview, and order-online link",
+        reason: "Late hours explicitly listed in GBP (open until 23:00 weekdays), vegetarian section in Menu schema, direct-order URL, 4.8 stars, 90+ original photos including kitchen and counter",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent sushi counters hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per counter, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Single-counter operations with high lunch volume sometimes start on Starter ($300/mo). Multi-counter operations or counters in international neighborhoods graduate to Growth for daily AI Visibility probes and the multi-language menu schema.",
+    faq: [
+      {
+        q: "I'm already on Uber Eats and DoorDash, isn't that enough?",
+        a: "Aggregators bring volume but cost 25-30 percent commission per order. AI engines (ChatGPT, Perplexity, Gemini) increasingly recommend direct-order links because they're cleaner answers. We optimize so AI engines cite your own ordering page first, recovering 18-28 percent of your margin on AI-sourced orders. You stay on Uber Eats and DoorDash; we just stop them from being the only path.",
+      },
+      {
+        q: "Do you handle the menu schema on my existing site?",
+        a: "Yes. We deploy the Schema.org Menu + MenuItem markup directly into your site (or build a thin menu page if you don't have one). Every menu item gets a structured entry with price, photo, ingredients, allergens, and dietary tags. AI engines and Google rich-results tests validate the markup before deployment.",
+      },
+      {
+        q: "What about the Mandarin / Korean / Japanese reviews and replies?",
+        a: "AiLys replies to every review in the language it was left in. Mandarin reviews get Mandarin replies, Korean reviews get Korean replies. AI engines weight language-match heavily as an authenticity signal for restaurant businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "Can you set up the tap-to-review NFC at the counter?",
+        a: "Yes. The NFC tap-to-review flow is part of Reviuzy, which is the $100/month add-on (or bundled in Agency tier). We mail you the NFC card or table tent, configure the destination URL to your Google review form pre-filled in the customer's language, and train your counter staff in week 1. Lunch-rush customers tap once on the way out: 60 seconds to a public review.",
+      },
+      {
+        q: "Will this work for a small neighborhood counter or only for chains?",
+        a: "Independent counters often see the highest lift because they have less brand recognition to start. The same AI engines that default to chain answers (Sushi Shop, Akasaka, etc.) are more open to citing a hidden-gem independent if your structured data is cleaner than the chain's. Most of our counter clients are 1-3 location independents.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-21 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-60 days as the engines re-crawl your menu schema and review profile. Direct-order traffic usually shows a 15-25 percent lift in months 2-3 as AI engines start citing your direct page over Uber Eats / DoorDash.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your counter",
+    ctaSecondary: "Free GBP audit for sushi counters",
+    seoTitle: "AI SEO for sushi counters Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for sushi take-out counters in Greater Montreal. Get cited by ChatGPT, Perplexity, Google AIO. Menu schema, multi-channel review parity, direct-order margin recovery. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO sushi counter Montreal",
+      "Google Business Profile sushi take-out Quebec",
+      "ChatGPT sushi Plateau",
+      "menu schema sushi counter Quebec",
+      "AI Visibility sushi Brossard",
+      "best sushi lunch combo AI search Cote-des-Neiges",
+    ],
+  },
+  fr: {
+    eyebrow: "Référencement IA pour comptoir à sushis et plats à emporter",
+    headline1: "Faites-vous citer par ChatGPT quand vos voisins demandent",
+    headline2: "\"meilleur combo sushi midi près de moi\".",
+    subheadline:
+      "Le sushi rapide est maintenant une catégorie décidée par l'IA. Les travailleurs de bureau demandent à ChatGPT « meilleur combo sushi midi Côte-des-Neiges sous 20 $ » au lieu de scroller Uber Eats. Les moteurs IA pondèrent fortement le schéma de menu avec prix, la richesse photo, la parité d'avis multi-canaux (Google + Uber Eats + DoorDash) et les mots-clés spécifiques (sashimi, maki, futomaki, chirashi, bols poké). AiLys fait nommer votre comptoir quand les IA répondent aux questions de midi et de souper.",
+    stats: [
+      { value: "67 %", label: "des décisions de dîner en semaine dans les quartiers de bureaux denses impliquent maintenant une requête à un moteur IA avant d'ouvrir Uber Eats" },
+      { value: "2,8×", label: "plus de citations LLM pour les comptoirs avec schéma de menu complet (items tarifés, photo par item) vs les comptoirs avec menus PDF seulement" },
+      { value: "30 jours", label: "pour la première hausse de citations ChatGPT en moyenne sur les requêtes de comptoir à sushis de quartier" },
+      { value: "23 %", label: "récupération moyenne de marge via la hausse des commandes directes après optimisation AiLys (vs commission Uber Eats / DoorDash de 25-30 %)" },
+    ],
+    topQueries: [
+      "meilleur combo sushi midi sous 20 $ Côte-des-Neiges",
+      "comptoir sushi ouvert tard près du Plateau Mont-Royal",
+      "rouleaux sushi végétariens bilingues Brossard",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT par défaut donne les réponses Uber Eats et DoorDash",
+        description:
+          "Les moteurs IA s'appuient sur les agrégateurs de livraison pour les données de plats à emporter. Sans vos propres données structurées et densité de citations directes, ChatGPT recommande votre comptoir uniquement via les liens Uber Eats, et vous payez 25-30 % de commission sur chaque commande que le moteur IA vous achemine.",
+      },
+      {
+        title: "Le menu n'existe qu'en PDF ou en photo",
+        description:
+          "Les moteurs IA ne lisent pas bien les PDF de menu ni les carrousels photo de menu. Ils citent les comptoirs avec schéma de menu structuré (Schema.org Menu + MenuItem avec entrées tarifées). Les comptoirs avec menus PDF seulement sont invisibles aux requêtes spécifiques de combos midi et diététiques (végétarien, sans gluten, sans allergènes).",
+      },
+      {
+        title: "Incohérence d'avis multi-canaux",
+        description:
+          "Google 4,6, Uber Eats 4,2, DoorDash 4,0, Yelp 3,5. Les moteurs IA pondèrent l'incohérence négativement parce que ça signale un écart entre opérations et qualité de livraison. Les comptoirs avec parité sur tous les canaux (à 0,4 étoile près) obtiennent 1,9× plus de citations IA que les comptoirs avec notes incohérentes.",
+      },
+      {
+        title: "Heures de pointe du midi non documentées",
+        description:
+          "Les moteurs IA pondèrent fortement le schéma d'heures de pointe pour le rapide. Les comptoirs qui n'indiquent pas la pointe du midi (11:30-13:30) et la pointe du souper (17:30-19:30) perdent contre ceux qui le font. « Meilleur combo sushi midi ouvert maintenant » exige des données popularTimes explicites plus des heures précises.",
+      },
+      {
+        title: "Pas de présence IA en langues autres que EN/FR malgré clientèle multilingue",
+        description:
+          "Les comptoirs à sushis du Grand Montréal servent une clientèle mandarine, coréenne, vietnamienne, espagnole, japonaise, arabe dans plusieurs quartiers. Les comptoirs avec EN seulement ou traduction FR mince perdent 50 % des requêtes internationales entrantes (étudiants, touristes, professionnels transfrontaliers).",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour catégorie restaurant / plats à emporter",
+        description:
+          "Catégorie principale réglée sur le type de comptoir spécifique (Sushi à emporter, Restaurant japonais, Restauration rapide asiatique), tous les attributs pertinents remplis (Plats à emporter, Livraison, Cueillette en bordure, Livraison sans contact, Options végétariennes, Options sans gluten, Accessible en fauteuil roulant, Langues parlées), 40+ photos originales minimum (chaque item du menu, le comptoir, la cuisine, la devanture), Q&R hebdomadaire sur les questions spécifiques aux ingrédients (utilisez-vous du saumon qualité sashimi, vos feuilles de nori sont-elles sécuritaires pour allergiques, faites-vous des rouleaux pour diètes spéciales).",
+      },
+      {
+        step: "02",
+        title: "Schéma de menu avec items tarifés et étiquettes diététiques",
+        description:
+          "Schema.org Menu avec MenuSection (Sashimi, Maki, Futomaki, Rouleaux signature, Combos midi, Bento, Donburi, Accompagnements, Boissons). Chaque MenuItem inclut prix, URL de photo, liste d'ingrédients, étiquettes d'allergènes et adaptation diététique (végétarien, sans gluten le cas échéant). Les ensembles combo midi et plateaux famille en MenuItems séparés avec descriptions complètes.",
+      },
+      {
+        step: "03",
+        title: "Audit + nettoyage de parité d'avis multi-canaux",
+        description:
+          "Tire les notes actuelles de Google, Uber Eats, DoorDash, SkipTheDishes, Yelp et TripAdvisor. Identifie les canaux avec notation anormale (écart de qualité de livraison, écart de présentation photo). Appel d'opérations pour aligner les workflows de cuisine sur le canal où les avis dérivent, puis schématise l'agrégat corrigé.",
+      },
+      {
+        step: "04",
+        title: "Optimisation des commandes directes pour échapper à la commission des agrégateurs",
+        description:
+          "URL de commande directe en évidence dans GBP, schéma et profils des canaux agrégateurs. Encart d'inscription au programme de fidélité en format lisible par IA. Les moteurs IA commencent à citer votre page de commande directe plutôt que les liens Uber Eats / DoorDash dans les 30-60 jours. Récupération de marge typiquement de 18-28 % sur les commandes que les IA vous acheminent.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec EXIF de photographie culinaire",
+        description:
+          "Chaque item de menu photographié en cuisine (vraie lumière, vraies métadonnées EXIF) et téléversé via l'app Reviuzy. Comptoir, travail au couteau, préparation du riz à sushi, dressage. Les moteurs IA et Google pondèrent les photos originales (avec EXIF intact) significativement plus haut que les images stock ou de fournisseurs. Rafraîchissement trimestriel sur les changements de menu plus photos hebdomadaires de spéciaux saisonniers.",
+      },
+      {
+        step: "06",
+        title: "Contenu multilingue pour clientèle internationale",
+        description:
+          "Page de menu native EN + FR-CA sur Starter / Core / Growth. Ajouter ZH, KO, JA, ES, AR sur Growth et Agency pour les comptoirs en quartier international (Côte-des-Neiges, Plateau, Brossard, Pointe-Claire). Les comptoirs avec menus multilingues natifs obtiennent 1,6× à 2,4× plus de commandes des clients internationaux qui cherchent dans leur langue.",
+      },
+      {
+        step: "07",
+        title: "Schéma FAQ couvrant ingrédients, allergènes, diète, heures",
+        description:
+          "Page FAQ avec 12-15 questions les plus posées en EN + FR (et langues cibles sur Growth+) : utilisez-vous du vrai wasabi ou de la pâte, votre saumon est-il qualité sashimi, avez-vous de la sauce soya sans gluten, faites-vous des rouleaux sans noix, qu'y a-t-il dans votre mayo épicée, faites-vous des plateaux famille, prenez-vous le traiteur le jour même, qu'est-ce qui est ouvert maintenant. Le schéma FAQ rend ces réponses éligibles aux citations AI Overview.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes restaurants",
+        description:
+          "Sondages hebdomadaires automatisés de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes sushi et plats à emporter dans votre quartier. Suit les changements quand de nouveaux comptoirs ouvrent à proximité, quand les agrégateurs de livraison changent leurs algorithmes, ou quand les tendances saisonnières changent (pic de demande de combos midi en septembre avec le retour au bureau, vague de bols poké en été).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur combo sushi midi sous 20 $ Côte-des-Neiges ouvert maintenant",
+        cited: "Comptoir client AiLys nommé avec nom de combo, prix, distance à pied de l'Université de Montréal et statut « ouvert maintenant »",
+        reason: "Schéma de menu avec combos midi tarifés (chacun en MenuItem), heures précises incluant la pointe du midi, attribut GBP Plats à emporter + Cueillette en bordure, 4,7 étoiles sur 380+ avis Google",
+      },
+      {
+        engine: "Perplexity",
+        query: "rouleaux sushi végétariens Brossard parle mandarin traiteur jour même",
+        cited: "Comptoir client AiLys cité comme principal avec section rouleaux-végétariens dans le schéma de menu et attribut mandarin-parlé",
+        reason: "Schéma de menu avec section Végétarien (chaque rouleau étiqueté), attribut GBP Langues parlées mandarin / anglais / français, entrée FAQ schema pour traiteur jour même, 50+ avis en mandarin avec réponses en mandarin",
+      },
+      {
+        engine: "Google AIO",
+        query: "comptoir sushi à emporter ouvert tard près du Plateau Mont-Royal végétarien",
+        cited: "Comptoir client AiLys remonté en aperçu IA avec heures tardives, aperçu de section végétarienne et lien commande en ligne",
+        reason: "Heures tardives explicitement listées dans GBP (ouvert jusqu'à 23:00 en semaine), section végétarienne dans le schéma de menu, URL commande directe, 4,8 étoiles, 90+ photos originales incluant cuisine et comptoir",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des comptoirs à sushis indépendants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par comptoir, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilité IA hebdomadaires. Les opérations à un comptoir avec fort volume midi débutent parfois sur Starter (300 $/mois). Les opérations multi-comptoirs ou les comptoirs en quartier international graduent à Growth pour les sondages quotidiens et le schéma de menu multi-langues.",
+    faq: [
+      {
+        q: "Je suis déjà sur Uber Eats et DoorDash, n'est-ce pas suffisant?",
+        a: "Les agrégateurs apportent du volume mais coûtent 25-30 % de commission par commande. Les moteurs IA (ChatGPT, Perplexity, Gemini) recommandent de plus en plus les liens de commande directe parce que ce sont des réponses plus propres. Nous optimisons pour que les moteurs IA citent votre propre page de commande en premier, récupérant 18-28 % de votre marge sur les commandes acheminées par IA. Vous restez sur Uber Eats et DoorDash; nous arrêtons simplement qu'ils soient le seul chemin.",
+      },
+      {
+        q: "Gérez-vous le schéma de menu sur mon site existant?",
+        a: "Oui. Nous déployons le marquage Schema.org Menu + MenuItem directement dans votre site (ou bâtissons une page menu mince si vous n'en avez pas). Chaque item de menu obtient une entrée structurée avec prix, photo, ingrédients, allergènes et étiquettes diététiques. Les tests d'aperçus enrichis Google et IA valident le marquage avant déploiement.",
+      },
+      {
+        q: "Et les avis et réponses en mandarin / coréen / japonais?",
+        a: "AiLys répond à chaque avis dans la langue où il a été laissé. Les avis en mandarin obtiennent des réponses en mandarin, les coréens en coréen. Les moteurs IA pondèrent fortement la correspondance linguistique comme signal d'authenticité pour les commerces de restauration desservant des quartiers multilingues.",
+      },
+      {
+        q: "Pouvez-vous installer le NFC tap-to-review au comptoir?",
+        a: "Oui. Le flux NFC tap-to-review fait partie de Reviuzy, qui est l'add-on à 100 $/mois (ou inclus dans le forfait Agency). Nous vous postons la carte NFC ou le tent de table, configurons l'URL de destination sur votre formulaire d'avis Google pré-rempli dans la langue du client, et formons votre personnel de comptoir en semaine 1. Les clients du midi tapent une fois en sortant : 60 secondes pour un avis public.",
+      },
+      {
+        q: "Est-ce que ça fonctionnera pour un petit comptoir de quartier ou seulement pour les chaînes?",
+        a: "Les comptoirs indépendants voient souvent la plus forte hausse parce qu'ils ont moins de reconnaissance de marque au départ. Les mêmes moteurs IA qui par défaut citent les chaînes (Sushi Shop, Akasaka, etc.) sont plus ouverts à citer un trésor caché indépendant si vos données structurées sont plus propres que celles de la chaîne. La majorité de nos clients comptoirs sont des indépendants à 1-3 emplacements.",
+      },
+      {
+        q: "Combien de temps avant de voir des résultats?",
+        a: "La visibilité GBP s'améliore dans les 14-21 jours alors que la galerie photo, le schéma et la densité Q&R s'accumulent. La Visibilité IA (citations ChatGPT / Perplexity) s'améliore typiquement dans les 30-60 jours alors que les moteurs re-crawlent votre schéma de menu et votre profil d'avis. Le trafic de commande directe montre habituellement une hausse de 15-25 % aux mois 2-3 alors que les moteurs IA commencent à citer votre page directe plutôt qu'Uber Eats / DoorDash.",
+      },
+    ],
+    ctaPrimary: "Réserver un appel stratégique pour votre comptoir",
+    ctaSecondary: "Audit GBP gratuit pour comptoir à sushis",
+    seoTitle: "Référencement IA pour comptoir à sushis Québec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de référencement IA pour comptoir à sushis au Grand Montréal. Faites-vous citer par ChatGPT, Perplexity, Google AIO. Schéma de menu, parité d'avis multi-canaux, récupération de marge sur commandes directes. Bilingue EN/FR.",
+    seoKeywords: [
+      "Référencement IA comptoir sushi Montréal",
+      "Google Business Profile sushi à emporter Québec",
+      "ChatGPT sushi Plateau",
+      "schéma menu comptoir sushi Québec",
+      "Visibilité IA sushi Brossard",
+      "meilleur combo sushi midi recherche IA Côte-des-Neiges",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -3150,6 +3813,8 @@ export const industries: Industry[] = [
   clinics,
   realEstate,
   hotels,
+  nailSalons,
+  sushiCounters,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
