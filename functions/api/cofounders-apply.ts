@@ -14,6 +14,7 @@
 //   - Forwards to Supabase landing_leads or to a dedicated table when ready
 
 import { insertSupabaseRow } from "../lib/supabaseInsert";
+import { isAllowedOrigin } from "../lib/origin";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -166,16 +167,6 @@ function validate(body: ApplicationBody): ValidationResult {
       source,
     },
   };
-}
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
 }
 
 async function forwardToSupabase(

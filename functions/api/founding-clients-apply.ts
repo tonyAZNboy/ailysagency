@@ -19,6 +19,7 @@ import { checkRateLimit, sha256Hex } from "../lib/rateLimit";
 import { captureServerError } from "../lib/serverError";
 import { insertSupabaseRow } from "../lib/supabaseInsert";
 import { escapeHtml } from "../lib/htmlEscape";
+import { isAllowedOrigin } from "../lib/origin";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -168,16 +169,6 @@ function validate(body: ApplicationBody): { ok: boolean; errors: string[]; data:
       source,
     },
   };
-}
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    "https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev")
-    .split(",")
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith("http://localhost");
 }
 
 async function forwardToSupabase(

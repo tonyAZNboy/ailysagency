@@ -4,7 +4,33 @@
 
 ---
 
-## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — Supabase insert + STATE archive + htmlEscape + crypto libs (4 commits on PR #139)
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-close) — 5 shared libs extracted on PR #139 (supabaseInsert + htmlEscape + crypto + origin + STATE archive)
+
+### Sub-phase 5 (commit 5 on PR #139): origin allowlist shared lib + Gate 29
+
+Consolidated 5 functionally-identical inline copies of
+`isAllowedOrigin(request, env)` into `functions/lib/origin.ts`.
+Default allowlist (3 canonical AiLys domains) is now defined ONCE
+as `DEFAULT_ALLOWED_ORIGINS` constant. Adding a new canonical
+domain is a single-file change instead of 5.
+
+**Files refactored (5 inline copies removed):**
+
+- `functions/api/cofounders-apply.ts`
+- `functions/api/founding-clients-apply.ts`
+- `functions/api/newsletter-subscribe.ts`
+- `functions/api/audit-pdf.ts`
+- `functions/api/partner-application.ts`
+
+**New smoke (Gate 29): scripts/smoke-origin.mjs, 21 cases.**
+
+Asserts default allowlist permits 3 canonicals, rejects attacker
+subdomains (no implicit subdomain trust), rejects http:// variant
+(only https://), permits any port on http://localhost (dev),
+custom env override fully replaces default, trailing-whitespace
+tolerance, `DEFAULT_ALLOWED_ORIGINS` export shape.
+
+
 
 ### Sub-phase 4 (commit 4/4 on PR #139): crypto shared lib + Gate 28
 

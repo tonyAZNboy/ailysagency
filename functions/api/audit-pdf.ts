@@ -21,6 +21,7 @@ import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
 import { escapeHtml } from '../lib/htmlEscape';
 import { sha256Hex } from '../lib/crypto';
+import { isAllowedOrigin } from '../lib/origin';
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -163,16 +164,6 @@ function emitAuditLog(ctx: PagesContext, entry: AuditLogEntry): void {
 }
 
 // ── Origin allowlist ────────────────────────────────────────────────────────
-
-function isAllowedOrigin(request: Request, env: Env): boolean {
-  const origin = request.headers.get('origin');
-  if (!origin) return true;
-  const allowed = (env.ALLOWED_ORIGINS ??
-    'https://www.ailysagency.ca,https://ailysagency.ca,https://ailysagency.pages.dev')
-    .split(',')
-    .map((s) => s.trim());
-  return allowed.includes(origin) || origin.startsWith('http://localhost');
-}
 
 // ── Handler ─────────────────────────────────────────────────────────────────
 
