@@ -21,7 +21,8 @@ export type IndustrySlug =
   | "real-estate"
   | "hotels"
   | "nail-salons"
-  | "sushi-counters";
+  | "sushi-counters"
+  | "hair-salons";
 
 export type RecommendedTier = "starter" | "core" | "growth" | "autopilot";
 
@@ -3805,6 +3806,337 @@ const sushiCounters: Industry = {
   },
 };
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDUSTRY 10 · HAIR SALONS (general beauty: hair + spa + body care)
+   Quebec context: distinct from nail-salons. Coiffeurs / coiffeuses,
+   colorists, balayage specialists, men's barbers, spa/aesthetic treatments
+   (facials, massage, waxing). Plateau, Mile End, Westmount, Brossard,
+   Outremont clusters. Walk-in vs appointment-only mix. Premium pricing
+   tier ($85-$250 per service) requires premium digital presence.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const hairSalons: Industry = {
+  slug: "hair-salons",
+  name: "Hair salons",
+  nameLong: "Hair Salons & Beauty Spas",
+  emoji: "💇",
+  toneClass: "from-violet-400 via-fuchsia-400 to-rose-400",
+  en: {
+    eyebrow: "AI SEO for hair salons and beauty spas",
+    headline1: "Get cited by ChatGPT when clients ask",
+    headline2: "\"best balayage colorist near me\".",
+    subheadline:
+      "Hair-salon discovery in 2026 is part Instagram aesthetic, part Google Maps, part AI engine. Premium clients (paying $150-$300 per service) ask ChatGPT and Perplexity for \"best balayage Plateau\" or \"meilleur barbier Brossard\" before they book. AI engines weight portfolio depth, stylist-by-stylist specialization, review velocity, and price transparency. AiLys gets your salon named when AI surfaces beauty answers and converts that to first-time bookings at premium rates.",
+    stats: [
+      { value: "76%", label: "of new clients in premium hair-salon segment ($120+ services) check Google Maps + AI engines before booking" },
+      { value: "2.9×", label: "more LLM citations on salons with stylist-by-stylist portfolio (named, with specialty tags) vs salons with anonymous gallery" },
+      { value: "28 days", label: "to first ChatGPT citation lift on average for neighborhood salon queries with full schema" },
+      { value: "38%", label: "of premium clients filter by language (FR/EN/ES/AR) before booking, often switching salon when their language isn't listed" },
+    ],
+    topQueries: [
+      "best balayage colorist Plateau Mont-Royal under 250 dollars",
+      "men's barber Brossard speaks Vietnamese walk-in",
+      "deep conditioning treatment for textured hair Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Stylists work as a collective but the salon presents as one entity",
+        description:
+          "Each stylist has their own following, specialty (balayage, ombre, men's cuts, textured hair, color correction), and price level. AI engines need to cite individual stylists by name to answer specific queries. Most salons publish only the salon brand, losing the long-tail traffic that values the human.",
+      },
+      {
+        title: "Service menu lacks prices and durations",
+        description:
+          "Premium clients pre-screen on price. \"Balayage starting at $185\" gets cited by ChatGPT for \"balayage under 200\" queries; \"call for pricing\" doesn't. Prices on the website + structured menu schema are non-negotiable for AI Visibility in this vertical.",
+      },
+      {
+        title: "Portfolio shots are Instagram-cropped, not site-optimized",
+        description:
+          "Square crops + Instagram filters look great on social but lose context in AI engine answers. AI engines need landscape or 4:3 portfolio shots with proper alt-text + EXIF preserved. The same photos can serve both, but the salon site needs the unfiltered originals.",
+      },
+      {
+        title: "Multilingual clientele isn't reflected on the booking page",
+        description:
+          "Premium hair-salon clientele in Greater Montreal includes French, English, Spanish, Arabic, Portuguese, Vietnamese, Mandarin speakers. AI engines reward salons whose website + GBP attributes explicitly list spoken languages. Salons that don't lose 25-40 percent of bookings from international clients searching in their language.",
+      },
+      {
+        title: "Owner-stylist hybrid has zero marketing time",
+        description:
+          "When the owner is also cutting hair 35 hours per week, GBP posts get skipped, reviews go unanswered, photos pile up unposted. The salon falls behind chains that pay an agency to do it. AiLys does the publishing layer so the owner stays at the chair.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "GBP optimization for beauty / personal care",
+        description:
+          "Primary category set to specific hair-salon type (Hair Salon, Barber Shop, Beauty Salon, Spa as appropriate, NOT generic Beauty Salon), every relevant attribute filled (Wheelchair accessible, Appointment required, Walk-ins welcome, LGBTQ+ friendly, Languages spoken, Specialty services like balayage / extensions / textured hair / men's cuts), 50+ original portfolio photos minimum, weekly Q&A on service-specific questions (balayage maintenance, color correction wait times, men's beard service availability).",
+      },
+      {
+        step: "02",
+        title: "Stylist-by-stylist Person schema",
+        description:
+          "Schema.org Person entries for each stylist with their name, photo, specialties, languages spoken, years of experience, and link to their booking slot. AI engines cite individual stylists for specialty queries (\"balayage colorist who specializes in lived-in color\"), routing premium clients directly to the right chair.",
+      },
+      {
+        step: "03",
+        title: "Service-menu schema with prices and durations",
+        description:
+          "Schema.org Service entries for every service offered: women's cut + style, men's cut, balayage, ombre, full color, root touch-up, color correction, glaze, extensions, deep conditioning, men's beard service, kids' cuts, formal updos, hair-spa treatments. Each entry includes price range, duration, and which stylists offer it. Premium clients filter on this data.",
+      },
+      {
+        step: "04",
+        title: "Tap-to-review flow at checkout",
+        description:
+          "NFC card at the reception desk + on each stylist's station. Client taps after their service, prompts a Google review in their preferred language, optionally tagged with the stylist's name. Review velocity goes from 4-8 per month to 25-50 per month. Stylist-tagged reviews build individual stylist authority that compounds.",
+      },
+      {
+        step: "05",
+        title: "Multi-language site for premium neighborhoods",
+        description:
+          "Native EN + FR-CA salon page on Starter / Core / Growth. Add ES, AR, PT, ZH, VI on Growth and Agency for salons in multilingual neighborhoods (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Salons with native multilingual content get 1.5-2.3x more bookings from international clients.",
+      },
+      {
+        step: "06",
+        title: "Portfolio photos with EXIF + per-stylist tagging",
+        description:
+          "Every transformation photographed in the salon (real lighting, real EXIF metadata) and uploaded via Reviuzy. Each photo tagged with the stylist who did the work + the service category (balayage, ombre, men's cut, etc.). AI engines weight original photos with intact EXIF significantly higher than stock or Instagram screenshots.",
+      },
+      {
+        step: "07",
+        title: "Review response in client's review language with stylist mention",
+        description:
+          "Reply to every review within 48 hours, in the same language the review was left in, mentioning the stylist by name when the client did. Builds individual stylist authority + signals to AI engines that the salon is responsive AND the stylist is real. Most salons score zero on language-match because they reply in EN to all reviews regardless of original language.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for beauty + premium queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot for 30+ beauty queries in your neighborhood, tracked at both salon level and stylist level. Catches when new colorists open competing salons, when pricing benchmarks shift, or when trend hashtags surge (Korean color, Jellyfish cuts, lived-in balayage).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "best balayage colorist Plateau Mont-Royal under 250 dollars",
+        cited: "AiLys client salon named with specific colorist Sarah, price $185, 2 visits available this week",
+        reason: "Person schema for colorist Sarah with balayage specialty + Service schema with priced balayage entry, 80+ original portfolio photos refreshed monthly, 4.9 stars across 320+ reviews, bilingual EN/FR site",
+      },
+      {
+        engine: "Perplexity",
+        query: "men's barber Brossard speaks Vietnamese walk-in",
+        cited: "AiLys client salon cited as primary recommendation with 'Vietnamese, French, English spoken' attribute and walk-ins-welcome flag",
+        reason: "GBP attributes filled completely (languages, walk-ins-welcome), Person schema for Vietnamese-speaking barber Tuan, 70+ Vietnamese-language reviews with Vietnamese-language replies, NAP consistent across PJ.ca + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "deep conditioning treatment for textured hair Outremont",
+        cited: "AiLys client salon surfaced in AI Overview with photo carousel showing textured-hair work, $95 service price, online booking link",
+        reason: "Service schema with priced deep-conditioning entry tagged for textured hair, 25+ portfolio photos showcasing textured-hair specialty in last 60 days, BookingService schema with online appointment URL, 4.8 stars",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Most independent hair salons hit their stride on Core tier ($600/mo): 6 GBP posts/month, 6 photos/month per salon, twice-weekly Q&A monitoring, 4 NAP citations/month, weekly AI Visibility probes. Multi-stylist salons (5+ chairs) often graduate to Growth for daily AI Visibility probes + per-stylist Person schema. Premium downtown salons frequently choose Agency for the multi-language schema and dedicated strategist hours.",
+    faq: [
+      {
+        q: "Will you publish each stylist's portfolio individually?",
+        a: "Yes. Each stylist gets their own Person schema entry on your site, with their photo, specialties, languages spoken, and a portfolio gallery filtered to their work. AI engines cite individual stylists for specialty queries, which builds the stylist's personal authority and compounds over time.",
+      },
+      {
+        q: "What about stylists who leave the salon?",
+        a: "Standard contractor agreement (we provide the template) covers IP rights to portfolio photos taken at the salon. When a stylist leaves, their Person schema is removed within 48 hours and the photos remain on the salon's portfolio (under the salon's brand attribution). Your investment in the salon's authority stays with the salon.",
+      },
+      {
+        q: "Do you handle the multilingual reviews and replies?",
+        a: "Yes. AiLys replies to every review in the language it was left in. Spanish reviews get Spanish replies, Arabic reviews get Arabic replies, Vietnamese gets Vietnamese. AI engines weight language-match heavily as an authenticity signal for personal-care businesses serving multilingual neighborhoods.",
+      },
+      {
+        q: "How does the NFC tap-to-review work for a 6-chair salon?",
+        a: "We mail one NFC card per stylist station + one for the reception desk (7 total for a 6-chair salon). When a client taps at a stylist's station, the review form is pre-tagged with that stylist's name. Reviews then build individual stylist authority in the system, alongside the salon's overall rating.",
+      },
+      {
+        q: "I'm a one-chair home salon, is this still for me?",
+        a: "Yes if you're appointment-based with active GBP. Home-based hair stylists running on Instagram-only typically start with Starter ($300/mo) which covers GBP optimization, 4 posts/month, monthly NAP citations, monthly AI Visibility probes. Once your appointment book fills, graduate to Core for 6 posts/month and twice-weekly Q&A monitoring.",
+      },
+      {
+        q: "How fast do I see results?",
+        a: "GBP visibility lifts within 14-28 days as the photo gallery, schema, and Q&A density build up. AI Visibility (ChatGPT / Perplexity citations) typically lifts within 30-90 days as the engines re-crawl your structured data, Person schema entries, and review profile. Premium-client booking volume usually shows a 20-35 percent lift in months 2-4.",
+      },
+    ],
+    ctaPrimary: "Book a strategy call for your salon",
+    ctaSecondary: "Free GBP audit for hair salons",
+    seoTitle: "AI SEO for hair salons + beauty spas Quebec | AiLys Agency",
+    seoDescription:
+      "Free AI SEO audit for hair salons + beauty spas in Greater Montreal. Stylist-by-stylist Person schema, multilingual reviews, premium-client capture. Bilingual EN/FR.",
+    seoKeywords: [
+      "AI SEO hair salon Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT balayage colorist Plateau",
+      "premium hair salon AI search",
+      "men's barber GBP Quebec",
+      "beauty spa AI Visibility Montreal",
+    ],
+  },
+  fr: {
+    eyebrow: "Referencement IA pour salon de coiffure et spa beaute",
+    headline1: "Faites-vous citer par ChatGPT quand vos clientes cherchent",
+    headline2: "\"meilleur coloriste balayage pres de moi\".",
+    subheadline:
+      "La decouverte d'un salon de coiffure en 2026 est en partie esthetique Instagram, en partie Google Maps, en partie moteur IA. Les clientes premium (qui paient 150-300 $ par service) demandent a ChatGPT et Perplexity « meilleur balayage Plateau » ou « meilleur barbier Brossard » avant de reserver. Les moteurs IA ponderent la profondeur du portfolio, la specialisation par coiffeur, la velocite des avis et la transparence des prix. AiLys fait nommer votre salon quand les IA repondent aux questions de beaute et convertit ca en premieres reservations a tarifs premium.",
+    stats: [
+      { value: "76 %", label: "des nouvelles clientes du segment salon premium (services 120 $+) verifient Google Maps + moteurs IA avant de reserver" },
+      { value: "2,9×", label: "plus de citations LLM pour les salons avec portfolio coiffeur-par-coiffeur (nommes, etiquettes specialite) vs salons avec galerie anonyme" },
+      { value: "28 jours", label: "pour la premiere hausse de citations ChatGPT en moyenne sur les requetes de salon de quartier avec schema complet" },
+      { value: "38 %", label: "des clientes premium filtrent par langue (FR/EN/ES/AR) avant de reserver, changeant souvent de salon quand leur langue n'est pas listee" },
+    ],
+    topQueries: [
+      "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+      "barbier homme Brossard parle vietnamien sans rendez-vous",
+      "traitement conditionnement profond cheveux textures Outremont",
+    ],
+    painPoints: [
+      {
+        title: "Les coiffeurs travaillent en collectif mais le salon se presente comme une entite",
+        description:
+          "Chaque coiffeur a ses propres abonnes, sa specialite (balayage, ombre, coupes hommes, cheveux textures, correction de couleur) et son niveau de prix. Les moteurs IA doivent citer les coiffeurs individuellement par leur nom pour repondre aux requetes specifiques. La plupart des salons ne publient que la marque du salon, perdant le trafic longue traine qui valorise l'humain.",
+      },
+      {
+        title: "Le menu de services manque de prix et de durees",
+        description:
+          "Les clientes premium pre-filtrent sur le prix. « Balayage a partir de 185 $ » est cite par ChatGPT pour les requetes « balayage sous 200 »; « appelez pour les prix » ne l'est pas. Les prix sur le site + le schema de menu structure sont non-negociables pour la Visibilite IA dans cette verticale.",
+      },
+      {
+        title: "Les photos de portfolio sont recadrees Instagram, pas optimisees pour le site",
+        description:
+          "Les recadrages carres + filtres Instagram sont superbes en social mais perdent le contexte dans les reponses IA. Les moteurs IA ont besoin de photos portrait ou 4:3 avec alt-text correct + EXIF preserve. Les memes photos peuvent servir aux deux, mais le site du salon a besoin des originales non filtrees.",
+      },
+      {
+        title: "La clientele multilingue n'apparait pas sur la page de reservation",
+        description:
+          "La clientele de salon premium dans le Grand Montreal inclut francophones, anglophones, hispanophones, arabophones, lusophones, vietnamiens, mandarins. Les moteurs IA recompensent les salons dont le site + les attributs GBP listent explicitement les langues parlees. Les salons qui ne le font pas perdent 25-40 % des reservations des clientes internationales qui cherchent dans leur langue.",
+      },
+      {
+        title: "Le proprietaire-coiffeur hybride n'a aucun temps marketing",
+        description:
+          "Quand le proprietaire coupe aussi des cheveux 35 heures par semaine, les publications GBP sont sautees, les avis restent sans reponse, les photos s'accumulent sans etre publiees. Le salon prend du retard sur les chaines qui paient une agence pour le faire. AiLys gere la couche de publication pour que le proprietaire reste a la chaise.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Optimisation GBP pour beaute / soins personnels",
+        description:
+          "Categorie principale reglee sur le type de salon specifique (Salon de coiffure, Salon de barbier, Salon de beaute, Spa selon le cas, PAS Salon de beaute generique), tous les attributs pertinents remplis (Accessible en fauteuil roulant, Sur rendez-vous, Sans rendez-vous bienvenu, LGBTQ+ friendly, Langues parlees, Services specialises balayage / extensions / cheveux textures / coupes hommes), 50+ photos originales du portfolio minimum, Q&R hebdomadaire sur les questions specifiques aux services (entretien balayage, delais correction couleur, disponibilite service barbe).",
+      },
+      {
+        step: "02",
+        title: "Schema Person coiffeur-par-coiffeur",
+        description:
+          "Entrees Schema.org Person pour chaque coiffeur avec son nom, sa photo, ses specialites, ses langues parlees, ses annees d'experience et le lien vers son creneau de reservation. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite (« coloriste balayage specialiste de la couleur naturelle »), routant les clientes premium directement vers la bonne chaise.",
+      },
+      {
+        step: "03",
+        title: "Schema de menu de services avec prix et durees",
+        description:
+          "Entrees Schema.org Service pour chaque service offert : coupe + mise en plis femme, coupe homme, balayage, ombre, couleur complete, retouche racine, correction de couleur, glaze, extensions, conditionnement profond, service barbe homme, coupes enfants, chignons formels, traitements spa-cheveux. Chaque entree inclut une fourchette de prix, la duree et les coiffeurs qui l'offrent. Les clientes premium filtrent sur ces donnees.",
+      },
+      {
+        step: "04",
+        title: "Flux tap-to-review au paiement",
+        description:
+          "Carte NFC a la reception + a chaque station de coiffeur. Cliente tape apres son service, declenche un avis Google dans sa langue preferee, optionnellement etiquete avec le nom du coiffeur. La velocite d'avis passe de 4-8 par mois a 25-50 par mois. Les avis etiquetes coiffeur batissent l'autorite individuelle de chaque coiffeur qui s'accumule.",
+      },
+      {
+        step: "05",
+        title: "Site multilingue pour quartiers premium",
+        description:
+          "Page de salon native EN + FR-CA sur Starter / Core / Growth. Ajouter ES, AR, PT, ZH, VI sur Growth et Agency pour les salons en quartiers multilingues (Plateau, Mile End, Cote-des-Neiges, Westmount, Brossard). Les salons avec contenu multilingue natif obtiennent 1,5-2,3× plus de reservations des clientes internationales.",
+      },
+      {
+        step: "06",
+        title: "Photos de portfolio avec EXIF + etiquetage par coiffeur",
+        description:
+          "Chaque transformation photographiee dans le salon (vraie lumiere, vraies metadonnees EXIF) et televersee via Reviuzy. Chaque photo etiquetee avec le coiffeur qui a fait le travail + la categorie de service (balayage, ombre, coupe homme, etc.). Les moteurs IA ponderent les photos originales avec EXIF intact significativement plus haut que les stock ou les captures Instagram.",
+      },
+      {
+        step: "07",
+        title: "Reponse aux avis dans la langue de l'avis avec mention du coiffeur",
+        description:
+          "Reponse a chaque avis dans les 48 heures, dans la langue ou l'avis a ete laisse, en mentionnant le coiffeur par son nom quand la cliente l'a mentionne. Batit l'autorite individuelle du coiffeur + signale aux moteurs IA que le salon est reactif ET que le coiffeur est reel. La plupart des salons obtiennent zero sur la correspondance linguistique parce qu'ils repondent en EN a tous les avis peu importe la langue d'origine.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requetes beaute + premium",
+        description:
+          "Sondages hebdomadaires automatises de ChatGPT, Perplexity, Claude, Gemini, Google AIO, Bing Copilot pour 30+ requetes beaute dans votre quartier, suivis au niveau salon ET au niveau coiffeur. Detecte quand de nouveaux coloristes ouvrent des salons concurrents, quand les references de prix changent, ou quand des hashtags de tendance surgent (couleur coreenne, coupes meduse, balayage naturel).",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "meilleur coloriste balayage Plateau Mont-Royal sous 250 $",
+        cited: "Salon client AiLys nomme avec coloriste specifique Sarah, prix 185 $, 2 visites disponibles cette semaine",
+        reason: "Schema Person pour coloriste Sarah avec specialite balayage + schema Service avec entree balayage tarifee, 80+ photos originales du portfolio rafraichies mensuellement, 4,9 etoiles sur 320+ avis, site bilingue EN/FR",
+      },
+      {
+        engine: "Perplexity",
+        query: "barbier homme Brossard parle vietnamien sans rendez-vous",
+        cited: "Salon client AiLys cite comme recommandation principale avec attribut « vietnamien, francais, anglais parles » et drapeau walk-ins-welcome",
+        reason: "Attributs GBP entierement remplis (langues, sans rendez-vous), schema Person pour barbier vietnamien Tuan, 70+ avis en vietnamien avec reponses en vietnamien, NAP coherent sur PagesJaunes + Yelp + Google + Facebook",
+      },
+      {
+        engine: "Google AIO",
+        query: "traitement conditionnement profond cheveux textures Outremont",
+        cited: "Salon client AiLys remonte en apercu IA avec carrousel photo montrant le travail sur cheveux textures, prix service 95 $, lien reservation en ligne",
+        reason: "Schema Service avec entree conditionnement profond tarifee etiquetee pour cheveux textures, 25+ photos portfolio mettant en valeur la specialite cheveux textures dans les 60 derniers jours, schema BookingService avec URL de rendez-vous en ligne, 4,8 etoiles",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "La plupart des salons de coiffure independants trouvent leur rythme sur le forfait Core (600 $/mois) : 6 publications GBP par mois, 6 photos par mois par salon, surveillance Q&R deux fois par semaine, 4 citations NAP par mois, sondages de Visibilite IA hebdomadaires. Les salons multi-coiffeurs (5+ chaises) graduent souvent a Growth pour les sondages quotidiens + le schema Person par coiffeur. Les salons premium du centre-ville choisissent souvent Agency pour le schema multilingue et les heures de strategiste dediees.",
+    faq: [
+      {
+        q: "Allez-vous publier le portfolio de chaque coiffeur individuellement?",
+        a: "Oui. Chaque coiffeur obtient sa propre entree de schema Person sur votre site, avec sa photo, ses specialites, ses langues parlees et une galerie de portfolio filtree sur son travail. Les moteurs IA citent les coiffeurs individuellement pour les requetes de specialite, ce qui batit l'autorite personnelle du coiffeur et s'accumule au fil du temps.",
+      },
+      {
+        q: "Et les coiffeurs qui quittent le salon?",
+        a: "Une entente de contracteur standard (nous fournissons le modele) couvre les droits de propriete intellectuelle aux photos de portfolio prises au salon. Quand un coiffeur quitte, son entree de schema Person est retiree dans les 48 heures et les photos restent dans le portfolio du salon (sous l'attribution de la marque du salon). Votre investissement dans l'autorite du salon reste avec le salon.",
+      },
+      {
+        q: "Gerez-vous les avis et reponses multilingues?",
+        a: "Oui. AiLys repond a chaque avis dans la langue ou il a ete laisse. Les avis en espagnol obtiennent des reponses en espagnol, les arabes en arabe, les vietnamiens en vietnamien. Les moteurs IA ponderent fortement la correspondance linguistique comme signal d'authenticite pour les commerces de soins personnels desservant des quartiers multilingues.",
+      },
+      {
+        q: "Comment fonctionne le NFC tap-to-review pour un salon a 6 chaises?",
+        a: "Nous postons une carte NFC par station de coiffeur + une pour la reception (7 au total pour un salon a 6 chaises). Quand une cliente tape a la station d'un coiffeur, le formulaire d'avis est pre-etiquete avec le nom de ce coiffeur. Les avis batissent ensuite l'autorite individuelle du coiffeur dans le systeme, en plus de la note globale du salon.",
+      },
+      {
+        q: "Je suis une coiffeuse a domicile sur une seule chaise, est-ce pour moi?",
+        a: "Oui si vous etes sur rendez-vous avec une fiche GBP active. Les coiffeuses a domicile fonctionnant sur Instagram-seulement debutent typiquement avec Starter (300 $/mois) qui couvre l'optimisation GBP, 4 publications par mois, citations NAP mensuelles, sondages de Visibilite IA mensuels. Une fois votre carnet de rendez-vous plein, vous graduez a Core pour 6 publications par mois et surveillance Q&R deux fois par semaine.",
+      },
+      {
+        q: "Combien de temps avant de voir des resultats?",
+        a: "La visibilite GBP s'ameliore dans les 14-28 jours alors que la galerie photo, le schema et la densite Q&R s'accumulent. La Visibilite IA (citations ChatGPT / Perplexity) s'ameliore typiquement dans les 30-90 jours alors que les moteurs re-crawlent vos donnees structurees, vos entrees de schema Person et votre profil d'avis. Le volume de reservations clientes premium montre habituellement une hausse de 20-35 % aux mois 2-4.",
+      },
+    ],
+    ctaPrimary: "Reserver un appel strategique pour votre salon",
+    ctaSecondary: "Audit GBP gratuit pour salon de coiffure",
+    seoTitle: "Referencement IA pour salon de coiffure + spa Quebec | AiLys Agency",
+    seoDescription:
+      "Audit gratuit de referencement IA pour salons de coiffure + spas beaute du Grand Montreal. Schema Person coiffeur-par-coiffeur, avis multilingues, capture clientele premium. Bilingue EN/FR.",
+    seoKeywords: [
+      "Referencement IA salon de coiffure Montreal",
+      "Google Business Profile coiffeur Quebec",
+      "ChatGPT coloriste balayage Plateau",
+      "salon de coiffure premium recherche IA",
+      "barbier homme GBP Quebec",
+      "spa beaute Visibilite IA Montreal",
+    ],
+  },
+};
+
 export const industries: Industry[] = [
   dentists,
   lawyers,
@@ -3815,6 +4147,7 @@ export const industries: Industry[] = [
   hotels,
   nailSalons,
   sushiCounters,
+  hairSalons,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

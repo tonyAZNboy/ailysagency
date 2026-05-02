@@ -2,6 +2,86 @@
 
 ---
 
+## 💇 SESSION 2026-05-02 (Frontend Batch 2) — hair-salons industry + footer wiring
+
+**Shipped (post-PR-#125-merge, on new branch claude/frontend-batch-2):**
+1. New `hair-salons` industry vertical (~660 lines content EN+FR,
+   distinct from `nail-salons`). Quebec hair salon market (Plateau,
+   Mile End, Westmount, Brossard, Outremont) with stylist-by-stylist
+   Person schema strategy + premium pricing tier focus.
+2. Footer link wiring for 10 new conversion pages shipped in PR #125
+   marathon: NAP audit, Web portfolio, Quebec compliance, Performance
+   guarantee, Le Pouls Local newsletter, Concours PME 2026, NFC kit,
+   AI Receptionist, WhatsApp Business, AiLys Verified Badge.
+
+**Why:**
+- hair-salons fills the obvious Quebec market gap (we had nail-salons
+  but missed the larger hair/spa segment)
+- Footer wiring resolves discoverability deficit: PR #125 shipped 14
+  new pages but only the route-level access existed; users had no
+  navigation path from the marketing surface
+
+**Files modified:**
+- `src/data/industries.ts`: IndustrySlug union + hairSalons const
+  (~660 lines) + array entry
+- `src/design-system/moods/vertical-defaults.ts`: hair-salons mood
+  default = premium-dark (gold-on-black, suits premium hair-salon
+  market positioning)
+- `src/components/landing/Footer.tsx`: company array extended with
+  10 new entries
+- `scripts/generate-sitemap.mjs`: hair-salons entry x 16 locales =
+  16 new URLs
+
+**Mood for hair-salons:** premium-dark (TopologyBackground swap to
+NetworkBackground per design-system fallback). Premium pricing tier
+($150-300 services) deserves the "serious + expensive" aesthetic. The
+H1 italic uses gold gradient (amber-300 to yellow-600).
+
+**Verification:**
+- /fr/industries/hair-salons: H1 "Faites-vous citer par ChatGPT
+  quand vos clientes cherchent meilleur coloriste balayage pres de
+  moi" renders
+- Mood: italic gradient `from-amber-300 via-amber-400 to-yellow-600`
+  (premium-dark gold) confirmed
+- 8 stepper items render (DS v1.2 MethodologyStepper working)
+- 3 chat mockups render (DS v1.2 ChatMockup working)
+- Body contains "balayage" (specific content marker)
+- Footer renders 10 new conversion-page links (all visible in DOM)
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~13s
+- audit-translations-deep 0 missing across 15 non-EN locales
+
+**i18n discipline (per ongoing user constraint):**
+- Zero new i18n keys (all inline T() helper EN+FR for content; data
+  file uses industry.en + industry.fr fields per existing pattern)
+- 14 secondary locales fall back to EN naturally via getIndustryContent
+- 3 pre-existing em-dashes in Russian translations of lawyers/restos
+  industries NOT touched (per user constraint: don't touch translations
+  to languages other than EN/FR this week; logged for next Tuesday
+  after 13:00 in translation queue)
+
+**Cross-session safety (parallel session on structuredLog lib + sub-phase 7):**
+- Stayed 100% in frontend territory: src/data/, src/design-system/,
+  src/components/landing/Footer.tsx, scripts/generate-sitemap.mjs
+- Zero touch on functions/lib/, functions/api/, .github/workflows/,
+  scripts/smoke-*.mjs, docs/state-archive
+- Their structuredLog lib + audit-* refactors won't conflict with
+  this PR
+
+**Next session candidates:**
+1. Add `gyms-studios` industry vertical (rapidly growing AI search
+   demand: yoga, pilates, crossfit, boutique fitness)
+2. Add `vet-clinics` industry vertical (Quebec PME density + AI
+   search opportunity for vet-emergency queries)
+3. Wire Navbar mega-menu for the same 10 new pages (currently only
+   in footer)
+4. Expand portfolio-samples.ts to 18+ samples (currently 9)
+5. Build first actual demo client site in ailys-client-sites repo
+
+---
+
 ## 📚 SESSION 2026-05-02 (Help articles, hard rule #10 follow-up) — 2 new
 
 **Shipped:** 2 new help-center articles (EN canonical + FR-CA full)
