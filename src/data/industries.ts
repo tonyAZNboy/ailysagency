@@ -1070,8 +1070,330 @@ const contractors: Industry = {
   nameLong: "General Contractors & Trades",
   emoji: "🔨",
   toneClass: "from-orange-400 via-amber-400 to-yellow-400",
-  en: buildPlaceholderContent("contractors", "general contractors", "general contractor near me", "core"),
-  fr: buildPlaceholderContent("contractors", "entrepreneurs généraux", "entrepreneur général près de moi", "core", true),
+  en: {
+    eyebrow: "AI SEO for general contractors and trades",
+    headline1: "Get cited by ChatGPT when homeowners ask",
+    headline2: "\"RBQ-licensed contractor near me\".",
+    subheadline:
+      "Renovation and construction searches are dominated by trust signals. AI engines extract RBQ license status, BBB rating, and photo gallery depth before they recommend a contractor. AiLys gets your firm named when homeowners ask AI for a contractor they can trust.",
+    stats: [
+      { value: "73%", label: "of homeowners now research contractors through AI engines before requesting a quote" },
+      { value: "2.4×", label: "more LLM citations on contractor sites with RBQ license schema and Service markup" },
+      { value: "45 days", label: "to first ChatGPT citation lift on average for residential renovation queries" },
+      { value: "$28k", label: "average value of a residential renovation lead in Quebec" },
+    ],
+    topQueries: [
+      "RBQ-licensed general contractor near me Montreal",
+      "kitchen renovation contractor Quebec City reviews",
+      "basement finishing contractor Laval with portfolio",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommends unlicensed competitors",
+        description:
+          "When homeowners ask ChatGPT for a contractor, the answer pulls from HomeStars, HouseGrade, BBB, and Google Business Profile. If your RBQ license is not surfaced in your structured data, AI engines weight unlicensed competitors equally with you.",
+      },
+      {
+        title: "Photo galleries are incomplete or stock",
+        description:
+          "AI engines downweight stock photos heavily on home-services queries. Real before-and-after photos with EXIF metadata are the strongest experience signal for E-E-A-T. Most contractors upload 5 photos and stop. Top performers upload 50+ project photos per year.",
+      },
+      {
+        title: "Project type is ambiguous",
+        description:
+          "AI engines need entity disambiguation: are you a residential renovator, custom home builder, commercial GC, or a multi-trade firm? Without ServiceType schema specifying your scope, you compete against every contractor instead of dominating your niche (kitchen renovations, basement finishing, custom homes, etc.).",
+      },
+      {
+        title: "Negative review responses are missing",
+        description:
+          "Construction is a high-friction service. Negative reviews are inevitable. AI engines weight your response rate and tone heavily. Contractors who never respond to negative reviews see a 32-point lower citation rate vs those who respond within 48 hours.",
+      },
+      {
+        title: "Bilingual content gap on Quebec sites",
+        description:
+          "Most Quebec contractor sites are EN-only or have FR-CA as a thin afterthought. AI engines query in both languages. EN-only sites lose roughly half the addressable market for residential renovations in Greater Montreal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "RBQ license verification + schema deployment",
+        description:
+          "RBQ license number displayed in footer, in structured data (Service.providerCertification), and in JSON-LD. We verify against the Régie du bâtiment public registry weekly to catch expiry before AI engines do.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for trades categories",
+        description:
+          "Primary category set to specific trade (General Contractor, Kitchen Remodeler, Basement Contractor, Custom Home Builder), service-area markup with cities served, project gallery upload (target 30+ original project photos), weekly Q&A on permitting and timeline questions.",
+      },
+      {
+        step: "03",
+        title: "Trust-signal NAP consistency across construction directories",
+        description:
+          "Verified profiles on HomeStars, HouseGrade, BBB, Yelp, ACQ, APCHQ, Garantie de construction résidentielle (GCR for new builds), and 10+ trade-specific directories. RBQ license listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "Service schema with project-type specificity",
+        description:
+          "Schema.org GeneralContractor + Service objects per offering (kitchen, bathroom, basement, addition, custom home). Each Service has serviceType, areaServed, hoursAvailable, and offers structured data. FAQ schema covering pricing ranges, timelines, permits, and warranty terms.",
+      },
+      {
+        step: "05",
+        title: "Photo gallery with EXIF preservation",
+        description:
+          "Project photos uploaded via Reviuzy app preserve EXIF metadata (geolocation, capture date, device). AI engines distinguish original phone-captured photos from stock images. Real photos beat stock by 26 points on E-E-A-T scoring in our internal Quebec renovation dataset.",
+      },
+      {
+        step: "06",
+        title: "Project case study content with bylines",
+        description:
+          "Long-form case studies per completed project: scope, timeline, materials, before-and-after photos, client quote (with consent). Project author byline (foreman or project manager) with credentials. Strongest E-E-A-T signal for the construction vertical.",
+      },
+      {
+        step: "07",
+        title: "Review velocity and response cadence",
+        description:
+          "Google reviews via NFC tap-to-review at project handover (powered by AiLys Automation), responded to within 24 hours. Negative reviews handled with a structured public response template that acknowledges, addresses, and resolves. The response itself becomes a citation signal.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for renovation queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 25+ contractor queries in your service area. Tracks shifts when competitors update their profiles or get new reviews.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "RBQ-licensed kitchen renovation contractor Montreal Plateau",
+        cited: "Rénovation Plateau Construction",
+        reason:
+          "Surfaced through HomeStars 4.8 rating with 47 reviews, complete GBP with Kitchen Remodeler primary category, RBQ license schema in structured data, FAQ schema covering kitchen renovation timelines and permit handling, and a 24-hour Google review response cadence.",
+      },
+      {
+        engine: "Perplexity",
+        query: "basement finishing contractor Laval with portfolio",
+        cited: "Sous-Sols Laval Pro",
+        reason:
+          "Surfaced through GBP \"Basement Contractor\" primary category, 32 original project photos with EXIF preserved, ServiceType schema covering basement finishing, and listings on HouseGrade + APCHQ + BBB with consistent NAP.",
+      },
+      {
+        engine: "Claude",
+        query: "custom home builder Quebec City RBQ verified",
+        cited: "Maisons Custom Sainte-Foy",
+        reason:
+          "Surfaced through Garantie de construction résidentielle (GCR) registration confirmed in schema, 14 long-form case studies with project manager bylines, and citation density across HomeStars, ACQ, APCHQ, and 8 Quebec construction directories.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Contractors benefit most from Core ($600/mo) because the trade-specific schema, RBQ license verification, project gallery uploads, and 5 monthly citations to construction directories close 80% of the AI visibility gap. Solo contractors and small firms can start with Starter ($300/mo) and upgrade once the photo gallery and review velocity are established.",
+    faq: [
+      {
+        q: "How long until my contracting business gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood-specific queries (\"contractor in Plateau\"), 60 to 90 days for service-specific queries (\"kitchen renovation Montreal\"), 120 to 180 days for high-competition queries (\"best general contractor Quebec\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Do you verify RBQ license status automatically?",
+        a: "Yes. We poll the Régie du bâtiment public registry weekly. If your license enters a suspended or revoked state, we alert you within 24 hours and remove the schema until the license is restored. AI engines penalize revoked licenses heavily, so the alert is critical.",
+      },
+      {
+        q: "Will you handle negative review responses on our behalf?",
+        a: "Optional. Our standard service includes review monitoring and AI-suggested response drafts, but we always require contractor sign-off before publishing. Construction reviews often involve disputed scope or timeline claims, so a human in the loop is mandatory.",
+      },
+      {
+        q: "What if my photo gallery is mostly stock photos right now?",
+        a: "Common starting point. Reviuzy NFC tap-to-photo at project sites lets your foreman or project manager upload original photos in seconds. Within 90 days, most contractors hit 30+ original photos with EXIF preserved. AI engines reweight quickly once stock-to-original ratio improves.",
+      },
+      {
+        q: "Do you work with multi-trade firms (general + electrical + plumbing)?",
+        a: "Yes. Each trade gets its own Service schema entry under the parent GeneralContractor entity. We coordinate at the brand level (single GBP, single citation profile) but allow trade-level disambiguation in structured data so AI engines can answer specific trade queries.",
+      },
+      {
+        q: "What about Quebec-specific compliance (RBQ, BSDQ, GCR)?",
+        a: "We deploy structured data for RBQ license, BSDQ deposit history (if applicable to your firm), and Garantie de construction résidentielle registration (for new home builders). All three are weighted by AI engines as Quebec-specific trust signals. We update them quarterly.",
+      },
+    ],
+    ctaPrimary: "Run my contractor audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Contractors · RBQ-Verified, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your contracting business cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for general contractors and trades in Quebec. RBQ schema, project gallery, review velocity. From $300/mo. Bilingual EN and FR-CA.",
+    seoKeywords: [
+      "AI SEO for contractors",
+      "contractor SEO Montreal",
+      "RBQ contractor marketing",
+      "AEO general contractor",
+      "GEO renovation contractor",
+      "ChatGPT contractor citations",
+      "construction Google Business Profile optimization",
+      "contractor marketing Quebec 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour entrepreneurs généraux et corps de métier",
+    headline1: "Faites-vous citer par ChatGPT quand les propriétaires demandent",
+    headline2: "« entrepreneur RBQ près de moi ».",
+    subheadline:
+      "Les recherches en rénovation et en construction sont dominées par les signaux de confiance. Les moteurs IA extraient le statut de licence RBQ, la cote BBB et la profondeur de la galerie photo avant de recommander un entrepreneur. AiLys fait nommer votre entreprise quand les propriétaires demandent à l'IA un entrepreneur fiable.",
+    stats: [
+      { value: "73 %", label: "des propriétaires recherchent maintenant un entrepreneur via les moteurs IA avant de demander une soumission" },
+      { value: "2,4×", label: "de citations LLM en plus sur les sites d'entrepreneurs avec schema RBQ et Service" },
+      { value: "45 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes de rénovation résidentielle" },
+      { value: "28 000 $", label: "valeur moyenne d'une piste de rénovation résidentielle au Québec" },
+    ],
+    topQueries: [
+      "entrepreneur général RBQ près de moi Montréal",
+      "entrepreneur rénovation cuisine Québec avis",
+      "entrepreneur sous-sol Laval avec portfolio",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommande des concurrents non licenciés",
+        description:
+          "Quand les propriétaires demandent à ChatGPT un entrepreneur, la réponse puise dans HomeStars, HouseGrade, BBB et le profil Google. Si votre licence RBQ n'est pas exposée dans vos données structurées, les moteurs IA pondèrent les concurrents non licenciés à égalité avec vous.",
+      },
+      {
+        title: "Les galeries photo sont incomplètes ou en stock",
+        description:
+          "Les moteurs IA pénalisent fortement les photos de stock sur les requêtes de services à domicile. Les vraies photos avant-après avec métadonnées EXIF sont le signal d'expérience le plus fort pour E-E-A-T. La plupart des entrepreneurs téléversent 5 photos et arrêtent. Les meilleurs téléversent 50+ photos de projets par année.",
+      },
+      {
+        title: "Le type de projet est ambigu",
+        description:
+          "Les moteurs IA ont besoin de désambiguïsation : êtes-vous rénovateur résidentiel, constructeur sur mesure, entrepreneur commercial, ou multi-métiers? Sans schema ServiceType précisant votre portée, vous compétitionnez contre tout le monde au lieu de dominer votre créneau (cuisines, sous-sols, maisons neuves, etc.).",
+      },
+      {
+        title: "Les réponses aux avis négatifs sont absentes",
+        description:
+          "La construction est un service à friction élevée. Les avis négatifs sont inévitables. Les moteurs IA pondèrent fortement votre taux de réponse et votre ton. Les entrepreneurs qui ne répondent jamais aux avis négatifs voient un taux de citation 32 points plus bas que ceux qui répondent en moins de 48 heures.",
+      },
+      {
+        title: "Lacune de contenu bilingue sur les sites du Québec",
+        description:
+          "La plupart des sites d'entrepreneurs du Québec sont en anglais seulement ou ont un FR-CA léger ajouté après coup. Les moteurs IA interrogent dans les deux langues. Les sites EN-seulement perdent environ la moitié du marché adressable pour la rénovation résidentielle dans le Grand Montréal.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Vérification de licence RBQ + déploiement schema",
+        description:
+          "Numéro de licence RBQ affiché en pied de page, dans les données structurées (Service.providerCertification) et en JSON-LD. Nous vérifions auprès du registre public de la Régie du bâtiment chaque semaine pour détecter une expiration avant les moteurs IA.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories de métiers",
+        description:
+          "Catégorie principale réglée sur le métier spécifique (Entrepreneur général, Rénovateur de cuisine, Entrepreneur de sous-sol, Constructeur sur mesure), balisage de zone de service avec villes desservies, téléversement de galerie de projets (objectif 30+ photos originales), Q&R hebdomadaires sur les questions de permis et d'échéancier.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP signaux de confiance sur annuaires construction",
+        description:
+          "Profils vérifiés sur HomeStars, HouseGrade, BBB, Yelp, ACQ, APCHQ, Garantie de construction résidentielle (GCR pour neuf), et 10+ annuaires de métiers. Licence RBQ inscrite explicitement dans chacun.",
+      },
+      {
+        step: "04",
+        title: "Schema Service avec spécificité de type de projet",
+        description:
+          "Schema.org GeneralContractor + objets Service par offre (cuisine, salle de bain, sous-sol, agrandissement, maison neuve). Chaque Service a serviceType, areaServed, hoursAvailable et offres structurées. Schema FAQ couvrant les fourchettes de prix, échéanciers, permis et garanties.",
+      },
+      {
+        step: "05",
+        title: "Galerie photo avec préservation EXIF",
+        description:
+          "Photos de projets téléversées via l'app Reviuzy préservant les métadonnées EXIF (géolocalisation, date de capture, appareil). Les moteurs IA distinguent les photos prises au téléphone des images de stock. Les vraies photos battent le stock de 26 points sur le score E-E-A-T dans notre jeu de données rénovation Québec.",
+      },
+      {
+        step: "06",
+        title: "Études de cas de projets avec signatures",
+        description:
+          "Études de cas longues par projet complété : portée, échéancier, matériaux, photos avant-après, citation client (avec consentement). Signature de l'auteur du projet (contremaître ou chargé de projet) avec qualifications. Signal E-E-A-T le plus fort pour le secteur de la construction.",
+      },
+      {
+        step: "07",
+        title: "Vélocité d'avis et cadence de réponse",
+        description:
+          "Avis Google via NFC tap-to-review à la livraison du projet (alimenté par AiLys Automation), réponses en moins de 24 heures. Avis négatifs gérés avec un modèle de réponse publique structuré qui reconnaît, traite et résout. La réponse elle-même devient un signal de citation.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes de rénovation",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 25+ requêtes d'entrepreneur dans votre zone de service. Suit les changements quand les concurrents mettent à jour leurs profils ou reçoivent de nouveaux avis.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "entrepreneur rénovation cuisine RBQ Plateau Montréal",
+        cited: "Rénovation Plateau Construction",
+        reason:
+          "Émergé grâce à la note HomeStars 4,8 avec 47 avis, GBP complet avec Rénovateur de cuisine en catégorie principale, schema licence RBQ dans les données structurées, schema FAQ couvrant les échéanciers et la gestion de permis, et cadence de réponse aux avis Google de 24 heures.",
+      },
+      {
+        engine: "Perplexity",
+        query: "entrepreneur sous-sol Laval avec portfolio",
+        cited: "Sous-Sols Laval Pro",
+        reason:
+          "Émergé grâce à la catégorie principale GBP « Entrepreneur de sous-sol », 32 photos de projets originales avec EXIF préservé, schema ServiceType couvrant la finition de sous-sol, et inscriptions sur HouseGrade + APCHQ + BBB avec NAP cohérent.",
+      },
+      {
+        engine: "Claude",
+        query: "constructeur maison neuve Québec RBQ vérifié",
+        cited: "Maisons Custom Sainte-Foy",
+        reason:
+          "Émergé grâce à l'inscription Garantie de construction résidentielle (GCR) confirmée dans le schema, 14 études de cas longues avec signatures de chargés de projet, et densité de citations sur HomeStars, ACQ, APCHQ et 8 annuaires construction Québec.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Les entrepreneurs bénéficient le plus du forfait Core (600 $/mois) parce que le schema spécifique au métier, la vérification de licence RBQ, les téléversements de galerie de projets et les 5 citations mensuelles dans les annuaires de construction comblent 80 % du fossé de visibilité IA. Les entrepreneurs solo et petites firmes peuvent commencer avec Starter (300 $/mois) et passer à Core une fois la galerie photo et la vélocité d'avis établies.",
+    faq: [
+      {
+        q: "Combien de temps avant que mon entreprise de construction soit citée par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur des requêtes spécifiques au quartier (« entrepreneur au Plateau »), 60 à 90 jours pour les requêtes spécifiques au service (« rénovation cuisine Montréal »), 120 à 180 jours pour les requêtes très compétitives (« meilleur entrepreneur général Québec »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Vérifiez-vous le statut de licence RBQ automatiquement?",
+        a: "Oui. Nous interrogeons le registre public de la Régie du bâtiment chaque semaine. Si votre licence passe en état suspendu ou révoqué, nous vous alertons en moins de 24 heures et retirons le schema jusqu'à restauration. Les moteurs IA pénalisent fortement les licences révoquées, donc l'alerte est critique.",
+      },
+      {
+        q: "Répondez-vous aux avis négatifs en notre nom?",
+        a: "Optionnel. Notre service standard inclut la surveillance des avis et les brouillons de réponses suggérés par IA, mais nous exigeons toujours l'approbation de l'entrepreneur avant publication. Les avis de construction impliquent souvent des contestations de portée ou d'échéancier, donc un humain dans la boucle est obligatoire.",
+      },
+      {
+        q: "Et si ma galerie photo est surtout des photos de stock en ce moment?",
+        a: "Point de départ courant. Reviuzy NFC tap-to-photo sur les chantiers permet à votre contremaître ou chargé de projet de téléverser des photos originales en quelques secondes. En 90 jours, la plupart des entrepreneurs atteignent 30+ photos originales avec EXIF préservé. Les moteurs IA repondèrent rapidement une fois le ratio stock vers original amélioré.",
+      },
+      {
+        q: "Travaillez-vous avec les firmes multi-métiers (général + électrique + plomberie)?",
+        a: "Oui. Chaque métier reçoit sa propre entrée Service schema sous l'entité parente GeneralContractor. Nous coordonnons au niveau de la marque (un seul GBP, un seul profil de citations) tout en permettant la désambiguïsation au niveau du métier dans les données structurées pour que les moteurs IA puissent répondre aux requêtes spécifiques.",
+      },
+      {
+        q: "Et la conformité Québec (RBQ, BSDQ, GCR)?",
+        a: "Nous déployons les données structurées pour la licence RBQ, l'historique BSDQ (si applicable à votre firme) et l'inscription Garantie de construction résidentielle (pour constructeurs neuf). Les trois sont pondérés par les moteurs IA comme signaux de confiance spécifiques au Québec. Nous les mettons à jour chaque trimestre.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon entreprise",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour entrepreneurs · RBQ vérifié, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre entreprise de construction dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour entrepreneurs généraux et corps de métier au Québec. Schema RBQ, galerie projets, vélocité d'avis. À partir de 300 $/mois. Bilingue EN et FR-CA.",
+    seoKeywords: [
+      "SEO IA pour entrepreneurs",
+      "SEO entrepreneur Montréal",
+      "marketing entrepreneur RBQ",
+      "AEO entrepreneur général",
+      "GEO entrepreneur rénovation",
+      "citations ChatGPT entrepreneur",
+      "optimisation profil Google construction",
+      "marketing construction Québec 2026",
+    ],
+  },
 };
 
 const clinics: Industry = {

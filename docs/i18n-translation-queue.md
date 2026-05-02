@@ -23,7 +23,7 @@ Each industry has its own content object with ~50 strings. EN and FR are populat
 | dentists       | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | lawyers        | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | restaurants    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
-| contractors    | ✓ light (placeholder builder) | ✓ light (placeholder builder) | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
+| contractors    | ✓ FULL DEEP | ✓ FULL DEEP | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | clinics        | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | real-estate    | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
 | hotels         | ✓ light | ✓ light | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback | ~ EN fallback |
