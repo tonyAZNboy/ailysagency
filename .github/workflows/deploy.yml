@@ -106,6 +106,16 @@ jobs:
       - name: Gate 18, popup sensitivity tuning smoke (9 cases)
         run: node scripts/smoke-popup-sensitivity.mjs
 
+      - name: Gate 31, structured-log shared lib smoke (20 cases)
+        # Tests functions/lib/structuredLog.ts: makeEmit factory that
+        # consolidates 6 inline emit copies. Verifies one console.log
+        # call per emit, valid JSON output, component field present
+        # AND first in serialized output (matters for grep / Logpush
+        # prefix matching), extra fields preserved, two emitters don't
+        # interfere, null/undefined/numeric/boolean/nested values
+        # handled correctly per JSON spec.
+        run: npx tsx scripts/smoke-structured-log.mjs
+
       - name: Gate 30, email validation shared lib smoke (37 cases)
         # Tests functions/lib/email.ts: isValidEmail consolidates 4
         # inline copies. Verifies regex (no @, no dot, whitespace

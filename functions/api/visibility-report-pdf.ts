@@ -17,6 +17,7 @@ import { renderVisibilityReportPdf, type VisibilityReportRenderInput } from '../
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -62,9 +63,7 @@ interface RequestBody {
   tenantId: string;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'visibility-report-pdf', ...line }));
-}
+const emit = makeEmit('visibility-report-pdf');
 
 interface ValidationResult {
   ok: boolean;
