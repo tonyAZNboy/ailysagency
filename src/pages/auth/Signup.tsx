@@ -127,13 +127,14 @@ export default function Signup() {
 
       setSubmitted(true);
       toast({ title: s.successTitle, description: s.successDesc });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Signup error:", error);
       toast({
         title: s.errorGeneric,
-        description: error.message?.includes("duplicate")
-          ? s.errorDuplicate
-          : s.errorTryLater,
+        description:
+          error instanceof Error && error.message.includes("duplicate")
+            ? s.errorDuplicate
+            : s.errorTryLater,
         variant: "destructive",
       });
     } finally {

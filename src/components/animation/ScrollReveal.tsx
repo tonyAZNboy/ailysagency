@@ -81,7 +81,8 @@ export const ScrollReveal = forwardRef<HTMLElement, ScrollRevealProps>(
       }
     };
 
-    const ElementComponent = Component as any;
+    const ElementComponent = Component as React.ElementType;
+
 
     return (
       <ElementComponent
@@ -123,7 +124,7 @@ export function StaggerReveal({
 
   const styles = variantStyles[variant];
 
-  const ElementComponent = Component as any;
+  const ElementComponent = Component as React.ElementType;
 
   return (
     <ElementComponent ref={ref} className={cn(className)}>
