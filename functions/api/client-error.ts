@@ -20,6 +20,8 @@
 //   503, to avoid surfacing endpoint health to attackers).
 
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
+import { clipUntrimmed as clip } from '../lib/stringClip';
 
 interface Env {
   AUDIT_PDF_RATE_LIMIT?: KVNamespace;
@@ -73,14 +75,7 @@ interface AuditLogEntry {
   reason?: string;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'client-error', ...line }));
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  return value.slice(0, max);
-}
+const emit = makeEmit('client-error');
 
 function clampInt(n: unknown, min: number, max: number): number | null {
   if (typeof n !== 'number' || !Number.isFinite(n)) return null;

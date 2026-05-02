@@ -17,6 +17,8 @@ import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { captureServerError } from '../lib/serverError';
 import { sha256Hex } from '../lib/crypto';
+import { jsonResponse } from '../lib/jsonResponse';
+import { constantTimeEq as constantTimeEqual } from '../lib/rateLimit';
 
 interface Env {
   RESEND_API_KEY?: string;
@@ -33,12 +35,6 @@ interface Env {
   CF_PAGES_COMMIT_SHA?: string;
 }
 
-function constantTimeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
-}
 
 interface PagesContext {
   request: Request;
@@ -82,13 +78,6 @@ interface RunSummary {
   paused: number;
   errors: number;
   reasons: Record<string, number>;
-}
-
-function jsonResponse(body: unknown, status = 200): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
 }
 
 function logAudit(component: string, fields: Record<string, unknown>): void {

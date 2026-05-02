@@ -17,6 +17,8 @@ import { renderVisibilityReportPdf, type VisibilityReportRenderInput } from '../
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { sha256Hex } from '../lib/crypto';
+import { makeEmit } from '../lib/structuredLog';
+import { clip } from '../lib/stringClip';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -62,21 +64,12 @@ interface RequestBody {
   tenantId: string;
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'visibility-report-pdf', ...line }));
-}
+const emit = makeEmit('visibility-report-pdf');
 
 interface ValidationResult {
   ok: boolean;
   errors: string[];
   data?: RequestBody;
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
 }
 
 function clampNum(n: unknown, min: number, max: number): number | null {

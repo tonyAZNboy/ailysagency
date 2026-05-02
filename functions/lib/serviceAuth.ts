@@ -27,6 +27,7 @@
 //   would still be game-over; the allowlist is defense in depth)
 
 import { sha256Hex, bytesToHex } from './crypto';
+import { hexToBytes, importHmacKey, constantTimeEqualBytes } from './hmac';
 
 const ALG = { name: 'HMAC', hash: 'SHA-256' } as const;
 const REPLAY_WINDOW_SECONDS = 300; // +/- 5 minutes
@@ -43,29 +44,6 @@ const ALLOWED_CALLERS = new Set([
   'ailys-cron-day1-retry', // self-call from AiLys cron worker
   'ailys-cron-process-sequences', // external cron that drains email_sequence_enrollments
 ]);
-
-function hexToBytes(hex: string): Uint8Array {
-  if (typeof hex !== 'string' || hex.length % 2 !== 0) throw new Error('invalid hex');
-  const out = new Uint8Array(hex.length / 2);
-  for (let i = 0; i < out.length; i++) {
-    const byte = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
-    if (Number.isNaN(byte)) throw new Error('invalid hex');
-    out[i] = byte;
-  }
-  return out;
-}
-
-function ctEqual(a: Uint8Array, b: Uint8Array): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
-  return diff === 0;
-}
-
-async function importHmacKey(secretHex: string): Promise<CryptoKey> {
-  const keyBytes = hexToBytes(secretHex);
-  return crypto.subtle.importKey('raw', keyBytes, ALG, false, ['sign', 'verify']);
-}
 
 /**
  * Sign a request body for service-to-service auth. Used by tests and by
@@ -118,7 +96,7 @@ export async function verifyServiceRequest(
     const expected = await signServiceRequest(secretHex, bodyText, ts);
     const a = hexToBytes(expected);
     const b = hexToBytes(token);
-    return ctEqual(a, b) ? { ok: true, caller } : { ok: false, reason: 'sig_mismatch' };
+    return constantTimeEqualBytes(a, b) ? { ok: true, caller } : { ok: false, reason: 'sig_mismatch' };
   } catch {
     return { ok: false, reason: 'malformed' };
   }

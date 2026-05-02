@@ -82,6 +82,210 @@ H1 italic uses gold gradient (amber-300 to yellow-600).
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR143) — HMAC primitives shared lib (sub-phase 10)
+
+Sub-phase 10. Pure backend, zero src/ touch.
+
+### Sub-phase 10: hmac.ts shared lib + Gate 34
+
+Consolidates 7 inline HMAC primitive copies across 5 files into
+`functions/lib/hmac.ts`. Auth-critical: a subtle bug here compromises
+HMAC verification across audit-pdf downloads, service-to-service auth,
+unsubscribe tokens, and Resend webhooks.
+
+**Three primitives extracted:**
+
+- `hexToBytes(hex)` — parse hex string to Uint8Array (2 prior copies)
+- `importHmacKey(secretHex)` — build HMAC-SHA256 CryptoKey (3 copies)
+- `constantTimeEqualBytes(a, b)` — byte-array constant-time compare (2 copies)
+
+The string-variant `constantTimeEq` already lived in `rateLimit.ts`.
+Adopted at the 3 string-compare call sites (cron-process-sequences,
+svixHmac, unsubscribeToken) instead of duplicating.
+
+**Files refactored (7 inline primitive copies removed):**
+
+- `functions/lib/pdfHmac.ts` (hexToBytes + importHmacKey + ctEqual)
+- `functions/lib/serviceAuth.ts` (hexToBytes + importHmacKey + ctEqual)
+- `functions/lib/unsubscribeToken.ts` (importHmacKey + constantTimeEqual)
+- `functions/lib/svixHmac.ts` (constantTimeEqual)
+- `functions/api/cron-process-sequences.ts` (constantTimeEqual)
+
+**Hardening upgrades (defense in depth):**
+
+- `unsubscribeToken.importHmacKey` previously did NOT validate hex
+  input; would silently produce a key with wrong bytes if secret was
+  malformed (parseInt NaN coerced to 0). Shared lib throws on
+  malformed hex. Net positive: surfaces config bugs immediately.
+
+**New smoke (Gate 34): scripts/smoke-hmac.mjs, 21 cases.**
+
+Asserts hex parsing happy + error paths, CryptoKey creation with
+sign+verify usages, deterministic signing, byte-array constant-time
+compare with single-byte sensitivity at first/middle/last positions,
+empty-array handling.
+
+**Behavioral parity at integration level:**
+
+- smoke-audit-pdf-hmac 11/11 (HMAC sign/verify round-trip)
+- smoke-audit-pdf-onboarding 17/17 (service-to-service HMAC + 10-page render)
+
+Both depend on the refactored primitives. Pass = parity.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 16 existing smokes pass + new Gate 34 21/21
+- Gate 7 build: green (13.38s)
+
+---
+
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR142) — jsonResponse shared lib (sub-phase 9)
+
+Sub-phase 9 in the backend-lib extraction series. Pure backend, zero
+src/ touch, zero conflict surface with the parallel session.
+
+### Sub-phase 9: jsonResponse shared lib + Gate 33
+
+Consolidates 9 inline copies of `jsonResponse(body, status)` into
+`functions/lib/jsonResponse.ts`. The 9 copies had 4 distinct flavors
+(3 secure headers, 3 secure + extraHeaders, 2 lowercase + extraHeaders,
+1 Content-Type only). Canonical export merges all to the most-secure
+superset:
+
+- Content-Type: application/json; charset=utf-8
+- X-Content-Type-Options: nosniff
+- Cache-Control: no-store
+- extraHeaders spread last (caller add/override)
+
+**Files refactored (9 inline copies removed):**
+
+- functions/lib/cronGuard.ts (3-header flavor)
+- functions/api/audit-pdf.ts (3-header + extraHeaders)
+- functions/api/audit-pdf-onboarding.ts (3-header)
+- functions/api/admin/audit-pdf-stats.ts (lowercase)
+- functions/api/admin/quote-pdf-stats.ts (lowercase)
+- functions/api/admin/instant-ai-vis-stats.ts (lowercase)
+- functions/api/admin/client-error-stats.ts (lowercase)
+- functions/api/cron-process-sequences.ts (Content-Type only)
+- functions/api/resend-webhook.ts (Content-Type only)
+
+**Strict net-positive on security:**
+
+- 6 prior call sites (4 admin + cron-process-sequences + resend-webhook)
+  gain `X-Content-Type-Options: nosniff` and/or `Cache-Control: no-store`
+  defenses. JSON should never be content-sniffed; internal endpoints
+  shouldn't be cached. Zero behavioral regression (HTTP headers are
+  case-insensitive per RFC 9110 § 5.1; mixed-case admin response
+  headers are byte-different but spec-equivalent).
+
+**New smoke (Gate 33): scripts/smoke-json-response.mjs, 26 cases.**
+
+Asserts secure default headers, status preservation across full HTTP
+range (200/201/400/401/403/404/500/503/405), JSON body serialization
+(object/array/null/error), extraHeaders adds custom or overrides
+default, no cross-call leakage.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 15 existing smokes pass + new Gate 33 26/26
+- Gate 7 build: green (18.79s)
+
+---
+
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR140) — stringClip shared lib (sub-phase 8)
+
+Sub-phase 8 in the backend-lib extraction series. Pure backend, zero
+src/ touch, zero conflict surface with the parallel session
+(continuing on industries + footer wires).
+
+### Sub-phase 8: stringClip shared lib + Gate 32
+
+Consolidates 8 inline copies of `clip(value, max)`. 7 of the 8 used
+the trimmed variant; client-error.ts used a no-trim variant. Both
+exposed:
+
+    functions/lib/stringClip.ts:
+      clip(value, max)           // trimmed, returns null on empty
+      clipUntrimmed(value, max)  // raw slice, returns "" on ""
+
+7 endpoints import `clip`; client-error imports
+`clipUntrimmed as clip` so its local call sites stay unchanged.
+
+**Files refactored:**
+
+- functions/api/audit-pdf-onboarding.ts (clip)
+- functions/api/audit-ai-visibility-instant.ts (clip)
+- functions/api/cofounders-apply.ts (clip)
+- functions/api/founding-clients-apply.ts (clip)
+- functions/api/partner-application.ts (clip)
+- functions/api/quote-pdf.ts (clip)
+- functions/api/visibility-report-pdf.ts (clip)
+- functions/api/client-error.ts (clipUntrimmed as clip)
+
+**New smoke (Gate 32): scripts/smoke-string-clip.mjs, 25 cases.**
+
+Asserts type guard rejects non-string, length cap correct, trim
+happens BEFORE truncation, Unicode preserved, variant difference
+(clip rejects whitespace-only -> null, clipUntrimmed preserves it).
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 14 existing smokes pass + new Gate 32 25/25
+- Gate 7 build: green (21.18s)
+
+---
+
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR139) — structuredLog shared lib (sub-phase 7)
+
+Continuing the backend-lib extraction series after PR #139 + PR #125
+both merged to main. Pure backend, zero src/ touch, zero conflict
+surface with the parallel session.
+
+### Sub-phase 7: structuredLog shared lib + Gate 31
+
+Consolidates 6 byte-equivalent inline copies of:
+
+    function emit(line: Record<string, unknown>): void {
+      console.log(JSON.stringify({ component: '<name>', ...line }));
+    }
+
+into `functions/lib/structuredLog.ts` exposing a `makeEmit(component)`
+factory. Each call site becomes a single `const emit = makeEmit('x');`
+declaration; existing `emit({...})` calls keep their shape unchanged.
+
+**Files refactored (6 inline copies removed):**
+
+- `functions/api/audit-pdf-onboarding.ts`
+- `functions/api/audit-ai-visibility-instant.ts`
+- `functions/api/client-error.ts`
+- `functions/api/audit-pdf-download/[id].ts`
+- `functions/api/quote-pdf.ts`
+- `functions/api/visibility-report-pdf.ts`
+
+**New smoke (Gate 31): scripts/smoke-structured-log.mjs, 20 cases.**
+
+Asserts: 1 console.log per emit, valid JSON output, component field
+present AND first in serialized output (matters for grep / Logpush
+prefix matching), extra fields preserved, two emitters don't
+interfere, null/undefined/numeric/boolean/nested values handled per
+JSON spec, `makeEmit` returns a function.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 14 existing smokes pass
+- Gate 7 build: green (20.00s)
+- Gate 31 (NEW) smoke-structured-log: 20/20
+
+---
+
 ## 📚 SESSION 2026-05-02 (Help articles, hard rule #10 follow-up) — 2 new
 
 **Shipped:** 2 new help-center articles (EN canonical + FR-CA full)

@@ -15,6 +15,7 @@
 
 import { verifyDownload } from '../../lib/pdfHmac';
 import { sha256Hex } from '../../lib/crypto';
+import { makeEmit } from '../../lib/structuredLog';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -35,9 +36,7 @@ interface PagesContext {
   params: { id?: string };
 }
 
-function emit(line: Record<string, unknown>): void {
-  console.log(JSON.stringify({ component: 'audit-pdf-download', ...line }));
-}
+const emit = makeEmit('audit-pdf-download');
 
 export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) => {
   const start = Date.now();

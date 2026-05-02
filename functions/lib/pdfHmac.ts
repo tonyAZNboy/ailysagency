@@ -10,44 +10,10 @@
 //
 // Web Crypto API is available globally in Cloudflare Workers; no polyfills.
 
+import { hexToBytes, importHmacKey, constantTimeEqualBytes } from './hmac';
+import { bytesToHex } from './crypto';
+
 const ALG = { name: 'HMAC', hash: 'SHA-256' } as const;
-
-/**
- * Convert a hex string to Uint8Array. Throws on invalid input.
- */
-function hexToBytes(hex: string): Uint8Array {
-  if (hex.length % 2 !== 0) throw new Error('hex string must have even length');
-  const out = new Uint8Array(hex.length / 2);
-  for (let i = 0; i < out.length; i++) {
-    const byte = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
-    if (Number.isNaN(byte)) throw new Error('invalid hex');
-    out[i] = byte;
-  }
-  return out;
-}
-
-function bytesToHex(bytes: Uint8Array): string {
-  return Array.from(bytes)
-    .map((b) => b.toString(16).padStart(2, '0'))
-    .join('');
-}
-
-/**
- * Constant-time comparison of two equal-length byte arrays.
- */
-function ctEqual(a: Uint8Array, b: Uint8Array): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
-  return diff === 0;
-}
-
-async function importHmacKey(secretHex: string): Promise<CryptoKey> {
-  const keyBytes = hexToBytes(secretHex);
-  // The key import expects an ArrayBuffer with no SharedArrayBuffer typing
-  // mismatch, so we slice to a fresh buffer view.
-  return crypto.subtle.importKey('raw', keyBytes, ALG, false, ['sign', 'verify']);
-}
 
 export interface SignedDownload {
   objectId: string;
@@ -88,7 +54,7 @@ export async function verifyDownload(
     const expected = await signDownload(secretHex, objectId, expUnixSeconds);
     const a = hexToBytes(expected);
     const b = hexToBytes(providedSigHex);
-    return ctEqual(a, b) ? { ok: true } : { ok: false, reason: 'sig_mismatch' };
+    return constantTimeEqualBytes(a, b) ? { ok: true } : { ok: false, reason: 'sig_mismatch' };
   } catch {
     return { ok: false, reason: 'malformed' };
   }

@@ -15,6 +15,7 @@
 import { verifySvixSignature } from '../lib/svixHmac';
 import { updateEmailSendByProviderId } from '../lib/emailLog';
 import { sha256Hex } from '../lib/crypto';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   RESEND_WEBHOOK_SECRET?: string;
@@ -52,13 +53,6 @@ interface ResendEvent {
     click?: { link?: string } | null;
     [key: string]: unknown;
   };
-}
-
-function jsonResponse(body: unknown, status = 200): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
 }
 
 interface AuditEntry {

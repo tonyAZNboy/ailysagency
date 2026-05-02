@@ -23,6 +23,7 @@ import { escapeHtml } from "../lib/htmlEscape";
 import { sha256Hex } from "../lib/crypto";
 import { isAllowedOrigin } from "../lib/origin";
 import { isValidEmail } from "../lib/email";
+import { clip } from "../lib/stringClip";
 
 interface Env {
   ALLOWED_ORIGINS?: string;
@@ -70,13 +71,6 @@ interface ValidatedData {
   pitch: string | null;
   source: string;
   visitor_session_id: string | null;
-}
-
-function clip(value: unknown, max: number): string | null {
-  if (typeof value !== "string") return null;
-  const trimmed = value.trim();
-  if (trimmed.length === 0) return null;
-  return trimmed.slice(0, max);
 }
 
 function clipInt(value: unknown, min: number, max: number): number | null {
