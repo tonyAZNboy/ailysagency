@@ -2,6 +2,62 @@
 
 ---
 
+## 📞💬 SESSION 2026-05-02 (Add-ons batch 2) — /reception-ia + /whatsapp-business
+
+**Shipped:** 2 add-on landing pages, both greenfield, both no conflict
+risk with parallel session PR #139.
+
+**Files:**
+- `src/pages/ReceptionIA.tsx` (~340 lines, EN+FR inline)
+- `src/pages/WhatsAppBusiness.tsx` (~310 lines, EN+FR inline)
+- `src/App.tsx`: 6 new routes appended
+- `scripts/generate-sitemap.mjs`: 2 new entries x 16 locales = 32 URLs
+
+**ReceptionIA ($200/mo or Agency-bundled):**
+- Voice AI receptionist add-on, Quebec FR + EN voice, 24/7
+- 6 capabilities: bilingual answer, calendar booking, emergency
+  detection, lead capture, 24/7 coverage, recording + transcription
+- 4 vertical scenarios (dental urgence, plumber after-hours flooding,
+  resto peak hours, salon lunch closure)
+- "What it does NOT do" section (no human pretense, no payment
+  processing, no upsell, doesn't replace team)
+- 30-day refund-if-doesn't-pay-for-itself guarantee
+- Mood: tech-corporate (TopologyBackground navy, suits AI infra)
+
+**WhatsAppBusiness ($80/mo or Agency-bundled):**
+- WhatsApp Business API integration for multilingual neighborhoods
+- Quebec context: Latino, Maghrebi, Portuguese, Indian, Pakistani,
+  Lebanese communities (Cote-des-Neiges, Plateau, Brossard, St-Michel,
+  Park-Extension, Pierrefonds)
+- 6 features: WA Business API connect, multi-language auto-replies,
+  unified inbox (SMS+WA+FB+IG), group broadcasts (Loi 25 grade),
+  business-hours awareness, review request after positive interaction
+- 6 target verticals listed (restos latinos, epiceries maghrebines,
+  boulangeries portugaises, salons indiens, restos libanais, sushi
+  Brossard mandarin)
+- Compliance section (customer-initiated free, Meta-approved
+  templates, STOP keyword unsubscribe per Loi 25)
+- Mood: friendly-local (LiquidBlob pastel sky, suits messaging)
+
+**Verification:**
+- /fr/reception-ia: H1 "Receptionniste IA / Ne ratez plus jamais un
+  appel" renders, 4 H2 sections, TopologyBackground rgb(16, 20, 30)
+  deep navy
+- /fr/whatsapp-business: H1 "WhatsApp Business / Pour vos vrais
+  clients" renders, 4 H2 sections, LiquidBlobBackground rgb(243,
+  249, 252) pastel sky
+- Mobile 375x812: scrollW=375, no horizontal overflow on both
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~25s
+
+**i18n discipline:** zero new keys, all inline T() helper EN+FR.
+
+**Cross-session safety:** both pages 100% greenfield. Modified files
+this commit (App.tsx routes append, sitemap append) are also append-only.
+
+---
+
 ## 🏁 SESSION CLOSE 2026-05-02 (autopilot extended marathon) — 10 commits on PR #125
 
 The longest single autopilot session of the project. 10 commits

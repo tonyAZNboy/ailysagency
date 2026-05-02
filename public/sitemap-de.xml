@@ -5,7 +5,7 @@
   <!--
     AiLys Agency · Sitemap (de)
     Generated: 2026-05-02
-    URLs: 178
+    URLs: 180
     Index priority: 7 of 16
   -->
 
@@ -238,6 +238,52 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/trousse-nfc" />
     <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/trousse-nfc" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/trousse-nfc" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/de/reception-ia</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/reception-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/reception-ia" />
+  </url>
+  <url>
+    <loc>https://www.ailysagency.ca/de/whatsapp-business</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.ailysagency.ca/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ailysagency.ca/fr/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ailysagency.ca/es/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailysagency.ca/zh/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ailysagency.ca/ar/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailysagency.ca/ru/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ailysagency.ca/de/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ailysagency.ca/it/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailysagency.ca/pt/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailysagency.ca/ja/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailysagency.ca/ko/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailysagency.ca/hi/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.ailysagency.ca/nl/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.ailysagency.ca/pl/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ailysagency.ca/tr/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailysagency.ca/vi/whatsapp-business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ailysagency.ca/whatsapp-business" />
   </url>
   <url>
     <loc>https://www.ailysagency.ca/de/pricing-details</loc>

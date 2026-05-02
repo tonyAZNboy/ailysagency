@@ -58,6 +58,8 @@ const PoulsLocal = lazy(() => import("./pages/PoulsLocal"));
 const PMEContest = lazy(() => import("./pages/PMEContest"));
 const Garantie = lazy(() => import("./pages/Garantie"));
 const TrousseNfc = lazy(() => import("./pages/TrousseNfc"));
+const ReceptionIA = lazy(() => import("./pages/ReceptionIA"));
+const WhatsAppBusiness = lazy(() => import("./pages/WhatsAppBusiness"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
@@ -236,6 +238,16 @@ const App = () => {
                 <Route path="/:lang/trousse-nfc" element={<TrousseNfc />} />
                 <Route path="/nfc-kit" element={<TrousseNfc />} />
                 <Route path="/:lang/nfc-kit" element={<TrousseNfc />} />
+
+                {/* Voice AI Receptionist add-on */}
+                <Route path="/reception-ia" element={<ReceptionIA />} />
+                <Route path="/:lang/reception-ia" element={<ReceptionIA />} />
+                <Route path="/ai-receptionist" element={<ReceptionIA />} />
+                <Route path="/:lang/ai-receptionist" element={<ReceptionIA />} />
+
+                {/* WhatsApp Business integration add-on */}
+                <Route path="/whatsapp-business" element={<WhatsAppBusiness />} />
+                <Route path="/:lang/whatsapp-business" element={<WhatsAppBusiness />} />
 
                 {/* Admin (gated by Supabase auth + admin_users table) */}
                 <Route path="/admin" element={<AdminLayout />}>
