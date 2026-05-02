@@ -2,6 +2,65 @@
 
 ---
 
+## 💬 SESSION 2026-05-02 (Design System v1.2) — MethodologyStepper + ChatMockup
+
+**Shipped:** Two production-ready pattern components that transform the
+flat lists in Industry.tsx into visually distinctive, interactive
+components. Recycles existing data shapes (no new strings, no i18n
+impact). All 9 industry verticals immediately benefit.
+
+**MethodologyStepper** (~110 lines)
+- Vertical timeline with mood-gradient progress fill
+- Active step tracking via IntersectionObserver
+- Step circles fill with mood gradient + glow halo when active
+- Click-to-toggle on mobile (always-open on desktop sm+)
+- ARIA expanded state for accessibility
+- Replaces flat ol of methodology steps
+
+**ChatMockup** (~85 lines)
+- Renders sample LLM citations as fake ChatGPT/Perplexity chat UIs
+- Engine signature mapping (GPT/PPL/CLD/AIO/BNG)
+- User query bubble (right-aligned, italic, secondary bg)
+- AI response bubble (left-aligned, mood gradient border)
+- Footer "why it cited" reasoning
+- Replaces 3-card grid of citation samples
+
+**Wire (Industry.tsx):**
+- Methodology section: ScrollReveal-wrapped ol replaced with single
+  <MethodologyStepper> call (mood passed in)
+- Sample citations: card grid kept, each card replaced with
+  <ChatMockup citation={s} mood={mood}/>
+
+**Verification (sushi-counters /fr):**
+- 8 stepper li[data-step] items render
+- 3 ChatMockup cards render
+- 3 user bubbles + 3 AI bubbles per page
+- Mobile 375x812: scrollW=375, no horizontal overflow
+- Zero console errors
+
+**Cumulative DS v1 progress:**
+- v1.0: 6 mood themes + tokens + dispatcher (last commit 6b389fb)
+- v1.1: 5 backgrounds + AnimatedCounter (last commit 68af5cb)
+- v1.2: MethodologyStepper + ChatMockup (this commit)
+
+**Industry.tsx visual personality stack now complete:**
+| Layer | Mood-aware | Status |
+|---|---|---|
+| Background | Yes (6 backgrounds) | DS v1.1 |
+| Hero gradient | Yes (mood.accentGradient) | DS v1.0 |
+| Eyebrow badge | Yes | DS v1.0 |
+| Stats (animated) | Yes (mood gradient) | DS v1.1 |
+| Methodology stepper | Yes (mood gradient + active state) | DS v1.2 |
+| Citations (chat) | Yes (mood-bordered AI bubble) | DS v1.2 |
+| FAQ accordion | Not yet | Queued |
+| Pain-point cards | Not yet | Queued |
+| Top queries | Not yet | Queued |
+| CTAs | Not yet | Queued |
+
+7 of 11 layers fully mood-driven. 4 remaining are low-impact polish.
+
+---
+
 ## 🌈 SESSION 2026-05-02 (Design System v1.1) — 5 alt backgrounds + AnimatedCounter
 
 **Shipped:** Completes the visual side of the AiLys Design System v1.

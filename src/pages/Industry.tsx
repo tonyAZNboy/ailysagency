@@ -9,6 +9,8 @@ import { SEOHead } from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal, MagneticWrapper } from "@/components/animation";
 import { AnimatedCounter } from "@/components/animation/AnimatedCounter";
+import { MethodologyStepper } from "@/components/patterns/MethodologyStepper";
+import { ChatMockup } from "@/components/patterns/ChatMockup";
 import { useLang } from "@/i18n/LangContext";
 import { SUPPORTED_LANGS, type SupportedLang } from "@/i18n/index";
 import {
@@ -395,30 +397,7 @@ export default function Industry() {
                   <span className="italic">to cited.</span>
                 </h2>
               </ScrollReveal>
-              <ol className="space-y-4">
-                {c.methodology.map((step, i) => (
-                  <ScrollReveal
-                    key={i}
-                    variant="fade-up"
-                    delay={50 + i * 50}
-                    duration={500}
-                  >
-                    <li className="grid grid-cols-[60px_1fr] gap-5 sm:gap-6 p-5 sm:p-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-md">
-                      <span className="font-mono text-sm tabular-nums text-primary/80 pt-1">
-                        {step.step}
-                      </span>
-                      <div>
-                        <h3 className="font-display text-xl sm:text-2xl mb-2 leading-tight">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </li>
-                  </ScrollReveal>
-                ))}
-              </ol>
+              <MethodologyStepper steps={c.methodology} mood={mood} />
             </div>
           </section>
 
@@ -449,20 +428,7 @@ export default function Industry() {
                       delay={100 + i * 100}
                       duration={600}
                     >
-                      <div className="rounded-xl border border-primary/30 bg-gradient-to-br from-primary/[0.06] via-secondary/[0.04] to-accent/[0.06] backdrop-blur-md p-5 h-full flex flex-col">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary mb-3">
-                          {s.engine}
-                        </div>
-                        <p className="text-sm italic text-foreground/85 leading-snug mb-4">
-                          "{s.query}"
-                        </p>
-                        <div className="text-base font-semibold text-foreground mb-3">
-                          → {s.cited}
-                        </div>
-                        <p className="text-xs text-muted-foreground/85 leading-relaxed mt-auto">
-                          {s.reason}
-                        </p>
-                      </div>
+                      <ChatMockup citation={s} mood={mood} />
                     </ScrollReveal>
                   ))}
                 </div>
