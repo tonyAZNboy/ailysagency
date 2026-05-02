@@ -8945,4 +8945,244 @@ Ecrivez a hello@ailysagency.ca avec le sujet "Apercu programme partenaire" et no
       },
     },
   },
+
+  // ─── NAP Pulse audit (added 2026-05-02 with /audit/nap launch) ───
+  {
+    slug: "nap-pulse-audit-explained",
+    title: "How the free NAP Pulse audit works",
+    excerpt:
+      "Self-assessment across 25 directories that AI engines and Google use to verify your business identity. 2 minutes, no email, immediate score with top-5 action plan.",
+    category: "audit",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 4,
+    body: `## What NAP Pulse audits
+
+NAP stands for Name, Address, Phone. The free NAP Pulse audit at /audit/nap walks you through 25 directories where local businesses commonly have a presence, and asks you to mark whether your listing is consistent, inconsistent, missing, or unsure for each one.
+
+The 25 directories are weighted by their actual impact on AI engine citations and Google local-pack ranking:
+
+- **Heavy weight (8-20):** Google Business Profile, Apple Maps / Apple Business Connect, Facebook, Yelp, PagesJaunes.ca, your website's LocalBusiness JSON-LD schema
+- **Medium weight (4-7):** Bing Places, Instagram Business, BBB, Canada411, Foursquare, Wikidata, Chambre de commerce du Montreal metro, your website's footer NAP block, your website's /contact page, Google search snippet
+- **Lower weight (2-3):** TripAdvisor, 411.ca, YP.com (US), LinkedIn Company Page, Waze, OpenStreetMap, FCEI / CFIB Canada, Tourisme Quebec, Chambre de commerce regional listings, your industry-specific registry (RAMQ for medical, OACIQ for real estate, BSDQ for trades, etc.)
+
+## What the score means
+
+The audit returns a 0-100 score with four tiers:
+
+- **85-100 (Strong):** Your NAP is rock solid. Trust signals firing on all engines.
+- **65-84 (Solid):** Strong foundation with a few gaps. Three fixes will lock it down.
+- **40-64 (Gaps):** Real inconsistencies. Each one quietly bleeds local-pack rank.
+- **0-39 (Critical):** Your NAP is fragmented. Google, Apple, and the AI engines see different businesses.
+
+The score weights:
+- "Consistent" answers earn full weight credit
+- "Inconsistent" answers earn zero (worst, actively hurts you)
+- "Missing" answers earn 40% credit (no listing is neutral-bad, you can create it)
+- "Unsure" answers earn 50% credit (treat as half-credit, prompt to verify)
+
+## What you get at the end
+
+Three things:
+
+1. **Your score** with a copy-paste-ready NAP block (your business name, address, postal, phone formatted exactly the way you should use them everywhere).
+2. **Top 5 priorities** to fix this week, with one-click links to each directory's update page (Google Business Profile dashboard, Apple Business Connect, Yelp for Business, etc.).
+3. **Cross-sell to GBP Pulse and AI Visibility audits** so you can build a complete picture of your AI search presence.
+
+## What it doesn't do (and why)
+
+The audit is self-assessment, not automated scraping. We chose this approach because:
+
+- Scraper-based audits break when directories redesign (every 6-12 months)
+- Many directories block automated requests, returning incomplete data
+- The 2 minutes you spend marking checkboxes are also the 2 minutes you spend learning where you stand. Self-completion has 3x better follow-through than receiving a report you didn't earn.
+
+## When to use it
+
+- Before signing up for AiLys: see exactly what we'll be cleaning up
+- After signing up: as a baseline you re-run quarterly to track improvement
+- Whenever you change phone numbers, addresses, or business names: an immediate gut check
+
+## Privacy
+
+Your answers are saved in your browser's localStorage so you can revisit. Nothing is sent to our servers, no email is required, no account is needed.`,
+    i18n: {
+      fr: {
+        title: "Comment fonctionne l'audit NAP Pulse gratuit",
+        excerpt:
+          "Auto-evaluation sur 25 repertoires que les moteurs IA et Google utilisent pour verifier l'identite de votre entreprise. 2 minutes, sans courriel, score immediat avec plan d'action top 5.",
+        body: `## Ce qu'audite le NAP Pulse
+
+NAP signifie Nom, Adresse, Telephone. L'audit gratuit NAP Pulse a /audit/nap vous guide a travers 25 repertoires ou les entreprises locales ont communement une presence, et vous demande de marquer si votre fiche est coherente, incoherente, absente ou incertaine pour chacun.
+
+Les 25 repertoires sont ponderes par leur impact reel sur les citations des moteurs IA et le classement Google local pack :
+
+- **Poids eleve (8-20) :** Google Business Profile, Apple Maps / Apple Business Connect, Facebook, Yelp, PagesJaunes.ca, le schema LocalBusiness JSON-LD de votre site
+- **Poids moyen (4-7) :** Bing Places, Instagram Business, BBB, Canada411, Foursquare, Wikidata, Chambre de commerce du Montreal metropolitain, bloc NAP en pied de votre site, page /contact de votre site, snippet de recherche Google
+- **Poids inferieur (2-3) :** TripAdvisor, 411.ca, YP.com (US), page LinkedIn Company, Waze, OpenStreetMap, FCEI / CFIB Canada, Tourisme Quebec, fiches regionales de chambres de commerce, registre specifique a votre industrie (RAMQ pour medical, OACIQ pour immobilier, BSDQ pour metiers, etc.)
+
+## Ce que signifie le score
+
+L'audit retourne un score de 0 a 100 avec quatre paliers :
+
+- **85-100 (Solide) :** Votre NAP est solide comme du roc. Tous les signaux de confiance sont actifs.
+- **65-84 (Bon) :** Base solide avec quelques lacunes. Trois corrections le verrouilleront.
+- **40-64 (Lacunes) :** Vraies incoherences. Chacune coute silencieusement du classement local.
+- **0-39 (Critique) :** Votre NAP est fragmente. Google, Apple et les moteurs IA voient des entreprises differentes.
+
+Le score pondere :
+- Les reponses « Coherent » gagnent le credit complet du poids
+- Les reponses « Incoherent » gagnent zero (le pire, vous nuit activement)
+- Les reponses « Absent » gagnent 40 % du credit (pas de fiche est neutre-mauvais, vous pouvez la creer)
+- Les reponses « Pas sur » gagnent 50 % du credit (traitement a mi-credit, invitation a verifier)
+
+## Ce que vous obtenez a la fin
+
+Trois choses :
+
+1. **Votre score** avec un bloc NAP pret-a-coller (le nom de votre entreprise, adresse, code postal, telephone formates exactement comme vous devriez les utiliser partout).
+2. **Top 5 priorites** a regler cette semaine, avec liens en un clic vers la page de mise a jour de chaque repertoire (tableau de bord Google Business Profile, Apple Business Connect, Yelp pour entreprises, etc.).
+3. **Cross-sell vers les audits GBP Pulse et Visibilite IA** pour batir une image complete de votre presence en recherche IA.
+
+## Ce qu'il ne fait pas (et pourquoi)
+
+L'audit est auto-evaluation, pas scraping automatise. Nous avons choisi cette approche parce que :
+
+- Les audits par scraper se brisent quand les repertoires se refont (tous les 6-12 mois)
+- Beaucoup de repertoires bloquent les requetes automatisees, retournant des donnees incompletes
+- Les 2 minutes que vous passez a cocher les cases sont aussi les 2 minutes que vous passez a apprendre ou vous en etes. L'auto-completion a un suivi 3x meilleur que de recevoir un rapport non gagne.
+
+## Quand l'utiliser
+
+- Avant de vous inscrire chez AiLys : voyez exactement ce que nous allons nettoyer
+- Apres l'inscription : comme reference que vous refaites trimestriellement pour suivre l'amelioration
+- Chaque fois que vous changez de telephone, adresse ou nom d'entreprise : verification immediate
+
+## Vie privee
+
+Vos reponses sont sauvegardees dans le localStorage de votre navigateur pour pouvoir y revenir. Rien n'est envoye a nos serveurs, aucun courriel n'est requis, aucun compte n'est necessaire.`,
+      },
+    },
+  },
+
+  // ─── Quebec compliance (added 2026-05-02 with /conformite-quebec launch) ───
+  {
+    slug: "quebec-compliance-overview",
+    title: "How AiLys delivers Loi 25 + Loi 96 + Charte compliance",
+    excerpt:
+      "Plain-language explanation of how the AiLys platform ships Quebec-compliant marketing for local PMEs by default. Loi 25 privacy, Loi 96 French-first, OQLF awareness, REQ verification, trademark + descriptor handling.",
+    category: "getting-started",
+    updatedAt: "2026-05-02",
+    readingTimeMin: 5,
+    body: `## Why this exists
+
+Most marketing platforms (Wix, Squarespace, Yext, BrightLocal) ship a generic global product. They check basic GDPR boxes and call it done. Quebec PMEs deserve more. AiLys is built in Quebec, by a Quebec operator, for Quebec realities: Loi 25, Loi 96, the Charte de la langue francaise, and the daily reality of a bilingual market where French and English co-exist on every street, every menu, every conversation.
+
+## Loi 25 (privacy and data protection)
+
+In effect since September 2023. Quebec's strictest privacy regime, layered on top of federal PIPEDA. Applies to every business that holds personal data on Quebec residents, regardless of where the business is incorporated. Penalties up to \$25M or 4% of global revenue.
+
+What AiLys delivers:
+
+- Loi 25-grade consent banner with granular toggles (analytics, marketing, advertising) deployed on every client site by default
+- Audit log of every consent change with tenant_id + actor + timestamp + payload hash (no PII in clear)
+- Data residency: client data stored in Canadian Supabase regions. Cross-border AI calls (when used) disclosed in Privacy Policy template
+- Privacy policy template auto-generated per client with breach notification flow + responsible-officer placeholder for client to fill
+
+## Loi 96 (French-first across business)
+
+In effect since June 2022, with phased provisions through 2025. Strengthens the Charte de la langue francaise. Requires French to be markedly predominant in commercial signage, marketing, contracts, and customer communications.
+
+What AiLys delivers:
+
+- Bilingual content (FR-CA primary, EN secondary) on every client site by default. FR-CA gets the canonical URL, EN gets /en prefix
+- Google Business Profile name, description, attributes, posts, and Q&A maintained in French first
+- Reviews collected and replied in the language each customer wrote in (AI-generated replies preserve the original review's language per CLAUDE.md hard rule on language-match)
+- Schema.org markup includes inLanguage tags for both FR-CA and EN versions
+
+## Charte de la langue francaise (operating context)
+
+The Charte (originally 1977, repeatedly modernized) is the foundational French-language statute of Quebec. The Office quebecois de la langue francaise (OQLF) enforces it.
+
+What AiLys delivers:
+
+- Onboarding checklist verifies business name registration with the REQ (Registre des entreprises du Quebec) and ensures the GBP name matches
+- Trademark + descriptor combinations: when a client uses a non-French trademark (e.g. "Sushi Express"), AiLys auto-generates a compliant French descriptor ("Comptoir de sushis Sushi Express") for marketing materials
+- Help-center articles available bilingually for client team training. OQLF terminology preferred over anglicisms in internal documentation
+
+## Why this matters more than the cost difference
+
+A Wix subscription is \$20/month. A BrightLocal license is \$39/month. Cheap, clearly. But they ship US-default settings: English-first content, US privacy norms, no Loi 25 consent flows, no OQLF business-name verification, no FR-CA review-language matching. The first time a Loi 25 inspector calls or an OQLF complaint reaches your inbox, the savings disappear in a single legal-review meeting.
+
+AiLys costs more upfront. AiLys also stays out of the OQLF complaint queue and the CAI (Commission d'acces a l'information) inbox. That's not a feature. That's the actual product.
+
+## Where you see this in your dashboard
+
+- **Privacy & consent panel:** all consent records, breach notification flow, data export tools (Loi 25 portability)
+- **Language-match panel:** review-by-review log of original language detected vs reply language used (every entry should show match)
+- **OQLF readiness checklist:** quarterly self-audit prompts to confirm GBP, signage, and customer comms remain French-predominant
+- **Schema audit panel:** validates inLanguage tags and bilingual hreflang on every page
+
+## Disclaimer
+
+This article is informational and does not constitute legal advice. AiLys Agency is not a law firm. For legal opinions on Loi 25, Loi 96, or the Charte de la langue francaise, consult a Quebec-licensed lawyer.`,
+    i18n: {
+      fr: {
+        title: "Comment AiLys livre la conformite Loi 25 + Loi 96 + Charte",
+        excerpt:
+          "Explication en clair de la facon dont la plateforme AiLys livre du marketing conforme Quebec pour les PME locales par defaut. Vie privee Loi 25, francais d'abord Loi 96, sensibilisation OQLF, verification REQ, gestion marque + descripteur.",
+        body: `## Pourquoi ca existe
+
+La plupart des plateformes marketing (Wix, Squarespace, Yext, BrightLocal) livrent un produit generique mondial. Elles cochent les cases de base du RGPD et passent a autre chose. Les PME quebecoises meritent mieux. AiLys est concu au Quebec, par un operateur quebecois, pour les realites quebecoises : Loi 25, Loi 96, Charte de la langue francaise, et la realite quotidienne d'un marche bilingue ou francais et anglais cohabitent sur chaque rue, chaque menu, chaque conversation.
+
+## Loi 25 (vie privee et protection des donnees)
+
+En vigueur depuis septembre 2023. Le regime de vie privee le plus strict du Quebec, par-dessus la LPRPDE federale. S'applique a toute entreprise qui detient des donnees personnelles sur des residents quebecois, peu importe ou l'entreprise est incorporee. Penalites jusqu'a 25 M$ ou 4 % du chiffre d'affaires mondial.
+
+Ce que livre AiLys :
+
+- Banniere de consentement de niveau Loi 25 avec interrupteurs granulaires (analytique, marketing, publicite) deployee sur chaque site client par defaut
+- Journal d'audit de chaque changement de consentement avec tenant_id + acteur + horodatage + hachage de la charge (pas de RPP en clair)
+- Residence des donnees : donnees clients stockees dans les regions Supabase canadiennes. Appels IA transfrontaliers (lorsqu'utilises) divulgues dans le modele de Politique de confidentialite
+- Modele de politique de confidentialite auto-genere par client avec flux de notification de breche + champ responsable a remplir par le client
+
+## Loi 96 (francais d'abord en affaires)
+
+En vigueur depuis juin 2022, avec dispositions echelonnees jusqu'en 2025. Renforce la Charte de la langue francaise. Exige que le francais soit nettement predominant dans l'affichage commercial, le marketing, les contrats et les communications clients.
+
+Ce que livre AiLys :
+
+- Contenu bilingue (FR-CA principal, EN secondaire) sur chaque site client par defaut. FR-CA obtient l'URL canonique, EN obtient le prefixe /en
+- Nom, description, attributs, publications et Q&R Google Business Profile maintenus en francais d'abord
+- Avis collectes et reponses dans la langue ecrite par chaque client (reponses generees par IA preservent la langue d'origine de l'avis selon la regle stricte CLAUDE.md sur la correspondance linguistique)
+- Marquage Schema.org inclut les balises inLanguage pour les versions FR-CA et EN
+
+## Charte de la langue francaise (contexte d'operation)
+
+La Charte (originale de 1977, modernisee a plusieurs reprises) est la loi linguistique francaise fondamentale du Quebec. L'Office quebecois de la langue francaise (OQLF) l'applique.
+
+Ce que livre AiLys :
+
+- Liste d'onboarding verifie l'enregistrement du nom d'entreprise au REQ (Registre des entreprises du Quebec) et s'assure que le nom GBP correspond
+- Combinaisons marque + descripteur : quand un client utilise une marque non francaise (p. ex. « Sushi Express »), AiLys auto-genere un descripteur francais conforme (« Comptoir de sushis Sushi Express ») pour les materiels marketing
+- Articles du centre d'aide disponibles bilingues pour la formation des equipes clients. Terminologie OQLF preferee aux anglicismes dans la documentation interne
+
+## Pourquoi ca compte plus que la difference de cout
+
+Un abonnement Wix coute 20 \$/mois. Une licence BrightLocal coute 39 \$/mois. Pas cher, clairement. Mais ils livrent des reglages US par defaut : contenu anglais d'abord, normes de vie privee US, pas de flux de consentement Loi 25, pas de verification du nom REQ par l'OQLF, pas de correspondance linguistique FR-CA pour les avis. La premiere fois qu'un inspecteur Loi 25 appelle ou qu'une plainte OQLF arrive dans votre boite courriel, les economies disparaissent en une seule reunion de revision juridique.
+
+AiLys coute plus cher au depart. AiLys evite aussi la file de plaintes OQLF et la boite de la CAI (Commission d'acces a l'information). Ce n'est pas une fonctionnalite. C'est le vrai produit.
+
+## Ou vous voyez ca dans votre tableau de bord
+
+- **Panneau vie privee et consentement :** tous les enregistrements de consentement, flux de notification de breche, outils d'exportation de donnees (portabilite Loi 25)
+- **Panneau correspondance linguistique :** journal avis-par-avis de la langue d'origine detectee vs langue de reponse utilisee (chaque entree devrait montrer une correspondance)
+- **Liste de preparation OQLF :** invites d'auto-audit trimestrielles pour confirmer que GBP, signalisation et communications client restent francais-predominants
+- **Panneau audit schema :** valide les balises inLanguage et hreflang bilingue sur chaque page
+
+## Avis de non-responsabilite
+
+Cet article est informationnel et ne constitue pas un avis juridique. AiLys Agency n'est pas un cabinet d'avocats. Pour des avis juridiques sur la Loi 25, la Loi 96 ou la Charte de la langue francaise, consultez un avocat membre du Barreau du Quebec.`,
+      },
+    },
+  },
 ];

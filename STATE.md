@@ -2,6 +2,58 @@
 
 ---
 
+## 📚 SESSION 2026-05-02 (Help articles, hard rule #10 follow-up) — 2 new
+
+**Shipped:** 2 new help-center articles (EN canonical + FR-CA full)
+documenting the new features shipped earlier this session, satisfying
+CLAUDE.md hard rule #10 (every shipped feature gets a help-center
+article in EN + FR-CA before the marketing UI goes live).
+
+**Files:**
+- `src/data/help-articles.ts` (append-only: +2 articles, ~210 lines)
+
+**Articles:**
+
+1. **`nap-pulse-audit-explained`** (category: audit, 4 min read)
+   - What NAP Pulse audits (25 directories, weighted)
+   - 4 score tiers (Strong, Solid, Gaps, Critical)
+   - What you get at the end (score, NAP block, top-5 priorities,
+     cross-sell)
+   - What it doesn't do (no scraping, no automation) and why
+   - When to use it
+   - Privacy (localStorage only, no email, no account)
+   - Per hard rule #10: refers to the platform abstractly, no
+     vendor stack disclosure
+
+2. **`quebec-compliance-overview`** (category: getting-started, 5 min)
+   - Why this exists (US tools ship generic settings)
+   - Loi 25 explanation + 4-bullet AiLys delivery breakdown
+   - Loi 96 explanation + 4-bullet AiLys delivery breakdown
+   - Charte de la langue francaise + OQLF + REQ + trademark/descriptor
+   - Why it matters more than the cost difference
+   - Where you see this in your dashboard (4 panels)
+   - Legal disclaimer
+
+**Verification:**
+- /fr/help/nap-pulse-audit-explained: H1 "Comment fonctionne l'audit
+  NAP Pulse gratuit" renders, body contains "NAP" + "repertoires"
+- /fr/help/quebec-compliance-overview: H1 "Comment AiLys livre la
+  conformite Loi 25 + Loi 96 + Charte" renders, body contains
+  "Loi 25" + "OQLF"
+- Zero console errors
+- npx tsc --noEmit clean
+- npx vite build success ~21s
+- Em-dash sweep clean (0 em-dashes in help-articles.ts)
+
+**i18n discipline:** EN canonical + FR-CA full per article. ES/ZH/AR/RU
+fall back to EN automatically per existing HelpArticle pattern. Logged
+in translation queue for next Tuesday after 13:00.
+
+**Cross-session safety:** append-only modification on help-articles.ts
+(2 entries appended at end of array). Zero conflict risk with PR #139.
+
+---
+
 ## 🎨 SESSION 2026-05-02 (Portfolio scaffold) — /realisations live
 
 **Shipped:** Web-design portfolio catalog page. 9 demo client sites
