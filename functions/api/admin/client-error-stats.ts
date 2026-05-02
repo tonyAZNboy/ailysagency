@@ -15,6 +15,7 @@
 // Threat model: identical to audit-pdf-stats.
 
 import { verifyServiceRequest } from '../../lib/serviceAuth';
+import { jsonResponse } from '../../lib/jsonResponse';
 
 interface Env {
   AILYS_SERVICE_SHARED_SECRET?: string;
@@ -55,13 +56,6 @@ interface StatsResponse {
   type_breakdown: Record<string, number>;
   generated_at: string;
   notes?: string;
-}
-
-function jsonResponse(body: unknown, status: number, extraHeaders?: Record<string, string>): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...extraHeaders },
-  });
 }
 
 function reasonToStatus(reason: string): number {

@@ -32,6 +32,7 @@ import { escapeHtml } from '../lib/htmlEscape';
 import { sha256Hex } from '../lib/crypto';
 import { makeEmit } from '../lib/structuredLog';
 import { clip } from '../lib/stringClip';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   AUDIT_PDFS?: R2Bucket;
@@ -443,13 +444,3 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
   }, 202);
 };
 
-function jsonResponse(payload: unknown, status: number): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-    },
-  });
-}

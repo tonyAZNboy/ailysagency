@@ -2,6 +2,61 @@
 
 ---
 
+## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR142) — jsonResponse shared lib (sub-phase 9)
+
+Sub-phase 9 in the backend-lib extraction series. Pure backend, zero
+src/ touch, zero conflict surface with the parallel session.
+
+### Sub-phase 9: jsonResponse shared lib + Gate 33
+
+Consolidates 9 inline copies of `jsonResponse(body, status)` into
+`functions/lib/jsonResponse.ts`. The 9 copies had 4 distinct flavors
+(3 secure headers, 3 secure + extraHeaders, 2 lowercase + extraHeaders,
+1 Content-Type only). Canonical export merges all to the most-secure
+superset:
+
+- Content-Type: application/json; charset=utf-8
+- X-Content-Type-Options: nosniff
+- Cache-Control: no-store
+- extraHeaders spread last (caller add/override)
+
+**Files refactored (9 inline copies removed):**
+
+- functions/lib/cronGuard.ts (3-header flavor)
+- functions/api/audit-pdf.ts (3-header + extraHeaders)
+- functions/api/audit-pdf-onboarding.ts (3-header)
+- functions/api/admin/audit-pdf-stats.ts (lowercase)
+- functions/api/admin/quote-pdf-stats.ts (lowercase)
+- functions/api/admin/instant-ai-vis-stats.ts (lowercase)
+- functions/api/admin/client-error-stats.ts (lowercase)
+- functions/api/cron-process-sequences.ts (Content-Type only)
+- functions/api/resend-webhook.ts (Content-Type only)
+
+**Strict net-positive on security:**
+
+- 6 prior call sites (4 admin + cron-process-sequences + resend-webhook)
+  gain `X-Content-Type-Options: nosniff` and/or `Cache-Control: no-store`
+  defenses. JSON should never be content-sniffed; internal endpoints
+  shouldn't be cached. Zero behavioral regression (HTTP headers are
+  case-insensitive per RFC 9110 § 5.1; mixed-case admin response
+  headers are byte-different but spec-equivalent).
+
+**New smoke (Gate 33): scripts/smoke-json-response.mjs, 26 cases.**
+
+Asserts secure default headers, status preservation across full HTTP
+range (200/201/400/401/403/404/500/503/405), JSON body serialization
+(object/array/null/error), extraHeaders adds custom or overrides
+default, no cross-call leakage.
+
+**Gates locally green:**
+
+- Gate 1 typecheck: clean
+- Gate 4 em-dash sweep (CI scope): 0
+- All 15 existing smokes pass + new Gate 33 26/26
+- Gate 7 build: green (18.79s)
+
+---
+
 ## 🚧 SESSION OPEN 2026-05-02 (autopilot post-PR140) — stringClip shared lib (sub-phase 8)
 
 Sub-phase 8 in the backend-lib extraction series. Pure backend, zero

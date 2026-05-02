@@ -17,6 +17,7 @@ import { signUnsubscribeToken } from '../lib/unsubscribeToken';
 import { verifyServiceRequest } from '../lib/serviceAuth';
 import { captureServerError } from '../lib/serverError';
 import { sha256Hex } from '../lib/crypto';
+import { jsonResponse } from '../lib/jsonResponse';
 
 interface Env {
   RESEND_API_KEY?: string;
@@ -82,13 +83,6 @@ interface RunSummary {
   paused: number;
   errors: number;
   reasons: Record<string, number>;
-}
-
-function jsonResponse(body: unknown, status = 200): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
 }
 
 function logAudit(component: string, fields: Record<string, unknown>): void {
