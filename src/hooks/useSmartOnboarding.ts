@@ -37,7 +37,7 @@ export interface SmartOnboardingState {
   // Website
   websiteUrl: string;
   websiteScraped: boolean;
-  scrapedData: Record<string, any>;
+  scrapedData: Record<string, unknown>;
 
   // Documents
   documentsUploaded: Array<{ name: string; url: string; type: string }>;
@@ -129,8 +129,8 @@ export function useSmartOnboarding() {
 
       if (data) {
         const industry = data.selected_industry ? getIndustryById(data.selected_industry) : null;
-        const connectionsStatus = (data.connections_status as Record<string, any>) || {};
-        const scrapedData = (data.scraped_data as Record<string, any>) || {};
+        const connectionsStatus = (data.connections_status as Record<string, unknown>) || {};
+        const scrapedData = (data.scraped_data as Record<string, unknown>) || {};
         const stepsCompleted = (data.steps_completed as Record<string, boolean>) || {};
 
         setState(prev => ({
@@ -251,7 +251,7 @@ export function useSmartOnboarding() {
         .eq('user_id', user.id)
         .single();
 
-      const currentStatus = (data?.connections_status as Record<string, any>) || {};
+      const currentStatus = (data?.connections_status as Record<string, unknown>) || {};
       
       await supabase
         .from('onboarding_progress')
@@ -265,7 +265,7 @@ export function useSmartOnboarding() {
   };
 
   // Save scraped data
-  const saveScrapedData = async (data: Record<string, any>) => {
+  const saveScrapedData = async (data: Record<string, unknown>) => {
     if (!user) return;
 
     const newScrapedData = { ...state.scrapedData, website: data };
@@ -435,7 +435,7 @@ export function useSmartOnboarding() {
             brand_tone_keywords: state.profileData.brandToneKeywords || [],
             content_themes: state.profileData.contentThemes || [],
             competitors: state.profileData.competitorSuggestions || [],
-          } as any, { onConflict: 'tenant_id' }),
+          } as never, { onConflict: 'tenant_id' }),
       ]);
 
       // --- AUTOPILOT: Provision selected GBP locations ---
@@ -601,8 +601,8 @@ export function useSmartOnboarding() {
 }
 
 function calculateKnowledgeScore(
-  scrapedData: Record<string, any>,
-  connections: Record<string, any>,
+  scrapedData: Record<string, unknown>,
+  connections: Record<string, unknown>,
   selectedIndustry?: string | null
 ): number {
   let score = 0;
@@ -627,7 +627,7 @@ function calculateKnowledgeScore(
   if (website.keywords?.length > 0) score += 3;
   if (website.serviceAreas?.length > 0) score += 3;
   if (website.uniqueSellingPoints?.length > 0) score += 2;
-  if (website.socialMedia && Object.values(website.socialMedia).some((v: any) => v)) score += 3;
+  if (website.socialMedia && Object.values(website.socialMedia).some((v: unknown) => v)) score += 3;
   if (website.bookingUrl) score += 2;
   if (website.priceRange) score += 2;
   if (website.certifications?.length > 0) score += 2;
