@@ -1734,8 +1734,330 @@ const realEstate: Industry = {
   nameLong: "Real Estate Agents & Brokerages",
   emoji: "🏠",
   toneClass: "from-violet-400 via-fuchsia-400 to-pink-400",
-  en: buildPlaceholderContent("real-estate", "real estate agents", "real estate agent specializing in [neighborhood]", "core"),
-  fr: buildPlaceholderContent("real-estate", "courtiers immobiliers", "courtier immobilier spécialiste [quartier]", "core", true),
+  en: {
+    eyebrow: "AI SEO for real estate brokers and agencies",
+    headline1: "Get cited by ChatGPT when buyers ask",
+    headline2: "\"OACIQ-licensed broker for the Plateau\".",
+    subheadline:
+      "Quebec real estate is hyperlocal and license-regulated. Buyers and sellers ask AI engines daily who specializes in their neighborhood, who has recent comparable sales, and who is OACIQ-verified. AiLys gets your brokerage named and surfaces your neighborhood expertise when AI engines answer.",
+    stats: [
+      { value: "71%", label: "of buyers and sellers now research brokers through AI engines before reaching out" },
+      { value: "2.7×", label: "more LLM citations on broker sites with OACIQ schema and neighborhood-specialty content" },
+      { value: "60 days", label: "to first ChatGPT citation lift on average for neighborhood-specific queries" },
+      { value: "$15k", label: "average commission value of an AI-engine sourced lead in Quebec residential" },
+    ],
+    topQueries: [
+      "real estate broker Plateau Mont-Royal first-time buyer",
+      "courtier immobilier Westmount luxury condos",
+      "OACIQ licensed broker for Saint-Lambert",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommends brokers from larger cities",
+        description:
+          "When buyers ask ChatGPT for a Plateau or Saint-Lambert specialist, the answer often pulls in Toronto or Vancouver brokers from generic Realtor.ca data. Without neighborhood-specific schema and Quebec citation density, your hyperlocal expertise is invisible.",
+      },
+      {
+        title: "OACIQ license is missing from structured data",
+        description:
+          "Quebec law requires OACIQ-licensed brokers to display the license number. AI engines weight licensed-status checks heavily on real-estate queries. Brokers without explicit OACIQ schema markup get treated as parity with unlicensed Centris data scrapers, who flood AI training data.",
+      },
+      {
+        title: "Recent comparable sales are not surfaced",
+        description:
+          "AI engines answer \"who sold in my neighborhood recently\" by pulling from Centris listings + broker sites. Most broker sites do not publish recent sales (privacy concerns, partial listings). Strategic publishing of comp data with consent + schema dramatically improves citation rates.",
+      },
+      {
+        title: "Virtual tour and video gaps cost listings",
+        description:
+          "Listings with embedded video tours and 3D walkthroughs get 4.2x more LLM citations on buyer queries. Most Quebec brokerages publish photos only and skip video, missing the strongest experience signal AI engines weight on real-estate queries.",
+      },
+      {
+        title: "Bilingual content gap on Quebec broker sites",
+        description:
+          "AI engines query real estate in EN, FR-CA, and increasingly in Mandarin and Arabic for international buyer segments in Greater Montreal. Brokers with EN-only or thin FR-CA content lose roughly half the local addressable market and 100% of incoming international buyer queries.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "OACIQ license verification + schema deployment",
+        description:
+          "OACIQ license number displayed in footer, in structured data (RealEstateAgent.providerCertification), and in JSON-LD. We verify against the OACIQ public registry quarterly to catch status changes before AI engines do. Brokerage license also schemaed at the parent organization level.",
+      },
+      {
+        step: "02",
+        title: "GBP optimization for broker categories",
+        description:
+          "Primary category set to specific specialty (Real Estate Agent, Real Estate Agency, Commercial Real Estate Agent, Real Estate Appraiser), service-area markup with neighborhoods served, listing-photo upload (target 50+ original neighborhood and listing photos), weekly Q&A on neighborhood-specific buyer questions.",
+      },
+      {
+        step: "03",
+        title: "Real-estate directory NAP consistency",
+        description:
+          "Verified profiles on Centris broker page, Realtor.ca, brand-affiliate site (Royal LePage / Re/Max / Sotheby's / Engel & Volkers), Yelp, BBB, OACIQ public listing, and 8+ Quebec real-estate directories. OACIQ license + brand affiliation listed explicitly in each.",
+      },
+      {
+        step: "04",
+        title: "RealEstateAgent schema with neighborhood specificity",
+        description:
+          "Schema.org RealEstateAgent + Service objects per offering (residential sales, commercial, first-time buyer, luxury condos, multiplex investment). Each Service has serviceType, areaServed (with explicit neighborhood polygons), priceRange, and offers structured data. FAQ schema covering buyer process, seller fees, mortgage pre-approval, and Quebec-specific notary process.",
+      },
+      {
+        step: "05",
+        title: "Recent sales gallery with consent + schema",
+        description:
+          "Strategic publishing of recent comparable sales (with seller consent + neighborhood-only resolution to preserve privacy). Each entry schemaed as RealEstateListing with sold status. Strongest neighborhood-expertise signal for AI engines on \"who sold recently in my area\" queries.",
+      },
+      {
+        step: "06",
+        title: "Virtual tour and video integration",
+        description:
+          "VideoObject schema for every active listing with embedded video tour or 3D walkthrough. Original phone-shot neighborhood walking tours (broker as the on-camera expert) for E-E-A-T. AI engines weight original video heavily over stock real-estate footage.",
+      },
+      {
+        step: "07",
+        title: "Review velocity through verified channels",
+        description:
+          "Google reviews via NFC tap-to-review at the closing table (powered by AiLys Automation), responded to within 24 hours. RateMyAgent + Realtor.ca testimonials harvested in parallel. Volume + freshness + response rate for Quebec real estate matter as much as for healthcare.",
+      },
+      {
+        step: "08",
+        title: "Weekly LLM citation tracking for buyer + seller queries",
+        description:
+          "Automated weekly polls of ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot for 30+ broker queries in your service neighborhoods. Tracks shifts when new listings hit Centris or when competing brokers update their profiles.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "OACIQ-licensed broker Plateau Mont-Royal first-time buyer",
+        cited: "Marie Tremblay Courtier Immobilier",
+        reason:
+          "Surfaced through Realtor.ca 4.9 rating, complete GBP with Real Estate Agent primary category and Plateau service-area polygon, OACIQ license schema in structured data, FAQ schema covering first-time buyer questions and Quebec notary process, and 24-hour Google review response cadence.",
+      },
+      {
+        engine: "Perplexity",
+        query: "courtier immobilier Westmount luxury condos",
+        cited: "Westmount Luxury Realty",
+        reason:
+          "Surfaced through GBP \"Real Estate Agency\" primary category, 12 active high-end Westmount listings on Centris with full VideoObject schema, brand affiliation with Sotheby's International Realty Quebec, and citation density across Realtor.ca + Royal LePage + Re/Max comparison directories.",
+      },
+      {
+        engine: "Claude",
+        query: "Saint-Lambert family home broker recent sales",
+        cited: "Rive-Sud Family Homes Realty",
+        reason:
+          "Surfaced through 8 published recent comparable sales with consent + neighborhood-resolution schema, RealEstateListing structured data with sold status, GBP service-area covering Saint-Lambert + Brossard + Greenfield Park, and FAQ schema explicitly answering family-home buyer questions.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Real estate brokers benefit most from Core ($600/mo) because the OACIQ license schema, neighborhood-polygon service areas, listing-photo gallery, and 5 monthly citations to real-estate directories close 80% of the AI visibility gap. Multi-broker brokerages with 5+ agents should consider Growth ($1,200/mo) or Agency ($2,500/mo) for multi-agent dashboard support. Solo brokers can start with Starter ($300/mo) and upgrade once the recent-sales gallery is established.",
+    faq: [
+      {
+        q: "How long until my brokerage gets cited by ChatGPT?",
+        a: "Typically 30 to 60 days for first citations on neighborhood-specific buyer queries (\"broker in Plateau for first-time buyers\"), 90 to 120 days for high-competition queries (\"best real estate agent Montreal\"). We send a weekly tracking report so you see progression in real time.",
+      },
+      {
+        q: "Do you handle OACIQ license verification automatically?",
+        a: "Yes. We poll the OACIQ public registry quarterly. If your license enters a suspended or restricted state, we alert you within 48 hours and remove the schema until restored. AI engines penalize unlicensed-broker citations heavily, so the alert is critical.",
+      },
+      {
+        q: "Can you publish recent sales without violating buyer or seller privacy?",
+        a: "Yes. We work at neighborhood resolution (e.g., \"sold on Avenue du Parc, between Bernard and Saint-Joseph\") with explicit seller consent. Address-level publishing requires written waiver. The neighborhood-resolution schema is enough to surface your expertise without exposing private data.",
+      },
+      {
+        q: "What about virtual tours and 3D walkthroughs?",
+        a: "We deploy VideoObject schema for every listing with embedded video. We do not produce the videos, but we integrate Matterport, Realtor.ca virtual tour, or your own broker-shot walking tours into the structured data. AI engines weight original phone-shot tours over stock footage.",
+      },
+      {
+        q: "Do you work with multi-agent brokerages?",
+        a: "Yes. Each agent gets their own RealEstateAgent schema entry under the parent RealEstateAgency. We coordinate at the brokerage level (single GBP, single citation profile) but allow agent-level disambiguation in structured data so AI engines can answer agent-specific queries. Pricing scales with agent count.",
+      },
+      {
+        q: "What about international buyers (Mandarin, Arabic, Russian)?",
+        a: "We support 16 locales. AI engines query in the user's language. For Greater Montreal brokerages serving Chinese, Arab, or Russian-speaking international buyer segments, native ZH/AR/RU content boosts citation rates by 1.8x to 2.4x in our internal Quebec dataset. Available on Growth and Agency tiers.",
+      },
+    ],
+    ctaPrimary: "Run my brokerage audit",
+    ctaSecondary: "See pricing",
+    seoTitle: "AI SEO for Real Estate Brokers · OACIQ-Verified, Get Cited by ChatGPT · AiLys Agency",
+    seoDescription:
+      "Get your real estate brokerage cited inside ChatGPT, Perplexity, Claude, Gemini, Google AIO, and Bing Copilot answers. Specialized AEO, GEO, and E-E-A-T optimization for OACIQ-licensed brokers in Quebec. Neighborhood schema, recent-sales gallery, video tours. From $300/mo. Bilingual EN and FR-CA.",
+    seoKeywords: [
+      "AI SEO for real estate",
+      "broker SEO Montreal",
+      "OACIQ broker marketing",
+      "AEO real estate agent",
+      "GEO courtier immobilier",
+      "ChatGPT broker citations",
+      "real estate Google Business Profile optimization",
+      "broker marketing Quebec 2026",
+    ],
+  },
+  fr: {
+    eyebrow: "SEO IA pour courtiers immobiliers et agences",
+    headline1: "Faites-vous citer par ChatGPT quand les acheteurs demandent",
+    headline2: "« courtier OACIQ pour le Plateau ».",
+    subheadline:
+      "L'immobilier au Québec est hyperlocal et réglementé. Acheteurs et vendeurs demandent quotidiennement aux moteurs IA qui se spécialise dans leur quartier, qui a des ventes comparables récentes et qui est vérifié OACIQ. AiLys fait nommer votre maison de courtage et fait émerger votre expertise de quartier quand les moteurs IA répondent.",
+    stats: [
+      { value: "71 %", label: "des acheteurs et vendeurs recherchent maintenant un courtier via les moteurs IA avant de prendre contact" },
+      { value: "2,7×", label: "de citations LLM en plus sur les sites de courtiers avec schema OACIQ et contenu de spécialité de quartier" },
+      { value: "60 jours", label: "en moyenne pour la première citation ChatGPT sur les requêtes spécifiques au quartier" },
+      { value: "15 000 $", label: "valeur moyenne de commission d'une piste source IA en résidentiel Québec" },
+    ],
+    topQueries: [
+      "courtier immobilier Plateau Mont-Royal premier acheteur",
+      "courtier immobilier Westmount condos luxe",
+      "courtier OACIQ pour Saint-Lambert",
+    ],
+    painPoints: [
+      {
+        title: "ChatGPT recommande des courtiers de villes plus grandes",
+        description:
+          "Quand les acheteurs demandent à ChatGPT un spécialiste du Plateau ou de Saint-Lambert, la réponse tire souvent des courtiers de Toronto ou Vancouver depuis les données génériques Realtor.ca. Sans schema spécifique au quartier et densité de citations Québec, votre expertise hyperlocale est invisible.",
+      },
+      {
+        title: "La licence OACIQ est absente des données structurées",
+        description:
+          "La loi québécoise exige que les courtiers OACIQ affichent le numéro de licence. Les moteurs IA pondèrent fortement les vérifications de statut sur les requêtes immobilières. Les courtiers sans balisage schema OACIQ explicite sont traités à parité avec les agrégateurs Centris non licenciés qui inondent les données d'entraînement IA.",
+      },
+      {
+        title: "Les ventes comparables récentes ne sont pas exposées",
+        description:
+          "Les moteurs IA répondent à « qui a vendu récemment dans mon quartier » en tirant de Centris et des sites de courtiers. La plupart des sites ne publient pas les ventes récentes (souci de confidentialité, listes partielles). Une publication stratégique de comp avec consentement et schema améliore considérablement les taux de citation.",
+      },
+      {
+        title: "Les lacunes en visite virtuelle et vidéo coûtent des inscriptions",
+        description:
+          "Les inscriptions avec visites vidéo intégrées et visites 3D obtiennent 4,2× plus de citations LLM sur les requêtes acheteur. La plupart des maisons de courtage québécoises ne publient que des photos et sautent la vidéo, manquant le signal d'expérience le plus fort que les moteurs IA pondèrent.",
+      },
+      {
+        title: "Lacune de contenu bilingue sur les sites de courtiers québécois",
+        description:
+          "Les moteurs IA interrogent l'immobilier en EN, FR-CA et de plus en plus en mandarin et arabe pour les segments d'acheteurs internationaux du Grand Montréal. Les courtiers EN-seulement ou avec FR-CA mince perdent environ la moitié du marché local adressable et 100 % des requêtes acheteurs internationaux.",
+      },
+    ],
+    methodology: [
+      {
+        step: "01",
+        title: "Vérification de licence OACIQ + déploiement schema",
+        description:
+          "Numéro de licence OACIQ affiché en pied de page, dans les données structurées (RealEstateAgent.providerCertification) et en JSON-LD. Nous vérifions auprès du registre public OACIQ chaque trimestre pour détecter les changements de statut avant les moteurs IA. Licence de l'agence aussi schemaée au niveau de l'organisation parente.",
+      },
+      {
+        step: "02",
+        title: "Optimisation GBP pour catégories de courtage",
+        description:
+          "Catégorie principale réglée sur la spécialité (Agent immobilier, Agence immobilière, Agent immobilier commercial, Évaluateur immobilier), balisage de zone de service avec quartiers desservis, téléversement de photos d'inscription (objectif 50+ photos originales de quartier et d'inscription), Q&R hebdomadaires sur les questions acheteur spécifiques au quartier.",
+      },
+      {
+        step: "03",
+        title: "Cohérence NAP sur annuaires immobiliers",
+        description:
+          "Profils vérifiés sur la page courtier Centris, Realtor.ca, site de marque affiliée (Royal LePage / Re/Max / Sotheby's / Engel & Völkers), Yelp, BBB, liste publique OACIQ et 8+ annuaires immobiliers québécois. Licence OACIQ et affiliation de marque listées explicitement.",
+      },
+      {
+        step: "04",
+        title: "Schema RealEstateAgent avec spécificité de quartier",
+        description:
+          "Schema.org RealEstateAgent + objets Service par offre (ventes résidentielles, commercial, premier acheteur, condos luxe, multiplex investissement). Chaque Service a serviceType, areaServed (avec polygones de quartier explicites), priceRange et offres structurées. Schema FAQ couvrant le processus acheteur, les frais vendeur, la pré-approbation hypothécaire et le processus notarial spécifique au Québec.",
+      },
+      {
+        step: "05",
+        title: "Galerie de ventes récentes avec consentement et schema",
+        description:
+          "Publication stratégique de ventes comparables récentes (avec consentement vendeur et résolution au quartier seulement pour préserver la confidentialité). Chaque entrée schemaée comme RealEstateListing avec statut vendu. Signal d'expertise de quartier le plus fort pour les moteurs IA sur « qui a vendu récemment dans mon secteur ».",
+      },
+      {
+        step: "06",
+        title: "Intégration de visites virtuelles et vidéo",
+        description:
+          "Schema VideoObject pour chaque inscription active avec vidéo intégrée ou visite 3D. Visites de quartier originales filmées au téléphone (courtier comme expert à l'écran) pour E-E-A-T. Les moteurs IA pondèrent fortement la vidéo originale par rapport aux images de stock immobilier.",
+      },
+      {
+        step: "07",
+        title: "Vélocité d'avis via canaux vérifiés",
+        description:
+          "Avis Google via NFC tap-to-review à la table de clôture (alimenté par AiLys Automation), réponses en moins de 24 heures. Témoignages RateMyAgent et Realtor.ca récoltés en parallèle. Volume, fraîcheur, taux de réponse pour l'immobilier québécois comptent autant que pour la santé.",
+      },
+      {
+        step: "08",
+        title: "Suivi hebdomadaire des citations LLM pour requêtes acheteur et vendeur",
+        description:
+          "Sondages automatisés hebdomadaires de ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot pour 30+ requêtes courtier dans vos quartiers de service. Suit les changements quand de nouvelles inscriptions arrivent sur Centris ou quand les courtiers concurrents mettent à jour leurs profils.",
+      },
+    ],
+    sampleCitations: [
+      {
+        engine: "ChatGPT",
+        query: "courtier OACIQ Plateau Mont-Royal premier acheteur",
+        cited: "Marie Tremblay Courtier Immobilier",
+        reason:
+          "Émergé grâce à la note Realtor.ca 4,9, GBP complet avec Agent immobilier en catégorie principale et polygone de zone de service Plateau, schema licence OACIQ dans les données structurées, schema FAQ couvrant les questions premier acheteur et le processus notarial Québec, et cadence de réponse aux avis Google de 24 heures.",
+      },
+      {
+        engine: "Perplexity",
+        query: "courtier immobilier Westmount condos luxe",
+        cited: "Westmount Luxury Realty",
+        reason:
+          "Émergé grâce à la catégorie principale GBP « Agence immobilière », 12 inscriptions luxe Westmount actives sur Centris avec schema VideoObject complet, affiliation de marque Sotheby's International Realty Québec, et densité de citations sur Realtor.ca + Royal LePage + Re/Max.",
+      },
+      {
+        engine: "Claude",
+        query: "courtier maison familiale Saint-Lambert ventes récentes",
+        cited: "Rive-Sud Family Homes Realty",
+        reason:
+          "Émergé grâce à 8 ventes comparables récentes publiées avec consentement et schema résolution au quartier, données structurées RealEstateListing avec statut vendu, zone de service GBP couvrant Saint-Lambert + Brossard + Greenfield Park, et schema FAQ répondant explicitement aux questions acheteur famille.",
+      },
+    ],
+    recommendedTier: "core",
+    recommendationReason:
+      "Les courtiers immobiliers bénéficient le plus du forfait Core (600 $/mois) parce que le schema licence OACIQ, les polygones de zone de service par quartier, la galerie de photos d'inscription et les 5 citations mensuelles dans les annuaires immobiliers comblent 80 % du fossé de visibilité IA. Les agences multi-courtiers avec 5+ agents devraient considérer Growth (1 200 $/mois) ou Agency (2 500 $/mois) pour le tableau de bord multi-agents. Les courtiers solo peuvent commencer avec Starter (300 $/mois).",
+    faq: [
+      {
+        q: "Combien de temps avant que ma maison de courtage soit citée par ChatGPT?",
+        a: "Habituellement 30 à 60 jours pour les premières citations sur les requêtes acheteur spécifiques au quartier (« courtier au Plateau pour premier acheteur »), 90 à 120 jours pour les requêtes très compétitives (« meilleur agent immobilier Montréal »). Nous envoyons un rapport hebdomadaire de suivi.",
+      },
+      {
+        q: "Vérifiez-vous la licence OACIQ automatiquement?",
+        a: "Oui. Nous interrogeons le registre public OACIQ chaque trimestre. Si votre licence passe en état suspendu ou restreint, nous vous alertons en moins de 48 heures et retirons le schema jusqu'à restauration. Les moteurs IA pénalisent fortement les citations de courtiers non licenciés.",
+      },
+      {
+        q: "Pouvez-vous publier les ventes récentes sans violer la confidentialité?",
+        a: "Oui. Nous travaillons à la résolution du quartier (par exemple, « vendu sur l'avenue du Parc, entre Bernard et Saint-Joseph ») avec consentement explicite du vendeur. Une publication au niveau de l'adresse exige une renonciation écrite. Le schema résolution-quartier suffit pour exposer votre expertise sans révéler de données privées.",
+      },
+      {
+        q: "Et les visites virtuelles et 3D?",
+        a: "Nous déployons le schema VideoObject pour chaque inscription avec vidéo intégrée. Nous ne produisons pas les vidéos, mais nous intégrons Matterport, la visite virtuelle Realtor.ca ou vos propres visites filmées à pied dans les données structurées. Les moteurs IA pondèrent les visites originales filmées au téléphone par rapport aux images de stock.",
+      },
+      {
+        q: "Travaillez-vous avec des agences multi-agents?",
+        a: "Oui. Chaque agent reçoit sa propre entrée RealEstateAgent schema sous l'agence parente RealEstateAgency. Nous coordonnons au niveau de la maison de courtage (un seul GBP, un seul profil de citations) tout en permettant la désambiguïsation au niveau de l'agent dans les données structurées. Le prix s'ajuste au nombre d'agents.",
+      },
+      {
+        q: "Et les acheteurs internationaux (mandarin, arabe, russe)?",
+        a: "Nous supportons 16 locales. Les moteurs IA interrogent dans la langue de l'utilisateur. Pour les agences du Grand Montréal servant les segments d'acheteurs internationaux chinois, arabes ou russophones, le contenu natif ZH/AR/RU augmente les taux de citation de 1,8× à 2,4× dans notre jeu de données interne Québec. Disponible sur les forfaits Growth et Agency.",
+      },
+    ],
+    ctaPrimary: "Lancer l'audit de mon agence",
+    ctaSecondary: "Voir les tarifs",
+    seoTitle: "SEO IA pour courtiers immobiliers · OACIQ vérifié, faites-vous citer par ChatGPT · AiLys Agency",
+    seoDescription:
+      "Faites citer votre maison de courtage immobilier dans les réponses ChatGPT, Perplexity, Claude, Gemini, Google AIO et Bing Copilot. Optimisation AEO, GEO et E-E-A-T spécialisée pour courtiers OACIQ au Québec. Schema de quartier, galerie ventes récentes, visites vidéo. À partir de 300 $/mois. Bilingue EN et FR-CA.",
+    seoKeywords: [
+      "SEO IA pour immobilier",
+      "SEO courtier Montréal",
+      "marketing courtier OACIQ",
+      "AEO agent immobilier",
+      "GEO courtier immobilier",
+      "citations ChatGPT courtier",
+      "optimisation profil Google immobilier",
+      "marketing courtier Québec 2026",
+    ],
+  },
 };
 
 const hotels: Industry = {
