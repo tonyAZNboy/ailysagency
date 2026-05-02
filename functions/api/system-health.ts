@@ -39,6 +39,8 @@
 // Error mode: 503 with { "ok": false, "error": "..." } on internal
 // failure. Healthchecks should treat 5xx as DOWN.
 
+import { readCronHeartbeat } from "../lib/cronGuard";
+
 interface Env {
   // Build / runtime
   CF_PAGES_COMMIT_SHA?: string;
@@ -139,6 +141,17 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       kvBindings[key as string] = value && typeof (value as KVNamespace).get === "function" ? "bound" : "unbound";
     }
 
+    // Cron heartbeats: read last-run state from KV (best-effort; the
+    // heartbeat KV is shared with the AUDIT_PDF_RATE_LIMIT namespace per
+    // existing cronGuard convention). Returns null when KV unbound or no
+    // heartbeat written yet (which is the legitimate "fresh deploy"
+    // state). Surfaced for ops dashboards to detect stuck crons.
+    const cronEnv = { AUDIT_PDF_RATE_LIMIT: env.AUDIT_PDF_RATE_LIMIT };
+    const cronHeartbeats: Record<string, unknown> = {
+      "process-sequences": await readCronHeartbeat(cronEnv, "process-sequences"),
+      "day1-retry": await readCronHeartbeat(cronEnv, "day1-retry"),
+    };
+
     const body = {
       ok: true,
       timestamp: new Date().toISOString(),
@@ -150,6 +163,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       features,
       secrets,
       kvBindings,
+      cronHeartbeats,
     };
 
     return new Response(JSON.stringify(body, null, 2), {
