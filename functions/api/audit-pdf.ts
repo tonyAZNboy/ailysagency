@@ -17,6 +17,7 @@ import { PDF_REQUEST_MAX_PAYLOAD_BYTES } from '../../src/lib/pdfRequestSchema';
 import { renderAuditPdf } from '../lib/pdf/AuditReport';
 import { newObjectId, signDownload } from '../lib/pdfHmac';
 import { renderEmail, EmailLang } from '../lib/emailTemplate';
+import { captureServerError } from '../lib/serverError';
 import { sendAndLog } from '../lib/emailLog';
 
 interface Env {
@@ -26,6 +27,13 @@ interface Env {
   AUDIT_PDF_HMAC_SECRET?: string; // env var, 64-byte random
   RESEND_API_KEY?: string;
   PDF_EXPORT_KILL_SWITCH?: string; // optional override, "false" disables endpoint
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Supabase persistence target for serverError audit_log rows. */
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 interface KVNamespace {
@@ -297,6 +305,21 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
       reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
       latencyMs: Date.now() - start,
     });
+    // PDF render failure is a real ops incident (renderer changes, malformed
+    // input that bypassed validation, etc.). Page operator immediately.
+    await captureServerError(ctx.env, {
+      endpoint: 'audit-pdf',
+      severity: 'error',
+      err,
+      requestId: payloadHash.slice(0, 12),
+      userIpHash: ipHash,
+      payloadHash,
+      context: {
+        stage: 'render',
+        latency_ms: Date.now() - start,
+        vertical: data.vertical ?? null,
+      },
+    });
     return jsonResponse({ error: 'render_failed' }, 500);
   }
 
@@ -329,6 +352,22 @@ export const onRequest: (ctx: PagesContext) => Promise<Response> = async (ctx) =
         payloadHash,
         reason: err instanceof Error ? err.message.slice(0, 200) : 'unknown',
         latencyMs: Date.now() - start,
+      });
+      // R2 storage failure is critical: the PDF was rendered but cannot
+      // be persisted, so the user gets nothing. Page operator.
+      await captureServerError(ctx.env, {
+        endpoint: 'audit-pdf',
+        severity: 'error',
+        err,
+        requestId: payloadHash.slice(0, 12),
+        userIpHash: ipHash,
+        payloadHash,
+        context: {
+          stage: 'r2_put',
+          object_id: objectId,
+          pdf_bytes: pdfBytes.byteLength,
+          latency_ms: Date.now() - start,
+        },
       });
       return jsonResponse({ error: 'storage_failed' }, 500);
     }
