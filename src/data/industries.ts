@@ -920,6 +920,188 @@ const lawyers: Industry = {
       "marketing juridique 2026",
     ],
   },
+  i18n: {
+    es: {
+      eyebrow: "SEO IA para bufetes de abogados",
+      headline1: "Sé citado por ChatGPT cuando los prospectos preguntan",
+      headline2: "\"mejor abogado para [mi caso]\".",
+      subheadline:
+        "Las búsquedas legales reciben el escrutinio E-E-A-T más alto en los motores de IA. Las credenciales del colegio de abogados, los resultados de casos y el contenido autoritativo deciden quién es nombrado. AiLys posiciona su firma correctamente.",
+      stats: [
+        { value: "73%", label: "de los clientes ahora investigan abogados a través de motores de IA antes de contactar a uno" },
+        { value: "$3.400", label: "valor promedio de por vida por cliente proveniente de IA (derecho de familia en Quebec)" },
+        { value: "60 días", label: "en promedio para la primera mención en ChatGPT para consultas legales" },
+        { value: "8×", label: "más citas LLM en firmas con autoría acreditada y esquema de resultados de casos" },
+      ],
+      topQueries: [
+        "abogado de derecho de familia aceptando nuevos clientes Montreal",
+        "abogado DUI consulta gratuita ciudad de Quebec",
+        "abogado de inmigración hispanohablante Laval",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT cita firmas tier 1 por defecto",
+          description:
+            "Cuando se le pregunta por un abogado en su especialidad, ChatGPT prefiere por defecto a las grandes firmas con entradas Wikidata sólidas, presencia en colegios de abogados y citas densas. Las firmas más pequeñas son invisibles sin trabajo explícito de autoridad de entidad.",
+        },
+        {
+          title: "Falta la desambiguación de especialidad",
+          description:
+            "Los motores de IA necesitan saber si usted hace derecho de familia, penal, migratorio o corporativo. Sin esquema LegalService con practiceArea declarado, compite contra todos los abogados de su ciudad.",
+        },
+        {
+          title: "Las consultas de \"consulta gratuita\" se pierden",
+          description:
+            "\"Consulta gratuita\" es una de las consultas con mayor intención. Los motores de IA buscan esquema FAQ explícito, atributos GBP y páginas de aterrizaje dedicadas. La mayoría de las firmas no tienen ninguno.",
+        },
+        {
+          title: "Posicionamiento de práctica bilingüe",
+          description:
+            "En Quebec, \"abogado anglófono\" y \"English-speaking lawyer\" son búsquedas distintas que extraen de fuentes diferentes. Sin esquema bilingüe y Wikidata en doble idioma, pierde la mitad de su mercado potencial.",
+        },
+      ],
+      ctaPrimary: "Ejecutar la auditoría de mi firma",
+      ctaSecondary: "Ver tarifas",
+      seoTitle: "SEO IA para Abogados · Sé citado por ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Haga que su firma de abogados sea citada en las respuestas de ChatGPT, Perplexity, Claude, Gemini, Google AIO y Bing Copilot. Optimización AEO, GEO y E-E-A-T especializada para firmas legales en Quebec. Desde $600/mes. Bilingüe EN y FR-CA.",
+    },
+    zh: {
+      eyebrow: "律师事务所 AI SEO",
+      headline1: "当潜在客户询问时让 ChatGPT 引用您",
+      headline2: "「我的案子需要的最佳律师」。",
+      subheadline:
+        "在 AI 引擎中,法律搜索受到最高的 E-E-A-T 审查。律师协会资质、案件结果和权威内容决定谁被点名。AiLys 正确定位您的律所。",
+      stats: [
+        { value: "73%", label: "的客户在联系律师之前通过 AI 引擎进行研究" },
+        { value: "$3,400", label: "AI 来源客户的平均终身价值(魁北克家庭法)" },
+        { value: "60 天", label: "法律查询平均 ChatGPT 首次引用提升时间" },
+        { value: "8×", label: "在具有认证作者身份和案件结果 schema 的律所上获得更多 LLM 引用" },
+      ],
+      topQueries: [
+        "蒙特利尔接受新客户的家庭法律师",
+        "魁北克市免费咨询的 DUI 律师",
+        "拉瓦尔会说西班牙语的移民律师",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT 默认引用一线律所",
+          description:
+            "当被问及您专业领域的律师时,ChatGPT 默认选择具有强大 Wikidata 条目、律师协会存在感和密集引用的大型律所。没有明确的实体权威工作,小型律所是隐形的。",
+        },
+        {
+          title: "缺少专业领域消歧",
+          description:
+            "AI 引擎需要知道您从事家庭、刑事、移民还是公司法。没有声明 practiceArea 的 LegalService schema,您就在与城市里的每位律师竞争,而不是主导您的专业领域。",
+        },
+        {
+          title: "「免费咨询」查询被遗失",
+          description:
+            "\"免费咨询\" 是意图最强的查询之一。AI 引擎寻找明确的 FAQ schema、GBP 属性和专用着陆页。大多数律所什么都没有。",
+        },
+        {
+          title: "双语执业定位",
+          description:
+            "在魁北克,「avocat anglophone」和 \"English-speaking lawyer\" 是从不同来源提取的不同搜索。没有双语 schema 和双语 Wikidata,您将失去一半的潜在市场。",
+        },
+      ],
+      ctaPrimary: "运行我的律所审核",
+      ctaSecondary: "查看定价",
+      seoTitle: "律师 AI SEO · 让 ChatGPT、Perplexity、Claude 引用您 · AiLys Agency",
+      seoDescription:
+        "让您的律所被 ChatGPT、Perplexity、Claude、Gemini、Google AIO 和 Bing Copilot 的答案引用。专为魁北克律所定制的 AEO、GEO 和 E-E-A-T 优化。每月 $600 起。EN 和 FR-CA 双语。",
+    },
+    ar: {
+      eyebrow: "تحسين البحث بالذكاء الاصطناعي لمكاتب المحاماة",
+      headline1: "اجعل ChatGPT يستشهد بك عندما يسأل العملاء المحتملون",
+      headline2: "\"أفضل محامٍ لقضيتي\".",
+      subheadline:
+        "تتلقى عمليات البحث القانونية أعلى تدقيق E-E-A-T داخل محركات الذكاء الاصطناعي. تحدد مؤهلات نقابة المحامين ونتائج القضايا والمحتوى الموثوق من يتم ذكر اسمه. تضع AiLys مكتبك في الموقع الصحيح.",
+      stats: [
+        { value: "73%", label: "من العملاء يبحثون الآن عن محامين عبر محركات الذكاء الاصطناعي قبل الاتصال بأحد" },
+        { value: "3,400 دولار", label: "متوسط القيمة الدائمة للعميل القادم من الذكاء الاصطناعي (قانون الأسرة في كيبيك)" },
+        { value: "60 يومًا", label: "متوسط الفترة للحصول على أول ارتفاع في الاستشهاد على ChatGPT للاستعلامات القانونية" },
+        { value: "8×", label: "استشهادات LLM أكثر على المكاتب ذات التأليف المعتمد ومخطط نتائج القضايا" },
+      ],
+      topQueries: [
+        "محامي قانون الأسرة يقبل عملاء جدد مونتريال",
+        "محامي قيادة تحت تأثير الكحول استشارة مجانية مدينة كيبيك",
+        "محامي هجرة يتحدث الإسبانية لافال",
+      ],
+      painPoints: [
+        {
+          title: "يستشهد ChatGPT بمكاتب الفئة الأولى افتراضيًا",
+          description:
+            "عند سؤاله عن محامٍ في تخصصك، يستشهد ChatGPT افتراضيًا بالمكاتب الكبيرة ذات الإدخالات القوية في Wikidata والوجود في نقابة المحامين والاستشهادات الكثيفة. المكاتب الأصغر غير مرئية دون عمل صريح على سلطة الكيان.",
+        },
+        {
+          title: "غياب توضيح التخصص",
+          description:
+            "تحتاج محركات الذكاء الاصطناعي إلى معرفة ما إذا كنت تمارس قانون الأسرة أو الجنائي أو الهجرة أو الشركات. بدون مخطط LegalService مع practiceArea المعلن، فأنت تنافس كل محامٍ في مدينتك بدلًا من السيطرة على تخصصك.",
+        },
+        {
+          title: "استعلامات «الاستشارة المجانية» تضيع",
+          description:
+            "«الاستشارة المجانية» من أعلى الاستعلامات في النية. تبحث محركات الذكاء الاصطناعي عن مخطط FAQ صريح وسمات GBP وصفحات هبوط مخصصة. معظم المكاتب لا تملك أيًا منها.",
+        },
+        {
+          title: "تموضع الممارسة ثنائية اللغة",
+          description:
+            "في كيبيك، «محامٍ ناطق بالإنجليزية» و \"avocat anglophone\" بحثان مختلفان يستمدان من مصادر مختلفة. بدون مخطط ثنائي اللغة و Wikidata بلغتين، تفقد نصف سوقك المحتمل.",
+        },
+      ],
+      ctaPrimary: "تشغيل تدقيق مكتبي",
+      ctaSecondary: "اطّلع على الأسعار",
+      seoTitle: "تحسين البحث بالذكاء الاصطناعي للمحامين · استشهاد ChatGPT و Perplexity و Claude · AiLys Agency",
+      seoDescription:
+        "اجعل مكتبك للمحاماة مستشهدًا به داخل إجابات ChatGPT و Perplexity و Claude و Gemini و Google AIO و Bing Copilot. تحسين AEO و GEO و E-E-A-T متخصص للمكاتب القانونية في كيبيك. ابتداءً من 600 دولار/شهر. ثنائي اللغة EN و FR-CA.",
+    },
+    ru: {
+      eyebrow: "SEO для AI юридических фирм",
+      headline1: "Получайте упоминания ChatGPT, когда потенциальные клиенты спрашивают",
+      headline2: "«лучший адвокат для [моего дела]».",
+      subheadline:
+        "Юридические запросы получают самую высокую проверку E-E-A-T в ИИ-движках. Полномочия коллегии адвокатов, результаты дел и авторитетный контент решают, кого назовут. AiLys позиционирует вашу фирму правильно.",
+      stats: [
+        { value: "73%", label: "клиентов теперь исследуют адвокатов через ИИ-движки перед обращением к одному" },
+        { value: "3 400 $", label: "средняя пожизненная ценность клиента из ИИ (семейное право в Квебеке)" },
+        { value: "60 дней", label: "в среднем до первого подъёма упоминаний в ChatGPT для юридических запросов" },
+        { value: "8×", label: "больше упоминаний LLM на фирмах с подтверждённым авторством и схемой результатов дел" },
+      ],
+      topQueries: [
+        "адвокат по семейному праву, принимающий новых клиентов Монреаль",
+        "адвокат по DUI бесплатная консультация Квебек",
+        "адвокат по иммиграции, говорящий на испанском, Лаваль",
+      ],
+      painPoints: [
+        {
+          title: "ChatGPT по умолчанию упоминает фирмы первого уровня",
+          description:
+            "Когда спрашивают об адвокате в вашей специальности, ChatGPT по умолчанию упоминает крупные фирмы с сильными записями в Wikidata, присутствием в коллегии адвокатов и плотными цитированиями. Меньшие фирмы невидимы без явной работы над авторитетом сущности.",
+        },
+        {
+          title: "Отсутствует уточнение специализации",
+          description:
+            "ИИ-движкам нужно знать, занимаетесь ли вы семейным, уголовным, иммиграционным или корпоративным правом. Без схемы LegalService с указанной practiceArea вы конкурируете со всеми адвокатами вашего города вместо доминирования в специальности.",
+        },
+        {
+          title: "Запросы «бесплатная консультация» теряются",
+          description:
+            "«Бесплатная консультация» — один из запросов с самой высокой намеренностью. ИИ-движки ищут явную схему FAQ, атрибуты GBP и выделенные посадочные страницы. У большинства фирм нет ни одного из них.",
+        },
+        {
+          title: "Позиционирование двуязычной практики",
+          description:
+            "В Квебеке «англоязычный адвокат» и \"avocat anglophone\" — это разные поиски, которые извлекаются из разных источников. Без двуязычной схемы и двуязычного Wikidata вы теряете половину потенциального рынка.",
+        },
+      ],
+      ctaPrimary: "Запустить аудит моей фирмы",
+      ctaSecondary: "Посмотреть тарифы",
+      seoTitle: "SEO для AI адвокатов · Упоминания ChatGPT, Perplexity, Claude · AiLys Agency",
+      seoDescription:
+        "Получайте упоминания вашей юридической фирмы в ответах ChatGPT, Perplexity, Claude, Gemini, Google AIO и Bing Copilot. Специализированная оптимизация AEO, GEO и E-E-A-T для юридических фирм в Квебеке. От 600 $/мес. На двух языках EN и FR-CA.",
+    },
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
