@@ -33,10 +33,23 @@ interface KVNamespace {
   ): Promise<void>;
 }
 
+import { captureServerError } from "../lib/serverError";
+
 interface Env {
   GEMINI_API_KEY?: string;
   CHAT_RATE_LIMIT?: KVNamespace;
   ALLOWED_ORIGINS?: string;
+  /** Operator notification for serverError ERROR/FATAL alerts. */
+  OPERATOR_NOTIFY_EMAIL?: string;
+  /** Supabase persistence target for serverError audit_log rows. */
+  SUPABASE_URL?: string;
+  SUPABASE_SERVICE_ROLE_KEY?: string;
+  /** Resend API key (used by serverError lib for alert dispatch).
+   *  chat-advisor itself does not send transactional email but the
+   *  shared lib needs this binding to fire alerts. */
+  RESEND_API_KEY?: string;
+  /** Build commit (Cloudflare Pages auto-set). Included in alert emails. */
+  CF_PAGES_COMMIT_SHA?: string;
 }
 
 interface ChatHistoryItem {
@@ -445,13 +458,34 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         ],
       }),
     });
-  } catch {
+  } catch (geminiNetworkErr) {
+    // Gemini upstream unreachable. Capture as ERROR so operator pages
+    // immediately if Gemini is down (impacts every chat user).
+    await captureServerError(env, {
+      endpoint: "chat-advisor",
+      severity: "error",
+      err: geminiNetworkErr,
+      context: { stage: "gemini_fetch", model: "gemini-2.5-pro" },
+    });
     return sseError(
       "Our AI advisor hit a connection issue. Try the free audit at /audit.",
     );
   }
 
   if (!upstream.ok) {
+    // Gemini returned non-2xx. Capture with the status code so trends
+    // show 429 (rate limit on our side hitting Gemini quota) vs 500
+    // (Gemini outage) vs 401 (key revoked).
+    await captureServerError(env, {
+      endpoint: "chat-advisor",
+      severity: upstream.status >= 500 ? "error" : "warn",
+      err: new Error(`gemini upstream returned ${upstream.status}`),
+      context: {
+        stage: "gemini_response_non_2xx",
+        gemini_status: upstream.status,
+        model: "gemini-2.5-pro",
+      },
+    });
     return sseError(
       "Our AI advisor is busy right now. Try again in a moment, or run the free AI Visibility Audit at /audit.",
     );
@@ -462,7 +496,15 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   let parsed: GeminiStreamEvent;
   try {
     parsed = (await upstream.json()) as GeminiStreamEvent;
-  } catch {
+  } catch (parseErr) {
+    // Gemini returned malformed JSON. This indicates either a Gemini
+    // API breaking change or a network truncation. ERROR severity.
+    await captureServerError(env, {
+      endpoint: "chat-advisor",
+      severity: "error",
+      err: parseErr,
+      context: { stage: "gemini_response_parse" },
+    });
     return sseError(
       "Our AI advisor returned an unexpected format. Try again, or run the free AI Visibility Audit at /audit.",
     );
