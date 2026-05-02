@@ -46,6 +46,17 @@ jobs:
       - name: Gate 1, TypeScript typecheck
         run: npx tsc --noEmit
 
+      - name: Gate 1b, ESLint (zero-errors enforced; warnings tolerated)
+        # Current baseline: 0 errors, 21 warnings (react-refresh/only-export-
+        # components on shadcn/ui boilerplate + react-hooks/exhaustive-deps
+        # on 7 hooks pending browser-preview-validated cleanup, see memory
+        # `feedback_eslint_hooks_audit.md`). The 31 errors fixed by the
+        # 2026-05-02 parallel session would have blocked CI here. Warnings
+        # surface in the run log but do not block deploy. To tighten:
+        # decrement --max-warnings as the queue drains; flip to 0 once the
+        # hook audit lands with proper browser validation.
+        run: npm run lint -- --max-warnings 21
+
       - name: Gate 2, i18n deep audit (UI keys, warn-only)
         # Pre-existing translation queue debt (28 missing keys across 15
         # non-EN locales, tracked in docs/i18n-translation-queue.md)
