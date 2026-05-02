@@ -63,6 +63,8 @@ const MAIN_ROUTES = [
   { path: "/industries/clinics", priority: 0.8, changefreq: "weekly" },
   { path: "/industries/real-estate", priority: 0.8, changefreq: "weekly" },
   { path: "/industries/hotels", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/nail-salons", priority: 0.8, changefreq: "weekly" },
+  { path: "/industries/sushi-counters", priority: 0.8, changefreq: "weekly" },
   // Comparisons (bottom-funnel competitor traffic)
   { path: "/vs/sterling-sky", priority: 0.85, changefreq: "monthly" },
   { path: "/vs/brightlocal", priority: 0.85, changefreq: "monthly" },
