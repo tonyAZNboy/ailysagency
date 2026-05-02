@@ -2,6 +2,31 @@
 
 ---
 
+## SESSION OPEN 2026-05-02 (autopilot post-PR150) — local gate runner (sub-phase 16)
+
+### Sub-phase 16: `npm run gates` runs all CI gates locally
+
+`scripts/run-gates.mjs` runs every CI gate from deploy.yml (minus
+Gate 19 post-deploy production smoke) sequentially with pass/fail
+reporting + total time. Wired as `npm run gates`.
+
+Modes:
+- `npm run gates`           full suite (~3-4 min, includes build + bundle)
+- `npm run gates -- --fast` skip build + bundle (~2 min, fastest feedback)
+
+Verified locally: 34/34 PASS in --fast mode (131s on this machine).
+
+Why: PR #146 shipped a README with em-dashes that broke Gate 4 on
+main. The author (Claude autopilot session) ran tsc + a few smokes
+locally before pushing but skipped the em-dash sweep, which would
+have caught the regression in 0.2s. A single command that runs the
+full suite removes that human-error class.
+
+Run before any `git push` that touches functions/, src/, scripts/,
+or .github/workflows/.
+
+---
+
 ## SESSION OPEN 2026-05-02 (autopilot post-PR149) — ESLint CI gate (sub-phase 15)
 
 ### Sub-phase 15: Gate 1b ESLint (zero errors enforced)
